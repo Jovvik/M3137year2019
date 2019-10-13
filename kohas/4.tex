@@ -1,0 +1,332 @@
+\documentclass[12pt]{article}
+\usepackage{xltxtra}
+\usepackage{libertine}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+% \usepackage{bbold}
+\usepackage{enumitem}
+\usepackage{fullpage}
+
+\setmainfont{Linux Libertine}
+
+\title{Конспект по математическому анализу}
+\date{October 7, 2019}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Примечание}
+\newtheorem*{consequence}{Следствие}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+
+\begin{document}
+
+\maketitle
+
+\section{Скалярное произведение}
+
+\begin{definition}
+    Для $X$ --- линейного пространства \textit{(над $\mathbb{R}, \mathbb{C}$)} $\varphi:X\times X \to \mathbb{R} (\mathbb{C})$ называется скалярным произведением. Обозначается $\varphi(x,y)=\langle x,y\rangle$
+\end{definition}
+
+\begin{enumerate}
+    \item $\langle \alpha_1 x_1+\alpha_2 x_2 \rangle = \alpha_1\langle x_1,y\rangle+\alpha_2\langle x_2,y\rangle$\
+    \item $\langle y,x\rangle = \overline{\langle x,y\rangle}$
+    \item $\langle x,x\rangle \geq 0 \quad \langle x,x\rangle \Leftrightarrow x=0$
+\end{enumerate}
+
+\begin{remark}
+    $\overline{x}$ --- комплексное сопряжение, для вещественных чисел $\overline{x} = x$.    
+\end{remark}
+
+\begin{enumerate}
+    \item Над $\mathbb{C}$: $\langle x,\beta_1 y_1 + \beta_2 y_2 \rangle = \overline{\langle x,\beta_1 y_1 + \beta_2 y_2 \rangle} = \overline{\beta_1\langle y_1, x\rangle + \beta_2 \langle y_2,x \rangle} = \overline{\beta_1} \langle x, y_1\rangle + \overline{\beta_2} \langle x,y_2\rangle$
+    \item Над $\mathbb{R}$: $\langle y,x\rangle = \langle x,y\rangle$
+\end{enumerate}
+
+\begin{lemma}
+    Неравенство КБШ \textit{(Коши-...)}
+    
+    Для $X$ --- линейного пространства \textit{(над $\mathbb{R}, \mathbb{C}$)}
+
+    $\forall x,y\in X\quad |\langle x,y\rangle|^2\leq \langle x,x\rangle \langle y,y\rangle$
+\end{lemma}
+
+\begin{proof}
+    Возьмём $\lambda\in\mathbb{R} (\mathbb{C})$
+
+    При $y=0$ тривиально, пусть $y\not = 0$
+
+    $$0\leq \langle x + \lambda y,x + \lambda y\rangle = \langle x,x\rangle + \lambda\langle y,x\rangle + \overline\lambda\langle x,y\rangle+\lambda\overline\lambda\langle y,y\rangle$$
+
+    $$\lambda := -\frac{\langle x,y\rangle}{\langle y,y\rangle}, \overline\lambda = -\frac{\langle y,x\rangle}{\langle y,y\rangle}$$
+
+    $$0\leq\langle x,x\rangle - \frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle - \frac{\langle y,x\rangle}{\langle y,y\rangle}\langle x,y\rangle+\frac{\langle x,y\rangle\langle y,x\rangle}{\langle y,y\rangle}$$
+
+    $$0\leq \langle x,x\rangle - \frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle$$
+\end{proof}
+
+Пример в $\mathbb{R}^m$: $\langle x,y\rangle = x_1y_1+x_2y_2+\ldots+x_my_m$ --- Евклидово скалярное произведение
+
+Пример в $\mathbb{C}^m$: $\langle x,y\rangle = x_1\overline y_1+x_2\overline y_2+\ldots+x_m\overline y_m$
+
+\begin{lemma}
+    Для лин. пространства $X$, скалярного произведения $\langle \cdot ,\cdot \rangle$
+    
+    $\rho:X\to\mathbb{R} \quad \rho(x)=\sqrt{\langle x,x\rangle}$ --- норма
+\end{lemma}
+
+\begin{proof}
+    Докажем, что $\rho$ удовлетворяет всем леммам нормы.
+    \begin{enumerate}
+        \item $\rho(x)\geq 0\quad \rho(x)=0\Leftrightarrow \langle x,x\rangle=0\Leftrightarrow x=0$
+        \item $\rho(\alpha x) = \sqrt{\alpha\overline\alpha\langle x,x\rangle}=|\alpha|\sqrt{\langle x,x\rangle}=|\alpha|\rho(x)$
+        \item $\rho(x+y)\leq \rho(x)+\rho(y)$
+        $$\langle x+y,x+y\rangle \leq (\sqrt{\langle x,x\rangle} + \langle y,y\rangle)^2$$
+
+        $$\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle\leq \langle x,x\rangle + \langle y,y\rangle + 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
+
+        $$2\Re\langle x,y\rangle\leq 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
+
+        $$\Re\langle x,y\rangle \leq |\langle x,y\rangle|\leq\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
+    \end{enumerate}
+\end{proof}
+
+$||x|| = \sqrt{\sum\limits_{i=1}^m x_i^2}$ - норма в $\mathbb{R}^m$
+
+$\rho(x,y)=||x-y||$ - метрика в $\mathbb{R}^m$
+
+Не все нормы порождены скалярным произведением, например: $||x||=\max\limits_i |x_i|$
+
+\begin{lemma}
+    О непрерывности скалярного произведения.
+
+    $X$ - лин. пространство со скалярным произведением, $||\cdot||$ --- норма, порожденная скалярным произведением.
+
+    Тогда $\forall (x_n) x_n\to x, \forall (y_n) y_n\to y, \quad \langle x_n,y_m\rangle\to\langle x,y\rangle$
+\end{lemma}
+
+\begin{proof}
+    $$|\langle x_n,y_m\rangle - \langle x,y\rangle|=|\langle x_n,y_n\rangle - \langle x_n,y\rangle + \langle x_n,y\rangle - \langle x,y\rangle|\leq|\langle x_n,y_n\rangle-\langle x_n,y\rangle| + |\langle x_n,y\rangle-\langle x,y\rangle\leq$$
+    $$\leq |\langle x_n,y_n-y\rangle| + |\langle x_n-x,y\rangle|\leq ||x_n||\cdot||y_n-y||+||x_n-x||\cdot||y|| \to 0$$
+
+    По теореме о двух городовых чтд.
+\end{proof}
+
+\begin{lemma}
+    О покоординатной сходимости в $\mathbb{R}^m$
+
+    $(x^{(n)})$ --- последовательность векторов в $\mathbb{R}^m$
+    
+    в $\mathbb{R}^m$ задано евклидово скалярное пространство и норма.
+
+    Тогда $(x^{(n)})\to x \Leftrightarrow \forall i\in\{1,2,\ldots m\} \ \ x_i^{(n)}\underset{n\to+\infty}\to x_i$
+\end{lemma}
+
+\begin{remark}
+    В $\mathbb{R}^{\infty}$ не выполняется
+\end{remark}
+
+\begin{proof}
+    Модуль координаты $\leq$ нормы всего вектора:
+    $$|x_i^{(n)}-x_i|\leq ||x^{(n)}-x||\leq \sqrt{m}\max\limits_{1\leq i\leq m} |x_i^{n}-x_i|$$
+    Первое неравенство доказывает $\Rightarrow$, второе неравенство доказывает $\Leftarrow$
+\end{proof}
+
+\begin{definition}
+    Параллелепипед в $\mathbb{R}^m$
+
+    $a,b\in\mathbb{R}^m \quad [a,b]=\{x \in\mathbb{R}^m : \forall i\in\{1\ldots m\} \ \ a_i\leq x_i\leq b_i \} = [a_1b_1]\times[a_2b_2]\times\ldots\times[a_mb_m]$
+\end{definition}
+
+\begin{definition}
+    Куб в $\mathbb{R}^m$
+
+    $[(a_1-R,a_2-R,\ldots a_m-R), (a_1+R,a_2+R,\ldots a_m+R)]$
+\end{definition}
+
+$$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
+
+\begin{proof}
+    Докажем 1: $\overline{B(a,R)}\subset\text{Куб}(a,R)$
+
+    $$x\in \overline{B(a,R)}$$
+
+    $$\forall i \quad |x_i-a_i|\leq ||x-a||\leq R \Rightarrow x\in\text{Куб}(a,R)$$
+
+    Докажем 2: $\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$
+
+    $$x\in\text{Куб}(a,R)\quad ||x-a||\leq\sqrt m \max\limits_{1\leq i\leq m} |x_i-a_i|\leq \sqrt mR$$
+\end{proof}
+
+\section{Точки и множества в метрическом пространстве}
+
+В этом параграфе $(X,\rho)$ - метрическое пространство, $a\in X, D\subset X$.
+
+\begin{definition}
+    $a$ --- внутренняя точка множества $D$, если $\exists U(a) : U(a)\subset D$
+
+    $\exists r>0 : B(a,r)\subset D$
+\end{definition}
+
+\begin{definition}
+    $D$ - открытое множество $\forall a\in D : a$ --- внутренняя точка $D$. 
+\end{definition}
+
+Пример:
+\begin{enumerate}
+    \itemsep0em
+    \item $X$ - откр.
+    \item $\emptyset$ - откр.
+    \item $B(a,r)$ - откр.
+\end{enumerate}
+
+\begin{proof}
+    Докажем 3.
+
+    $x\in B(a,r)$, доказать: $x$ - внутр. точка
+
+    Возьмём $R<r-\rho(a,x)$. Докажем, что $B(x,R)\subset B(a,r)$
+
+    $y\in B(x,R)$. Докажем, что $y\in B(a,r)$
+
+    $\rho(y,a)\leq\rho(y,x)+\rho(x,a)<R+\rho(x,a)<r$
+\end{proof}
+
+\begin{theorem}
+    О свойствах открытых множеств.
+
+    \begin{enumerate}
+        \item $(G_\alpha)_{\alpha\in A}$ - семейство открытых множеств в $(X,\rho)$
+        
+        Тогда $\bigcup_{\alpha\in A} G_\alpha$ - открыто в $X$.
+
+        \item $G_1,G_2,\ldots G_n$ - открыто в $X$.
+        
+        Тогда $\bigcap_{i=1}^{n} G_i$ - открыто в $X$.
+    \end{enumerate}
+
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Пусть $x\in \bigcup_{\alpha\in A} G_\alpha$
+        
+        Тогда $\exists \alpha_0 \quad x\in G_{\alpha_0}$ --- откр. $\exists r_0 : B(x,r_0)\subset G_{\alpha_0} \Rightarrow B(x,r_0)\subset\bigcup_{\alpha\in A} G_\alpha$
+
+        \item $x\in \prod_{i=1}^n G_i \Rightarrow \forall i\in\{1\ldots n\} \quad x\in G_i \Rightarrow \exists r_i>0 : B(x,r_i)\subset G_i$
+        
+        $r:=min(r_1\ldots r_n)$
+
+        $\forall i \quad B(x,r)\subset G_i$, т.е. $B(x,r)\subset\bigcap G_i$
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    Для $n=\infty$ не выполняется: $(-\frac{1}{n},\frac{1}{n})$ - откр. в $\mathbb{R}$
+
+    $\bigcup_{n=1}^{+\infty}(-\frac{1}{n},\frac{1}{n})=\{0\}$ не откр. в $\mathbb{R}$
+\end{remark}
+
+\begin{definition}
+    Внутренность $D$ $Int(D)=\{x\in D : x \text{ --- внутр. точка }D\}$
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $Int D$ - откр. множество
+        \item $Int D=\bigcap\limits_{\substack{G: \\ D>G \\ G \text{--- откр.}}} G$
+        \item $D$ --- откр. в $X \Leftrightarrow D=Int D$
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}
+    $a$ --- предельная точка множества $D$
+    
+    $\forall \dot U(a) \quad \dot U(a)\cap D\not = \text{\O}$
+\end{definition}
+
+Пример: $D=(0,1), X=\mathbb{R}$
+
+\begin{tabular}{c|c}
+    $a$&Пред. точка? \\
+    \hline
+    -1& Нет, $B(-1, \frac{1}{2})\cap D=\text{\O}$\\
+    \hline
+    $\frac{1}{2}$ & Да, $B(\frac{1}{2}, \frac{1}{2})\subset D$\\
+    \hline
+    0 & Да, $B(0,\frac{1}{2})\cap D = (0, \frac{1}{2})$
+\end{tabular}
+
+\begin{remark}
+    $a$ - пред. точка $D$
+    \begin{enumerate}
+        \item $\forall U(a) \quad U(a)\cap D$ - бесконечное
+        \item $\exists (x_n)$ --- последовательность точек $D$, $x_n\underset{n\to +\infty}\to a$
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}
+    $a$ - изолированная точка $D$, если $a\in D$ и $a$ --- не предельная.
+
+    $\exists U(a) \quad U(a)\cap D = \{a\}$
+\end{definition}
+
+Пример --- $\mathbb{N}$
+
+\begin{definition}
+    $D$ - замкнутое множество, если оно содержит все свои предельные точки.
+\end{definition}
+
+Пример: $X, \text{\O}, [0,1], \overline{B(a,R)}, \{a\}$ --- замкнутые
+
+Пример: $(0, 1)$ --- в $\mathbb{R}$ незамкнутое
+
+\begin{theorem}
+    $D$ --- замкнуто $\Leftrightarrow D^c=X\setminus D$ \textit{(дополнение)} --- открыто.
+\end{theorem}
+
+\begin{proof}
+    Докажем $\Rightarrow$: $D$ --- замкн. $\Rightarrow^? X\setminus D$
+
+    $x\in X\setminus D \Rightarrow x$ --- не пред. точка $D$, т.к. $D$ содержит все свои пред. точки и $x\not\in D$ 
+    
+    $\Rightarrow\exists r : B(x,r)\subset X\setminus D$
+
+    Докажем $\Leftarrow$: $X\setminus D$ --- откр., $D$ --- замкн.?, т.е. $\forall x\in\{\text{пр.точки D}\} \ \ ?x\in D$
+
+    Если $x\in D$ --- тривиально.
+
+    $x\not\in D\quad x\in X\setminus D$
+
+    $\exists U(x)\subset X\setminus D \Rightarrow$ $x$ - не пред. точка
+\end{proof}
+
+\begin{remark}
+    Если $D$ --- не замкнуто, то это НЕ значит, что $D$ --- открыто, например $(0,1]$ --- не замкнуто и не открыто.
+\end{remark}
+
+\begin{theorem}
+    О свойствах замкнутых множеств.
+
+    \begin{enumerate}
+        \item $(F_\alpha)_{\alpha\in A}$ --- замкн. в $X$
+        
+        Тогда $\bigcap F_\alpha$ --- замкн.
+
+        \item $F_1\ldots F_n$ --- замкн.
+        
+        Тогда $\bigcap F_i$ --- замкн.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    $F_\alpha$ --- замкн. $\Leftrightarrow F_\alpha^c$ --- откр. $\Rightarrow \bigcup F_\alpha^c$ --- откр. $\Rightarrow (\bigcup F_\alpha^c)^c$ --- замкн.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,82 @@
+\input{../preamble.sty}
+
+\title{Конспект по дискретной математике}
+
+\date{October 15, 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Оценка числа элементов в схеме}
+
+\begin{theorem}
+$B_1$ и $B_2 \ \ \exists c \ \ \forall f \ \ size_{B_1}(f)\leq c\cdot size_{B_2}$
+\end{theorem} Доказывалась ранее.
+
+\begin{theorem}
+О нижней оценке. Почти все функции требуют $\Omega(\frac{2^n}{n})$ элементов в своей записи. Альтернативная формулировка: $$f(n)=\frac{2^n}{n} \quad g(n): \frac{g}{f}\to 0 \quad F_g=\{\text{булевы функции, } size\leq g(n)\}$$ Тогда $$\frac{|F_g|}{2^{2^n}}\to 0$$
+\end{theorem}
+
+\begin{theorem}
+О верхней оценке. $$\forall f \text{ --- бул. ф. } \exists \text{схема из ф.э., содержащая } O\left(\frac{2^n}{n}\right) \text{ элементов}$$
+\end{theorem}
+
+\section{Линейная программа}
+
+Пример для $x_1\xor x_2$:
+
+\noindent
+$y_1=\neg x_1\\$
+$y_2=\neg x_2\\$
+$y_3=x_1\wedge y_2\\$
+$y_4=x_2\wedge y_1\\$
+$y_5=y_3\vee y_4\\$
+
+Линейная программа --- нумерованное множество строк вида $$(a, [i_1\ldots i_k])\text{, где } a\in B \textit{(базис)}, i_j \text{ --- индексы переменных}, a:\mathbb{B}^k\to\mathbb{B}$$
+
+\begin{theorem}
+Для $f \exists $ линейная программа длины $r \Leftrightarrow \exists$ схема из $r$ функциональных элементов.
+\end{theorem}
+
+Оценка: сколько линейных программ над $\{\downarrow\}$ длины $r$? \\
+Первая строка: $n^2$ вариантов \textit{(выбор 2 объектов из $n$)} \\
+Вторая строка: $(n+1)^2$ варинатов \textit{(выбор 2 объектов из $n$ и $y_1$)} \\
+$\vdots$ \\
+$(n + r - 1)^{2}$
+
+$$K_{n,r}=\prod\limits_{i=0}^{r-1}(n+i)^2\leq(n+r)^{2r}$$
+$$\log_2 K_{n,r}\leq \log_2 (n+r)^{2r}=2r\log_2 (n+r)$$
+
+\begin{lemma}
+$$\exists \text{ функция: } size_B(f)\geq\frac{2^n}{2n}$$
+\end{lemma}
+\begin{proof}
+Предположим противное:
+$$r<\frac{2^n}{2n}$$
+$$\log_2 K_{n,r}\leq 2r\log_2(n+r)<\frac{2\cdot 2^n}{2n}\log_2(n+\frac{2^n}{2n})\leq \frac{2^n}{n}\log_2 2^n=2^n$$
+
+$$\Rightarrow K_{n,r}<2^{2^n} !!!$$
+
+Обощим для произвольного $c$:
+
+$$r<\frac{2^n}{2cn}$$
+$$\log_2 K_{n,r}\leq 2r\log_2(n+r)<\frac{2\cdot 2^n}{2cn}\log_2(n+\frac{2^n}{2cn})\leq \frac{2^n}{cn}\log_2 2^n=\frac{2^n}{c}$$
+
+$$\Rightarrow K_{n,r}<2^{\frac{2^n}{c}} !!!$$
+\end{proof}
+
+Вернемся к доказательству теоремы 2.
+
+\begin{proof}
+% $$g: \frac{g}{\frac{2^n}{n}}\to 0 \Leftrightarrow \forall \varepsilon>0 \ \ \exists n_0: n>n_0 \ \ \frac{g(n)}{\frac{2^n}{n}}<\varepsilon$$
+
+$$\frac{|F_g|}{2^{2^n}}\to 0$$
+$$\frac{2^{\frac{2^n}{c}}}{2^{2^n}}=2^{2^n\cdot (\frac{1}{n}-1)}\to 0$$
+\end{proof}
+
+\begin{theorem}
+$\forall f \ \ \exists \text{схема из функ.эл.} O(\frac{2^n}{n})$
+\end{theorem}
+
+\end{document}

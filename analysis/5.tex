@@ -1,0 +1,308 @@
+\input{../preamble.sty}
+
+\title{Матан}
+
+\date{October 14, 2019}
+
+\begin{document}
+
+\maketitle
+ 
+\noindent
+$\overline D=D\cup $ (множество предельных точек $D$) --- замыкание.
+
+\begin{remark}
+$a\in\overline D$, тогда $\exists (x_n)$ из $D, x_n\to a$
+\end{remark}
+
+\begin{remark}
+$\overline D = \bigcap\limits_{\substack{D\subset F \\ F \text{--- замкн.}}} F$ --- мин. (по вкл.) замкн. множество, содержащее $D$.
+\end{remark}
+
+\begin{remark}
+$D$ --- замкнуто $\Leftrightarrow D=\overline D$
+\end{remark}
+
+\begin{definition}
+$a$ --- граничная точка $D$
+
+$\forall U(a) \quad U(a)$ соедржит точки как из $D$, так и из $D^c$
+\end{definition}
+
+\begin{definition}
+Граница множества --- множество его граничных точек. Обозначается $\partial D$
+\end{definition}
+
+Упражнение:
+\begin{enumerate}
+    \item $\partial D=\overline D \setminus IntD$
+    \item $\partial D$ --- замкнута
+    \item $\forall$ множество предельных точек --- замнуто.
+\end{enumerate}
+
+\begin{definition}
+$T$ --- множество, $U$ --- набор неких подмножеств $T$.
+
+При этом: \begin{enumerate}
+    \item \O$\in U, T\in U$
+    \item $G_1,G_2\ldots G_n\in U \Rightarrow \bigcap\limits_{i=1}^n G_i\in U$
+    \item $(G_\alpha)_{\alpha\in A}, \forall \alpha G_\alpha\in U \quad \bigcup\limits_{\alpha\in A}\in U$
+\end{enumerate}
+Тогда $T$ называется топологическим пространством, $U$ --- ``набор'' открытых множеств в $T$ \textit{(мн-ва $G^c$, где $G\in U$ --- замкн.)}
+\end{definition}
+
+$a\in T$, $U(a)$ --- любое открытое множество, содержащее $a$ и $\not =$\O.
+
+\begin{axiom}
+    Об отделимости: $\forall x,y\in T \exists U(x), U(y) : U(x)\cap U(y)=$\O  
+\end{axiom}
+
+\begin{definition}
+В $\mathbb{R}$:
+\begin{enumerate}
+    \item $x_n\to +\infty \quad \forall E>0 \ \ \exists N \ \ \forall n>N \ \ x_n>E$
+    \item $x_n\to -\infty \quad \forall E \ \ \exists N \ \ \forall n>N \ \ x_n<E$
+    \item $x_n\to \infty \Leftrightarrow |x_n|\to +\infty$
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Требование $>0$ не обязательно.
+\end{remark}
+
+\begin{remark}
+\begin{enumerate}
+    \item $x_n\to \infty \Rightarrow x_n$ не огр. \textit{(по модулю)}
+
+    $x_n\to +\infty \Rightarrow x_n$ не огр. сверху
+
+    $x_n\to -\infty \Rightarrow x_n$ не огр. снизу
+    \item $x_n\to +\infty$. Тогда $x_n\not\to -\infty$
+\end{enumerate}
+\end{remark}
+
+Откр. множества:
+\begin{enumerate}
+    \item Ограниченные открытые множества --- те, что открыт. в $\mathbb{R}$
+    \item $U_E (+\infty)=(E,+\infty] \subset\mathbb{\overline R}$
+    
+    $U_E(-\infty) = [-\infty,E) \subset\mathbb{\overline R}$
+    \item Произвольное открытое множество --- либо огр. откр., либо огр.$\cup U_E(+\infty)$, огр.$\cup U_E(-\infty)$, огр.$\cup U_E(+\infty)\cup U_E(-\infty)$
+\end{enumerate}
+
+\begin{proof}
+Рассмотрим $y=\tan x$
+
+Положим $\tan (\frac{\pi}{2})=+\infty$, $\tan (\frac{\pi}{2})=-\infty$
+
+$\tan$ --- монотонная биекция $[-\frac{\pi}{2}, \frac{\pi}{2}]$ на $\mathbb{R}$
+
+Она обеспечивает биекцию между совокупностью открытых множеств $[-\frac{\pi}{2}, \frac{\pi}{2}]$ и $\ldots$ в $\mathbb{\overline R}$
+\end{proof}
+
+В $\mathbb{\overline R}$ рассмотрим функцию $\rho(x,y)=|\arctan x - \arctan y|$ --- метрика.
+
+Покажем, что $x_n\to +\infty$ в смысле исх. опр. $\Leftrightarrow x_n\to+\infty$ в пространстве $(\mathbb{\overline R}, \rho)$
+
+\begin{proof}
+$x_n\to+\infty \Leftrightarrow \forall U(+\infty) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(+\infty)$
+
+$x_n\to+\infty$ в пространстве $(\mathbb{\overline R}, \rho) \Leftrightarrow $ высказыванию выше.
+\end{proof}
+
+\begin{remark}
+$a\in\mathbb{R}$, $(x_n)$ --- вещ. посл. Тогда $x_n\to a$ в смысле обычного опр. $\Leftrightarrow x_n\to a$ в пространстве $(\mathbb{\overline R}, \rho)$
+\end{remark}
+
+$\begin{cases}
+    x_n\to a, a\in\mathbb{\overline R} \\
+    x_n\to b, b\in\mathbb{\overline R}
+\end{cases} \Rightarrow a=b$
+
+в $\mathbb{R}^m \quad x_n\to\infty \quad \forall E \ \ \exists N \ \ \forall n>N \ \
+||x_n||>E$
+
+$U_E(+\infty)=\{x\in\mathbb{R}^m : ||x||>E\}$
+
+\section{Ревизия}
+
+$(x_n), (y_n) \quad x_n\leq y_n \quad x_n\to x, y_n\to y, \ x,y \in\mathbb{\overline R}$. Тогда $x\leq y$.
+
+\begin{itemize}
+\item $y=+\infty$ или $x=-\infty$ --- тривиально.
+\item $x=+\infty, y=a=\in\mathbb{R}$ --- невозможно
+\item остальное --- как в основной теореме.
+\end{itemize}
+
+\begin{definition}
+Последовательность $(y_n)$ называется \textbf{бесконечно большой}, если $y_n\to +\infty$.
+\end{definition}
+
+\begin{remark}
+$x_n$ --- бесконечно малая ($\forall n \ \ x_n\not = 0$) $\Leftrightarrow \frac{1}{x_n}$ --- бесконечно большая.
+\end{remark}
+
+\begin{proof}
+$|x_n|<\varepsilon \Leftrightarrow |\frac{1}{x_n}|>\frac{1}{\varepsilon}$
+\end{proof}
+
+\begin{theorem}
+Об арифметических свойствах пределов в $\mathbb{\overline R}$.
+
+$(x_n),(y_n)$ --- вещ., $x_n\to a, y_n\to b, \quad a,b\in\mathbb{\overline R}$
+Тогда:
+\begin{enumerate}
+    \item $x_n\pm y_n\to a\pm b$
+    \item $x_n y_n\to a b$
+    \textit{Если $\forall n \ \ y_n\not=0; b\not=0$}
+    \item $\frac{x_n}{y_n}\to\frac{a}{b}$
+\end{enumerate}
+При условии, что выражения в правых частях имеют смысл.
+\end{theorem}
+
+$$\sphericalangle x_n\to +\infty, y_n\to a\in \mathbb{R}$$
+
+$$\forall E \ \ \exists N \ \ \forall n > N \ \ x_n+y_n>E$$
+
+$$\text{Для } E-(a-1) \ \ \exists N_1 \ \ \forall n>N_1 \ \ x_n > E-(a-1)$$
+
+$$\text{Для } E=1 \ \ \exists N_2 \ \ \forall n>N_2 \ \ x_n > a-1$$
+
+Также для $x_n\to+\infty, y_n$ --- огр.снизу $\Rightarrow x_n+y_n\to+\infty$.
+
+$\begin{cases}
+    x_n\to+\infty \\
+    y_n>\varepsilon, (\varepsilon>0) \text{ при } n>N_0
+\end{cases} \Rightarrow x_ny_n\to +\infty$
+
+$y_n$ отделено от нуля при больших $n$.
+
+\begin{remark}
+Верны аналогичные теоремы, где вместо $\mathbb{\overline{R}}$ --- $\mathbb{\overline{C}}=\mathbb{C}\cap\{\infty\}$
+\end{remark}
+
+Неопределенности:
+\begin{itemize}
+    \item $
+    \begin{cases}
+        x_n\to +\infty \\
+        y_n\to-\infty
+    \end{cases}
+\Rightarrow x_n+y_n\to?$
+\item $\begin{cases}
+    x_n\to n+\sin n \\
+    y_n\to-n
+\end{cases}
+\Rightarrow x_n+y_n=\sin n, \not\exists\lim$
+\item $\begin{cases}
+    x_n\to n \\
+    y_n\to -\sqrt n
+\end{cases}
+\Rightarrow x_n+y_n=n-\sqrt n\to+\infty$
+\item $\begin{cases}
+    x_n\to 0 \\
+    y_n\to a\not = 0
+\end{cases}
+\Rightarrow \frac{x_n}{y_n}\to\infty$
+\end{itemize}
+
+\section{Точные границы числовых множеств}
+
+\begin{theorem}
+Теорема Кантора о стягивающихся отрезках.
+
+Дана последовательность отрезков $[a_1, b_1]\supset[a_2, b_2]\supset\ldots$
+
+Длины отрезков $\to 0$, т.е. $(b_n-a_n)\to_{n\to+\infty}0$
+
+Тогда $\exists!c\in\mathbb{R} \quad \bigcap\limits_{k=1}^{+\infty}[a_k, b_k]=\{c\}$ и при этом $a_n\to_{n\to+\infty} c, b_n\to_{n\to+\infty} c$
+\end{theorem}
+
+\begin{remark}
+Вместо ``$b_n-a_n\to 0$'' $\quad \forall \varepsilon>0 \ \ \exists n : b_n-a_n<\varepsilon$
+\end{remark}
+
+\begin{proof}
+Берем из аксиомы Кантора $c\in\bigcap\limits_{k=1}^{+\infty}[a_k, b_k]$
+
+$\begin{cases}
+    0 \leq b_n-c\leq b_n-a_n \\
+    0 \leq c-a_n\leq b_n-a_n
+\end{cases} \Rightarrow \begin{cases}
+    b_n-c\to 0 \\
+    c-a_n\to 0
+\end{cases} \Rightarrow \begin{cases}
+    b_n\to c \\
+    a_n\to c
+\end{cases}$
+
+По теореме об единственности предела $c$ однозначно определено.
+\end{proof}
+
+\begin{definition}
+$E\subset \mathbb{R}$. $E$ --- огр. сверху, если $\exists M\in\mathbb{R} \ \ \forall x\in E \ \ \leq M$. Кроме того, всякие такие $M$ называются верхними границами $E$.
+\end{definition}
+
+Аналогично ограничение снизу.
+
+\begin{definition}
+$E\subset \mathbb{R}, E\not=$\O.
+
+Для $E$ --- огр. сверху супремум ($\sup E$)--- наименьшая из верхних границ $E$.
+
+Для $E$ --- огр. сниху инфинум ($\sup E$) --- наибольщая из нижних границ $E$.
+\end{definition}
+
+\begin{remark}
+Техническое описание супремума:
+$b=\sup E \Leftrightarrow \begin{cases}
+    \forall x\in E \ \ x\leq b \\
+    \forall \varepsilon > 0 \ \ \exists x\in E \ \ b-\varepsilon<x
+\end{cases}$
+\end{remark}
+
+Аналогично для $\inf$
+
+\begin{definition}
+$M=\max E : M\in E \ \ \forall x\in E \ \ x\leq M$
+\end{definition}
+
+\begin{theorem}
+О существовании супремума.
+
+$E\subset \mathbb{R}, E\not=$ \O $, E$ --- огр. сверху.
+
+Тогда $\exists\sup E \in\mathbb{R}$
+\end{theorem}
+\begin{proof}
+Строим систему вложенных отрезков $[a_k, b_k]$ со свойствами:
+
+\begin{enumerate}
+    \item $b_k$ --- верхняя граница $E$
+    \item $[a_k, b_k]$ содержит точки $E$.
+\end{enumerate}
+$a_1$ --- берём любую точку $E$, $b_1$ --- любая верхняя граница.
+
+Границы следующего отрезка найдём бинпоиском \textit{(математики это называют полоивнное деление)}.
+
+Если $\frac{a_1+b_1}{2}$ --- верхняя граница $E$, $[a_2,b_2]:=[a_1, \frac{a_1+b_1}{2}]$.
+
+Иначе на $[\frac{a_1+b_1}{2}, b_1]$ есть элементы $E$, $[a_2,b_2]:=[\frac{a_1+b_1}{2}, b_1]$
+
+Длина $[a_k,b_k]=b_k-a_k=\frac{b_1-a_1}{2^{k-1}}\to0$
+
+$\exists!c\in \prod [a_k, b_k]$
+
+Проверим: $c=\sup E$
+
+\begin{enumerate}
+\item $\forall x\in E \ \ \forall n \ \ x\leq b_n$
+\item $\forall \varepsilon > 0 \ \ c-\varepsilon$ --- не верхн. гран.
+\end{enumerate}
+
+Доказательство 1: $x\to x, b_n\to c \Rightarrow x\leq b_n$
+
+Доказательство 2: $\forall \varepsilon > 0$ возьмём $n: \frac{b_1 - a_1}{2^{n}}<\varepsilon$. $c-\varepsilon<a_n \Leftrightarrow c-a_n<\varepsilon \Leftrightarrow c-a_n<b_n-an<\varepsilon$
+\end{proof}
+
+\end{document}

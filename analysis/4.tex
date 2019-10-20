@@ -1,28 +1,7 @@
-\documentclass[12pt]{article}
-\usepackage{xltxtra}
-\usepackage{libertine}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-% \usepackage{bbold}
-\usepackage{enumitem}
-\usepackage{fullpage}
-
-\setmainfont{Linux Libertine}
+\input{../preamble.sty}
 
 \title{Конспект по математическому анализу}
 \date{October 7, 2019}
-
-\theoremstyle{plain}
-\newtheorem{theorem}{Теорема}
-\newtheorem{lemma}{Лемма}
-
-\theoremstyle{remark}
-\newtheorem*{remark}{Примечание}
-\newtheorem*{consequence}{Следствие}
-
-\theoremstyle{definition}
-\newtheorem*{definition}{Определение}
 
 \begin{document}
 
@@ -37,20 +16,21 @@
 \begin{enumerate}
     \item $\langle \alpha_1 x_1+\alpha_2 x_2 \rangle = \alpha_1\langle x_1,y\rangle+\alpha_2\langle x_2,y\rangle$\
     \item $\langle y,x\rangle = \overline{\langle x,y\rangle}$
-    \item $\langle x,x\rangle \geq 0 \quad \langle x,x\rangle \Leftrightarrow x=0$
+    \item $\langle x,x\rangle \geq 0 \quad \langle x,x\rangle=0 \Leftrightarrow x=0$
 \end{enumerate}
 
-\begin{remark}
+\begin{definition}
     $\overline{x}$ --- комплексное сопряжение, для вещественных чисел $\overline{x} = x$.    
-\end{remark}
+\end{definition}
 
 \begin{enumerate}
     \item Над $\mathbb{C}$: $\langle x,\beta_1 y_1 + \beta_2 y_2 \rangle = \overline{\langle x,\beta_1 y_1 + \beta_2 y_2 \rangle} = \overline{\beta_1\langle y_1, x\rangle + \beta_2 \langle y_2,x \rangle} = \overline{\beta_1} \langle x, y_1\rangle + \overline{\beta_2} \langle x,y_2\rangle$
     \item Над $\mathbb{R}$: $\langle y,x\rangle = \langle x,y\rangle$
+    \item $\langle 0,x \rangle = \langle x,0 \rangle = \langle 0\cdot a,x \rangle = 0\langle a,x \rangle=0$
 \end{enumerate}
 
 \begin{lemma}
-    Неравенство КБШ \textit{(Коши-...)}
+    Неравенство КБШ \textit{(Коши-Буняковского-Шварца)}
     
     Для $X$ --- линейного пространства \textit{(над $\mathbb{R}, \mathbb{C}$)}
 
@@ -69,6 +49,8 @@
     $$0\leq\langle x,x\rangle - \frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle - \frac{\langle y,x\rangle}{\langle y,y\rangle}\langle x,y\rangle+\frac{\langle x,y\rangle\langle y,x\rangle}{\langle y,y\rangle}$$
 
     $$0\leq \langle x,x\rangle - \frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle$$
+
+    На википедии есть доказательство проще.
 \end{proof}
 
 Пример в $\mathbb{R}^m$: $\langle x,y\rangle = x_1y_1+x_2y_2+\ldots+x_my_m$ --- Евклидово скалярное произведение
@@ -159,7 +141,7 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 
     $$\forall i \quad |x_i-a_i|\leq ||x-a||\leq R \Rightarrow x\in\text{Куб}(a,R)$$
 
-    Докажем 2: $\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$
+    Докажем 2: $\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$
 
     $$x\in\text{Куб}(a,R)\quad ||x-a||\leq\sqrt m \max\limits_{1\leq i\leq m} |x_i-a_i|\leq \sqrt mR$$
 \end{proof}
@@ -182,7 +164,7 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 \begin{enumerate}
     \itemsep0em
     \item $X$ - откр.
-    \item $\emptyset$ - откр.
+    \item \O - откр.
     \item $B(a,r)$ - откр.
 \end{enumerate}
 

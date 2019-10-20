@@ -1,0 +1,123 @@
+\input{../preamble.sty}
+
+\title{Конспект по дискретной математике}
+\date{October 1, 2019}
+
+\begin{document}
+\maketitle
+
+\section{Преобразование Мёбиуса}
+
+$f(x_1\ldots x_n)\xor\limits_{\alpha_1\ldots\alpha_n\in A_f} x_1^{\alpha_1}\ldots x_n^{\alpha_n}$
+
+$x_i^1=x_i, x_i^0=1$
+
+$f(\ldots) = 0 \Leftrightarrow \exists x_i: x_i=0, \alpha_i=1$
+
+$f(\ldots) = 1 \Leftrightarrow \forall i: x_i=1 \ or \ \alpha_i=0 \Leftrightarrow \overline x \succeq \overline \alpha$
+
+$a_{\alpha_1\ldots\alpha_n} = \begin{cases} 1, \alpha_1\ldots\alpha_n\in A_f \\ 0, \text{иначе} \end{cases}$
+
+\begin{definition}
+    Доминирование - частничый порядок на $\mathbb{B}^n$, такой что $\forall i \ x_i\geq y_i$. Обозначается $x_1\ldots x_n \succeq y_1\ldots y_n$.
+\end{definition}
+
+$f(x_1\ldots x_n)=\xor\limits_{\alpha_1\ldots\alpha_n} a_{\alpha_1\ldots\alpha_n} x_1^{\alpha_1}\ldots x_n^{\alpha_n} = \xor\limits_{\alpha_1\ldots\alpha_n: X\succeq \alpha} a_{\alpha_1\ldots\alpha_n}$
+
+$a_{\alpha_1\ldots\alpha_n} \mapsto f(\overline{x})$
+
+$f(x_1\ldots x_n) \mapsto a_{\alpha_1\ldots\alpha_n}$
+
+\begin{theorem}
+    Преобразование Мёбиуса: $a_{\alpha_1\ldots\alpha_n}=\xor\limits_{\alpha_1\ldots\alpha_n: \alpha\succeq X}f(x_1\ldots x_n)$ --- $\mathbb{B}^{2^n}\to\mathbb{B}^{2^n}$
+\end{theorem}
+
+Пример ($x\vee y$): \begin{tabular}{ccc} $xy$&$x\vee y$& \\
+    00&0&$\alpha_{00}=0$ \\
+    01&1&$\alpha_{01}=1$ \\
+    10&1&$\alpha_{10}=1$ \\
+    11&0&$\alpha_{11}=1$ \\
+\end{tabular}
+
+\begin{proof}
+Индукция по числу $1$ в $\alpha_1\ldots\alpha_n$.
+
+База: $\alpha_{0\ldots 0}=f(0\ldots 0)$
+
+Переход: $\xor\limits_{x:\alpha \succeq x}f(x_1\ldots x_n)=\xor\limits_{x:\alpha\succeq x}\ \xor\limits_{\beta:x\succeq \beta}a_{\beta_1\ldots\beta_n}=a_{\alpha_1\ldots \alpha_n}\xor \xor\limits_{\substack{x,\beta \\ \alpha\succeq x\succeq \beta \\ \text{неверно:}\alpha=x=\beta}}a_{\beta_1\ldots\beta_n}=a_{\alpha_1\ldots\alpha_n}$
+\end{proof}
+
+\begin{definition}
+Инволюция --- преобразование, тождественное себе обратному.
+\end{definition}
+
+Преобразование Мёбиуса является инволюцией.
+
+Можно заметить, что при записи через некий базис функций от множества переменных, формулы получаются длинными. Поэтому существуют другие формы записи --- схемы из функциональных элементов и линейные программы.
+
+\section{Схемы из функциональных элементов}
+
+Записывается в форме ациклического ориентированного графа --- direct acyclic graph --- dag.
+
+\begin{theorem}
+Если $G$ - ациклический ориентированный граф, тогда его вершинам можно присвоить номера так, что $uv\in E \Rightarrow \#u<\#v$. Это называется топологическая сортировка
+\end{theorem}
+
+\begin{lemma}
+    Ациклический граф содержит вершину, из которой не выходят ребра.
+\end{lemma}
+
+\begin{definition}
+    Схема из функциональных элементов над базисом $F$ --- ациклический ориентированный граф, у которого есть $n$ выделенных вершин, в которые ничего не входит, помеченные ``вход'' и есть одна вершина, из которой ничего не выходит, помеченная ``выход''. Остальные вершины называются внутренние, они --- функции $f\in F$, в которые входят $k$ ребер, каждое из которых помечено числом от $1$ до $k$.
+\end{definition}
+
+Чтобы построить таблицу истинности схемы из функциональных элементов, проводится слеюущий порядок действий:
+
+\begin{enumerate}
+\item Поместим во входные узлы значения аргументов схемы.
+\item В остальные узлы в порядке топологической сортировки помещаются значения, равные значению функции, соответствующей этому узлы, если принять значения из входных узлов как аргументы данной функции.
+\item Значение в выходном узле будет значением схемы.
+\end{enumerate}
+
+%! Вставить пикчу с графом
+
+Самый правый узел - выход.
+
+Глубина: $d(u)=\max\limits_{V:V\to u} (d(u)+1)$
+
+Можно заметить, что с помощью схемы можно использовать промежуточные значения несколько раз, этим эта форма записи лучше формулы.
+
+\begin{definition}
+    Сложность функции $f$ в базисе $B$ --- минимальный размер схемы, которая вычисляет эту функцию, обозначается $size_B(f)=\min\{size(C)|C \text{вычисл.} f, C\in B\}$.
+\end{definition}
+
+$size_{\vee,\wedge,\neg}(\xor_2)\leq 5$
+
+$size_{\wedge,\xor,1}(\xor_2)=1$
+
+\begin{theorem}
+    Пусть $B_1$ и $B_2$ - базисы. Тогда $\exists c>0$, которая зависит от этих двух базисов и больше не зависит ни от чего, что $\forall f : size_{B_1}(f)\leq c\cdot size_{B_2}(f)$
+\end{theorem}
+
+Таким образом, выбор базиса для сложности меняет только константу, т.е. ассимптотически сложность функции одинакова во всех базисах.
+
+\begin{lemma}
+    Если $B$ - базис, то $\forall f$ можно задать схемой из функциональных элементов над $B$.
+\end{lemma}
+
+\begin{proof}
+    Построим схему через дерево обхода - поставим стрелки вверх и объединим все входы.
+\end{proof}
+
+\begin{proof}
+    Построим для $f$ оптимальную схему в $B_2$. $B_2 =\{g_1,g_2\ldots g_t\}$. Рассмотрим схемы для функций из $B_2$ над базисом $B_1$. Для каждой этой функции построим такую схему $C_i$. $C:=\max size(C_i)$. Вместо каждой функции подставим соответствующую схему $C$.
+\end{proof}
+
+\begin{proof}
+    Глубиной функции $f$ в базисе $B$ называется минимальная глубина схемы, которая вычисляет $f$, обозначается $depth_B(f)=\min\{depth(C)|C \text{вычисл.} f, C\in B\}$.
+\end{proof}
+
+$U_2$ - множество всех функций от $2$ аргументов.
+$T_2=U_2\setminus \{\xor_,=\}$
+
+\end{document}

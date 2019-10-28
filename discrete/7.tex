@@ -1,0 +1,156 @@
+\input{../preamble.sty}
+
+\title{Конспект по дискретной математике}
+
+\date{October 22, 2019}
+
+\begin{document}
+    
+\maketitle
+
+\section{Представление информации}
+
+Направления развития:
+\begin{enumerate}
+    \item Сжатие
+    \item Избыточное кодирование
+    \item Криптографическое кодирование
+\end{enumerate}
+
+\begin{definition}
+    \textbf{Алфавитом} $\Sigma$ называется непустое конечное множество. Множество из $n$ элементов $\Sigma$ обозначается $\Sigma^n$.
+\end{definition}
+
+$$\bigcup\limits_{i=0}^\infty \Sigma^i=\Sigma^* \quad \Sigma^0=\{\varepsilon\}$$
+
+\begin{definition}
+    Конкатенация:
+    $$\alpha\in\Sigma^* \quad \beta\in\Sigma^* \mapsto \alpha\beta\in\Sigma^*$$
+\end{definition}
+
+Конкатенация транзитивна $(\alpha\beta)\gamma=\alpha(\beta\gamma) \Rightarrow$ алфавит --- полугруппа.
+
+$\alpha\varepsilon=\varepsilon\alpha=\alpha \Rightarrow$ алфавит --- моноид.
+
+Т.к. алфавит --- полугруппа и моноид, алфавит --- свободный моноид.
+
+\begin{definition}
+    \textbf{Гомоморфизм} $\varphi: \Sigma^*\to \Pi^*$
+    
+    $\varphi(\alpha\beta)=\varphi(\alpha)\varphi(\beta)$
+\end{definition}
+
+\begin{example}
+    $$0\to a, 1\to ab$$
+    $$\varphi: \{0,1\}^*\to\{a,b\}^*$$
+    $$\varphi(001)=aaab$$
+\end{example}
+
+$\varphi$ --- гомоморфизм $\Rightarrow \varphi(c_1,c_2\ldots c_n)=\varphi(c_1)\varphi(c_2)\ldots\varphi(c_n)$
+
+\begin{definition}
+    Отображение из произвольного $\Sigma^*$ в $\Pi^*$ называется \textbf{кодом}.
+
+    Если $\varphi$ --- гомоморфизм, $\varphi$ --- \textbf{разделяемый}.
+
+    Если $\Pi=\mathbb{B}$, $\varphi$ --- \textbf{бинарный/двоичный}.
+\end{definition}
+
+\begin{example}
+    $$\Sigma=\{a,b,c\} \quad \varphi(a)=0, \varphi(b)=01, \varphi(c)=1$$
+    $$\varphi(abc)=0011 \quad \varphi(aacc)=0011$$
+\end{example}
+
+\begin{definition}
+    Код называется \textbf{однозначно декодируемым}, если $\forall x,y\in\Sigma^* \quad \varphi(x)=\varphi(y) \Rightarrow x=y$
+\end{definition}
+
+\begin{definition}
+    Кодом \textbf{постоянной длины} называется код, если $\varphi: \Sigma\to\Pi^k, k=const$
+\end{definition}
+
+\begin{lemma}
+    $\varphi$ --- код постоянной длины
+
+    $\forall c\not=d\in\Sigma \quad \varphi(c)\not=\varphi(d)$
+
+    Тогда $\varphi$ --- однозначно декодируемый.
+\end{lemma}
+
+\begin{theorem}
+    $\Sigma, \Pi, |\Sigma=s|, |\Pi|=p, \Sigma\to \Pi^k$
+    
+    $k=\ceil{\log_p s}$
+
+    $p^k<s$
+\end{theorem}
+
+\begin{theorem}
+    Крафта, Мак-Милана.
+
+    $\exists$ двоичных разделяемый однозначно декодируемый код переменной длины с длинами кодовых слов $l_1,l_2\ldots l_s\Leftrightarrow\sum_{i=1}^s 2^{-l_i}\leq 1, S\geq 2$
+\end{theorem}
+
+\begin{proof}
+    Докажем ``$\Rightarrow$''.
+
+    Пусть $ab, abb, ab$ --- все члены $\Sigma$
+
+    $$(ab+abb+bb)^2=abab+ababb+abbb+\ldots$$
+
+    $$(ab+abb+bb)^k - S^k \text{ слов, при этом все слова разные} $$
+    
+    $$]a=\frac{1}{2}, b=\frac{1}{2}$$
+
+    $$ab+abb+bb=\sum 2^{-l_i}$$
+
+    $$(\sum 2^{-l_i})^k=\sum_{j=0}^{k\max l_i}(2^{-j}+2^{-j}+2^{-j}) \text{ --- всего $\leq 2^j$ слов}$$
+
+    $$\sum_{j=0}^{k\max l_i}(2^{-j}+2^{-j}+2^{-j})\leq k\max l_i$$
+
+    $$\forall k: x^k\leq k\max l_i \to x\leq 1$$
+\end{proof}
+
+\begin{definition}
+    \textbf{Префиксный} код: $\forall c\not=d \quad \varphi(c)$ --- не префикс $\varphi(d)$
+\end{definition}
+
+\begin{lemma}
+    Префиксный код --- однозначно декодируем.
+\end{lemma}
+
+\begin{proof}
+    Докажем ``$\Leftarrow$''
+
+    $\sum 2^{-l_i}\leq 1 \Rightarrow \exists$ префиксный код с длинами $l_1\ldots l_s$
+
+    $$l_1\leq l_2\leq \ldots\leq l_s$$
+    
+    $2^{-l_1}$
+
+    $2^{-l_1}+2^{-l_2}$
+
+    $\vdots$
+
+    $2^{-l_1}+2^{-l_2}+\ldots+2^{-l_s}$
+
+    $$S=2 \quad 2^{-l_1}+2^{-l_2}\leq 1$$
+\end{proof}
+
+Тут автор сдох.
+
+\begin{consequence}
+    $\exists$ однозначно декодируемый код с длинами $l_1\ldots l_s \Rightarrow \exists$ префиксный код с длинами $l_1\ldots l_n$
+\end{consequence}
+
+\subsection{Код Хаффмана}
+
+Дано: $f_1,f_2\ldots f_s$ --- как часто встречаются соответствующие слова. Найти $l_1\ldots l_s$, такие что $\sum 2^{-l_i}$ и $\sum l_if_i\to \min$
+
+$S=2\Rightarrow l_1=l_2=1$
+
+$S>2$ Возьмём два символа $x$ и $y$, такие что $f_x$ и $f_y\to\min$ \textit{($x$, $y$ -- самые редкие)}. Заменим их на $z, f_z=f_x+f_y$.
+
+Возьмём в качестве кодового слова для $x$ слово для $z + 0$, а для $y$ возьмём $z + 1$.
+
+\end{document}

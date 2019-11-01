@@ -1,32 +1,11 @@
-\documentclass[12pt]{article}
-\usepackage{xltxtra}
-\usepackage{libertine}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-% \usepackage{bbold}
-\usepackage{enumitem}
-\usepackage{fullpage}
+\input{../preamble.sty}
 
-\setmainfont{Linux Libertine}
+\usepackage{bm}
 
-\title{Конспект по математическому анализу}
-\date{September 23, 2019}
-
-\theoremstyle{plain}
-\newtheorem{theorem}{Теорема}
-\newtheorem{lemma}{Лемма}
-
-\theoremstyle{remark}
-\newtheorem*{remark}{Примечание}
-\newtheorem*{consequence}{Следствие}
-
-\theoremstyle{definition}
-\newtheorem*{definition}{Определение}
+\lhead{Конспект по математическому анализу}
+\rfoot{September 23, 2019}
 
 \begin{document}
-
-\maketitle
 
 Определение предела дает функцию $N(\varepsilon)$, хорошо приспособленную
 для изучения неравенства $\rho(x_n,a)<\varepsilon$ для $n\in(N;+\infty)$.
@@ -129,18 +108,37 @@ $$|x_ny_n|\leq R|x_n|, R|x_n|\to 0 \Rightarrow y_n\to0$$
 \section*{Нормированные пространства}
 
 \begin{definition}
-Если $K$ --- поле ($K=\mathbb{R}$ или $\mathbb{C}$), $X$ --- множество, то $X$ называется линейным пространством над полем $K$ (и тогда $K$ называется полем скаляр), если:
+Если $K$ --- поле ($K=\mathbb{R}$ или $\mathbb{C}$), $X$ --- множество, то $X$ называется линейным пространством над полем $K$ (и тогда $K$ называется полем скаляр), если определены следующие две операции:
 \begin{enumerate}
-\item $+:X\times X \to X$
-\item $\cdot:K\times X\to X$
+    \item $+:X\times X \to X$ --- сложение векторов
+    \item $\cdot:K\times X\to X$ --- умножение векторов на скаляры
 \end{enumerate}
 \end{definition}
+
+Для этих операций выполняются соответствующие аксиомы \textit{(здесь $A,B,C\in X; a,b\in \R$ или $\C$)}:
+
+Аксиомы сложения векторов
+\begin{enumerate}\itemsep0em
+    \item $A+B=B+A$
+    \item $A+(B+C)=(A+B)+C$
+    \item $\exists \bm 0 \in X : A+\bm 0 = a$
+\end{enumerate}
+
+Аксиомы умножения векторов на скаляры
+\begin{enumerate}\itemsep0em
+    \item $(A+B)\cdot a = A\cdot a + B\cdot a$
+    \item $A\cdot(a+b) = A\cdot a + A\cdot b$
+    \item $(ab)\cdot A = a(b\cdot A)$
+    \item $\exists \bm 1 \in X : \bm 1 \cdot a = a$
+\end{enumerate}
+
+Ещё есть аксиома $\exists -A\in X : A+(-A)=0$, но у нас её не было.
 
 \begin{definition}
 Норма - отображение $X\to\mathbb{R}, x\mapsto ||x||$, если $X$ - линейное пространство (над $\mathbb{R}$ или $\mathbb{C}$) и выполняется следующее:
 \begin{enumerate}
 \item $\forall x \ \ ||x||\geq 0, ||x||=0\Leftrightarrow x=0$
-\item $\forall x\in X \ \ \forall x\in\mathbb R(\mathbb{C}) \ \ ||\lambda x||=|\lambda|\cdot||x||$
+\item $\forall x\in X \ \ \forall \lambda\in\mathbb R(\mathbb{C}) \ \ ||\lambda x||=|\lambda|\cdot||x||$
 \item Неравенство треугольника: $\forall x,y\in X \ \ ||x+y||\leq||x||+||y||$
 \end{enumerate}
 \end{definition}

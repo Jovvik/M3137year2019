@@ -7,12 +7,13 @@
 \cfoot{}
 \rfoot{}
 
+\setlength\parindent{0pt}
+
 \begin{document}
 \section{Определения}
 \subsection{Упорядоченная пара}
 Для некоторого множества $X$ и $A$ - множество ``индексов'', тогда $(x_\alpha)_{\alpha\in A}$ - \textbf{семейство элементов} $X$. ($\forall \alpha\in A \ \ x_\alpha \in X$)
 
-\noindent
 \textbf{Упорядоченная пара} --- семейство из двух элементов, где множеством индексов является $\{1, 2\}$. Обозначается $(a, b)$.
 \subsection{Декартово произведение}
 \textbf{Декартово произведение} двух множеств --- множество всех упорядоченных пар элементов этих множеств. $A\times B=\{(a,b): a\in A, b\in B\}$
@@ -93,24 +94,24 @@ $x:\N \rightarrow Y$ --- \textbf{последовательность}
 
 Для $A\subset X, f:X\to Y$ \textbf{образ} --- множество $\{f(x), x\in A\} \subset Y$ --- обозначается $f(A)$
 
-\noindent
+
 Для $B\subset Y$ \textbf{прообраз} --- $\{ x\in X : f(x)\in B \}$ --- обозначается $f^{-1}(B)$
 
 \subsection{Инъекция, сюръекция, биекция}
 
 \textbf{Сюръекция} --- такое отображение $f: X\to Y$, что $f(X)=Y$, т.е. $\forall y\in Y \ \ f(x)=y$ имеет решение относительно $x$.
 
-\noindent
+
 \textbf{Инъекция} --- такое отображение $f: X\to Y$, что $\forall x_1, x_2 \in X, x_1\not=x_2 \ \ f(x_1)\not=f(x_2)$, т.е. $\forall y\in Y \ \ f(x)=y$ имеет не более одного решения относительно $x$.
 
-\noindent
+
 \textbf{Биекция} --- отображение, являющееся одновременно сюръекцией и инъекцией, т.е. $\forall y\in Y \ \ f(x)=y$ имеет ровно одно решение относительно $x$.
 
 \subsection{Векторнозначаная функция, ее координатные функции}
 
 Если $F:X\to \R^m; x\mapsto F(x) = (F_1(x), ..., F_m(x))$, то $F$ --- \textbf{векторнозначная функция} \textit{(значения функции - вектора)}
 
-\noindent
+
 $F_1(x)..F_m(x)$ - координатные функции отображения $F$
 
 \subsection{График отображения}
@@ -121,14 +122,14 @@ $$\Gamma_f = \{(x,y)\in X\times Y: y = f(x) \}$$
 
 $f: X\to Y, g: Y\to Z$, тогда \textbf{композиция} $f$ и $g$ \textit{(обозначается $g\circ f$)} --- такое отображение, что $g\circ f: X\to Z, x\mapsto g(f(x))$.
 
-\noindent
+
 Также возможно определение, которое допускает $g: Y_1\to Z, Y_1\subset Y$
 
 \subsection{Сужение и продолжение отображений}
 
 Для $g: X\to Y\ \ $ $f$ --- \textbf{сужение} $g$ на множество $A$, если $f: A\to Y, A\subset X$.
 
-\noindent
+
 $g$ называется \textbf{продолжением} $f$.
 
 \subsection{Предел последовательности \textit{(эпсилон-дельта определение)}}
@@ -141,11 +142,161 @@ $\forall \varepsilon > 0 \ \ \exists N \ \ \forall n>N \ \ |x_n-a|<\varepsilon$,
 
 \textbf{Окрестность точки} $a = \{x\in\R: |x-a|<\varepsilon\}$, обозначается $U_\varepsilon(a)$
 
-\noindent
+
 \textbf{Проколотая окрестность} точки $a = U_\varepsilon(a)\setminus \{a\}$, обозначается $\dot U_\varepsilon(a)$
 
 \subsection{Предел последовательности (определение на языке окрестностей)}
 
 $$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
+
+\subsection{Метрика, метрическое пространство, подпространство}
+
+На множестве $X$ отображение $\rho: X\times X\to \R$ называется \textbf{метрикой}, если выполняются свойства 1-3:
+
+\begin{enumerate}
+    \itemsep0em
+    \item $\forall x,y \ \ \rho(x,y)\geq 0$; $\rho(x,y)=0 \Leftrightarrow x=y$
+    \item $\forall x,y \ \ \rho(x,y)=\rho(y,x)$
+    \item Неравенство треугольника: $\forall x,y,z\in X \ \ \rho(x,y)\leq \rho(x,z)+\rho(z,y)$
+\end{enumerate}
+
+\textbf{Метрическое пространство} --- упорядоченная пара $(X, \rho)$, где $X$ --- множество, $\rho$ --- метрика на $X$.
+
+\textbf{Подпространством} метрического пространства $(X,\rho)$ называется $(A, \rho)$, если $A\subset X$
+
+\subsection{Шар, замкнутый шар, окрестность точки в метрическом пространстве}
+
+\textbf{Шар \textit{(открытый шар)}} $B(a,r)=\{x\in X : \rho(a,x)<r\}$
+
+\textbf{Замкнутый шар} $B(a,r)=\{x\in X : \rho(a,x)\leq r\}$
+
+\textbf{Окрестность точки} $a$ в метрическом пространстве: $B(a, \varepsilon) \Leftrightarrow U(a)$.
+
+\subsection{Линейное пространство}
+
+Если $K$ --- поле \textit{($K=\mathbb{R}$ или $\mathbb{C}$)}, $X$ --- множество, то $X$ называется \textbf{линейным пространством} над полем $K$ (и тогда $K$ называется полем скаляр), если определены следующие две операции:
+\begin{enumerate}
+\item $+:X\times X \to X$ --- сложение векторов
+\item $\cdot:K\times X\to X$ --- умножение векторов на скаляры
+\end{enumerate}
+
+Для этих операций выполняются соответствующие аксиомы \textit{(здесь $A,B,C\in X; a,b\in \R$ или $\C$)}:
+
+\subsubsection{Аксиомы сложения векторов}
+\begin{enumerate}\itemsep0em
+    \item $A+B=B+A$
+    \item $A+(B+C)=(A+B)+C$
+    \item $\exists \bm 0 \in X : A+\bm 0 = a$
+\end{enumerate}
+
+\subsubsection{Аксиомы умножения векторов на скаляры}
+\begin{enumerate}\itemsep0em
+    \item $(A+B)\cdot a = A\cdot a + B\cdot a$
+    \item $A\cdot(a+b) = A\cdot a + A\cdot b$
+    \item $(ab)\cdot A = a(b\cdot A)$
+    \item $\exists \bm 1 \in X : \bm 1 \cdot a = a$
+\end{enumerate}
+
+Ещё есть аксиома $\exists -A\in X : A+(-A)=0$, но у нас её не было.
+
+\subsection{Норма, нормированное пространство}
+
+\textbf{Норма} - отображение $X\to\mathbb{R}, x\mapsto ||x||$, если $X$ - линейное пространство (над $\mathbb{R}$ или $\mathbb{C}$) и выполняется следующее:
+\begin{enumerate}
+\item $\forall x \ \ ||x||\geq 0, ||x||=0\Leftrightarrow x=0$
+\item $\forall x\in X \ \ \forall \lambda\in\mathbb R(\mathbb{C}) \ \ ||\lambda x||=|\lambda|\cdot||x||$
+\item Неравенство треугольника: $\forall x,y\in X \ \ ||x+y||\leq||x||+||y||$
+\end{enumerate}
+
+\textbf{Нормированное пространство} --- упорядоченная пара $(X, ||\cdot||)$, где $|| ||$ - норма
+
+\subsection{Ограниченное множество в метрическом пространстве}
+
+$A\subset X$ --- {\bf ограничено}, если $\exists x_0\in X \ \ \exists R>0 \ \ A\subset B(x_0, R)$, т.е. если $A$ содержится в некотором шаре в $X$.
+
+\subsection{Внутренняя точка множества, открытое множество, внутренность}
+
+$a$ --- {\bf внутренняя точка} множества $D$, если $\exists U(a) : U(a)\subset D$, т.е. $\exists r>0 : B(a,r)\subset D$
+
+$D$ --- {\bf открытое множество}, если $\forall a\in D : a$ --- внутренняя точка $D$
+
+{\bf Внутренностью} множества $D$ называется $Int(D)=\{x\in D : x \text{ --- внутр. точка }D\}$
+
+\subsection{Предельная точка множества}
+
+$a$ --- {\bf предельная точка} множества $D$, если $\forall \dot U(a) \ \ \dot U(a)\cap D\not = \text{\O}$
+
+\subsection{Замкнутое множество, замыкание, граница}
+
+$D$ --- {\bf замкнутое множество}, если оно содержит все свои предельные точки.
+
+{\bf Замыканием} множества $D$ называется $\overline D=D\cup$(множество предельных точек $D$)
+
+{\bf Граница} множества --- множество его граничных точек. Обозначается $\partial D$
+
+\subsection{Изолированная точка, граничная точка}
+
+$a$ --- {\bf изолированная} точка $D$, если $a\in D$ и $a$ --- не предельная.
+
+$a$ --- {\bf граничная} точка $D$, если $\forall U(a) \ \ U(a)$ содержит точки как из $D$, так и из $D^c$
+
+\subsection{Описание внутренности множества}
+
+\textcolor{red}{?}
+
+\subsection{Описание замыкания множества в терминах пересечений}
+
+\textcolor{red}{В чем отличие от 22?}
+
+\subsection{Верхняя, нижняя границы; супремум, инфимум}
+
+$E\subset \mathbb{R}$. $E$ --- огр. сверху, если $\exists M\in\mathbb{R} \ \ \forall x\in E \ \ x\leq M$. Кроме того, всякие такие $M$ называются {\bf верхними границами} $E$.
+
+Аналогично ограничение снизу.
+
+Для $E$ --- огр. сверху {\bf супремум} ($\sup E$)--- наименьшая из верхних границ $E$.
+
+Для $E$ --- огр. сниху {\bf инфинум} ($\sup E$) --- наибольщая из нижних границ $E$.
+
+\subsection{Техническое описание супремума}
+
+$$b=\sup E \Leftrightarrow \begin{cases}
+    \forall x\in E \ \ x\leq b \\
+    \forall \varepsilon > 0 \ \ \exists x\in E \ \ b-\varepsilon<x
+\end{cases}$$
+
+\subsection{Последовательность, стремящаяся к бесконечности}
+
+$$x_n\to +\infty \quad \forall E>0 \ \ \exists N \ \ \forall n>N \ \ x_n>E$$
+$$x_n\to -\infty \quad \forall E \ \ \exists N \ \ \forall n>N \ \ x_n<E$$
+$$x_n\to \infty \Leftrightarrow |x_n|\to +\infty$$
+
+\subsection{Компактное множество}
+
+$K\subset X$ --- {\bf компактное}, если для любого открытого покрытия $\exists$ конечное подпокрытие $\Leftrightarrow \exists \alpha_1\ldots \alpha_n \quad K\subset\bigcup\limits_{i=1}^n G_{\alpha_i}$
+
+\subsection{Секвенциальная компактность}
+
+\textbf{Секвенциально компактным} называется множество $A\subset X : 
+    \forall \text{ посл. } (x_n) \text{ точек } A \\
+    \exists \text{ подпосл. } x_{n_k} \text{, которая сходится к точке из } A
+$
+
+\subsection{Определения предела отображения (3 шт)}
+
+\subsubsection{По Коши}
+    $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in D \ \ 0<\rho^X(a,x)<\delta \quad \rho^Y(f(x), A) < \varepsilon$$
+\subsubsection{На языке окружностей}
+    $$\forall U(A) \ \ \exists V(a) \ \ \forall x\in \dot V(a) \ \ f(x)\in U(A)$$
+\subsubsection{По Гейне}
+    $\forall (x_n)$ --- посл. в $X$:
+    \begin{enumerate}
+        \item $x_n\to a$
+        \item $x_n\in D$
+        \item $x_n\not = a$
+    \end{enumerate}
+    $f(x_n)\to A$
+
+\subsection{Определения пределов в $\overline\R$}
 
 \end{document}

@@ -165,7 +165,7 @@ $$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
 
 \textbf{Метрическое пространство} --- упорядоченная пара $(X, \rho)$, где $X$ --- множество, $\rho$ --- метрика на $X$.
 
-\textbf{Подпространством} метрического пространства $(X,\rho)$ называется $(A, \rho)$, если $A\subset X$
+\textbf{Подпространством} метрического пространства $(X,\rho)$ называется $(A, \rho|_{A\times A})$, если $A\subset X$
 
 \subsection{Шар, замкнутый шар, окрестность точки в метрическом пространстве}
 
@@ -183,7 +183,7 @@ $$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
 \item $\cdot:K\times X\to X$ --- умножение векторов на скаляры
 \end{enumerate}
 
-Для этих операций выполняются соответствующие аксиомы \textit{(здесь $A,B,C\in X; a,b\in \R$ или $\C$)}:
+Для этих операций выполняются соответствующие аксиомы \textit{(здесь $A,B,C\in X; a,b\in K$)}:
 
 \subsubsection{Аксиомы сложения векторов}
 \begin{enumerate}\itemsep0em
@@ -198,7 +198,7 @@ $$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
     \item $(A+B)\cdot a = A\cdot a + B\cdot a$
     \item $A\cdot(a+b) = A\cdot a + A\cdot b$
     \item $(ab)\cdot A = a(b\cdot A)$
-    \item $\exists \bm 1 \in \R \text{ или } \C : \bm 1 \cdot A = A$
+    \item $\exists \bm 1 \in K : \bm 1 \cdot A = A$
 \end{enumerate}
 
 \subsection{Норма, нормированное пространство}

@@ -2,6 +2,11 @@
 
 \usepackage{bm}
 \usepackage{xcolor}
+% \usepackage[raggedright]{titlesec}
+\usepackage{sectsty}
+
+\allsectionsfont{\raggedright}
+\subsectionfont{\fontsize{14}{15}\selectfont}
 
 \lhead{Конспект к опросу}
 \cfoot{}
@@ -126,7 +131,7 @@ $$\Gamma_f = \{(x,y)\in X\times Y: y = f(x) \}$$
 $f: X\to Y, g: Y\to Z$, тогда \textbf{композиция} $f$ и $g$ \textit{(обозначается $g\circ f$)} --- такое отображение, что $g\circ f: X\to Z, x\mapsto g(f(x))$.
 
 
-Также возможно определение, которое допускает $g: Y_1\to Z, Y_1\subset Y$
+Также возможно определение, которое допускает $g: Y_1\to Z, Y_1\supset Y$
 
 \subsection{Сужение и продолжение отображений}
 
@@ -292,7 +297,7 @@ $
 
 \subsubsection{По Коши}
     $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in D \ \ 0<\rho^X(a,x)<\delta \quad \rho^Y(f(x), A) < \varepsilon$$
-\subsubsection{На языке окружностей}
+\subsubsection{На языке окрестностей}
     $$\forall U(A) \ \ \exists V(a) \ \ \forall x\in \dot V(a) \ \ f(x)\in U(A)$$
 \subsubsection{По Гейне}
     $\forall (x_n)$ --- посл. в $X$:
@@ -304,5 +309,86 @@ $
     $f(x_n)\to A$
 
 \subsection{Определения пределов в $\overline\R$}
+
+\section{Теоремы}
+
+\subsection{Законы де Моргана}
+
+Пусть $(X_\alpha)_{\alpha \in A}$ - семейство множеств, $Y$ - множество. Тогда:
+
+\begin{enumerate}
+    \item $Y\setminus(\bigcup\limits_{\alpha \in A}X_\alpha) = \bigcap\limits_{\alpha \in A}(Y\setminus X_\alpha)$
+    \item $Y\setminus(\bigcap\limits_{\alpha \in A}X_\alpha) = \bigcup\limits_{\alpha \in A}(Y\setminus X_\alpha)$
+\end{enumerate}
+
+\subsection{Неравенство Коши-Буняковского, евклидова норма в $\R^m$}
+
+\subsubsection{Неравенство Коши-Буняковского}
+
+$$(\sum a_ib_i)^2 \leq (\sum a_i^2)(\sum b_k^2)$$
+
+\subsubsection{Евклидова норма в $\R^m$}
+
+$$||x||=\sqrt{\sum\limits_{i}^m x_i^2}$$
+
+\subsection{Аксиома Архимеда. Плотность множества $\Q$ в $\R$}
+
+\subsubsection{Аксиома Архимеда}
+
+$$\forall x,y>0: \exists n\in \R: nx>y$$
+
+\subsubsection{Плотность множества $\Q$ в $\R$}
+
+$$\Q \text{ плотно в } \R\xLeftrightarrow{def} \forall a,b \in \R, a<b \ \ (a,b)\cap\mathbb{Q} \not =\text{\O}$$
+
+В любом интервале в $\R$ содержится число $\in \Q$.
+
+\subsection{Неравенство Бернулли}
+
+$$(1+x)^n \geq 1+nx \quad x>-1, n\in\N$$
+
+\subsection{Единственность предела и ограниченность сходящейся последовательности}
+
+\subsubsection{Единственность предела}
+
+$(X,\rho)$ --- метрическое пр-во, $a,b\in X$, $(x_n)$ --- послед. в $X$,
+$x_n\xrightarrow[n\to +\infty]{} a$, $x_n\to b$,
+тогда $a=b$
+
+\subsubsection{Ограниченность сходящейся последовательности}
+
+Если $(x,\rho)$ --- метрическое пр-во, $(x_n)$ --- послед. в $X$, $x_n$ сходится, тогда $x_n$ --- ограничена.
+
+\subsection{Теорема о предельном переходе в неравенствах для последовательностей и для функций}
+
+Если $(x_n),(y_n)$ --- вещественные последовательности $x_n\to a, y_n\to b$, $\forall n \ x_n\leq y_n$, \textbf{тогда} $a\leq b$.
+
+\textcolor{red}{Надо ли $\exists N \ \ \forall n > N$?}
+
+\textcolor{red}{Для функций то же самое?}
+
+\subsection{Теорема о двух городовых}
+
+Если $(x_n),(y_n),(z_n)$ - вещ. посл., $\forall n \ \ x_n\leq y_n\leq z_n, \lim x_n=\lim z_n =a$, \textbf{тогда} $\exists \lim y_n=a$
+
+\subsection{Бесконечно малая последовательность}
+
+$(x_n)$ --- вещ. посл. называется \textbf{бесконечно малой}, если $x_n\to 0$
+
+\subsection{Теорема об арифметических свойствах предела последовательности в нормированном пространстве и в $\R$}
+
+Если $(X, ||\cdot||)$ --- норм. пр-во, $(x_n),(y_n)$ --- посл. в $X$, $\lambda_n$ ---
+посл. скаляров, и $x_n\to x_0, y_n\to y_0, \lambda_n\to \lambda_0$, \textbf{тогда}:
+\begin{enumerate}
+\item $\forall \varepsilon>0 \ \ \exists N \ \ \forall n>N \ \ ||x_n-x_0||<\varepsilon$
+\item $||\lambda_nx_n-\lambda_0x_0||\to x_0$
+\item $|||x_n||-||x_0|||\leq||x_n-x_0||$
+\end{enumerate}
+
+Для $(x_n),(y_n)$ 
+--- вещ.посл., $\forall n \ \ y_n\not =0, y_0\not = 0$:
+\begin{enumerate}[resume]
+\item $\frac{x_n}{y_n}\to\frac{x_0}{y_0}$
+\end{enumerate}
 
 \end{document}

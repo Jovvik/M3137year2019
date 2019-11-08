@@ -251,7 +251,7 @@ $a$ --- {\bf граничная} точка $D$, если $\forall U(a) \ \ U(a)
 
 \begin{enumerate}
     \item $Int D$ --- открыто
-    \item $Int D = \bigcup\limits_{\substack{D\supset G \\ G\text{ --- открыт}}}$ --- минимальное открытое множество, содержащее $D$
+    \item $Int D = \bigcup\limits_{\substack{D\supset G \\ G\text{ --- открыт}}}$ --- максимальное открытое множество, содержащееся в $D$
     \item $D$ --- открыто в $X \Leftrightarrow D=Int D$
 \end{enumerate}
 
@@ -365,7 +365,7 @@ $x_n\xrightarrow[n\to +\infty]{} a$, $x_n\to b$,
 
 \textcolor{red}{Надо ли $\exists N \ \ \forall n > N$?}
 
-\textcolor{red}{Для функций то же самое?}
+Если $f, g:X\to \R$, $a$ --- предельная точка $X$, и $\forall x\in X f(x)\leq g(x)$. Тогда $\lim\limits_{x\to a}f(x)\leq \lim\limits_{x\to a}g(x)$ 
 
 \subsection{Теорема о двух городовых}
 
@@ -380,9 +380,9 @@ $(x_n)$ --- вещ. посл. называется \textbf{бесконечно 
 Если $(X, ||\cdot||)$ --- норм. пр-во, $(x_n),(y_n)$ --- посл. в $X$, $\lambda_n$ ---
 посл. скаляров, и $x_n\to x_0, y_n\to y_0, \lambda_n\to \lambda_0$, \textbf{тогда}:
 \begin{enumerate}
-\item $\forall \varepsilon>0 \ \ \exists N \ \ \forall n>N \ \ ||x_n-x_0||<\varepsilon$
-\item $||\lambda_nx_n-\lambda_0x_0||\to x_0$
-\item $|||x_n||-||x_0|||\leq||x_n-x_0||$
+\item $x_n\pm y_n\to x_0\pm y_0$
+\item $\lambda_nx_n\to \lambda x_0$
+\item $||x_n||\to||x_0||$
 \end{enumerate}
 
 Для $(x_n),(y_n)$ 

@@ -429,7 +429,7 @@ $X$ - лин. пространство со скалярным произвед�
 
 $(x^{(n)})$ --- последовательность векторов в $\mathbb{R}^m$, где задано евклидово скалярное пространство и норма.
 
-Тогда $(x^{(n)})\underset{n\to+\infty}\to x \Leftrightarrow \forall i\in\{1,2,\ldots m\} \ \ x_i^{(n)}\underset{n\to+\infty}\to x_i$
+Тогда $(x^{(n)})\underset{n\to+\infty}\to x^{(0)} \Leftrightarrow \forall i\in\{1,2,\ldots m\} \ \ x_i^{(n)}\underset{n\to+\infty}\to x_i^{(0)}$
 
 \subsection{Открытость открытого шара}
 
@@ -454,5 +454,103 @@ $\forall x \in B(a, r) \ \ x$ --- внутренняя точка $B(a, r)$
 \subsection{Теорема о связи открытых и замкнутых множеств, свойства замкнутых множеств}
 
 $D$ --- замкнуто $\Leftrightarrow D^c=X\setminus D$ \textit{(дополнение)} --- открыто.
+
+Свойства:
+
+\begin{enumerate}
+    \item $(F_\alpha)_{\alpha\in A}$ --- замкн. в $X$
+    
+    Тогда $\bigcap F_\alpha$ --- замкн. в $X$
+
+    \item $F_1\ldots F_n$ --- замкн. в $X$
+    
+    Тогда $\bigcup F_i$ --- замкн. в $X$
+\end{enumerate}
+
+\subsection{Теорема об арифметических свойствах предела последовательности  (в $\overline\R$). Неопределенности}
+
+$(x_n),(y_n)$ --- вещ., $x_n\to a, y_n\to b \quad a,b\in\mathbb{\overline R}$.
+Тогда:
+\begin{enumerate}
+    \item $x_n\pm y_n\to a\pm b$
+    \item $x_n y_n\to a b$,
+    \textit{если $\forall n \ \ y_n\not=0; b\not=0$}
+    \item $\frac{x_n}{y_n}\to\frac{a}{b}$
+\end{enumerate}
+При условии, что выражения в правых частях имеют смысл.
+
+Также для $x_n\to+\infty, y_n$ --- огр.снизу $\Rightarrow x_n+y_n\to+\infty$.
+
+$\begin{cases}
+    x_n\to+\infty \\
+    y_n>\varepsilon, (\varepsilon>0) \text{ при } n>N_0
+\end{cases} \Rightarrow x_ny_n\to +\infty$
+
+% $y_n$ отделено от нуля при больших $n$.
+
+\textcolor{red}{Понятия не имею, что ниже произошло.}
+
+Неопределенности:
+\begin{itemize}
+    \item $
+    \begin{cases}
+        x_n\to +\infty \\
+        y_n\to-\infty
+    \end{cases}
+\Rightarrow x_n+y_n\to?$
+\item $\begin{cases}
+    x_n\to n+\sin n \\
+    y_n\to-n
+\end{cases}
+\Rightarrow x_n+y_n=\sin n, \not\exists\lim$
+\item $\begin{cases}
+    x_n\to n \\
+    y_n\to -\sqrt n
+\end{cases}
+\Rightarrow x_n+y_n=n-\sqrt n\to+\infty$
+\item $\begin{cases}
+    x_n\to 0 \\
+    y_n\to a\not = 0
+\end{cases}
+\Rightarrow \frac{x_n}{y_n}\to\infty$
+\end{itemize}
+
+\subsection{Теорема Кантора о стягивающихся отрезках}
+
+Дана последовательность отрезков $[a_1, b_1]\supset[a_2, b_2]\supset\ldots$
+
+Длины отрезков $\to 0$, т.е. $(b_n-a_n)\xrightarrow[n\to+\infty]{} 0$
+
+Тогда $\exists!c\in\mathbb{R} \quad \bigcap\limits_{k=1}^{+\infty}[a_k, b_k]=\{c\}$ и при этом $a_n\xrightarrow[n\to+\infty]{} c, b_n\xrightarrow[n\to+\infty]{} c$
+
+\subsection{Теорема о существовании супремума}
+
+$E\subset \mathbb{R}, E\not=$ \O $, E$ --- огр. сверху.
+
+Тогда $\exists\sup E \in\mathbb{R}$
+
+\subsection{Лемма о свойствах супремума}
+
+\begin{enumerate}
+    \item $\text{\O}\not =D\subset E\subset \mathbb{R} \quad \sup D\leq \sup E$
+    \item $\lambda\in\mathbb{R} \quad (\lambda E=\{\lambda x, x\in E\})$
+
+    Пусть $\lambda>0$, тогда $\sup \lambda E=\lambda\sup E$
+    \item $\sup(-E)=-\inf E$
+\end{enumerate}
+
+\subsection{Теорема о пределе монотонной последовательности}
+
+\begin{enumerate}
+    \item $x_n$ --- вещ. посл., огр. сверху, возрастает. $\Rightarrow \exists\lim x_n\in\mathbb{R}$
+    \item $x_n$ --- убывает, огр. снизу. $\Rightarrow \exists \lim x_n\in\mathbb{R}$
+    \item $x_n$ --- монотонна, огр. $\Rightarrow \exists \lim x_n\in\mathbb{R}$
+\end{enumerate}
+
+\subsection{Определение числа $e$, соответствующий замечательный предел}
+
+\textcolor{red}{А оно было вообще?}
+
+\subsection{Теорема об открытых и замкнутых множествах в пространстве и в подпространстве}
 
 \end{document}

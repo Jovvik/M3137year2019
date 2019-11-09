@@ -89,7 +89,25 @@ $$\bigcap\limits_{n=1}^\infty[a_n, b_n] \not = \text{\O}$$
 $\Q$ не удволетворяет этой аксиоме, в отличие от $\R$.
 
 \subsection{Пополненное множество вещественных чисел, операции и порядок в нем}
-\textcolor{red}{Это дополнение?}
+
+$\overline\R=\R\cup\{-\infty, +\infty\}$ --- пополненное множество вещественных чисел.
+
+Свойства ($\forall x\in\R$):
+\begin{itemize}
+    \itemsep0em
+    \item $-\infty<+\infty$
+    \item $\pm\infty\cdot\pm\infty=+\infty$
+    \item $\pm\infty\cdot\mp\infty=-\infty$
+    \item $-\infty<x<-\infty$
+    \item $x\pm\infty=\pm\infty$
+    \item $\pm\infty\pm\infty=\pm\infty$
+    \item $\pm\infty\mp\infty$ --- не определено
+\end{itemize}
+
+Для $\forall x\in\R, x>0$
+\begin{itemize}
+    \item $x\cdot\pm\infty=\pm\infty$
+\end{itemize}
 
 \subsection{Максимальный элемент множества}
 $M\in A$ называется \textbf{максимальным элементом} множества $A$, если $\forall a\in A \ \ a\leq M$
@@ -388,5 +406,53 @@ $(x_n)$ --- вещ. посл. называется \textbf{бесконечно 
 \begin{enumerate}[resume]
 \item $\frac{x_n}{y_n}\to\frac{x_0}{y_0}$
 \end{enumerate}
+
+\subsection{Неравенство Коши-Буняковского в линейном пространстве, норма, порожденная скалярным произведением}
+
+\subsubsection{Неравенство Коши-Буняковского в линейном пространстве}
+$$\forall x,y\in X\quad |\langle x,y\rangle|^2\leq \langle x,x\rangle \langle y,y\rangle$$
+
+\subsubsection{Норма, порожденная скалярным произведением}
+Для лин. пространства $X$, скалярного произведения $\langle \cdot ,\cdot \rangle$
+
+$\rho:X\to\mathbb{R} \quad \rho(x)=\sqrt{\langle x,x\rangle}$ --- норма
+
+\subsection{Леммы о непрерывности скалярного произведения и покоординатной сходимости в $\R^m$}
+
+\subsubsection{О непрерывности скалярного произведения}
+
+$X$ - лин. пространство со скалярным произведением, $||\cdot||$ --- норма, порожденная скалярным произведением.
+
+Тогда $\forall (x_n) : x_n\to x, \forall (y_n) : y_n\to y \quad \langle x_n,y_m\rangle\to\langle x,y\rangle$
+
+\subsubsection{О покоординатной сходимости в $\R^n$}
+
+$(x^{(n)})$ --- последовательность векторов в $\mathbb{R}^m$, где задано евклидово скалярное пространство и норма.
+
+Тогда $(x^{(n)})\underset{n\to+\infty}\to x \Leftrightarrow \forall i\in\{1,2,\ldots m\} \ \ x_i^{(n)}\underset{n\to+\infty}\to x_i$
+
+\subsection{Открытость открытого шара}
+
+$\forall x \in B(a, r) \ \ x$ --- внутренняя точка $B(a, r)$
+
+\subsection{Теорема о свойствах открытых множеств}
+
+\begin{enumerate}
+    \item $(G_\alpha)_{\alpha\in A}$ - семейство открытых множеств в $(X,\rho)$
+    
+    Тогда $\bigcup\limits_{\alpha\in A} G_\alpha$ - открыто в $X$.
+
+    \item $G_1,G_2,\ldots G_n$ - открыто в $X$.
+    
+    Тогда $\bigcap\limits_{i=1}^{n} G_i$ - открыто в $X$.
+\end{enumerate}
+
+\begin{remark}
+    В 1. семейство может быть бесконечным, а в 2. --- нет.
+\end{remark}
+
+\subsection{Теорема о связи открытых и замкнутых множеств, свойства замкнутых множеств}
+
+$D$ --- замкнуто $\Leftrightarrow D^c=X\setminus D$ \textit{(дополнение)} --- открыто.
 
 \end{document}

@@ -567,4 +567,95 @@ $Y\subset X$, $X$ --- метр.п., $Y$ --- подпространство, $D\s
     \item $D$ --- замкн. в $Y \Leftrightarrow \exists F$ --- замкн. в $X \quad D=F\cap Y$
 \end{enumerate}
 
+\subsection{Теорема о компактности в пространстве и в подпространстве}
+
+$(X,\rho)$ --- метрич. пространство, $Y\subset X$ --- подпространство, $K\subset Y$
+
+Тогда $K$ --- комп. в $Y \Leftrightarrow K$ --- компактно в $X$, то есть если $K$ компактно в подпространстве, то оно компактно и в пространстве.
+
+\subsection{Простейшие свойства компактных множеств}
+
+$(X, \rho)$ --- метрическое пространство, $K\subset X$
+
+\begin{enumerate}
+    \item $K$ --- комп. $\Rightarrow K$ --- замкн., $K$ --- огр.
+    \item $X$ --- комп, $K$ --- замкн. $\Rightarrow K$ --- комп. 
+\end{enumerate}
+
+\subsection{Лемма о вложенных параллелепипедах}
+
+$[a, b] = \{x+\R^m: \forall i=1\ldots m \ \ a_i\leq x_i\leq b_i\}$ --- параллелепипед.
+
+$[a^1, b^1]\supset[a^2, b^2]\supset\ldots$ --- бесконечная последовательность параллелепипедов.
+
+Тогда $\bigcap\limits_{i=1}^{+\infty}[a^i, b^i]\not=$\O
+
+Если $diam[a^n, b^n]=||b^n-a^n||\to 0$, тогда $\exists! c\in\bigcap\limits_{i=1}^\infty[a^i, b^i]$
+
+\textcolor{red}{Последняя строка тоже входит в лемму?}
+
+\subsection{Компактность замкнутого параллелепипеда в $\R^m$}
+
+$[a,b]$ --- компактное множество в $\R^m$
+
+\subsection{Теорема о характеристике компактов в $\R^m$}
+
+$K\subset \R^m$. Эквивалентны следующие утверждения:\begin{enumerate}
+    \itemsep-0.5em
+    \item $K$ --- замкнуто и ограничено
+    \item $K$ --- компактно
+    \item $K$ --- секвенциально компактно
+\end{enumerate}
+
+\subsection{Эквивалентность определений Гейне и Коши}
+
+Определение Коши $\Leftrightarrow$ определение Гейне.
+
+\subsection{Единственность предела, локальная ограниченность отображения, имеющего предел, теорема о стабилизации знака}
+
+\subsubsection{Единственность предела}
+
+$f: D\in X\to Y$, $a$ --- пред. точка $D$
+
+$\lim\limits_{x\to a} f(x)=A; \lim\limits_{x\to a} f(x)=B$
+
+Тогда $A=B$
+
+\subsubsection{Локальная ограниченность отображения, имеющего предел}
+
+$f: D\in X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
+
+Тогда $\exists V(a) : f$ --- огр. на $V(a)\cap D$, т.е. $f(V(a)\cap D)$ содержится в некотором шаре.
+
+\subsubsection{Теорема о стабилизации знака}
+
+$f: D\in X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
+
+Пусть $B\in Y, B\not=A$
+
+Тогда $\exists V(a) \ \ \forall x \in \dot V(a)\cap D \ \ f(x)\not = B$
+
+\subsection{Арифметические свойства пределов отображений. Формулировка для $\overline\R$}
+
+$f,g: D\subset X\to Y$, $X$ --- метрич. пространство, $Y$ --- норм. пространство над $\mathbb{R}$, $a$ --- пред. точка $D$
+
+$\lim\limits_{x\to a}f(x)=A, \lim\limits_{x\to \varphi}g(x)=B$
+
+$\lambda: D\to \mathbb{R}, \lim\limits_{x\to \varphi}\lambda (x) = \lambda_0$
+
+Тогда:
+\begin{enumerate}
+    \item $\exists\lim\limits_{x\to a} f(x)\pm g(x)$ и $\lim\limits_{x\to a} f(x)\pm g(x)=A\pm B$
+    \item $\lim\limits_{x\to a} \lambda(x) f(x) = \lambda_0=A$
+    \item $\lim\limits_{x\to a} ||f(x)||=||A||$
+    \item Для случая $Y=\R$ и для $B\not=0$ $$\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{A}{B}$$
+    $\frac{f}{g}$ задано на множестве $D'=D\setminus \{x:g(x)=0\}$
+
+    $a$ --- пр. точка $D'$ по теореме о стабилизации знака $\exists V(a) \ \ \forall x\in V(a)\cap D \ \ g(x)$ --- того же знака, что и $B$, т.е. $g(x)\not = 0$
+
+    $\dot V(a)\cap D'=\dot V(a)\cap D \Rightarrow a$ --- пред. точка для $D'$
+\end{enumerate}
+
+Если $Y=\overline\R$, можно ``разрешить'' случай $A, B=\pm \infty$
+
 \end{document}

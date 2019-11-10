@@ -288,7 +288,7 @@ $E\subset \mathbb{R}$. $E$ --- огр. сверху, если $\exists M\in\math
 
 Для $E$ --- огр. сверху {\bf супремум} ($\sup E$)--- наименьшая из верхних границ $E$.
 
-Для $E$ --- огр. снизу {\bf инфинум} ($\sup E$) --- наибольшая из нижних границ $E$.
+Для $E$ --- огр. снизу {\bf инфимум} ($\inf E$) --- наибольшая из нижних границ $E$.
 
 \subsection{Техническое описание супремума}
 
@@ -335,6 +335,15 @@ $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in D \ \ 0<\rho^X(a,x
 
 \subsection{Определения пределов в $\overline\R$}
 
+Для $Y=\overline\R$:
+
+\begin{enumerate}
+    \item $\lim\limits_{x\to a}f(x)=+\infty: \quad \forall E \ \ \exists \delta>0 \ \ \forall x\in D : 0<|x-a|<\delta \ \ f(x)>E$
+    \item $\lim\limits_{x\to a}f(x)=-\infty: \quad \forall E \ \ \exists \delta>0 \ \ \forall x\in D : 0<|x-a|<\delta \ \ f(x)<E$
+    \item $\lim\limits_{x\to +\infty}f(x)=c\in\mathbb{R} \quad \forall \varepsilon>0 \ \ \exists \delta \ \ \forall x\in D : x>\delta \ \ |f(x)-c|<\varepsilon$
+    \item $\lim\limits_{x\to -\infty}f(x)=c\in\mathbb{R} \quad \forall \varepsilon>0 \ \ \exists \delta \ \ \forall x\in D : x<\delta \ \ |f(x)-c|<\varepsilon$
+\end{enumerate}
+
 \section{Теоремы}
 
 \subsection{Законы де Моргана}
@@ -377,7 +386,7 @@ $$\Q \text{ плотно в } \R\xLeftrightarrow{def} \forall a,b \in \R, a<b \ 
 
 \subsection{Неравенство Бернулли}
 
-$$(1+x)^n \geq 1+nx \quad x>-1, n\in\N$$
+$$(1+x)^n \geq 1+nx \quad x\geq-1, n\in\N$$
 
 \subsection{Единственность предела и ограниченность сходящейся последовательности}
 
@@ -622,7 +631,7 @@ $K\subset \R^m$. Эквивалентны следующие утвержден�
 
 \subsubsection{Единственность предела}
 
-$f: D\in X\to Y$, $a$ --- пред. точка $D$
+$f: D\subset X\to Y$, $a$ --- пред. точка $D$
 
 $\lim\limits_{x\to a} f(x)=A; \lim\limits_{x\to a} f(x)=B$
 

@@ -321,7 +321,7 @@ $
 
 \subsubsection{По Коши}
 
-$$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in D \ \ 0<\rho^X(a,x)<\delta \quad \rho^Y(f(x), b) < \varepsilon$$
+$$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in X \ \ 0<\rho^X(a,x)<\delta \quad \rho^Y(f(x), b) < \varepsilon$$
 \subsubsection{На языке окрестностей}
     $$\forall U(b) \ \ \exists V(a) \ \ \forall x\in \dot V(a) \ \ f(x)\in U(b)$$
 \subsubsection{По Гейне}
@@ -335,14 +335,16 @@ $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in D \ \ 0<\rho^X(a,x
 
 \subsection{Определения пределов в $\overline\R$}
 
-Для $Y=\overline\R$:
+Для $Y=\overline\R, -\infty<x<+\infty$:
 
 \begin{enumerate}
-    \item $\lim\limits_{x\to a}f(x)=+\infty: \quad \forall E \ \ \exists \delta>0 \ \ \forall x\in D : 0<|x-a|<\delta \ \ f(x)>E$
-    \item $\lim\limits_{x\to a}f(x)=-\infty: \quad \forall E \ \ \exists \delta>0 \ \ \forall x\in D : 0<|x-a|<\delta \ \ f(x)<E$
-    \item $\lim\limits_{x\to +\infty}f(x)=c\in\mathbb{R} \quad \forall \varepsilon>0 \ \ \exists \delta \ \ \forall x\in D : x>\delta \ \ |f(x)-c|<\varepsilon$
-    \item $\lim\limits_{x\to -\infty}f(x)=c\in\mathbb{R} \quad \forall \varepsilon>0 \ \ \exists \delta \ \ \forall x\in D : x<\delta \ \ |f(x)-c|<\varepsilon$
+    \item $\lim\limits_{x\to a}f(x)=+\infty: \quad \forall E \ \ \exists \delta>0 \ \ \forall x\in X : 0<|x-a|<\delta \ \ f(x)>E$
+    \item $\lim\limits_{x\to a}f(x)=-\infty: \quad \forall E \ \ \exists \delta>0 \ \ \forall x\in X : 0<|x-a|<\delta \ \ f(x)<E$
+    \item $\lim\limits_{x\to +\infty}f(x)=c\in\mathbb{R} \quad \forall \varepsilon>0 \ \ \exists \delta \ \ \forall x\in X : x>\delta \ \ |f(x)-c|<\varepsilon$
+    \item $\lim\limits_{x\to -\infty}f(x)=c\in\mathbb{R} \quad \forall \varepsilon>0 \ \ \exists \delta \ \ \forall x\in X : x<\delta \ \ |f(x)-c|<\varepsilon$
 \end{enumerate}
+
+Определение на языке окрестностей такое же, как и для произвольного метрического пространства.
 
 \section{Теоремы}
 
@@ -393,12 +395,12 @@ $$(1+x)^n \geq 1+nx \quad x\geq-1, n\in\N$$
 \subsubsection{Единственность предела}
 
 $(X,\rho)$ --- метрическое пр-во, $a,b\in X$, $(x_n)$ --- послед. в $X$,
-$x_n\xrightarrow[n\to +\infty]{} a$, $x_n\to b$,
+$x_n\xrightarrow[n\to +\infty]{} a$, $x_n\xrightarrow[n\to +\infty]{} b$,
 тогда $a=b$
 
 \subsubsection{Ограниченность сходящейся последовательности}
 
-Если $(x,\rho)$ --- метрическое пр-во, $(x_n)$ --- послед. в $X$, $x_n$ сходится, тогда $x_n$ --- ограничена.
+Если $(X,\rho)$ --- метрическое пр-во, $(x_n)$ --- послед. в $X$, $x_n$ сходится, тогда $x_n$ --- ограничена.
 
 \subsection{Теорема о предельном переходе в неравенствах для последовательностей и для функций}
 
@@ -420,7 +422,7 @@ $(x_n)$ --- вещ. посл. называется \textbf{бесконечно 
 посл. скаляров, и $x_n\to x_0, y_n\to y_0, \lambda_n\to \lambda_0$, \textbf{тогда}:
 \begin{enumerate}
 \item $x_n\pm y_n\to x_0\pm y_0$
-\item $\lambda_nx_n\to \lambda x_0$
+\item $\lambda_nx_n\to \lambda_0 x_0$
 \item $||x_n||\to||x_0||$
 \end{enumerate}
 
@@ -502,40 +504,21 @@ $(x_n),(y_n)$ --- вещ., $x_n\to a, y_n\to b \quad a,b\in\mathbb{\overline R}$
 \end{enumerate}
 При условии, что выражения в правых частях имеют смысл.
 
-Также для $x_n\to+\infty, y_n$ --- огр.снизу $\Rightarrow x_n+y_n\to+\infty$.
+Если $x_n\to+\infty, y_n$ --- огр.снизу $\Rightarrow x_n+y_n\to+\infty$.
 
-$\begin{cases}
-    x_n\to+\infty \\
-    y_n>\varepsilon, (\varepsilon>0) \text{ при } n>N_0
-\end{cases} \Rightarrow x_ny_n\to +\infty$
+Если $x_n\to+\infty, y_n>\varepsilon, (\varepsilon>0) \text{ при } n>N_0 \Rightarrow x_ny_n\to +\infty$
 
 % $y_n$ отделено от нуля при больших $n$.
 
-\textcolor{red}{Понятия не имею, что ниже произошло.}
-
 Неопределенности:
 \begin{itemize}
-    \item $
-    \begin{cases}
-        x_n\to +\infty \\
-        y_n\to-\infty
-    \end{cases}
-\Rightarrow x_n+y_n\to?$
-\item $\begin{cases}
-    x_n\to n+\sin n \\
-    y_n\to-n
-\end{cases}
-\Rightarrow x_n+y_n=\sin n, \not\exists\lim$
-\item $\begin{cases}
-    x_n\to n \\
-    y_n\to -\sqrt n
-\end{cases}
-\Rightarrow x_n+y_n=n-\sqrt n\to+\infty$
-\item $\begin{cases}
-    x_n\to 0 \\
-    y_n\to a\not = 0
-\end{cases}
-\Rightarrow \frac{x_n}{y_n}\to\infty$
+    \itemsep0em
+    \item $\frac{0}{0}$
+    \item $1^\infty$
+    \item $\frac{\pm\infty}{\pm\infty}$
+    \item $\pm\infty\mp\infty$
+    \item $0^0$
+    \item $\infty^0$
 \end{itemize}
 
 \subsection{Теорема Кантора о стягивающихся отрезках}
@@ -572,7 +555,7 @@ $E\subset \mathbb{R}, E\not=$ \O $, E$ --- огр. сверху.
 
 \subsection{Определение числа $e$, соответствующий замечательный предел}
 
-\textcolor{red}{А оно было вообще?}
+$$e=\lim\limits_{n\to+\infty}\left(1+\frac{1}{n}\right)^n$$
 
 \subsection{Теорема об открытых и замкнутых множествах в пространстве и в подпространстве}
 
@@ -600,15 +583,13 @@ $(X, \rho)$ --- метрическое пространство, $K\subset X$
 
 \subsection{Лемма о вложенных параллелепипедах}
 
-$[a, b] = \{x+\R^m: \forall i=1\ldots m \ \ a_i\leq x_i\leq b_i\}$ --- параллелепипед.
+$[a, b] = \{x\in\R^m: \forall i=1\ldots m \ \ a_i\leq x_i\leq b_i\}$ --- параллелепипед.
 
 $[a^1, b^1]\supset[a^2, b^2]\supset\ldots$ --- бесконечная последовательность параллелепипедов.
 
 Тогда $\bigcap\limits_{i=1}^{+\infty}[a^i, b^i]\not=$\O
 
 Если $diam[a^n, b^n]=||b^n-a^n||\to 0$, тогда $\exists! c\in\bigcap\limits_{i=1}^\infty[a^i, b^i]$
-
-\textcolor{red}{Последняя строка тоже входит в лемму?}
 
 \subsection{Компактность замкнутого параллелепипеда в $\R^m$}
 
@@ -639,13 +620,13 @@ $\lim\limits_{x\to a} f(x)=A; \lim\limits_{x\to a} f(x)=B$
 
 \subsubsection{Локальная ограниченность отображения, имеющего предел}
 
-$f: D\in X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
+$f: D\subset X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
 
 Тогда $\exists V(a) : f$ --- огр. на $V(a)\cap D$, т.е. $f(V(a)\cap D)$ содержится в некотором шаре.
 
 \subsubsection{Теорема о стабилизации знака}
 
-$f: D\in X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
+$f: D\subset X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
 
 Пусть $B\in Y, B\not=A$
 
@@ -655,14 +636,14 @@ $f: D\in X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a}
 
 $f,g: D\subset X\to Y$, $X$ --- метрич. пространство, $Y$ --- норм. пространство над $\mathbb{R}$, $a$ --- пред. точка $D$
 
-$\lim\limits_{x\to a}f(x)=A, \lim\limits_{x\to \varphi}g(x)=B$
+$\lim\limits_{x\to a}f(x)=A, \lim\limits_{x\to a}g(x)=B$
 
-$\lambda: D\to \mathbb{R}, \lim\limits_{x\to \varphi}\lambda (x) = \lambda_0$
+$\lambda: D\to \mathbb{R}, \lim\limits_{x\to a}\lambda (x) = \lambda_0$
 
 Тогда:
 \begin{enumerate}
     \item $\exists\lim\limits_{x\to a} f(x)\pm g(x)$ и $\lim\limits_{x\to a} f(x)\pm g(x)=A\pm B$
-    \item $\lim\limits_{x\to a} \lambda(x) f(x) = \lambda_0=A$
+    \item $\lim\limits_{x\to a} \lambda(x) f(x) = \lambda_0A$
     \item $\lim\limits_{x\to a} ||f(x)||=||A||$
     \item Для случая $Y=\R$ и для $B\not=0$ $$\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{A}{B}$$
     $\frac{f}{g}$ задано на множестве $D'=D\setminus \{x:g(x)=0\}$

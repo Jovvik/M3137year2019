@@ -101,7 +101,7 @@ $\overline\R=\R\cup\{-\infty, +\infty\}$ --- пополненное множес
     \item $-\infty<+\infty$
     \item $\pm\infty\cdot\pm\infty=+\infty$
     \item $\pm\infty\cdot\mp\infty=-\infty$
-    \item $-\infty<x<-\infty$
+    \item $-\infty<x<+\infty$
     \item $x\pm\infty=\pm\infty$
     \item $\pm\infty\pm\infty=\pm\infty$
     \item $\pm\infty\mp\infty$ --- не определено
@@ -345,6 +345,18 @@ $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in X \ \ 0<\rho^X(a,x
 \end{enumerate}
 
 Определение на языке окрестностей такое же, как и для произвольного метрического пространства.
+
+\subsection{Непрерывность}
+
+$f:D\subset X\to Y \quad x_0\in D$
+
+$f$ --- \textbf{непрерывное} в точке $x_0$, если:
+\begin{enumerate}
+    \item $\lim\limits_{x\to x_0} f(x)=f(x_0)$, либо $x_0$ --- изолированная точка $D$
+    \item $\forall \varepsilon > 0 \ \ \exists \delta>0 \ \ \forall x\in D \ \ \rho(x, x_0)<\delta \ \ \rho(f(x), f(x_0))<\varepsilon$
+    \item $\forall U(f(x_0)) \ \ \exists V(x_0) \ \ \forall x\in V(x_0)\cap D \ \ f(x)\in U(f(x_0))$
+    \item По Гейне $\forall (x_n):x_n\to x_0; x_n\to D \ \ f(x_n)\xrightarrow[n\to+\infty]{} f(x_0)$
+\end{enumerate}
 
 \section{Теоремы}
 
@@ -642,7 +654,7 @@ $\lambda: D\to \mathbb{R}, \lim\limits_{x\to a}\lambda (x) = \lambda_0$
 
 Тогда:
 \begin{enumerate}
-    \item $\exists\lim\limits_{x\to a} f(x)\pm g(x)$ и $\lim\limits_{x\to a} f(x)\pm g(x)=A\pm B$
+    \item $\exists\lim\limits_{x\to a} (f(x)\pm g(x))$ и $\lim\limits_{x\to a} (f(x)\pm g(x))=A\pm B$
     \item $\lim\limits_{x\to a} \lambda(x) f(x) = \lambda_0A$
     \item $\lim\limits_{x\to a} ||f(x)||=||A||$
     \item Для случая $Y=\R$ и для $B\not=0$ $$\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{A}{B}$$

@@ -1,0 +1,109 @@
+\input{../preamble.sty}
+
+\lhead{Конспект по дискретной математике}
+\cfoot{}
+\rfoot{\today}
+
+\usepackage{listings}
+% \usepackage{courier}
+
+\lstset{basicstyle=\ttfamily\footnotesize, breaklines=true}
+
+\begin{document}
+\section{Генерация}
+\subsection{Все комбинаторные объекты размера $n$}
+
+Рекурсивная процедура генерации ``$gen(prefix)$''.
+
+\begin{lstlisting}[frame=single, language=C, columns=fullflexible]
+gen(prefix):
+    if (prefix - к.о.)
+        print(prefix)
+    for (c - возможный атом)
+        newp = prefix + [c]
+        if (newp - корр. префикс к.о.)
+            gen(newp)
+\end{lstlisting}
+
+Для $\B^n$
+
+\begin{lstlisting}[frame=single, language=Python, columns=fullflexible]
+gen(prefix)
+    if len(prefix) == n:
+        print(*prefix)
+    else:
+        for c in range(2):
+            newp = prefix+[c]
+            gen(newp)
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single, language=Python, columns=fullflexible]
+gen(p):
+    if p == n:
+        print(*a)
+        return
+    for c=0..1:
+        a[p]=c
+        gen(p+1)
+\end{lstlisting}
+
+\subsection{Перестановки размера $n$}
+\begin{lstlisting}[frame=single, language=Python, columns=fullflexible]
+gen(p):
+    if p == n:
+        print(a)
+        return
+    for c=1..n
+        a[p]=c
+        if !used[c]:
+            a[p] = c
+            used[c] = true
+            gen(p+1)
+            used[c] = false
+\end{lstlisting}
+\begin{lstlisting}[frame=single, language=Python, columns=fullflexible]
+gen(p):
+    if p == k:
+        print(a)
+        return
+    for c=1..n
+        if (p == 0 or c > a[p - 1]) and (n - c) >= k - (p + 1)
+            a[p] = c
+            gen(p + 1)
+\end{lstlisting}
+\subsection{Разбиения на слагаемые}
+\begin{lstlisting}[frame=single, language=Python, columns=fullflexible]
+gen(p, sum):
+    if sum == 0:
+        print(a[0:p])
+    else:
+        for c=min(p==0?n:a[p-1], sum)..1:
+            a[p]=c
+            gen(p+1, sum-c)
+\end{lstlisting}
+\subsection{Правильная скобочная последовательность}
+``'' --- правильная скобочная последовательность
+
+$A$ --- ПСП $\Rightarrow (A)$ --- ПСП
+
+$A,B$ --- ПСП $\Rightarrow AB$ --- ПСП
+\begin{lstlisting}[frame=single, language=Python, columns=fullflexible]
+gen(p, bal):
+    if p == 2*n:
+        print(a)
+        return
+    if 2*n-p-1 >= bal+1:
+        a[p] = (
+        gen(p + 1, bal + 1)
+    if bal > 0
+        a[p] = )
+        gen(p + 1, bal - 1)
+\end{lstlisting}
+
+\section{Нумерация}
+
+Номер объекта в нумерации с $0$ равен количеству меньших объектов.
+
+\begin{lstlisting}[frame=single, language=Python, columns=fullflexible]
+\end{lstlisting}
+\end{document}

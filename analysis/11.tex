@@ -1,0 +1,310 @@
+\input{../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{December 2, 2019}
+
+\begin{document}
+    \begin{lemma}
+        О связности отрезка
+
+        Промежуток $\langle a, b\rangle$ \textit{(границы могут входить, могут не входить)} --- не представим в виде объединения двух непересекающихся непустых открытых множеств
+
+        Т.е. $\not\exists G_1, G_2 \subset \R$ --- откр.: $G_1\cap G_2\not=\text{\O}$
+        \begin{itemize}
+            \item $\langle a, b\rangle \subset G_1\cap G_2$
+            \item $\langle a, b\rangle \cap G_1 \not=\text{\O} \quad \langle a, b\rangle \cap G_2 \not=\text{\O}$
+        \end{itemize}
+    \end{lemma}
+    \begin{proof}
+        От противного: $\alpha\in \langle a, b\rangle \cap G_1 \quad \beta\in \langle a, b\rangle \cap G_2$, пусть $\alpha<\beta$
+
+        $$t:=\sup\{x:[\alpha, x]\subset G_1\} \quad \alpha\leq t\leq\beta$$
+
+        $t\in G_1? \text{ нет, т.к. если да, то } t\not=\beta \text{ и } \exists U(t)=(t-\varepsilon, t+\varepsilon)\subset G_1\cap[\alpha, \beta]$, это противоречит определению $t$:
+
+        $[\alpha, t-\frac{\varepsilon}{2}]\subset G_1$
+
+        $(t-\varepsilon, t+\varepsilon)\subset G_1$
+
+        $[\alpha, t+\frac{\varepsilon}{2}]\subset G_1$
+
+        $t\in G_2?$ нет, т.к. если лежит, то $t\not=\alpha \quad \exists(t-\varepsilon, t+\varepsilon)\subset G_2 \cap [\alpha, \beta)$
+
+        $\sup\{x:[\alpha, x]\subset G_1\}\leq t-\varepsilon$
+    \end{proof}
+    \begin{theorem}
+        Больцано-Коши о промежуточном значении
+
+        $f:[a,b]\to\R$, непр. на $[a,b]$. Тогда
+        $$\forall t\text{ между } f(a) \text{ и } f(b) \ \ \exists x\in[a,b] : f(x)=t$$
+    \end{theorem}
+    Традиционное доказательство --- бинпоиск.
+    \begin{proof}
+        Сразу следует из леммы о связности отрезка и топологического определения\\непрерывности.
+
+        Если нашлось $t$, для которого доказуемое утверждение неверно, то $$[a,b]=f^{-1}(-\infty, t)\cup f^{-1}(t, +\infty)$$
+
+        Оба множества открыты, т.к. они --- прообразы открытых множеств. Кроме того, они непусты, т.к. одно из них содержит $a$, другое содержит $b$. Итого, мы представили отрезок $[a,b]$ в виде двух непересекающихся непустых открытых множеств, противоречие по предыдущей лемме.
+    \end{proof}
+    \begin{theorem}
+        Теорема о разделении колбасы.
+
+        Кусок колбасы произвольной формы можно разделить прямой, парралельной данной, на две части одинаковой площади. \textit{(Кусок колбасы вводится, чтобы не возникало вопросов о площади.)}
+    \end{theorem}
+    \begin{proof}
+        Пусть колбаса лежит на столе высотой $H_0$.
+
+        $S(x)\stackrel{def}{=}S_{\text{л}}$ --- непр.
+
+        $$|S(x+h)-S(x)|\leq hH_0$$
+
+        $$\begin{cases}
+            S(x_0)=0 \\
+            S(x_1)=S
+        \end{cases} \Rightarrow \exists \overline x \ \ S(\overline x)=\frac{S}{2}$$
+    \end{proof}
+    \begin{theorem}
+        Теорема о бутерброде
+
+        Кусок хлеба и кусок колбасы, лежащие на столе, можно разрезать прямой на две равные по площади части каждый.
+    \end{theorem}
+    \begin{remark}
+        Т.к. хлеб и колбаса лежат на столе, они ограничены.
+    \end{remark}
+    \begin{proof}
+        Рассмотрим угол $\varphi$ и разделим прямой под углом $\varphi$ колбасу на две равные по площади части.
+
+        $S(\varphi) = S_{\text{л}}-S_{\text{п}}$ \textit{(для хлеба)}
+
+        $S$ --- непр.
+
+        $$|S(\varphi+h)-S(\varphi)|\leq 2ab\sin h\leq 2d^2\sin h$$
+
+        Берём произвольный угол $\varphi_0; \varphi_0+\pi$
+
+        $\varphi_0: S_{\text{л}} - S_{\text{п}}$
+
+        $\varphi_0+\pi: S_{\text{п}} - S_{\text{л}}$
+
+        $\exists \varphi \ \ S(\varphi)=0$
+    \end{proof}
+    \begin{remark}
+        Это верно для адекватной колбасы, например она не должна состоять из двух кусков. Кроме того, она не должна состоять из двух кусков, соединённых ниткой.
+
+        Теорема верна для выпуклых фигур, но возможно для других --- тоже.
+    \end{remark}
+    \begin{theorem}
+        О сохранении промежутка
+
+        $f:\langle a,b \rangle \to\R$, непр.
+
+        Тогда $f(\langle a,b \rangle)$ --- промежуток.
+    \end{theorem}
+    \begin{remark}
+        Это промежуток $\langle \inf f, \sup f \rangle$
+    \end{remark}
+    \begin{remark}
+        $f=\sin \quad (0; 2\pi)\to [-1, 1]; (0; \pi)\to (0, 1]$
+
+        Но! т. Вейерштрасса $f([a,b])$ --- замкн. промежуток
+    \end{remark}
+    \begin{definition}
+        $Y$ --- метр. пр-во
+        
+        $\gamma: [a,b]\to Y$ --- непр. на $[a,b]$
+
+        = путь в пространстве $Y$
+
+        $\gamma[a,b] = $ носитель пути, ``кривая''
+    \end{definition}
+    \begin{example}
+        $\gamma : [0, 2\pi]\to\R^2$
+
+        $t\mapsto \begin{pmatrix}
+            \cos t \\
+            \sin t
+        \end{pmatrix}$
+
+        $\gamma$ --- окружность.
+    \end{example}
+    \begin{definition}
+        $E\subset Y$
+
+        $E$ --- \textbf{линейно связное}, если $\forall A,B\in E$
+
+        $\exists$ путь $\gamma:[a,b]\to E$
+
+        $\gamma(a)=A$
+
+        $\gamma(b)=B$
+    \end{definition}
+    \begin{lemma}
+        В $\R$ линейно связанными множествами являются только промежутки.
+    \end{lemma}
+    \begin{proof}
+        \begin{enumerate}
+            \item Промежуток линейно связен.
+            $$\forall A, B\in \langle a,b \rangle \quad \exists \text{ путь: } \gamma:[A,B]\Rightarrow \langle a,b \rangle; t\mapsto t$$
+            \item $E\subset\R$ --- линейно связное $\xRightarrow{?} E$ --- промежуток
+            
+            Пусть $E$ --- не промежуток
+
+            $\exists a,b,t : a,b\in E; a<b \quad a<t<b; t\not=E$
+
+            Линейная связность: $\gamma:[\alpha, \beta]\to E$
+
+            $\gamma(\alpha)=a \quad \gamma(\beta)=b \quad \gamma$ --- непр.
+        \end{enumerate}
+    \end{proof}
+    \begin{example}
+        \textit{(ужасный)}
+
+        $\gamma: [0,1]\to [0,1]\times[0,1]\subset\R$
+
+        $[0, \frac{1}{4}]$ --- в третий квадрант
+
+        $[\frac{1}{4}, \frac{2}{4}]$ --- во второй квадрант
+
+        $[\frac{2}{4}, \frac{3}{4}]$ --- в первый
+
+        $[\frac{3}{4}, 1]$ --- в четвертый
+        
+        Каждую часть разобьем таким же образом, только так, чтобы из последнего квадранта можно было перейти в дальнейший.
+
+        Разобьем так бесконечное число раз.
+
+        $$x\in [0,1] \quad [a_1, b_1]\supset[a_2, b_2]\supset\ldots$$
+
+        $$K_1\supset K_2\supset K_3\supset\ldots \text{ --- квадраты}$$
+
+        $$\bigcap K_i=\{X\}$$
+
+        $$x\mapsto X$$
+
+        Это кривая Пеано
+    \end{example}
+    \begin{definition}
+        $A$ и $B$ \textbf{равномощны}, если $\exists \varphi: A\to B$ --- биекция
+    \end{definition}
+    \begin{definition}
+        $A$ \textbf{``меньше либо равно''} $B$, обозначается $A\preccurlyeq B$
+
+        $\exists \varphi : A\to B$ --- иньекция
+    \end{definition}
+    \begin{theorem}
+        Кантора --- Бернштейна
+
+        $$A\preccurlyeq B, B\preccurlyeq A \Rightarrow A \text{ и } B \text{ равномощны}$$
+    \end{theorem}
+
+    $\N$ равномощно $\Z$:
+
+    $$\begin{cases}
+        2n\mapsto n\\
+    2n-1\mapsto 1-n\\
+    \end{cases}$$
+
+    \begin{definition}
+        $A$ --- \textbf{счётное множество} $\Leftrightarrow$ равномощно $\N$
+    \end{definition}
+
+    \setcounter{theorem}{-1}
+
+    \begin{theorem}
+        $A$ --- бесконечное $\quad \exists$ счётное $B\subset A$
+    \end{theorem}
+
+    \begin{theorem}
+            $A$ --- счётное $\Rightarrow A\cap\{x\}$ --- счётное
+
+            $A, B$ --- счётное $\Rightarrow A\cap B$ --- счётное
+    \end{theorem}
+    \begin{theorem}
+        $\N\times\N$ --- счётное
+    \end{theorem}
+    \begin{theorem}
+        $A\subset B, B$ --- счётное; $A$ --- бесконечное $\Rightarrow A$ --- счётное
+    \end{theorem}
+    \begin{consequence}
+        $Q$ --- счётное
+
+        $Q\subset \Z\times\N$
+    \end{consequence}
+    \begin{theorem}
+        $[0,1]$ --- несчётно
+    \end{theorem}
+    \begin{proof}
+        Пусть $\exists \varphi: \N\to[0,1]$ --- биекция
+
+        $[a_1, b_1]$ --- любая из частей, где нет $\varphi(1)$
+
+        $[a_2, b_2]$ --- любая из частей, где нет $\varphi(2)$
+
+        $\bigcap[a_k, b_k]\supset\{x\} \quad x$ --- не имеет номера
+        
+        $\forall k \ \ x\in[a_k,b_k]\Rightarrow x\not=\varphi(k)$
+    \end{proof}
+    \begin{definition}
+        $A$ равномощно $[0,1] \Rightarrow A$ имеет мощность \textbf{континуума}.
+    \end{definition}
+    $Bin=$ множество бинарных последовательностей
+    \begin{theorem}
+        $Bin$ имеет мощность континуума
+    \end{theorem}
+    \begin{lemma}
+        $A$ --- беск., $B$ --- счётное $\Rightarrow A\cup B$ равномощно $A$
+    \end{lemma}
+    \begin{proof}
+        Теорема 0 + Теорема 1 \textit{(второй пункт)} + Теорема 3
+    \end{proof}
+    \begin{proof}
+        $\varphi : Bin\to [0,1]\cap Bin_{\text{кон.}}$
+
+        $0101\ldots\mapsto0.0101\ldots$ --- это отображение не иньективно ($0100\ldots\mapsto0.01$; $0011\ldots\mapsto0.01$)
+
+        Иньекция достигается тем, что конечные дроби идут в $Bin_{\text{кон.}}$, а бесконечные в $[0,1]$
+    \end{proof}
+    \begin{consequence}
+        $[0,1]\times[0,1]\subset\R^2$ --- тоже континуум
+    \end{consequence}
+    \begin{proof}
+        Докажем, что $Bin\times Bin$ равномощно $Bin$
+
+        $(x_1x_2x_3\ldots), (y_1y_2\ldots)\mapsto x_1y_1x_2y_2x_3y_3\ldots$ --- биекция
+
+        $$[0,1]\xrightarrow{\varphi} Bin \quad [0,1]\xrightarrow \psi Bin$$
+
+        $$(x,y)\mapsto (\varphi(x), \psi(y))$$
+    \end{proof}
+    \begin{remark}
+        $(0,1)$ равномощно $\R$, например через $ctg(\pi x)$
+    \end{remark}
+
+    \begin{exercise}
+        Доказать, что $[0,1]$ и $(0,1)$ равномощны.
+    \end{exercise}
+
+    \begin{theorem}
+        О непрерывности монотонных функций. (Важно знать формулировку)
+
+        $f:\langle a,b\rangle \to\R$, монотонна. Тогда
+        \begin{enumerate}
+            \item Точки разрыва $f$ (если есть) --- I рода
+            \item $f$ --- непр. на $\langle a,b\rangle \Rightarrow f(\langle a,b\rangle)$ --- промежуток
+        \end{enumerate}
+    \end{theorem}
+    \begin{proof}
+        Рассмотрим $f\uparrow$
+        \begin{enumerate}
+            \item $x_1<x<x_2 \quad f(x_1)\leq f(x)\leq f(x_2)$
+            
+            $$x\to x_1 \quad f(x_1)\leq f(x_1+0)\leq f(x_2) \Rightarrow \exists\lim\limits_{x\to x_1+0} f(x)$$, аналогично для $x_1-0$
+            
+            \item ``$\Rightarrow$'' следует из теоремы о сохранении промежутка.
+            
+            ``$\Leftarrow$'' $x_0\in\langle a,b\rangle \quad ?f$ --- непр. в $x_0?$
+            $$f(x_0-0)\leq f(x_0)\leq f(x_0+0)$$
+        \end{enumerate}
+    \end{proof}
+\end{document}

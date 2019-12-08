@@ -218,17 +218,19 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 \end{definition}
 
 \begin{remark}
+    %<*описаниевнутренности>
     \begin{enumerate}
         \item $Int D$ - откр. множество
-        \item $Int D=\bigcap\limits_{\substack{G: \\ D>G \\ G \text{--- откр.}}} G$
+        \item $Int D = \bigcup\limits_{\substack{D\supset G \\ G\text{ --- открыт}}}$ --- максимальное открытое множество, содержащееся в $D$
         \item $D$ --- откр. в $X \Leftrightarrow D=Int D$
     \end{enumerate}
+    %</описаниевнутренности>
 \end{remark}
 
 \begin{definition}
-    $a$ --- предельная точка множества $D$
-    
-    $\forall \dot U(a) \quad \dot U(a)\cap D\not = \text{\O}$
+    %<*предельнаяточка>
+    $a$ --- {\bf предельная точка} множества $D$, если $$\forall \dot U(a) \ \ \dot U(a)\cap D\not = \text{\O}$$
+    %</предельнаяточка>
 \end{definition}
 
 Пример: $D=(0,1), X=\mathbb{R}$
@@ -252,15 +254,18 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 \end{remark}
 
 \begin{definition}
-    $a$ - изолированная точка $D$, если $a\in D$ и $a$ --- не предельная.
-
-    $\exists U(a) \quad U(a)\cap D = \{a\}$
+    %<*изолированнаяточка>
+    $a$ - изолированная точка $D$, если $a\in D$ и $a$ --- не предельная, то есть:
+    $$\exists U(a) \quad U(a)\cap D = \{a\}$$
+    %</изолированнаяточка>
 \end{definition}
 
 Пример --- $\mathbb{N}$
 
 \begin{definition}
+    %<*замкнутоемножество>
     $D$ - замкнутое множество, если оно содержит все свои предельные точки.
+    %</замкнутоемножество>
 \end{definition}
 
 Пример: $X, \text{\O}, [0,1], \overline{B(a,R)}, \{a\}$ --- замкнутые

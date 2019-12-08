@@ -105,9 +105,12 @@ $\lim\limits_{x\to x_0} f(x)=L$
 
 $D_1\subset D, x_0$ --- предельная точка $D_1$.
 
+%<*пределпомножеству>
 Предел при $x\to x_0$ по множеству $D_1$ --- это $\lim\limits_{x\to x_0} f|_{D_1}$
+%</пределпомножеству>
 
 \begin{definition}
+    %<*односторонниепределы>
     В $\R$ одностор. $=\{$ левостор., правостор.$\}$
 
     Левостор. $\lim\limits_{x\to x_0-0}f(x)=L$ - это $\lim f|_{D\cap(-\infty, +\infty)}$
@@ -115,6 +118,7 @@ $D_1\subset D, x_0$ --- предельная точка $D_1$.
     $$\forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall x\in(x_0-\delta, x_0)\cap D \ \ |f(x) - L|<\varepsilon$$
 
     Аналогично правостор.
+    %</односторонниепределы>
 \end{definition}
 
 Если $\lim\limits_{x\to x_0-0} f = \lim\limits_{x\to x_0+0} f=L \Rightarrow \lim\limits_{x\to x_0} f = L$
@@ -190,6 +194,7 @@ $$\forall \varepsilon>0 \ \ \exists \Delta \ \ \forall x_1, x_2\in D \ \ x_1>\De
 \section{Непрерывные отображения}
 
 \begin{definition}
+    %<*непрерывноеотображение>
     $f:D\subset X\to Y \quad x_0\in D$
 
     $f$ --- \textbf{непрерывное} в точке $x_0$, если:
@@ -199,26 +204,32 @@ $$\forall \varepsilon>0 \ \ \exists \Delta \ \ \forall x_1, x_2\in D \ \ x_1>\De
         \item $\forall U(f(x_0)) \ \ \exists V(x_0) \ \ \forall x\in V(x_0)\cap D \ \ f(x)\in U(f(x_0))$
         \item По Гейне $\forall (x_n):x_n\to x_0; x_n\to D \ \ f(x_n)\xrightarrow[n\to+\infty]{} f(x_0)$
     \end{enumerate}
+    %</непрерывноеотображение>
 \end{definition}
 
 \begin{definition}
+    %<*точкаразрыва>
     Если $\not\exists\lim\limits_{x\to x_0} f(x)$, либо $\exists\lim\limits_{x\to x_0}f(x)\not=f(x_0)$ --- \textbf{точка разрыва}.
+    %</точкаразрыва>
 \end{definition}
 
 Для $\R \quad \forall \varepsilon>0 \ \ \exists \delta > 0 \ \ \forall x\in D \ \ |x-x_0|<\delta \ \ |f(x) - f(x_0)|<\varepsilon$
 
 \begin{definition}
     Непр. слева и непр. справа
-
+    %<*непрерывностьслева>
     $f$ --- непр. слева в $x_0$, если $f|_{(-D, x_0]\cap D}$ --- непрерывно в $x_0$
+    %</непрерывностьслева>
 \end{definition}
 
 Если $f$ непрерывно слева и непрерывно справа в $x_0$, то $f$ непрерывно в $x_0$.
 
 \begin{definition}
+    %<*родточкиразрыва>
     Пусть $\exists f(x_0-0), f(x_0+0)$ и не все 3 числа равны: $f(x_0-0), f(x_0), f(x_0+0)$. Это \textbf{разрыв I рода \textit{(скачок)}}.
 
     Остальные точки разрыва --- \textbf{разрыв II рода}.
+    %</родточкиразрыва>
 \end{definition}
 
 \begin{example}

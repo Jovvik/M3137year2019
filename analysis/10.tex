@@ -4,8 +4,6 @@
 \cfoot{}
 \rfoot{November 25, 2019}
 
-\DeclareMathOperator*{\equ}{\sim}
-
 \begin{document}
     \begin{example}
         $\langle a,b \rangle \quad f:\langle a, b\rangle \to \R$
@@ -160,6 +158,7 @@
 
     \section{$O$-символика}
     \begin{definition}
+        %<*осимволика>
         $f,g:D\subset X\to\R \ \ x_0$ --- пр. точка $D$
 
         Если $\exists V(x_0) \ \ \exists \varphi:V(x_0)\cap D\to\R \quad f(x)=g(x)\varphi(x)$ при $x\in V(x_0)\cap D$
@@ -170,6 +169,7 @@
             \item $\varphi(x)\xrightarrow[x\to x_0]{}0 \quad f$ --- беск. малая по отношению к $g$ при $x\to x_0$, $f=o(g)$
             \item $\varphi(x)\xrightarrow[x\to x_0]{}1 \quad f$ и $g$ экв. при $x\to x_0 \quad f\equ\limits_{x\to x_0} g$ 
         \end{enumerate}
+        %</осимволика>
 
         $g, f:D\subset X\to\R$
     \end{definition}
@@ -177,7 +177,9 @@
         $\exists c>0 \ \ \forall x\in D \ \ f=O(g) \ \ |f(x)|<c|g(x)|$ --- $f$ ограничена по сравнению с $g$ на множестве $D$.
     \end{definition}
     \begin{definition}
-        В условиях прошлых определений $f=O(g), g=O(f) \Leftrightarrow f\asymp g$ --- сравнимы на множестве $D$, ``величины одного порядка''.
+        %<*асимптотическиравныефункции>
+        В условиях прошлых определений $f=O(g), g=O(f) \Leftrightarrow f\asymp g$ --- асимптотически сравнимы на множестве $D$, ``величины одного порядка''.
+        %</асимптотическиравныефункции>
     \end{definition}
     \begin{remark}
         Первое определение $\Leftrightarrow f=O(g)$ на $V(x_0)\cap D$ в смысле второго определения $\Leftrightarrow \frac{f}{g}$ --- огр. на $V(x_0)\cap D$ \textit{(если $g\not=0$)}
@@ -238,6 +240,7 @@
     \subsection{Асимптотическое разложение}
 
     \begin{definition}
+        %<*асимтотическоеразложение>
         $g_n:D\subset X\to\R \quad x_0$ --- пред. точка $D$
 
         $\forall n \quad g_{n+1}(x)=o(g_n), x\to x_0$
@@ -249,6 +252,7 @@
         $(g_n)$ называется \textbf{шкала асимптотического разложения}.
         
         $f:D\to\R$ Если $f(x)=c_0g_0(x)+c_1g_1(x)+\ldots+c_ng_n(x)+o(g_n)$, то это асимптотическое разложение $f$ по шкале $(g_n)$
+        %</асимтотическоеразложение>
     \end{definition}
     \begin{theorem}
         $f, g_n: D\subset X\to \R \quad x_0$ --- предельная точка $D$
@@ -277,8 +281,10 @@
         $$d_k-c_k=\frac{o(g_k)}{g_k(x)}\xrightarrow[x\to x_0]{}0$$
     \end{proof}
     \begin{example}
+        %<*наклоннаяасимптота>
         Пусть $f(x)=Ax+B+o(1), x\to +\infty$
 
-        Прямая $y=Ax+B$ --- наклонная ассимптота к графику $f$ при $x\to +\infty$
+        Прямая $y=Ax+B$ --- наклонная асимптота к графику $f$ при $x\to +\infty$
+        %</наклоннаяасимптота>
     \end{example}
 \end{document}

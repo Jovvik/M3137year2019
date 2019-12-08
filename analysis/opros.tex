@@ -243,15 +243,15 @@ $$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
 $A\subset X$ --- {\bf ограничено}, если $\exists x_0\in X \ \ \exists R>0 \ \ A\subset B(x_0, R)$, т.е. если $A$ содержится в некотором шаре в $X$.
 
 \subsection{Внутренняя точка множества, открытое множество, внутренность}
-
+%<*внутренность>
 $a$ --- {\bf внутренняя точка} множества $D$, если $\exists U(a) : U(a)\subset D$, т.е. $\exists r>0 : B(a,r)\subset D$
 
 $D$ --- {\bf открытое множество}, если $\forall a\in D : a$ --- внутренняя точка $D$
 
 {\bf Внутренностью} множества $D$ называется $Int(D)=\{x\in D : x \text{ --- внутр. точка }D\}$
+%</внутренность>
 
 \subsection{Предельная точка множества}
-
 $a$ --- {\bf предельная точка} множества $D$, если $\forall \dot U(a) \ \ \dot U(a)\cap D\not = \text{\O}$
 
 \subsection{Замкнутое множество, замыкание, граница}
@@ -334,7 +334,7 @@ $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in X \ \ 0<\rho^X(a,x
     $f(x_n)\to b$
 
 \subsection{Определения пределов в $\overline\R$}
-
+%<*пределывrсчертой>
 Для $Y=\overline\R, -\infty<x<+\infty$:
 
 \begin{enumerate}
@@ -343,6 +343,7 @@ $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in X \ \ 0<\rho^X(a,x
     \item $\lim\limits_{x\to +\infty}f(x)=c\in\mathbb{R} \quad \forall \varepsilon>0 \ \ \exists \delta \ \ \forall x\in X : x>\delta \ \ |f(x)-c|<\varepsilon$
     \item $\lim\limits_{x\to -\infty}f(x)=c\in\mathbb{R} \quad \forall \varepsilon>0 \ \ \exists \delta \ \ \forall x\in X : x<\delta \ \ |f(x)-c|<\varepsilon$
 \end{enumerate}
+%</пределывrсчертой>
 
 Определение на языке окрестностей такое же, как и для произвольного метрического пространства.
 

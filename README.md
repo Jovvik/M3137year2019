@@ -1,5 +1,7 @@
 # Конспекты М3137
 
+Если вы хотите помочь, всё, чего не хватает в конспектах - [тут](https://github.com/Jovvik/M3137year2019/issues/2)
+
 Если нашли ошибку, репортить в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм @aeriu.
 
 - [Опрос по матанализу #1](analysis/opros.pdf)

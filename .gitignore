@@ -1,2 +1,4 @@
 *.synctex.gz
 *.html
+*.log
+*.aux

@@ -27,8 +27,9 @@
 
 \begin{consequence}
     Принцип выбора Больцано-Вейерштрасса.
-
+    %<*принципвыборабольцановейерштрасса>
     Если в $\R^m$ $(x_n)$ --- ограниченная последовательность, то у неё существует сходящаяся подпоследовательность.
+    %</принципвыборабольцановейерштрасса>
 \end{consequence}
 \begin{proof}
     $x_n$ --- огр. $\Rightarrow x_n$ содержится в замкнутом кубе. Так как куб секвенциально компактен, $x_{n_k}$ сходится.
@@ -39,9 +40,10 @@
 \begin{definition}
     $X$ --- метрическое пространство, $(x_n)$ в $X$
 
-    $x_n$ --- \textbf{фундаментальная, последовательность Коши, сходящаяся в себе}.
-    
+    %<*сходящаясявсебе>
+    $x_n$ --- \textbf{фундаментальная, последовательность Коши, сходящаяся в себе}, если:
     $$\forall \varepsilon>0 \ \ \exists N \ \ \forall m,n > N\ \ \rho(x_m, x_n)<\varepsilon$$
+    %</сходящаясявсебе>
 \end{definition}
 \begin{lemma}
     \begin{enumerate}
@@ -134,14 +136,16 @@ $\lim\limits_{x\to 0-0} f = \lim\limits_{x\to -0} f$
 \begin{theorem}
     О пределе монотонной функции
 
+    %<*определемонотоннойфункции>
     $f:D\subset \R \to \R$, монотонная, $a\in\overline\R$
 
-    $D_1:=D\cap (-\infty, a), a$ --- пред. точка $D_1$
+    $D_1:=D\cap (-\infty, a), a$ --- пред. точка $D_1$. Тогда:
 
     \begin{enumerate}
         \item $f$ --- возрастает, огр. сверху $D_1$. Тогда $\exists$ конечный предел $\lim\limits_{x\to a-0} f(x)$
         \item $f$ --- убывает, огр. снизу $D_1$. Тогда $\exists$ конечный предел $\lim\limits_{x\to a-0} f(x)$
     \end{enumerate}
+    %</определемонотоннойфункции>
 \end{theorem}
 \begin{proof}
     \begin{enumerate}
@@ -160,9 +164,11 @@ $\lim\limits_{x\to 0-0} f = \lim\limits_{x\to -0} f$
 Критерий Больцано-Коши для отображений.
 
 \begin{theorem}
+    %<*критерийбольцанокошидляотображений>
     $f:D\subset X\to Y$, $a$ --- пр. точка $D$, $Y$ --- полное метрическое пространство.
 
     Тогда $$\exists \lim\limits_{x\to a}f(x)\in Y \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \delta>0 \ \ \forall x_1, x_2\in D \ \ \rho(x_1,a)<\delta; \rho(x_2, a) < \delta \ \ \rho(f(x_1), f(x_2))<\varepsilon$$
+    %</критерийбольцанокошидляотображений>
 \end{theorem}
 \begin{proof}
     ``$\Rightarrow$'' как для последовательностей.
@@ -248,25 +254,25 @@ $$\forall \varepsilon>0 \ \ \exists \Delta \ \ \forall x_1, x_2\in D \ \ x_1>\De
     Отображение \textbf{непрерывно} на множестве $D = $ непрерывно в каждой точке множества $D$.
 \end{definition}
 
-% \begin{theorem}
+\begin{theorem}
+    Арифметические свойства непрерывных отображений
+    %<*арифметическиесвойстванепрерывныхотображений>
     \begin{enumerate}
-        \item Арифметические свойства
-        \begin{enumerate}
-            \item $f,g:D\subset X\to Y \ \ x_0\in D$ ($X$ --- норм. пространство)
-            
-            $f, g$ --- непр. в $D; \lambda:D\to\R(\C)$ --- непр. $x_0$
-            
-            Тогда $f\pm g, ||f||, \lambda f$ --- непр. $x_0$
+        \item $f,g:D\subset X\to Y \ \ x_0\in D$ ($X$ --- норм. пространство)
+        
+        $f, g$ --- непр. в $D; \lambda:D\to\R(\C)$ --- непр. $x_0$
+        
+        Тогда $f\pm g, ||f||, \lambda f$ --- непр. $x_0$
 
-            \item $f,g:D\subset X\to \R \ \ x_0\in D$
-            
-            $f, g$ --- непр. в $x_0$
+        \item $f,g:D\subset X\to \R \ \ x_0\in D$
+        
+        $f, g$ --- непр. в $x_0$
 
-            Тогда $f\pm g, |f|, fg$ --- непр. в $x_0$
+        Тогда $f\pm g, |f|, fg$ --- непр. в $x_0$
 
-            $g(x_0)\not=0$, тогда $\frac{f}{g}$ --- непр. $x_0$
-        \end{enumerate}
+        $g(x_0)\not=0$, тогда $\frac{f}{g}$ --- непр. $x_0$
     \end{enumerate}
-% \end{theorem}
+    %</арифметическиесвойстванепрерывныхотображений>
+\end{theorem}
 
 \end{document}

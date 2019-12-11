@@ -10,7 +10,9 @@
 \section{Пределы}
 
 \begin{theorem}
+    %<*эквивалентностьопределенийгейнеикоши>
     Определение Коши $\Leftrightarrow$ определение Гейне.
+    %</эквивалентностьопределенийгейнеикоши>
 \end{theorem}
 \begin{proof}
     Докажем ``$\Rightarrow$''.
@@ -37,12 +39,13 @@
 
 \begin{theorem}
     О единственности предела.
-
+    %<*оединственностипредела>
     $f: D\in X\to Y$, $a$ --- пред. точка $D$
 
     $\lim\limits_{x\to a} f(x)=A; \lim\limits_{x\to a} f(x)=B$
 
     Тогда $A=B$
+    %</оединственностипредела>
 \end{theorem}
 \begin{proof}
     По Гейне.
@@ -58,11 +61,13 @@
 \end{proof}
 
 \begin{theorem}
+    %<*олокальнойограниченностиотображенияимеющегопредел>
     О локальной ограниченности отображения, имеющего предел.
 
     $f: D\in X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
 
     Тогда $\exists V(a) : f$ --- огр. на $V(a)\cap D$, т.е. $f(V(a)\cap D)$ содержится в некотором шаре.
+    %</олокальнойограниченностиотображенияимеющегопредел>
 \end{theorem}
 \begin{proof}
     Для $\varepsilon = 1 \ \ \exists V(a) \ \ \forall x\in \dot V(a)\cap D \ \ f(x)\in U_\varepsilon(A)$
@@ -71,6 +76,7 @@
 \end{proof}
 
 \begin{theorem}
+    %<*остабилизациизнака>
     О стабилизации знака.
 
     $f: D\in X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
@@ -78,6 +84,7 @@
     Пусть $B\in Y, B\not=A$
 
     Тогда $\exists V(a) \ \ \forall x \in \dot V(a)\cap D \ \ f(x)\not = B$
+    %</остабилизациизнака>
 \end{theorem}
 \begin{proof}
     Для $$0 < \varepsilon < \rho(A, B) \ \ \exists V(a) \ \ \forall x\in \dot V(a)\cap D \ \ f(x)\in U_\varepsilon(A)$$ $U_\varepsilon(A)$ не содержит $B$.
@@ -93,6 +100,7 @@
 \begin{theorem}
     Об арифметических свойствах предела
 
+    %<*обарифметическихсвойствахпредела>
     $f,g: D\subset X\to Y$, $X$ --- метрич. пространство, $Y$ --- норм. пространство над $\mathbb{R}$, $a$ --- пред. точка $D$
 
     $\lim\limits_{x\to a}f(x)=A, \lim\limits_{x\to \varphi}g(x)=B$
@@ -111,6 +119,7 @@
 
         $\dot V(a)\cap D'=\dot V(a)\cap D \Rightarrow a$ --- пред. точка для $D'$
     \end{enumerate}
+    %</обарифметическихсвойствахпредела>
 \end{theorem}
 \begin{proof}
     По Гейне.
@@ -136,7 +145,9 @@
 \begin{remark}
     Для $\overline \R$
 
+    %<*арифметическиесвойствапределадляoverliner>
     Если $Y=\R$, можно ``разрешить'' случай $A, B=\pm \infty$
+    %</арифметическиесвойствапределадляoverliner>
 
     Тогда 3. тривиально, 1., 2. и 4. верно, если выражения $A\pm B$, $\lambda_0 A$, $\frac{A}{B}$ корректны.
 
@@ -150,13 +161,14 @@
 
 \begin{theorem}
     О простейших свойствах компактных множеств.
-
+    %<*опростейшихсвойствахкомпактныхмножеств>
     $(X, \rho)$ --- метрическое пространство, $K\subset X$
 
     \begin{enumerate}
         \item $K$ --- комп. $\Rightarrow K$ --- замкн., $K$ --- огр.
         \item $X$ --- комп, $K$ --- замкн. $\Rightarrow K$ --- комп. 
     \end{enumerate}
+    %</опростейшихсвойствахкомпактныхмножеств>
 \end{theorem}
 \begin{proof}
     \begin{enumerate}
@@ -192,7 +204,7 @@
 
 \begin{lemma}
     О вложенных параллелепипедах.
-
+    %<*овложенныхпараллелепипедах>
     $[a, b] = \{x+\R^m: \forall i=1\ldots m \ \ a_i\leq x_i\leq b_i\}$ --- параллелепипед.
 
     $[a^1, b^1]\supset[a^2, b^2]\supset\ldots$ --- бесконечная последовательность параллелепипедов.
@@ -200,6 +212,7 @@
     Тогда $\bigcap\limits_{i=1}^{+\infty}[a^i, b^i]\not=$\O
 
     Если $diam[a^n, b^n]=||b^n-a^n||\to 0$, тогда $\exists! c\in\bigcap\limits_{i=1}^\infty[a^i, b^i]$
+    %</овложенныхпараллелепипедах>
 \end{lemma}
 \begin{proof}
     Покоординатное
@@ -209,8 +222,9 @@
     $|a_i^n-b_i^n|\leq ||a^n-b^n||\to 0 \Rightarrow_{\text{т. Кантора}}\exists! c_i\in\bigcap\limits_{n=1}^{+\infty}[a_i^n, b_i^n] \Rightarrow \exists! c=(c_1\ldots c_m)$
 \end{proof}
 \begin{lemma}
+    %<*компактностьпарллелепипеда>
     $[a,b]$ --- компактное множество в $\R^m$
-
+    %</компактностьпарллелепипеда>
     $[a, b]\subset\bigcup\limits_{\alpha\in A} G_\alpha$ --- откр. в $\R^m$
 \end{lemma}
 
@@ -265,13 +279,14 @@
 \end{definition}
 \begin{theorem}
     О характеристике компактов в $\R^m$.
-
+    %<*охарактеристикекомпактоввrm>
     $K\subset \R^m$. Эквивалентны следующие утверждения:\begin{enumerate}
         \itemsep-0.5em
         \item $K$ --- замкнуто и ограничено
         \item $K$ --- компактно
         \item $K$ --- секвенциально компактно
     \end{enumerate}
+    %</охарактеристикекомпактоввrm>
 \end{theorem}
 \begin{proof}
     Докажем $1\Rightarrow 2$

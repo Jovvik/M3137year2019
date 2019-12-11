@@ -18,12 +18,13 @@
     \end{example}
     \begin{theorem}
         О непрерывности композиции
-
+        %<*онепрерывностикомпозиции>
         $f:D\subset X\to Y \quad g:E\subset Y\to Z \quad f(D)\subset E$
 
         $f$ --- непр. в $x_0\in D$, $g$ --- непр. в $f(x_0)$
 
         Тогда $g\circ f$ непр. в $x_0$
+        %</онепрерывностикомпозиции>
     \end{theorem}
     \begin{proof}
         По Гейне.
@@ -52,6 +53,7 @@
     \begin{theorem}
         О пределе композиции
 
+        %<*определекомпозиции>
         $f:D\subset X\to Y \quad g:E\subset Y\to Z \quad f(D)\subset E$
 
         $a$ --- предельн. точка $D \quad f(x)\xrightarrow[x\to a]{} A$
@@ -61,6 +63,7 @@
         $\exists V(a) \quad \forall x\in \dot V(a)\cap D \quad f(x)\not=A \quad (*)$
 
         Тогда $g(f(x))\xrightarrow[x\to a]{} B$
+        %</определекомпозиции>
     \end{theorem}
     \begin{proof}
         По Гейне.
@@ -80,8 +83,9 @@
     \end{remark}
     \begin{theorem}
         Топологическое определение непрерывности
-
+        %<*топологическоеопределениенепрерывности>
         $f: X\to Y$ --- непр. на $X \Leftrightarrow \forall G\subset Y$, откр. $f^{-1}(G)$ --- откр. в $X$.
+        %</топологическоеопределениенепрерывности>
     \end{theorem}
     \begin{proof}
         ``$\Rightarrow$'' $x_0\in f^{-1}(G) \quad ?\exists V(x_0)\subset f^{-1}(G)$
@@ -221,6 +225,7 @@
         \end{enumerate}
     \end{example}
     \begin{theorem}
+        %<*озамененаэквивалентную>
         $f,\tilde f, g, \tilde g:D\subset X \to \R$
 
         $x_0$ --- предельная точка $D$
@@ -230,6 +235,7 @@
         Тогда $$\lim\limits_{x\to x_0} f(x)g(x)=\lim\limits_{x\to x_0}\tilde f(x)\tilde g(x)$$
         , т.е. если $\exists$ один из пределов, то $\exists$ и второй и имеет место равенство $$\lim\limits_{x\to x_0} \frac{f(x)}{g(x)} = \lim\limits_{x\to x_0} \frac{\tilde f(x)}{\tilde g(x)}$$
         , если $x_0$ лежит в области определения $\frac{f}{g}$
+        %</озамененаэквивалентную>
     \end{theorem}
     \begin{proof}
         $$f(x)g(x) = \tilde f(x)\tilde g(x)\frac{f}{\tilde f}\frac{g}{\tilde g}\to \tilde f(x)\tilde g(x) \cdot 1\cdot 1$$
@@ -255,6 +261,9 @@
         %</асимтотическоеразложение>
     \end{definition}
     \begin{theorem}
+        О единственности асимптотического разложения
+
+        %<*оединственностиасимтотическогоразложения>
         $f, g_n: D\subset X\to \R \quad x_0$ --- предельная точка $D$
 
         $\forall n \ \ g_{n+1}=o(g_n), x\to x_0$
@@ -268,6 +277,7 @@
         $] n\leq m$
 
         Тогда $c_0=d_0, c_1=d_1 \ldots c_n=d_n$
+        %</оединственностиасимтотическогоразложения>
     \end{theorem}
     \begin{proof}
         $k:=min\{i:c_i\not=d_i\}$

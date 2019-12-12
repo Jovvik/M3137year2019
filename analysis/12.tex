@@ -13,8 +13,9 @@
 
 \begin{consequence}
     \textit{(из теоремы о непрерывности монотонной функции)}
-
+    %<*омножестветочекразрыва>
     У монотонной функции, заданной на промежутке, имеется не более чем счётное \textit{(НБЧС)} множество точек разрыва.
+    %</омножестветочекразрыва>
 \end{consequence}
 \begin{example}
     $\Theta(x) = sign(x) \frac{1}{2} + \frac{1}{2}$
@@ -53,6 +54,7 @@
 \begin{theorem}
     О существовании и непрерывности обратной функции.
 
+    %<*осуществованииинепрерывностиобратнойфункции>
     $f:\langle a, b\rangle\to\R$ --- непр., строго монот.
 
     $m:=\inf\limits_{\langle a, b\rangle} f(x), M:=\sup\limits_{\langle a, b\rangle} f(x)$. Тогда:
@@ -62,6 +64,7 @@
         \item $f^{-1}$ строго монотонна и того же типа \textit{(возрастает или убывает)}
         \item $f^{-1}$ непрерывна
     \end{enumerate}
+    %</осуществованииинепрерывностиобратнойфункции>
 \end{theorem}
 \begin{remark}
     Тип промежутка в $f$ и $f^{-1}$ совпадают.
@@ -130,6 +133,7 @@ $$f_a(x) = x^a, a\in\Q$$
 \section{Производная}
 
 \begin{definition}
+    %<*дифференциируемая>
     $f:\langle a,b\rangle\to\R \quad x_0\in\langle a,b\rangle$
 
     $f$ --- \textbf{дифференцируема}. в точке $x_0$, если $\exists A\in\R$
@@ -137,6 +141,7 @@ $$f_a(x) = x^a, a\in\Q$$
     $$f(x)=f(x_0)+A\cdot(x-x_0)+o(x-x_0), x\to x_0$$
 
     При этом $A$ называется \textbf{производной} $f$ в точке $x_0$
+    %</дифференциируемая>
 \end{definition}
 \begin{definition}
     $f$ --- \textbf{дифференцируема} в точке $x$, если $$\exists \lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=A\in\R$$

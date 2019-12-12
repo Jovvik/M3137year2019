@@ -7,7 +7,7 @@
 \begin{document}
     \begin{lemma}
         О связности отрезка
-
+        %<*освязностиотрезка>
         Промежуток $\langle a, b\rangle$ \textit{(границы могут входить, могут не входить)} --- не представим в виде объединения двух непересекающихся непустых открытых множеств
 
         Т.е. $\not\exists G_1, G_2 \subset \R$ --- откр.: $G_1\cap G_2\not=\text{\O}$
@@ -15,6 +15,7 @@
             \item $\langle a, b\rangle \subset G_1\cap G_2$
             \item $\langle a, b\rangle \cap G_1 \not=\text{\O} \quad \langle a, b\rangle \cap G_2 \not=\text{\O}$
         \end{itemize}
+        %</освязностиотрезка>
     \end{lemma}
     \begin{proof}
         От противного: $\alpha\in \langle a, b\rangle \cap G_1 \quad \beta\in \langle a, b\rangle \cap G_2$, пусть $\alpha<\beta$
@@ -35,9 +36,10 @@
     \end{proof}
     \begin{theorem}
         Больцано-Коши о промежуточном значении
-
+        %<*больцанокошиопромежуточномзначении>
         $f:[a,b]\to\R$, непр. на $[a,b]$. Тогда
         $$\forall t\text{ между } f(a) \text{ и } f(b) \ \ \exists x\in[a,b] : f(x)=t$$
+        %</больцанокошиопромежуточномзначении>
     \end{theorem}
     Традиционное доказательство --- бинпоиск.
     \begin{proof}
@@ -66,8 +68,9 @@
     \end{proof}
     \begin{theorem}
         Теорема о бутерброде
-
+        %<*теоремаобутерброде>
         Кусок хлеба и кусок колбасы, лежащие на столе, можно разрезать прямой на две равные по площади части каждый.
+        %</теоремаобутерброде>
     \end{theorem}
     \begin{remark}
         Т.к. хлеб и колбаса лежат на столе, они ограничены.
@@ -96,10 +99,11 @@
     \end{remark}
     \begin{theorem}
         О сохранении промежутка
-
+        %<*осохранениипромежутка>
         $f:\langle a,b \rangle \to\R$, непр.
 
         Тогда $f(\langle a,b \rangle)$ --- промежуток.
+        %</осохранениипромежутка>
     \end{theorem}
     \begin{remark}
         Это промежуток $\langle \inf f, \sup f \rangle$
@@ -144,7 +148,9 @@
         %</линейносвязноемножество>
     \end{definition}
     \begin{lemma}
+        %<*линейносвзяноевr>
         В $\R$ линейно связанными множествами являются только промежутки.
+        %</линейносвзяноевr>
     \end{lemma}
     \begin{proof}
         \begin{enumerate}

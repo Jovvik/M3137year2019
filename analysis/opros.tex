@@ -16,6 +16,7 @@
 
 \begin{document}
 \section{Определения}
+%<*определения>
 \subsection{Упорядоченная пара}
 Для некоторого множества $X$ и $I$ - множество ``индексов'', тогда $(x_\alpha)_{\alpha\in I}$ - \textbf{семейство элементов} $X$. ($\forall \alpha\in I \ \ x_\alpha \in X$)
 
@@ -241,6 +242,7 @@ $$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
 \subsection{Ограниченное множество в метрическом пространстве}
 
 $A\subset X$ --- {\bf ограничено}, если $\exists x_0\in X \ \ \exists R>0 \ \ A\subset B(x_0, R)$, т.е. если $A$ содержится в некотором шаре в $X$.
+%</определения>
 
 \subsection{Внутренняя точка множества, открытое множество, внутренность}
 %<*внутренность>
@@ -363,11 +365,12 @@ $f$ --- \textbf{непрерывное} в точке $x_0$, если:
 
 \subsection{Законы де Моргана}
 
+%<*законыдеморгана>
 Пусть $(X_\alpha)_{\alpha \in A}$ - семейство множеств, $Y$ - множество. Тогда:
 
 \begin{enumerate}
-    \item $Y\setminus(\bigcup\limits_{\alpha \in A}X_\alpha) = \bigcap\limits_{\alpha \in A}(Y\setminus X_\alpha)$
-    \item $Y\setminus(\bigcap\limits_{\alpha \in A}X_\alpha) = \bigcup\limits_{\alpha \in A}(Y\setminus X_\alpha)$
+    \item $Y\setminus(\bigcup\limits_{\alpha \in A}X_\alpha) = \bigcap\limits_{\alpha \in A}(Y\setminus X_\alpha) \quad \textcircled 1$
+    \item $Y\setminus(\bigcap\limits_{\alpha \in A}X_\alpha) = \bigcup\limits_{\alpha \in A}(Y\setminus X_\alpha) \quad \textcircled 2$
 \end{enumerate}
 
 Вариант 2:
@@ -376,9 +379,11 @@ $f$ --- \textbf{непрерывное} в точке $x_0$, если:
     \item $Y\cap(\bigcup\limits_{\alpha \in A}X_\alpha) = \bigcup\limits_{\alpha \in A}(Y\cap X_\alpha)$
     \item $Y\cup(\bigcap\limits_{\alpha \in A}X_\alpha) = \bigcap\limits_{\alpha \in A}(Y\cup X_\alpha)$
 \end{enumerate}
+%</законыдеморгана>
 
 \subsection{Неравенство Коши-Буняковского, евклидова норма в $\R^m$}
 
+%<*неравенствокошибуняковскогоевклдиованормавrm>
 \subsubsection{Неравенство Коши-Буняковского}
 
 $$(\sum a_ib_i)^2 \leq (\sum a_i^2)(\sum b_k^2)$$
@@ -387,8 +392,10 @@ $$(\sum a_ib_i)^2 \leq (\sum a_i^2)(\sum b_k^2)$$
 
 $$||x||=\sqrt{\sum\limits_{i}^m x_i^2}$$
 
+%</неравенствокошибуняковскогоевклдиованормавrm>
 \subsection{Аксиома Архимеда. Плотность множества $\Q$ в $\R$}
 
+%<*аксиомаархимедаплотностьqвr>
 \subsubsection{Аксиома Архимеда}
 
 $$\forall x,y>0: \exists n\in \R: nx>y$$
@@ -398,10 +405,13 @@ $$\forall x,y>0: \exists n\in \R: nx>y$$
 $$\Q \text{ плотно в } \R\xLeftrightarrow{def} \forall a,b \in \R, a<b \ \ (a,b)\cap\mathbb{Q} \not =\text{\O}$$
 
 В любом интервале в $\R$ содержится число $\in \Q$.
+%</аксиомаархимедаплотностьqвr>
 
 \subsection{Неравенство Бернулли}
 
+%<*неравенствобернулли>
 $$(1+x)^n \geq 1+nx \quad x\geq-1, n\in\N$$
+%</неравенствобернулли>
 
 \subsection{Единственность предела и ограниченность сходящейся последовательности}
 
@@ -417,9 +427,11 @@ $x_n\xrightarrow[n\to +\infty]{} a$, $x_n\xrightarrow[n\to +\infty]{} b$,
 
 \subsection{Теорема о предельном переходе в неравенствах для последовательностей и для функций}
 
+%<*теоремаопредельномпереходевнеравенствахдляпоследовательностейидляфункций>
 Если $(x_n),(y_n)$ --- вещественные последовательности $x_n\to a, y_n\to b$, $\exists N \ \ \forall n > N \ x_n\leq y_n$, \textbf{тогда} $a\leq b$.
 
 Если $f, g:X\to \R$, $a$ --- предельная точка $X$, и $\forall x\in X f(x)\leq g(x)$. Тогда $\lim\limits_{x\to a}f(x)\leq \lim\limits_{x\to a}g(x)$ 
+%</теоремаопредельномпереходевнеравенствахдляпоследовательностейидляфункций>
 
 \subsection{Теорема о двух городовых}
 

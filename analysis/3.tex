@@ -13,18 +13,22 @@
 
 \begin{theorem}
 \textbf{О единственности предела.}
-Если $(X,\rho)$ --- метрическое пр-во, $a,b\in X$, $(x_n)$ --- послед. в $X$,
-$x_n\xrightarrow[n\to +\infty]{} a$, $x_n\to b$,
-\textbf{тогда} $a=b$.
+%<*оединственностипредела>
+$(X,\rho)$ --- метрическое пр-во, $a,b\in X$, $(x_n)$ --- послед. в $X$,
+$x_n\xrightarrow[n\to +\infty]{} a$, $x_n\xrightarrow[n\to +\infty]{} b$,
+тогда $a=b$
+%</оединственностипредела>
 \end{theorem}
 
+%<*оединственностипределаproof>
 \begin{proof}
-$$\text{Докажем от противного --- пусть }a\not =b. \text{Возьмем } 0<\varepsilon<\frac{1}{2}\rho(a,b)$$
+$$\text{Докажем от противного --- пусть }a\not =b. \text{ Возьмем } 0<\varepsilon<\frac{1}{2}\rho(a,b)$$
 $$\exists N(\varepsilon) \ \ \forall n>N(\varepsilon) \ \ \rho(x_n,a)<\varepsilon$$
 $$\exists K(\varepsilon) \ \ \forall n>K(\varepsilon) \ \ \rho(x_n,b)<\varepsilon$$
 $$\text{При } n>\max(N(\varepsilon),K(\varepsilon)) \quad \rho(a,b)\leq
 \rho(a,x_n)+\rho(b,x_n)<2\varepsilon<\rho(a,b) \text{ --- противоречие}$$
 \end{proof}
+%</оединственностипределаproof>
 
 \begin{definition}
 $A\subset X$ --- {\bf ограничено}, если $\exists x_0\in X \ \ \exists R>0 \ \ A\subset B(x_0, R)$
@@ -49,16 +53,21 @@ $$\text{тогда } \forall n\in\mathbb{N} \ \ x_n\in B(a,r)$$
 \section*{Порядковые свойства предела}
 
 \begin{theorem}
-\textbf{О предельном переходе в неравенствах для $\mathbb{R}$.} Если $(x_n),(y_n)$ ---
+\textbf{О предельном переходе в неравенствах для $\mathbb{R}$.}
+%<*определьномпереходевнеравенствахдляr>
+Если $(x_n),(y_n)$ ---
 вещественные последовательности $x_n\to a, y_n\to b$, $\forall n \ x_n\leq y_n$, \textbf{тогда} $a\leq b$.
+%</определьномпереходевнеравенствахдляr>
 \end{theorem}
 
+%<*определьномпереходевнеравенствахдляrproof>
 \begin{proof}
 $$\text{Докажем от противного. Пусть } a>b, 0<\varepsilon <\frac{a-b}{2}.$$
 $$\exists N(\varepsilon) \ \ \forall n>N \ \ a-\varepsilon<x_n<a+\varepsilon$$
 $$\exists K(\varepsilon) \ \ \forall n>K \ \ b-\varepsilon<y_n<b+\varepsilon $$
 $$\text{При } n>\max(N,K) \ \ y_n < b + \varepsilon < a-\varepsilon <x_n \text{ --- противоречие}$$
 \end{proof}
+%</определьномпереходевнеравенствахдляrproof>
 
 \begin{remark}
 Если вместо "$\forall n \ \ x_n\leq y_n$" потребовать: "$\exists M \ \ \forall n>M \ \ x_n\leq y_n$", то утв. по-прежнему верно
@@ -78,22 +87,29 @@ $(x_n)$ --- вещественная последовательность, $a,b\
 \end{consequence}
 
 \begin{theorem}
-\textbf{О двух городовых} (о сжатой последовательности). Если $(x_n),(y_n),(z_n)$ - вещ. посл., $\forall n \ \ x_n\leq y_n\leq z_n, \lim x_n=\lim z_n =a$, \textbf{тогда} $\exists \lim y_n=a$
+\textbf{О двух городовых} (о сжатой последовательности). 
+%<*одвухгородовых>
+Если $(x_n),(y_n),(z_n)$ - вещ. посл., $\forall n \ \ x_n\leq y_n\leq z_n, \lim x_n=\lim z_n =a$, \textbf{тогда} $\exists \lim y_n=a$
+%</одвухгородовых>
 \end{theorem}
 
+%<*одвухгородовыхproof>
 \begin{proof}
 $$\forall \varepsilon>0 \ \ \exists N \ \ \forall n>N \ \ a-\varepsilon<x_n<a+\varepsilon$$
 $$\forall \varepsilon>0 \ \ \exists K \ \ \forall n>K \ \ a-\varepsilon<z_n<a+\varepsilon$$
 $$\forall \varepsilon > 0 \ \ \exists N_0=max(N,K) \ \ \forall n>N_0 \ \ a-\varepsilon<x_n\leq y_n\leq z_n<a+\varepsilon$$
 $$\text{По определению } \lim y_n=a$$
 \end{proof}
+%</одвухгородовыхproof>
 
 \begin{consequence}
 $(y_n), (z_n) \ \ \forall n \ \ |y_n|\leq z_n, \ \ \exists \lim z_n=0, \text{ тогда } y_n\to 0$. Доказательство тривиально, т.к. $y_n$ ограничено $z_n$ и $-z_n$.
 \end{consequence}
 
 \begin{definition}
+%<*бесконечномалаяпоследовательность>
 $(x_n)$ --- вещ. посл. называется \textbf{бесконечно малой}, если $x_n\to 0$
+%</бесконечномалаяпоследовательность>
 \end{definition}
 
 \begin{theorem}

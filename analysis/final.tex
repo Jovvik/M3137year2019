@@ -1,0 +1,64 @@
+\input{../preamble.sty}
+
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage{catchfilebetweentags}
+
+\allsectionsfont{\raggedright}
+\subsectionfont{\fontsize{14}{15}\selectfont}
+
+% magical thing that fixes paragraphs
+\makeatletter
+\def\CatchFBT@sanitize{%
+   \@sanitize
+   \@makeother\{%
+   \@makeother\}%
+}
+\makeatother
+
+\newcommand{\import}[3]{
+    \subsection{#1}
+    \ExecuteMetaData[#2]{#3}
+}
+
+\setlength\parindent{0pt}
+
+\lhead{Конспект к экзамену}
+\cfoot{}
+\begin{document}
+\section{Определения}
+\ExecuteMetaData[opros.tex]{определения}
+\ExecuteMetaData[opros2.tex]{определения}
+\section{Теоремы}
+\import{Законы де Моргана}{opros.tex}{законыдеморгана}
+\begin{proof}
+    \ExecuteMetaData[1.md]{законыдеморганаproof}
+\end{proof}
+\import{Неравенство Коши-Буняковского, евклидова норма в $\R^m$}{opros.tex}{неравенствокошибуняковскогоевклдиованормавrm}
+Неравенство Коши-Буняковского следует из тождества Лагранжа. Докажем его:
+\begin{proof}
+    \ExecuteMetaData[1.md]{тождестволагранжаproof}
+\end{proof}
+\import{Аксиома Архимеда. Плотность множества рациональных чисел в $\R$}{opros.tex}{аксиомаархимедаплотностьqвr}
+\begin{proof}
+    \ExecuteMetaData[2.md]{плотностьqвrproof}
+\end{proof}
+\import{Неравенство Бернулли}{opros.tex}{неравенствобернулли}
+\begin{proof}
+    База: $n=1: \ (1+x)^1\geq 1 + x$
+
+    Переход: Дано неравенство $(1+x)^n\geq 1+nx$, оно верно при каком-то $n$. Докажем, что $(1+x)^{n+1}\geq 1 + (n+1)x$
+
+    $$(1+x)^{n+1} = (1+x)(1+x)^n\geq (1+x)(1+nx) = \\ 1 + (n+1)x + nx^2 \geq 1 + (n+1)x$$
+\end{proof}
+\import{Единственность предела и ограниченность сходящейся последовательности}{3.tex}{оединственностипредела}
+\ExecuteMetaData[3.tex]{оединственностипределаproof}
+\import{Теорема о предельном переходе в неравенствах для последовательностей и для функций}{opros.tex}{теоремаопредельномпереходевнеравенствахдляпоследовательностейидляфункций}
+\ExecuteMetaData[3.tex]{определьномпереходевнеравенствахдляrproof}
+\textcolor{red}{Доказательство для функций отсутствует}
+\import{Теорема о двух городовых}{3.tex}{одвухгородовых}
+\ExecuteMetaData[3.tex]{одвухгородовыхproof}
+\subsection{Бесконечно малая последовательность}
+\textcolor{red}{Какая тут теорема?}
+\end{document}

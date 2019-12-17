@@ -18,3 +18,4 @@
 - [Лекция 10](analysis/10.pdf)
 - [Лекция 11](analysis/11.pdf)
 - [Лекция 12](analysis/12.pdf)
+- [Лекция 13](analysis/13.pdf)

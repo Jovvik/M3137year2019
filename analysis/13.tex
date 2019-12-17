@@ -1,0 +1,330 @@
+\input{../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{December 16, 2019}
+
+\begin{document}
+\begin{theorem}
+    Лагранжа.
+
+    $f:[a,b]\to\R$ --- непр., дифф. в $(a, b)$. Тогда $\exists c\in(a,b)$, такое что:
+    $$f(b)-f(a)=f'(c)(b-a)$$
+\end{theorem}
+\begin{theorem}
+    Коши.
+
+    $f,g : [a,b]\to\R$
+
+    $f,g$ --- дифф. в $(a, b); g'\not=0$ на $(a,b)$. Тогда
+
+    $\exists c\in(a,b)$, такое что:
+    $$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}$$
+\end{theorem}
+\begin{remark}
+    Если $g(b)=g(a)$, то по т. Ролля $\ldots$
+\end{remark}
+\begin{remark}
+    От автора конспекта: Кохась действительно не дописал замечание.
+\end{remark}
+\begin{remark}
+    Теорему Лагранжа можно интерпретировать как следующее: $\frac{f(b)-f(a)}{b-a}$ --- тангенс угла между хордой графика и горизонталью, а $f'(c)$ --- касательная. Таким образом, если провести хорду графика, то можно найти точку между точками пересечения графика и хорды такую, что касательная к графику будет параллельна этой хорде.
+    %TODO: график
+\end{remark}
+\begin{proof}
+    Теоремы Лагранжа.
+
+    $F(x):=f(x)-kg(x)$
+
+    Подберем $k$ такое, что $F(b)=F(a)$
+    $$f(b)-kg(b)=f(a)-kg(a)$$
+    $$k=\frac{f(b)-f(a)}{g(b)-g(a)}$$
+
+    По т. Ролля $\exists c:F'(c)=0$
+    $$f'(c)-kg'(c)=0$$
+    $$k=\frac{f'(c)}{g'(c)}$$
+\end{proof}
+\begin{consequence}
+    \begin{enumerate}
+        \item $f$ непр. на $[a,b]$, дифф. в $(a,b)$
+
+        $\exists M : \forall x \ \ |f'(x)|\leq M$
+    
+        Тогда $\forall x, x+h\in[a,b]$
+    
+        $$|f(x+h)-f(x)|\leq M|h|$$
+
+        \item $f$ --- непр. на $[a,b\rangle$, дифф. на $(a,b\rangle$
+        
+        $\exists \lim\limits_{x\to a+0}f'(x)=k\in\overline\R$
+
+        Тогда $f'_+(a)=k$
+    \end{enumerate}
+\end{consequence}
+\begin{proof}
+    Следствия 2.
+
+    $\exists a<c<a+h$, такой что:
+
+    $$\frac{f(a+h)-f(a)}{h}=f'(c)\xrightarrow[h\to0]{} k$$
+\end{proof}
+
+$\sphericalangle f(x)=\begin{cases}
+    e^{-\frac{1}{x^2}} & ,x\not=0 \\
+    0 & ,x=0
+\end{cases}$
+
+$f$ --- дифф. при $x>0$
+
+$f'=e^{-\frac{1}{x^2}}\cdot \frac{2}{x^3}$
+
+$\lim\limits_{x\to0} \frac{2e^{-\frac{1}{x^2}}}{x^3}=0$ (позже)
+
+Это был контрпример --- функция, которая везде дифф., но $\not\exists\lim$
+
+\begin{theorem}
+    Дарбу.
+
+    $f:[a,b]\to\R$ --- дифф. на $[a,b]$
+
+    Тогда $\forall C$ лежащего между $f'(a), f'(b)$
+
+    $$\exists c\in(a,b) : f'(c) = C$$
+\end{theorem}
+\begin{proof}
+    $F(x):=f(x)-C\cdot x$ --- у неё $\exists\max\limits_{[a,b]}$ \textit{(в силу непрерывности)}
+
+    $F'(x)=f'(x)-C \quad F'(a)$ и $F'(b)$ разных знаков.
+
+    \begin{enumerate}
+        \item $F'(a)>0 \ \ F'(b) < 0$
+        
+        По лемме при $x>a$, близких к $a \ \ f(x) > f(a) \Rightarrow \max f$ достигается в $c\in(a,b)$
+    \end{enumerate}
+\end{proof}
+\begin{consequence}
+    \begin{enumerate}
+        \item Функция $f'$ обладает свойством ``сохранять промежуток''
+        \item $f'$ не может иметь разрывов вида ``скачок''
+    \end{enumerate}
+\end{consequence}
+\section{Показательная функция}
+$\forall x, y \quad f(x+y)=f(x)\cdot f(y) \quad (*)$
+
+$f:\R\to\R$, непр.
+
+\begin{definition}
+    \textbf{Показательная функция} $f:\R\to\R$, непр.
+
+    $\not\equiv 0, \not\equiv 1$ и удовл. $(*)$
+\end{definition}
+\begin{theorem}
+    $f$ --- показ. ф-ция
+
+    Тогда:
+    \begin{enumerate}
+        \item $\forall x \ \ f(x)>0; f(0)=1$
+        \item $\forall r \in\Q \quad f(rx)=(f(x))^r$
+        \item $f$ --- строго монот.: $a:=f(1)$
+        
+        Тогда $a\not=1$, если $a>1$ --- возр., если $a<1$ --- убыв.
+
+        \item Множество значений $f \quad (0, +\infty)$
+        \item $\tilde f(1)=f(1)$, тогда $f=\tilde f$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $f\not\equiv 0 \ \ \exists f(x_0)\not=0$
+
+        $x=x_0, y=0 \quad f(x_0+0)=f(x_0)\cdot f(0)\Rightarrow f(0)=1$
+
+        Если $f(x_1)=0$, тогда $$\forall x \quad f(x)=f(x-x_1)\cdot f(x_1) = 0$$
+        $$f(x)=f\left(\frac{x}{2}\right)\cdot f\left(\frac{x}{2}\right)>0$$
+
+        \item Как в опр. ст. с рациональным показателем
+        \begin{enumerate}
+            \item $r=1$
+            \item $r\in\N$
+            $$f(2x)=f(x+x)=f(x)\cdot f(x) = f(x^2)$$
+            $$f((n+1)x)=f(nx+x)=f(nx)\cdot f(x)=(f(x))^nf(x)=(f(x))^{n+1}$$
+            \item $r\in$``$-\N$''
+            $$1=f(0)=f(nx+(-n)x)=f(nx)\cdot f(-nx)=(f(x))^nf(-nx)$$
+            \item $r=0$
+            $$f(rx)=f(0)=1=(f(x))^0$$
+            \item $r=\frac{1}{n}$
+            $$f(x)=f(n\cdot\frac{x}{n})=(f(\frac{x}{n}))^n$$
+            $$f(\frac{1}{n}x)=(f(x))^{\frac{1}{n}}$$
+            \item $r=\frac{m}{n} \quad m\in\Z, n\in\N$
+            $$f(\frac{m}{n}x)=f(m\cdot(\frac{1}{n}x))=(f(\frac{1}{n}x))^m=(f(x)^{\frac{1}{n}})^m$$
+        \end{enumerate}
+        \item $a=1 \quad f(1)=1 \quad \forall r\in\Q \ \ f(r)=1^r=1$
+        
+        $f$ --- непр. и $f(x)=1$ при $x\in\Q\Rightarrow f\equiv1$
+
+        $a>1$. Тогда $\forall x>0 \quad f(x)>1$
+        $$r\in\Q, r>0 \quad f(r)=r(r\cdot 1)=(f(1))^r=a^r>1$$
+
+        Значит $\forall x\in\R, x>0$ берем $r_k\to x (r_k\in\Q)$
+
+        $f(r_k)\to f(x)$, значит $f(x)\geq 1$
+
+        $$f(x)=f((x-r)+r)=f(x-r)\cdot f(r)>1$$
+
+        $\exists r\in\Q : 0<r<x$
+
+        возр. $x\in\R, h>0$
+
+        $f(x+h)=f(x)\cdot f(h)$
+
+        $f(h)>1 \Rightarrow f(x+h)>f(x)$
+
+        $a<1$ --- аналогично.
+
+        \item $f(\R)=(\inf f, \sup f)$
+        
+        $\inf f = 0 \quad \sup f = +\infty$
+
+        $f(1)=a>1$
+        
+        $a^n, n\in\Z$
+
+        \item $\tilde f(1)=f(1) \Rightarrow \forall r \quad \tilde f(r)=f(r)$
+        
+        $\forall x \quad r_k\to x$
+
+        $\tilde f(r_k) =f(r_k)$
+
+        $\tilde f(r_k)\to \tilde f(x); f(r_k)\to f(x) \Rightarrow f(x) = \tilde f(x)$
+    \end{enumerate}
+\end{proof}
+Обозначение. $f$ --- показ ф-ция, $f(1)=a$
+
+Это значит $\forall r\in\Q \quad f(r)=a^r$
+
+Обозначим: $f(x)=a^x$
+
+\begin{theorem}
+    $\exists$ показ. ф-ция $f_0$, удовл.:
+
+    $$\frac{f_0 (x)-1}{x}\xrightarrow[x\to0]{} 1$$
+\end{theorem}
+Доказательство будет позже.
+\begin{theorem}
+    $f$ --- показ. ф-ция.
+    
+    Тогда $\exists \alpha\in\R \ \ \forall x \ \ f(x)=f_0(\alpha x)$
+\end{theorem}
+\begin{proof}
+    $f(1)=a$
+
+    Множество значений $f_0$ это $(0, +\infty)$
+
+    $\exists \alpha : f_0(\alpha)=a$
+
+    $f_0(\alpha x)$ и есть $f(x)$. Покажем это:
+
+    $g(x):=f_0(\alpha x)$
+
+    $g(x)$ --- показ. ф., т.к. она не тривиальна и удовлетворяет $(*)$, покажем это:
+
+    $$g(x+y)=f_0(\alpha(x+y))=f_0(\alpha x + \alpha y)=f_0(\alpha x) \cdot f_0(\alpha y) = g(x)g(y)$$
+
+    $$g(1)=f_0(\alpha)=a=f(1)$$
+\end{proof}
+\begin{consequence}
+    Функция $f_0$, удовл. теореме 5, --- единственная.
+\end{consequence}
+\begin{proof}
+    $h(x)$ --- ещё одна такая функция $\Rightarrow h(x)=f_0(\alpha x)$
+
+    $$1\xleftarrow[xx\to0]{} \frac{h(x)-1}{x}=\frac{f_0(\alpha x)-1}{\alpha x}\cdot \alpha\xrightarrow[x\to0]{}\alpha$$
+    , т.е. $\alpha=1$
+\end{proof}
+\begin{definition}
+    $f_0$ называется \textbf{экспонента}, если:
+
+    $f_0(x)=e^x\quad f_0(1)=e$
+
+    $$\frac{e^x-1}{x}\xrightarrow[x\to0]{} 1$$
+    , т.е. $e^x>1$ при $x>0$
+\end{definition}
+\begin{consequence}
+    $\forall a>0, a\not=1$
+
+    $\exists! f:f(1)=a$
+\end{consequence}
+\begin{proof}
+    Для этого $a \ \ \exists!\alpha \ \ f_0(\alpha)=a$
+
+    $f(x)=f_0(\alpha x)$
+
+    $f(1)=f_0(\alpha)=a$
+\end{proof}
+\begin{consequence}
+    $\forall x, y\in\R \quad \forall a>0, a\not=1$
+
+    $$a^{xy}=(a^x)^y=(a^y)^x$$
+\end{consequence}
+\begin{proof}
+    $x=0$ --- тривиально
+
+    $x\not=0 \quad a^x=b\not=1$
+
+    $y\in\Q \quad a^{xy}=(a^x)^y=b^y$
+
+    $y\in\R \quad r_k\to y \quad a^{xy}\leftarrow a^{xr_k}=b^{r_k} \rightarrow b^y\Rightarrow a^{xy}=b^y$
+\end{proof}
+\section{Производные высших порядков}
+\begin{definition}
+    $f:\langle a,b \rangle\to\R$ --- дифф.
+
+    $x\in\langle a,b \rangle$
+
+    Если $f'$ --- дифф. в $x_0$, то $(f')'(x_0)$ --- называется \textbf{вторая производная} функции $f$.
+
+    Если $\forall x\in\langle a,b\rangle \exists f^{(n)}(x)$, изучим дифференцируемость $f^{(n)}$ в точке $x_0\in\langle a,b\rangle$
+
+    $$f^{(n+1)}(x_0)=(f^{(n)})'(x_0)$$
+    $$f^{(n)}_+(x_0) = (f|_{\langle a,b\rangle\cap [x_0, +\infty)})^{(n)}(x_0)$$
+\end{definition}
+\begin{obozn}
+    $E$ --- \textbf{пр-к} в $\R, n\in\N$
+
+    $C^n(E)=\{f:E\to\R : f^{(n)} \text{ непр. на } E\}$
+
+    $C(E) =$ функции, непр. на $E$
+
+    $C^\infty(E)$:
+
+    $C(E)\underset{\not=}{\supset}C^1(E)\underset{\not=}{\supset}C^2(E)\underset{\not=}{\supset}\ldots$
+\end{obozn}
+\begin{observation}
+    $P(x)$ --- многочлен степени $n$
+
+    Пусть $\begin{smallmatrix}
+        P(a)=C_0 \\
+        P'(a)=C_1 \\
+        \vdots \\
+        P^{(n)}(a)=C_n
+    \end{smallmatrix}$
+
+    $$P(x)=\alpha_0+\alpha_1(x-a)+\alpha_2(x-a)^2+\ldots+\alpha_n(x-a)^N$$
+    $P(a)=\alpha_0=C_0$
+    $$P'(x)=\alpha_1+2\alpha_2(x-a)+\ldots+n\alpha_n(x-a)^{n-1}$$
+    $P'(a)=\alpha_1=C_1$
+    $$P''(x)=2\alpha_2+6\alpha_3(x-a)+\ldots+n(n-1)\alpha_n(x-a)^{n-2}$$
+    $P''(a)=2\alpha_2$
+    
+    $\vdots$
+    $$P^{(n)}(a)=n(n-1)(n-2)\ldots 2\cdot 1\cdot \alpha_n$$
+
+    $$P(x)=C_0+\frac{C_1}{1!}(x-a)+\frac{C_2}{2!}(x-a)^2+\ldots+\frac{C_n}{n!}(x-a)^n$$
+    $$P(x)=P(a)+\frac{P'(a)}{1!}(x-a)+\ldots+\frac{P^{(n)}(a)}{n!}(x-a)^n$$
+\end{observation}
+\begin{definition}
+    \textbf{Многочленом Тейлора} $n$-той степени \textit{(порядка)} функции $f$ в точке $a$ называется:
+
+    $$T_n(f, a)(x)=f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\ldots+\frac{f^{(n)}(a)}{n!}(x-a)^n$$
+\end{definition}
+\end{document}

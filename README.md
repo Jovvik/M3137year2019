@@ -6,6 +6,7 @@
 
 - [Опрос по матанализу #1](analysis/opros.pdf)
 - [Опрос по матанализу #2](analysis/opros2.pdf)
+- [Финальный конспект](analysis/final.pdf)
 - [Лекция 1 ](analysis/1.pdf)
 - [Лекция 2 ](analysis/2.pdf)
 - [Лекция 3 ](analysis/3.pdf)

@@ -39,6 +39,7 @@
 Неравенство Коши-Буняковского следует из тождества Лагранжа. Докажем его:
 \begin{proof}
     \ExecuteMetaData[1.md]{тождестволагранжаproof}
+    Таким образом, $$\sum\limits_{(i,k)\in A\times B}(a_ib_i)^2=\sum\limits_{(i,k)\in A\times B}a_i^2\sum\limits_{(i,k)\in A\times B}b_k^2 + \frac{1}{2}\sum\limits_{(i,k)\in A\times B}(a_ib_k-a_kb_i)^2 \geq \sum\limits_{(i,k)\in A\times B}a_i^2\sum\limits_{(i,k)\in A\times B}b_k^2$$
 \end{proof}
 \import{Аксиома Архимеда. Плотность множества рациональных чисел в $\R$}{opros.tex}{аксиомаархимедаплотностьqвr}
 \begin{proof}
@@ -56,9 +57,22 @@
 \ExecuteMetaData[3.tex]{оединственностипределаproof}
 \import{Теорема о предельном переходе в неравенствах для последовательностей и для функций}{opros.tex}{теоремаопредельномпереходевнеравенствахдляпоследовательностейидляфункций}
 \ExecuteMetaData[3.tex]{определьномпереходевнеравенствахдляrproof}
-\textcolor{red}{Доказательство для функций отсутствует}
+\begin{proof}
+    По Гейне.
+
+    $\forall (x_n)\to a, x_n\in X, x_n\not=a$:
+
+    $$f(x_n)\to A, g(x_n)\to B, \forall x \ \ f(x) \leq g(x) \Rightarrow f(x_n)\leq g(x_n) \Rightarrow A\leq B$$
+\end{proof}
 \import{Теорема о двух городовых}{3.tex}{одвухгородовых}
 \ExecuteMetaData[3.tex]{одвухгородовыхproof}
 \subsection{Бесконечно малая последовательность}
-\textcolor{red}{Какая тут теорема?}
+Произведение бесконечно малой последовательности на ограниченную --- бесконечная последовательность, т.е. $(x_n)$ --- беск. малая, $(y_n)$ --- ограничена $\Rightarrow x_ny_n$ --- беск. малая
+\begin{proof}
+    Возьмём $K$ такое, что $\forall n \ \ |y_n|\leq K$.
+
+    $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n > N \ \ |x_n|\leq\frac{\varepsilon}{K}$$
+
+    $$|x_ny_n|\leq\frac{\varepsilon}{K}K=\varepsilon \Rightarrow x_ny_n\to0$$
+\end{proof}
 \end{document}

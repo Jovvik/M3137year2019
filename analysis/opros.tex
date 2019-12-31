@@ -411,6 +411,8 @@ $$\Q \text{ плотно в } \R\xLeftrightarrow{def} \forall a,b \in \R, a<b \ 
 
 %<*неравенствобернулли>
 $$(1+x)^n \geq 1+nx \quad x\geq-1, n\in\N$$
+
+$$(1+x)^n \geq 1+nx+\frac{n(n-1)}{2}x^2 \quad x>0, n\in\N \text{ --- более сложная версия}$$
 %</неравенствобернулли>
 
 \subsection{Единственность предела и ограниченность сходящейся последовательности}
@@ -428,9 +430,11 @@ $x_n\xrightarrow[n\to +\infty]{} a$, $x_n\xrightarrow[n\to +\infty]{} b$,
 \subsection{Теорема о предельном переходе в неравенствах для последовательностей и для функций}
 
 %<*теоремаопредельномпереходевнеравенствахдляпоследовательностейидляфункций>
+\subsubsection{Для последовательностей}
 Если $(x_n),(y_n)$ --- вещественные последовательности $x_n\to a, y_n\to b$, $\exists N \ \ \forall n > N \ x_n\leq y_n$, \textbf{тогда} $a\leq b$.
 
-Если $f, g:X\to \R$, $a$ --- предельная точка $X$, и $\forall x\in X f(x)\leq g(x)$. Тогда $\lim\limits_{x\to a}f(x)\leq \lim\limits_{x\to a}g(x)$ 
+\subsubsection{Для функций}
+Если $f, g:X\to \R$, $a$ --- предельная точка $X$, и $\forall x\in X \ \ f(x)\leq g(x)$. Тогда $\lim\limits_{x\to a}f(x)\leq \lim\limits_{x\to a}g(x)$ 
 %</теоремаопредельномпереходевнеравенствахдляпоследовательностейидляфункций>
 
 \subsection{Теорема о двух городовых}

@@ -15,6 +15,7 @@ $E$ --- не огр. сверху $\quad \sup E=+\infty$
 $E$ --- не огр. снизу $\quad \inf E=-\infty$
 
 \begin{lemma}
+    %<*освойствахсупремума>
     О свойствах $\sup, \inf$
     \begin{enumerate}
         \item $\text{\O}\not =D\subset E\subset \mathbb{R} \quad \sup D\leq \sup E$
@@ -23,8 +24,10 @@ $E$ --- не огр. снизу $\quad \inf E=-\infty$
         Пусть $\lambda>0$, тогда $\sup \lambda E=\lambda\sup E$
         \item $\sup(-E)=-\inf E$
     \end{enumerate}
+    %</освойствахсупремума>
 \end{lemma}
 
+%<*освойствахсупремумаproof>
 \begin{proof}
     \begin{enumerate}
         \item Множество верхних границ $E\subset$ множество верхних границ $D$.
@@ -32,6 +35,7 @@ $E$ --- не огр. снизу $\quad \inf E=-\infty$
         \item Множество верхних границ $-E = -$ множество верхних границ $E$
     \end{enumerate}
 \end{proof}
+%</освойствахсупремумаproof>
 
 $f: X\to\mathbb{R}$
 
@@ -77,11 +81,13 @@ $$\sup x_n = \sup\limits_{n\in\mathbb{N}} x_n=\sup{x_n, n\in\mathbb{N}}$$
 
 \begin{theorem}
     О пределе монотонной последовательности.
+    %<*определемонотоннойпоследовательности>
     \begin{enumerate}
         \item $x_n$ --- вещ. посл., огр. сверху, возрастает. $\Rightarrow \exists\lim x_n\in\mathbb{R}$
         \item $x_n$ --- убывает, огр. снизу. $\Rightarrow \exists \lim x_n\in\mathbb{R}$
         \item $x_n$ --- монотонна, огр. $\Rightarrow \exists \lim x_n\in\mathbb{R}$
     \end{enumerate}
+    %</определемонотоннойпоследовательности>
 
     Секретное приложение:
     \begin{enumerate}
@@ -90,6 +96,7 @@ $$\sup x_n = \sup\limits_{n\in\mathbb{N}} x_n=\sup{x_n, n\in\mathbb{N}}$$
     \end{enumerate}
 \end{theorem}
 
+%<*определемонотоннойпоследовательностиproof>
 \begin{proof}
     Достаточно доказать 1.
 
@@ -103,6 +110,7 @@ $$\sup x_n = \sup\limits_{n\in\mathbb{N}} x_n=\sup{x_n, n\in\mathbb{N}}$$
 
     По определению $M=\lim x_n$
 \end{proof}
+%</определемонотоннойпоследовательностиproof>
 
 \begin{remark}
     $x_n$ --- возр., не огр. сверху. $\Rightarrow \lim x_n=+\infty$
@@ -202,6 +210,7 @@ $B^Y(a,r)=\{y\in Y:\rho(a, y)<r\} = B^X(a,r)\cap Y$
     %</открытыеизамкнутыемножествавпространствеиподпространстве>
 \end{theorem}
 
+%<*открытыеизамкнутыемножествавпространствеиподпространствеproof>
 \noindent
 Докажем 1.
 \begin{proof}
@@ -257,6 +266,7 @@ $B^Y(a,r)=\{y\in Y:\rho(a, y)<r\} = B^X(a,r)\cap Y$
 
     $$Y\cdot\overline{F\cdot Y}=Y\cdot(\overline{\overline F}+\overline Y)=YF+Y\overline Y=F\cap Y$$
 \end{proof}
+%</открытыеизамкнутыемножествавпространствеиподпространствеproof>
 
 \begin{theorem}
     О компактности в пространстве и подпространстве.
@@ -268,6 +278,7 @@ $B^Y(a,r)=\{y\in Y:\rho(a, y)<r\} = B^X(a,r)\cap Y$
     %</окомпактностивпространствеиподпространстве>
 \end{theorem}
 
+%<*bruh>
 \begin{proof}
     Докажем ``$\Rightarrow$''
 
@@ -291,10 +302,10 @@ $B^Y(a,r)=\{y\in Y:\rho(a, y)<r\} = B^X(a,r)\cap Y$
 
     $$\exists K\subset \bigcup\limits_{\alpha\in A} G_\alpha$$
 
-    %TODO
+    \textcolor{red}{Надо дописать доказательство}
 
-    Надо дописать доказательство
 \end{proof}
+%</bruh>
 
 \section{Пределы и непрерывность отображений}
 

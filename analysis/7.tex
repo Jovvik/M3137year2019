@@ -214,13 +214,13 @@
     Если $diam[a^n, b^n]=||b^n-a^n||\to 0$, тогда $\exists! c\in\bigcap\limits_{i=1}^\infty[a^i, b^i]$
     %</овложенныхпараллелепипедах>
 \end{lemma}
+%<*овложенныхпараллелепипедахproof>
 \begin{proof}
-    Покоординатное
-
     $\forall i=1\ldots m \quad [a^1_i, b^1_i]\supset[a^2_i, b^2_i]\supset\ldots \quad \exists c_i\in \bigcap\limits_{n=1}^{+\infty}[a_i^n, b_i^n]$. $c=(c_1\ldots c_m)$ --- общая точка всех параллелепипедов.
 
     $|a_i^n-b_i^n|\leq ||a^n-b^n||\to 0 \Rightarrow_{\text{т. Кантора}}\exists! c_i\in\bigcap\limits_{n=1}^{+\infty}[a_i^n, b_i^n] \Rightarrow \exists! c=(c_1\ldots c_m)$
 \end{proof}
+%</овложенныхпараллелепипедахproof>
 \begin{lemma}
     %<*компактностьпарллелепипеда>
     $[a,b]$ --- компактное множество в $\R^m$
@@ -228,6 +228,7 @@
     $[a, b]\subset\bigcup\limits_{\alpha\in A} G_\alpha$ --- откр. в $\R^m$
 \end{lemma}
 
+%<*компактностьпарллелепипедаproof>
 \begin{proof}
     Докажем, что $\exists$ кон. $\alpha=(\alpha_1\ldots\alpha_n): [a,b]\subset \bigcup\limits_{i=1}^n G_{\alpha_i}$
 
@@ -252,8 +253,8 @@
     $$\exists n \quad diam[a^n, b^n] \ll \varepsilon$$
 
     $$\text{и тогда } [a^n, b^n]\subset U_\varepsilon(c)\subset G_{\alpha_0}$$
-    
 \end{proof}
+%</компактностьпарллелепипедаproof>
 
 \begin{remark}
     $x_n\to a$
@@ -288,6 +289,8 @@
     \end{enumerate}
     %</охарактеристикекомпактоввrm>
 \end{theorem}
+
+%<*охарактеристикекомпактоввrmproof>
 \begin{proof}
     Докажем $1\Rightarrow 2$
 
@@ -312,4 +315,5 @@
 
     Если $D$ --- бесконечно и не имеет предельных точек, $K\subset \bigcup\limits_{x\in K}B(x, \varepsilon_x)$, радиус такой, что в этом шаре нет точек $D$, кроме $x$ \textit{(его может тоже не быть)}
 \end{proof}
+%</охарактеристикекомпактоввrmproof>
 \end{document}

@@ -1,0 +1,74 @@
+\input{../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{December 23, 2019}
+
+\usepackage{xcolor}
+
+\begin{document}
+\textcolor{red}{Первая половина лекции не была записана}
+
+Некоторые разложения по Тейлору:
+
+$$\begin{aligned}
+e^x&=1+x+\frac{x^2}{2!}+\ldots+\frac{x^n}{n!} + o(x^n) \\
+\sin x &= x-\frac{x^3}{3!}+\frac{x^5}{5!}+\ldots+(-1)^n\frac{x^{2n+1}}{(2n+1)!}+o(x^{2n+1}) \\
+\cos x &= 1+\frac{x^2}{2!}+\frac{x^4}{4!}+\ldots+(-1)^n\frac{x^{2n}}{(2n)!}+o(x^{2n}) \\
+\ln (1+x) &= x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\ldots+(-1)^{n+1}\frac{x^n}{n}+o(x^n) \\
+(1+x)^\alpha &= 1+\alpha x + \frac{\alpha(\alpha-1)}{2!}x^2+\frac{\alpha(\alpha-1)(\alpha-2)}{3!}x^3+\ldots+\binom{\alpha}{n}x^n+o(x^n)
+\end{aligned}$$
+\begin{lemma}
+    $e^2$ --- ирр.
+\end{lemma}
+\begin{proof}
+    $e^2=\frac{2k}{n}$
+
+    $ne=2ke^{-1}$
+
+    $n(2k-1)!e=(2k)!e^{-1}$
+\end{proof}
+\begin{lemma}
+    Метод Ньютона
+
+    $f:\langle a,b\rangle \to\R$ --- дважды дифф.
+
+    $m:=\inf\limits_{\langle a,b\rangle}|f'|>0$
+
+    $M:=\sup|f''|$
+    
+    $\xi \in(a,b):f(\xi)=0$
+
+    $x_1\in(a,b) : |x_1-\xi|\frac{M}{2m}<1$
+
+    Рассмотрим последовательность $x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$
+
+    Тогда $\exists \lim x_n=\xi$ и при этом !. Кроме того, оно очень быстро сходится.
+
+    $$|x_n-\xi|\leq \left(\frac{M}{2m}|x_1-\xi|\right)^{2n}$$
+\end{lemma}
+
+$$x_{n+1}-\xi=x_n-\xi-\frac{f(x_n)}{f'(x_n)}=\frac{(x_n-\xi)f'(x_n)-f(x_n)}{f'(x_n)}$$
+
+$$|x_{n+1}-\xi|=\frac{|f(x_n)+f'(x_n)(\xi-x_n)|}{|f'(x_n)|}=\frac{\frac{1}{2}|f''(c)||\xi-x_n|^2}{|f'(x_n)|}\leq \frac{2M}{m}|\xi-x_n|^2$$
+
+\begin{theorem}
+    О разложении рациональной дроби на простейшие.
+
+    $P(x), Q(x)$ --- многочлен $\deg P<\deg Q=n$
+
+    $Q(x)=(x-a_1)^{k_1}\ldots (x-a_m)^{k_m} \quad (k_1+\ldots+k_m=n; a_i\not= a_j)$
+
+    Тогда $\exists$
+
+    $$\frac{P(x)}{Q(x)}=\left( \frac{A_1}{(x-a_1)}+\frac{A_2}{(x-a_1)^2}+\ldots+\frac{A_{k_1}}{(x-a_1)^{k_1}} \right)+\left( \frac{B_1}{(x-a_2)}+\frac{B_2}{(x-a_2)^2}+\ldots+\frac{B_{k_2}}{(x-a_2)^{k_2}} \right)+$$
+    $$+\ldots+\left( \frac{C_1}{(x-a_m)}+\frac{C_2}{(x-a_m)^2}+\ldots+\frac{C_{k_m}}{(x-a_m)^{k_m}} \right)$$
+\end{theorem}
+\begin{proof}
+    $$\frac{P(x)}{(x-a_1)^{k_1}\ldots(x-a_m)^{k_m}}=\frac{1}{(x-a_1)^{k_1}}\frac{P(x)}{(x-a_2)^{k_2}\ldots(x-a_m)^{k_m}}=$$
+    $$=\frac{1}{(x-a_1)^{k_1}}(A_{k_1}+A_{k_1+1}(x-a_1)+A_{k_1-2}(x-a_1)^2+\ldots+A_1(x-a_1)^{k_1}+o((x-a_1)^{k_1}))$$
+    $$\frac{P}{Q}-\left(\frac{A_1}{x-a_1}+\ldots+\frac{A_{k_1}}{(x-a_1)^{k_1}} \right)=\frac{o((x-a_1)^{k_1})}{(x-a_1)^{k_1}}$$
+
+    $\frac{P}{Q} - $ (Пр. часть) = знам. сократится $\Rightarrow$ многочлен $\equiv 0$
+\end{proof}
+\end{document}

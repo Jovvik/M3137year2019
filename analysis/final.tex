@@ -93,4 +93,30 @@
 \ExecuteMetaData[4.tex]{неравенствокошибуняковскогоproof}
 \end{proof}
 \ExecuteMetaData[3.tex]{метрикапорожденнаянормой}
+\subsection{Леммы о непрерывности скалярного произведения и покоординатной сходимости в $\R^n$}
+\subsubsection{О покоординатной сходимости в $\R^m$}
+\ExecuteMetaData[4.tex]{опокоординатнойсходимости}
+\ExecuteMetaData[4.tex]{опокоординатнойсходимостиproof}
+\subsubsection{О непрерывности скалярного произведения}
+\ExecuteMetaData[4.tex]{онепрерывностискалярногопроизведения}
+\ExecuteMetaData[4.tex]{онепрерывностискалярногопроизведенияproof}
+\subsection{Открытость открытого шара}
+$B(a,r)=\{x\in X : \rho(a,x)<r\}$ --- открыт
+\begin{proof}
+    $x_0\in B(a, r)$
+
+    Докажем, что $x_0$ --- внутренняя, т.е. $\exists U(x_0)\subset B(a, r)$
+
+    $k:=r-\rho(a, x_0)$
+
+    Докажем, что $B(x_0, k)\subset B(a, r)$
+
+    $$\forall x\in B(x_0, k) \quad \rho(x, x_0)<k$$
+    
+    $$\rho(a, x_0) + \rho(x, x_0)<r$$
+
+    $$\rho(x, a) \leq \rho(a, x_0) + \rho(x, x_0)<r$$
+\end{proof}
+\import{Теорема о свойствах открытых множеств}{4.tex}{освойствахзамкнутыхмножеств}
+\ExecuteMetaData[4.tex]{освойствахзамкнутыхмножествproof}
 \end{document}

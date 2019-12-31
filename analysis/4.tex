@@ -39,7 +39,7 @@
 
 \begin{proof}
     %<*неравенствокошибуняковскогоproof>
-    
+
     Возьмём $\lambda\in\mathbb{R} (\mathbb{C})$
 
     При $y=0$ тривиально, пусть $y\not = 0$
@@ -97,20 +97,24 @@ $\rho(x,y)=||x-y||$ - метрика в $\mathbb{R}^m$
 
 \begin{lemma}
     О непрерывности скалярного произведения.
-
+    %<*онепрерывностискалярногопроизведения>
     $X$ - лин. пространство со скалярным произведением, $||\cdot||$ --- норма, порожденная скалярным произведением.
 
     Тогда $\forall (x_n) x_n\to x, \forall (y_n) y_n\to y, \quad \langle x_n,y_m\rangle\to\langle x,y\rangle$
+    %</онепрерывностискалярногопроизведения>
 \end{lemma}
 
+%<*онепрерывностискалярногопроизведенияproof>
 \begin{proof}
     $$|\langle x_n,y_m\rangle - \langle x,y\rangle|=|\langle x_n,y_n\rangle - \langle x_n,y\rangle + \langle x_n,y\rangle - \langle x,y\rangle|\leq|\langle x_n,y_n\rangle-\langle x_n,y\rangle| + |\langle x_n,y\rangle-\langle x,y\rangle\leq$$
     $$\leq |\langle x_n,y_n-y\rangle| + |\langle x_n-x,y\rangle|\leq ||x_n||\cdot||y_n-y||+||x_n-x||\cdot||y|| \to 0$$
 
     По теореме о двух городовых чтд.
 \end{proof}
+%</онепрерывностискалярногопроизведенияproof>
 
 \begin{lemma}
+    %<*опокоординатнойсходимости>
     О покоординатной сходимости в $\mathbb{R}^m$
 
     $(x^{(n)})$ --- последовательность векторов в $\mathbb{R}^m$
@@ -118,17 +122,20 @@ $\rho(x,y)=||x-y||$ - метрика в $\mathbb{R}^m$
     в $\mathbb{R}^m$ задано евклидово скалярное пространство и норма.
 
     Тогда $(x^{(n)})\to x \Leftrightarrow \forall i\in\{1,2,\ldots m\} \ \ x_i^{(n)}\underset{n\to+\infty}\to x_i$
+    %</опокоординатнойсходимости>
 \end{lemma}
 
 \begin{remark}
     В $\mathbb{R}^{\infty}$ не выполняется
 \end{remark}
 
+%<*опокоординатнойсходимостиproof>
 \begin{proof}
     Модуль координаты $\leq$ нормы всего вектора:
     $$|x_i^{(n)}-x_i|\leq ||x^{(n)}-x||\leq \sqrt{m}\max\limits_{1\leq i\leq m} |x_i^{n}-x_i|$$
     Первое неравенство доказывает $\Rightarrow$, второе неравенство доказывает $\Leftarrow$
 \end{proof}
+%</опокоординатнойсходимостиproof>
 
 \begin{definition}
     \textbf{Параллелепипед} в $\mathbb{R}^m$
@@ -311,19 +318,37 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 \begin{theorem}
     О свойствах замкнутых множеств.
 
+    %<*освойствахзамкнутыхмножеств>
     \begin{enumerate}
-        \item $(F_\alpha)_{\alpha\in A}$ --- замкн. в $X$
+        \item $(G_\alpha)_{\alpha\in A}$ - семейство открытых множеств в $(X,\rho)$
+    
+        Тогда $\bigcup\limits_{\alpha\in A} G_\alpha$ - открыто в $X$.
+    
+        \item $G_1,G_2,\ldots G_n$ - открыто в $X$.
         
-        Тогда $\bigcap F_\alpha$ --- замкн.
-
-        \item $F_1\ldots F_n$ --- замкн.
-        
-        Тогда $\bigcap F_i$ --- замкн.
+        Тогда $\bigcap\limits_{i=1}^{n} G_i$ - открыто в $X$.
     \end{enumerate}
+    %</освойствахзамкнутыхмножеств>
 \end{theorem}
 
+%<*освойствахзамкнутыхмножествproof>
 \begin{proof}
-    $F_\alpha$ --- замкн. $\Leftrightarrow F_\alpha^c$ --- откр. $\Rightarrow \bigcup F_\alpha^c$ --- откр. $\Rightarrow (\bigcup F_\alpha^c)^c$ --- замкн.
+    \begin{enumerate}
+        \item $x_0\in\bigcup\limits_{\alpha\in A} G_\alpha$
+        
+        $\exists \alpha_0:x_0\in G_{\alpha_0}$
+
+        $G_{\alpha_0}$ --- открыто $\Rightarrow \exists U(x_0)\subset G_{\alpha_0} \subset \bigcup\limits_{\alpha\in A} G_\alpha \Rightarrow x_0$ --- внтуренняя точка $\bigcup\limits_{\alpha\in A} G_\alpha \Rightarrow \bigcup\limits_{\alpha\in A} G_\alpha$ --- открыто, т.к. в нём все точки внутренние.
+
+        \item $x_0\in\bigcap\limits_{\alpha\in A} G_\alpha$
+        
+        $\forall \alpha\in A : x_0\in G_\alpha$
+
+        $\forall \alpha\in A \ \ G_\alpha$ --- открыто $\Rightarrow \exists B_\alpha(x_0, r_\alpha)\subset G_\alpha$
+
+        $\forall x_0 : \exists U(x_0)=B(x_0, \min\limits_\alpha r_\alpha)\subset \bigcap\limits_{\alpha\in A} G_\alpha \Rightarrow x_0$ --- внутренняя точка $\bigcap\limits_{\alpha\in A} G_\alpha \Rightarrow \bigcap\limits_{\alpha\in A} G_\alpha$ --- открыто, т.к. в нём все точки внутренние.
+    \end{enumerate}
 \end{proof}
+%</освойствахзамкнутыхмножествproof>
 
 \end{document}

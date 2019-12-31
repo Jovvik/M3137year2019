@@ -119,4 +119,19 @@ $B(a,r)=\{x\in X : \rho(a,x)<r\}$ --- открыт
 \end{proof}
 \import{Теорема о свойствах открытых множеств}{4.tex}{освойствахзамкнутыхмножеств}
 \ExecuteMetaData[4.tex]{освойствахзамкнутыхмножествproof}
+\import{Теорема о связи открытых и замкнутых множеств, свойства замкнутых множеств}{opros.tex}{освязиоткрытыхизамкнутыхмножеств}
+\ExecuteMetaData[4.tex]{освязиоткрытыхизамкнутыхмножествproof}
+\begin{proof}
+    \begin{enumerate}
+        \item $(\bigcap F_\alpha)^c=X\setminus(\bigcap F_\alpha)=\bigcup (X\setminus F_\alpha)$
+        
+        $F_\alpha$ --- закрыто $\Rightarrow X\setminus F_\alpha$ --- открыто $\Rightarrow \bigcup (X\setminus F_\alpha)$ --- открыто
+
+        $(\bigcap F_\alpha)^c$ --- открыто $\Rightarrow \bigcap F_\alpha$ --- закрыто
+
+        \item $(\bigcup F_i)^c=\bigcap(F_i)^c$
+        
+        $\bigcap(F_i)^c$ --- открыто, т.к. $F_i^c$ --- открыто $\Rightarrow (\bigcup F_i)^c$ --- открыто $\Rightarrow \bigcup F_i$ --- закрыто
+    \end{enumerate}
+\end{proof}
 \end{document}

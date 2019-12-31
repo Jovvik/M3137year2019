@@ -199,29 +199,60 @@ $X=\mathbb{C}^m \ \ ||x||=\sqrt{\sum\limits_{i}^m |x_i|^2}$
 \end{enumerate}
 
 \begin{remark}
+%<*метрикапорожденнаянормой>
 Если $(X, ||\cdot||)$ --- норм. пр-во, тогда $\rho(x,y):=||x-y||$ --- метрика,
 порожденная нормой. Не все метрики порождены нормами, например $\rho=\frac{|x-y|}{1+|x-y|}$.
+%</метрикапорожденнаянормой>
 \end{remark}
 
 \section*{Арифметические свойства предела}
 
 \begin{theorem}
+%<*арифметическиесвойствапредела>
 \textbf{Об арифметических свойствах предела в нормированном пространстве.}
+
 Если $(X, ||\cdot||)$ --- норм. пр-во, $(x_n),(y_n)$ --- посл. в $X$, $\lambda_n$ ---
 посл. скаляров, и $x_n\to x_0, y_n\to y_0, \lambda_n\to \lambda_0$, \textbf{тогда}:
 \begin{enumerate}
-\item $\forall \varepsilon>0 \ \ \exists N \ \ \forall n>N \ \ ||x_n-x_0||<\varepsilon$
-\item $||\lambda_nx_n-\lambda_0x_0||\to x_0$
-\item $|||x_n||-||x_0|||\leq||x_n-x_0||$
+\item $x_n\pm y_n\to x_0\pm y_0$
+\item $\lambda_nx_n\to \lambda_0x_0$
+\item $||x_n||\to ||x_0||$
 \end{enumerate}
+%</арифметическиесвойствапредела>
 \end{theorem}
 
+%<*арифметическиесвойствапределаproof>
+\begin{proof}
+    \textcolor{red}{Это доказательство написано не по лекциям.}
+
+    \begin{enumerate}
+        \item $\forall \varepsilon \ \ \exists N_2 \ \ \forall n>N_1 \ \ ||x_n - x_0||<\varepsilon$
+        
+        $\forall \varepsilon \ \ \exists N_2 \ \ \forall n>N_2 \ \ ||y_n - y_0||<\varepsilon$
+        
+        $N:=\max(N_1, N_2)$
+
+        $\forall \varepsilon \ \ \forall n>N \ \ ||(x_n+y_n) - (x_0+y_0)||\leq ||x_n-x_0|| + ||y_n-y_0||\leq 2\varepsilon$
+
+        \item $||\lambda_nx_n-\lambda_0x_0||=||\lambda_nx_n-\lambda_0x_0+\lambda_0x_n-\lambda_0x_n||=||(\lambda_n-\lambda_0)x_n+(x_n-x_0)\lambda_0||\leq\\ ||(\lambda_n-\lambda_0)x_n||+||(x_n-x_0)\lambda_0||=||x_n|||\lambda_n-\lambda_0|+||x_n-x_0|||\lambda_0|$
+        
+        $|\lambda_n-\lambda_0|$ и $||x_n-x_0||$ --- бесконечно малые, $||x_n||$ и $|\lambda_n|$ --- ограниченные $\Rightarrow ||x_n|||\lambda_n-\lambda_0|+||x_n-x_0|||\lambda_0|$ --- бесконечно малая
+
+        \item $|||x_n||-||x_0|||\leq ||x_n-x_0||$
+    \end{enumerate}
+\end{proof}
+%</арифметическиесвойствапределаproof>
+
 \begin{theorem}
-\textbf{Об арифметических свойствах пределов в $\mathbb{R}$}. Для $(x_n),(y_n)$ 
+%<*арифметическиесвойствапределавr>
+\textbf{Об арифметических свойствах пределов в $\mathbb{R}$}.
+
+Для $(x_n),(y_n)$ 
 --- вещ.посл., $\forall n \ \ y_n\not =0, y_0\not = 0$:
 \begin{enumerate}[resume]
 \item $\frac{x_n}{y_n}\to\frac{x_0}{y_0}$
 \end{enumerate}
+%</арифметическиесвойствапределавr>
 \end{theorem}
 
 Доказательство есть, вы там держитесь.

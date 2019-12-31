@@ -222,17 +222,20 @@ $y_n$ отделено от нуля при больших $n$.
 \begin{theorem}
 Теорема Кантора о стягивающихся отрезках.
 
+%<*теоремакантора>
 Дана последовательность отрезков $[a_1, b_1]\supset[a_2, b_2]\supset\ldots$
 
 Длины отрезков $\to 0$, т.е. $(b_n-a_n)\to_{n\to+\infty}0$
 
 Тогда $\exists!c\in\mathbb{R} \quad \bigcap\limits_{k=1}^{+\infty}[a_k, b_k]=\{c\}$ и при этом $a_n\to_{n\to+\infty} c, b_n\to_{n\to+\infty} c$
+%</теоремакантора>
 \end{theorem}
 
 \begin{remark}
 Вместо ``$b_n-a_n\to 0$'' $\quad \forall \varepsilon>0 \ \ \exists n : b_n-a_n<\varepsilon$
 \end{remark}
 
+%<*теоремакантораproof>
 \begin{proof}
 Берем из аксиомы Кантора $c\in\bigcap\limits_{k=1}^{+\infty}[a_k, b_k]$
 
@@ -249,6 +252,7 @@ $\begin{cases}
 
 По теореме об единственности предела $c$ однозначно определено.
 \end{proof}
+%</теоремакантораproof>
 
 \begin{definition}
 %<*верхняяграница>

@@ -30,12 +30,16 @@
 \begin{lemma}
     Неравенство КБШ \textit{(Коши-Буняковского-Шварца)}
     
+    %<*неравенствокошибуняковского>
     Для $X$ --- линейного пространства \textit{(над $\mathbb{R}, \mathbb{C}$)}
 
     $\forall x,y\in X\quad |\langle x,y\rangle|^2\leq \langle x,x\rangle \langle y,y\rangle$
+    %</неравенствокошибуняковского>
 \end{lemma}
 
 \begin{proof}
+    %<*неравенствокошибуняковскогоproof>
+    
     Возьмём $\lambda\in\mathbb{R} (\mathbb{C})$
 
     При $y=0$ тривиально, пусть $y\not = 0$
@@ -47,6 +51,14 @@
     $$0\leq\langle x,x\rangle - \frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle - \frac{\langle y,x\rangle}{\langle y,y\rangle}\langle x,y\rangle+\frac{\langle x,y\rangle\langle y,x\rangle}{\langle y,y\rangle}$$
 
     $$0\leq \langle x,x\rangle - \frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle$$
+
+    $$\frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle\leq \langle x,x\rangle$$
+
+    $$\langle x,y\rangle\langle y,x\rangle \leq \langle x,x\rangle \langle y,y\rangle$$
+
+    $$|\langle x,y\rangle|^2 \leq \langle x,x\rangle \langle y,y\rangle$$
+
+    %</неравенствокошибуняковскогоproof>
 
     На википедии есть доказательство проще.
 \end{proof}

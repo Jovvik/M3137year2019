@@ -33,9 +33,11 @@
     Если в $\R^m$ $(x_n)$ --- ограниченная последовательность, то у неё существует сходящаяся подпоследовательность.
     %</принципвыборабольцановейерштрасса>
 \end{consequence}
+%<*принципвыборабольцановейерштрассаproof>
 \begin{proof}
     $x_n$ --- огр. $\Rightarrow x_n$ содержится в замкнутом кубе. Так как куб секвенциально компактен, $x_{n_k}$ сходится.
 \end{proof}
+%</принципвыборабольцановейерштрассаproof>
 \begin{remark}
     $(x_n)$ --- не огр. $\Rightarrow x_n\to\infty$, т.е. $||x_n||\to+\infty$
 \end{remark}
@@ -48,11 +50,14 @@
     %</сходящаясявсебе>
 \end{definition}
 \begin{lemma}
+    %<*сходящаясявсебесвойства>
     \begin{enumerate}
         \item $x_n$ --- фунд. $\Rightarrow x_n$ --- ограничена
         \item $x_n$ --- фунд; $\exists x_{n_k}$ --- сходящ. Тогда $x_n$ сходится. 
     \end{enumerate}
+    %</сходящаясявсебесвойства>
 \end{lemma}
+%<*сходящаясявсебесвойстваproof>
 \begin{proof}
     \begin{enumerate}
         \item $\varepsilon:=1 \ \ \exists N \ \ \forall m, n:=N+1 > N \ \ \rho(x_m, x_{N+1})<1$
@@ -73,6 +78,7 @@
         Итого $\forall n>\tilde N \ \ \rho(x_n, a)\geq \rho(x_n, x_{n_k})<2\varepsilon$
     \end{enumerate}
 \end{proof}
+%</сходящаясявсебесвойстваproof>
 \begin{theorem}
     %<*критерийкошидляпоследовательностей>
     \begin{enumerate}
@@ -81,6 +87,7 @@
     \end{enumerate}
     %</критерийкошидляпоследовательностей>
 \end{theorem}
+%<*критерийкошидляпоследовательностейproof>
 \begin{proof}
     \begin{enumerate}
         \item $x_n\to a \quad \forall \varepsilon>0 \ \ \exists N \ \ \forall n>N \ \ \rho(x_n, a)<\varepsilon$
@@ -95,6 +102,7 @@
         \end{cases} \Rightarrow x_n$ --- сходящ.
     \end{enumerate}
 \end{proof}
+%</критерийкошидляпоследовательностейproof>
 \begin{definition}
     %<*полноепространство>
     $X$ --- метрическое пространство называется \textbf{полным}, если в нём любая фундаментальная последовательность --- сходящаяся.
@@ -157,6 +165,7 @@ $\lim\limits_{x\to 0-0} f = \lim\limits_{x\to -0} f$
     \end{enumerate}
     %</определемонотоннойфункции>
 \end{theorem}
+%<*определемонотоннойфункцииproof>
 \begin{proof}
     \begin{enumerate}
         \item $L:= \sup\limits_{D_1} f \quad L\stackrel{?}{=}\lim\limits_{x\to a-0} f(x)$
@@ -170,6 +179,7 @@ $\lim\limits_{x\to 0-0} f = \lim\limits_{x\to -0} f$
         Аналогично доказывается пункт 2.
     \end{enumerate}
 \end{proof}
+%</определемонотоннойфункцииproof>
 
 Критерий Больцано-Коши для отображений.
 
@@ -180,6 +190,7 @@ $\lim\limits_{x\to 0-0} f = \lim\limits_{x\to -0} f$
     Тогда $$\exists \lim\limits_{x\to a}f(x)\in Y \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \delta>0 \ \ \forall x_1, x_2\in D \ \ \rho(x_1,a)<\delta; \rho(x_2, a) < \delta \ \ \rho(f(x_1), f(x_2))<\varepsilon$$
     %</критерийбольцанокошидляотображений>
 \end{theorem}
+%<*критерийбольцанокошидляотображенийproof>
 \begin{proof}
     ``$\Rightarrow$'' как для последовательностей.
 
@@ -193,6 +204,7 @@ $\lim\limits_{x\to 0-0} f = \lim\limits_{x\to -0} f$
 
     $$\forall m,n > N \ \ \rho(x_n, a)<\delta; \rho(x_m, a)<\delta \xRightarrow{\text{Фунд.}} \rho(f(x_n), f(x_m))<\varepsilon$$
 \end{proof}
+%</критерийбольцанокошидляотображенийproof>
 \begin{remark}
     В $\R$ критерий Больцано-Коши для функций
 
@@ -288,5 +300,8 @@ $$\forall \varepsilon>0 \ \ \exists \Delta \ \ \forall x_1, x_2\in D \ \ x_1>\De
     \end{enumerate}
     %</арифметическиесвойстванепрерывныхотображений>
 \end{theorem}
+%<*арифметическиесвойстванепрерывныхотображенийproof>
+\textcolor{red}{Доказательство отсутствует}
+%</арифметическиесвойстванепрерывныхотображенийproof>
 
 \end{document}

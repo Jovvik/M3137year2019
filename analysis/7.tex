@@ -75,11 +75,13 @@
     Тогда $\exists V(a) : f$ --- огр. на $V(a)\cap D$, т.е. $f(V(a)\cap D)$ содержится в некотором шаре.
     %</олокальнойограниченностиотображенияимеющегопредел>
 \end{theorem}
+%<*олокальнойограниченностиотображенияимеющегопределproof>
 \begin{proof}
     Для $\varepsilon = 1 \ \ \exists V(a) \ \ \forall x\in \dot V(a)\cap D \ \ f(x)\in U_\varepsilon(A)$
 
     Для $x\in V(a)\cap D \ \ f(x)\in U_{\tilde{\varepsilon}} (A)$, где $\tilde \varepsilon = \max(\varepsilon, \rho(A, f(a)) + 1)$
 \end{proof}
+%</олокальнойограниченностиотображенияимеющегопределproof>
 
 \begin{theorem}
     %<*остабилизациизнака>
@@ -92,9 +94,11 @@
     Тогда $\exists V(a) \ \ \forall x \in \dot V(a)\cap D \ \ f(x)\not = B$
     %</остабилизациизнака>
 \end{theorem}
+%<*остабилизациизнакаproof>
 \begin{proof}
     Для $$0 < \varepsilon < \rho(A, B) \ \ \exists V(a) \ \ \forall x\in \dot V(a)\cap D \ \ f(x)\in U_\varepsilon(A)$$ $U_\varepsilon(A)$ не содержит $B$.
 \end{proof}
+%</остабилизациизнакаproof>
 \begin{consequence} 
     $f:D\subset X \to \mathbb{R}$, $a$ -- пред. точка, $\lim\limits_{x\to a} f(x)=A>0 \ \ B=0$
 
@@ -127,6 +131,7 @@
     \end{enumerate}
     %</обарифметическихсвойствахпредела>
 \end{theorem}
+%<*обарифметическихсвойствахпределаproof>
 \begin{proof}
     По Гейне.
     $\forall (x_n):$
@@ -148,6 +153,7 @@
 
     $\frac{f(x_n)}{g(x_n)}$ корректно задано при $n>n_0$.
 \end{proof}
+%</обарифметическихсвойствахпределаproof>
 \begin{remark}
     Для $\overline \R$
 
@@ -155,11 +161,13 @@
     Если $Y=\overline\R$, можно ``разрешить'' случай $A, B=\pm \infty$
     %</арифметическиесвойствапределадляoverliner>
 
+    %<*арифметическиесвойствапределадляoverlinerproof>
     Тогда 3. тривиально, 1., 2. и 4. верно, если выражения $A\pm B$, $\lambda_0 A$, $\frac{A}{B}$ корректны.
 
     Докажем 1. как в теореме об арифметических свойствах последовательности.
 
     $\lim\limits_{x\to a} f(x) = +\infty; \lim\limits_{x\to a} g(x) = +\infty \Leftrightarrow \forall E_1 \ \ \exists \delta_1>0 \ \ \forall x\in D\cap V_{\delta_1}(a) \ \ f(x) > E_1 \ \ \forall E_2 \ \ \exists \delta_2>0 \ \ \forall x\in D\cap V_{\delta_2}(a) \ \ g(x) > E_2$
+    %</арифметическиесвойствапределадляoverlinerproof>
 \end{remark}
 Это доказательство не будет спрашиваться.
 

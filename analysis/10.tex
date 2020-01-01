@@ -67,6 +67,7 @@
         Тогда $g(f(x))\xrightarrow[x\to a]{} B$
         %</определекомпозиции>
     \end{theorem}
+    %<*определекомпозицииproof>
     \begin{proof}
         По Гейне.
 
@@ -80,6 +81,7 @@
 
         $\Rightarrow g(y_n)\to B$
     \end{proof}
+    %</определекомпозицииproof>
     \begin{remark}
         Вместо $(*)$ можно рассмотреть условие $A\in E \quad g$ --- непр. в $A$.
     \end{remark}
@@ -90,6 +92,7 @@
         $f: X\to Y$ --- непр. на $X \Leftrightarrow \forall G\subset Y$, откр. $f^{-1}(G)$ --- откр. в $X$.
         %</топологическоеопределениенепрерывности>
     \end{theorem}
+    %<*топологическоеопределениенепрерывностиproof>
     \begin{proof}
         ``$\Rightarrow$'' $x_0\in f^{-1}(G) \quad ?\exists V(x_0)\subset f^{-1}(G)$
 
@@ -109,6 +112,7 @@
 
         Для любого $x\in W(x_0)$ будет выполняться $f(x)\in U(f(x_0))$
     \end{proof}
+    %</топологическоеопределениенепрерывностиproof>
     \begin{remark}
         $f:[0, 2]\to\R$
 
@@ -132,13 +136,15 @@
 
         Для $\varepsilon=\frac{1}{n} \quad \exists x_n\in A:\sup A - \frac{1}{n}<x_n\leq \sup A$, т.е. $x_n\to \sup A$
     \end{proof}
+    %<*вейерштрассаонепрерывномобразекомпактаproof>
     \begin{proof}
         $?f(X)$ --- комп.
 
         $f(X)\subset \bigcup G_\alpha \quad G_\alpha$ --- откр. в $Y$.
 
-        $X\subset \bigcup f^{-1}(G_\alpha)$ --- откр. т.к. $f$ --- непр. $\xRightarrow[X \text{ --- комп.}]{} \exists \alpha_1\ldots\alpha_n \quad X\subset\bigcup\limits_{i=1}^n f^{-1}(G_{\alpha_i}) \Rightarrow f(X)\subset\bigcup\limits_{i=1}^n G_{\alpha_i}$
+        $X\subset \bigcup f^{-1}(G_\alpha)$ --- откр. т.к. $f$ --- непр. $\xRightarrow[X \text{ --- комп.}]{}$ $$\exists \alpha_1\ldots\alpha_n \quad X\subset\bigcup\limits_{i=1}^n f^{-1}(G_{\alpha_i}) \Rightarrow f(X)\subset\bigcup\limits_{i=1}^n G_{\alpha_i}$$
     \end{proof}
+    %</вейерштрассаонепрерывномобразекомпактаproof>
     %<*следствиявейерштрасса>
     \begin{consequence}
         Непрерывный образ компакта замкнут и ограничен.
@@ -263,9 +269,11 @@
         , если $x_0$ лежит в области определения $\frac{f}{g}$
         %</озамененаэквивалентную>
     \end{theorem}
+    %<*озамененаэквивалентнуюproof>
     \begin{proof}
         $$f(x)g(x) = \tilde f(x)\tilde g(x)\frac{f}{\tilde f}\frac{g}{\tilde g}\to \tilde f(x)\tilde g(x) \cdot 1\cdot 1$$
     \end{proof}
+    %</озамененаэквивалентнуюproof>
     \begin{remark}
         В условиях теоремы $\lim\limits_{x\to x_0} f+g\not=\lim\limits_{x\to x_0} (\tilde f + \tilde g)$
     \end{remark}
@@ -307,6 +315,7 @@
         Тогда $\forall i \ \ c_i=d_i$
         %</оединственностиасимтотическогоразложения>
     \end{theorem}
+    %<*оединственностиасимтотическогоразложенияproof>
     \begin{proof}
         $k:=min\{i:c_i\not=d_i\}$
 
@@ -318,6 +327,7 @@
 
         $$d_k-c_k=\frac{o(g_k)}{g_k(x)}\xrightarrow[x\to x_0]{}0$$
     \end{proof}
+    %</оединственностиасимтотическогоразложенияproof>
     \begin{example}
         %<*наклоннаяасимптота>
         Пусть $f(x)=Ax+B+o(1), x\to +\infty$

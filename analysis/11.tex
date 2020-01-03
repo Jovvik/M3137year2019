@@ -268,13 +268,25 @@
         $A\subset B, B$ --- счётное; $A$ --- бесконечное $\Rightarrow A$ --- счётное
     \end{theorem}
     \begin{consequence}
-        $Q$ --- счётное
-
-        $Q\subset \Z\times\N$
+        %<*счётностьq>
+        $\Q$ --- счётное
+        %</счётностьq>
     \end{consequence}
+    %<*счётностьqproof>
+    \begin{proof}
+        $$\Q_+:=\{x\in\Q:x>0\},\ \ \Q_-:=\{x\in\Q:x<0\}$$
+        $$\forall q\in\N \ \ Q_p=\left\{\frac{1}{q}, \frac{2}{q}\ldots\right\} \text{ --- счётно}$$
+        $$\Q_+=\bigcup\limits_{q=1}^\infty Q_p \text{ --- счётно}$$
+        $$\Q_-\sim\Q_+\Rightarrow \Q_- \text{ --- счётно}$$
+        $$\Q=\Q_+\cup\Q_-\cup\{0\} \text{ --- счётно}$$
+    \end{proof}
+    %</счётностьqproof>
     \begin{theorem}
+        %<*несчетностьотрезка>
         $[0,1]$ --- несчётно
+        %</несчетностьотрезка>
     \end{theorem}
+    %<*несчетностьотрезкаproof>
     \begin{proof}
         Пусть $\exists \varphi: \N\to[0,1]$ --- биекция
 
@@ -286,14 +298,18 @@
         
         $\forall k \ \ x\in[a_k,b_k]\Rightarrow x\not=\varphi(k)$
     \end{proof}
+    %</несчетностьотрезкаproof>
     \begin{definition}
         %<*мощностьконтинуума>
         $A$ равномощно $[0,1] \Rightarrow A$ имеет мощность \textbf{континуума}.
         %</мощностьконтинуума>
     \end{definition}
-    $Bin=$ множество бинарных последовательностей
     \begin{theorem}
+        %<*мощностьбинарныхпоследовательностей>
+        $Bin=$ множество бинарных последовательностей
+
         $Bin$ имеет мощность континуума
+        %</мощностьбинарныхпоследовательностей>
     \end{theorem}
     \begin{lemma}
         $A$ --- беск., $B$ --- счётное $\Rightarrow A\cup B$ равномощно $A$
@@ -301,6 +317,7 @@
     \begin{proof}
         Теорема 0 + Теорема 1 \textit{(второй пункт)} + Теорема 3
     \end{proof}
+    %<*мощностьбинарныхпоследовательностейproof>
     \begin{proof}
         $\varphi : Bin\to [0,1]\cap Bin_{\text{кон.}}$
 
@@ -308,6 +325,7 @@
 
         Иньекция достигается тем, что конечные дроби идут в $Bin_{\text{кон.}}$, а бесконечные в $[0,1]$
     \end{proof}
+    %</мощностьбинарныхпоследовательностейproof>
     \begin{consequence}
         $[0,1]\times[0,1]\subset\R^2$ --- тоже континуум
     \end{consequence}
@@ -339,6 +357,7 @@
         \end{enumerate}
         %</онепрерывностимонотонныхфункций>
     \end{theorem}
+    %<*онепрерывностимонотонныхфункцийproof>
     \begin{proof}
         Рассмотрим $f\uparrow$
         \begin{enumerate}
@@ -352,4 +371,5 @@
             $$f(x_0-0)\leq f(x_0)\leq f(x_0+0)$$
         \end{enumerate}
     \end{proof}
+    %</онепрерывностимонотонныхфункцийproof>
 \end{document}

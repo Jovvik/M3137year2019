@@ -155,8 +155,14 @@ $$f_a(x) = x^a, a\in\Q$$
     Второе определение не обобщимо на пространство произвольной размерности, в отличие от первого.
 \end{remark}
 \begin{theorem}
-    Определение 1 $\Leftrightarrow$ определению 2.
+    %<*равносильностьопределенийпроизводной>
+    Определение 1 $\Leftrightarrow$ определению 2, т.е.
+    $$f(x)=f(x_0)+A\cdot(x-x_0)+o(x-x_0), x\to x_0$$
+    $$\exists \lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=B\in\R$$
+    $$A=B$$
+    %</равносильностьопределенийпроизводной>
 \end{theorem}
+%<*равносильностьопределенийпроизводнойproof>
 \begin{proof}
     Докажем ``$\Leftarrow$''.
     
@@ -168,6 +174,7 @@ $$f_a(x) = x^a, a\in\Q$$
 
     $$\frac{f(x)-f(x_0)}{x-x_0}=A+\alpha(x) \quad \alpha(x)\xrightarrow[x\to x_0]{} 0$$
 \end{proof}
+%</равносильностьопределенийпроизводнойproof>
 \begin{remark}
     \begin{enumerate}
         \item $f$ --- дифф. в $x_0 \Rightarrow f$ --- непр. в $x_0$
@@ -218,14 +225,16 @@ $$f(x)=f(x_0)+f'(x_0)(x-x_0)+o(x-x_0)$$
 \begin{theorem}
     О производной композиции.
 
+    %<*дифференциированиекомпозиции>
     $f:\langle a,b\rangle\to\langle c,d\rangle \quad x\in\langle a,b\rangle \quad f$ --- дифф. в $x$
 
     $g:\langle c,d\rangle\to\R \quad g$ --- дифф. $y=f(x)$
 
     Тогда $g\circ f$ --- дифф. в $x$; $(g(f(x)))'=g'(f(x))\cdot f'(x)$
+    %</дифференциированиекомпозиции>
 \end{theorem}
+%<*дифференциированиекомпозицииproof>
 \begin{proof}
-    %TODO: разобрать
     $$f(x+h)=f(x)+f'(x) h + \alpha(h)h, \alpha(h)\xrightarrow[h\to 0]{} 0$$
     $$g(y+k)=g(y)+g'(y) k + \beta(k)k$$
     $$]f'(x)h + \alpha(h)h = k; \quad k\xrightarrow[h\to0]{}0$$
@@ -234,18 +243,22 @@ $$f(x)=f(x_0)+f'(x_0)(x-x_0)+o(x-x_0)$$
     $$=g(f(x))+g'(f(x))f'(x)h+g'(f(x))\alpha(h)h+\beta(k)f'(x)h+\beta(k)\alpha(h)h$$
     $$]g'(f(x))\alpha(h)h+\beta(k)f'(x)h+\beta(k)\alpha(h)h=\gamma(h)\cdot h; \quad \gamma(h)\xrightarrow[h\to0]{}0$$
 \end{proof}
+%</дифференциированиекомпозицииproof>
 \begin{theorem}
     О производной обратной функции.
 
+    %<*дифференциированиеобратной>
     $f:\langle a,b\rangle\to\R$ --- непр., строго монот. $x\in\langle a,b\rangle\ \ f$ --- дифф. в $x$; $f'(x)\not=0$
 
     По определению $f\ \ $ $\exists f^{-1}$
 
     Тогда $f^{-1}$ --- дифф. в $y=f(x)$ и $$(f^{-1})'(y)=\frac{1}{f'(x)}$$
+    %</дифференциированиеобратной>
 \end{theorem}
 \begin{remark}
     $f^{-1}$ --- дифф. $\Rightarrow$ ф-ция очев.: $(f^{-1})'(f(x))\cdot f'(x)=(f^{-1}(f(x)))'=(x)'=1$
 \end{remark}
+%<*дифференциированиеобратнойproof>
 \begin{proof}
     $\forall k \ \ \exists h: f(x+h)=y+k$
 
@@ -253,6 +266,7 @@ $$f(x)=f(x_0)+f'(x_0)(x-x_0)+o(x-x_0)$$
 
     $$\frac{f^{-1}(y+k)-f^{-1}(y)}{k}=\frac{\tau(k)}{f(x+\tau(k))-f(x)}=\cfrac{1}{\cfrac{f(x+\tau(k))-f(x)}{(x+\tau(k)) - x}}\xrightarrow[\stackrel{k\to0}{\tau(k)\to0}]{\text{по т.о непр. обр. ф}}\frac{1}{f'(x)}$$
 \end{proof}
+%</дифференциированиеобратнойproof>
 \begin{example}
 $$y=\sin x$$
 $$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
@@ -264,15 +278,20 @@ $$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
 \section{Теоремы о среднем}
 
 \begin{lemma}
+    %<*леммадлятеоремыферма>
     $f:\langle a,b\rangle\to\R$ --- дифф. в $x_0\in(a,b)$; $f'(x_0)>0$
 
     Тогда $\exists \varepsilon > 0 \ \ \forall x : x\in(x_0, x_0+\varepsilon) \ \ f(x_0) < f(x)$
 
     и $\forall x : x\in(x_0 - \varepsilon, x_0) \ \ f(x_0) > f(x)$
+    %</леммадлятеоремыферма>
 \end{lemma}
+%<*леммадлятеоремыферма2>
 \begin{remark}
     Это не монотонность.
 \end{remark}
+%</леммадлятеоремыферма2>
+%<*леммадлятеоремыфермаproof>
 \begin{proof}
     $$\frac{f(x)-f(x_0)}{x-x_0}\xrightarrow[x\to x_0]{} f'(x_0)>0$$
 
@@ -280,9 +299,11 @@ $$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
 
     $$x\to x_0-0 \quad x-x_0<0 \Rightarrow f(x)-f(x_0)<0 \text{ вблизи } x_0$$
 \end{proof}
+%</леммадлятеоремыфермаproof>
 \begin{theorem}
     Ферма.
 
+    %<*теоремаферма>
     $f:\langle a,b\rangle \to\R$
 
     $x_0\in(a,b)$ --- точка максимума
@@ -290,7 +311,9 @@ $$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
     $f$ --- дифференцируема в $x_0$
 
     Тогда $f'(x_0)=0$
+    %</теоремаферма>
 \end{theorem}
+%<*теоремафермаproof>
 \begin{proof}
     Из леммы.
 
@@ -298,13 +321,17 @@ $$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
 
     Если $f'(x_0)<0$, то слева от $x_0$ есть $x: f(x)>f(x_0)$
 \end{proof}
+%</теоремафермаproof>
 \begin{theorem}
     Ролля.
 
+    %<*теоремаролля>
     $f:[a,b]\to\R$ --- непр. на $[a,b]$, дифф. на $(a,b)$
 
     $f(a)=f(b)$. Тогда $\exists c\in(a,b) : f'(c)=0$
+    %</теоремаролля>
 \end{theorem}
+%<*теоремаролляproof>
 \begin{proof}
     По теореме Вейерштрасса.
 
@@ -314,20 +341,25 @@ $$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
 
     Иначе: пусть $x_0\in (a,b) \xRightarrow[\text{т. Ферма}]{} f'(x_0)=0$
 \end{proof}
+%</теоремаролляproof>
 \begin{remark}
     $f(x)=(x-a)^kg(x)$, где $g(a)\not=0$
     $$f'(x)=k(x-a)^{k-1}g(x)+(x-a)^kg'(x)=(x-a)^{k-1}(k\cdot g(x)+(x-a)\cdot g'(x))$$
 \end{remark}
 \begin{example}
+    %<*полиномылежандра>
     $n\in\N$
 
-    $$\Ln(x)=((x^2-1)^n)^{(n)}$$ --- это полиномы Лежандра \textit{(с точностью до умножения на константу)}
+    $\Ln(x)=((x^2-1)^n)^{(n)}$ --- \textbf{полиномы Лежандра} \textit{(с точностью до умножения на константу)}
 
     $\deg \Ln=n$
 
     Утверждение: $\Ln$ имеет $n$ различных вещественных корней.
+    %</полиномылежандра>
 \end{example}
-% \begin{proof}
-%     Применяем по поводу каждого дифференцирования т. Ролля. На $n$-том шаге получаем 2 корня кратности $$
-% \end{proof}
+%<*полиномылежандраproof>
+\begin{proof}
+    \textcolor{red}{Чего-то про получение корней кратности}
+\end{proof}
+%</полиномылежандраproof>
 \end{document}

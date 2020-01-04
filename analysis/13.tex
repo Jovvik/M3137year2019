@@ -8,31 +8,41 @@
 \begin{theorem}
     Лагранжа.
 
+    %<*теоремалагранжа>
     $f:[a,b]\to\R$ --- непр., дифф. в $(a, b)$. Тогда $\exists c\in(a,b)$, такое что:
     $$f(b)-f(a)=f'(c)(b-a)$$
+    %</теоремалагранжа>
 \end{theorem}
 \begin{theorem}
     Коши.
-
+    %<*теоремакоши>
     $f,g : [a,b]\to\R$
 
     $f,g$ --- дифф. в $(a, b); g'\not=0$ на $(a,b)$. Тогда
 
     $\exists c\in(a,b)$, такое что:
     $$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}$$
+    %</теоремакоши>
 \end{theorem}
+%<*теоремалагранжаproof>
+\begin{proof}
+    Следует из теоремы Коши при $g(x)=x$
+\end{proof}
+%</теоремалагранжаproof>
 \begin{remark}
     Если $g(b)=g(a)$, то по т. Ролля $\ldots$
 \end{remark}
 \begin{remark}
     От автора конспекта: Кохась действительно не дописал замечание.
 \end{remark}
+%<*теоремалагранжаremark>
 \begin{remark}
     Теорему Лагранжа можно интерпретировать как следующее: $\frac{f(b)-f(a)}{b-a}$ --- тангенс угла между хордой графика и горизонталью, а $f'(c)$ --- касательная. Таким образом, если провести хорду графика, то можно найти точку между точками пересечения графика и хорды такую, что касательная к графику будет параллельна этой хорде.
-    %TODO: график
 \end{remark}
+%</теоремалагранжаremark>
+%<*теоремакошиproof>
 \begin{proof}
-    Теоремы Лагранжа.
+    Теоремы Коши.
 
     $F(x):=f(x)-kg(x)$
 
@@ -44,7 +54,9 @@
     $$f'(c)-kg'(c)=0$$
     $$k=\frac{f'(c)}{g'(c)}$$
 \end{proof}
+%</теоремакошиproof>
 \begin{consequence}
+    %<*следствия>
     \begin{enumerate}
         \item $f$ непр. на $[a,b]$, дифф. в $(a,b)$
 
@@ -60,7 +72,9 @@
 
         Тогда $f'_+(a)=k$
     \end{enumerate}
+    %</следствия>
 \end{consequence}
+%<*следствияproof>
 \begin{proof}
     Следствия 2.
 
@@ -68,6 +82,7 @@
 
     $$\frac{f(a+h)-f(a)}{h}=f'(c)\xrightarrow[h\to0]{} k$$
 \end{proof}
+%</следствияproof>
 
 $\sphericalangle f(x)=\begin{cases}
     e^{-\frac{1}{x^2}} & ,x\not=0 \\
@@ -85,12 +100,15 @@ $\lim\limits_{x\to0} \frac{2e^{-\frac{1}{x^2}}}{x^3}=0$ (позже)
 \begin{theorem}
     Дарбу.
 
+    %<*теоремадарбу>
     $f:[a,b]\to\R$ --- дифф. на $[a,b]$
 
     Тогда $\forall C$ лежащего между $f'(a), f'(b)$
 
     $$\exists c\in(a,b) : f'(c) = C$$
+    %</теоремадарбу>
 \end{theorem}
+%<*теоремадарбуproof>
 \begin{proof}
     $F(x):=f(x)-C\cdot x$ --- у неё $\exists\max\limits_{[a,b]}$ \textit{(в силу непрерывности)}
 
@@ -102,12 +120,15 @@ $\lim\limits_{x\to0} \frac{2e^{-\frac{1}{x^2}}}{x^3}=0$ (позже)
         По лемме при $x>a$, близких к $a \ \ f(x) > f(a) \Rightarrow \max f$ достигается в $c\in(a,b)$
     \end{enumerate}
 \end{proof}
+%</теоремадарбуproof>
+%<*теоремадарбуследствия>
 \begin{consequence}
     \begin{enumerate}
         \item Функция $f'$ обладает свойством ``сохранять промежуток''
         \item $f'$ не может иметь разрывов вида ``скачок''
     \end{enumerate}
 \end{consequence}
+%</теоремадарбуследствия>
 \section{Показательная функция}
 $\forall x, y \quad f(x+y)=f(x)\cdot f(y) \quad (*)$
 
@@ -119,6 +140,7 @@ $f:\R\to\R$, непр.
     $\not\equiv 0, \not\equiv 1$ и удовл. $(*)$
 \end{definition}
 \begin{theorem}
+    %<*свойствапоказательнойфункции>
     $f$ --- показ. ф-ция
 
     Тогда:
@@ -132,7 +154,9 @@ $f:\R\to\R$, непр.
         \item Множество значений $f \quad (0, +\infty)$
         \item $\tilde f(1)=f(1)$, тогда $f=\tilde f$
     \end{enumerate}
+    %</свойствапоказательнойфункции>
 \end{theorem}
+%<*свойствапоказательнойфункцииproof>
 \begin{proof}
     \begin{enumerate}
         \item $f\not\equiv 0 \ \ \exists f(x_0)\not=0$
@@ -198,6 +222,7 @@ $f:\R\to\R$, непр.
         $\tilde f(r_k)\to \tilde f(x); f(r_k)\to f(x) \Rightarrow f(x) = \tilde f(x)$
     \end{enumerate}
 \end{proof}
+%</свойствапоказательнойфункцииproof>
 Обозначение. $f$ --- показ ф-ция, $f(1)=a$
 
 Это значит $\forall r\in\Q \quad f(r)=a^r$

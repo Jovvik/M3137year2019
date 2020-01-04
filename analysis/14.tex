@@ -22,8 +22,11 @@ e^x&=1+x+\frac{x^2}{2!}+\ldots+\frac{x^n}{n!} + o(x^n) \\
 %</разложениятейлора>
 
 \begin{lemma}
+    %<*иррациональностьe2>
     $e^2$ --- ирр.
+    %</иррациональностьe2>
 \end{lemma}
+%<*иррациональностьe2proof>
 \begin{proof}
     $e^2=\frac{2k}{n}$
 
@@ -31,9 +34,11 @@ e^x&=1+x+\frac{x^2}{2!}+\ldots+\frac{x^n}{n!} + o(x^n) \\
 
     $n(2k-1)!e=(2k)!e^{-1}$
 \end{proof}
+%</иррациональностьe2proof>
 \begin{lemma}
     Метод Ньютона
 
+    %<*методньютона>
     $f:\langle a,b\rangle \to\R$ --- дважды дифф.
 
     $m:=\inf\limits_{\langle a,b\rangle}|f'|>0$
@@ -49,6 +54,7 @@ e^x&=1+x+\frac{x^2}{2!}+\ldots+\frac{x^n}{n!} + o(x^n) \\
     Тогда $\exists \lim x_n=\xi$ и при этом !. Кроме того, оно очень быстро сходится.
 
     $$|x_n-\xi|\leq \left(\frac{M}{2m}|x_1-\xi|\right)^{2n}$$
+    %</методньютона>
 \end{lemma}
 
 $$x_{n+1}-\xi=x_n-\xi-\frac{f(x_n)}{f'(x_n)}=\frac{(x_n-\xi)f'(x_n)-f(x_n)}{f'(x_n)}$$
@@ -58,6 +64,7 @@ $$|x_{n+1}-\xi|=\frac{|f(x_n)+f'(x_n)(\xi-x_n)|}{|f'(x_n)|}=\frac{\frac{1}{2}|f'
 \begin{theorem}
     О разложении рациональной дроби на простейшие.
 
+    %<*оразложениирациональнойдроби>
     $P(x), Q(x)$ --- многочлен $\deg P<\deg Q=n$
 
     $Q(x)=(x-a_1)^{k_1}\ldots (x-a_m)^{k_m} \quad (k_1+\ldots+k_m=n; a_i\not= a_j)$
@@ -66,7 +73,9 @@ $$|x_{n+1}-\xi|=\frac{|f(x_n)+f'(x_n)(\xi-x_n)|}{|f'(x_n)|}=\frac{\frac{1}{2}|f'
 
     $$\frac{P(x)}{Q(x)}=\left( \frac{A_1}{(x-a_1)}+\frac{A_2}{(x-a_1)^2}+\ldots+\frac{A_{k_1}}{(x-a_1)^{k_1}} \right)+\left( \frac{B_1}{(x-a_2)}+\frac{B_2}{(x-a_2)^2}+\ldots+\frac{B_{k_2}}{(x-a_2)^{k_2}} \right)+$$
     $$+\ldots+\left( \frac{C_1}{(x-a_m)}+\frac{C_2}{(x-a_m)^2}+\ldots+\frac{C_{k_m}}{(x-a_m)^{k_m}} \right)$$
+    %</оразложениирациональнойдроби>
 \end{theorem}
+%<*оразложениирациональнойдробиproof>
 \begin{proof}
     $$\frac{P(x)}{(x-a_1)^{k_1}\ldots(x-a_m)^{k_m}}=\frac{1}{(x-a_1)^{k_1}}\frac{P(x)}{(x-a_2)^{k_2}\ldots(x-a_m)^{k_m}}=$$
     $$=\frac{1}{(x-a_1)^{k_1}}(A_{k_1}+A_{k_1+1}(x-a_1)+A_{k_1-2}(x-a_1)^2+\ldots+A_1(x-a_1)^{k_1}+o((x-a_1)^{k_1}))$$
@@ -74,4 +83,5 @@ $$|x_{n+1}-\xi|=\frac{|f(x_n)+f'(x_n)(\xi-x_n)|}{|f'(x_n)|}=\frac{\frac{1}{2}|f'
 
     $\frac{P}{Q} - $ (Пр. часть) = знам. сократится $\Rightarrow$ многочлен $\equiv 0$
 \end{proof}
+%</оразложениирациональнойдробиproof>
 \end{document}

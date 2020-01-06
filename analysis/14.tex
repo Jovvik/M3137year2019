@@ -28,11 +28,21 @@ e^x&=1+x+\frac{x^2}{2!}+\ldots+\frac{x^n}{n!} + o(x^n) \\
 \end{lemma}
 %<*иррациональностьe2proof>
 \begin{proof}
-    $e^2=\frac{2k}{n}$
+    Предположим обратное: $e^2$ --- рационально. Тогда $e^2$ представимо следующим образом:
 
-    $ne=2ke^{-1}$
+    $$e^2=\frac{2k}{n}$$
 
-    $n(2k-1)!e=(2k)!e^{-1}$
+    $$ne=2ke^{-1}$$
+
+    $$n(2k-1)!e=(2k)!e^{-1}$$
+
+    $$n(2k-1)!e=n(2k-1)!\left(1+1+\frac{1}{2}+\ldots+\frac{1}{(2k-1)!}+\frac{e^c}{(2k)!}\right)=\text{целое число}+\frac{me^c}{2k}$$
+
+    $$\frac{me^c}{2k}\leq \frac{me}{2k}=e\cdot e^{-2}=e^{-1}\leq\frac{1}{2}$$
+
+    $$(2k)!e^{-1}=(2k)!\left(1-1+\frac{1}{2}+\ldots+\frac{1}{(2k)!}-\frac{e^d}{(2k+1)!}\right)=\text{целое число}-\frac{e^d}{2k+1}$$
+
+    $$\frac{e^d}{2k+1}\leq\frac{1}{2k+1}\leq\frac{1}{3}e^d\leq1$$
 \end{proof}
 %</иррациональностьe2proof>
 \begin{lemma}

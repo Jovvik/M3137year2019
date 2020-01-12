@@ -1,0 +1,215 @@
+\input{../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+
+\DeclareMathSymbol{\mlq}{\mathord}{operators}{``}
+\DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}
+
+\newcommand{\doref}[1]{Дано выше. \textit{(\ref{#1}, стр. \pageref{#1})}}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\section{Векторная алгебра}
+\section{Аналитическая геометрия}
+\section{Алгебраические структуры. СЛАУ}
+\subsection{Алгебраические структуры: группа, кольцо, поле}
+\begin{definition}
+    \textbf{Полугруппа} --- множество $G$ с заданной на нём бинарной ассоциативной операцией $\circ$, т.е. $$(g_1\circ g_2)\circ g_3 = g_1\circ (g_2 \circ g_3)$$
+\end{definition}
+\begin{definition}
+    \textbf{Группа} --- полугруппа, где выбран нейтральный элемент и для каждого элемента есть обратный:
+    \begin{enumerate}
+        \item Нейтральный элемент $e: e\circ g=g\circ e=g$
+        \item Обратный элемент: $\forall g\in G \ \ \exists g^{-1} \ \ g\circ g^{-1}=g^{-1}\circ g=e$
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    \textbf{Абелева группа} --- группа с коммутативной операцией, т.е. $$\forall g_1, g_2\in G \ \ g_1\circ g_2=g_2\circ g_1$$
+\end{definition}
+\begin{definition}
+    \textbf{Кольцо} --- множество с двумя бинарными операциями $\{R, \mlq+\mrq, \mlq\cdot\mrq\}$, которое является абелевой группой относительно сложения, полугруппой относительно умножения и эти операции согласованны \textit{(дистрибутивны)}:
+    $$r_1\cdot(r_2+r_3)=r_1\cdot r_2+r_1\cdot r_3;\quad (r_2+r_3)\cdot r_1=r_2\cdot r_1+r_3\cdot r_1$$
+\end{definition}
+\begin{definition}
+    \textbf{Поле} --- множество с двумя бинарными операциями $\{R, \mlq+\mrq, \mlq\cdot\mrq\}$, где эти операции согласованны и:
+    \begin{enumerate}
+        \item $\{K, \mlq + \mrq\}$ --- абелева группа
+        \item $\{K\setminus\{0\}, \mlq \cdot \mrq\}$ --- абелева группа
+    \end{enumerate}
+\end{definition}
+\subsection{Алгебраические структуры: линейное пространство, алгебра}
+\begin{definition}
+    \textbf{Модуль над кольцом $R$} --- абелева группа $\{G, \mlq + \mrq\}$ с операцией $R\times G\to G$, записываемой как $rg$ и для которой выполняется следующее:
+    \begin{enumerate}
+        \item $(r_1+r_2)g=r_1g+r_2g$
+        \item $r(g_1+g_2)=rg_1+rg_2$
+        \item $(r_1r_2)g=r_1(r_2g)$
+    \end{enumerate}
+\end{definition}
+\begin{definition} \label{linear_space}
+    \textbf{Линейное пространство} --- модуль над кольцом, которое также является полем.
+\end{definition}
+\begin{definition}
+    \textbf{Вектор} --- элемент линейного пространства.
+\end{definition}
+\begin{definition}
+    \textbf{Алгебра} --- модуль над кольцом, где сам модуль также является кольцом.
+\end{definition}
+\subsection{Поле комплексных чисел}
+$i^2:=1$
+
+$\C = \{a+bi : \forall a,b\in\R\}$
+
+\textbf{Модуль} комплексного числа $c$: $|c|=r=\sqrt{a^2+b^2}$, если $c=a+bi$
+
+\textbf{Аргумент} комплексного числа $c$: $\varphi=\arg(c)=\arg(a+bi)=2\arctan\left(\frac{b}{\sqrt{a^2+b^2}+a}\right)$
+
+Тогда $c=r(\cos \varphi + i\sin \varphi)$
+
+\textbf{Дополнение} комплексного числа $c$ записывается как $\overline c = \overline{a+bi}=a-bi$
+\subsection{Линейное пространство. Примеры линейных пространств.}
+\doref{linear_space}
+
+Примеры: \begin{enumerate}
+    \item $X=\{x=\begin{pmatrix}
+    \xi^1,\ldots \xi^n
+\end{pmatrix}^T, \xi^i\in\R\}$ \textit{(или $\C$)}
+    \item $\mathcal P_n=\{\text{многочлены} p(t):\deg p(t)\leq n, n\in\N\}$
+\end{enumerate}
+\subsection{Линейная зависимость векторов. Основные леммы о линейной зависимости.}
+\begin{definition}
+    \textbf{Линейной комбинацией} называется следующее выражение: $$\alpha_1x_1+\ldots+\alpha_nx_n,$$ где $\{x_i\}_{i=1}^n$ --- вектора, $\{\alpha_i\}_{i=1}^n$ --- коэффициенты.
+\end{definition}
+\begin{definition}
+    Набор векторов $\{x_i\}_{i=1}^n$ называется \textbf{линейнонезависимым}, если не существует его линейной комбинации, где не все коэффициенты равны $0$, а сама комбинация равна $0_X$:
+    $$\not\exists \{\alpha_i\}_{i=1}^n : \exists i : \alpha_i\not=0 \quad \alpha_1x_1+\ldots+\alpha_nx_n=0_X$$
+
+    Иначе набор называется \textbf{линейно зависимым}
+\end{definition}
+\begin{lemma}
+    Любой набор, содержащий нулевой вектор, является линейнозависимым.
+\end{lemma}
+\begin{lemma}
+    Набор, содержащий линейнозависимый поднабор, является линейнозависимым.
+\end{lemma}
+\begin{lemma}
+    Любой поднабор линейнонезависимого набора также является линенйнонезависимым.
+\end{lemma}
+\begin{lemma}
+    Набор векторов линейнозависим тогда и только тогда, когда хотя бы один из векторов набора выражается линейной комбинацией остальных.
+
+    $$\exists k\in\{1\ldots n\}: x_k=\sum\limits_{i=1, i\not=k}^n\alpha^ix_i \Leftrightarrow \{x_i\}_{i=1}^n \text{ --- ЛЗ}$$
+\end{lemma}
+\subsection{Базис и размерность линейного пространства.}
+\begin{definition}
+    Набор векторов называется \textbf{полным} в линейном пространстве $X$, если любой вектор этого пространства можно выразить как линейную комбинацию этого набора:
+    $$\forall x\in X \quad \exists \{\alpha_i\}_{i=1}^n \quad x=\sum\limits_{i=1}^n\alpha^ix_i$$
+\end{definition}
+\begin{definition}
+    Набор векторов называется \textbf{базисом} пространства $X$, если он является полным и ЛНЗ.
+\end{definition}
+\begin{definition}
+    Линейное пространство называется \textbf{конечномерным}, если в нём существует конечный полный набор векторов
+\end{definition}
+\begin{definition}
+    \textbf{Размерность пространства} $\dim X$ --- количество векторов в его базисе.
+\end{definition}
+\subsection{Изоморфизм линейных пространств.}
+\begin{definition}
+    \textbf{Изоморфизм} --- биекция, сохраняющая линейность, установленная между двумя линейными пространствами над одним и тем же полем:
+
+    $$\begin{cases}
+        x_1\leftrightarrow y_1 \\
+        x_2\leftrightarrow y_2
+    \end{cases} \Rightarrow \begin{cases}
+        x_1+x_2\leftrightarrow y_1+y_2 \\
+        \alpha x_1\leftrightarrow \alpha y_1
+    \end{cases}$$
+\end{definition}
+\subsection{Подпространства линейного пространства: определение, примеры, линейная оболочка, линейное многообразие.}
+\begin{definition}
+    \textbf{Подпространство} линейного пространства $X$ --- замкнутое множество $L\subset X$
+\end{definition}
+\begin{example}
+    \begin{enumerate}
+        \item $X$ и $\{0\}$ называются тривиальными подпространствами
+        \item Прямая и плоскость, содержащие начало координат --- подпространство $E_3$
+        \item $\R^{m<n}$ --- подпространство $\R^n$
+        \item Множество симметричных $n\times n$ матриц --- подпространство $\R^n_n$
+        \item Множество полиномов с членами только чётных степеней --- подпространство $\mathcal{P}_n$
+    \end{enumerate}
+\end{example}
+\begin{definition}
+    \textbf{Линейная оболочка} набора векторов --- множество всех линейных комбинаций этих векторов: $$\mathcal{L}(x_1\ldots x_n)=\left\{\sum\limits_{i=1}^k \alpha^ix_i \ \ |\ \ \forall \alpha_1\ldots \alpha_n\right\}$$
+\end{definition}
+\begin{definition}
+    \textbf{Линейное многообразие}, параллельное подпространству $L$ линейного пространства $X$ --- множество $M$: $$M=\{y\in X : y=x_0+x \quad \forall x\in L\}$$
+\end{definition}
+\subsection{Подпространства линейного пространства: сумма и пересечение подпространств, прямая сумма, дополнение.}
+\begin{definition}
+    \textbf{Пересечение подпространств} $L_1$ и $L_2$ --- множество $L'$, такое что: $$L'=\{x\in X : x\in L_1 \text{ и } x\in L_2\}$$
+\end{definition}
+\begin{definition}
+    \textbf{Сумма подпространств} $L_1$ и $L_2$ --- множество $L''$, такое что: $$L'э=\{x\in X : x=x_1+x_2 \ \ \forall x_1 \in L_1, x_2 \in L_2\}$$
+\end{definition}
+\begin{definition}
+    \textbf{Прямая сумма подпространств} $L_1$ и $L_2$ --- множество $L=L_1\dot+L_2$, такое что: $$L=\{x\in X : x!=x_1+x_2 \ \ \forall x_1 \in L_1, x_2 \in L_2\}$$
+\end{definition}
+\begin{definition}
+    Если $X=L_1\dot+L_2$, $L_1$ --- \textbf{дополнение} $L_2$ до $X$
+\end{definition}
+\subsection{Линейные алгебраические системы. Геометрическое исследование систем. Теорема Крамера \textit{(геометрическая формулировка)}.}
+\begin{definition}
+    $$\begin{cases}
+        \alpha_1^1\xi^1+\alpha_2^1\xi^2+\ldots+\alpha_n^1\xi^n=\beta^1 \\
+        \alpha_1^2\xi^1+\alpha_2^2\xi^2+\ldots+\alpha_n^2\xi^n=\beta^2 \\
+        \vdots \\
+        \alpha_1^m\xi^1+\alpha_2^m\xi^2+\ldots+\alpha_n^m\xi^n=\beta^m
+    \end{cases}$$ --- \textbf{линейная алгебраическая система}, $\alpha$ --- коэффициенты, $\beta$ --- свободные члены, $\xi$ --- неизвестные
+\end{definition}
+\begin{definition}
+    \textbf{Решение системы} --- такой набор, при подстановке которого равенства становятся верными.
+\end{definition}
+\begin{definition}
+    \textbf{Совместная система} --- система, у которой есть решение.
+\end{definition}
+\begin{definition}
+    \textbf{Определенная система} --- совместная система, которая имеет единственное решение.
+\end{definition}
+\begin{definition}
+    \textbf{Однородная система} --- система, у которой все свободные члены равны $0$.
+\end{definition}
+Запишем в векторной форме: $\sum\limits_{i=1}^n a_i\xi^i=b$
+
+\begin{theorem}
+    Если $m=n$ и $\{a_i\}_{i=1}^n$ --- ЛНЗ, система совместна и определена, т.е. есть единственное решение.
+\end{theorem}
+\subsection{Геометрическое исследование систем. Теорема Кронекера-Капелли \textit{(геометрическая формулировка)} и ее следствия.}
+Рассмторим случай, когда $\dim\mathcal{L}\{a_1\ldots a_n\}=r\leq m$. Тогда можно переписать систему как: $$a_1\xi^1+\ldots+a_r\xi^r=b-a_{r+1}\xi^{r+1}-\ldots-a_n\xi^n$$
+\begin{theorem}
+    $b\in\mathcal L \Leftrightarrow$ система совместна. Если $r=n$, система определена, иначе --- нет.
+\end{theorem}
+\begin{consequence}
+    Однородная система:
+    \begin{enumerate}
+        \item Всегда совместна, т.к. существует тривиальное решение
+        \item Имеет нетривиальные решения тогда и только тогда, когда $r<n$
+        \item Является неопределенной тогда и только тогда, когда $m<n$
+    \end{enumerate}
+\end{consequence}
+\subsection{Альтернатива Фредгольма для линейной системы уравнений.}
+\begin{theorem}
+    Если $m=n$, то:
+    \begin{enumerate}
+        \item Или однородная система имеет только тривиальное решение, и неоднородная система совместна и определена для любого $b$
+        \item Или существуют нетривиальные решения однородной системы и неоднородная система совместна не при любых $b$
+    \end{enumerate}
+\end{theorem}
+\subsection{Фундаментальная система решений линейной однородной системы. Общее решение однородных и неоднородных систем.}
+\begin{definition}
+    \textbf{Фундаментальной системой решений} линейной однородной системы уравнений называется любая система из $n − r$ линейнонезависимых решений этой системы, то есть базис пространтва решений однородной системы.
+\end{definition}
+Любое решение можно представить в виде общего решения: $$z=z'+\sum\limits_{i=1}^n c_ix_i,$$ где $\{x_i\}_{i=1}^n$ --- ФСР.
+\section{Полилинейные формы. Определители}
+\end{document}

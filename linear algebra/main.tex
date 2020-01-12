@@ -1,6 +1,8 @@
 \input{../preamble.sty}
 
-\lhead{Линейная алгерба}
+\usepackage{gensymb}
+
+\lhead{Линейная алгерба и аналитическая геометрия}
 \cfoot{}
 
 \DeclareMathSymbol{\mlq}{\mathord}{operators}{``}
@@ -11,7 +13,159 @@
 
 \begin{document}
 \section{Векторная алгебра}
+\subsection{Системы координат на плоскости и в пространстве.}
+\begin{definition}
+    \textbf{Координатной осью} называется ориентируемая прямая, имеющая начало отсчета $0$ и снабженная масштабом $E$.
+\end{definition}
+\begin{definition}
+    \textbf{Система координат} --- прямоугольная, если угол между осями координат прямой.
+\end{definition}
+\begin{definition}
+    \textbf{Декартова прямоугольная система координат} --- система координат с одинаковым масштабом по всем осям.
+\end{definition}
+\begin{definition}
+    Система координат на плоскости называется \textbf{полярной}, если положение каждой точки задаётся полярным углом $\varphi$ и полярным радиусом $\rho$.
+\end{definition}
+Связь прямоугольной и полярной систем:
+$$x=\rho\cos\varphi,\ \ y=\rho\sin\varphi$$
+$$\rho=\sqrt{x^2+y^2},\ \ \cos\varphi=\frac{x}{\rho},\ \ \sin\varphi=\frac{y}{\rho}$$
+\begin{definition}
+    Система координат в пространстве называется \textbf{цилиндрической}, если положение каждой точки задаётся полярным углом $\varphi$, полярным радиусом $\rho$ и высотой над плоскостью $z$.
+\end{definition}
+Связь прямоугольной и цилиндрической систем такая же, как прямоугольной и полярной.
+\begin{definition}
+    Система координат называется \textbf{сферической}, если положение каждой точки определяется радиальным расстоянием $\rho$, азимутальным $\varphi$ и зентным $\Theta$ углами.
+\end{definition}
+Связь прямоугольной и сферической систем:
+$$x=\rho\cos\varphi\cos\Theta, \ \ y=\rho\sin\varphi\cos\Theta, \ \ z=\rho\sin\Theta$$
+\subsection{Векторы и основные действия с ними \textit{(сложение, умножение на число)}.}
+\begin{definition}
+    Направленные отрезки \textbf{эквивалентны}, если они:
+    \begin{enumerate}
+        \item Лежат на параллельных прямых
+        \item Сонаправлены
+        \item Имеют одинаковые длины
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    \textbf{Вектор} --- класс эквивалентности направленных отрезков
+\end{definition}
+\begin{definition}
+    \textbf{Сумма} двух векторов $\vec a$ и $\vec b$ --- вектор $\vec c=\vec a + \vec b$, полученный по правилу треугольника или параллелограмма
+\end{definition}
+\begin{definition}
+    \textbf{Произведением} вектора $\vec a$ на число $\lambda$ является вектор $\vec b=\lambda\vec a$, такой что:
+    \begin{enumerate}
+        \item $|\vec b|=|\lambda||\vec a|$
+        \item $\lambda>0\Rightarrow \vec a\uparrow\uparrow\vec b$
+        \item $\lambda<0\Rightarrow \vec a\uparrow\mathrel{\mspace{-1mu}}\downarrow\vec b$
+        \item $\lambda=0\Rightarrow \vec b=\vec 0$
+    \end{enumerate}
+\end{definition}
+
+\subsection{Векторное введение координат. Координаты вектора.}
+Для любого вектора $\vec a$, заданного на оси $l$ существует единственное представление $\vec a = xa \cdot \vec e$, где $x_a \in \R$ и $|\vec e| = 1$. Тогда $\vec e$ --- \textbf{базис} и $x_a$ --- \textbf{координата} вектора $\vec a$ в базисе $\{\vec e\}$
+
+\subsection{Свойства основных действий над векторами.}
+\begin{enumerate}
+    \item $\vec a + \vec b=\vec b + \vec a$ --- коммутативность
+    \item $(\vec a + \vec b) + \vec c = \vec a + (\vec b + \vec c) = \vec a + \vec b + \vec c$ --- ассоциативность
+    \item $\exists \vec 0 : \vec a + \vec 0 = \vec 0 + \vec a = \vec a$ --- нейтральный элемент
+    \item $\forall \vec a \ \ \exists (-\vec a) : \vec a + (- \vec a) = (- \vec a) + \vec a = \vec 0$ --- наличие обратного элемента
+    \item $\alpha(\beta\vec a) = \beta(\alpha \vec a) = (\alpha\beta)\vec a$ --- ассоциативность
+    \item $(\alpha+\beta)\vec a = \alpha\vec a + \beta\vec a$ --- дистрибутивность
+    \item $\alpha(\vec a + \vec b)=\alpha\vec a + \alpha\vec b$ --- дистрибутивность
+\end{enumerate}
+
+\subsection{Скалярное произведение векторов и его свойства.}
+\begin{definition}
+    \textbf{Угол} между $\vec a$ и $\vec b$ --- угол $\leq 180\degree$, заключенный между представителями соответствующих классов эквивалентности, отложенных от одной точки.
+\end{definition}
+\begin{definition}
+    \textbf{Скалярное произведение} --- число, равное: $(\vec a, \vec b) = |\vec a||\vec b|\cos\varphi$
+\end{definition}
+Свойства скалярного произведения:
+\begin{enumerate}
+    \item $(\vec a, \vec b)=(\vec b, \vec a)$
+    \item $(\vec a, \vec b)=0 \Leftrightarrow \vec a\perp\vec b,\quad \vec a,\vec b\not=0$
+    \item $(\vec a, \vec b)=|\vec a|\cdot \text{Пр}_{\vec a}^{\perp} \vec b=|\vec b|\cdot \text{Пр}_{\vec b}^{\perp} \vec a$
+    \item $(\lambda\vec a + \mu\vec b, \vec c)=(\lambda\vec a, \vec c)+(\mu\vec b, \vec c)$
+\end{enumerate}
+\subsection{Векторное произведение и его свойства.}
+\begin{definition}
+    Тройка $\{\vec a, \vec b, \vec c\}$ --- \textbf{правая}, если если располагаясь по направлению вектора $\vec c$ наблюдатель видит, что кратчайший поворот от $\vec a$ к
+    $\vec b$ происходит по часовой стрелке.
+\end{definition}
+\begin{definition}
+    \textbf{Векторное произведение} $\vec a$ и $\vec b$ --- $\vec c$, такой что:
+    \begin{enumerate}
+        \item $|\vec c|=|\vec a||\vec b|\sin\angle(\vec a, \vec b)$
+        \item $\vec c\perp \vec a, \vec c\perp \vec b$
+        \item $\{\vec a, \vec b, \vec c\}$ --- правая тройка
+    \end{enumerate}
+\end{definition}
+Свойства векторного произведения:
+\begin{enumerate}
+    \item $\vec a\times \vec b=-\vec b\times \vec a, \quad \vec a\times \vec b=\vec 0 \Leftrightarrow \vec a\parallel\vec b$
+    \item $(\alpha\vec a)\times \vec b=\alpha(\vec a\times \vec b)=\vec a\times (\alpha\vec b)$
+    \item $(\vec a + \vec b)\times \vec c=\vec a\times \vec c+\vec b\times \vec c$
+\end{enumerate}
+
+\subsection{Смешанное произведение векторов и его свойства.}
+\begin{definition}
+    \textbf{Смешанное произведение}: $(\vec a, \vec b, \vec c)=\vec a \cdot (\vec b \times \vec c)$
+\end{definition}
+Векторы $\vec a, \vec b$ и $\vec c$ компланарны тогда и только тогда, когда их смешанное произведение равно нулю.
+Свойства смешанного произведения:
+\begin{enumerate}
+    \item $\vec a\cdot (\vec b \times \vec c)=\vec b\cdot (\vec c \times \vec a)=\vec c\cdot (\vec a \times \vec b)$
+    \item $\vec a\cdot (\vec c \times \vec b)=-\vec a\cdot (\vec b \times \vec c)$
+    \item $\vec a\cdot (\vec b \times \vec c)=(\vec a \times \vec b)\cdot \vec c$
+\end{enumerate}
+
+\subsection{\textcolor{red}{Двойное векторное произведение и его свойства.}}
+
+\subsection{Замена координат при переходе к новой системе отсчета. Матрица перехода.}
+Переход от одного базиса $\{\vec e_1, \vec e_2\}$ к другому базису $\{\vec f_1, \vec f_2\}$: $$\begin{cases}
+    \vec f_1=t_1^1\vec e_1+t_1^2\vec e_2 \\
+    \vec f_2=t_2^1\vec e_1+t_2^2\vec e_2
+\end{cases}$$
+
+$$\begin{pmatrix}
+    \vec f_1 & \vec f_2
+\end{pmatrix} = \begin{pmatrix}
+    \vec e_1 & \vec e_2
+\end{pmatrix} \begin{pmatrix}
+    t_1^1 & t_1^2 \\
+    t_2^1 & t_2^2 \\
+\end{pmatrix}$$
+
+\begin{definition}
+    $T$ называется \textbf{матрица перехода}
+\end{definition}
+
+С учётом переноса начала координат: $$X=A+T\cdot X'$$
+
+Парралельный перенос: $T=\begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+\end{pmatrix}, A=\begin{pmatrix}
+    \alpha^1 \\
+    \alpha^2
+\end{pmatrix}$
+
+Сжатие-растяжение: $T=\begin{pmatrix}
+    \lambda_1 & 0 \\
+    0 & \lambda_2
+\end{pmatrix}, A=\vec 0$
+
+Поворот на угол $\varphi: T=\begin{pmatrix}
+    \cos\varphi & -\sin\varphi \\
+    \sin\varphi & \cos\varphi
+\end{pmatrix}, A=\vec 0$
+
 \section{Аналитическая геометрия}
+
 \section{Алгебраические структуры. СЛАУ}
 \subsection{Алгебраические структуры: группа, кольцо, поле}
 \begin{definition}
@@ -73,7 +227,7 @@ $\C = \{a+bi : \forall a,b\in\R\}$
 
 Примеры: \begin{enumerate}
     \item $X=\{x=\begin{pmatrix}
-    \xi^1,\ldots \xi^n
+    \xi^1 & \ldots & \xi^n
 \end{pmatrix}^T, \xi^i\in\R\}$ \textit{(или $\C$)}
     \item $\mathcal P_n=\{\text{многочлены} p(t):\deg p(t)\leq n, n\in\N\}$
 \end{enumerate}
@@ -211,5 +365,6 @@ $\C = \{a+bi : \forall a,b\in\R\}$
     \textbf{Фундаментальной системой решений} линейной однородной системы уравнений называется любая система из $n − r$ линейнонезависимых решений этой системы, то есть базис пространтва решений однородной системы.
 \end{definition}
 Любое решение можно представить в виде общего решения: $$z=z'+\sum\limits_{i=1}^n c_ix_i,$$ где $\{x_i\}_{i=1}^n$ --- ФСР.
+
 \section{Полилинейные формы. Определители}
 \end{document}

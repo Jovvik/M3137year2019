@@ -1,6 +1,7 @@
 \input{../preamble.sty}
 
 \usepackage{gensymb}
+\usepackage{ulem}
 
 \lhead{Линейная алгерба и аналитическая геометрия}
 \cfoot{}
@@ -34,7 +35,7 @@ $$\rho=\sqrt{x^2+y^2},\ \ \cos\varphi=\frac{x}{\rho},\ \ \sin\varphi=\frac{y}{\r
 \end{definition}
 Связь прямоугольной и цилиндрической систем такая же, как прямоугольной и полярной.
 \begin{definition}
-    Система координат называется \textbf{сферической}, если положение каждой точки определяется радиальным расстоянием $\rho$, азимутальным $\varphi$ и зентным $\Theta$ углами.
+    Система координат называется \textbf{сферической}, если положение каждой точки определяется радиальным расстоянием $\rho$, азимутальным $\varphi$ и зенитным $\Theta$ углами.
 \end{definition}
 Связь прямоугольной и сферической систем:
 $$x=\rho\cos\varphi\cos\Theta, \ \ y=\rho\sin\varphi\cos\Theta, \ \ z=\rho\sin\Theta$$
@@ -64,7 +65,7 @@ $$x=\rho\cos\varphi\cos\Theta, \ \ y=\rho\sin\varphi\cos\Theta, \ \ z=\rho\sin\T
 \end{definition}
 
 \subsection{Векторное введение координат. Координаты вектора.}
-Для любого вектора $\vec a$, заданного на оси $l$ существует единственное представление $\vec a = xa \cdot \vec e$, где $x_a \in \R$ и $|\vec e| = 1$. Тогда $\vec e$ --- \textbf{базис} и $x_a$ --- \textbf{координата} вектора $\vec a$ в базисе $\{\vec e\}$
+Для любого вектора $\vec a$, заданного на оси $l$ существует единственное представление $\vec a = x_a \cdot \vec e$, где $x_a \in \R$ и $|\vec e| = 1$. Тогда $\vec e$ --- \textbf{базис} и $x_a$ --- \textbf{координата} вектора $\vec a$ в базисе $\{\vec e\}$
 
 \subsection{Свойства основных действий над векторами.}
 \begin{enumerate}
@@ -97,7 +98,7 @@ $$x=\rho\cos\varphi\cos\Theta, \ \ y=\rho\sin\varphi\cos\Theta, \ \ z=\rho\sin\T
     $\vec b$ происходит по часовой стрелке.
 \end{definition}
 \begin{definition}
-    \textbf{Векторное произведение} $\vec a$ и $\vec b$ --- $\vec c$, такой что:
+    \textbf{Векторное произведение} $\vec a$ и $\vec b$ --- вектор $\vec c$, такой что:
     \begin{enumerate}
         \item $|\vec c|=|\vec a||\vec b|\sin\angle(\vec a, \vec b)$
         \item $\vec c\perp \vec a, \vec c\perp \vec b$
@@ -229,7 +230,7 @@ $\C = \{a+bi : \forall a,b\in\R\}$
     \item $X=\{x=\begin{pmatrix}
     \xi^1 & \ldots & \xi^n
 \end{pmatrix}^T, \xi^i\in\R\}$ \textit{(или $\C$)}
-    \item $\mathcal P_n=\{\text{многочлены} p(t):\deg p(t)\leq n, n\in\N\}$
+    \item $\mathcal P_n=\{\text{многочлены } p(t):\deg p(t)\leq n, n\in\N\}$
 \end{enumerate}
 \subsection{Линейная зависимость векторов. Основные леммы о линейной зависимости.}
 \begin{definition}
@@ -298,7 +299,7 @@ $\C = \{a+bi : \forall a,b\in\R\}$
     \textbf{Линейная оболочка} набора векторов --- множество всех линейных комбинаций этих векторов: $$\mathcal{L}(x_1\ldots x_n)=\left\{\sum\limits_{i=1}^k \alpha^ix_i \ \ |\ \ \forall \alpha_1\ldots \alpha_n\right\}$$
 \end{definition}
 \begin{definition}
-    \textbf{Линейное многообразие}, параллельное подпространству $L$ линейного пространства $X$ --- множество $M$: $$M=\{y\in X : y=x_0+x \quad \forall x\in L\}$$
+    \textbf{Линейное многообразие}, параллельное подпространству $L$ линейного пространства $X$ --- множество $M$: $$M=\{y\in X : y=x_0+x \quad \forall x\in L\},\ x_0\in X$$
 \end{definition}
 \subsection{Подпространства линейного пространства: сумма и пересечение подпространств, прямая сумма, дополнение.}
 \begin{definition}
@@ -340,15 +341,15 @@ $\C = \{a+bi : \forall a,b\in\R\}$
     Если $m=n$ и $\{a_i\}_{i=1}^n$ --- ЛНЗ, система совместна и определена, т.е. есть единственное решение.
 \end{theorem}
 \subsection{Геометрическое исследование систем. Теорема Кронекера-Капелли \textit{(геометрическая формулировка)} и ее следствия.}
-Рассмторим случай, когда $\dim\mathcal{L}\{a_1\ldots a_n\}=r\leq m$. Тогда можно переписать систему как: $$a_1\xi^1+\ldots+a_r\xi^r=b-a_{r+1}\xi^{r+1}-\ldots-a_n\xi^n$$
+Рассмторим случай, когда $\dim\mathcal{L}\{a_1\ldots a_n\}=r\leq n$. Тогда можно занумеровать $a$ так, что $\{a_i\}_{i=1}^r$ --- ЛНЗ и переписать систему как: $$a_1\xi^1+\ldots+a_r\xi^r=b-a_{r+1}\xi^{r+1}-\ldots-a_n\xi^n$$
 \begin{theorem}
-    $b\in\mathcal L \Leftrightarrow$ система совместна. Если $r=n$, система определена, иначе --- нет.
+    $b\in\mathcal L \Leftrightarrow$ система совместна \textit{(можно все $\xi$ справа занулить и представить b через левую часть)}. Если $r=m$, система определена, иначе --- нет.
 \end{theorem}
 \begin{consequence}
     Однородная система:
     \begin{enumerate}
         \item Всегда совместна, т.к. существует тривиальное решение
-        \item Имеет нетривиальные решения тогда и только тогда, когда $r<n$
+        \item Имеет нетривиальные решения тогда и только тогда, когда $r<m$
         \item Является неопределенной тогда и только тогда, когда $m<n$
     \end{enumerate}
 \end{consequence}
@@ -359,6 +360,7 @@ $\C = \{a+bi : \forall a,b\in\R\}$
         \item Или однородная система имеет только тривиальное решение, и неоднородная система совместна и определена для любого $b$
         \item Или существуют нетривиальные решения однородной системы и неоднородная система совместна не при любых $b$
     \end{enumerate}
+    Пояснение: в первом случае $\{a_i\}$ ЛНЗ $\Rightarrow \forall b$ можно выразить как линейную комбинацию $\{a_i\}$ единственным образом. Во втором случае $\{a_i\}$ ЛЗ $\Rightarrow$ не любой $b$ можно выразить как линейную комбинацию $\{a_i\}$.
 \end{theorem}
 \subsection{Фундаментальная система решений линейной однородной системы. Общее решение однородных и неоднородных систем.}
 \begin{definition}
@@ -366,5 +368,5 @@ $\C = \{a+bi : \forall a,b\in\R\}$
 \end{definition}
 Любое решение можно представить в виде общего решения: $$z=z'+\sum\limits_{i=1}^n c_ix_i,$$ где $\{x_i\}_{i=1}^n$ --- ФСР.
 
-\section{Полилинейные формы. Определители}
+\section{Полилинейные формы. \sout{Определители}}
 \end{document}

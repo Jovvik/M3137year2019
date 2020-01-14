@@ -424,9 +424,9 @@ $\C = \{a+bi : \forall a,b\in\R\}$
 \begin{remark}
     Т.к. в этом разделе много сумм, не будем их писать: $$\sum\limits_{j=1}^n\varphi_j\xi^j\equiv \varphi_j\xi^j$$
 \end{remark}
-% \begin{remark}
-%     \textit{(от автора) } Я буду втыкать \Warning везде, где есть скрытые суммы.
-% \end{remark}
+\begin{remark}
+    \textit{(от автора) } Я буду втыкать \Warning везде, где есть скрытые суммы.
+\end{remark}
 \begin{definition}
     \textbf{Полилинейная форма} --- функция от $p$ векторов и $q$ линейных форм, принимающая значения из поля $K$: $$U: X^p\times X^{*^{q}}\to K,$$ линейная по всем аргументам: $$U(x_1\ldots \alpha x_i'+x_i''\ldots x_n,y^1\ldots y^n)=\alpha U(x_1\ldots x_i'\ldots x_n,y^1\ldots y^n)+U(x_1\ldots x_i''\ldots x_n,y^1\ldots y^n),$$ такая ПЛФ имеет \textbf{валентность} $(p,q)$
 \end{definition}
@@ -495,7 +495,7 @@ $$W=U\cdot V\Leftrightarrow W(x_1\ldots x_{p_1+p_2}, y^1\ldots y^{q_1+q_2})=U(x_
 \end{definition}
 \begin{definition}
     \textbf{Антисимметризация} --- операция получения антисимметричной ПЛФ из произвольной ПЛФ, называется $\Asym$ и выполняется следующим образом:
-    $$\Sym W=V,\quad V(x_1\ldots x_p)=\frac{1}{p!}\sum_{(j_1\ldots j_p)} (-1)^{\Bracket{j_1\ldots j_p}} W(x_{j_1}\ldots x_{j_p})$$
+    $$\Asym W=V,\quad V(x_1\ldots x_p)=\frac{1}{p!}\sum_{(j_1\ldots j_p)} (-1)^{\Bracket{j_1\ldots j_p}} W(x_{j_1}\ldots x_{j_p})$$
 \end{definition}
 Свойства $\Sym$ и $\Asym$:
 \begin{enumerate}
@@ -504,6 +504,45 @@ $$W=U\cdot V\Leftrightarrow W(x_1\ldots x_{p_1+p_2}, y^1\ldots y^{q_1+q_2})=U(x_
     \item Композиция:
     $$\Sym\Sym=\Sym, \quad \Asym\Asym=\Asym, \quad \Sym\Asym=0, \quad \Asym\Sym=0$$
 \end{enumerate}
-\subsection{Базис линейного пространства антисимметричных ПЛФ валентности $(p, 0)$.}
+\subsection{Базис линейного пространства антисимметричных ПЛФ валентности $(p, 0)$. Доказательство полноты.}
+Базис $\Lambda^p$ --- набор ПЛФ $\{{}^{s_1\ldots s_p}F\}$, такой что:
+$${}^{s_1\ldots s_p}F=p!\Asym({}^{s_1\ldots s_p}W) \text{ и } 1\leq s_1\leq s_2\leq \ldots \leq s_p\leq n,$$
+где $\{{}^{s_1\ldots s_p}W\}$ --- базис $\Omega^p_0$
 
+\begin{proof}
+    Докажем полноту.
+
+    Рассмотрим произвольную форму $U\in\Lambda^p$ и разложим её по базису $\Omega^p_0$
+
+    $$\Warning\quad U={}^{s_1\ldots s_p}Wu_{s_1\ldots s_p}$$
+
+    $$\Warning\quad U=\Asym U=\Asym({}^{s_1\ldots s_p}Wu_{s_1\ldots s_p})=u_{s_1\ldots s_p}\Asym{}^{s_1\ldots s_p}W=$$
+    $$\Warning\quad u_{s_1\ldots s_p}\frac{1}{p!}p!\Asym{}^{s_1\ldots s_p}W=u_{s_1\ldots s_p}\frac{1}{p!}({}^{s_1\ldots s_p}F)=$$
+    $$\frac{1}{p!}\sum\limits_{1\leq s_1\leq \ldots \leq s_p\leq n}\sum\limits_{(\sigma_1\ldots\sigma_p)}(-1)^{\Bracket{\sigma_{s_1}\ldots\sigma_{s_p}}}({}^{s_1\ldots s_p} F)(-1)^{\Bracket{\sigma_{s_1}\ldots\sigma_{s_p}}}u_{s_1\ldots s_p}=$$
+    $$\frac{1}{p!}\sum\limits_{1\leq s_1\leq \ldots \leq s_p\leq n}p!({}^{s_1\ldots s_p} F)u_{s_1\ldots s_p}=\sum\limits_{1\leq s_1\leq \ldots \leq s_p\leq n}({}^{s_1\ldots s_p} F)u_{s_1\ldots s_p}$$
+    Таким образом, мы разложили произвольную $U\in\Lambda^p$ по $\{F\}$.
+\end{proof}
+
+$\dim\Lambda^p=C_n^p$
+\subsection{Базис линейного пространства антисимметричных ПЛФ валентности $(p, 0)$. Доказательство линейной независимости.}
+Читайте в конспекте Александра Игоревича, я на такое не готов.
+
+\subsection{Внешнее умножение ПЛФ и его свойства.}
+\begin{definition}
+    \textbf{Внешнее произведение} $U\in\Lambda^p$ на $V\in\Lambda^r$ --- ПЛФ следующего вида:
+    $$U\wedge V=\frac{(p+r)!}{p!r!}\Asym(U\cdot V)$$
+
+    $U\wedge V\in\Lambda^{p+q}$
+\end{definition}
+Свойства:
+\begin{enumerate}
+    \item $p+q>n\Rightarrow U\wedge V=\Theta$
+    \item $U\wedge V=(-1)^{pr} V\wedge U$
+    \item $U\wedge (V\wedge W)=(U\wedge V)\wedge W=U\wedge V\wedge W=\frac{(p+r+s)!}{p!r!s!}\Asym(U\cdot V\cdot W)$
+    \item $U\wedge (V+W)=U\wedge V + U\wedge W$
+    \item $(\alpha U)\wedge V=U\wedge (\alpha V)=\alpha(U\wedge V)$
+    \item $U\wedge\Theta=\Theta\wedge V=\Theta$
+    \item $\{f^i\}_{i=1}^n$ --- базис $X^*$. Тогда:
+    $$\forall 1\leq i_1\leq \ldots \leq i_p\leq n:\quad {}^{i_1\ldots i_p}F=f^{i_1}\wedge\ldots \wedge f^{i_p}$$
+\end{enumerate}
 \end{document}

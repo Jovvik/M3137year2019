@@ -3,17 +3,23 @@
 \usepackage{gensymb}
 \usepackage{ulem}
 \usepackage{sectsty}
+\usepackage{tensor}
 
 \subsectionfont{\fontsize{14}{15}\selectfont}
+\setlength{\parindent}{0pt}
 
 \lhead{Линейная алгерба и аналитическая геометрия}
 \cfoot{}
 
 \DeclareMathSymbol{\mlq}{\mathord}{operators}{``}
 \DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}
+\DeclarePairedDelimiter\Bracket{\lbrack}{\rbrack}
 
 \newcommand{\doref}[1]{Дано выше. \textit{(\ref{#1}, стр. \pageref{#1})}}
-\setlength{\parindent}{0pt}
+\newcommand\Warning{%
+ \makebox[1.4em][c]{%
+ \makebox[0pt][c]{\raisebox{.1em}{\small!}}%
+ \makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}%
 
 \begin{document}
 \section{Векторная алгебра}
@@ -372,4 +378,132 @@ $\C = \{a+bi : \forall a,b\in\R\}$
 Любое решение можно представить в виде общего решения: $$z=z'+\sum\limits_{i=1}^n c_ix_i,$$ где $\{x_i\}_{i=1}^n$ --- ФСР.
 
 \section{Полилинейные формы. \sout{Определители}}
+
+\subsection{Перестановки.}
+\begin{definition}
+    \textbf{Перестановкой} из $a_1, a_2, \ldots , a_n$ из первых $n$ чисел натурального ряда называется расположение их в некотором фиксированном порядке.
+\end{definition}
+\begin{definition}
+    Перестановка $1,2,\ldots, n$ --- \textbf{базовая}.
+\end{definition}
+\begin{definition}
+    \textbf{Транспозиция перестановки} $t^p_q$ --- обмен местами двух элементов этой перестановки.
+\end{definition}
+\begin{definition}
+    \textbf{Беспорядок\textit{(инверсия)}} в перестановке --- когда большее число стоит перед меньшим.
+\end{definition}
+\begin{definition}
+    Чётность числа беспорядков в перестановке $\Leftrightarrow$ чётность перестановки
+\end{definition}
+
+\subsection{Отображения. Линейные формы. Сопряженное пространство.}
+\begin{definition}
+    \textbf{Отображение} из $X$ в $Y$ ($f:X\to Y$) сопоставляет каждому $x\in X$ элемент $y\in Y$
+\end{definition}
+\begin{definition}
+    \textbf{Линейная форма} --- линейное отображение из линейного пространства $X$ в линейное пространство $Y$:
+    $$f(x_1+x_2)=f(x_1)+f(x_2), \quad f(\alpha x)=\alpha f(x)$$
+\end{definition}
+\begin{definition}
+    $f=g\Leftrightarrow (f,x)=(g,x) \ \ \forall x\in X$
+\end{definition}
+\begin{definition}
+    $\theta$ --- \textbf{нуль-форма}, если $(\theta, x)=0 \ \ \forall x\in X$
+\end{definition}
+\begin{definition}
+    $h=f+g \Leftrightarrow (h,x)=(f,x)+(g,x) \ \ \forall x\in X$
+\end{definition}
+\begin{definition}
+    $l=\alpha f \Leftrightarrow (l, x)=\alpha(f,x) \ \ \forall x\in X$
+\end{definition}
+\begin{definition}
+    \textbf{Пространство, сопряженное с $X$} --- пространство линейных форм, заданных на $X$ и обозначаемое $X^*$
+\end{definition}
+
+\subsection{Полилинейные формы (ПЛФ): основные определения, тензор, эквивалентное задание ПЛФ.}
+\begin{remark}
+    Т.к. в этом разделе много сумм, не будем их писать: $$\sum\limits_{j=1}^n\varphi_j\xi^j\equiv \varphi_j\xi^j$$
+\end{remark}
+% \begin{remark}
+%     \textit{(от автора) } Я буду втыкать \Warning везде, где есть скрытые суммы.
+% \end{remark}
+\begin{definition}
+    \textbf{Полилинейная форма} --- функция от $p$ векторов и $q$ линейных форм, принимающая значения из поля $K$: $$U: X^p\times X^{*^{q}}\to K,$$ линейная по всем аргументам: $$U(x_1\ldots \alpha x_i'+x_i''\ldots x_n,y^1\ldots y^n)=\alpha U(x_1\ldots x_i'\ldots x_n,y^1\ldots y^n)+U(x_1\ldots x_i''\ldots x_n,y^1\ldots y^n),$$ такая ПЛФ имеет \textbf{валентность} $(p,q)$
+\end{definition}
+\begin{definition}
+    \textbf{Тензор} ПЛФ $W$ валентности $(p,q)$ --- набор из $n^{p+q}$ чисел:
+    $$w^{j_1\ldots j_q}_{i_1\ldots i_q}=W(e_{i_1}\ldots e_{i_p},f^{j_1}\ldots f^{j_q})$$
+    $$\forall t\in\{1\ldots p\}\ \ i_t\in\{1\ldots n\}; \quad \forall t\in\{1\ldots q\}\ \ j_t\in\{1\ldots n\},$$ \textbf{ранг} этого тензора $(p, q)$.
+\end{definition}
+\begin{remark}
+    Для удобства можно писать так: $w^{j_1\ldots j_q}_{i_1\ldots i_q}=w^{\vec j}_{\vec i}$
+\end{remark}
+\begin{theorem}
+    Задание ПЛФ эквивалентно заданию ее тензора в паре базисов пространств $X$ и $X^*$
+\end{theorem}
+\subsection{Базис линейного пространства ПЛФ валентности $(p,q)$.}
+\begin{definition}
+    $U+V$ и $\lambda U$ заданы так же, как для линейных форм.
+\end{definition}
+\begin{theorem}
+    Множество всех ПЛФ валентности $(p, q)$ --- линейное пространство $\Omega^p_q$ над полем $K$.
+\end{theorem}
+Рассмотрим набор ПЛФ $\{{}^{s_1\ldots s_p}_{t_1\ldots t_p}W\}$, такой что:
+$${}^{s_1\ldots s_p}_{t_1\ldots t_p}W(x_1\ldots x_p,y^1\ldots y^q)=\xi_1^{s_1}\xi_2^{s_2}\cdots \xi_p^{s_p}\eta^1_{t_1}\eta^2_{t_2}\cdots \eta^q_{t_q},$$
+т.е. ${}^{\vec s}_{\vec t} W$ --- произведение $s_i$-ой координаты $i$-того вектора и $t_i$-ой координаты $i$-той формы. Запишем в виде тензора:
+$${}^{\vec s}_{\vec t} w^{\vec j}_{\vec i}=\delta_{i_1}^{s_1}\delta_{i_2}^{s_2}\cdots \delta_{i_p}^{s_p}\delta_{t_1}^{j_1}\delta_{t_2}^{j_2}\cdots\delta_{t_q}^{j_q},$$
+т.е. ${}^{\vec s}_{\vec t} w^{\vec j}_{\vec i}=1$ только если $\vec s=\vec i$ и $\vec t=\vec j$, иначе $0$.
+\begin{theorem}
+    $\{{}^{\vec s}_{\vec t} W\}$ --- базис $\Omega^p_q$
+\end{theorem}
+$\dim\Omega^p_q=n^{p+q}$
+\subsection{Произведение полилинейных форм и его свойства.}
+$$W=U\cdot V\Leftrightarrow W(x_1\ldots x_{p_1+p_2}, y^1\ldots y^{q_1+q_2})=U(x_1\ldots x_{p_1}, y^1\ldots y^{q_1})\cdot V(x_1\ldots x_{p_2}, y^1\ldots y^{q_2})$$
+Свойства:
+\begin{enumerate}
+    \item $U\cdot V\not=V\cdot U$
+    \item $U\cdot(V\cdot W)=(U\cdot V)\cdot W=U\cdot V\cdot W$
+    \item $U\cdot \Theta_{\Omega^{p_2}_{q_2}}=\Theta_{\Omega^{p_1}_{q_1}}\cdot V=\Theta_{\Omega^{p_1+p_2}_{q_1+q_2}}$
+    \item $U\cdot(V+W)=U\cdot V+U\cdot W$
+    \item $(\alpha\cdot U)\cdot V=U\cdot (\alpha\cdot V)$
+    \item Пусть $\{f^i\}_{i=1}^n$ --- базис $X^*$. Тогда набор
+    $${}^{s_1\ldots s_p}W=f^{s_1}\cdots f^{s_p}$$
+    образует базис в $\Omega^p_0$:
+    $${}^{s_1\ldots s_p}W=f^{s_1}(x_1)\cdots f^{s_p}(x_p)=\xi^{s_1}_1\cdots \xi^{s_p}_p$$
+    \item Более общий случай: $\{f^i\}_{i=1}^n$ --- базис $X^*$, $\{\hat x^i\}_{i=1}^n$ --- базис $X^{**}$, тогда в $\Omega^p_q$ базис:
+    $${}^{s_1\ldots s_p}_{t_1\ldots t_q}W=f^{s_1}\cdots f^{s_p}\cdot \hat x_{t_1}\cdots \hat x_{t_q}$$
+\end{enumerate}
+\subsection{Симметричные и антисимметричные ПЛФ. Операции симметризации и антисимметризации.}
+
+\begin{definition}
+    ПЛФ $U\in\Omega^p_0$ \textbf{симметричная}, если порядок аргументов не влияет на значение $U$:
+    $$\forall (j_1\ldots j_p) \text{ --- перестановки }\quad U(x_1\ldots x_p)=U(x_{j_1}\ldots x_{j_p})$$
+\end{definition}
+\begin{definition}
+    ПЛФ $U\in\Omega^p_0$ \textbf{антисимметричная}, если любая транспозиция её аргументов меняет знак значения $U$, т.е. произвольная перестановка меняет знак столько раз, сколько в ней транспозиций:
+    $$\forall (j_1\ldots j_p) \text{ --- перестановки }\quad U(x_1\ldots x_p)=(-1)^{\Bracket{j_1\ldots j_p} U(x_{j_1}\ldots x_{j_p})},$$ где $\Bracket{j_1\ldots j_p}$ --- чётность перестановки.
+\end{definition}
+\begin{remark}
+    Пространство симметричных ПЛФ --- подпространство $\Omega^p_0$ и обозначается $\Sigma^p$
+\end{remark}
+\begin{remark}
+    Пространство антисимметричных ПЛФ --- подпространство $\Omega^p_0$ и обозначается $\Lambda^p$
+\end{remark}
+\begin{definition}
+    \textbf{Симметризация} --- операция получения симметричной ПЛФ из произвольной ПЛФ, называется $\Sym$ и выполняется следующим образом:
+    $$\Sym W=U,\quad U(x_1\ldots x_p)=\frac{1}{p!}\sum_{(j_1\ldots j_p)} W(x_{j_1}\ldots x_{j_p})$$
+\end{definition}
+\begin{definition}
+    \textbf{Антисимметризация} --- операция получения антисимметричной ПЛФ из произвольной ПЛФ, называется $\Asym$ и выполняется следующим образом:
+    $$\Sym W=V,\quad V(x_1\ldots x_p)=\frac{1}{p!}\sum_{(j_1\ldots j_p)} (-1)^{\Bracket{j_1\ldots j_p}} W(x_{j_1}\ldots x_{j_p})$$
+\end{definition}
+Свойства $\Sym$ и $\Asym$:
+\begin{enumerate}
+    \item Линейность
+    \item Дистрибутивность
+    \item Композиция:
+    $$\Sym\Sym=\Sym, \quad \Asym\Asym=\Asym, \quad \Sym\Asym=0, \quad \Asym\Sym=0$$
+\end{enumerate}
+\subsection{Базис линейного пространства антисимметричных ПЛФ валентности $(p, 0)$.}
+
 \end{document}

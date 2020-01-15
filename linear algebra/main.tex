@@ -7,6 +7,7 @@
 
 \subsectionfont{\fontsize{14}{15}\selectfont}
 \setlength{\parindent}{0pt}
+\setlength\arraycolsep{2pt}
 
 \lhead{Линейная алгерба и аналитическая геометрия}
 \cfoot{}
@@ -133,7 +134,15 @@ $$x=\rho\cos\varphi\cos\Theta, \ \ y=\rho\sin\varphi\cos\Theta, \ \ z=\rho\sin\T
     \item $\vec a\cdot (\vec b \times \vec c)=(\vec a \times \vec b)\cdot \vec c$
 \end{enumerate}
 
-\subsection{\textcolor{red}{Двойное векторное произведение и его свойства.}}
+\subsection{Двойное векторное произведение и его свойства.}
+$\vec a\times\vec b\times\vec c$
+
+Свойства:
+\begin{enumerate}
+    \item $\vec a\times\vec b\times\vec c=\vec b(\vec a\cdot\vec c) - \vec c(\vec a\cdot \vec b)$ --- можно запомнить как \textit{``бац минус цаб''}
+    \item Тождество Якоби:
+    $$\vec a\times\vec b\times\vec c+\vec b\times\vec c\times\vec a + \vec c\times\vec a\times\vec b=\vec 0$$
+\end{enumerate}
 
 \subsection{Замена координат при переходе к новой системе отсчета. Матрица перехода.}
 Переход от одного базиса $\{\vec e_1, \vec e_2\}$ к другому базису $\{\vec f_1, \vec f_2\}$: $$\begin{cases}
@@ -175,6 +184,162 @@ $$\begin{pmatrix}
 \end{pmatrix}, A=\vec 0$
 
 \section{Аналитическая геометрия}
+
+\subsection{Уравнения линий и поверхностей.}
+\begin{definition}
+    \textbf{Уравнение линии} --- такое равенство, что координаты любой точки на линии удовлетворяют этому равенству и координаты любой точки не на линии не удовлетворяют.
+\end{definition}
+Способы задания линий в $\R^2$:
+\begin{enumerate}
+    \item В явном виде: $y=f(x), x=g(y)$
+    \item В неявном виде: $F(x,y)=0$
+    \item Параметрически: $x=x(t), y=y(t)$
+\end{enumerate}
+Способы задания линий в $\R^3$:
+\begin{enumerate}
+    \item В неявном виде: $\begin{cases}F_1(x,y,z)=0 \\ F_2(x,y,z)=0\end{cases}$
+    \item Параметрически: $x=x(t), y=y(t), z=z(t)$
+\end{enumerate}
+Способы задания поверхностей в $\R^3$:
+\begin{enumerate}
+    \item В явном виде: $x=f(y,z);\ \ y=g(x,z);\ \ z=h(x,y)$
+    \item В неявном виде: $F(x,y,z)=0$
+    \item Параметрически: $x=x(u,v);\ \ y=y(u,v);\ \ z=z(u,v)$
+\end{enumerate}
+
+Эти способы задают не только линии и поверхности. \textit{(Также могут быть точки, множества линий/поверхностей и т.д.)}
+
+\begin{definition}
+    \textbf{Целый алгебраический полином} --- уравнение вида $$\sum\limits_{i=1}^k\alpha_ix^{m_i}y^{n_i},\ \ m_i,n_i\in\N$$
+
+    \textbf{Порядок} такого полинома $p=\max_{i}\{m_i+n_i\}$
+\end{definition}
+
+\subsection{Уравнения прямой на плоскости и в пространстве. Взаимное расположение прямых.}
+\subsubsection{Уравнения прямой на плоскости и в пространстве}
+Возьмём произвольную прямую линию $l$ в $\R^2$ или $\R^3$. Пусть $\vec s=\begin{pmatrix} m & n & p\end{pmatrix}^T$ --- направляющий вектор этой прямой. Зафиксируем точку $M_0$ на $l$ с радиус-вектором $\vec r_0=\begin{pmatrix}x_0&y_0&z_0\end{pmatrix}^T$ и выразим точку $M$ на $l$ с радиус-вектором $\vec r=\begin{pmatrix}x&y&z\end{pmatrix}^T$.
+
+$\overrightarrow{M_0M} || \vec s$, т.к. они параллельны $l \Rightarrow \exists t\in\R:\overrightarrow{M_0M}=t\cdot\vec s$
+
+$\overrightarrow{M_0M}=\vec r-\vec r_0$ \textit{(по определению)} $\Rightarrow \vec r-\vec r_0=t\cdot\vec s\Rightarrow \vec r=\vec r_0+t\cdot \vec s$
+
+\begin{definition}
+    Это \textbf{векторное уравнение прямой}.
+\end{definition}
+
+Домножим обе части векторно на $\vec s$.
+$$\vec r\times\vec s=\vec r_0\times\vec s+t\cdot\vec s\times\vec s$$
+$$\vec r\times\vec s=\vec r_0\times\vec s$$
+$$\vec b:=\vec r_0\times\vec s, \quad \vec r\times\vec s=\vec b$$
+
+Спроектируем векторное уравнение прямой на каждую из осей, получим параметрическое уравнение прямой:
+$$\begin{cases}
+    x=x_0+m\cdot t \\
+    y=y_0+n\cdot t \\
+    z=z_0+p\cdot t \\
+\end{cases}$$
+
+Выразим из каждого уравнения $t$ и приравняем:
+$$\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}$$
+
+Если даны две точки на прямой $M_0$ и $M_1$ с радиус-вектором $\vec r_1=\begin{pmatrix}x_1& y_1& z_1\end{pmatrix}^T$, можем получить направляющий вектор для $l$, который равен $\vec r_1-\vec r_0$. Подставим это в векторное уравнение прямой:
+$$\vec r=\vec r_0 + (\vec r_1 - \vec r_0)t$$
+
+Сделаем переход, аналогичный предыдущему:
+$$\begin{cases}
+    x=x_0+(x_1-x_0)\cdot t \\
+    y=y_0+(y_1-y_0)\cdot t \\
+    z=z_0+(z_1-z_0)\cdot t \\
+\end{cases}$$
+$$\frac{x-x_0}{x_1-x_0}=\frac{y-y_0}{y_1-y_0}=\frac{z-z_0}{z_1-z_0}$$
+
+\subsubsection{Взаимное расположение прямых}
+Угол между прямыми равен углу между их направляющими векторами, а также равен углу между нормалями к этим векторам:
+$$\cos\varphi=\left|\frac{(\vec s_1, \vec s_2)}{|\vec s_1||\vec s_2|}\right|=\left|\frac{(\vec n_1, \vec n_2)}{|\vec n_1||\vec n_2|}\right|$$
+
+Парралельность прямых:
+$$L_1||L_2\Leftrightarrow \vec s_1||\vec s_2 \Leftrightarrow \vec s_2=\alpha \vec s_1\Leftrightarrow\frac{m_2}{m_1}=\frac{n_2}{n_1}=\frac{p_2}{p_1}$$
+
+Перпендикулярность:
+$$L_1\perp L_2\Leftrightarrow \vec s_1\perp\vec s_2\Leftrightarrow (\vec s_1, \vec s_2)=0\Leftrightarrow m_1m_2+n_1n_2+p_1p_2=0$$
+
+\subsection{Частные виды уравнений прямой на плоскости. Расстояние от точки до прямой.}
+\subsubsection{Уравнение прямой с угловым коэффициентом}
+$$\frac{x-x_0}{m}=\frac{y-y_0}{n}$$
+$$y-y_0=\frac{n}{m}(x-x_0)$$
+Этот переход можно делать, только если $m\not=0$
+$$k:=\frac{m}{n}=\tg \alpha \quad \alpha\text{--- угол между прямой и осью } x$$
+$$b:=y_0-kx_0, \quad y=kx+b$$
+Геометрический смысл $b$ --- длина отрезка между началом координат и точкой пересечения прямой с осью $y$.
+\subsubsection{Уравнение прямой в отрезках на осях}
+Возьмем $a$ --- длина отрезка между началом координат и точкой пересечения прямой с осью $x$. Тогда:
+$$a:=\frac{b}{k}$$
+$$\frac{x}{a}+\frac{y}{b}=1$$
+\subsubsection{Нормальное уравнение прямой}
+Возьмём нормаль к $\vec s$ --- это будет $\vec n$, при этом его возьмём таким, что:
+$$|\vec n|=1, \quad \angle(\vec n, \vec r_0)<\frac{\pi}{2}$$
+
+Домножим векторное уравнение на $\vec n$:
+$$(\vec r-\vec r_0,\vec n)=(\vec s,\vec n)$$
+$$(\vec r-\vec r_0,\vec n)=0$$
+$$(\vec r,\vec n) - (\vec r_0,\vec n)=0$$
+$$\vec n:=(\cos \alpha, \cos \beta), \quad p:=(\vec r_0, \vec n)$$
+$$x\cos\alpha+y\cos\beta-p=0$$
+$p$ --- \textbf{прицельный параметр}, его геометрический смысл - расстояние
+от начала отсчета до прямой.
+
+Возьмём произвольную нормаль к $\vec s$ --- вектор $\vec N=(A,B)$
+$$A(x-x_0)+B(y-y_0)=0$$
+$$C:=Ax_0+By_0,\quad Ax+By+C=0$$
+
+\subsubsection{Расстояние от точки до прямой}
+Найдём расстояние между точкой $M$ и прямой $L$, заданной уравнением с прицельным параметром.
+$$L:x\cos\alpha+y\cos\beta-p=0$$
+
+Проведем $L_1||L$ через $M$:
+$$L_1:x\cos\alpha+y\cos\beta-p_1=0, \quad p_1=x_1\cos\alpha+y_1\cos\beta$$
+$$\rho(L,M)=\rho(L,L_1)=|p_1-p|=|x_1\cos\alpha+y_1\cos\beta-p|$$
+
+\subsection{Уравнения плоскости в пространстве. Взаимное расположение плоскостей.}
+\subsubsection{Векторное параметрическое уравнение плоскости}
+Зададим плоскость двумя непараллельными векторами $\vec s_1$ и $\vec s_2$ и точкой $M_0(x_0,y_0,z_0)$. Выразим произвольную точку $M$ из плоскости с радиус-вектором $\vec r=(x,y,z)$:
+$$\vec r=\vec r_0+t_1\vec s_1+t_2\vec s_2$$
+\begin{definition}
+    Это \textbf{векторное параметрическое уравнение плоскости}.
+\end{definition}
+Спроектируем на каждую ось:
+$$\begin{cases}
+    x=x_0+t_1m_1+t_2m_2 \\
+    y=y_0+t_1n_1+t_2n_2 \\
+    z=z_0+t_1p_1+t_2p_2 \\
+\end{cases}$$
+
+\subsubsection{Общее уравнение плоскости}
+Умножим векторное уравнение на $\vec n=\vec s_1\times\vec s_2$ скалярно:
+$$(\vec r, \vec n)=(\vec r_0+t_1\vec s_1+t_2\vec s_2, \vec n)$$
+$$(\vec r-\vec r_0, \vec n)=(t_1\vec s_1+t_2\vec s_2, \vec n)$$
+$$(\vec r-\vec r_0, \vec n)=0$$
+
+В проекции:
+$$A(x-x_0)+B(y-y_0)+C(z-z_0)=0$$
+$$D:=-Ax_0-By_0-Cz_0, \quad Ax+By+Cz+D=0$$
+
+\subsubsection{Уравнение плоскости, проходящей через три точки}
+По аналогии с $\R^2$:
+$$(\vec r-\vec r_1,\vec r_2-\vec r_1,\vec r_3-\vec r-1)=0$$
+
+\subsubsection{Нормальное уравнение плоскости}
+По аналогии с $\R^2$:
+$$p:=(\vec r_0, \vec n)=\text{Пр}^\perp_{\vec n},\quad x\cos\alpha+y\cos\beta+z\cos\gamma-p=0$$
+
+\subsubsection{Угол между плоскостями}
+Это угол между нормалями плоскостей.
+
+\subsubsection{Парралельность плоскостей}
+$$L_1||L_2\Leftrightarrow \vec n_1||\vec n_2\Leftrightarrow \vec n_1=\alpha\vec n_2\Leftrightarrow \frac{A_1}{A_2}=\frac{B_1}{B_2}=\frac{C_1}{C_2}=\frac{D_1}{D_2}$$
+
+\subsubsection{Перпендикулярность плоскостей}
+$$L_1\perp L_2\Leftrightarrow \vec n_1\perp\vec n_2\Leftrightarrow (\vec n_1,\vec n_2)=0\Leftrightarrow A_1A_2+B_1B_2+C_1C_2=0$$
 
 \section{Алгебраические структуры. СЛАУ}
 \subsection{Алгебраические структуры: группа, кольцо, поле}

@@ -68,18 +68,21 @@
 Пример в $\mathbb{C}^m$: $\langle x,y\rangle = x_1\overline y_1+x_2\overline y_2+\ldots+x_m\overline y_m$
 
 \begin{lemma}
+    %<*нормапорожденнаяскалярнымпроизведением>
     Для лин. пространства $X$, скалярного произведения $\langle \cdot ,\cdot \rangle$
     
     $\rho:X\to\mathbb{R} \quad \rho(x)=\sqrt{\langle x,x\rangle}$ --- норма
+    %</нормапорожденнаяскалярнымпроизведением>
 \end{lemma}
 
+%<*нормапорожденнаяскалярнымпроизведениемproof>
 \begin{proof}
     Докажем, что $\rho$ удовлетворяет всем леммам нормы.
     \begin{enumerate}
         \item $\rho(x)\geq 0\quad \rho(x)=0\Leftrightarrow \langle x,x\rangle=0\Leftrightarrow x=0$
         \item $\rho(\alpha x) = \sqrt{\alpha\overline\alpha\langle x,x\rangle}=|\alpha|\sqrt{\langle x,x\rangle}=|\alpha|\rho(x)$
         \item $\rho(x+y)\leq \rho(x)+\rho(y)$
-        $$\langle x+y,x+y\rangle \leq (\sqrt{\langle x,x\rangle} + \langle y,y\rangle)^2$$
+        $$\sqrt{\langle x+y,x+y\rangle} \leq (\sqrt{\langle x,x\rangle} + \sqrt{\langle y,y\rangle})^2$$
 
         $$\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle\leq \langle x,x\rangle + \langle y,y\rangle + 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
 
@@ -88,6 +91,7 @@
         $$\Re\langle x,y\rangle \leq |\langle x,y\rangle|\leq\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
     \end{enumerate}
 \end{proof}
+%</нормапорожденнаяскалярнымпроизведениемproof>
 
 $||x|| = \sqrt{\sum\limits_{i=1}^m x_i^2}$ - норма в $\mathbb{R}^m$
 

@@ -39,9 +39,12 @@ $A\subset X$ --- {\bf ограничено}, если $\exists x_0\in X \ \ \exi
 $A\subset B(x_0, R)\Rightarrow A\subset B(b,\rho(x_0,b)\pm R)$
 
 \begin{theorem}
+%<*ограниченностьсходящейсяпоследовательности>
 Если $(x,\rho)$ --- метрическое пр-во, $(x_n)$ --- послед. в $X$, $x_n$ сходится, \textbf{тогда} $x_n$ - ограничен.
+%</ограниченностьсходящейсяпоследовательности>
 \end{theorem}
 
+%<*ограниченностьсходящейсяпоследовательностиproof>
 \begin{proof}
 $$\text{Пусть } a=\lim\limits_{n\to +\infty} x_n$$
 $$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
@@ -49,6 +52,7 @@ $$U(a)=\rho(a,\varepsilon) $$
 $$r:=max(\varepsilon, \rho(x_1, a), \rho(x_2, a) \ldots \rho(x_N, a))+1 $$
 $$\text{тогда } \forall n\in\mathbb{N} \ \ x_n\in B(a,r)$$
 \end{proof}
+%</ограниченностьсходящейсяпоследовательностиproof>
 
 \section*{Порядковые свойства предела}
 
@@ -223,8 +227,6 @@ $X=\mathbb{C}^m \ \ ||x||=\sqrt{\sum\limits_{i}^m |x_i|^2}$
 
 %<*арифметическиесвойствапределаproof>
 \begin{proof}
-    \textcolor{red}{Это доказательство написано не по лекциям.}
-
     \begin{enumerate}
         \item $\forall \varepsilon \ \ \exists N_2 \ \ \forall n>N_1 \ \ ||x_n - x_0||<\varepsilon$
         
@@ -254,7 +256,17 @@ $X=\mathbb{C}^m \ \ ||x||=\sqrt{\sum\limits_{i}^m |x_i|^2}$
 \end{enumerate}
 %</арифметическиесвойствапределавr>
 \end{theorem}
+%<*арифметическиесвойствапределавrproof>
+\textcolor{red}{Доказательство взято из воздуха.}
+\begin{proof}
+    Докажем, что $\frac{1}{y_n}\to\frac{1}{y_0}$, если $\forall n \ \ y_n\not =0, y_0\not = 0$.
 
-Доказательство есть, вы там держитесь.
+    $$\left|\frac{1}{y_n}-\frac{1}{y_0}\right|=\left|\frac{y_0-y_n}{y_ny_0} \right|$$
+
+    В числителе бесконечно малая последовательность, в знаменателе ограниченная $\Rightarrow$ дробь --- бесконечно малая последовательность.
+\end{proof}
+%</арифметическиесвойствапределавrproof>
+
+% Доказательство есть, вы там держитесь.
 
 \end{document}

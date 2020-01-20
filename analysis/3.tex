@@ -240,7 +240,12 @@ $X=\mathbb{C}^m \ \ ||x||=\sqrt{\sum\limits_{i}^m |x_i|^2}$
         
         $|\lambda_n-\lambda_0|$ и $||x_n-x_0||$ --- бесконечно малые, $||x_n||$ и $|\lambda_n|$ --- ограниченные $\Rightarrow ||x_n|||\lambda_n-\lambda_0|+||x_n-x_0|||\lambda_0|$ --- бесконечно малая
 
-        \item $|||x_n||-||x_0|||\leq ||x_n-x_0||$
+        \item Докажем, что $|||x_n||-||x_0|||\leq ||x_n-x_0||$.
+        
+        $$||x_n||=||x_0+(x_n-x_0)||\leq ||x_0||+||x_n-x_0||\Rightarrow ||x_n||-||x_0||\leq ||x_n-x_0||$$
+        Аналогично $||x_0||-||x_n||\leq ||x_n-x_0||$.
+
+        Тогда $|||x_n||-||x_0|||\leq ||x_n-x_0||$
     \end{enumerate}
 \end{proof}
 %</арифметическиесвойствапределаproof>

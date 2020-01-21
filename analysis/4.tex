@@ -86,11 +86,13 @@
         \item $\rho(x)\geq 0\quad \rho(x)=0\Leftrightarrow \langle x,x\rangle=0\Leftrightarrow x=0$
         \item $\rho(\alpha x) = \sqrt{\alpha\overline\alpha\langle x,x\rangle}=|\alpha|\sqrt{\langle x,x\rangle}=|\alpha|\rho(x)$
         \item $\rho(x+y)\leq \rho(x)+\rho(y)$
-        $$\sqrt{\langle x+y,x+y\rangle} \leq \sqrt{\langle x,x\rangle} + \sqrt{\langle y,y\rangle}$$
+        $$\sqrt{\langle x+y,x+y\rangle} \stackrel{?}{\leq} \sqrt{\langle x,x\rangle} + \sqrt{\langle y,y\rangle}$$
 
-        $$\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle\leq \langle x,x\rangle + \langle y,y\rangle + 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
+        $$\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle \stackrel{?}\leq \langle x,x\rangle + \langle y,y\rangle + 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
 
-        $$2\Re\langle x,y\rangle\leq 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
+        Пояснение следующего перехода: пусть $\langle x,y\rangle=a$. Тогда $a=\Re a+\Im a, \overline a=\Re a-\Im a$ \textit{(разложение на вещественную и мнимую части)}. $\langle x,y\rangle + \langle y,x\rangle=\langle x,y\rangle + \overline{\langle x,y\rangle}=\Re \langle x,y\rangle+\Im \langle x,y\rangle+\Re \langle x,y\rangle-\Im \langle x,y\rangle=2\Re \langle x,y\rangle$.
+
+        $$2\Re\langle x,y\rangle \stackrel{?}\leq 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
 
         $$\Re\langle x,y\rangle \leq |\langle x,y\rangle|\leq\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
     \end{enumerate}

@@ -12,7 +12,7 @@
 \end{definition}
 
 \begin{enumerate}
-    \item $\langle \alpha_1 x_1+\alpha_2 x_2 \rangle = \alpha_1\langle x_1,y\rangle+\alpha_2\langle x_2,y\rangle$\
+    \item $\langle \alpha_1 x_1+\alpha_2 x_2, y \rangle = \alpha_1\langle x_1,y\rangle+\alpha_2\langle x_2,y\rangle$\
     \item $\langle y,x\rangle = \overline{\langle x,y\rangle}$
     \item $\langle x,x\rangle \geq 0 \quad \langle x,x\rangle=0 \Leftrightarrow x=0$
 \end{enumerate}
@@ -42,11 +42,15 @@
 
     Возьмём $\lambda\in\mathbb{R} (\mathbb{C})$
 
+    Заметим, что $\langle x,\alpha y\rangle=\overline{\langle\alpha y, x\rangle}=\overline{\alpha\langle y, x\rangle}=\overline{\alpha}\overline{\langle y, x\rangle}=\overline{\alpha}\langle x, y\rangle$.
+
     При $y=0$ тривиально, пусть $y\not = 0$
 
-    $$0\leq \langle x + \lambda y,x + \lambda y\rangle = \langle x,x\rangle + \lambda\langle y,x\rangle + \overline\lambda\langle x,y\rangle+\lambda\overline\lambda\langle y,y\rangle$$
+    $$0\leq \langle x + \lambda y,x + \lambda y\rangle = \langle x,x\rangle + \langle\lambda y,x\rangle + \langle x,\lambda y\rangle+\langle \lambda y,\lambda y\rangle=$$
 
-    $$\lambda := -\frac{\langle x,y\rangle}{\langle y,y\rangle}, \overline\lambda = -\frac{\langle y,x\rangle}{\langle y,y\rangle}$$
+    $$=\langle x,x\rangle + \lambda\langle y,x\rangle + \overline\lambda\langle x,y\rangle+\lambda\overline\lambda\langle y,y\rangle$$
+
+    $$\lambda := -\frac{\langle x,y\rangle}{\langle y,y\rangle}, \overline\lambda = \overline{\left(-\frac{\langle x,y\rangle}{\langle y,y\rangle}\right)} = -\frac{\langle y,x\rangle}{\langle y,y\rangle}$$
 
     $$0\leq\langle x,x\rangle - \frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle - \frac{\langle y,x\rangle}{\langle y,y\rangle}\langle x,y\rangle+\frac{\langle x,y\rangle\langle y,x\rangle}{\langle y,y\rangle}$$
 

@@ -4,6 +4,13 @@
 \usepackage{xcolor}
 \usepackage{sectsty}
 \usepackage{catchfilebetweentags}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \allsectionsfont{\raggedright}
 \subsectionfont{\fontsize{14}{15}\selectfont}
@@ -175,7 +182,23 @@ $B(a,r)=\{x\in X : \rho(a,x)<r\}$ --- открыт
 
 \subsection{\teormin Теорема об арифметических свойствах предела последовательности (в $\overline\R$). Неопределенности}
 \subsubsection{Теорема об арифметических свойствах предела последовательности (в $\overline\R$)}
+\paragraph{По Кохасю}
 \ExecuteMetaData[5.tex]{арифметическиесвойствапределоввrсчертой}
+\paragraph{По Виноградову}
+\begin{enumerate}
+    \item $x_n\to+\infty, \{y_n\}$ --- огр. снизу $\Rightarrow x_n+y_n\to+\infty$
+    \item $x_n\to-\infty, \{y_n\}$ --- огр. сверху $\Rightarrow x_n+y_n\to-\infty$
+    \item $x_n\to\infty, \{y_n\}$ --- огр. $\Rightarrow x_n+y_n\to\infty$
+    \item $x_n\to\pm\infty, \forall n \ \ y_n>0 $ или $y_n\to b>0$ $\Rightarrow x_ny_n\to\pm\infty$
+    \item $x_n\to\pm\infty, \forall n \ \ y_n<0 $ или $y_n\to b<0$ $\Rightarrow x_ny_n\to\mp\infty$
+    \item $x_n\to\infty, \forall n \ \ |y_n|>0 $ или $y_n\to b\not=0$ $\Rightarrow x_ny_n\to\infty$
+    \item $x_n\to a\not=0, y_n\to0, \forall n \ \ y_n\not=0 \Rightarrow \frac{x_n}{y_n}\to\infty$
+    \item $x_n\to a\in\R, y_n\to+\infty \Rightarrow \frac{x_n}{y_n}\to0$
+    \item $x_n\to\infty, y_n\to a\in\R \Rightarrow \frac{x_n}{y_n}\to\infty$
+\end{enumerate}
+\begin{proof}
+    Тривиально.
+\end{proof}
 \subsubsection{Неопределенности}
 \ExecuteMetaData[5.tex]{неопределенности}
 

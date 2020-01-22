@@ -34,7 +34,7 @@
 
     $$\exists \varepsilon>0 \ \ \forall \delta>0 \ \ \exists x\in D \ \ 0<\rho(x,a)<\delta \ \ \rho(f(x), A)\geq \varepsilon$$
 
-    $$\delta:=\frac{1}{n} \ \ \exists x_n\in D \ \ 0<\rho(x,a)<\frac{1}{\delta} \ \ \rho(f(x_n), A)\leq\varepsilon$$
+    $$\delta:=\frac{1}{n} \ \ \exists x_n\in D \ \ 0<\rho(x_n,a)<\frac{1}{n} \ \ \rho(f(x_n), A)\geq\varepsilon$$
 
     Построена последовательность $(x_n): x_n\in D \ \ x_n\not = a \ \ \rho(x_n, a)<\frac{1}{n} \Rightarrow \rho(x_n, a)\to 0 \Rightarrow x_n\to a$. Кроме того, $\rho(f(x_n), A)\geq \varepsilon$ --- противоречит утверждению Гейне, что $f(x_n)\to A$.
 \end{proof}

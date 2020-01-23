@@ -70,6 +70,16 @@
     \ExecuteMetaData[1.md]{тождестволагранжаproof}
     Таким образом, $$\left(\sum\limits_{(i,k)\in A\times B}a_ib_i\right)^2=\sum\limits_{(i,k)\in A\times B}a_i^2\sum\limits_{(i,k)\in A\times B}b_k^2 - \frac{1}{2}\sum\limits_{(i,k)\in A\times B}(a_ib_k-a_kb_i)^2 \leq \sum\limits_{(i,k)\in A\times B}a_i^2\sum\limits_{(i,k)\in A\times B}b_k^2$$
 \end{proof}
+\begin{proof}
+    Альтернативное:
+
+    \begin{align*}
+        &\left(\sum_{i=1}^{n}a_i^2\right)\left(\sum_{i=1}^{n}b_i^2\right)-\left(\sum_{i=1}^{n}a_ib_i\right)^2=\\
+        &\sum_{i=1}^{n}\sum_{j=1}^{n}a_i^2b_j^2-\sum_{i=1}^{n}\sum_{j=1}^{n}a_ib_ia_jb_j=\\
+        &\frac12\sum_{i=1}^{n}\sum_{j=1}^{n}\left(a_i^2b_j^2+a_j^2b_i^2-2a_ib_ia_jb_j\right)=\\
+        &\frac12\sum_{i=1}^{n}\sum_{j=1}^{n}(a_ib_j-a_jb_i)^2\geq0
+    \end{align*}
+\end{proof}
 
 \import{Аксиома Архимеда. Плотность множества рациональных чисел в $\R$}{opros.tex}{аксиомаархимедаплотностьqвr}
 \begin{proof}

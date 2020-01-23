@@ -377,12 +377,13 @@
             
             $$\lim\limits_{x\to x_1-0} f(x)\stackrel{def}{=}\lim\limits_{x\to x_1} f(x)|_{\langle a,x_1)}$$
 
-            $f(x)|_{\langle a,x_1)}\uparrow$ и ограничена значением $f(x)$ $\Rightarrow$ по теореме о пределе монотонной функции $\exists\lim\limits_{x\to x_1} f(x)|_{\langle a,x_1)}$. Аналогично $\exists\lim\limits_{x\to x_1+0} f(x)$. Таким образом, для каждой точки существует предел слева и справа.
+            $f(x)|_{\langle a,x_1)}\uparrow$ и ограничена значением $f(x)$ $\Rightarrow$ по теореме о пределе монотонной функции $\exists\lim\limits_{x\to x_1} f(x)|_{\langle a,x_1)}=\sup f(x)|_{\langle a,x_1)}=f(x_1)$. Аналогично $\exists\lim\limits_{x\to x_1+0} f(x)=f(x_1)$. Таким образом, для каждой точки существует предел слева и справа.
             
             \item ``$\Rightarrow$'' следует из теоремы о сохранении промежутка.
             
-            ``$\Leftarrow$'' $x_0\in\langle a,b\rangle \quad ?f$ --- непр. в $x_0?$
-            $$f(x_0-0)\leq f(x_0)\leq f(x_0+0)$$
+            ``$\Leftarrow$''
+            
+            Пусть $f$ имеет разрыв в $x_0$. Тогда либо $f(x_0-0)<f(x_0)$, либо $f(x_0)<f(x_0+0)$. Рассмотрим $f(x_0)<f(x_0+0)$. В силу монотонности $f$ не принимает значений между $f(x_0)$ и $f(x_0+0) \Rightarrow $ множество значений --- не промежуток. Противоречие.
         \end{enumerate}
     \end{proof}
     %</онепрерывностимонотонныхфункцийproof>

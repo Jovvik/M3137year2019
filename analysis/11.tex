@@ -131,7 +131,19 @@
         %</осохранениипромежутка>
     \end{theorem}
     %<*осохранениипромежуткаproof>
-    \textcolor{red}{Доказательство отсутствует.}
+    \begin{proof}
+        \textcolor{red}{Не по Кохасю.}
+
+        $m:=\inf f, M:=\sup f$. Докажем, что $f(\langle a,b \rangle)=\langle m,M \rangle$ путем доказательства, что $f(\langle a,b \rangle)\subset\langle m,M \rangle$ и $f(\langle a,b \rangle)\supset\langle m,M \rangle$.
+        \begin{enumerate}
+            \item $f(\langle a,b \rangle)\subset\langle m,M \rangle$
+            $$\forall x \ \ m\leq f(x)\leq M \Rightarrow f(\langle a,b \rangle)\subset\langle m,M \rangle$$
+
+            \item $f(\langle a,b \rangle)\supset\langle m,M \rangle$
+            
+            $\sphericalangle k\in\langle m,M \rangle$. По теореме Больцано-Коши о промежуточном значении $\exists c\in\langle a,b \rangle: f(c)=k\Rightarrow k\in f(\langle a,b\rangle)\Rightarrow \langle m,M \rangle\subset f(\langle a,b \rangle)$
+        \end{enumerate}
+    \end{proof}
     %</осохранениипромежуткаproof>
     \begin{remark}
         Это промежуток $\langle \inf f, \sup f \rangle$

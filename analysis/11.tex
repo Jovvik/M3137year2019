@@ -373,9 +373,11 @@
     \begin{proof}
         Рассмотрим $f\uparrow$
         \begin{enumerate}
-            \item $x_1<x<x_2 \quad f(x_1)\leq f(x)\leq f(x_2)$
+            \item $\sphericalangle x_1\in\langle a,b\rangle$
             
-            $$x\to x_1 \quad f(x_1)\leq f(x_1+0)\leq f(x_2) \Rightarrow \exists\lim\limits_{x\to x_1+0} f(x)$$, аналогично для $x_1-0$
+            $$\lim\limits_{x\to x_1-0} f(x)\stackrel{def}{=}\lim\limits_{x\to x_1} f(x)|_{\langle a,x_1)}$$
+
+            $f(x)|_{\langle a,x_1)}\uparrow$ и ограничена значением $f(x)$ $\Rightarrow$ по теореме о пределе монотонной функции $\exists\lim\limits_{x\to x_1} f(x)|_{\langle a,x_1)}$. Аналогично $\exists\lim\limits_{x\to x_1+0} f(x)$. Таким образом, для каждой точки существует предел слева и справа.
             
             \item ``$\Rightarrow$'' следует из теоремы о сохранении промежутка.
             

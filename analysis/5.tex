@@ -303,16 +303,18 @@ $a_1$ --- берём любую точку $E$, $b_1$ --- любая верхн�
 
 $\exists!c\in \bigcap [a_k, b_k]$
 
-Проверим: $c=\sup E$
+Проверим: $c=\sup E$ по техническому описанию супремума:
 
 \begin{enumerate}
-\item $\forall x\in E \ \ \forall n \ \ x\leq b_n$
-\item $\forall \varepsilon > 0 \ \ c-\varepsilon$ --- не верхн. гран.
+\item $\forall x\in E \ \ \forall n \ \ x\leq c$
+\item $\forall \varepsilon > 0 \ \ c-\varepsilon$ --- не верхн. гран., т.е. $\exists n: c-\varepsilon<a_n$
 \end{enumerate}
 
-Доказательство 1: $x\to x, b_n\to c \Rightarrow x\leq b_n$
+Доказательство 1: $\forall n\ \ x\leq b_n, x\to x, b_n\to c \Rightarrow x\leq c$ \textit{(предельный переход)}
 
-Доказательство 2: $\forall \varepsilon > 0$ возьмём $n: \frac{b_1 - a_1}{2^{n}}<\varepsilon$. $c-\varepsilon<a_n \Leftrightarrow c-a_n<\varepsilon \Leftrightarrow c-a_n<b_n-an<\varepsilon$
+Доказательство 2: $\forall \varepsilon > 0$ возьмём $n:$ длина отрезка $=b_n-a_n<\varepsilon$.
+$$c-a_n<b_n-a_n<\varepsilon$$
+$$c-\varepsilon<a_n$$
 \end{proof}
 %</осуществованиисупремумаproof>
 

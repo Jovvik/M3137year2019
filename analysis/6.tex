@@ -296,14 +296,16 @@ $B^Y(a,r)=\{y\in Y:\rho(a, y)<r\} = B^X(a,r)\cap Y$
 
     $$K\in\bigcup\limits_{\alpha\in A} O_\alpha, O_\alpha\text{ --- откр. в }Y$$
 
-    $$\exists G_\alpha : O_\alpha=G_\alpha\cap Y\textit{($G_\alpha$ --- откр. в $Y$)}$$
+    $$\exists G_\alpha : O_\alpha=G_\alpha\cap Y\textit{($G_\alpha$ --- откр. в $X$)}$$
 
     По двум выражениям выше:
 
-    $$\exists K\subset \bigcup\limits_{\alpha\in A} G_\alpha$$
+    $$K\subset \bigcup\limits_{\alpha\in A} O_\alpha=\bigcup\limits_{\alpha\in A} G_\alpha\cap Y=Y\cap \bigcup\limits_{\alpha\in A} G_\alpha$$
+    $$K\subset \bigcup\limits_{\alpha\in A} G_\alpha$$
 
-    \textcolor{red}{Надо дописать доказательство}
-
+    Это открытое покрытие, $K$ --- компактно в $X \Rightarrow \exists \alpha_1\ldots\alpha_n:K\subset \bigcup\limits_{i=1}^n G_{\alpha_i}$.
+    
+    Тогда $K\subset \bigcup\limits_{i=1}^n O_{\alpha_i}$ --- конечное подпокрытие в $Y$.
 \end{proof}
 %</окомпактностивпространствеиподпространствеproof>
 

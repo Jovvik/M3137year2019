@@ -12,8 +12,8 @@
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-\allsectionsfont{\raggedright}
-\subsectionfont{\fontsize{14}{15}\selectfont}
+% \allsectionsfont{\raggedright}
+% \subsectionfont{\fontsize{14}{15}\selectfont}
 
 % magical thing that fixes paragraphs
 \makeatletter
@@ -414,11 +414,35 @@ $B(a,r)=\{x\in X : \rho(a,x)<r\}$ --- открыт
 \subsection{Выражение произвольной показательной функции через экспоненту. Два следствия}
 
 \subsection{Показательная функция от произведения}
-Дана выше. (\ref{exponentofmultiplication}, стр. \pageref{exponentofmultiplication})
+$f$ --- показ. ф-ция. $\forall r\in\R \quad f(rx)=(f(x))^r$
+
+\begin{proof}
+    Для $r\in\Q$ доказано выше. (\ref{exponentofmultiplication}, стр. \pageref{exponentofmultiplication})
+
+    $\sphericalangle r\in\R$. $\exists a_{n}\in\Q \to r$
+    
+    $f(a_nx)=f(x)^{a_n}\to f(x)^r$
+\end{proof}
 
 \subsection{Формула Тейлора с остатком в форме Пеано}
 
 \subsection{\teormin Формула Тейлора с остатком в форме Лагранжа}
+Остаток: $R_n:=\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$, где $c\in(x_0, x)$ \textit{(или наоборот, если $x<x_0$)}.
+$$f(x)=f(x_0)+\ldots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$$
+\begin{proof}
+    $$g(t):=f(x)-f(t)-f'(t)(x-t)-\ldots-\frac{f^{(n)}(t)}{n!}(x-t)^n$$
+    $g(x)=0, g(x_0)\stackrel{def}{=}R_n$
+    $$g'(t)=\left(f(x)-f(t)-f'(t)(x-t)-\ldots-\frac{f^{(n)}(t)}{n!}(x-t)^n\right)'$$
+    $$g'(t)=0-f'(t)-(f''(t)(x-t)-f'(t))-\ldots-\left(\frac{f^{(n)}(t)}{n!}(x-t)^n\right)'$$
+    $$g'(t)=-\frac{f^{(n+1)}(t)}{n!}(x-t)^n$$
+    $h(x):=(x_0-x)^{n+1}, n+1>0$
+
+    По т. Коши: \textit{(можно применить, т.к. $h'\not=0$, $g,h$ --- дифф. на $(x,x_0)$)}
+    $$\frac{g(x)-g(x_0)}{h(x)-h(x_0)}=\frac{g'(c)}{h'(c)}$$
+    и при этом $c\in(x,x_0)$.
+    $$\frac{0-R_n}{0-(x-x_0)^{n+1}}=\frac{-\cfrac{f^{(n+1)}(t)}{n!}(x-t)^n}{-(n+1)(x-c)^n}$$
+    $$R_n=\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$$
+\end{proof}
 
 \import{Метод Ньютона}{14.tex}{методньютона}
 

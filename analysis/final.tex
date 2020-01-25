@@ -204,6 +204,13 @@ $B(a,r)=\{x\in X : \rho(a,x)<r\}$ --- открыт
     \item $x_n\to a\in\R, y_n\to+\infty \Rightarrow \frac{x_n}{y_n}\to0$
     \item $x_n\to\infty, y_n\to a\in\R \Rightarrow \frac{x_n}{y_n}\to\infty$
 \end{enumerate}
+% \begin{proof}
+%     Докажем 4 для $x_n\to\infty$
+
+%     $$x_n\to \infty\Leftrightarrow \forall E'>0 \ \ \exists N_1 \ \ \forall n>N_1 \ \ x_n>E'$$
+%     $$y_n\to a \Leftrightarrow \forall \varepsilon>0 \ \ \exists N_2 \ \ \forall n>N_2 \ \ |y_n-a|<\varepsilon \Rightarrow y_n>a-\varepsilon$$
+%     $$E':=\frac{E}{a-\varepsilon} \quad \forall n>\max(N_1, N_2) \ \ x_ny_n>E'(a-\varepsilon)=\frac{E}{a-\varepsilon}(a-\varepsilon)=E$$
+% \end{proof}
 \begin{proof}
     Тривиально.
 \end{proof}
@@ -425,6 +432,29 @@ $f$ --- показ. ф-ция. $\forall r\in\R \quad f(rx)=(f(x))^r$
 \end{proof}
 
 \subsection{Формула Тейлора с остатком в форме Пеано}
+Остаток: $R_n:=o((x-x_0)^{n+1}), x\to x_0$.
+$$f(x)=f(x_0)+\ldots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^{n+1})$$
+\begin{proof}
+    \begin{lemma}
+        $\varphi:\langle a,b \rangle \to \R, x_0 \in \langle a,b \rangle, \varphi$ $n$ раз дифференциируема в $x_0$ и $\varphi(x_0)=\varphi'(x_0)=\ldots=\varphi^{(n)}(x_0)=0$.
+        
+        Тогда $\varphi(x)=o((x-x_0)^n), x\to x_0$
+        \begin{proof}
+            База: $n=1$.
+
+            $$\varphi(x)=\varphi(x_0)+\varphi'(x_0)(x-x_0)+o(x-x_0)=o(x-x_0)$$
+
+            Переход:
+
+            $\varphi'(x)=o((x-x_0)^n)$ по индукционному переходу.
+
+            $$r(x)=r(x_0)+r'(x_0)(x-x_0)+o(x-x_0)=0+o((x-x_0)^n)(x-x_0)+o(x-x_0)=$$
+            $$=o((x-x_0)^{n+1})+o(x-x_0)=o((x-x_0)^{n+1})$$
+        \end{proof}
+    \end{lemma}
+
+    $R_n:=f(x)-f(x_0)-\ldots-\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ --- подходит в лемму $\Rightarrow R_n=o((x-x_0)^{n+1})$
+\end{proof}
 
 \subsection{\teormin Формула Тейлора с остатком в форме Лагранжа}
 Остаток: $R_n:=\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$, где $c\in(x_0, x)$ \textit{(или наоборот, если $x<x_0$)}.

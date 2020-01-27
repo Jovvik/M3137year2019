@@ -460,7 +460,7 @@ $f$ --- показ. ф-ция. $\forall r\in\R \quad f(rx)=(f(x))^r$
 \end{proof}
 
 \subsection{Формула Тейлора с остатком в форме Пеано}
-Остаток: $R_n:=o((x-x_0)^{n+1}), x\to x_0$.
+Остаток: $T_n:=o((x-x_0)^{n+1}), x\to x_0$.
 $$f(x)=f(x_0)+\ldots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^{n+1})$$
 \begin{proof}
     \begin{lemma}
@@ -481,7 +481,7 @@ $$f(x)=f(x_0)+\ldots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^{n+1})$$
         \end{proof}
     \end{lemma}
 
-    $R_n:=f(x)-f(x_0)-\ldots-\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ --- подходит в лемму $\Rightarrow R_n=o((x-x_0)^{n+1})$
+    $T_n:=f(x)-f(x_0)-\ldots-\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ --- подходит в лемму $\Rightarrow T_n=o((x-x_0)^{n+1})$
 \end{proof}
 
 \subsection{\teormin Формула Тейлора с остатком в форме Лагранжа}
@@ -508,6 +508,9 @@ $$f(x)=f(x_0)+\ldots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\frac{f^{(n+1)}(c)}{(n+1)!
 \ExecuteMetaData[14.tex]{иррациональностьe2proof}
 
 \subsection{Следствие об оценке сходимости многочленов Тейлора к функции. Примеры}
+$|f^{(n+1)}|\leq M$
+$$|R_n(x_0)f(x)|\leq\frac{M|x-x_0|^{n+1}}{(n+1)!}$$
+Пусть $f\in C^{\infty}\langle a,b \rangle, \exists M>0 : \forall n\in N, t\in\langle a,b \rangle \quad |f^{(n)}(t)|\leq M$. Тогда $$T_n(x_0)f(x)\xrightarrow[n\to\infty]{} f(x)$$
 
 \import{Теорема о разложении рациональной функции на простейшие дроби}{14.tex}{оразложениирациональнойдроби}
 \ExecuteMetaData[14.tex]{оразложениирациональнойдробиproof}

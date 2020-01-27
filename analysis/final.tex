@@ -419,6 +419,34 @@ $B(a,r)=\{x\in X : \rho(a,x)<r\}$ --- открыт
 \ExecuteMetaData[13.tex]{свойствапоказательнойфункцииproof}
 
 \subsection{Выражение произвольной показательной функции через экспоненту. Два следствия}
+$\exists$ показательная функция $f_0$, удовлетворяющая
+$$\frac{f_0(x)-1}{x}\xrightarrow[x\to0]{}1, f(x)=\sum\limits_{n=0}^{+\infty}\frac{x^n}{n!}$$
+$f$ --- произвольная показательная функция. Тогда $\exists \alpha\in\R : \forall x : f(x)=f_0(\alpha x)$
+\begin{proof}
+    $a:=f(1), \exists \alpha : f_0(\alpha)=a$
+
+    $f_0(\alpha x)$ и есть $f(x)$, т.к. у них совпадает значение в 0.
+    
+    Докажем, что $f_0(\alpha x)$ --- показ. функция.
+    $$f_0(\alpha(x+y))=f_0(\alpha x + \alpha y)=f_0(\alpha x)f_0(\alpha y)$$
+\end{proof}
+\begin{consequence}
+    $f_0$ --- единственна.
+\end{consequence}
+\begin{proof}
+    Пусть $h(x)$ --- ещё одна такая функция $\Rightarrow \exists \alpha : h(x)=f_0(\alpha x)$
+    $$1\xleftarrow[x\to0]{} \frac{h(x)-1}{x}=\frac{f_0(\alpha x)-1}{x}=\frac{f_0(\alpha x)-1}{\alpha x}\cdot \alpha\xrightarrow[x\to0]{} \alpha \Rightarrow \alpha=1$$
+\end{proof}
+\begin{consequence}
+    $\forall a>0, a\not=1 \quad \exists! f : f(1)=a$
+\end{consequence}
+\begin{proof}
+    Для этого $a \ \ \exists! \alpha : f_0(\alpha)=a$
+
+    $f(x):=f_0(\alpha x)$
+
+    $f(1)=a=f(\alpha)$
+\end{proof}
 
 \subsection{Показательная функция от произведения}
 $f$ --- показ. ф-ция. $\forall r\in\R \quad f(rx)=(f(x))^r$

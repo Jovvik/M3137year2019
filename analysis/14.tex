@@ -50,7 +50,11 @@ e^x&=1+x+\frac{x^2}{2!}+\ldots+\frac{x^n}{n!} + o(x^n) \\
 
     $$(2k)!e^{-1}=(2k)!\left(1-1+\frac{1}{2}+\ldots+\frac{1}{(2k)!}-\frac{e^d}{(2k+1)!}\right)=\text{целое число}-\frac{e^d}{2k+1}$$
 
-    $$\frac{e^d}{2k+1}\leq\frac{1}{2k+1}\leq\frac{1}{3}e^d\leq1$$
+    Заметим, что $d\in[-1, 0]$
+
+    $$\frac{e^d}{2k+1}\leq\frac{e^d}{3}\leq\frac{e^0}{3}\leq\frac{1}{3}$$
+
+    Дробная часть левой части $\leq\frac{1}{2}$, дробная часть правой $\geq \frac{2}{3}$ --- противоречие.
 \end{proof}
 %</иррациональностьe2proof>
 \begin{lemma}

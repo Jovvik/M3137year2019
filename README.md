@@ -10,9 +10,9 @@
 - [Конспект к экзамену](linear%20algebra/1sem/main.pdf) _(рендер pdf с векторами в github'e не работает, поэтому надо pdf скачивать)_
 
 ### Матанализ
-- [Опрос #1](analysis/opros.pdf)
-- [Опрос #2](analysis/opros2.pdf)
-- [Конспект к экзамену](analysis/final.pdf)
+- [Опрос #1](analysis/1sem/opros.pdf)
+- [Опрос #2](analysis/1sem/opros2.pdf)
+- [Конспект к экзамену](analysis/1sem/final.pdf)
 
 
 ## Как компилировать самому

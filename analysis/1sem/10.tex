@@ -1,0 +1,338 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{November 25, 2019}
+
+\begin{document}
+    \begin{example}
+        $\langle a,b \rangle \quad f:\langle a, b\rangle \to \R$
+
+        $\forall n\in\N x^n$ --- непрерывно
+
+        Любой многочлен непрерывен, выражение вида
+
+        $$\frac{a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0}{b_mx^m+b_{m-1}x^{m-1}+\ldots+b_0}$$
+
+        тоже непрерывно на области определения.
+    \end{example}
+    \begin{theorem}
+        О непрерывности композиции
+        %<*онепрерывностикомпозиции>
+        $f:D\subset X\to Y \quad g:E\subset Y\to Z \quad f(D)\subset E$
+
+        $f$ --- непр. в $x_0\in D$, $g$ --- непр. в $f(x_0)$
+
+        Тогда $g\circ f$ непр. в $x_0$
+        %</онепрерывностикомпозиции>
+    \end{theorem}
+    %<*онепрерывностикомпозицииproof>
+    \begin{proof}
+        По Гейне.
+
+        Проверяем, что $\forall (x_n): x_n\in D, x_n\to x_0 \quad g(f(x_n))\xrightarrow{?} g(f(x_0))$
+
+        $y_n:=f(x_n)\xrightarrow[n\to+\infty]{} f(x_0)$
+
+        $y_n\in E$
+
+        $\Rightarrow g(y_n)\to g(y_0)$
+    \end{proof}
+    %</онепрерывностикомпозицииproof>
+    \begin{remark}
+        $f(x)=x\sin\frac{1}{x}$
+        
+        $g(x)=|sign(x)|$
+
+        $x\to 0 \ \ f(x)\to 0$
+
+        $y\to 0 \ \ g(y)\to 1$
+
+        $x\to 0 \ \ g(f(x))\to 1?$ --- неверно
+
+        Но: $x_n=\frac{1}{\pi n}\to 0 \ \ f(x_n)=0 \ \ g(f(x_n))\to 0$
+    \end{remark}
+    \begin{theorem}
+        О пределе композиции
+
+        %<*определекомпозиции>
+        $f:D\subset X\to Y \quad g:E\subset Y\to Z \quad f(D)\subset E$
+
+        $a$ --- предельн. точка $D \quad f(x)\xrightarrow[x\to a]{} A$
+
+        $A$ --- предельн. точка $E \quad g(y)\xrightarrow[y\to A]{} B$
+
+        $\exists V(a) \quad \forall x\in \dot V(a)\cap D \quad f(x)\not=A \quad (*)$
+
+        Тогда $g(f(x))\xrightarrow[x\to a]{} B$
+        %</определекомпозиции>
+    \end{theorem}
+    %<*определекомпозицииproof>
+    \begin{proof}
+        По Гейне.
+
+        Проверяем, что $\forall (x_n): \substack{x_n\in D \\ x_n\to a \\ x_n\not=a} \quad g(f(x_n))\xrightarrow{?} B$
+
+        $y_n:=f(x_n)\xrightarrow[n\to+\infty]{} A$
+
+        $y_n\in E$
+
+        При больших $N\quad y_n\in V(a) \Rightarrow y_n\not=A$
+
+        $\Rightarrow g(y_n)\to B$
+    \end{proof}
+    %</определекомпозицииproof>
+    \begin{remark}
+        Вместо $(*)$ можно рассмотреть условие $A\in E \quad g$ --- непр. в $A$.
+    \end{remark}
+    \begin{theorem}
+        Топологическое определение непрерывности
+
+        %<*топологическоеопределениенепрерывности>
+        $f: X\to Y$ --- непр. на $X \Leftrightarrow \forall G\subset Y$, откр. $f^{-1}(G)$ --- откр. в $X$.
+        %</топологическоеопределениенепрерывности>
+    \end{theorem}
+    %<*топологическоеопределениенепрерывностиproof>
+    \begin{proof}
+        ``$\Rightarrow$'' $x_0\in f^{-1}(G) \quad ?\exists V(x_0)\subset f^{-1}(G)$
+
+        $f$ --- непр. в $x_0 \quad \forall U(f(x_0)) \quad W(x_0) \quad \forall x\in W \quad f(x)\in U$
+
+        $f(x_0)\in G$ --- откр. $\Rightarrow \exists U_1(f(x_0))\subset G$
+
+        Для $U_1 \quad \exists W(x_0):x\in W \quad f(x)\in U_1\subset G$
+
+        $W(x_0)\subset f^{-1}(G)$
+
+        ``$\Leftarrow$'' $x_0\in X$ ? непр. $f$ в $x_0$
+
+        $\forall U(f(x_0)) \quad \exists W(x_0) \quad \forall x\in W \quad \forall f(x)\in U$ --- надо проверить
+
+        $U(f(x_0))$ --- откр. $\Rightarrow f^{-1}(U(f(x_0)))$ --- откр., а $x_0\in f^{-1}(U(f(x_0)))$, значит $\exists W(x_0) \subset f^{-1}(U(f(x_0)))$
+
+        Для любого $x\in W(x_0)$ будет выполняться $f(x)\in U(f(x_0))$
+    \end{proof}
+    %</топологическоеопределениенепрерывностиproof>
+    \begin{remark}
+        $f:[0, 2]\to\R$
+
+        $f(x)=x$
+
+        $f^{-1}((1, +\infty))=(1, 2]$ --- открыто в $[0, 2]$
+    \end{remark}
+    \begin{theorem}
+        Вейерштрасса о непрерывном образе компакта.
+        %<*вейерштрассаонепрерывномобразекомпакта>
+        $f:X\to Y$ --- непр. на $X$
+
+        Если $X$ --- комп., то $f(X)$ --- комп.
+        %</вейерштрассаонепрерывномобразекомпакта>
+    \end{theorem}
+    \begin{lemma}
+        $A\subset \R, A$ --- ограничено и замкнуто $\Rightarrow \sup A\in A$
+    \end{lemma}
+    \begin{proof}
+        По техническому описанию $\sup A$ если $\sup A\not\in A \Rightarrow \sup A$ --- предельная точка $A$.
+
+        Для $\varepsilon=\frac{1}{n} \quad \exists x_n\in A:\sup A - \frac{1}{n}<x_n\leq \sup A$, т.е. $x_n\to \sup A$
+    \end{proof}
+    %<*вейерштрассаонепрерывномобразекомпактаproof>
+    \begin{proof}
+        $?f(X)$ --- комп.
+
+        $f(X)\subset \bigcup G_\alpha \quad G_\alpha$ --- откр. в $Y$.
+
+        $X\subset \bigcup f^{-1}(G_\alpha)$ --- откр. т.к. $f$ --- непр. $\xRightarrow[X \text{ --- комп.}]{}$ $$\exists \alpha_1\ldots\alpha_n \quad X\subset\bigcup\limits_{i=1}^n f^{-1}(G_{\alpha_i}) \Rightarrow f(X)\subset\bigcup\limits_{i=1}^n G_{\alpha_i}$$
+    \end{proof}
+    %</вейерштрассаонепрерывномобразекомпактаproof>
+    %<*следствиявейерштрасса>
+    \begin{consequence}
+        Непрерывный образ компакта замкнут и ограничен.
+    \end{consequence}
+    \begin{consequence}
+        \textit{(1-я теорема Вейерштрасса)}
+        
+        $f:[a,b]\to\R$ --- непр.
+
+        Тогда $f$ --- огр.
+    \end{consequence}
+    \begin{consequence}
+        $f:X\to\R$
+
+        $X$ --- комп., $f$ --- непр. на $X$
+
+        Тогда $\exists\max\limits_{X} f, \min\limits_{X} f$
+
+        $\exists x_0, x_1: \forall x\in X \quad f(x_0)\leq f(x)\leq f(x_1)$
+    \end{consequence}
+    \begin{consequence}
+        $f:[a, b]\to\R$ --- непр.
+
+        $\exists\max f, \min f$
+    \end{consequence}
+    %</следствиявейерштрасса>
+
+    \section{$O$-символика}
+    \begin{definition}
+        %<*осимволика>
+        $f,g:D\subset X\to\R \ \ x_0$ --- пр. точка $D$
+
+        Если $\exists V(x_0) \ \ \exists \varphi:V(x_0)\cap D\to\R \quad f(x)=g(x)\varphi(x)$ при $x\in V(x_0)\cap D$
+        \begin{enumerate}
+            \item $\varphi$ --- ограничена. Тогда говорят $f=O(g)$ при $x\to x_0$
+            
+            ``$f$ \textbf{ограничена} по сравнению с $g$ при $x\to x_0$''
+            \item $\varphi(x)\xrightarrow[x\to x_0]{}0 \quad f$ --- \textbf{беск. малая} по отношению к $g$ при $x\to x_0$, $f=o(g)$
+            \item $\varphi(x)\xrightarrow[x\to x_0]{}1 \quad f$ и $g$ \textbf{экв.} при $x\to x_0 \quad f\equ\limits_{x\to x_0} g$ 
+        \end{enumerate}
+        %</осимволика>
+
+        $g, f:D\subset X\to\R$
+    \end{definition}
+    \begin{definition}
+        $\exists c>0 \ \ \forall x\in D \ \ f=O(g) \ \ |f(x)|<c|g(x)|$ --- $f$ \textbf{ограничена} по сравнению с $g$ на множестве $D$.
+    \end{definition}
+    \begin{definition}
+        %<*асимптотическиравныефункции>
+        В условиях прошлых определений $f=O(g), g=O(f) \Leftrightarrow f\asymp g$ --- асимптотически сравнимы на множестве $D$, ``величины одного порядка''.
+        %</асимптотическиравныефункции>
+    \end{definition}
+    \begin{remark}
+        Первое определение $\Leftrightarrow f=O(g)$ на $V(x_0)\cap D$ в смысле второго определения $\Leftrightarrow \frac{f}{g}$ --- огр. на $V(x_0)\cap D$ \textit{(если $g\not=0$)}
+
+        Второе определение $\xLeftrightarrow[g\not=0]{} \frac{f}{g}\to 0$
+
+        Третье определение $\frac{f}{g}\to 1$ \textit{(если $g\not=0$)}
+    \end{remark}
+    \begin{consequence}
+        \begin{enumerate}
+            \item $f\equ g, x\to x_0 \Leftrightarrow f=g+o(g), x\to x_0 \Leftrightarrow f=g+o(f), x\to x_0$
+            \begin{proof}
+                $$\frac{f}{g}\to1, x\to x_0$$
+                $$\frac{f(x)}{g(x)}=1+\alpha(x)$$
+                $$\alpha(x)\xrightarrow[x\to0]{} 0$$
+                $$f(x)=g(x)+\alpha(x)g(x)=g(x)+o(x)$$
+            \end{proof}
+            Аналогично для $\frac{g}{f}=1$.
+
+            \item $f=o(g) \Rightarrow f=O(g)$
+            \begin{proof}
+                $f(x)=\alpha(x)g(x) \quad \alpha(x)=0\Rightarrow \alpha(x)$ --- огр.
+            \end{proof}
+            \item $\alpha\not=0 \quad f\equ\limits_{x\to x_0}\alpha g$. Тогда $f\asymp g, x\to x_0$
+            \begin{proof}
+                $$\varepsilon:=\frac{\alpha}{2} \quad \exists V(x_0) \quad \forall x\in V(x_0)\cap D \quad \frac{\alpha}{2}<\frac{f(x)}{g(x)}<\frac{3}{2}\alpha$$
+            \end{proof}
+        \end{enumerate}
+    \end{consequence}
+    \begin{example}
+        \begin{enumerate}
+            \item $$\frac{\sin x}{x}\xrightarrow[x\to0]{} 1 \quad \sin x = x + o(x), x\to 0$$
+            \item $$\frac{1 - \cos x}{x^2}\xrightarrow[x\to0]{} \frac{1}{2} \quad \cos x = 1-\frac{x^2}{2}+o(x^2)$$
+            $$\frac{1-\cos x}{x^2}=\frac{1}{2}+o(\frac{1}{2}), x\to 0$$
+            $$\cos x=1-\frac{1}{2}x^2+x^2o(\frac{1}{2})$$
+            \item $$\frac{e^x-1}{x}\xrightarrow[x\to0]{} 1 \quad e^x=1+x+o(x)$$
+            \item $$\frac{\ln(1+x)}{x}\xrightarrow[x\to0]{} 1 \quad \ln(1+x)=x+o(x)$$
+            \item $$(1+x)^\alpha=1+\alpha o(x), x\to 0$$
+        \end{enumerate}
+    \end{example}
+    \begin{example}
+        %<*таблицаэквивалентных>
+        Таблица эквивалентных для $x\to 0$:
+
+        $$
+        \begin{aligned}
+            \sin x&\equ x \\
+            \sh x&\equ x \\
+            \tg x&\equ x \\
+            \arctg x&\equ x\\
+            1-\cos x&\equ \frac{x^2}{2} \\
+            \ch x - 1&\equ \frac{x^2}{2} \\
+            e^x-1&\equ x \\
+            \ln(1+x)&\equ x \\
+            (1+x)^\alpha-1&\equ \alpha x \\
+            a^x-1&\equ x\ln a
+        \end{aligned}
+        $$
+        %</таблицаэквивалентных>
+    \end{example}
+    \begin{theorem}
+        %<*озамененаэквивалентную>
+        $f,\tilde f, g, \tilde g:D\subset X \to \R$
+
+        $x_0$ --- предельная точка $D$
+
+        $f\equ \tilde f, g\equ \tilde g$ при $x\to x_0$
+
+        Тогда $$\lim\limits_{x\to x_0} f(x)g(x)=\lim\limits_{x\to x_0}\tilde f(x)\tilde g(x)$$
+        , т.е. если $\exists$ один из пределов, то $\exists$ и второй и имеет место равенство $$\lim\limits_{x\to x_0} \frac{f(x)}{g(x)} = \lim\limits_{x\to x_0} \frac{\tilde f(x)}{\tilde g(x)}$$
+        , если $x_0$ лежит в области определения $\frac{f}{g}$
+        %</озамененаэквивалентную>
+    \end{theorem}
+    %<*озамененаэквивалентнуюproof>
+    \begin{proof}
+        $$f(x)g(x) = \tilde f(x)\tilde g(x)\frac{f}{\tilde f}\frac{g}{\tilde g}\to \tilde f(x)\tilde g(x) \cdot 1\cdot 1$$
+    \end{proof}
+    %</озамененаэквивалентнуюproof>
+    \begin{remark}
+        В условиях теоремы $\lim\limits_{x\to x_0} f+g\not=\lim\limits_{x\to x_0} (\tilde f + \tilde g)$
+    \end{remark}
+    \subsection{Асимптотическое разложение}
+
+    \begin{definition}
+        %<*асимтотическоеразложение>
+        $g_n:D\subset X\to\R \quad x_0$ --- пред. точка $D$
+
+        $\forall n \quad g_{n+1}(x)=o(g_n), x\to x_0$
+
+        \begin{example}
+            $g_n(x)=x^n, n=0,1,2\ldots \ \ x\to 0 \quad g_{n+1}=xg_n, x\to 0$
+        \end{example}
+
+        $(g_n)$ называется \textbf{шкала асимптотического разложения}.
+        
+        $f:D\to\R$
+        
+        Если $f(x)=c_0g_0(x)+c_1g_1(x)+\ldots+c_ng_n(x)+o(g_n)$, то это асимптотическое разложение $f$ по шкале $(g_n)$
+        %</асимтотическоеразложение>
+    \end{definition}
+    \begin{theorem}
+        О единственности асимптотического разложения
+
+        %<*оединственностиасимтотическогоразложения>
+        $f, g_n: D\subset X\to \R \quad x_0$ --- предельная точка $D$
+
+        $\forall n \ \ g_{n+1}=o(g_n), x\to x_0$
+
+        $\exists U(x_0) \ \ \forall x\in\dot U(x_0)\cap D \ \ \forall i \ \ g_i(x)\not=0$
+
+        Если $f(x)=c_0g_0(x)+\ldots+c_ng_n(x)+o(g_n(x))$
+
+        $f(x)=d_0g_0(x)+\ldots+d_mg_m(x)+o(g_m(x))$
+
+        $] n\leq m$
+
+        Тогда $\forall i \ \ c_i=d_i$
+        %</оединственностиасимтотическогоразложения>
+    \end{theorem}
+    %<*оединственностиасимтотическогоразложенияproof>
+    \begin{proof}
+        $k:=min\{i:c_i\not=d_i\}$
+
+        $$f(x)=c_0g_0+\ldots+c_{k-1}g_{k-1}+c_kg_k+o(g_k)$$
+
+        $$f(x)=c_0g_0+\ldots+c_{k-1}g_{k-1}+d_kg_k+o(g_k)$$
+
+        $$0=(c_k-d_k)g_k+o(g_k)$$
+
+        $$d_k-c_k=\frac{o(g_k)}{g_k(x)}\xrightarrow[x\to x_0]{}0$$
+    \end{proof}
+    %</оединственностиасимтотическогоразложенияproof>
+    \begin{example}
+        %<*наклоннаяасимптота>
+        Пусть $f(x)=Ax+B+o(1), x\to +\infty$
+
+        Прямая $y=Ax+B$ --- наклонная асимптота к графику $f$ при $x\to +\infty$
+        %</наклоннаяасимптота>
+    \end{example}
+\end{document}

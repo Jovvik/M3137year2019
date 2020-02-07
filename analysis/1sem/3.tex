@@ -1,0 +1,277 @@
+\input{../../preamble.sty}
+
+\usepackage{bm}
+
+\lhead{Конспект по математическому анализу}
+\rfoot{September 23, 2019}
+
+\begin{document}
+
+Определение предела дает функцию $N(\varepsilon)$, хорошо приспособленную
+для изучения неравенства $\rho(x_n,a)<\varepsilon$ для $n\in(N;+\infty)$.
+Кроме того, для последовательности $r_n=\rho(x_n, a) \quad |r_n|<\varepsilon$.
+
+\begin{theorem}
+\textbf{О единственности предела.}
+%<*оединственностипредела>
+$(X,\rho)$ --- метрическое пр-во, $a,b\in X$, $(x_n)$ --- послед. в $X$,
+$x_n\xrightarrow[n\to +\infty]{} a$, $x_n\xrightarrow[n\to +\infty]{} b$,
+тогда $a=b$
+%</оединственностипредела>
+\end{theorem}
+
+%<*оединственностипределаproof>
+\begin{proof}
+$$\text{Докажем от противного --- пусть }a\not =b. \text{ Возьмем } 0<\varepsilon<\frac{1}{2}\rho(a,b)$$
+$$\exists N(\varepsilon) \ \ \forall n>N(\varepsilon) \ \ \rho(x_n,a)<\varepsilon$$
+$$\exists K(\varepsilon) \ \ \forall n>K(\varepsilon) \ \ \rho(x_n,b)<\varepsilon$$
+$$\text{При } n>\max(N(\varepsilon),K(\varepsilon)) \quad \rho(a,b)\leq
+\rho(a,x_n)+\rho(b,x_n)<2\varepsilon<\rho(a,b) \text{ --- противоречие}$$
+\end{proof}
+%</оединственностипределаproof>
+
+\begin{definition}
+$A\subset X$ --- {\bf ограничено}, если $\exists x_0\in X \ \ \exists R>0 \ \ A\subset B(x_0, R)$
+\end{definition}
+
+Пусть $b\in X$. $A$ --- огр. $\Leftrightarrow \exists r>0 \ \ A\subset B(b,r)$
+
+$A\subset B(x_0, R)\Rightarrow A\subset B(b,\rho(x_0,b)\pm R)$
+
+\begin{theorem}
+%<*ограниченностьсходящейсяпоследовательности>
+Если $(x,\rho)$ --- метрическое пр-во, $(x_n)$ --- послед. в $X$, $x_n$ сходится, \textbf{тогда} $x_n$ - ограничен.
+%</ограниченностьсходящейсяпоследовательности>
+\end{theorem}
+
+%<*ограниченностьсходящейсяпоследовательностиproof>
+\begin{proof}
+$$\text{Пусть } a=\lim\limits_{n\to +\infty} x_n$$
+$$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
+$$U(a)=B(a,\varepsilon)$$
+$$r:=max(\varepsilon, \rho(x_1, a), \rho(x_2, a) \ldots \rho(x_N, a))+1 $$
+$$\text{тогда } \forall n\in\mathbb{N} \ \ x_n\in B(a,r)$$
+\end{proof}
+%</ограниченностьсходящейсяпоследовательностиproof>
+
+\section*{Порядковые свойства предела}
+
+\begin{theorem}
+\textbf{О предельном переходе в неравенствах для $\mathbb{R}$.}
+%<*определьномпереходевнеравенствахдляr>
+Если $(x_n),(y_n)$ ---
+вещественные последовательности $x_n\to a, y_n\to b$, $\forall n \ x_n\leq y_n$, \textbf{тогда} $a\leq b$.
+%</определьномпереходевнеравенствахдляr>
+\end{theorem}
+
+%<*определьномпереходевнеравенствахдляrproof>
+\begin{proof}
+$$\text{Докажем от противного. Пусть } a>b, 0<\varepsilon <\frac{a-b}{2}.$$
+$$\exists N(\varepsilon) \ \ \forall n>N \ \ a-\varepsilon<x_n<a+\varepsilon$$
+$$\exists K(\varepsilon) \ \ \forall n>K \ \ b-\varepsilon<y_n<b+\varepsilon $$
+$$\text{При } n>\max(N,K) \ \ y_n < b + \varepsilon < a-\varepsilon <x_n \text{ --- противоречие}$$
+\end{proof}
+%</определьномпереходевнеравенствахдляrproof>
+
+\begin{remark}
+Если вместо "$\forall n \ \ x_n\leq y_n$" потребовать: "$\exists M \ \ \forall n>M \ \ x_n\leq y_n$", то утв. по-прежнему верно
+\end{remark}
+
+\begin{remark}
+$x_n=-\frac{1}{n} \ \ y_n=\frac{1}{n}$. тогда $x_n\to 0, y_n\to 0$. $x_n<y_n$, но пределы совпадают. То есть даже если $x_n<y_n$ строго, $a\leq b$ --- нестрого.
+\end{remark}
+
+\begin{consequence}
+$(x_n)$ --- вещественная последовательность, $a,b\in\mathbb{R}$
+\begin{enumerate}
+\item $\forall n \ \ x_n\leq a \Rightarrow \lim x_n\leq a$
+\item $\forall n \ \ x_n\geq b \Rightarrow \lim x_n\geq b$
+\item $\forall n \ \ x_n\in [a,b] \Rightarrow \lim x_n\in [a,b]$
+\end{enumerate}
+\end{consequence}
+
+\begin{theorem}
+\textbf{О двух городовых} (о сжатой последовательности). 
+%<*одвухгородовых>
+Если $(x_n),(y_n),(z_n)$ - вещ. посл., $\forall n \ \ x_n\leq y_n\leq z_n, \lim x_n=\lim z_n =a$, \textbf{тогда} $\exists \lim y_n=a$
+%</одвухгородовых>
+\end{theorem}
+
+%<*одвухгородовыхproof>
+\begin{proof}
+$$\forall \varepsilon>0 \ \ \exists N \ \ \forall n>N \ \ a-\varepsilon<x_n<a+\varepsilon$$
+$$\forall \varepsilon>0 \ \ \exists K \ \ \forall n>K \ \ a-\varepsilon<z_n<a+\varepsilon$$
+$$\forall \varepsilon > 0 \ \ \exists N_0=max(N,K) \ \ \forall n>N_0 \ \ a-\varepsilon<x_n\leq y_n\leq z_n<a+\varepsilon$$
+$$\text{По определению } \lim y_n=a$$
+\end{proof}
+%</одвухгородовыхproof>
+
+\begin{consequence}
+$(y_n), (z_n) \ \ \forall n \ \ |y_n|\leq z_n, \ \ \exists \lim z_n=0, \text{ тогда } y_n\to 0$. Доказательство тривиально, т.к. $y_n$ ограничено $z_n$ и $-z_n$.
+\end{consequence}
+
+\begin{definition}
+%<*бесконечномалаяпоследовательность>
+$(x_n)$ --- вещ. посл. называется \textbf{бесконечно малой}, если $x_n\to 0$
+%</бесконечномалаяпоследовательность>
+\end{definition}
+
+\begin{theorem}
+Если $(x_n),(y_n)$ --- вещ. посл., $x_n$ --- беск.мал., $y_n$ --- огр., \textbf{тогда} $x_ny_n$ --- беск.мал.
+\end{theorem}
+
+\begin{proof}
+$$\exists R \ \ \forall n \ \ |y_n|<R, \text{т.к.} y_n \text{--- огр.} $$
+$$|x_ny_n|\leq R|x_n|, R|x_n|\to 0 \Rightarrow y_n\to0$$
+\end{proof}
+
+\section*{Нормированные пространства}
+
+\begin{definition}
+Если $K$ --- поле ($K=\mathbb{R}$ или $\mathbb{C}$), $X$ --- множество, то $X$ называется линейным пространством над полем $K$ (и тогда $K$ называется полем скаляр), если определены следующие две операции:
+\begin{enumerate}
+    \item $+:X\times X \to X$ --- сложение векторов
+    \item $\cdot:K\times X\to X$ --- умножение векторов на скаляры
+\end{enumerate}
+\end{definition}
+
+Для этих операций выполняются соответствующие аксиомы \textit{(здесь $A,B,C\in X; a,b\in \R$ или $\C$)}:
+
+Аксиомы сложения векторов
+\begin{enumerate}\itemsep0em
+    \item $A+B=B+A$
+    \item $A+(B+C)=(A+B)+C$
+    \item $\exists \bm 0 \in X : A+\bm 0 = a$
+\end{enumerate}
+
+Аксиомы умножения векторов на скаляры
+\begin{enumerate}\itemsep0em
+    \item $(A+B)\cdot a = A\cdot a + B\cdot a$
+    \item $A\cdot(a+b) = A\cdot a + A\cdot b$
+    \item $(ab)\cdot A = a(b\cdot A)$
+    \item $\exists \bm 1 \in X : \bm 1 \cdot a = a$
+\end{enumerate}
+
+Ещё есть аксиома $\exists -A\in X : A+(-A)=0$, но у нас её не было.
+
+\begin{definition}
+Норма - отображение $X\to\mathbb{R}, x\mapsto ||x||$, если $X$ - линейное пространство (над $\mathbb{R}$ или $\mathbb{C}$) и выполняется следующее:
+\begin{enumerate}
+\item $\forall x \ \ ||x||\geq 0, ||x||=0\Leftrightarrow x=0$
+\item $\forall x\in X \ \ \forall \lambda\in\mathbb R(\mathbb{C}) \ \ ||\lambda x||=|\lambda|\cdot||x||$
+\item Неравенство треугольника: $\forall x,y\in X \ \ ||x+y||\leq||x||+||y||$
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+Полунорма - норма без свойства $||x||=0\Leftrightarrow x=0$
+\end{definition}
+
+\begin{definition}
+Нормированное пространство --- $(X, ||\cdot||)$, где $||||$ - норма
+\end{definition}
+
+\begin{lemma}
+О свойстве полунормы.
+\begin{enumerate}
+\item $p(\sum\limits_{finite}\lambda_kx_k)\leq\sum\lambda_kp(x_k)$
+\item $p(0)=0$ - тут $0\in X$
+\item $p(-x)=p(x)$
+\item $|p(x)-p(y)|\leq p(x-y)$
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+\item $p(\lambda_1x_1+\lambda_2x_2+...)\leq p(\lambda_1x_1)+p(\lambda_2x_2+...)$
+\item тривиально
+\item тривиально
+\item $-p(x-y)\leq p(x)-p(y)\leq p(x-y)\\$
+$p(x)=p(y+(x-y))\leq p(y)+p(x-y)$
+\end{enumerate}
+\end{proof}
+
+Примеры норм:
+\begin{enumerate}
+\item $X=\mathbb R^m \ \ ||x||=\sqrt{\sum\limits_{i}^m x_i^2} \\$
+$X=\mathbb{C}^m \ \ ||x||=\sqrt{\sum\limits_{i}^m |x_i|^2}$
+\item $(\mathbb R^m, ||\cdot||_\infty) \ \ ||x||_\infty=max(|x_1|,|x_2|,...,|x_m|)$
+\item $(\mathbb R^m, ||\cdot||_1) \ \ ||x||_1=\sum\limits_i^m |x_i|$
+\begin{enumerate}
+\item $p(x)=|x_1|$ --- полунорма, но не норма
+\end{enumerate}
+\end{enumerate}
+
+\begin{remark}
+%<*метрикапорожденнаянормой>
+Если $(X, ||\cdot||)$ --- норм. пр-во, тогда $\rho(x,y):=||x-y||$ --- метрика,
+порожденная нормой. Не все метрики порождены нормами, например $\rho=\frac{|x-y|}{1+|x-y|}$.
+%</метрикапорожденнаянормой>
+\end{remark}
+
+\section*{Арифметические свойства предела}
+
+\begin{theorem}
+%<*арифметическиесвойствапредела>
+\textbf{Об арифметических свойствах предела в нормированном пространстве.}
+
+Если $(X, ||\cdot||)$ --- норм. пр-во, $(x_n),(y_n)$ --- посл. в $X$, $\lambda_n$ ---
+посл. скаляров, и $x_n\to x_0, y_n\to y_0, \lambda_n\to \lambda_0$, \textbf{тогда}:
+\begin{enumerate}
+\item $x_n\pm y_n\to x_0\pm y_0$
+\item $\lambda_nx_n\to \lambda_0x_0$
+\item $||x_n||\to ||x_0||$
+\end{enumerate}
+%</арифметическиесвойствапредела>
+\end{theorem}
+
+%<*арифметическиесвойствапределаproof>
+\begin{proof}
+    \begin{enumerate}
+        \item $\forall \varepsilon \ \ \exists N_1 \ \ \forall n>N_1 \ \ ||x_n - x_0||<\varepsilon$
+        
+        $\forall \varepsilon \ \ \exists N_2 \ \ \forall n>N_2 \ \ ||y_n - y_0||<\varepsilon$
+        
+        $N:=\max(N_1, N_2)$
+
+        $\forall \varepsilon \ \ \forall n>N \ \ ||(x_n+y_n) - (x_0+y_0)||\leq ||x_n-x_0|| + ||y_n-y_0||\leq 2\varepsilon$
+
+        \item $||\lambda_nx_n-\lambda_0x_0||=||\lambda_nx_n-\lambda_0x_0+\lambda_0x_n-\lambda_0x_n||=||(\lambda_n-\lambda_0)x_n+(x_n-x_0)\lambda_0||\leq\\ ||(\lambda_n-\lambda_0)x_n||+||(x_n-x_0)\lambda_0||=||x_n|||\lambda_n-\lambda_0|+||x_n-x_0|||\lambda_0|$
+        
+        $|\lambda_n-\lambda_0|$ и $||x_n-x_0||$ --- бесконечно малые, $||x_n||$ и $|\lambda_n|$ --- ограниченные $\Rightarrow ||x_n|||\lambda_n-\lambda_0|+||x_n-x_0|||\lambda_0|$ --- бесконечно малая
+
+        \item Докажем, что $|||x_n||-||x_0|||\leq ||x_n-x_0||$.
+        
+        $$||x_n||=||x_0+(x_n-x_0)||\leq ||x_0||+||x_n-x_0||\Rightarrow ||x_n||-||x_0||\leq ||x_n-x_0||$$
+        Аналогично $||x_0||-||x_n||\leq ||x_n-x_0||$.
+
+        Тогда $|||x_n||-||x_0|||\leq ||x_n-x_0||$
+    \end{enumerate}
+\end{proof}
+%</арифметическиесвойствапределаproof>
+
+\begin{theorem}
+%<*арифметическиесвойствапределавr>
+\textbf{Об арифметических свойствах пределов в $\mathbb{R}$}.
+
+Для $(x_n),(y_n)$ 
+--- вещ.посл., $\forall n \ \ y_n\not =0, y_0\not = 0$:
+\begin{enumerate}[resume]
+\item $\frac{x_n}{y_n}\to\frac{x_0}{y_0}$
+\end{enumerate}
+%</арифметическиесвойствапределавr>
+\end{theorem}
+%<*арифметическиесвойствапределавrproof>
+\textcolor{red}{Доказательство взято из воздуха.}
+\begin{proof}
+    Докажем, что $\frac{1}{y_n}\to\frac{1}{y_0}$, если $\forall n \ \ y_n\not =0, y_0\not = 0$.
+
+    $$\left|\frac{1}{y_n}-\frac{1}{y_0}\right|=\left|\frac{y_0-y_n}{y_ny_0} \right|$$
+
+    В числителе бесконечно малая последовательность, в знаменателе ограниченная $\Rightarrow$ дробь --- бесконечно малая последовательность.
+\end{proof}
+%</арифметическиесвойствапределавrproof>
+
+% Доказательство есть, вы там держитесь.
+
+\end{document}

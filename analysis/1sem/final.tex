@@ -1,0 +1,519 @@
+\input{../../preamble.sty}
+
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage{catchfilebetweentags}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% \allsectionsfont{\raggedright}
+% \subsectionfont{\fontsize{14}{15}\selectfont}
+
+% magical thing that fixes paragraphs
+\makeatletter
+\def\CatchFBT@sanitize{%
+   \@sanitize
+   \@makeother\{%
+   \@makeother\}%
+}
+\makeatother
+
+\newcommand{\import}[3]{
+    \subsection{#1}
+    \ExecuteMetaData[#2]{#3}
+}
+
+\setlength\parindent{0pt}
+
+\lhead{Конспект к экзамену}
+\cfoot{}
+
+\begin{document}
+
+\section{Определения}
+
+\ExecuteMetaData[opros.tex]{определения}
+
+\ExecuteMetaData[opros2.tex]{определения}
+
+\import{Счётное множество}{11.tex}{счётноемножество}
+
+\import{\teormin Мощность континуума}{11.tex}{мощностьконтинуума}
+
+\import{Фундаментальная последовательность}{8.tex}{сходящаясявсебе}
+
+\import{Полное метрическое пространство}{8.tex}{полноепространство}
+
+\import{Классы функций $C^n([a,b])$}{14.tex}{классыфункций}
+
+\import{Производная $n$-го порядка}{13.tex}{производнаяnгопорядка}
+
+\import{Многочлен Тейлора $n$-го порядка}{13.tex}{многочлентейлора}
+
+\import{\teormin Разложения Тейлора основных элементарных функций}{14.tex}{разложениятейлора}
+
+\section{Теоремы}
+
+\import{Законы де Моргана}{opros.tex}{законыдеморгана}
+\begin{proof}
+    \ExecuteMetaData[1.md]{законыдеморганаproof}
+\end{proof}
+
+\import{Неравенство Коши-Буняковского, евклидова норма в $\R^m$}{opros.tex}{неравенствокошибуняковскогоевклдиованормавrm}
+Неравенство Коши-Буняковского следует из тождества Лагранжа. Докажем его:
+\begin{proof}
+    \ExecuteMetaData[1.md]{тождестволагранжаproof}
+    Таким образом, $$\left(\sum\limits_{(i,k)\in A\times B}a_ib_i\right)^2=\sum\limits_{(i,k)\in A\times B}a_i^2\sum\limits_{(i,k)\in A\times B}b_k^2 - \frac{1}{2}\sum\limits_{(i,k)\in A\times B}(a_ib_k-a_kb_i)^2 \leq \sum\limits_{(i,k)\in A\times B}a_i^2\sum\limits_{(i,k)\in A\times B}b_k^2$$
+\end{proof}
+\begin{proof}
+    Альтернативное:
+
+    \begin{align*}
+        &\left(\sum_{i=1}^{n}a_i^2\right)\left(\sum_{i=1}^{n}b_i^2\right)-\left(\sum_{i=1}^{n}a_ib_i\right)^2=\\
+        &\sum_{i=1}^{n}\sum_{j=1}^{n}a_i^2b_j^2-\sum_{i=1}^{n}\sum_{j=1}^{n}a_ib_ia_jb_j=\\
+        &\frac12\sum_{i=1}^{n}\sum_{j=1}^{n}\left(a_i^2b_j^2+a_j^2b_i^2-2a_ib_ia_jb_j\right)=\\
+        &\frac12\sum_{i=1}^{n}\sum_{j=1}^{n}(a_ib_j-a_jb_i)^2\geq0
+    \end{align*}
+\end{proof}
+
+\import{Аксиома Архимеда. Плотность множества рациональных чисел в $\R$}{opros.tex}{аксиомаархимедаплотностьqвr}
+\begin{proof}
+    \ExecuteMetaData[2.md]{плотностьqвrproof}
+\end{proof}
+
+\import{Неравенство Бернулли}{opros.tex}{неравенствобернулли}
+\begin{proof}
+    База: $n=1: \ (1+x)^1\geq 1 + x$
+
+    Переход: Дано неравенство $(1+x)^n\geq 1+nx$, оно верно при каком-то $n$. Докажем, что $(1+x)^{n+1}\geq 1 + (n+1)x$
+
+    $$(1+x)^{n+1} = (1+x)(1+x)^n\geq (1+x)(1+nx) = \\ 1 + (n+1)x + nx^2 \geq 1 + (n+1)x$$
+\end{proof}
+
+\subsection{Единственность предела и ограниченность сходящейся последовательности}
+\subsubsection{Единственность предела}
+\ExecuteMetaData[3.tex]{оединственностипредела}
+\ExecuteMetaData[3.tex]{оединственностипределаproof}
+\subsubsection{Ограниченность сходящейся последовательности}
+\ExecuteMetaData[3.tex]{ограниченностьсходящейсяпоследовательности}
+\ExecuteMetaData[3.tex]{ограниченностьсходящейсяпоследовательностиproof}
+
+\import{Теорема о предельном переходе в неравенствах для последовательностей и для функций}{opros.tex}{теоремаопредельномпереходевнеравенствахдляпоследовательностейидляфункций}
+\ExecuteMetaData[3.tex]{определьномпереходевнеравенствахдляrproof}
+\begin{proof}
+    По Гейне.
+
+    $\forall (x_n)\to a, x_n\in X, x_n\not=a$:
+
+    $$f(x_n)\to A, g(x_n)\to B, \forall x \ \ f(x) \leq g(x) \Rightarrow f(x_n)\leq g(x_n) \Rightarrow A\leq B$$
+\end{proof}
+
+\import{\teormin Теорема о двух городовых}{3.tex}{одвухгородовых}
+\ExecuteMetaData[3.tex]{одвухгородовыхproof}
+
+\subsection{Бесконечно малая последовательность}
+Произведение бесконечно малой последовательности на ограниченную --- бесконечно малая последовательность, т.е. $(x_n)$ --- беск. малая, $(y_n)$ --- ограничена $\Rightarrow x_ny_n$ --- беск. малая
+\begin{proof}
+    Возьмём $K$ такое, что $\forall n \ \ |y_n|\leq K$.
+
+    $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n > N \ \ |x_n|\leq\frac{\varepsilon}{K}$$
+
+    $$|x_ny_n|\leq\frac{\varepsilon}{K}K=\varepsilon \Rightarrow x_ny_n\to0$$
+\end{proof}
+
+\import{\teormin Теорема об арифметических свойствах предела последовательности в нормированном пространстве и в $\R$}{3.tex}{арифметическиесвойствапредела}
+\ExecuteMetaData[3.tex]{арифметическиесвойствапределаproof}
+\ExecuteMetaData[3.tex]{арифметическиесвойствапределавr}
+\ExecuteMetaData[3.tex]{арифметическиесвойствапределавrproof}
+
+\subsection{Неравенство Коши-Буняковского в линейном пространстве, норма, порожденная скалярным произведением}
+\subsubsection{Неравенство Коши-Буняковского в линейном пространстве}
+\ExecuteMetaData[4.tex]{неравенствокошибуняковского}
+\begin{proof}
+\ExecuteMetaData[4.tex]{неравенствокошибуняковскогоproof}
+\end{proof}
+\subsubsection{Норма, порожденная скалярным произведением}
+\ExecuteMetaData[4.tex]{нормапорожденнаяскалярнымпроизведением}
+\ExecuteMetaData[4.tex]{нормапорожденнаяскалярнымпроизведениемproof}
+% \ExecuteMetaData[3.tex]{метрикапорожденнаянормой}
+
+\subsection{Леммы о непрерывности скалярного произведения и покоординатной сходимости в $\R^n$}
+\subsubsection{О покоординатной сходимости в $\R^m$}
+\ExecuteMetaData[4.tex]{опокоординатнойсходимости}
+\ExecuteMetaData[4.tex]{опокоординатнойсходимостиproof}
+
+\subsubsection{О непрерывности скалярного произведения}
+\ExecuteMetaData[4.tex]{онепрерывностискалярногопроизведения}
+\ExecuteMetaData[4.tex]{онепрерывностискалярногопроизведенияproof}
+
+\subsection{Открытость открытого шара}
+$B(a,r)=\{x\in X : \rho(a,x)<r\}$ --- открыт
+\begin{proof}
+    $x_0\in B(a, r)$
+
+    Докажем, что $x_0$ --- внутренняя, т.е. $\exists U(x_0)\subset B(a, r)$
+
+    $k:=r-\rho(a, x_0)$
+
+    Докажем, что $B(x_0, k)\subset B(a, r)$
+
+    $$\forall x\in B(x_0, k) \quad \rho(x, x_0)<k$$
+    
+    $$\rho(a, x_0) + \rho(x, x_0)<r$$
+
+    $$\rho(x, a) \leq \rho(a, x_0) + \rho(x, x_0)<r$$
+\end{proof}
+
+\import{Теорема о свойствах открытых множеств}{4.tex}{освойствахзамкнутыхмножеств}
+\ExecuteMetaData[4.tex]{освойствахзамкнутыхмножествproof}
+
+\import{Теорема о связи открытых и замкнутых множеств, свойства замкнутых множеств}{opros.tex}{освязиоткрытыхизамкнутыхмножеств}
+\ExecuteMetaData[4.tex]{освязиоткрытыхизамкнутыхмножествproof}
+\begin{proof}
+    \begin{enumerate}
+        \item $(\bigcap F_\alpha)^c=X\setminus(\bigcap F_\alpha)=\bigcup (X\setminus F_\alpha)$
+        
+        $F_\alpha$ --- закрыто $\Rightarrow X\setminus F_\alpha$ --- открыто $\Rightarrow \bigcup (X\setminus F_\alpha)$ --- открыто
+
+        $(\bigcap F_\alpha)^c$ --- открыто $\Rightarrow \bigcap F_\alpha$ --- замкнуто
+
+        \item $(\bigcup F_i)^c=\bigcap(F_i)^c$
+        
+        $\bigcap(F_i)^c$ --- открыто, т.к. $F_i^c$ --- открыто $\Rightarrow (\bigcup F_i)^c$ --- открыто $\Rightarrow \bigcup F_i$ --- замкнуто
+    \end{enumerate}
+\end{proof}
+
+\subsection{\teormin Теорема об арифметических свойствах предела последовательности (в $\overline\R$). Неопределенности}
+\subsubsection{Теорема об арифметических свойствах предела последовательности (в $\overline\R$)}
+\paragraph{По Кохасю}
+\ExecuteMetaData[5.tex]{арифметическиесвойствапределоввrсчертой}
+\paragraph{По Виноградову}
+\begin{enumerate}
+    \item $x_n\to+\infty, \{y_n\}$ --- огр. снизу $\Rightarrow x_n+y_n\to+\infty$
+    \item $x_n\to-\infty, \{y_n\}$ --- огр. сверху $\Rightarrow x_n+y_n\to-\infty$
+    \item $x_n\to\infty, \{y_n\}$ --- огр. $\Rightarrow x_n+y_n\to\infty$
+    \item $x_n\to\pm\infty, \forall n \ \ y_n>0 $ или $y_n\to b>0$ $\Rightarrow x_ny_n\to\pm\infty$
+    \item $x_n\to\pm\infty, \forall n \ \ y_n<0 $ или $y_n\to b<0$ $\Rightarrow x_ny_n\to\mp\infty$
+    \item $x_n\to\infty, \forall n \ \ |y_n|>0 $ или $y_n\to b\not=0$ $\Rightarrow x_ny_n\to\infty$
+    \item $x_n\to a\not=0, y_n\to0, \forall n \ \ y_n\not=0 \Rightarrow \frac{x_n}{y_n}\to\infty$
+    \item $x_n\to a\in\R, y_n\to+\infty \Rightarrow \frac{x_n}{y_n}\to0$
+    \item $x_n\to\infty, y_n\to a\in\R \Rightarrow \frac{x_n}{y_n}\to\infty$
+\end{enumerate}
+% \begin{proof}
+%     Докажем 4 для $x_n\to\infty$
+
+%     $$x_n\to \infty\Leftrightarrow \forall E'>0 \ \ \exists N_1 \ \ \forall n>N_1 \ \ x_n>E'$$
+%     $$y_n\to a \Leftrightarrow \forall \varepsilon>0 \ \ \exists N_2 \ \ \forall n>N_2 \ \ |y_n-a|<\varepsilon \Rightarrow y_n>a-\varepsilon$$
+%     $$E':=\frac{E}{a-\varepsilon} \quad \forall n>\max(N_1, N_2) \ \ x_ny_n>E'(a-\varepsilon)=\frac{E}{a-\varepsilon}(a-\varepsilon)=E$$
+% \end{proof}
+\begin{proof}
+    Тривиально.
+\end{proof}
+\subsubsection{Неопределенности}
+\ExecuteMetaData[5.tex]{неопределенности}
+
+\import{\teormin Теорема Кантора о стягивающихся отрезках}{5.tex}{теоремакантора}
+\ExecuteMetaData[5.tex]{теоремакантораproof}
+
+\import{Теорема о существовании супремума}{5.tex}{осуществованиисупремума}
+\ExecuteMetaData[5.tex]{осуществованиисупремумаproof}
+
+\import{Лемма о свойствах супремума}{6.tex}{освойствахсупремума}
+\ExecuteMetaData[6.tex]{освойствахсупремумаproof}
+
+\import{Теорема о пределе монотонной последовательности}{6.tex}{определемонотоннойпоследовательности}
+\ExecuteMetaData[6.tex]{определемонотоннойпоследовательностиproof}
+
+\import{Определение числа $e$, соответствующий замечательный предел}{opros.tex}{определениеe}
+
+\import{Теорема об открытых и замкнутых множествах в пространстве и в подпространстве}{6.tex}{открытыеизамкнутыемножествавпространствеиподпространстве}
+\ExecuteMetaData[6.tex]{открытыеизамкнутыемножествавпространствеиподпространствеproof}
+
+\import{Теорема о компактности в пространстве и в подпространстве}{6.tex}{окомпактностивпространствеиподпространстве}
+\ExecuteMetaData[6.tex]{окомпактностивпространствеиподпространствеproof}
+
+\import{Простейшие свойства компактных множеств}{7.tex}{опростейшихсвойствахкомпактныхмножеств}
+\ExecuteMetaData[7.tex]{опростейшихсвойствахкомпактныхмножествproof}
+
+\import{Лемма о вложенных параллелепипедах}{7.tex}{овложенныхпараллелепипедах}
+\ExecuteMetaData[7.tex]{овложенныхпараллелепипедахproof}
+
+\import{Компактность замкнутого параллелепипеда в $\R^m$}{7.tex}{компактностьпарллелепипеда}
+\ExecuteMetaData[7.tex]{компактностьпарллелепипедаproof}
+
+\import{\teormin Теорема о характеристике компактов в $\R^m$}{7.tex}{охарактеристикекомпактоввrm}
+\ExecuteMetaData[7.tex]{охарактеристикекомпактоввrmproof}
+\ExecuteMetaData[8.tex]{охарактеристикекомпактоввrmproof}
+
+\import{Эквивалентность определений Гейне и Коши}{7.tex}{эквивалентностьопределенийгейнеикоши}
+\ExecuteMetaData[7.tex]{эквивалентностьопределенийгейнеикошиproof}
+
+\subsection{Единственность предела, локальная ограниченность отображения, имеющего предел, теорема о стабилизации знака}
+\subsubsection{Единственность предела}
+\ExecuteMetaData{7.tex}{оединственностипредела}
+\ExecuteMetaData[7.tex]{оединственностипределаproof}
+\subsubsection{Локальная ограниченность отображения, имеющего предел}
+\ExecuteMetaData[7.tex]{олокальнойограниченностиотображенияимеющегопредел}
+\ExecuteMetaData[7.tex]{олокальнойограниченностиотображенияимеющегопределproof}
+\subsubsection{Теорема о стабилизации знака}
+\ExecuteMetaData[7.tex]{остабилизациизнака}
+\ExecuteMetaData[7.tex]{остабилизациизнакаproof}
+
+\import{Арифметические свойства пределов отображений. Формулировка для $\overline\R$}{7.tex}{обарифметическихсвойствахпредела}
+\ExecuteMetaData[7.tex]{обарифметическихсвойствахпределаproof}
+\ExecuteMetaData[7.tex]{арифметическиесвойствапределадляoverliner}
+\ExecuteMetaData[7.tex]{арифметическиесвойствапределадляoverlinerproof}
+
+\import{Принцип выбора Больцано--Вейерштрасса}{8.tex}{принципвыборабольцановейерштрасса}
+\ExecuteMetaData[8.tex]{принципвыборабольцановейерштрассаproof}
+
+\import{Сходимость в себе и ее свойства}{8.tex}{сходящаясявсебе}
+\ExecuteMetaData[8.tex]{сходящаясявсебесвойства}
+\ExecuteMetaData[8.tex]{сходящаясявсебесвойстваproof}
+
+\subsection{Критерий Коши для последовательностей и отображений}
+\subsubsection{Для последовательностей}
+\ExecuteMetaData[8.tex]{критерийкошидляпоследовательностей}
+\ExecuteMetaData[8.tex]{критерийкошидляпоследовательностейproof}
+\subsubsection{Для отображений}
+\ExecuteMetaData[8.tex]{критерийбольцанокошидляотображений}
+\ExecuteMetaData[8.tex]{критерийбольцанокошидляотображенийproof}
+
+\import{\teormin Теорема о пределе монотонной функции}{8.tex}{определемонотоннойфункции}
+\ExecuteMetaData[8.tex]{определемонотоннойфункцииproof}
+
+\subsection{Свойства непрерывных отображений: арифметические, стабилизация знака, композиция}
+\subsubsection{Арифметические}
+\ExecuteMetaData[8.tex]{арифметическиесвойстванепрерывныхотображений}
+\ExecuteMetaData[8.tex]{арифметическиесвойстванепрерывныхотображенийproof}
+\subsubsection{Стабилизация знака}
+\ExecuteMetaData[9.tex]{стабилизациязнака}
+\ExecuteMetaData[9.tex]{стабилизациязнакаproof}
+\subsubsection{Непрерывность композиции непрерывных отображений}
+\ExecuteMetaData[10.tex]{онепрерывностикомпозиции}
+\ExecuteMetaData[10.tex]{онепрерывностикомпозицииproof}
+
+\subsection{Непрерывность композиции и соответствующая теорема для пределов}
+\subsubsection{Непрерывность композиции}
+Дана выше.
+\subsubsection{Cоответствующая теорема для пределов}
+\ExecuteMetaData[10.tex]{определекомпозиции}
+\ExecuteMetaData[10.tex]{определекомпозицииproof}
+
+\subsection{\teormin Теорема о замене на эквивалентную при вычислении пределов. Таблица эквивалентных}
+\subsubsection{Теорема о замене на эквивалентную при вычислении пределов}
+\ExecuteMetaData[10.tex]{озамененаэквивалентную}
+\ExecuteMetaData[10.tex]{озамененаэквивалентнуюproof}
+\subsubsection{Таблица эквивалентных}
+Дана выше. (\ref{equivtable}, стр. \pageref{equivtable})
+
+\import{Теорема единственности асимптотического разложения}{10.tex}{оединственностиасимтотическогоразложения}
+\ExecuteMetaData[10.tex]{оединственностиасимтотическогоразложенияproof}
+
+\import{\teormin Теорема о топологическом определении непрерывности}{10.tex}{топологическоеопределениенепрерывности}
+\ExecuteMetaData[10.tex]{топологическоеопределениенепрерывностиproof}
+
+\import{\teormin Теорема Вейерштрасса о непрерывном образе компакта. Следствия}{10.tex}{вейерштрассаонепрерывномобразекомпакта}
+\ExecuteMetaData[10.tex]{вейерштрассаонепрерывномобразекомпактаproof}
+\ExecuteMetaData[10.tex]{следствиявейерштрасса}
+
+\import{Лемма о связности отрезка}{11.tex}{освязностиотрезка}
+\ExecuteMetaData[11.tex]{освязностиотрезкаproof}
+
+\import{\teormin Теорема Больцано-Коши о промежуточном значении}{11.tex}{больцанокошиопромежуточномзначении}
+\ExecuteMetaData[11.tex]{больцанокошиопромежуточномзначенииproof}
+
+\import{Теорема о сохранении промежутка}{11.tex}{осохранениипромежутка}
+\ExecuteMetaData[11.tex]{осохранениипромежуткаproof}
+
+\ExecuteMetaData[opros2.tex]{больцанокошиосохранениилинейнойсвязности}
+\ExecuteMetaData[opros2.tex]{больцанокошиосохранениилинейнойсвязностиproof}
+
+\import{Описание линейно связных множеств в $\R$}{11.tex}{линейносвзяноевr}
+\ExecuteMetaData[11.tex]{линейносвзяноевrproof}
+
+\import{Теорема о бутерброде}{11.tex}{теоремаобутерброде}
+\ExecuteMetaData[11.tex]{теоремаобутербродеproof}
+
+\import{Теорема о вписанном $n$-угольнике максимальной площади}{11.tex}{овписанномnугольникемаксимальнойплощади}
+\ExecuteMetaData[11.tex]{овписанномnугольникемаксимальнойплощадиproof}
+
+\subsection{\teormin Теорема о непрерывности монотонной функции. Следствие о множестве точек разрыва}
+\subsubsection{Теорема о непрерывности монотонной функции}
+\ExecuteMetaData[11.tex]{онепрерывностимонотонныхфункций}
+\ExecuteMetaData[11.tex]{онепрерывностимонотонныхфункцийproof}
+\subsubsection{Следствие о множестве точек разрыва}
+\ExecuteMetaData[12.tex]{омножестветочекразрыва}
+\ExecuteMetaData[12.tex]{омножестветочекразрываproof}
+
+\import{Теорема о существовании и непрерывности обратной функции}{12.tex}{осуществованииинепрерывностиобратнойфункции}
+\ExecuteMetaData[12.tex]{осуществованииинепрерывностиобратнойфункцииproof}
+
+\import{Счетность множества рациональных чисел}{11.tex}{счётностьq}
+\ExecuteMetaData[11.tex]{счётностьqproof}
+
+\import{Несчетность отрезка}{11.tex}{несчетностьотрезка}
+\ExecuteMetaData[11.tex]{несчетностьотрезкаproof}
+
+\import{Континуальность множества бинарных последовательностей}{11.tex}{мощностьбинарныхпоследовательностей}
+\ExecuteMetaData[11.tex]{мощностьбинарныхпоследовательностейproof}
+
+\subsection{Равносильность двух определений производной. Правила дифференцирования.}
+\subsubsection{Равносильность двух определений производной}
+\ExecuteMetaData[12.tex]{равносильностьопределенийпроизводной}
+\ExecuteMetaData[12.tex]{равносильностьопределенийпроизводнойproof}
+\subsubsection{Правила дифференцирования}
+\ExecuteMetaData[12.tex]{правиладифференциирования}
+\ExecuteMetaData[12.tex]{правиладифференциированияproof}
+
+\subsection{Дифференцирование композиции и обратной функции}
+\subsubsection{Дифференцирование композиции}
+\ExecuteMetaData[12.tex]{дифференциированиекомпозиции}
+\ExecuteMetaData[12.tex]{дифференциированиекомпозицииproof}
+\subsubsection{Дифференцирование обратной функции}
+\ExecuteMetaData[12.tex]{дифференциированиеобратной}
+\ExecuteMetaData[12.tex]{дифференциированиеобратнойproof}
+
+\subsection{Теорема Ферма \textit{(с леммой)}}
+\subsubsection{Лемма}
+\ExecuteMetaData[12.tex]{леммадлятеоремыферма}
+\ExecuteMetaData[12.tex]{леммадлятеоремыферма2}
+\ExecuteMetaData[12.tex]{леммадлятеоремыфермаproof}
+\subsubsection{Теорема Ферма}
+\ExecuteMetaData[12.tex]{теоремаферма}
+\ExecuteMetaData[12.tex]{теоремафермаproof}
+
+\subsection{Теорема Ролля. Вещественность корней многочлена Лежандра}
+\subsubsection{Теорема Ролля}
+\ExecuteMetaData[12.tex]{теоремаролля}
+\ExecuteMetaData[12.tex]{теоремаролляproof}
+\subsubsection{Вещественность корней многочлена Лежандра}
+\ExecuteMetaData[12.tex]{полиномылежандра}
+\ExecuteMetaData[12.tex]{полиномылежандраproof}
+
+\subsection{\teormin Теоремы Лагранжа и Коши. Следствия об оценке приращения и о пределе производной}
+\subsubsection{Теорема Лагранжа}
+\ExecuteMetaData[13.tex]{теоремалагранжа}
+\ExecuteMetaData[13.tex]{теоремалагранжаremark}
+\ExecuteMetaData[13.tex]{теоремалагранжаproof}
+\subsubsection{Теорема Коши}
+\ExecuteMetaData[13.tex]{теоремакоши}
+\ExecuteMetaData[13.tex]{теоремакошиproof}
+\subsubsection{Следствия об оценке приращения и о пределе производной}
+\ExecuteMetaData[13.tex]{следствия}
+\ExecuteMetaData[13.tex]{следствияproof}
+
+\subsection{Теорема Дарбу. Следствия}
+\subsubsection{Теорема Дарбу}
+\ExecuteMetaData[13.tex]{теоремадарбу}
+\ExecuteMetaData[13.tex]{теоремадарбуproof}
+\subsubsection{Следствия}
+\ExecuteMetaData[13.tex]{теоремадарбуследствия}
+
+\import{Теорема о свойствах показательной функции}{13.tex}{свойствапоказательнойфункции}
+\ExecuteMetaData[13.tex]{свойствапоказательнойфункцииproof}
+
+\subsection{Выражение произвольной показательной функции через экспоненту. Два следствия}
+$\exists$ показательная функция $f_0$, удовлетворяющая
+$$\frac{f_0(x)-1}{x}\xrightarrow[x\to0]{}1, f(x)=\sum\limits_{n=0}^{+\infty}\frac{x^n}{n!}$$
+$f$ --- произвольная показательная функция. Тогда $\exists \alpha\in\R : \forall x : f(x)=f_0(\alpha x)$
+\begin{proof}
+    $a:=f(1), \exists \alpha : f_0(\alpha)=a$
+
+    $f_0(\alpha x)$ и есть $f(x)$, т.к. у них совпадает значение в 0.
+    
+    Докажем, что $f_0(\alpha x)$ --- показ. функция.
+    $$f_0(\alpha(x+y))=f_0(\alpha x + \alpha y)=f_0(\alpha x)f_0(\alpha y)$$
+\end{proof}
+\begin{consequence}
+    $f_0$ --- единственна.
+\end{consequence}
+\begin{proof}
+    Пусть $h(x)$ --- ещё одна такая функция $\Rightarrow \exists \alpha : h(x)=f_0(\alpha x)$
+    $$1\xleftarrow[x\to0]{} \frac{h(x)-1}{x}=\frac{f_0(\alpha x)-1}{x}=\frac{f_0(\alpha x)-1}{\alpha x}\cdot \alpha\xrightarrow[x\to0]{} \alpha \Rightarrow \alpha=1$$
+\end{proof}
+\begin{consequence}
+    $\forall a>0, a\not=1 \quad \exists! f : f(1)=a$
+\end{consequence}
+\begin{proof}
+    Для этого $a \ \ \exists! \alpha : f_0(\alpha)=a$
+
+    $f(x):=f_0(\alpha x)$
+
+    $f(1)=a=f(\alpha)$
+\end{proof}
+
+\subsection{Показательная функция от произведения}
+$f$ --- показ. ф-ция. $\forall r\in\R \quad f(rx)=(f(x))^r$
+
+\begin{proof}
+    Для $r\in\Q$ доказано выше. (\ref{exponentofmultiplication}, стр. \pageref{exponentofmultiplication})
+
+    $\sphericalangle r\in\R$. $\exists a_{n}\in\Q \to r$
+    
+    $f(a_nx)=f(x)^{a_n}\to f(x)^r$
+\end{proof}
+
+\subsection{Формула Тейлора с остатком в форме Пеано}
+Остаток: $T_n:=o((x-x_0)^{n+1}), x\to x_0$.
+$$f(x)=f(x_0)+\ldots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^{n+1})$$
+\begin{proof}
+    \begin{lemma}
+        $\varphi:\langle a,b \rangle \to \R, x_0 \in \langle a,b \rangle, \varphi$ $n$ раз дифференциируема в $x_0$ и $\varphi(x_0)=\varphi'(x_0)=\ldots=\varphi^{(n)}(x_0)=0$.
+        
+        Тогда $\varphi(x)=o((x-x_0)^n), x\to x_0$
+        \begin{proof}
+            База: $n=1$.
+
+            $$\varphi(x)=\varphi(x_0)+\varphi'(x_0)(x-x_0)+o(x-x_0)=o(x-x_0)$$
+
+            Переход:
+
+            $\varphi'(x)=o((x-x_0)^n)$ по индукционному переходу.
+
+            $$r(x)=r(x_0)+r'(x_0)(x-x_0)+o(x-x_0)=0+o((x-x_0)^n)(x-x_0)+o(x-x_0)=$$
+            $$=o((x-x_0)^{n+1})+o(x-x_0)=o((x-x_0)^{n+1})$$
+        \end{proof}
+    \end{lemma}
+
+    $T_n:=f(x)-f(x_0)-\ldots-\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ --- подходит в лемму $\Rightarrow T_n=o((x-x_0)^{n+1})$
+\end{proof}
+
+\subsection{\teormin Формула Тейлора с остатком в форме Лагранжа}
+Остаток: $R_n:=\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$, где $c\in(x_0, x)$ \textit{(или наоборот, если $x<x_0$)}.
+$$f(x)=f(x_0)+\ldots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$$
+\begin{proof}
+    $$g(t):=f(x)-f(t)-f'(t)(x-t)-\ldots-\frac{f^{(n)}(t)}{n!}(x-t)^n$$
+    $g(x)=0, g(x_0)\stackrel{def}{=}R_n$
+    $$g'(t)=\left(f(x)-f(t)-f'(t)(x-t)-\ldots-\frac{f^{(n)}(t)}{n!}(x-t)^n\right)'$$
+    $$g'(t)=0-f'(t)-(f''(t)(x-t)-f'(t))-\ldots-\left(\frac{f^{(n)}(t)}{n!}(x-t)^n\right)'$$
+    $$g'(t)=-\frac{f^{(n+1)}(t)}{n!}(x-t)^n$$
+    $h(x):=(x_0-x)^{n+1}, n+1>0$
+
+    По т. Коши: \textit{(можно применить, т.к. $h'\not=0$, $g,h$ --- дифф. на $(x,x_0)$)}
+    $$\frac{g(x)-g(x_0)}{h(x)-h(x_0)}=\frac{g'(c)}{h'(c)}$$
+    и при этом $c\in(x,x_0)$.
+    $$\frac{0-R_n}{0-(x-x_0)^{n+1}}=\frac{-\cfrac{f^{(n+1)}(t)}{n!}(x-t)^n}{-(n+1)(x-c)^n}$$
+    $$R_n=\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$$
+\end{proof}
+
+\import{Метод Ньютона}{14.tex}{методньютона}
+
+\import{Иррациональность числа $e^2$}{14.tex}{иррациональностьe2}
+\ExecuteMetaData[14.tex]{иррациональностьe2proof}
+
+\subsection{Следствие об оценке сходимости многочленов Тейлора к функции. Примеры}
+$|f^{(n+1)}|\leq M$
+$$|R_n(x_0)f(x)|\leq\frac{M|x-x_0|^{n+1}}{(n+1)!}$$
+Пусть $f\in C^{\infty}\langle a,b \rangle, \exists M>0 : \forall n\in N, t\in\langle a,b \rangle \quad |f^{(n)}(t)|\leq M$. Тогда $$T_n(x_0)f(x)\xrightarrow[n\to\infty]{} f(x)$$
+
+\import{Теорема о разложении рациональной функции на простейшие дроби}{14.tex}{оразложениирациональнойдроби}
+\ExecuteMetaData[14.tex]{оразложениирациональнойдробиproof}
+
+\end{document}

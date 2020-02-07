@@ -1,0 +1,369 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{December 9, 2019}
+
+\begin{document}
+\begin{proof}
+    Доказательство несчётности отрезка с помощью компактности.
+
+    Рассмотрим произвольную точку отрезка $x_k$ и её окрестность размером $\frac{1}{10^k}$. Все такие окрестности образуют открытое покрытие отрезка, но их суммарная длина $\leq\frac{1}{9}$, что меньше длины произвольного отрезка. Почему-то это даёт противоречие.
+\end{proof}
+
+\begin{consequence}
+    \textit{(из теоремы о непрерывности монотонной функции)}
+    %<*омножестветочекразрыва>
+    У монотонной функции, заданной на промежутке, имеется не более чем счётное \textit{(НБЧС)} множество точек разрыва.
+    %</омножестветочекразрыва>
+\end{consequence}
+\begin{example}
+    $\Theta(x) = sign(x) \frac{1}{2} + \frac{1}{2}$
+
+    $] x_k$ это $k$-тое рациональное число
+    $$f(x)=\sum\limits_{k=1}^{+\infty} \frac{1}{2^k}\Theta(x-x_k)$$ 
+    $f(x)$ имеет скачок в каждом рациональном значении аргумента.
+\end{example}
+%<*омножестветочекразрываproof>
+\begin{proof}
+    $f(x-0)<f(x+0)$
+
+    Создадим инъекцию $(f(x-0), f(x+0))\leadsto q_x\in\Q$. Возьмём $q_x\in (f(x-0), f(x+0))$. Такая точка будет в силу плотности $\Q$ в $\R$. Теперь докажем, что взятие $q_x$ --- инъекция. Рассмотрим другую точку разрыва --- $y$.
+
+    $$\exists t\in (f(x), f(y))$$
+
+    $$f(x)\leq t\leq f(y)$$
+
+    $$f(x)\leq f(x+0)\leq t\leq f(y-0)\leq f(y)$$
+
+    Таким образом, $(f(x-0), f(x+0))$ и $(f(y-0), f(y+0))$ не имеют общих точек, тогда $q_x$ все разные $\Rightarrow$ взятие $q_x$ --- инъекция. Доказать инъективность достаточно, т.к. нам не нужна равномощность.
+\end{proof}
+%</омножестветочекразрываproof>
+\begin{exercise}
+    \begin{enumerate}
+        \item Существует ли на плоскости более, чем счётное множество непересекающихся окружностей?
+        \item Существует ли на плоскости более, чем счётное множество восьмёрок?
+        \item Можно ли в счётном множестве задать такое континуальное семейство $(A_\alpha)$, что:
+        $\forall \alpha\in\R \ \ A_\alpha\subset A$
+
+        $\alpha_1\not=\alpha_2 \Rightarrow A_{\alpha_1}\not=A_{\alpha_2}$
+
+        $\forall \alpha,\beta: \alpha<\beta \ \ A_\alpha\subset A_\beta$
+    \end{enumerate}
+\end{exercise}
+\begin{theorem}
+    О существовании и непрерывности обратной функции.
+
+    %<*осуществованииинепрерывностиобратнойфункции>
+    $f:\langle a, b\rangle\to\R$ --- непр., строго монот.
+
+    $m:=\inf\limits_{\langle a, b\rangle} f(x), M:=\sup\limits_{\langle a, b\rangle} f(x)$. Тогда:
+
+    \begin{enumerate}
+        \item $f$ --- обратимая и $f^{-1}:\langle m, M\rangle\to\langle a,b\rangle$
+        \item $f^{-1}$ строго монотонна и того же типа \textit{(возрастает или убывает)}
+        \item $f^{-1}$ непрерывна
+    \end{enumerate}
+    %</осуществованииинепрерывностиобратнойфункции>
+\end{theorem}
+\begin{remark}
+    Тип промежутка в $f$ и $f^{-1}$ совпадают.
+\end{remark}
+%<*осуществованииинепрерывностиобратнойфункцииproof>
+\begin{proof}
+    Пусть $f\uparrow$
+
+    $f(\langle a,b\rangle)$ --- промежуток $\langle m, M\rangle$ \textit{(типы скобок совпадают)}
+
+    $f$ --- строго монот. $\Rightarrow f$ --- инъекция. Тогда $f:\langle a,b\rangle\to\langle m,M\rangle$ --- биекция
+
+    $\forall x_1<x_2 \ \ f(x_1)<f(x_2)$
+
+    $\forall y_1<y_2 \ \ f^{-1}(y_1)<f^{-1}(y_2)$
+\end{proof}
+%</осуществованииинепрерывностиобратнойфункцииproof>
+
+\section{Элементарные функции}
+
+\begin{definition}
+    Всё, для чего есть кнопочки на калькуляторе --- \textbf{элементарные функции}:
+
+    $const, x^a, a^x, \log_a x, \sin x, \cos x, \arcsin, \arctan x$
+
+    + конечное число арифметических действий и композиций
+\end{definition}
+
+\subsection{$x^a$}
+Свойства:
+\begin{enumerate}
+    \item $x^{r+s}=x^rx^s$
+    \item $(x^r)^s=x^{rs}$
+    \item $(xy)^s=x^sy^s$
+\end{enumerate}
+
+$$f_a(x) = x^a, a\in\Q$$
+
+Докажем непрерывность:
+\begin{enumerate}
+    \item $a=1 \quad f_1(x)=x$ --- непр.
+    \item $a\in\N \quad f_a(x)=f_1(x)\cdot f_1(x)\ldots f_1(x)$ --- непр.
+    \item $a\in$``$-\N$'' $\quad f_{-a}(x)\stackrel{def}{=}\frac{1}{f_a(x)}$
+    \item $a=0 \quad f_0(x)\equiv 1$ (при $x\not=0$, доопределим $f_0(0)=1$) --- непр. в $\R$
+    \item $a=\frac{1}{n}, n\in\N, n$ --- нечётно
+    
+    $f_n\uparrow$ строго $\quad \inf\limits_{x\in\R} f_n(x)=-\infty \quad \sup f_n=+\infty, f_n$ --- непр. $\Rightarrow$ по теореме о непрерывности монотонной функции $f^{-1}$ --- непр.
+
+    $\exists f^{-1}_n:(-\infty, +\infty)\to\R$
+
+    $$f_{\frac{1}{n}}(x)=f_n^{-1}(x)$$
+
+    \item $a=\frac{1}{n}, n\in\N, n$ --- чётн.
+    
+    $f_n:[0, +\infty)\to[0,+\infty)$ --- строго монот., непр.
+
+    $f(0)=0 \quad \sup f_n=+\infty$
+
+    $\exists f^{-1} : [0, +\infty)\to[0, +\infty)$
+
+    $$f_{\frac{1}{n}}(x):=f_n^{-1}(x)$$
+
+    \item $a=\frac{p}{q}$ \textit{(несокр.)}, $p\in\Z, q\in\N$
+    
+    $$f_a:=f_\frac{1}{q}\circ f_p$$
+\end{enumerate}
+
+\section{Производная}
+
+\begin{definition}
+    %<*дифференциируемая>
+    $f:\langle a,b\rangle\to\R \quad x_0\in\langle a,b\rangle$
+
+    $f$ --- \textbf{дифференцируема}. в точке $x_0$, если $\exists A\in\R$
+
+    $$f(x)=f(x_0)+A\cdot(x-x_0)+o(x-x_0), x\to x_0$$
+
+    При этом $A$ называется \textbf{производной} $f$ в точке $x_0$
+    %</дифференциируемая>
+\end{definition}
+\begin{definition}
+    $f$ --- \textbf{дифференцируема} в точке $x$, если $$\exists \lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=A\in\R$$
+    $A$ --- производная $f$ в точке $x_0$
+\end{definition}
+\begin{remark}
+    Второе определение не обобщимо на пространство произвольной размерности, в отличие от первого.
+\end{remark}
+\begin{theorem}
+    %<*равносильностьопределенийпроизводной>
+    Определение 1 $\Leftrightarrow$ определению 2, т.е.
+    $$f(x)=f(x_0)+A\cdot(x-x_0)+o(x-x_0), x\to x_0$$
+    $$\exists \lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=B\in\R$$
+    $$A=B$$
+    %</равносильностьопределенийпроизводной>
+\end{theorem}
+%<*равносильностьопределенийпроизводнойproof>
+\begin{proof}
+    Докажем ``$\Leftarrow$''.
+    
+    $$f(x)=f(x_0)+A\cdot(x-x_0)+o(x-x_0), x\to x_0$$
+
+    $$A=\frac{f(x)-f(x_0)}{x-x_0} - \frac{o(x-x_0)}{x-x_0}$$
+
+    Докажем ``$\Rightarrow$''.
+
+    $$\frac{f(x)-f(x_0)}{x-x_0}=A+\alpha(x) \quad \alpha(x)\xrightarrow[x\to x_0]{} 0$$
+\end{proof}
+%</равносильностьопределенийпроизводнойproof>
+\begin{remark}
+    \begin{enumerate}
+        \item $f$ --- дифф. в $x_0 \Rightarrow f$ --- непр. в $x_0$
+        \item $f'(x_0)$ --- обозн. для производной
+        
+        Если $x_0\in(a, b)$ в опр. 1, 2 $\quad x\to x_0+0$
+
+        $f$ --- дифф. справа $\Rightarrow A$ --- правостор. производная $f'_+(x)$
+
+        $x\to x_0-0$ слева $f_-'(x_0)$
+
+        $$\exists f_+'(x_0)=f_-'(x_0)=f \text{ --- дифф. в} x_0$$
+        
+        \item $A=\pm\infty: f'(x_0)=\pm\infty$, но $f$ не дифф.
+    \end{enumerate}
+\end{remark}
+
+\begin{example}
+    $$f(x)=\begin{cases}
+        0 \quad\quad\ \ \ ,\ x=0 \\
+        x\sin\frac{1}{x} \ \ ,\ x\not=0
+    \end{cases}$$
+
+    $$\not\exists\lim\limits_{x\to0}\frac{f(x)-f(0)}{x-0}$$
+\end{example}
+
+$$f(x)=f(x_0)+f'(x_0)(x-x_0)+o(x-x_0)$$
+
+\begin{definition}
+    $$y=f(x_0)+f'(x_0)(x-x_0)$$ --- называется \textbf{касательной} к графику $y=f(x)$ в точке $x_0$
+\end{definition}
+\begin{theorem}
+    %<*правиладифференциирования>
+    $f, g:\langle a,b\rangle\to\R$, дифф. в $x_0$
+
+    Тогда указанные ниже в левых частях дифференцируемы в $x_0$ и их производные равны.
+    \begin{enumerate}
+        \item $(f+g)'(x_0)=f'(x_0)+g'(x_0)$
+        \item $\forall \alpha\in\R \quad (\alpha f)'(x_0)=\alpha f'(x_0)$
+        \item $(fg)'(x_0)=f'(x_0)g(x_0)+f(x_0)g'(x_0)$
+        \item Если $g(x_0)\not=0$: $$\left(\frac{f}{g}\right)'(x_0)=\frac{f'(x_0)g(x_0)-f(x_0)g'(x_0)}{g^2(x_0)}$$
+    \end{enumerate}
+    %</правиладифференциирования>
+\end{theorem}
+%<*правиладифференциированияproof>
+\begin{proof}
+    Докажем 4 по определению.
+
+    $$\frac{\cfrac{f}{g}(x_0)+h-\cfrac{f}{g}(x_0)}{h}=\frac{\cfrac{f(x_0+h)-f(x_0)}{h}g(x_0)-f(x_0)\cfrac{g(x_0+h)-g(x_0)}{h}}{g(x_0+h)g(x_0)}\xrightarrow[h\to0]{} \text{ОК}$$
+\end{proof}
+%</правиладифференциированияproof>
+\begin{theorem}
+    О производной композиции.
+
+    %<*дифференциированиекомпозиции>
+    $f:\langle a,b\rangle\to\langle c,d\rangle \quad x\in\langle a,b\rangle \quad f$ --- дифф. в $x$
+
+    $g:\langle c,d\rangle\to\R \quad g$ --- дифф. $y=f(x)$
+
+    Тогда $g\circ f$ --- дифф. в $x$; $(g(f(x)))'=g'(f(x))\cdot f'(x)$
+    %</дифференциированиекомпозиции>
+\end{theorem}
+%<*дифференциированиекомпозицииproof>
+\begin{proof}
+    $$f(x+h)=f(x)+f'(x) h + \alpha(h)h, \alpha(h)\xrightarrow[h\to 0]{} 0$$
+    $$g(y+k)=g(y)+g'(y) k + \beta(k)k$$
+    $$]f'(x)h + \alpha(h)h = k; \quad k\xrightarrow[h\to0]{}0$$
+    $$g(f(x+h))=g(f(x) + f'(x)h + \alpha(h)h)=$$
+    $$=g(f(x))+g'(f(x))(f'(x)h+\alpha(h)h)+\beta(k)(f'(x)h+\alpha(h)h)=$$
+    $$=g(f(x))+g'(f(x))f'(x)h+g'(f(x))\alpha(h)h+\beta(k)f'(x)h+\beta(k)\alpha(h)h$$
+    $$]g'(f(x))\alpha(h)h+\beta(k)f'(x)h+\beta(k)\alpha(h)h=\gamma(h)\cdot h; \quad \gamma(h)\xrightarrow[h\to0]{}0$$
+\end{proof}
+%</дифференциированиекомпозицииproof>
+\begin{theorem}
+    О производной обратной функции.
+
+    %<*дифференциированиеобратной>
+    $f:\langle a,b\rangle\to\R$ --- непр., строго монот. $x\in\langle a,b\rangle\ \ f$ --- дифф. в $x$; $f'(x)\not=0$
+
+    По определению $f\ \ $ $\exists f^{-1}$
+
+    Тогда $f^{-1}$ --- дифф. в $y=f(x)$ и $$(f^{-1})'(y)=\frac{1}{f'(x)}$$
+    %</дифференциированиеобратной>
+\end{theorem}
+\begin{remark}
+    $f^{-1}$ --- дифф. $\Rightarrow$ ф-ция очев.: $(f^{-1})'(f(x))\cdot f'(x)=(f^{-1}(f(x)))'=(x)'=1$
+\end{remark}
+%<*дифференциированиеобратнойproof>
+\begin{proof}
+    $\forall k \ \ \exists h: f(x+h)=y+k$
+
+    $$h=(x+h)-x=f^{-1}(y+k)-f^{-1}(y)=\tau(k)$$
+
+    $$\frac{f^{-1}(y+k)-f^{-1}(y)}{k}=\frac{\tau(k)}{f(x+\tau(k))-f(x)}=\cfrac{1}{\cfrac{f(x+\tau(k))-f(x)}{(x+\tau(k)) - x}}\xrightarrow[\stackrel{k\to0}{\tau(k)\to0}]{\text{по т.о непр. обр. ф}}\frac{1}{f'(x)}$$
+\end{proof}
+%</дифференциированиеобратнойproof>
+\begin{example}
+$$y=\sin x$$
+$$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
+\end{example}
+\begin{exercise}
+    $\arctan'y=0$
+\end{exercise}
+
+\section{Теоремы о среднем}
+
+\begin{lemma}
+    %<*леммадлятеоремыферма>
+    $f:\langle a,b\rangle\to\R$ --- дифф. в $x_0\in(a,b)$; $f'(x_0)>0$
+
+    Тогда $\exists \varepsilon > 0 \ \ \forall x : x\in(x_0, x_0+\varepsilon) \ \ f(x_0) < f(x)$
+
+    и $\forall x : x\in(x_0 - \varepsilon, x_0) \ \ f(x_0) > f(x)$
+    %</леммадлятеоремыферма>
+\end{lemma}
+%<*леммадлятеоремыферма2>
+\begin{remark}
+    Это не монотонность.
+\end{remark}
+%</леммадлятеоремыферма2>
+%<*леммадлятеоремыфермаproof>
+\begin{proof}
+    $$\frac{f(x)-f(x_0)}{x-x_0}\xrightarrow[x\to x_0]{} f'(x_0)>0$$
+
+    $$x\to x_0+0 \quad x-x_0>0 \Rightarrow f(x)-f(x_0)>0 \text{ вблизи } x_0 \textit{ (по теор. о стабилизации знака)}$$
+
+    $$x\to x_0-0 \quad x-x_0<0 \Rightarrow f(x)-f(x_0)<0 \text{ вблизи } x_0$$
+\end{proof}
+%</леммадлятеоремыфермаproof>
+\begin{theorem}
+    Ферма.
+
+    %<*теоремаферма>
+    $f:\langle a,b\rangle \to\R$
+
+    $x_0\in(a,b)$ --- точка максимума
+
+    $f$ --- дифференцируема в $x_0$
+
+    Тогда $f'(x_0)=0$
+    %</теоремаферма>
+\end{theorem}
+%<*теоремафермаproof>
+\begin{proof}
+    Из леммы.
+
+    Если $f'(x_0)>0$, то справа от $x_0$ есть $x: f(x)>f(x_0)$
+
+    Если $f'(x_0)<0$, то слева от $x_0$ есть $x: f(x)>f(x_0)$
+\end{proof}
+%</теоремафермаproof>
+\begin{theorem}
+    Ролля.
+
+    %<*теоремаролля>
+    $f:[a,b]\to\R$ --- непр. на $[a,b]$, дифф. на $(a,b)$
+
+    $f(a)=f(b)$. Тогда $\exists c\in(a,b) : f'(c)=0$
+    %</теоремаролля>
+\end{theorem}
+%<*теоремаролляproof>
+\begin{proof}
+    По теореме Вейерштрасса.
+
+    $x_0=\max f(x); x_1=\min f(x)$
+
+    $\{x_0, x_1\}=\{a, b\} \Rightarrow f=const; f'\equiv0$
+
+    Иначе: пусть $x_0\in (a,b) \xRightarrow[\text{т. Ферма}]{} f'(x_0)=0$
+\end{proof}
+%</теоремаролляproof>
+\begin{remark}
+    $f(x)=(x-a)^kg(x)$, где $g(a)\not=0$
+    $$f'(x)=k(x-a)^{k-1}g(x)+(x-a)^kg'(x)=(x-a)^{k-1}(k\cdot g(x)+(x-a)\cdot g'(x))$$
+\end{remark}
+\begin{example}
+    %<*полиномылежандра>
+    $n\in\N$
+
+    $\Ln(x)=((x^2-1)^n)^{(n)}$ --- \textbf{полиномы Лежандра} \textit{(с точностью до умножения на константу)}
+
+    $\deg \Ln=n$
+
+    Утверждение: $\Ln$ имеет $n$ различных вещественных корней.
+    %</полиномылежандра>
+\end{example}
+%<*полиномылежандраproof>
+\begin{proof}
+    Рассмотрим $(x^2-1)^n$. У этого многочлена 2 корня $\{-1, 1\}$, каждый кратности $n$.
+
+    Возьмём производную. По т. Ролля у этого многочлена есть корень $\in(-1, 1)$. Кроме того, $\{-1, 1\}$ все ещё корни, у них кратность $n-1$. Т.к. $\deg=2n-1$, кратность нового корня 1. На $n$-ном шаге получается $n$ корней, каждый кратности 1.
+\end{proof}
+%</полиномылежандраproof>
+\end{document}

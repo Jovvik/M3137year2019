@@ -1,0 +1,779 @@
+\input{../../preamble.sty}
+
+\usepackage{gensymb}
+\usepackage{ulem}
+\usepackage{sectsty}
+\usepackage{tensor}
+
+\subsectionfont{\fontsize{14}{15}\selectfont}
+\setlength{\parindent}{0pt}
+\setlength\arraycolsep{2pt}
+
+\lhead{Линейная алгерба и аналитическая геометрия}
+\cfoot{}
+
+\DeclareMathSymbol{\mlq}{\mathord}{operators}{``}
+\DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}
+\DeclarePairedDelimiter\Bracket{\lbrack}{\rbrack}
+
+\newcommand{\doref}[1]{Дано выше. \textit{(\ref{#1}, стр. \pageref{#1})}}
+\newcommand\Warning{%
+ \makebox[1.4em][c]{%
+ \makebox[0pt][c]{\raisebox{.1em}{\small!}}%
+ \makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}%
+
+\begin{document}
+\section{Векторная алгебра}
+\subsection{Системы координат на плоскости и в пространстве.}
+\begin{definition}
+    \textbf{Координатной осью} называется ориентируемая прямая, имеющая начало отсчета $0$ и снабженная масштабом $E$.
+\end{definition}
+\begin{definition}
+    \textbf{Система координат} --- прямоугольная, если угол между осями координат прямой.
+\end{definition}
+\begin{definition}
+    \textbf{Декартова прямоугольная система координат} --- система координат с одинаковым масштабом по всем осям.
+\end{definition}
+\begin{definition}
+    Система координат на плоскости называется \textbf{полярной}, если положение каждой точки задаётся полярным углом $\varphi$ и полярным радиусом $\rho$.
+\end{definition}
+Связь прямоугольной и полярной систем:
+$$x=\rho\cos\varphi,\ \ y=\rho\sin\varphi$$
+$$\rho=\sqrt{x^2+y^2},\ \ \cos\varphi=\frac{x}{\rho},\ \ \sin\varphi=\frac{y}{\rho}$$
+\begin{definition}
+    Система координат в пространстве называется \textbf{цилиндрической}, если положение каждой точки задаётся полярным углом $\varphi$, полярным радиусом $\rho$ и высотой над плоскостью $z$.
+\end{definition}
+Связь прямоугольной и цилиндрической систем такая же, как прямоугольной и полярной.
+\begin{definition}
+    Система координат называется \textbf{сферической}, если положение каждой точки определяется радиальным расстоянием $\rho$, азимутальным $\varphi$ и зенитным $\Theta$ углами.
+\end{definition}
+Связь прямоугольной и сферической систем:
+$$x=\rho\cos\varphi\cos\Theta, \ \ y=\rho\sin\varphi\cos\Theta, \ \ z=\rho\sin\Theta$$
+\subsection{Векторы и основные действия с ними \textit{(сложение, умножение на число)}.}
+\begin{definition}
+    Направленные отрезки \textbf{эквивалентны}, если они:
+    \begin{enumerate}
+        \item Лежат на параллельных прямых
+        \item Сонаправлены
+        \item Имеют одинаковые длины
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    \textbf{Вектор} --- класс эквивалентности направленных отрезков
+\end{definition}
+\begin{definition}
+    \textbf{Сумма} двух векторов $\vec a$ и $\vec b$ --- вектор $\vec c=\vec a + \vec b$, полученный по правилу треугольника или параллелограмма
+\end{definition}
+\begin{definition}
+    \textbf{Произведением} вектора $\vec a$ на число $\lambda$ является вектор $\vec b=\lambda\vec a$, такой что:
+    \begin{enumerate}
+        \item $|\vec b|=|\lambda||\vec a|$
+        \item $\lambda>0\Rightarrow \vec a\uparrow\uparrow\vec b$
+        \item $\lambda<0\Rightarrow \vec a\uparrow\mathrel{\mspace{-1mu}}\downarrow\vec b$
+        \item $\lambda=0\Rightarrow \vec b=\vec 0$
+    \end{enumerate}
+\end{definition}
+
+\subsection{Векторное введение координат. Координаты вектора.}
+Для любого вектора $\vec a$, заданного на оси $l$ существует единственное представление $\vec a = x_a \cdot \vec e$, где $x_a \in \R$ и $|\vec e| = 1$. Тогда $\vec e$ --- \textbf{базис} и $x_a$ --- \textbf{координата} вектора $\vec a$ в базисе $\{\vec e\}$
+
+\subsection{Свойства основных действий над векторами.}
+\begin{enumerate}
+    \item $\vec a + \vec b=\vec b + \vec a$ --- коммутативность
+    \item $(\vec a + \vec b) + \vec c = \vec a + (\vec b + \vec c) = \vec a + \vec b + \vec c$ --- ассоциативность
+    \item $\exists \vec 0 : \vec a + \vec 0 = \vec 0 + \vec a = \vec a$ --- нейтральный элемент
+    \item $\forall \vec a \ \ \exists (-\vec a) : \vec a + (- \vec a) = (- \vec a) + \vec a = \vec 0$ --- наличие обратного элемента
+    \item $\alpha(\beta\vec a) = \beta(\alpha \vec a) = (\alpha\beta)\vec a$ --- ассоциативность
+    \item $(\alpha+\beta)\vec a = \alpha\vec a + \beta\vec a$ --- дистрибутивность
+    \item $\alpha(\vec a + \vec b)=\alpha\vec a + \alpha\vec b$ --- дистрибутивность
+\end{enumerate}
+
+\subsection{Скалярное произведение векторов и его свойства.}
+\begin{definition}
+    \textbf{Угол} между $\vec a$ и $\vec b$ --- угол $\leq 180\degree$, заключенный между представителями соответствующих классов эквивалентности, отложенных от одной точки.
+\end{definition}
+\begin{definition}
+    \textbf{Скалярное произведение} --- число, равное: $(\vec a, \vec b) = |\vec a||\vec b|\cos\varphi$
+\end{definition}
+Свойства скалярного произведения:
+\begin{enumerate}
+    \item $(\vec a, \vec b)=(\vec b, \vec a)$
+    \item $(\vec a, \vec b)=0 \Leftrightarrow \vec a\perp\vec b,\quad \vec a,\vec b\not=0$
+    \item $(\vec a, \vec b)=|\vec a|\cdot \text{Пр}_{\vec a}^{\perp} \vec b=|\vec b|\cdot \text{Пр}_{\vec b}^{\perp} \vec a$
+    \item $(\lambda\vec a + \mu\vec b, \vec c)=(\lambda\vec a, \vec c)+(\mu\vec b, \vec c)$
+\end{enumerate}
+\subsection{Векторное произведение и его свойства.}
+\begin{definition}
+    Тройка $\{\vec a, \vec b, \vec c\}$ --- \textbf{правая}, если если располагаясь по направлению вектора $\vec c$ наблюдатель видит, что кратчайший поворот от $\vec a$ к
+    $\vec b$ происходит по часовой стрелке.
+\end{definition}
+\begin{definition}
+    \textbf{Векторное произведение} $\vec a$ и $\vec b$ --- вектор $\vec c$, такой что:
+    \begin{enumerate}
+        \item $|\vec c|=|\vec a||\vec b|\sin\angle(\vec a, \vec b)$
+        \item $\vec c\perp \vec a, \vec c\perp \vec b$
+        \item $\{\vec a, \vec b, \vec c\}$ --- правая тройка
+    \end{enumerate}
+\end{definition}
+Свойства векторного произведения:
+\begin{enumerate}
+    \item $\vec a\times \vec b=-\vec b\times \vec a, \quad \vec a\times \vec b=\vec 0 \Leftrightarrow \vec a\parallel\vec b$
+    \item $(\alpha\vec a)\times \vec b=\alpha(\vec a\times \vec b)=\vec a\times (\alpha\vec b)$
+    \item $(\vec a + \vec b)\times \vec c=\vec a\times \vec c+\vec b\times \vec c$
+\end{enumerate}
+
+\subsection{Смешанное произведение векторов и его свойства.}
+\begin{definition}
+    \textbf{Смешанное произведение}: $(\vec a, \vec b, \vec c)=\vec a \cdot (\vec b \times \vec c)$
+\end{definition}
+Векторы $\vec a, \vec b$ и $\vec c$ компланарны тогда и только тогда, когда их смешанное произведение равно нулю.
+Свойства смешанного произведения:
+\begin{enumerate}
+    \item $\vec a\cdot (\vec b \times \vec c)=\vec b\cdot (\vec c \times \vec a)=\vec c\cdot (\vec a \times \vec b)$
+    \item $\vec a\cdot (\vec c \times \vec b)=-\vec a\cdot (\vec b \times \vec c)$
+    \item $\vec a\cdot (\vec b \times \vec c)=(\vec a \times \vec b)\cdot \vec c$
+\end{enumerate}
+
+\subsection{Двойное векторное произведение и его свойства.}
+$\vec a\times\vec b\times\vec c$
+
+Свойства:
+\begin{enumerate}
+    \item $\vec a\times\vec b\times\vec c=\vec b(\vec a\cdot\vec c) - \vec c(\vec a\cdot \vec b)$ --- можно запомнить как \textit{``бац минус цаб''}
+    \item Тождество Якоби:
+    $$\vec a\times\vec b\times\vec c+\vec b\times\vec c\times\vec a + \vec c\times\vec a\times\vec b=\vec 0$$
+\end{enumerate}
+
+\subsection{Замена координат при переходе к новой системе отсчета. Матрица перехода.}
+Переход от одного базиса $\{\vec e_1, \vec e_2\}$ к другому базису $\{\vec f_1, \vec f_2\}$: $$\begin{cases}
+    \vec f_1=t_1^1\vec e_1+t_1^2\vec e_2 \\
+    \vec f_2=t_2^1\vec e_1+t_2^2\vec e_2
+\end{cases}$$
+
+$$\begin{pmatrix}
+    \vec f_1 & \vec f_2
+\end{pmatrix} = \begin{pmatrix}
+    \vec e_1 & \vec e_2
+\end{pmatrix} \begin{pmatrix}
+    t_1^1 & t_1^2 \\
+    t_2^1 & t_2^2 \\
+\end{pmatrix}$$
+
+\begin{definition}
+    $T$ называется \textbf{матрица перехода}
+\end{definition}
+
+С учётом переноса начала координат: $$X=A+T\cdot X'$$
+
+Парралельный перенос: $T=\begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+\end{pmatrix}, A=\begin{pmatrix}
+    \alpha^1 \\
+    \alpha^2
+\end{pmatrix}$
+
+Сжатие-растяжение: $T=\begin{pmatrix}
+    \lambda_1 & 0 \\
+    0 & \lambda_2
+\end{pmatrix}, A=\vec 0$
+
+Поворот на угол $\varphi: T=\begin{pmatrix}
+    \cos\varphi & -\sin\varphi \\
+    \sin\varphi & \cos\varphi
+\end{pmatrix}, A=\vec 0$
+
+\section{Аналитическая геометрия}
+
+\subsection{Уравнения линий и поверхностей.}
+\begin{definition}
+    \textbf{Уравнение линии} --- такое равенство, что координаты любой точки на линии удовлетворяют этому равенству и координаты любой точки не на линии не удовлетворяют.
+\end{definition}
+Способы задания линий в $\R^2$:
+\begin{enumerate}
+    \item В явном виде: $y=f(x), x=g(y)$
+    \item В неявном виде: $F(x,y)=0$
+    \item Параметрически: $x=x(t), y=y(t)$
+\end{enumerate}
+Способы задания линий в $\R^3$:
+\begin{enumerate}
+    \item В неявном виде: $\begin{cases}F_1(x,y,z)=0 \\ F_2(x,y,z)=0\end{cases}$
+    \item Параметрически: $x=x(t), y=y(t), z=z(t)$
+\end{enumerate}
+Способы задания поверхностей в $\R^3$:
+\begin{enumerate}
+    \item В явном виде: $x=f(y,z);\ \ y=g(x,z);\ \ z=h(x,y)$
+    \item В неявном виде: $F(x,y,z)=0$
+    \item Параметрически: $x=x(u,v);\ \ y=y(u,v);\ \ z=z(u,v)$
+\end{enumerate}
+
+Эти способы задают не только линии и поверхности. \textit{(Также могут быть точки, множества линий/поверхностей и т.д.)}
+
+\begin{definition}
+    \textbf{Целый алгебраический полином} --- уравнение вида $$\sum\limits_{i=1}^k\alpha_ix^{m_i}y^{n_i},\ \ m_i,n_i\in\N$$
+
+    \textbf{Порядок} такого полинома $p=\max_{i}\{m_i+n_i\}$
+\end{definition}
+
+\subsection{Уравнения прямой на плоскости и в пространстве. Взаимное расположение прямых.}
+\subsubsection{Уравнения прямой на плоскости и в пространстве}
+Возьмём произвольную прямую линию $l$ в $\R^2$ или $\R^3$. Пусть $\vec s=\begin{pmatrix} m & n & p\end{pmatrix}^T$ --- направляющий вектор этой прямой. Зафиксируем точку $M_0$ на $l$ с радиус-вектором $\vec r_0=\begin{pmatrix}x_0&y_0&z_0\end{pmatrix}^T$ и выразим точку $M$ на $l$ с радиус-вектором $\vec r=\begin{pmatrix}x&y&z\end{pmatrix}^T$.
+
+$\overrightarrow{M_0M} || \vec s$, т.к. они параллельны $l \Rightarrow \exists t\in\R:\overrightarrow{M_0M}=t\cdot\vec s$
+
+$\overrightarrow{M_0M}=\vec r-\vec r_0$ \textit{(по определению)} $\Rightarrow \vec r-\vec r_0=t\cdot\vec s\Rightarrow \vec r=\vec r_0+t\cdot \vec s$
+
+\begin{definition}
+    Это \textbf{векторное уравнение прямой}.
+\end{definition}
+
+Домножим обе части векторно на $\vec s$.
+$$\vec r\times\vec s=\vec r_0\times\vec s+t\cdot\vec s\times\vec s$$
+$$\vec r\times\vec s=\vec r_0\times\vec s$$
+$$\vec b:=\vec r_0\times\vec s, \quad \vec r\times\vec s=\vec b$$
+
+Спроектируем векторное уравнение прямой на каждую из осей, получим параметрическое уравнение прямой:
+$$\begin{cases}
+    x=x_0+m\cdot t \\
+    y=y_0+n\cdot t \\
+    z=z_0+p\cdot t \\
+\end{cases}$$
+
+Выразим из каждого уравнения $t$ и приравняем:
+$$\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}$$
+
+Если даны две точки на прямой $M_0$ и $M_1$ с радиус-вектором $\vec r_1=\begin{pmatrix}x_1& y_1& z_1\end{pmatrix}^T$, можем получить направляющий вектор для $l$, который равен $\vec r_1-\vec r_0$. Подставим это в векторное уравнение прямой:
+$$\vec r=\vec r_0 + (\vec r_1 - \vec r_0)t$$
+
+Сделаем переход, аналогичный предыдущему:
+$$\begin{cases}
+    x=x_0+(x_1-x_0)\cdot t \\
+    y=y_0+(y_1-y_0)\cdot t \\
+    z=z_0+(z_1-z_0)\cdot t \\
+\end{cases}$$
+$$\frac{x-x_0}{x_1-x_0}=\frac{y-y_0}{y_1-y_0}=\frac{z-z_0}{z_1-z_0}$$
+
+\subsubsection{Взаимное расположение прямых}
+Угол между прямыми равен углу между их направляющими векторами, а также равен углу между нормалями к этим векторам:
+$$\cos\varphi=\left|\frac{(\vec s_1, \vec s_2)}{|\vec s_1||\vec s_2|}\right|=\left|\frac{(\vec n_1, \vec n_2)}{|\vec n_1||\vec n_2|}\right|$$
+
+Парралельность прямых:
+$$L_1||L_2\Leftrightarrow \vec s_1||\vec s_2 \Leftrightarrow \vec s_2=\alpha \vec s_1\Leftrightarrow\frac{m_2}{m_1}=\frac{n_2}{n_1}=\frac{p_2}{p_1}$$
+
+Перпендикулярность:
+$$L_1\perp L_2\Leftrightarrow \vec s_1\perp\vec s_2\Leftrightarrow (\vec s_1, \vec s_2)=0\Leftrightarrow m_1m_2+n_1n_2+p_1p_2=0$$
+
+\subsection{Частные виды уравнений прямой на плоскости. Расстояние от точки до прямой.}
+\subsubsection{Уравнение прямой с угловым коэффициентом}
+$$\frac{x-x_0}{m}=\frac{y-y_0}{n}$$
+$$y-y_0=\frac{n}{m}(x-x_0)$$
+Этот переход можно делать, только если $m\not=0$
+$$k:=\frac{m}{n}=\tg \alpha \quad \alpha\text{--- угол между прямой и осью } x$$
+$$b:=y_0-kx_0, \quad y=kx+b$$
+Геометрический смысл $b$ --- длина отрезка между началом координат и точкой пересечения прямой с осью $y$.
+\subsubsection{Уравнение прямой в отрезках на осях}
+Возьмем $a$ --- длина отрезка между началом координат и точкой пересечения прямой с осью $x$. Тогда:
+$$a:=\frac{-b}{k}$$
+$$\frac{x}{a}+\frac{y}{b}=1$$
+\subsubsection{Нормальное уравнение прямой}
+Возьмём нормаль к $\vec s$ --- это будет $\vec n$, при этом его возьмём таким, что:
+$$|\vec n|=1, \quad \angle(\vec n, \vec r_0)<\frac{\pi}{2}$$
+
+Домножим векторное уравнение на $\vec n$:
+$$(\vec r-\vec r_0,\vec n)=(\vec s,\vec n)$$
+$$(\vec r-\vec r_0,\vec n)=0$$
+$$(\vec r,\vec n) - (\vec r_0,\vec n)=0$$
+$$\vec n:=(\cos \alpha, \cos \beta), \quad p:=(\vec r_0, \vec n)$$
+$$x\cos\alpha+y\cos\beta-p=0$$
+$p$ --- \textbf{прицельный параметр}, его геометрический смысл - расстояние
+от начала отсчета до прямой.
+
+Возьмём произвольную нормаль к $\vec s$ --- вектор $\vec N=(A,B)$
+$$A(x-x_0)+B(y-y_0)=0$$
+$$C:=Ax_0+By_0,\quad Ax+By+C=0$$
+
+\subsubsection{Расстояние от точки до прямой}
+Найдём расстояние между точкой $M$ и прямой $L$, заданной уравнением с прицельным параметром.
+$$L:x\cos\alpha+y\cos\beta-p=0$$
+
+Проведем $L_1||L$ через $M$:
+$$L_1:x\cos\alpha+y\cos\beta-p_1=0, \quad p_1=x_1\cos\alpha+y_1\cos\beta$$
+$$\rho(L,M)=\rho(L,L_1)=|p_1-p|=|x_1\cos\alpha+y_1\cos\beta-p|$$
+
+\subsection{Уравнения плоскости в пространстве. Взаимное расположение плоскостей.}
+\subsubsection{Векторное параметрическое уравнение плоскости}
+Зададим плоскость двумя непараллельными векторами $\vec s_1$ и $\vec s_2$ и точкой $M_0(x_0,y_0,z_0)$. Выразим произвольную точку $M$ из плоскости с радиус-вектором $\vec r=(x,y,z)$:
+$$\vec r=\vec r_0+t_1\vec s_1+t_2\vec s_2$$
+\begin{definition}
+    Это \textbf{векторное параметрическое уравнение плоскости}.
+\end{definition}
+Спроектируем на каждую ось:
+$$\begin{cases}
+    x=x_0+t_1m_1+t_2m_2 \\
+    y=y_0+t_1n_1+t_2n_2 \\
+    z=z_0+t_1p_1+t_2p_2 \\
+\end{cases}$$
+
+\subsubsection{Общее уравнение плоскости}
+Умножим векторное уравнение на $\vec n=\vec s_1\times\vec s_2$ скалярно:
+$$(\vec r, \vec n)=(\vec r_0+t_1\vec s_1+t_2\vec s_2, \vec n)$$
+$$(\vec r-\vec r_0, \vec n)=(t_1\vec s_1+t_2\vec s_2, \vec n)$$
+$$(\vec r-\vec r_0, \vec n)=0$$
+
+В проекции:
+$$A(x-x_0)+B(y-y_0)+C(z-z_0)=0$$
+$$D:=-Ax_0-By_0-Cz_0, \quad Ax+By+Cz+D=0$$
+
+\subsubsection{Уравнение плоскости, проходящей через три точки}
+По аналогии с $\R^2$:
+$$(\vec r-\vec r_1,\vec r_2-\vec r_1,\vec r_3-\vec r-1)=0$$
+
+\subsubsection{Нормальное уравнение плоскости}
+По аналогии с $\R^2$:
+$$p:=(\vec r_0, \vec n)=\text{Пр}^\perp_{\vec n},\quad x\cos\alpha+y\cos\beta+z\cos\gamma-p=0$$
+
+\subsubsection{Угол между плоскостями}
+Это угол между нормалями плоскостей.
+
+\subsubsection{Парралельность плоскостей}
+$$\mathcal L_1||\mathcal L_2\Leftrightarrow \vec n_1||\vec n_2\Leftrightarrow \vec n_1=\alpha\vec n_2\Leftrightarrow \frac{A_1}{A_2}=\frac{B_1}{B_2}=\frac{C_1}{C_2}=\frac{D_1}{D_2}$$
+
+\subsubsection{Перпендикулярность плоскостей}
+$$\mathcal L_1\perp \mathcal L_2\Leftrightarrow \vec n_1\perp\vec n_2\Leftrightarrow (\vec n_1,\vec n_2)=0\Leftrightarrow A_1A_2+B_1B_2+C_1C_2=0$$
+
+\subsection{Взаимное расположение прямой и плоскости в пространстве.}
+\subsubsection{Угол между прямой и плоскостью}
+$$\sin\varphi=\left|\frac{(\vec s, \vec n)}{|\vec s||\vec n|}\right|$$
+\subsubsection{Парралельность прямой и плоскости}
+$$\mathcal L||L\Leftrightarrow \vec s||\vec n\Leftrightarrow (\vec s,\vec n)=0$$
+\subsubsection{Перпендикулярность прямой и плоскости}
+$$\mathcal L\perp L\Leftrightarrow \vec s\perp\vec n\Leftrightarrow \vec n=\alpha\vec s\Leftrightarrow\frac{A}{m}=\frac{B}{n}=\frac{C}{p}$$
+
+\subsection{Эллипс: геометрическое определение, каноническое уравнение, симметрия и форма эллипса.}
+\begin{definition}
+    \textbf{Эллипс} --- множество точек, сумма расстояний от которых до двух заданных точек \textit{(фокусов)} --- постоянная величина.
+\end{definition}
+
+Пусть фокусы --- точки $F_1, F_2$, $|F_1F_2|=2с$ --- фокусное расстояние, $\vec r_1, \vec r_2$ --- векторы от точки эллипса до фокусов. Тогда по определению:
+$$|\vec r_1|+|\vec r_2|=2a=const$$
+$\varepsilon=\frac{c}{a}$ --- \textbf{эксцентриситет} эллипса.
+$$0\leq c\leq a\Rightarrow 0\leq \varepsilon\leq 1$$
+При $c=0$ эллипс --- окружность, при $c=a$ --- отрезок.
+
+Каноническое уравнение эллипса:
+$$b^2:=a^2-c^2,\quad \frac{x^2}{a^2}+\frac{y^2}{b^2}=1$$
+$a$ --- длина \textbf{большой полуоси} эллипса, $b$ --- длина \textbf{малой полуоси}.
+
+Очевидны предельные значения координат эллипса:
+$$|x|\leq a, \ \ |y|\leq b$$
+Кроме того, эллипс симметричен относительно обеих осей и относительно начала отсчета.
+
+\subsection{Эллипс: полярное
+уравнение, параметрические уравнения, директрисы, уравнение касательной к
+эллипсу.}
+
+\subsubsection{\textcolor{red}{Полярное уравнение}}
+
+\subsubsection{Параметрическое уравнение эллипса}
+$$\begin{cases}
+    x=a\cos t \\
+    y=b\sin t
+\end{cases}$$
+Это уравнение можно проверить подстановкой в каноническое.
+
+\subsubsection{Уравнение касательной к эллипсу}
+Касательная к эллипсу в точке $M_0(x_0,y_0)$ задается следующим уравнением:
+$$\frac{xx_0}{a^2}+\frac{yy_0}{b^2}=1$$
+
+\subsubsection{Директрисы}
+\begin{definition}
+    \textbf{Директрисами} эллипса называются прямые, параллельные малой оси эллипса и проходящие от нее на расстоянии $\frac{a}{\varepsilon}$.
+\end{definition}
+$$d_1:=\frac{a}{\varepsilon}+x,\quad d_2:=\frac{a}{\varepsilon}-x$$
+$$\frac{r_1}{d_1}=\frac{r_2}{d_2}=\varepsilon$$
+
+\subsection{Окружность.}
+\begin{definition}
+    \textbf{Окружность} --- частный случай эллипса при $c=0,\ \  r_1=r_2=r$
+\end{definition}
+Свойства:
+\begin{enumerate}
+    \item $r_1+r_2=2a=2r, \ \ a=b=r, \ \ \varepsilon=0$
+    \item Каноническое уравнение:
+    $$\frac{x^2}{r^2}+\frac{y^2}{b^2}=1\Rightarrow x^2+y^2=r^2$$
+    \item $|x|\leq r, \ \ |y|\leq r$
+    \item $\rho =r$
+    \item $x=r\cos t, \ \ y=r\sin t$
+    \item Касательная в точке $M_0(x_0, y_0):\ \ \frac{xx_0}{r^2}+\frac{yy_0}{r^2}=1$
+\end{enumerate}
+
+\section{Алгебраические структуры. СЛАУ}
+\subsection{Алгебраические структуры: группа, кольцо, поле}
+\begin{definition}
+    \textbf{Полугруппа} --- множество $G$ с заданной на нём бинарной ассоциативной замкнутой операцией $\circ$, т.е. $$(g_1\circ g_2)\circ g_3 = g_1\circ (g_2 \circ g_3)$$
+\end{definition}
+\begin{definition}
+    \textbf{Группа} --- полугруппа, где выбран нейтральный элемент и для каждого элемента есть обратный:
+    \begin{enumerate}
+        \item Нейтральный элемент $e: e\circ g=g\circ e=g$
+        \item Обратный элемент: $\forall g\in G \ \ \exists g^{-1} \ \ g\circ g^{-1}=g^{-1}\circ g=e$
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    \textbf{Абелева группа} --- группа с коммутативной операцией, т.е. $$\forall g_1, g_2\in G \ \ g_1\circ g_2=g_2\circ g_1$$
+\end{definition}
+\begin{definition}
+    \textbf{Кольцо} --- множество с двумя бинарными операциями $\{R, \mlq+\mrq, \mlq\cdot\mrq\}$, которое является абелевой группой относительно сложения, полугруппой относительно умножения и эти операции согласованны \textit{(дистрибутивны)}:
+    $$r_1\cdot(r_2+r_3)=r_1\cdot r_2+r_1\cdot r_3;\quad (r_2+r_3)\cdot r_1=r_2\cdot r_1+r_3\cdot r_1$$
+\end{definition}
+\begin{definition}
+    \textbf{Поле} --- множество с двумя бинарными операциями $\{R, \mlq+\mrq, \mlq\cdot\mrq\}$, где эти операции согласованны и:
+    \begin{enumerate}
+        \item $\{K, \mlq + \mrq\}$ --- абелева группа
+        \item $\{K\setminus\{0\}, \mlq \cdot \mrq\}$ --- абелева группа
+    \end{enumerate}
+\end{definition}
+\subsection{Алгебраические структуры: линейное пространство, алгебра}
+\begin{definition}
+    \textbf{Модуль над кольцом $R$} --- абелева группа $\{G, \mlq + \mrq\}$ с операцией $R\times G\to G$, записываемой как $rg$ и для которой выполняется следующее:
+    \begin{enumerate}
+        \item $(r_1+r_2)g=r_1g+r_2g$
+        \item $r(g_1+g_2)=rg_1+rg_2$
+        \item $(r_1r_2)g=r_1(r_2g)$
+    \end{enumerate}
+\end{definition}
+\begin{definition} \label{linear_space}
+    \textbf{Линейное пространство} --- модуль над кольцом, которое также является полем.
+\end{definition}
+\begin{definition}
+    \textbf{Вектор} --- элемент линейного пространства.
+\end{definition}
+\begin{definition}
+    \textbf{Алгебра} --- модуль над кольцом, где сам модуль также является кольцом.
+\end{definition}
+\subsection{Поле комплексных чисел}
+$i^2:=-1$
+
+$\C = \{a+bi : \forall a,b\in\R\}$
+
+\textbf{Модуль} комплексного числа $c$: $|c|=r=\sqrt{a^2+b^2}$, если $c=a+bi$
+
+\textbf{Аргумент} комплексного числа $c$: $\varphi=\arg(c)=\arg(a+bi)=2\arctan\left(\frac{b}{\sqrt{a^2+b^2}+a}\right)$
+
+Тогда $c=r(\cos \varphi + i\sin \varphi)$
+
+\textbf{Дополнение} комплексного числа $c$ записывается как $\overline c = \overline{a+bi}=a-bi$
+\subsection{Линейное пространство. Примеры линейных пространств.}
+\doref{linear_space}
+
+Примеры: \begin{enumerate}
+    \item $X=\{x=\begin{pmatrix}
+    \xi^1 & \ldots & \xi^n
+\end{pmatrix}^T, \xi^i\in\R\}$ \textit{(или $\C$)}
+    \item $\mathcal P_n=\{\text{многочлены } p(t):\deg p(t)\leq n, n\in\N\}$
+\end{enumerate}
+\subsection{Линейная зависимость векторов. Основные леммы о линейной зависимости.}
+\begin{definition}
+    \textbf{Линейной комбинацией} называется следующее выражение: $$\alpha_1x_1+\ldots+\alpha_nx_n,$$ где $\{x_i\}_{i=1}^n$ --- вектора, $\{\alpha_i\}_{i=1}^n$ --- коэффициенты.
+\end{definition}
+\begin{definition}
+    Набор векторов $\{x_i\}_{i=1}^n$ называется \textbf{линейнонезависимым}, если не существует его линейной комбинации, где не все коэффициенты равны $0$, а сама комбинация равна $0_X$:
+    $$\not\exists \{\alpha_i\}_{i=1}^n : \exists i : \alpha_i\not=0 \quad \alpha_1x_1+\ldots+\alpha_nx_n=0_X$$
+
+    Иначе набор называется \textbf{линейно зависимым}
+\end{definition}
+\begin{lemma}
+    Любой набор, содержащий нулевой вектор, является линейнозависимым.
+\end{lemma}
+\begin{lemma}
+    Набор, содержащий линейнозависимый поднабор, является линейнозависимым.
+\end{lemma}
+\begin{lemma}
+    Любой поднабор линейнонезависимого набора также является линенйнонезависимым.
+\end{lemma}
+\begin{lemma}
+    Набор векторов линейнозависим тогда и только тогда, когда хотя бы один из векторов набора выражается линейной комбинацией остальных.
+
+    $$\exists k\in\{1\ldots n\}: x_k=\sum\limits_{i=1, i\not=k}^n\alpha^ix_i \Leftrightarrow \{x_i\}_{i=1}^n \text{ --- ЛЗ}$$
+\end{lemma}
+\subsection{Базис и размерность линейного пространства.}
+\begin{definition}
+    Набор векторов называется \textbf{полным} в линейном пространстве $X$, если любой вектор этого пространства можно выразить как линейную комбинацию этого набора:
+    $$\forall x\in X \quad \exists \{\alpha_i\}_{i=1}^n \quad x=\sum\limits_{i=1}^n\alpha^ix_i$$
+\end{definition}
+\begin{definition}
+    Набор векторов называется \textbf{базисом} пространства $X$, если он является полным и ЛНЗ.
+\end{definition}
+\begin{definition}
+    Линейное пространство называется \textbf{конечномерным}, если в нём существует конечный полный набор векторов
+\end{definition}
+\begin{definition}
+    \textbf{Размерность пространства} $\dim X$ --- количество векторов в его базисе.
+\end{definition}
+\subsection{Изоморфизм линейных пространств.}
+\begin{definition}
+    \textbf{Изоморфизм} --- биекция, сохраняющая линейность, установленная между двумя линейными пространствами над одним и тем же полем:
+
+    $$\begin{cases}
+        x_1\leftrightarrow y_1 \\
+        x_2\leftrightarrow y_2
+    \end{cases} \Rightarrow \begin{cases}
+        x_1+x_2\leftrightarrow y_1+y_2 \\
+        \alpha x_1\leftrightarrow \alpha y_1
+    \end{cases}$$
+\end{definition}
+\subsection{Подпространства линейного пространства: определение, примеры, линейная оболочка, линейное многообразие.}
+\begin{definition}
+    \textbf{Подпространство} линейного пространства $X$ --- замкнутое множество $L\subset X$
+\end{definition}
+\begin{example}
+    \begin{enumerate}
+        \item $X$ и $\{0\}$ называются тривиальными подпространствами
+        \item Прямая и плоскость, содержащие начало координат --- подпространство $E_3$
+        \item $\R^{m<n}$ --- подпространство $\R^n$
+        \item Множество симметричных $n\times n$ матриц --- подпространство $\R^n_n$
+        \item Множество полиномов с членами только чётных степеней --- подпространство $\mathcal{P}_n$
+    \end{enumerate}
+\end{example}
+\begin{definition}
+    \textbf{Линейная оболочка} набора векторов --- множество всех линейных комбинаций этих векторов: $$\mathcal{L}(x_1\ldots x_n)=\left\{\sum\limits_{i=1}^k \alpha^ix_i \ \ |\ \ \forall \alpha_1\ldots \alpha_n\right\}$$
+\end{definition}
+\begin{definition}
+    \textbf{Линейное многообразие}, параллельное подпространству $L$ линейного пространства $X$ --- множество $M$: $$M=\{y\in X : y=x_0+x \quad \forall x\in L\},\ x_0\in X$$
+\end{definition}
+\subsection{Подпространства линейного пространства: сумма и пересечение подпространств, прямая сумма, дополнение.}
+\begin{definition}
+    \textbf{Пересечение подпространств} $L_1$ и $L_2$ --- множество $L'$, такое что: $$L'=\{x\in X : x\in L_1 \text{ и } x\in L_2\}$$
+\end{definition}
+\begin{definition}
+    \textbf{Сумма подпространств} $L_1$ и $L_2$ --- множество $L''$, такое что: $$L'э=\{x\in X : x=x_1+x_2 \ \ \forall x_1 \in L_1, x_2 \in L_2\}$$
+\end{definition}
+\begin{definition}
+    \textbf{Прямая сумма подпространств} $L_1$ и $L_2$ --- множество $L=L_1\dot+L_2$, такое что: $$L=\{x\in X : x!=x_1+x_2 \ \ \forall x_1 \in L_1, x_2 \in L_2\}$$
+\end{definition}
+\begin{definition}
+    Если $X=L_1\dot+L_2$, $L_1$ --- \textbf{дополнение} $L_2$ до $X$
+\end{definition}
+\subsection{Линейные алгебраические системы. Геометрическое исследование систем. Теорема Крамера \textit{(геометрическая формулировка)}.}
+\begin{definition}
+    $$\begin{cases}
+        \alpha_1^1\xi^1+\alpha_2^1\xi^2+\ldots+\alpha_n^1\xi^n=\beta^1 \\
+        \alpha_1^2\xi^1+\alpha_2^2\xi^2+\ldots+\alpha_n^2\xi^n=\beta^2 \\
+        \vdots \\
+        \alpha_1^m\xi^1+\alpha_2^m\xi^2+\ldots+\alpha_n^m\xi^n=\beta^m
+    \end{cases}$$ --- \textbf{линейная алгебраическая система}, $\alpha$ --- коэффициенты, $\beta$ --- свободные члены, $\xi$ --- неизвестные
+\end{definition}
+\begin{definition}
+    \textbf{Решение системы} --- такой набор, при подстановке которого равенства становятся верными.
+\end{definition}
+\begin{definition}
+    \textbf{Совместная система} --- система, у которой есть решение.
+\end{definition}
+\begin{definition}
+    \textbf{Определенная система} --- совместная система, которая имеет единственное решение.
+\end{definition}
+\begin{definition}
+    \textbf{Однородная система} --- система, у которой все свободные члены равны $0$.
+\end{definition}
+Запишем в векторной форме: $\sum\limits_{i=1}^n a_i\xi^i=b$
+
+\begin{theorem}
+    Если $m=n$ и $\{a_i\}_{i=1}^n$ --- ЛНЗ, система совместна и определена, т.е. есть единственное решение.
+\end{theorem}
+\subsection{Геометрическое исследование систем. Теорема Кронекера-Капелли \textit{(геометрическая формулировка)} и ее следствия.}
+Рассмторим случай, когда $\dim\mathcal{L}\{a_1\ldots a_n\}=r\leq n$. Тогда можно занумеровать $a$ так, что $\{a_i\}_{i=1}^r$ --- ЛНЗ и переписать систему как: $$a_1\xi^1+\ldots+a_r\xi^r=b-a_{r+1}\xi^{r+1}-\ldots-a_n\xi^n$$
+\begin{theorem}
+    $b\in\mathcal L \Leftrightarrow$ система совместна \textit{(можно все $\xi$ справа занулить и представить b через левую часть)}. Если $r=m$, система определена, иначе --- нет.
+\end{theorem}
+\begin{consequence}
+    Однородная система:
+    \begin{enumerate}
+        \item Всегда совместна, т.к. существует тривиальное решение
+        \item Имеет нетривиальные решения тогда и только тогда, когда $r<m$
+        \item Является неопределенной тогда и только тогда, когда $m<n$
+    \end{enumerate}
+\end{consequence}
+\subsection{Альтернатива Фредгольма для линейной системы уравнений.}
+\begin{theorem}
+    Если $m=n$, то:
+    \begin{enumerate}
+        \item Или однородная система имеет только тривиальное решение, и неоднородная система совместна и определена для любого $b$
+        \item Или существуют нетривиальные решения однородной системы и неоднородная система совместна не при любых $b$
+    \end{enumerate}
+    Пояснение: в первом случае $\{a_i\}$ ЛНЗ $\Rightarrow \forall b$ можно выразить как линейную комбинацию $\{a_i\}$ единственным образом. Во втором случае $\{a_i\}$ ЛЗ $\Rightarrow$ не любой $b$ можно выразить как линейную комбинацию $\{a_i\}$.
+\end{theorem}
+\subsection{Фундаментальная система решений линейной однородной системы. Общее решение однородных и неоднородных систем.}
+\begin{definition}
+    \textbf{Фундаментальной системой решений} линейной однородной системы уравнений называется любая система из $n − r$ линейнонезависимых решений этой системы, то есть базис пространтва решений однородной системы.
+\end{definition}
+Любое решение можно представить в виде общего решения: $$z=z'+\sum\limits_{i=1}^n c_ix_i,$$ где $\{x_i\}_{i=1}^n$ --- ФСР.
+
+\section{Полилинейные формы. \sout{Определители}}
+
+\subsection{Перестановки.}
+\begin{definition}
+    \textbf{Перестановкой} из $a_1, a_2, \ldots , a_n$ из первых $n$ чисел натурального ряда называется расположение их в некотором фиксированном порядке.
+\end{definition}
+\begin{definition}
+    Перестановка $1,2,\ldots, n$ --- \textbf{базовая}.
+\end{definition}
+\begin{definition}
+    \textbf{Транспозиция перестановки} $t^p_q$ --- обмен местами двух элементов этой перестановки.
+\end{definition}
+\begin{definition}
+    \textbf{Беспорядок\textit{(инверсия)}} в перестановке --- когда большее число стоит перед меньшим.
+\end{definition}
+\begin{definition}
+    Чётность числа беспорядков в перестановке $\Leftrightarrow$ чётность перестановки
+\end{definition}
+
+\subsection{Отображения. Линейные формы. Сопряженное пространство.}
+\begin{definition}
+    \textbf{Отображение} из $X$ в $Y$ ($f:X\to Y$) сопоставляет каждому $x\in X$ элемент $y\in Y$
+\end{definition}
+\begin{definition}
+    \textbf{Линейная форма} --- линейное отображение из линейного пространства $X$ в линейное пространство $Y$:
+    $$f(x_1+x_2)=f(x_1)+f(x_2), \quad f(\alpha x)=\alpha f(x)$$
+\end{definition}
+\begin{definition}
+    $f=g\Leftrightarrow (f,x)=(g,x) \ \ \forall x\in X$
+\end{definition}
+\begin{definition}
+    $\theta$ --- \textbf{нуль-форма}, если $(\theta, x)=0 \ \ \forall x\in X$
+\end{definition}
+\begin{definition}
+    $h=f+g \Leftrightarrow (h,x)=(f,x)+(g,x) \ \ \forall x\in X$
+\end{definition}
+\begin{definition}
+    $l=\alpha f \Leftrightarrow (l, x)=\alpha(f,x) \ \ \forall x\in X$
+\end{definition}
+\begin{definition}
+    \textbf{Пространство, сопряженное с $X$} --- пространство линейных форм, заданных на $X$ и обозначаемое $X^*$
+\end{definition}
+
+\subsection{Полилинейные формы (ПЛФ): основные определения, тензор, эквивалентное задание ПЛФ.}
+\begin{remark}
+    Т.к. в этом разделе много сумм, не будем их писать: $$\sum\limits_{j=1}^n\varphi_j\xi^j\equiv \varphi_j\xi^j$$
+\end{remark}
+\begin{remark}
+    \textit{(от автора) } Я буду втыкать \Warning везде, где есть скрытые суммы.
+\end{remark}
+\begin{definition}
+    \textbf{Полилинейная форма} --- функция от $p$ векторов и $q$ линейных форм, принимающая значения из поля $K$: $$U: X^p\times X^{*^{q}}\to K,$$ линейная по всем аргументам: $$U(x_1\ldots \alpha x_i'+x_i''\ldots x_n,y^1\ldots y^n)=\alpha U(x_1\ldots x_i'\ldots x_n,y^1\ldots y^n)+U(x_1\ldots x_i''\ldots x_n,y^1\ldots y^n),$$ такая ПЛФ имеет \textbf{валентность} $(p,q)$
+\end{definition}
+\begin{definition}
+    \textbf{Тензор} ПЛФ $W$ валентности $(p,q)$ --- набор из $n^{p+q}$ чисел:
+    $$w^{j_1\ldots j_q}_{i_1\ldots i_q}=W(e_{i_1}\ldots e_{i_p},f^{j_1}\ldots f^{j_q})$$
+    $$\forall t\in\{1\ldots p\}\ \ i_t\in\{1\ldots n\}; \quad \forall t\in\{1\ldots q\}\ \ j_t\in\{1\ldots n\},$$ \textbf{ранг} этого тензора $(p, q)$.
+\end{definition}
+\begin{remark}
+    Для удобства можно писать так: $w^{j_1\ldots j_q}_{i_1\ldots i_q}=w^{\vec j}_{\vec i}$
+\end{remark}
+\begin{theorem}
+    Задание ПЛФ эквивалентно заданию ее тензора в паре базисов пространств $X$ и $X^*$
+\end{theorem}
+\subsection{Базис линейного пространства ПЛФ валентности $(p,q)$.}
+\begin{definition}
+    $U+V$ и $\lambda U$ заданы так же, как для линейных форм.
+\end{definition}
+\begin{theorem}
+    Множество всех ПЛФ валентности $(p, q)$ --- линейное пространство $\Omega^p_q$ над полем $K$.
+\end{theorem}
+Рассмотрим набор ПЛФ $\{{}^{s_1\ldots s_p}_{t_1\ldots t_p}W\}$, такой что:
+$${}^{s_1\ldots s_p}_{t_1\ldots t_p}W(x_1\ldots x_p,y^1\ldots y^q)=\xi_1^{s_1}\xi_2^{s_2}\cdots \xi_p^{s_p}\eta^1_{t_1}\eta^2_{t_2}\cdots \eta^q_{t_q},$$
+т.е. ${}^{\vec s}_{\vec t} W$ --- произведение $s_i$-ой координаты $i$-того вектора и $t_i$-ой координаты $i$-той формы. Запишем в виде тензора:
+$${}^{\vec s}_{\vec t} w^{\vec j}_{\vec i}=\delta_{i_1}^{s_1}\delta_{i_2}^{s_2}\cdots \delta_{i_p}^{s_p}\delta_{t_1}^{j_1}\delta_{t_2}^{j_2}\cdots\delta_{t_q}^{j_q},$$
+т.е. ${}^{\vec s}_{\vec t} w^{\vec j}_{\vec i}=1$ только если $\vec s=\vec i$ и $\vec t=\vec j$, иначе $0$.
+\begin{theorem}
+    $\{{}^{\vec s}_{\vec t} W\}$ --- базис $\Omega^p_q$
+\end{theorem}
+$\dim\Omega^p_q=n^{p+q}$
+\subsection{Произведение полилинейных форм и его свойства.}
+$$W=U\cdot V\Leftrightarrow W(x_1\ldots x_{p_1+p_2}, y^1\ldots y^{q_1+q_2})=U(x_1\ldots x_{p_1}, y^1\ldots y^{q_1})\cdot V(x_1\ldots x_{p_2}, y^1\ldots y^{q_2})$$
+Свойства:
+\begin{enumerate}
+    \item $U\cdot V\not=V\cdot U$
+    \item $U\cdot(V\cdot W)=(U\cdot V)\cdot W=U\cdot V\cdot W$
+    \item $U\cdot \Theta_{\Omega^{p_2}_{q_2}}=\Theta_{\Omega^{p_1}_{q_1}}\cdot V=\Theta_{\Omega^{p_1+p_2}_{q_1+q_2}}$
+    \item $U\cdot(V+W)=U\cdot V+U\cdot W$
+    \item $(\alpha\cdot U)\cdot V=U\cdot (\alpha\cdot V)$
+    \item Пусть $\{f^i\}_{i=1}^n$ --- базис $X^*$. Тогда набор
+    $${}^{s_1\ldots s_p}W=f^{s_1}\cdots f^{s_p}$$
+    образует базис в $\Omega^p_0$:
+    $${}^{s_1\ldots s_p}W=f^{s_1}(x_1)\cdots f^{s_p}(x_p)=\xi^{s_1}_1\cdots \xi^{s_p}_p$$
+    \item Более общий случай: $\{f^i\}_{i=1}^n$ --- базис $X^*$, $\{\hat x^i\}_{i=1}^n$ --- базис $X^{**}$, тогда в $\Omega^p_q$ базис:
+    $${}^{s_1\ldots s_p}_{t_1\ldots t_q}W=f^{s_1}\cdots f^{s_p}\cdot \hat x_{t_1}\cdots \hat x_{t_q}$$
+\end{enumerate}
+\subsection{Симметричные и антисимметричные ПЛФ. Операции симметризации и антисимметризации.}
+
+\begin{definition}
+    ПЛФ $U\in\Omega^p_0$ \textbf{симметричная}, если порядок аргументов не влияет на значение $U$:
+    $$\forall (j_1\ldots j_p) \text{ --- перестановки }\quad U(x_1\ldots x_p)=U(x_{j_1}\ldots x_{j_p})$$
+\end{definition}
+\begin{definition}
+    ПЛФ $U\in\Omega^p_0$ \textbf{антисимметричная}, если любая транспозиция её аргументов меняет знак значения $U$, т.е. произвольная перестановка меняет знак столько раз, сколько в ней транспозиций:
+    $$\forall (j_1\ldots j_p) \text{ --- перестановки }\quad U(x_1\ldots x_p)=(-1)^{\Bracket{j_1\ldots j_p} U(x_{j_1}\ldots x_{j_p})},$$ где $\Bracket{j_1\ldots j_p}$ --- чётность перестановки.
+\end{definition}
+\begin{remark}
+    Пространство симметричных ПЛФ --- подпространство $\Omega^p_0$ и обозначается $\Sigma^p$
+\end{remark}
+\begin{remark}
+    Пространство антисимметричных ПЛФ --- подпространство $\Omega^p_0$ и обозначается $\Lambda^p$
+\end{remark}
+\begin{definition}
+    \textbf{Симметризация} --- операция получения симметричной ПЛФ из произвольной ПЛФ, называется $\Sym$ и выполняется следующим образом:
+    $$\Sym W=U,\quad U(x_1\ldots x_p)=\frac{1}{p!}\sum_{(j_1\ldots j_p)} W(x_{j_1}\ldots x_{j_p})$$
+\end{definition}
+\begin{definition}
+    \textbf{Антисимметризация} --- операция получения антисимметричной ПЛФ из произвольной ПЛФ, называется $\Asym$ и выполняется следующим образом:
+    $$\Asym W=V,\quad V(x_1\ldots x_p)=\frac{1}{p!}\sum_{(j_1\ldots j_p)} (-1)^{\Bracket{j_1\ldots j_p}} W(x_{j_1}\ldots x_{j_p})$$
+\end{definition}
+Свойства $\Sym$ и $\Asym$:
+\begin{enumerate}
+    \item Линейность
+    \item Дистрибутивность
+    \item Композиция:
+    $$\Sym\Sym=\Sym, \quad \Asym\Asym=\Asym, \quad \Sym\Asym=0, \quad \Asym\Sym=0$$
+\end{enumerate}
+\subsection{Базис линейного пространства антисимметричных ПЛФ валентности $(p, 0)$. Доказательство полноты.}
+Базис $\Lambda^p$ --- набор ПЛФ $\{{}^{s_1\ldots s_p}F\}$, такой что:
+$${}^{s_1\ldots s_p}F=p!\Asym({}^{s_1\ldots s_p}W) \text{ и } 1\leq s_1\leq s_2\leq \ldots \leq s_p\leq n,$$
+где $\{{}^{s_1\ldots s_p}W\}$ --- базис $\Omega^p_0$
+
+\begin{proof}
+    Докажем полноту.
+
+    Рассмотрим произвольную форму $U\in\Lambda^p$ и разложим её по базису $\Omega^p_0$
+
+    $$\Warning\quad U={}^{s_1\ldots s_p}Wu_{s_1\ldots s_p}$$
+
+    $$\Warning\quad U=\Asym U=\Asym({}^{s_1\ldots s_p}Wu_{s_1\ldots s_p})=u_{s_1\ldots s_p}\Asym{}^{s_1\ldots s_p}W=$$
+    $$\Warning\quad u_{s_1\ldots s_p}\frac{1}{p!}p!\Asym{}^{s_1\ldots s_p}W=u_{s_1\ldots s_p}\frac{1}{p!}({}^{s_1\ldots s_p}F)=$$
+    $$\frac{1}{p!}\sum\limits_{1\leq s_1\leq \ldots \leq s_p\leq n}\sum\limits_{(\sigma_1\ldots\sigma_p)}(-1)^{\Bracket{\sigma_{s_1}\ldots\sigma_{s_p}}}({}^{s_1\ldots s_p} F)(-1)^{\Bracket{\sigma_{s_1}\ldots\sigma_{s_p}}}u_{s_1\ldots s_p}=$$
+    $$\frac{1}{p!}\sum\limits_{1\leq s_1\leq \ldots \leq s_p\leq n}p!({}^{s_1\ldots s_p} F)u_{s_1\ldots s_p}=\sum\limits_{1\leq s_1\leq \ldots \leq s_p\leq n}({}^{s_1\ldots s_p} F)u_{s_1\ldots s_p}$$
+    Таким образом, мы разложили произвольную $U\in\Lambda^p$ по $\{F\}$.
+\end{proof}
+
+$\dim\Lambda^p=C_n^p$
+\subsection{Базис линейного пространства антисимметричных ПЛФ валентности $(p, 0)$. Доказательство линейной независимости.}
+Читайте в конспекте Александра Игоревича, я на такое не готов.
+
+\subsection{Внешнее умножение ПЛФ и его свойства.}
+\begin{definition}
+    \textbf{Внешнее произведение} $U\in\Lambda^p$ на $V\in\Lambda^r$ --- ПЛФ следующего вида:
+    $$U\wedge V=\frac{(p+r)!}{p!r!}\Asym(U\cdot V)$$
+
+    $U\wedge V\in\Lambda^{p+q}$
+\end{definition}
+Свойства:
+\begin{enumerate}
+    \item $p+q>n\Rightarrow U\wedge V=\Theta$
+    \item $U\wedge V=(-1)^{pr} V\wedge U$
+    \item $U\wedge (V\wedge W)=(U\wedge V)\wedge W=U\wedge V\wedge W=\frac{(p+r+s)!}{p!r!s!}\Asym(U\cdot V\cdot W)$
+    \item $U\wedge (V+W)=U\wedge V + U\wedge W$
+    \item $(\alpha U)\wedge V=U\wedge (\alpha V)=\alpha(U\wedge V)$
+    \item $U\wedge\Theta=\Theta\wedge V=\Theta$
+    \item $\{f^i\}_{i=1}^n$ --- базис $X^*$. Тогда:
+    $$\forall 1\leq i_1\leq \ldots \leq i_p\leq n:\quad {}^{i_1\ldots i_p}F=f^{i_1}\wedge\ldots \wedge f^{i_p}$$
+\end{enumerate}
+\end{document}

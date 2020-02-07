@@ -1,0 +1,341 @@
+\input{../../preamble.sty}
+
+% \fancyhf{}
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{November 4, 2019}
+
+\begin{document}
+
+\section{Пределы}
+
+\begin{theorem}
+    %<*эквивалентностьопределенийгейнеикоши>
+    Определение Коши $\Leftrightarrow$ определение Гейне.
+    %</эквивалентностьопределенийгейнеикоши>
+\end{theorem}
+
+%<*эквивалентностьопределенийгейнеикошиproof>
+\begin{proof}
+    Докажем ``$\Rightarrow$''.
+
+    Если дана $(x_n)$, удовл. определению Коши, доказать $$\forall \varepsilon>0 \ \ \exists N \ \ \forall n > N \ \ 0<\rho(f(x_n), A)<\varepsilon$$
+
+    $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x \in D \ \ 0<\rho(x, a)<\delta \ \ \rho(f(x), A)<\varepsilon$$
+
+    $$\text{Для этого } \delta \ \ \exists N \ \ \forall n>N \rho(x_n,a)<\delta$$, где $x_n\in D, x_n\not = a$
+
+    $\Rightarrow \rho(f(x_n), A)<\varepsilon$
+\end{proof}
+\begin{proof}
+    Докажем ``$\Leftarrow$''
+
+    Пусть определение Коши не выполняется.
+
+    $$\exists \varepsilon>0 \ \ \forall \delta>0 \ \ \exists x\in D \ \ 0<\rho(x,a)<\delta \ \ \rho(f(x), A)\geq \varepsilon$$
+
+    $$\delta:=\frac{1}{n} \ \ \exists x_n\in D \ \ 0<\rho(x_n,a)<\frac{1}{n} \ \ \rho(f(x_n), A)\geq\varepsilon$$
+
+    Построена последовательность $(x_n): x_n\in D \ \ x_n\not = a \ \ \rho(x_n, a)<\frac{1}{n} \Rightarrow \rho(x_n, a)\to 0 \Rightarrow x_n\to a$. Кроме того, $\rho(f(x_n), A)\geq \varepsilon$ --- противоречит утверждению Гейне, что $f(x_n)\to A$.
+\end{proof}
+%</эквивалентностьопределенийгейнеикошиproof>
+
+\begin{theorem}
+    О единственности предела.
+    %<*оединственностипредела>
+    $f: D\subset X\to Y$, $a$ --- пред. точка $D$
+
+    $\lim\limits_{x\to a} f(x)=A; \lim\limits_{x\to a} f(x)=B$
+
+    Тогда $A=B$
+    %</оединственностипредела>
+\end{theorem}
+
+%<*оединственностипределаproof>
+\begin{proof}
+    По Гейне.
+    $\forall (x_n):$
+    \begin{itemize}
+        \itemsep0em
+        \item $x_n\to a$
+        \item $x_n\in D$
+        \item $x_n\not=a$
+    \end{itemize}
+    
+    $f(x_n)\to A, f(x_n)\to B \xRightarrow[\text{теор. о ед. предела посл.}]{} A=B$
+\end{proof}
+%</оединственностипределаproof>
+
+\begin{theorem}
+    %<*олокальнойограниченностиотображенияимеющегопредел>
+    О локальной ограниченности отображения, имеющего предел.
+
+    $f: D\subset X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
+
+    Тогда $\exists V(a) : f$ --- огр. на $V(a)\cap D$, т.е. $f(V(a)\cap D)$ содержится в некотором шаре.
+    %</олокальнойограниченностиотображенияимеющегопредел>
+\end{theorem}
+%<*олокальнойограниченностиотображенияимеющегопределproof>
+\begin{proof}
+    Для $\varepsilon = 1 \ \ \exists V(a) \ \ \forall x\in \dot V(a)\cap D \ \ f(x)\in U_\varepsilon(A)$
+
+    Если $\not\exists f(a)$, ограниченность доказана. Иначе:
+
+    $\forall x\in V(a)\cap D \ \ f(x)\in U_{\tilde{\varepsilon}} (A)$, где $\tilde \varepsilon = \max(\varepsilon, \rho(A, f(a)) + 1)$
+\end{proof}
+%</олокальнойограниченностиотображенияимеющегопределproof>
+
+\begin{theorem}
+    %<*остабилизациизнака>
+    О стабилизации знака.
+
+    $f: D\subset X\to Y$, $a$ --- пред. точка $D$, $\exists\lim\limits_{x\to a} f(x)=A$
+
+    Пусть $B\in Y, B\not=A$
+
+    Тогда $\exists V(a) \ \ \forall x \in \dot V(a)\cap D \ \ f(x)\not = B$
+    %</остабилизациизнака>
+\end{theorem}
+%<*остабилизациизнакаproof>
+\begin{proof}
+    Для $$0 < \varepsilon < \rho(A, B) \ \ \exists V(a) \ \ \forall x\in \dot V(a)\cap D \ \ f(x)\in U_\varepsilon(A)$$ $U_\varepsilon(A)$ не содержит $B$.
+\end{proof}
+%</остабилизациизнакаproof>
+\begin{consequence} 
+    $f:D\subset X \to \mathbb{R}$, $a$ -- пред. точка, $\lim\limits_{x\to a} f(x)=A>0 \ \ B=0$
+
+    $\exists \dot V(a)\cap D : f(x)\not=0$
+
+    В доказательстве $0<\varepsilon<A \ \ f(x)\in U_\varepsilon (A)=(A-\varepsilon, A+\varepsilon)$
+\end{consequence}
+
+\begin{theorem}
+    Об арифметических свойствах предела
+
+    %<*обарифметическихсвойствахпредела>
+    $f,g: D\subset X\to Y$, $X$ --- метрич. пространство, $Y$ --- норм. пространство над $\mathbb{R}$, $a$ --- пред. точка $D$
+
+    $\lim\limits_{x\to a}f(x)=A, \lim\limits_{x\to a}g(x)=B$
+    
+    $\lambda: D\to \mathbb{R}, \lim\limits_{x\to a}\lambda (x) = \lambda_0$
+    
+    Тогда:
+    \begin{enumerate}
+        \item $\exists\lim\limits_{x\to a} f(x)\pm g(x)$ и $\lim\limits_{x\to a} f(x)\pm g(x)=A\pm B$
+        \item $\lim\limits_{x\to a} \lambda(x) f(x) = \lambda_0 A$
+        \item $\lim\limits_{x\to a} ||f(x)||=||A||$
+        \item Для случая $Y=\R$ и для $B\not=0$ $$\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{A}{B}$$
+        $\frac{f}{g}$ задано на множестве $D'=D\setminus \{x:g(x)=0\}$
+
+        $a$ --- пр. точка $D'$ по теореме о стабилизации знака $\exists V(a) \ \ \forall x\in V(a)\cap D \ \ g(x)$ --- того же знака, что и $B$, т.е. $g(x)\not = 0$
+
+        $\dot V(a)\cap D'=\dot V(a)\cap D \Rightarrow a$ --- пред. точка для $D'$
+    \end{enumerate}
+    %</обарифметическихсвойствахпредела>
+\end{theorem}
+%<*обарифметическихсвойствахпределаproof>
+\begin{proof}
+    По Гейне.
+    $\forall (x_n):$
+    \begin{itemize}
+        \itemsep0em
+        \item $x_n\to a$
+        \item $x_n\in D$
+        \item $x_n\not=a$
+    \end{itemize}
+
+    $f(x_n) + g(x_n)\to^? A+B$ верно по теореме последовательности.
+
+    Аналогично прочие пункты, кроме 4.
+
+    $f(x_n)\to A$
+
+    $g(x_n)\to B\not=0$
+    $\Rightarrow \exists n_0 \ \ \forall n>n_0 \ \ g(x_n)\not=0$
+
+    $\frac{f(x_n)}{g(x_n)}$ корректно задано при $n>n_0$.
+\end{proof}
+%</обарифметическихсвойствахпределаproof>
+\begin{remark}
+    Для $\overline \R$
+
+    %<*арифметическиесвойствапределадляoverliner>
+    Если $Y=\overline\R$, можно ``разрешить'' случай $A, B=\pm \infty$
+    %</арифметическиесвойствапределадляoverliner>
+
+    %<*арифметическиесвойствапределадляoverlinerproof>
+    Тогда 3. тривиально, 1., 2. и 4. верно, если выражения $A\pm B$, $\lambda_0 A$, $\frac{A}{B}$ корректны.
+
+    Докажем 1. как в теореме об арифметических свойствах последовательности.
+
+    $\lim\limits_{x\to a} f(x) = +\infty; \lim\limits_{x\to a} g(x) = +\infty \Leftrightarrow \forall E_1 \ \ \exists \delta_1>0 \ \ \forall x\in D\cap V_{\delta_1}(a) \ \ f(x) > E_1 \ \ \forall E_2 \ \ \exists \delta_2>0 \ \ \forall x\in D\cap V_{\delta_2}(a) \ \ g(x) > E_2$
+    %</арифметическиесвойствапределадляoverlinerproof>
+\end{remark}
+Это доказательство не будет спрашиваться.
+
+\section{Компактные множества}
+
+\begin{theorem}
+    О простейших свойствах компактных множеств.
+    %<*опростейшихсвойствахкомпактныхмножеств>
+    $(X, \rho)$ --- метрическое пространство, $K\subset X$
+
+    \begin{enumerate}
+        \item $K$ --- комп. $\Rightarrow K$ --- замкн., $K$ --- огр.
+        \item $X$ --- комп, $K$ --- замкн. $\Rightarrow K$ --- комп. 
+    \end{enumerate}
+    %</опростейшихсвойствахкомпактныхмножеств>
+\end{theorem}
+%<*опростейшихсвойствахкомпактныхмножествproof>
+\begin{proof}
+    \begin{enumerate}
+        \item $?K$ --- замкн. $?K^c$ --- откр.
+        
+        $a\not\in K$, проверим, что $\exists U(a)\subset K^c$
+
+        $K\subset \bigcup\limits_{x\in K} B(x, \frac{1}{2}\rho(x,a))$ --- откр. покрытие
+
+        $K$ --- комп. $\Rightarrow \exists x_1\ldots x_n \quad K\subset\bigcup\limits_{i=1}^n B(x_i, \frac{1}{2}\rho(x_i, a))$ --- открытое покрытие
+
+        $r:=\min(\frac{1}{2}\rho(x_1, a))\ldots\frac{1}{2}\rho(x_n, a)))$
+
+        $B(a, r)$ не пересекается ни с одним $B(x_i, \frac{1}{2}\rho(x_i, a)) \Rightarrow B(a,r)\subset K^c$
+
+        $?K$ --- огр.
+
+        $b\in X$
+
+        $K\subset \bigcup\limits_{n=1}^{+\infty} B(b, n) = X$
+
+        $K$ --- комп. $\Rightarrow K\subset \bigcup\limits_{n=1}^{m} \Rightarrow K\subset B(b, \max(n_1\ldots n_m))$
+
+        \item $?K$ --- комп.
+        
+        $
+        \begin{cases}
+            K\subset \bigcup\limits_{\alpha\in A} G_\alpha \text{, $G_\alpha$ --- откр.} \\
+            K \text{ --- замкн., } K^c \text{ --- откр.}
+        \end{cases} \Rightarrow K^c\cup\bigcup\limits_{\alpha\in A} G_\alpha \text{ --- откр. покрытие } X \Rightarrow \\ \Rightarrow X\subset (\text{может быть } K^c)\cup \bigcup\limits_{i=1}^{n} G_{\alpha_i}$
+    \end{enumerate}
+\end{proof}
+%</опростейшихсвойствахкомпактныхмножествproof>
+
+\begin{lemma}
+    О вложенных параллелепипедах.
+    %<*овложенныхпараллелепипедах>
+    $[a, b] = \{x\in\R^m: \forall i=1\ldots m \ \ a_i\leq x_i\leq b_i\}$ --- параллелепипед.
+
+    $[a^1, b^1]\supset[a^2, b^2]\supset\ldots$ --- бесконечная последовательность параллелепипедов.
+
+    Тогда $\bigcap\limits_{i=1}^{+\infty}[a^i, b^i]\not=$\O
+
+    Если $diam[a^n, b^n]=||b^n-a^n||\to 0$, тогда $\exists! c\in\bigcap\limits_{i=1}^\infty[a^i, b^i]$
+    %</овложенныхпараллелепипедах>
+\end{lemma}
+%<*овложенныхпараллелепипедахproof>
+\begin{proof}
+    $\forall i=1\ldots m \quad [a^1_i, b^1_i]\supset[a^2_i, b^2_i]\supset\ldots \quad \exists c_i\in \bigcap\limits_{n=1}^{+\infty}[a_i^n, b_i^n]$. $c=(c_1\ldots c_m)$ --- общая точка всех параллелепипедов.
+
+    $|a_i^n-b_i^n|\leq ||a^n-b^n||\to 0 \Rightarrow_{\text{т. Кантора}}\exists! c_i\in\bigcap\limits_{n=1}^{+\infty}[a_i^n, b_i^n] \Rightarrow \exists! c=(c_1\ldots c_m)$
+\end{proof}
+%</овложенныхпараллелепипедахproof>
+\begin{lemma}
+    %<*компактностьпарллелепипеда>
+    $[a,b]$ --- компактное множество в $\R^m$
+    %</компактностьпарллелепипеда>
+    $[a, b]\subset\bigcup\limits_{\alpha\in A} G_\alpha$ --- откр. в $\R^m$
+\end{lemma}
+
+%<*компактностьпарллелепипедаproof>
+\begin{proof}
+    Докажем, что $\exists$ кон. $\alpha=(\alpha_1\ldots\alpha_n): [a,b]\subset \bigcup\limits_{i=1}^n G_{\alpha_i}$
+
+    Допустим, что не $\exists$
+
+    $[a^1, b^1]:=[a,b] \Rightarrow [a^1, b^1]$ нельзя покрыть кон. набором
+
+    $[a^2, b^2]:=$ делим $[a^1, b^1]$ на $2^m$ частей, берем любую ``часть'', которую нельзя покрыть конечным набором $G_\alpha$
+
+    $\vdots$
+
+    $$diam=[a^n, b^n]=\frac{1}{2}diam[a^{n-1}, b^{n-1}]=\frac{1}{2^{n-1}}diam[a^1,b^1]$$
+
+    $$\exists c\in \bigcap\limits_{n=1}^{+\infty}[a^n, b^n]$$
+
+    $$c\in [a, b] \subset \bigcup\limits_{\alpha\in A} G_\alpha$$
+
+    $$\exists \alpha_0 \quad c\in G_{\alpha_0} \text{ --- откр.}$$
+    
+    $$\exists U_\varepsilon(c)\subset G_{\alpha_0}$$
+
+    $$\exists n \quad diam[a^n, b^n] \ll \varepsilon$$
+
+    $$\text{и тогда } [a^n, b^n]\subset U_\varepsilon(c)\subset G_{\alpha_0}$$
+\end{proof}
+%</компактностьпарллелепипедаproof>
+
+\begin{remark}
+    $x_n\to a$
+
+    $\forall $ подпосл. $n_k\quad x_{n_k}\to a$
+\end{remark}
+\begin{remark}
+    $\{n_k\}\cap \{m_k\}=\N$
+
+    $\begin{cases}
+        x_{n_k}\to a \\
+        x_{m_k}\to a
+    \end{cases} \Rightarrow x_n\to a$
+\end{remark}
+
+\begin{definition}
+    %<*секвенциальнокомпактноемножество>
+    \textbf{Секвенциально компактным} называется множество $A\subset X : 
+        \forall \text{ посл. } (x_n) \text{ точек } A \\
+        \exists \text{ подпосл. } x_{n_k} \text{, которая сходится к точке из } A
+    $
+    %</секвенциальнокомпактноемножество>
+\end{definition}
+\begin{theorem}
+    О характеристике компактов в $\R^m$.
+    %<*охарактеристикекомпактоввrm>
+    $K\subset \R^m$. Эквивалентны следующие утверждения:\begin{enumerate}
+        \itemsep-0.5em
+        \item $K$ --- замкнуто и ограничено
+        \item $K$ --- компактно
+        \item $K$ --- секвенциально компактно
+    \end{enumerate}
+    %</охарактеристикекомпактоввrm>
+\end{theorem}
+
+%<*охарактеристикекомпактоввrmproof>
+\begin{proof}
+    Докажем $1\Rightarrow 2$
+
+    $K$ --- огр. $\Rightarrow K$ содержится в $[a,b]$
+
+    $K$ --- замкн. в $\R^m \Rightarrow K$ --- замкн. в $[a,b]$
+
+    Т.к. $[a,b]$ --- комп., по простейшему свойству компактов $K$ --- комп.
+\end{proof}
+\begin{proof}
+    Докажем $2\Rightarrow 3$
+
+    $\forall (x_n)$ --- точки из $K$.
+
+    ?сходящаяся последовательность
+
+    Если множество значений $D=\{x_n, n\in\N\}$ --- конечно, то $\exists$ сход. подпосл. очевидно.
+
+    Пусть $D$ --- бесконечно
+    
+    Если $D$ имеет предельную точку, то $x_{m_k}\to a$
+
+    Если $D$ --- бесконечно и не имеет предельных точек, $K\subset \bigcup\limits_{x\in K}B(x, \varepsilon_x)$, радиус такой, что в этом шаре нет точек $D$, кроме $x$ \textit{(его может тоже не быть)}. Тогда $\bigcup\limits_{x\in K}B(x, \varepsilon_x)$ --- открытое покрытие $K$. Так как каждый шар содержит 0 или 1 точку, конечное число шаров не может покрыть $K$, т.к. в $K$ бесконечное число точек \textit{(т.к. бесконечное число различных значений $D$)}. Таким образом, мы нашли открытое покрытие $K$, у которого нет конечного подпокрытия --- противоречие.
+
+    Пусть $a\in K$ --- предельная точка. Возьмём из $B(a, r_1)$ точку $x_{n_1}$. Возьмём $r_2<r_1$ и из соответствующего шара возьмём $x_{n_2}$. При $r_n\to0$ $x_{n_k}\to a$.
+    
+    \textcolor{red}{Почему вблизи $a$ будет точка из произвольной последовательности?}
+\end{proof}
+%</охарактеристикекомпактоввrmproof>
+\end{document}

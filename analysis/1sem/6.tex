@@ -1,0 +1,365 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{October 28, 2019}
+
+\begin{document}
+
+Можно заметить, что $\sup$ не определен для \text{\O} и неограниченных множеств. Исправим это:
+
+$E=$\O $\quad \sup E=-\infty \quad \sup E=+\infty$
+
+$E$ --- не огр. сверху $\quad \sup E=+\infty$
+
+$E$ --- не огр. снизу $\quad \inf E=-\infty$
+
+\begin{lemma}
+    %<*освойствахсупремума>
+    О свойствах $\sup, \inf$
+    \begin{enumerate}
+        \item $\text{\O}\not =D\subset E\subset \mathbb{R} \quad \sup D\leq \sup E$
+        \item $\lambda\in\mathbb{R} \quad (\lambda E=\{\lambda x, x\in E\})$
+
+        Пусть $\lambda>0$, тогда $\sup \lambda E=\lambda\sup E$
+        \item $\sup(-E)=-\inf E$
+    \end{enumerate}
+    %</освойствахсупремума>
+\end{lemma}
+
+%<*освойствахсупремумаproof>
+\begin{proof}
+    \begin{enumerate}
+        \item Множество верхних границ $E\subset$ множество верхних границ $D$.
+        \item $\lambda\cdot$ Множество верхних границ $E =$ множество верхних границ $\lambda E$
+        \item Множество верхних границ $-E = -$ множество нижних границ $E$
+    \end{enumerate}
+\end{proof}
+%</освойствахсупремумаproof>
+
+$f: X\to\mathbb{R}$
+
+$E\subset X$
+
+$$\sup\limits_E f=\sup\limits_{x\in E} f(x) =^{def} \sup\{f(x), x\in E\}$$
+
+$$\sup x_n = \sup\limits_{n\in\mathbb{N}} x_n=\sup{x_n, n\in\mathbb{N}}$$
+
+\begin{axiom}
+    Аксиома, альтернативная аксиоме Кантора:
+
+    $L,R\subset \mathbb{R}$
+
+    $$\forall l \in L \quad \forall r\in\mathbb{R} \quad l\leq r$$
+
+    $$\exists x\in\mathbb{R} \quad \forall l, r \quad l\leq x\leq r$$
+\end{axiom}
+
+\begin{definition}
+    $f:X\to \mathbb{R}$
+
+    $D\subset X \quad f$ --- \textbf{огр.} на множестве $D$, если $f(D)$ --- огр. в $\mathbb{R}$
+    \begin{itemize}
+        \itemsep0em
+        \item сверху $\forall M \quad \forall x\in D \quad f(x)\leq M$
+        \item снизу
+        \item огр.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    $f:\mathbb{R}\to \mathbb{R}$ \textbf{возрастает}, если $\forall x_1, x_2: x_1<x_2 \quad f(x_1)\leq f(x_2)$
+
+    Если $f(x_1)<f(x_2)$, $f$ \textbf{строго возрастает}.
+
+    Если $f$ возрастает или убывает, то $f$ --- \textbf{монотонна}.
+
+    Если $f$ строго возрастает или строго убывает, то $f$ --- \textbf{строго монотонна}.
+
+    Аналогичное можно утверждать для последовательностей.
+\end{definition}
+
+\begin{theorem}
+    О пределе монотонной последовательности.
+    %<*определемонотоннойпоследовательности>
+    \begin{enumerate}
+        \item $x_n$ --- вещ. посл., огр. сверху, возрастает. $\Rightarrow \exists\lim x_n\in\mathbb{R}$
+        \item $x_n$ --- убывает, огр. снизу. $\Rightarrow \exists \lim x_n\in\mathbb{R}$
+        \item $x_n$ --- монотонна, огр. $\Rightarrow \exists \lim x_n\in\mathbb{R}$
+    \end{enumerate}
+    %</определемонотоннойпоследовательности>
+
+    Секретное приложение:
+    \begin{enumerate}
+        \item $\lim x_n=\sup x_n$
+        \item $\lim x_n=\inf x_n$
+    \end{enumerate}
+\end{theorem}
+
+%<*определемонотоннойпоследовательностиproof>
+\begin{proof}
+    Достаточно доказать 1.
+
+    Проверяем $\lim x_n=\sup x_n=M\in\mathbb{R}$
+
+    По определению $\sup$: $$\forall \varepsilon \ \ \exists N \ \ M-\varepsilon<x_N$$
+
+    $$x_N\leq x_{N+1}\leq x_{N+2}\leq x_{N+3}\ldots \leq M$$
+
+    $$\forall \varepsilon \ \ \exists \ \ N \ \ \forall n>N \ \ M-\varepsilon<x_n\leq M<M+\varepsilon$$
+
+    По определению $M=\lim x_n$
+\end{proof}
+%</определемонотоннойпоследовательностиproof>
+
+\begin{remark}
+    $x_n$ --- возр., не огр. сверху. $\Rightarrow \lim x_n=+\infty$
+
+    $x_n$ --- убыв., не огр. сниху. $\Rightarrow \lim x_n=-\infty$
+\end{remark}
+
+Пример: $x_n=(1+\frac{1}{n})^n \quad y_n=(1+\frac{1}{n})^{n+1}$
+
+$x_n$ --- возр., $y_n$ --- убыв.
+
+Докажем убывание $y_n$.
+
+\begin{proof}
+    $$\frac{y_{n-1}}{y_n}=\frac{(1+\frac{1}{n-1})^n}{(1+\frac{1}{n})^{n+1}}=(\frac{n}{n-1})^n(\frac{n}{n+1})^{n+1} = (\frac{n^2}{n^2-1})^{n+1}\cdot \frac{n-1}{n} = (1+\frac{1}{n^2-1})^{n+1}\cdot \frac{n+1}{n}\geq $$
+
+    $$\geq (1+\frac{n+1}{n^2-1})\cdot \frac{n-1}{n}=1$$
+\end{proof}
+
+$$y_n \text{ --- убыв., } y_n\geq 0 \Rightarrow \exists\lim(1+\frac{1}{n})^{n+1}\in\mathbb{R}=e\Rightarrow x_n=\frac{y_n}{1+\frac{1}{n}}\to e$$
+
+\begin{lemma}
+    $x_n>0 \quad \lim\frac{x_{n+1}}{x_n}=q<1 \Rightarrow x_n\to 0$
+
+    $$\text{Для } \varepsilon =\frac{1-q}{2} \ \ \exists N \ \ \forall n\leq N \ \ \frac{x_{n+1}}{x_n}<q+\varepsilon=\frac{q+1}{2}:=\tilde q$$
+
+    $$x_{N+1}<\tilde q x_{N}$$
+    $$x_{N+2}<\tilde q x_{N+1}$$
+    $$\vdots$$
+    $$x_{N+k}<\tilde q x_{N+k-1}$$
+
+    Перемножим: $x_{N+k}<\tilde q^kx_N$
+
+    $$0<x_{N+k}\leq \tilde q^kx_N$$
+
+    $$\tilde q^kx_N\to 0 \Rightarrow x_n\to 0$$
+\end{lemma}
+
+\begin{consequence}
+    \begin{enumerate}
+        \item $a>1,k\in\mathbb{N} \Rightarrow \lim\limits_{n\to+\infty}\frac{n^k}{a_n}=0$
+        \item $a>0 \Rightarrow \lim\limits_{n\to+\infty}\frac{a^n}{n!}=0$
+        \item $\lim\limits_{n\to+\infty} \frac{n!}{n^n}=0$
+    \end{enumerate}
+\end{consequence}
+
+\begin{proof}
+    Применить лемму.
+    \begin{enumerate}
+        \item $$x_n=\frac{n^k}{a^n} \quad \frac{x_{n+1}}{x_n}=\frac{\frac{(n+1)^k}{a^{n+1}}}{\frac{n^k}{a^n}} = (\frac{n+1}{n})^k\cdot\frac{1}{a}=(1+\frac{1}{n})^k\cdot\frac{1}{a}\to\frac{1}{a}<1$$
+    \end{enumerate}
+    Аналогично для остальных.
+\end{proof}
+
+Можно записать $(1+\frac{1}{n})^n \text{``$\to$''} 1^\infty$. $1^\infty$ --- неопределенность.
+
+\section{Компактность, принцип выбора, полнота}
+
+В этом параграфе рассматриваются метрические пространства.
+
+\begin{lemma}
+    Гейне-Бореля
+
+    $$[a,b]\subset \bigcup\limits_{\alpha\in A} (a_\alpha, b_\alpha) \Rightarrow \exists \text{ конечн. набор: } [a,b]\subset\bigcup\limits_{i=1}^n(a_{\alpha_i},b_{\alpha_i})$$
+\end{lemma}
+
+\begin{definition}
+    $X$ --- метрическое пространство., $K\subset X \quad K\subset\bigcup\limits_{\alpha\in A} G_\alpha$, каждое $G_\alpha$ --- открыто.
+    
+    Это \textbf{открытое покрытие множества} $K$.
+\end{definition}
+
+\begin{definition}
+    %<*компактноемножество>
+    $K\subset X$ --- \textbf{компактное}, если для любого открытого покрытия этого множества $\exists$ конечное подпокрытие $\Leftrightarrow \exists \alpha_1\ldots \alpha_n \quad K\subset\bigcup\limits_{i=1}^n G_{\alpha_i}$
+    %</компактноемножество>
+\end{definition}
+
+$Y\subset X=(X,\rho) \Rightarrow (Y, \rho)$, $Y$ --- подпространство в $X$
+
+$\rho: X\times X\to\mathbb{R}$
+
+$\rho|_{Y\times Y}$
+
+$B^X(a,r)=\{x\in X: \rho(a,x)<r\}$
+
+$B^Y(a,r)=\{y\in Y:\rho(a, y)<r\} = B^X(a,r)\cap Y$
+
+\begin{theorem}
+    %<*открытыеизамкнутыемножествавпространствеиподпространстве>
+    $Y\subset X$, $X$ --- метр.п., $Y$ --- подпространство, $D\subset Y\subset X$
+
+    \begin{enumerate}
+        \item $D$ --- откр. в $Y \Leftrightarrow \exists G$ --- откр. в $X \quad D=G\cap Y$
+        \item $D$ --- замкн. в $Y \Leftrightarrow \exists F$ --- замкн. в $X \quad D=F\cap Y$
+    \end{enumerate}
+    %</открытыеизамкнутыемножествавпространствеиподпространстве>
+\end{theorem}
+
+%<*открытыеизамкнутыемножествавпространствеиподпространствеproof>
+\noindent
+Докажем 1.
+\begin{proof}
+    Докажем ``$\Rightarrow$''.
+
+    $\forall$ точка $D$ внутр. в $Y$
+
+    $\forall x\in D \ \ \exists r_x \ \ B^Y(x,r_x)\subset D$
+
+    Очевидно $D=\bigcup\limits_{x\in D} B^Y(x,r_x) \quad G:=\bigcup\limits_{X\in D} B^X(x,r_x)$ --- откр. в $X$.
+
+    $$G\cap Y=(\bigcup\limits_{x\in D} B^X(r,r_x))\cap Y=\bigcup\limits_{x\in D}B^Y(x,r_x)=D$$
+
+    Докажем ``$\Leftarrow$''.
+
+    $G$ --- откр. в $X\quad D:=G\cap Y \quad ?D$ --- откр. в $Y$ 
+
+    $x\in D$ ? $x$ --- внутр. точка $D$ (в $Y$)
+
+    $x\in D \Rightarrow \exists B^X(x,r)\subset G \Rightarrow B^X(x,r)\cap Y=B^Y(x,r)\subset G\cap Y=D$
+\end{proof}
+
+\noindent
+Докажем 2.
+\begin{proof}
+    Докажем ``$\Rightarrow$''
+
+    $D$ --- замкн. в $Y \Rightarrow D^c=Y\setminus D$ --- откр. в $Y$
+
+    $\exists G$ --- откр. в $X$, такое что $D^c=G\cap Y$
+
+    Тогда $G^c=X\setminus G$ --- замкнуто в $X$, кроме того $D=G^c\cap Y$, т.к. $D^c=G\cap Y$
+
+    Возьмём в качестве $F$ $G^c$.
+
+    Докажем ``$\Leftarrow$''.
+
+    $$F\text{ --- замкн. в }X$$
+
+    $$F\cap Y\text{ --- замкн. в }Y?$$
+
+    $$F^c=X\setminus F\text{ --- откр. в }X$$
+
+    $$F^c\cap Y\text{ --- откр. в }Y$$
+    
+    $$Y\setminus (F^c\cap Y) \text{ --- замкн. в }Y$$
+
+    $$Y\setminus (F^c\cap Y) =^? F\cap Y$$
+
+    $$Y\setminus ((X\setminus F)\cap Y) =^? F\cap Y$$
+
+    Докажем это.
+
+    $$Y\cdot\overline{F\cdot Y}=Y\cdot(\overline{\overline F}+\overline Y)=YF+Y\overline Y=F\cap Y$$
+\end{proof}
+%</открытыеизамкнутыемножествавпространствеиподпространствеproof>
+
+\begin{theorem}
+    О компактности в пространстве и подпространстве.
+    
+    %<*окомпактностивпространствеиподпространстве>
+    $(X,\rho)$ --- метрич. пространство, $Y\subset X$ --- подпространство, $K\subset Y$
+
+    Тогда $K$ --- комп. в $Y \Leftrightarrow K$ --- компактно в $X$.
+    %</окомпактностивпространствеиподпространстве>
+\end{theorem}
+
+%<*окомпактностивпространствеиподпространствеproof>
+\begin{proof}
+    Докажем ``$\Rightarrow$''
+
+    $$K\text{ --- комп. в }X \Leftrightarrow K\subset\bigcup\limits_{\alpha\in A} G_\alpha, G_\alpha\text{ --- откр. в } X$$
+
+    Доказать: $\exists$ кон. $\alpha_1\ldots\alpha_n \quad K\subset\bigcup\limits_{i=1}^n G_{\alpha_i}$
+
+    $$K\subset\bigcup\limits_{\alpha\in A}(G_\alpha\cap Y) \Rightarrow \exists\text{ кон. } \alpha_1\ldots\alpha_n: K\subset \bigcup\limits_{i=1}^n(G_{\alpha_i}\cap Y)$$
+
+    Тогда $K\subset \bigcup\limits_{i=1}^n G_{\alpha_i}$
+
+    Докажем ``$\Leftarrow$''
+
+    Дано: $K$ --- комп. в $X$, доказать: $K$ --- комп. в $Y$.
+
+    $$K\in\bigcup\limits_{\alpha\in A} O_\alpha, O_\alpha\text{ --- откр. в }Y$$
+
+    $$\exists G_\alpha : O_\alpha=G_\alpha\cap Y\textit{($G_\alpha$ --- откр. в $X$)}$$
+
+    По двум выражениям выше:
+
+    $$K\subset \bigcup\limits_{\alpha\in A} O_\alpha=\bigcup\limits_{\alpha\in A} G_\alpha\cap Y=Y\cap \bigcup\limits_{\alpha\in A} G_\alpha$$
+    $$K\subset \bigcup\limits_{\alpha\in A} G_\alpha$$
+
+    Это открытое покрытие, $K$ --- компактно в $X \Rightarrow \exists \alpha_1\ldots\alpha_n:K\subset \bigcup\limits_{i=1}^n G_{\alpha_i}$.
+    
+    Тогда $K\subset \bigcup\limits_{i=1}^n O_{\alpha_i}$ --- конечное подпокрытие в $Y$.
+\end{proof}
+%</окомпактностивпространствеиподпространствеproof>
+
+\section{Пределы и непрерывность отображений}
+
+\subsection{Предел}
+
+\begin{definition}
+    %<*пределотображения>
+    $(X, \rho^x), (Y, \rho^y) \quad D\subset X \quad f:D\to Y$
+
+    $a\in X$, $a$ --- пред. точка множества $D$, $A\in Y$
+
+    Тогда $\lim\limits_{x\to a}f(x)=A$ --- \textbf{предел отображения}, если:
+    \begin{enumerate}
+    \item По Коши:
+    $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in D : 0<\rho^X(a,x)<\delta \quad \rho^Y(f(x), A) < \varepsilon$$
+    \item На языке окрестностей:
+    $$\forall U(A) \ \ \exists V(a) \ \ \forall x\in \dot V(a) \ \ f(x)\in U(A)$$
+    \item По Гейне: $\forall (x_n)$ --- посл. в $X$:
+    \begin{enumerate}
+        \item $x_n\to a$
+        \item $x_n\in D$
+        \item $x_n\not = a$
+    \end{enumerate}
+    $f(x_n)\to A$
+    \end{enumerate}
+    %</пределотображения>
+\end{definition}
+
+\begin{consequence}
+    $f:D\subset\mathbb{R} \to \mathbb{R}$
+    
+    $a\in\mathbb{R}, A\in\mathbb{R} \quad a$ --- пред. точка $D$.
+
+    $\lim\limits_{x\to a} f(x)=A$
+
+    $$\forall \varepsilon > 0 \ \ \exists \delta>0 \ \ \forall x\in D \ \ 0<|x-a|<\delta \quad |f(x)-A|<\varepsilon$$
+\end{consequence}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $a$ --- пр. точка $\Rightarrow \exists x_n\to a \Rightarrow$ опр. Гейне содержательно.
+        \item Значение $f(a)$ \textit{(если оно определено)} не влияет на значение предела и факт его $\exists$.
+        \item $f,g:D\to Y \quad f=g$ на некоторой окрестности $\dot W(a)\cap D \Rightarrow$ их пределы $\exists$ и $\not \exists$ одновременно, и если $\exists$, то равны.
+        \item Существование $\lim\limits_{x\to a} f(x)$ по Гейне: $\forall x_n$, удовл. требованиям в опред. по Гейне, $\exists\lim f(x_n)$
+    \end{enumerate}
+\end{remark}
+
+Предел на языке окружностей обобщим к $\pm\infty$
+
+\begin{enumerate}
+    \item $\lim\limits_{x\to a}f(x)=+\infty: \quad \forall E \ \ \exists \delta>0 \ \ \forall x\in D : 0<|x-a|<\delta \ \ f(x)>E$
+    \item $\lim\limits_{x\to +\infty}f(x)=c\in\mathbb{R} \quad \forall \varepsilon>0 \ \ \exists \delta \ \ \forall x\in D : x>\delta \ \ |f(x)-c|<\varepsilon$
+\end{enumerate}
+
+\end{document}

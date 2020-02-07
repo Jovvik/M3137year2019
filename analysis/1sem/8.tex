@@ -1,0 +1,309 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{November 11, 2019}
+
+\begin{document}
+%<*охарактеристикекомпактоввrmproof>
+\begin{proof}
+    Продолжим доказательство из прошлой лекции, докажем, $3\Rightarrow1$.
+
+    Рассмотрим секвенциально компактное $K$ и пусть $K$ --- не ограничено. \textit{(случай ограниченного множества тривиален)}
+
+    $\exists x_n : ||x_n||\to+\infty$
+
+    Тогда в этой последовательности нет сходящейся последовательности, т.к. любая $x_{n_k}\to x_0\in\R$ ограничена. Противоречие $\Rightarrow$ $K$ --- не секвенциально компактно.
+
+    Таким образом, если $K$ --- секвенциально компактно, то $K$ ограничено.
+
+    Докажем замкнутость $K$.
+
+    Пусть $\exists$ предельная точка $x_0\not\in K$
+
+    $\exists x_n\to x_0$
+
+    По секвенциальности $\exists$ подпоследовательность $x_{n_k}\to a\in K$.
+
+    \textcolor{red}{Не дописано.}
+\end{proof}
+%</охарактеристикекомпактоввrmproof>
+
+\begin{consequence}
+    Принцип выбора Больцано-Вейерштрасса.
+    %<*принципвыборабольцановейерштрасса>
+    Если в $\R^m$ $(x_n)$ --- ограниченная последовательность, то у неё существует сходящаяся подпоследовательность.
+    %</принципвыборабольцановейерштрасса>
+\end{consequence}
+%<*принципвыборабольцановейерштрассаproof>
+\begin{proof}
+    $x_n$ --- огр. $\Rightarrow x_n$ содержится в замкнутом кубе. Так как куб секвенциально компактен, $x_{n_k}$ сходится.
+\end{proof}
+%</принципвыборабольцановейерштрассаproof>
+\begin{remark}
+    $(x_n)$ --- не огр. $\Rightarrow x_n\to\infty$, т.е. $||x_n||\to+\infty$
+\end{remark}
+\begin{definition}
+    $X$ --- метрическое пространство, $(x_n)$ в $X$
+
+    %<*сходящаясявсебе>
+    $x_n$ --- \textbf{фундаментальная, последовательность Коши, сходящаяся в себе}, если:
+    $$\forall \varepsilon>0 \ \ \exists N \ \ \forall m,n > N\ \ \rho(x_m, x_n)<\varepsilon$$
+    %</сходящаясявсебе>
+\end{definition}
+\begin{lemma}
+    %<*сходящаясявсебесвойства>
+    \begin{enumerate}
+        \item $x_n$ --- фунд. $\Rightarrow x_n$ --- ограничена
+        \item $x_n$ --- фунд; $\exists x_{n_k}$ --- сходящ. Тогда $x_n$ сходится. 
+    \end{enumerate}
+    %</сходящаясявсебесвойства>
+\end{lemma}
+%<*сходящаясявсебесвойстваproof>
+\begin{proof}
+    \begin{enumerate}
+        \item $\varepsilon:=1 \ \ \exists N \ \ \forall m, n:=N+1 > N \ \ \rho(x_m, x_{N+1})<1$
+        
+        $R:=\max(1; \rho(x_1, x_{N+1}),\ldots,\rho(x_N, x_{N+1}))$
+
+        $\forall n \ \ x_n\in B(x_{N+1}, R) \Rightarrow x_n$ ограничена.
+
+        \item $\begin{cases}
+            \varepsilon > 0 \ \ \exists K \ \ \forall k>K \ \ \rho(x_{n_k}, a)<\varepsilon \\
+            \varepsilon > 0 \ \ \exists N \ \ \forall m,n>N \ \ \rho(x_m, x_n)<\varepsilon
+        \end{cases} \xRightarrow{?} x_n\to a$
+
+        $\forall \varepsilon > 0 \ \ \exists \tilde N := \max(N, K)$ при $k>\tilde N$ выполняется $k>K$, значит $n_k\geq k > K \Rightarrow \rho(x_{n_k}, a)<\varepsilon$.
+
+        При $n>\tilde N\geq N \ \  m:=n_k>\tilde N\geq N \Rightarrow \rho(x_n, x_{n_k})<\varepsilon$
+
+        Итого $\forall n>\tilde N \ \ \rho(x_n, a)\leq \rho(x_{n_k}, a) + \rho(x_n, x_{n_k})<2\varepsilon$
+    \end{enumerate}
+\end{proof}
+%</сходящаясявсебесвойстваproof>
+\begin{theorem}
+    %<*критерийкошидляпоследовательностей>
+    \begin{enumerate}
+        \item В любом метрическом пространстве $x_n$ --- сходящ. $\Rightarrow x_n$ --- фунд.
+        \item В $\R^m$ $x_n$ --- фунд. $\Rightarrow x_n$ --- сходящ.
+    \end{enumerate}
+    %</критерийкошидляпоследовательностей>
+\end{theorem}
+%<*критерийкошидляпоследовательностейproof>
+\begin{proof}
+    \begin{enumerate}
+        \item $x_n\to a \quad \forall \varepsilon>0 \ \ \exists N \ \ \forall n>N \ \ \rho(x_n, a)<\varepsilon$
+    
+        $x_n\to a \quad \forall \varepsilon>0 \ \ \exists N \ \ \forall n,m > N \rho(x_m, x_n)\leq \rho(x_n, a) + \rho(x_m, a) < 2\varepsilon$
+
+        \item $x_n$ --- фунд. $\Rightarrow x_n$ --- огр. $\xRightarrow{\text{Б.-В.}} \exists x_{n_k}$ --- сходящ. 
+        
+        $\begin{cases}
+            \exists x_{n_k}\text{ --- сходящ.} \\
+            x_n\text{ --- фунд.}
+        \end{cases} \Rightarrow x_n$ --- сходящ.
+    \end{enumerate}
+\end{proof}
+%</критерийкошидляпоследовательностейproof>
+\begin{definition}
+    %<*полноепространство>
+    $X$ --- метрическое пространство называется \textbf{полным}, если в нём любая фундаментальная последовательность --- сходящаяся.
+    %</полноепространство>
+\end{definition}
+
+Верно: $x_n$ --- вещ. посл.
+
+$$\forall \varepsilon>0 \ \ \exists N \ \ \forall n,m>N \ \ |x_n-x_m|<\varepsilon \Leftrightarrow \exists \text{ конечн. }\lim\limits_{n\to+\infty} x_n$$
+
+Это критерий Больцано-Коши.
+
+$f:D\subset X\to Y$, $x_0$ --- предельная точка $D$.
+
+$\lim\limits_{x\to x_0} f(x)=L$
+
+$D_1\subset D, x_0$ --- предельная точка $D_1$.
+
+\begin{definition}
+%<*пределпомножеству>
+    $f : D\subset X\to Y, D_1\subset D, x_0$ --- пред. точка $D_1$
+    
+    Тогда \textbf{предел по множеству} $D_1$ в точке $x_0$ --- это $\lim\limits_{x\to x_0} f|_{D_1}(x)$
+%</пределпомножеству>
+\end{definition}
+
+\begin{definition}
+    %<*односторонниепределы>
+    В $\R$ одностор. $=\{$ левостор., правостор. $\}$
+
+    \textbf{Левосторонний предел} $\lim\limits_{x\to x_0-0}f(x)=L$ - это $\lim f|_{D\cap(-\infty, x_0)}$
+
+    $$\forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall x\in(x_0-\delta, x_0)\cap D \ \ |f(x) - L|<\varepsilon$$
+
+    Аналогично правосторонний.
+    %</односторонниепределы>
+\end{definition}
+
+Если $\lim\limits_{x\to x_0-0} f = \lim\limits_{x\to x_0+0} f=L \Rightarrow \lim\limits_{x\to x_0} f = L$
+
+$\lim\limits_{x\to x_0-0} f \stackrel{\text{обозн.}}{=} f(x_0-0)$
+
+$\lim\limits_{x\to 0-0} f = \lim\limits_{x\to -0} f$
+
+В $\R^2 \lim\limits_{(x_1,x_2)\to(a_1, a_2)} f$
+
+Предел вдоль прямой: $\lim_{r\to 0} f(a_1+r\cos \alpha, a_2+r\sin\alpha)$
+
+\begin{theorem}
+    О пределе монотонной функции
+
+    %<*определемонотоннойфункции>
+    $f:D\subset \R \to \R$, монотонная, $a\in\overline\R$
+
+    $D_1:=D\cap (-\infty, a), a$ --- пред. точка $D_1$. Тогда:
+
+    \begin{enumerate}
+        \item $f$ --- возрастает, огр. сверху на $D_1$. Тогда $\exists$ конечный предел $\lim\limits_{x\to a-0} f(x)$
+        \item $f$ --- убывает, огр. снизу на $D_1$. Тогда $\exists$ конечный предел $\lim\limits_{x\to a-0} f(x)$
+    \end{enumerate}
+    %</определемонотоннойфункции>
+\end{theorem}
+%<*определемонотоннойфункцииproof>
+\begin{proof}
+    \begin{enumerate}
+        \item $L:= \sup\limits_{D_1} f \quad L\stackrel{?}{=}\lim\limits_{x\to a-0} f(x)$
+    
+        $\forall \varepsilon > 0 \ \ L-\varepsilon$ --- не верхн. граница для $\{f(x) : x\in D_1\} \ \ \exists x_1: L-\varepsilon<f(x_1)$.
+
+        Тогда при $x\in(x_1, a)\cap D_1 \ \ L-\varepsilon < f(x_1) \leq f(x) \leq L$
+
+        $\exists \delta:=|x_1-a| \ \ \forall x : x\in(x_1, a) \ \ L-\varepsilon\leq f(x) < L+\varepsilon$
+
+        Аналогично доказывается пункт 2.
+    \end{enumerate}
+\end{proof}
+%</определемонотоннойфункцииproof>
+
+Критерий Больцано-Коши для отображений.
+
+\begin{theorem}
+    %<*критерийбольцанокошидляотображений>
+    $f:D\subset X\to Y$, $a$ --- пр. точка $D$, $Y$ --- полное метрическое пространство.
+
+    Тогда $$\exists \lim\limits_{x\to a}f(x)\in Y \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \delta>0 \ \ \forall x_1, x_2\in D \ \ \rho(x_1,a)<\delta; \rho(x_2, a) < \delta \ \ \rho(f(x_1), f(x_2))<\varepsilon$$
+    %</критерийбольцанокошидляотображений>
+\end{theorem}
+%<*критерийбольцанокошидляотображенийproof>
+\begin{proof}
+    ``$\Rightarrow$'' как для последовательностей.
+
+    Докажем ``$\Leftarrow$'' по Гейне.
+
+    Заметим, что последовательность $f(x_n)$ --- фундаментальная, т.е.
+
+    $$\forall \varepsilon>0 \ \ \exists N \ \ \forall m,n > N\ \ \rho(f(x_m), f(x_n))<\varepsilon$$
+
+    $$x_n\to a \Rightarrow \exists N \ \ \forall n>N \ \ \rho(x_n, a)<\delta$$
+
+    $$\forall m,n > N \ \ \rho(x_n, a)<\delta; \rho(x_m, a)<\delta \xRightarrow{\text{Фунд.}} \rho(f(x_n), f(x_m))<\varepsilon$$
+\end{proof}
+%</критерийбольцанокошидляотображенийproof>
+\begin{remark}
+    В $\R$ критерий Больцано-Коши для функций
+
+    $f:D\subset \R\to\R, a$ --- пред. точка $D$
+
+    $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2 \in D\setminus\{a\} \ \ |x_1-a|<\delta; |x_2-a|<\delta$$
+\end{remark}
+
+Для $\lim\limits_{x\to x_0} f(x)=+\infty$ критерий Больцано-Коши: $$\forall E \ \ \exists \delta>0 \ \ \forall x_1, x_2 \in D\setminus\{a\} \ \ |x_1-a|<\delta; |x_2-a|<\delta \ \ f(x_1)>E; f(x_2)>E$$ неинтересно.
+
+Для $\lim\limits_{x\to+\infty}f(x)=L$:
+
+$$\forall \varepsilon>0 \ \ \exists \Delta \ \ \forall x_1, x_2\in D \ \ x_1>\Delta; x_2>\Delta \ \ |f(x_1)-f(x_2)|<\varepsilon$$
+
+\section{Непрерывные отображения}
+
+\begin{definition}
+    %<*непрерывноеотображение>
+    $f:D\subset X\to Y \quad x_0\in D$
+
+    $f$ --- \textbf{непрерывное} в точке $x_0$, если:
+    \begin{enumerate}
+        \item $\lim\limits_{x\to x_0} f(x)=f(x_0)$, либо $x_0$ --- изолированная точка $D$
+        \item $\forall \varepsilon > 0 \ \ \exists \delta>0 \ \ \forall x\in D \ \ \rho(x, x_0)<\delta \ \ \rho(f(x), f(x_0))<\varepsilon$
+        \item $\forall U(f(x_0)) \ \ \exists V(x_0) \ \ \forall x\in V(x_0)\cap D \ \ f(x)\in U(f(x_0))$
+        \item По Гейне $\forall (x_n):x_n\to x_0; x_n\in D \ \ f(x_n)\xrightarrow[n\to+\infty]{} f(x_0)$
+    \end{enumerate}
+    %</непрерывноеотображение>
+\end{definition}
+
+\begin{definition}
+    %<*точкаразрыва>
+    Если $\not\exists\lim\limits_{x\to x_0} f(x)$, либо $\exists\lim\limits_{x\to x_0}f(x)\not=f(x_0)$ --- \textbf{точка разрыва}.
+    %</точкаразрыва>
+\end{definition}
+
+Для $\R \quad \forall \varepsilon>0 \ \ \exists \delta > 0 \ \ \forall x\in D \ \ |x-x_0|<\delta \ \ |f(x) - f(x_0)|<\varepsilon$
+
+\begin{definition}
+    Непр. слева и непр. справа
+    %<*непрерывностьслева>
+    $f$ --- непр. слева в $x_0$, если $f|_{(-\infty, x_0]\cap D}$ --- непрерывно в $x_0$
+    %</непрерывностьслева>
+\end{definition}
+
+Если $f$ непрерывно слева и непрерывно справа в $x_0$, то $f$ непрерывно в $x_0$.
+
+\begin{definition}
+    %<*родточкиразрыва>
+    Пусть $\exists f(x_0-0), f(x_0+0)$ и не все 3 числа равны: $f(x_0-0), f(x_0), f(x_0+0)$. Это \textbf{разрыв I рода \textit{(скачок)}}.
+
+    Остальные точки разрыва --- \textbf{разрыв II рода}.
+
+    \begin{remark}
+        $$f(x_0-0)\Leftrightarrow \lim\limits_{x\to x_0-0} f(x)$$
+    \end{remark}
+    %</родточкиразрыва>
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item $f(x)=sign(x)=\begin{cases}
+            1, x>0 \\
+            0, x=0 \\
+            -1, x<0
+        \end{cases}$ $0$ --- разрыв I рода.
+
+        \item $f(x)=sin(\frac{1}{x})$ $0$ --- разрыв II рода.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Отображение \textbf{непрерывно} на множестве $D = $ непрерывно в каждой точке множества $D$.
+\end{definition}
+
+\begin{theorem}
+    Арифметические свойства непрерывных отображений
+    %<*арифметическиесвойстванепрерывныхотображений>
+    \begin{enumerate}
+        \item $f,g:D\subset X\to Y \ \ x_0\in D$ ($Y$ --- норм. пространство)
+        
+        $f, g$ --- непр. в $x_0; \lambda:D\to\R(\C)$ --- непр. $x_0$
+        
+        Тогда $f\pm g, ||f||, \lambda f$ --- непр. $x_0$
+
+        \item $f,g:D\subset X\to \R \ \ x_0\in D$
+        
+        $f, g$ --- непр. в $x_0$
+
+        Тогда $f\pm g, |f|, fg$ --- непр. в $x_0$
+
+        $g(x_0)\not=0$, тогда $\frac{f}{g}$ --- непр. $x_0$
+    \end{enumerate}
+    %</арифметическиесвойстванепрерывныхотображений>
+\end{theorem}
+%<*арифметическиесвойстванепрерывныхотображенийproof>
+\textcolor{red}{Доказательство отсутствует}
+%</арифметическиесвойстванепрерывныхотображенийproof>
+
+\end{document}

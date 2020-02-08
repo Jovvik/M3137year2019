@@ -1,0 +1,160 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Лекция 1}
+
+\begin{document}
+
+\section{Повторение}
+
+\subsection{Пространство ассиметричных ПЛФ}
+
+Рассмотрим пространство полилинейных форм \(\Omega_0^p\) и базис \(\{{}^{s_1\ldots s_p}W\}\). \[{}^{s_1\ldots s_p}F:=p!\Asym \{{}^{s_1\ldots s_p}W\}\]
+\[\{{}^{s_1\ldots s_p}F | 1\leq s_1<s_2<\ldots<s_p\leq n\}\text{ --- базис}\Rightarrow \dim=C_n^p\]
+
+\begin{itemize}
+    \item \(p=0 \Rightarrow \dim \Lambda^p=1\Rightarrow k\)
+    \item \(p=1 \Rightarrow \dim \Lambda^p=n\Rightarrow X^*\)
+    \item \(p=n \Rightarrow \dim \Lambda^p=1\Rightarrow \) псевдоскаляр
+    
+    Единственный элемент базиса: \[{}^{1\ldots n} F(x_1\ldots x_p)=p!\Asym({}^{1\ldots n}W)(x_1\ldots x_n)=p!\frac{1}{p!}\sum\limits_{(s_1\ldots s_n)} (-1)^{[s_1\ldots s_n]} {}^{s_1\ldots s_n} W(x_{s_1}\ldots x_{s_n})=\]
+    \[=\sum\limits_{(s_1\ldots s_n} (-1)^{[s_1\ldots s_n]} \xi^1_{s_1}\xi^2_{s_2}\ldots \xi^n_{s_n}\stackrel{\triangle}{=}\det ||\xi_j^i||\]
+\end{itemize}
+
+\(\forall V\subset \Lambda^n\quad V=\alpha {}^{1\ldots n} F\)
+
+\(C_n^{n-p}=C_n^p\Rightarrow \Lambda^{n-p}\simeq \Lambda^p\)
+
+\subsection{Внешнее произведение ПЛФ}
+
+\[U\in \Lambda^{p_1}, V\in \Lambda^{p_2} \quad U\cdot V\stackrel{?}{\in} \Lambda^p\]
+
+\[\sphericalangle Z=U\cdot V\not\in \Lambda^{p_1+p_2}\]
+
+\[Z(x_1\ldots x_{p_1}\ldots x_{p_1+p_2})=U(x_1\ldots x_{p_1})\cdot V(x_{p_1+1}\ldots X_{p_1+p_2})\]
+
+Обычное произведение ПЛФ не замкнуто, но мы хотим сделать алгебру над ПЛФ \(\Rightarrow\) создадим \textbf{внешнее произведение}.
+
+\[\in \Lambda^{p_1}, V\in \Lambda^{p_2} \quad U\wedge V := \frac{(p_1+p_2)!}{p_1!p_2!} \Asym (U\cdot V) \in \Lambda^{p_1+p_2}\]
+
+Свойства:
+\begin{enumerate}
+    \item $p+q>n\Rightarrow U\wedge V=\Theta$, т.к. пространство \(\Lambda^{p_1+p_2}\) есть нуль-пространство.
+    \item $U\wedge V=(-1)^{pq} V\wedge U$
+    \begin{proof}
+        \[U\wedge V(x_1\ldots x_{p+q})=\frac{(p+q)!}{p!q!}\frac{1}{(p+q)!}\sum\limits_{(i_1\ldots i_{p+q})} U(x_{i_1}\ldots x_{i_p}) W(x_{i_{[+1}}\ldots x_{i_{p+q}})(-1)^{[i_1\ldots i_{p+q}]}=\]\[=(-1)^{pq} V\wedge U\]
+    \end{proof}
+    \item $U\wedge (V\wedge W)=(U\wedge V)\wedge W=U\wedge V\wedge W=\frac{(p+q+s)!}{p!q!s!}\Asym(U\cdot V\cdot W)$
+    \begin{proof}
+        \[(U\wedge V)\wedge W=\left(\frac{(p+q)!}{p!q!}\Asym (U\cdot V)\right)\wedge W=\]
+        \[=\frac{(p+q)!}{p!q!}\frac{(p+q+s)!}{(p+q)!s!} \Asym(\Asym(U\cdot V)\cdot W)=\frac{(p+q+s)!}{p!q!s!}\Asym(U\cdot V\cdot W)=\]
+        \[=U\wedge V\wedge W\]
+    \end{proof}
+    \item $U\wedge (V+W)=U\wedge V + U\wedge W$
+    \item $(\alpha U)\wedge V=U\wedge (\alpha V)=\alpha(U\wedge V),\quad \alpha\in K$
+    \item $U\wedge\Theta=\Theta\wedge V=\Theta$
+    \item $\{f^i\}_{i=1}^n$ --- базис $X^*$. Тогда \({}^{s_1\ldots s_p}F=f^{s_1}\wedge\ldots\wedge f^{s_p}\) --- базис \(\Lambda^p\)
+    \begin{proof}
+        \[{}^{s_1\ldots s_p} W=f^{s_1}\cdot \ldots \cdot f^{s_p}\]
+        \[{}^{s_1\ldots s_p} F=p!\Asym(f^{s_1}\cdot f^{s_2} \cdot \ldots \cdot f^{s_p})=p!\frac{2!}{2!} \Asym(f^{s_1}\cdot f^{s_2} \cdot \ldots \cdot f^{s_p})=\]
+        \[=\Asym\left(\frac{p!}{2!}\frac{(1+1)!}{1!1!}\Asym(f^{s_1}\cdot f^{s_2}) \cdot f^{s_3}\ldots f^{s_n}\right)=\]
+        \[=\Asym\left(\frac{p!}{2!} f^{s_1}\wedge f^{s_2} \cdot f^{s_3}\ldots f^{s_n}\right)=\]
+        \[=\frac{p!}{2!}\Asym\left( f^{s_1}\wedge f^{s_2} \cdot f^{s_3}\ldots f^{s_n}\right)=\]
+        \[=\frac{p!}{3!}\Asym\left( f^{s_1}\wedge f^{s_2} \wedge f^{s_3}\cdot \ldots f^{s_n}\right)=\]
+        \[=f^{s_1}\wedge\ldots\wedge f^{s_p}\]
+    \end{proof}
+\end{enumerate}
+
+\section{Определители и их свойства}
+
+\begin{definition}
+    \(\det\{x_1\ldots x_n\}={}^{1\ldots n}F(x_1\ldots x_n)=f^1\wedge\ldots\wedge f^n(x_1\ldots x_n)\)
+\end{definition}
+
+\(x_i=\sum\limits_{j_i=1}^n\xi_i^{j_i}e_{j_i}\) --- разложение \(\Rightarrow \det\{x_1\ldots x_n\}=\sum\limits_{(j_1\ldots j_n)}(-1)^{[j_1\ldots j_n]} \xi_1^{j_1}\ldots \xi_n^{j_n}\)
+
+\(\sphericalangle C=\begin{bmatrix}
+    \xi_1^1 & \xi_2^1 & \ldots & x_n^1 \\
+    \xi_1^2 & \xi_2^2 & \ldots & x_n^2 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \xi_1^n & \xi_2^n & \ldots & x_n^n \\
+\end{bmatrix}\)
+
+
+Свойства:
+\begin{enumerate}
+    \item \(\det C=\det C^T\)
+    \begin{proof}
+        \(\det C = \sum\limits_{(i_1\ldots i_n)}(-1)^{[i_1\ldots i_n]}\xi_1^{i_1}\xi_2^{i_2}\ldots \xi_n^{i_n} = \sum\limits_{(j_1\ldots j_n)}(-1)^{[j_1\ldots j_n]} \xi^1_{j_1}\xi^2_{j_2}\ldots \xi^n_{j_n}=\det C^T\)
+    \end{proof}
+    \item \(\det \{x_1\ldots x_s\ldots x_t\ldots x_n\}=-\det \{x_1\ldots x_t\ldots x_s\ldots x_n\}\)
+    \item \(\{x_i\}_{i=1}^n\) --- ЛЗ \(\Rightarrow \det \{x_1\ldots x_n\}=0\)
+    \item \(\det\{x_1\ldots x_s+\sum\limits_{i=1}^n\alpha_i x_i\ldots x_n\}=\det\{x_1\ldots x_n\}\)
+    \item \[\det\{x_1\ldots x_k\ldots x_n\}=f^1\wedge f^2\wedge \ldots f^n(x_1\ldots \sum\limits_{m=1}^{n}\xi_k^me_m\ldots x_n)=\]\[=\sum\limits_{m=1}^{n}\xi^m_k f^1\wedge f^2\wedge\ldots\wedge f^n(x_1\ldots e_m\ldots x_n)=\sum\limits_{m=1}^{n}\xi_k^m(-1)=\ldots\]
+    \begin{remark}
+        \(f^1\cdot f^2\cdot \ldots \cdot f^n(x_1\ldots x_k\ldots x_n)=f^1(x_1)f^1(x_2)\ldots f^k(x_k)\ldots f^n(x_n)\)
+        
+        \(\sphericalangle \Asym\left(f^1\cdot f^2\cdot \ldots \cdot f^n(x_1\ldots x_n) \right)=\frac{1}{n!}\sum\limits_{(s_1\ldots s_n)}(-1)^{[s_1\ldots s_n]} f^1\cdot \ldots f^n(x_{s_1}\ldots x_{x_n})=\)
+
+        \(=\frac{1}{n!}\sum\limits_{(s_1\ldots s_n)}(-1)^{[s_1\ldots s_n]} f^{s_1}\cdot \ldots f^{s_n}(x_1\ldots x_n)\)
+
+        Заметим, что если \(m\not=k\), то результат \(0\). Когда \(m=k\), остается \(n\) вариантов.
+    \end{remark}
+
+    \[\ldots =\sum\limits_{m=1}^n \xi_k^m (-1)^{|m-k|} f^1\wedge \ldots f^{k-1}\wedge f^{k+1}\wedge\ldots\wedge f^n(x_1\ldots x_{k-1},x_{k+1}\ldots x_n)=\]
+    \[\sum\limits_{m=1}^n \xi_k^m(-1)^{|m-k|}M_k^m\]
+\end{enumerate}
+\begin{definition}
+    \textbf{Минор} элемента \(\xi_k^m\) --- \(\det M_k^m\) матрицы, полученной из матрицы \(C\) вычеркиванием столбца номер \(K\) и строки с номером \(m\).
+\end{definition}
+
+\begin{definition}
+    \textbf{Алгебраическим дополнением} элемента \(\xi_k^m\) называется число \((-1)^{m+k} M_k^m\)
+
+    \(\det C = \sum\limits_{k=1}^n \xi_k^m A_k^m\)
+
+    \(\det C = \sum\limits_{k=1}^n \xi_m^k A_m^k\)
+\end{definition}
+
+\begin{theorem}
+    Лапласа
+
+    \[\det C = \sum\limits_{k_1\ldots k_s} (-1)^{m_1+k_1+m_2+k_2+\ldots+m_s+k_s}=L^{m_1\ldots m_s}_{k_1\ldots k_s} M^{m_1\ldots m_s}_{k_1\ldots k_s}\]
+
+    \(L\) --- минор порядка \(s\), \(M\) --- доп. минор порядка \(n-s\).
+\end{theorem}
+
+\begin{consequence}
+    \[\begin{bmatrix}
+        A_{11} & A_{12} & \ldots & A_{1n} \\
+        0 & A_{22} & \ldots & A_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & A_{nn}
+    \end{bmatrix}\]
+\end{consequence}
+
+\begin{theorem}
+    Критерий линейной зависимости набора векторов
+
+    \(\{x_i\}_{i=1}^k\) --- ЛЗ \(\Leftrightarrow \forall V\in \Lambda^k \quad V(x_1\ldots x_k)=0\)
+\end{theorem}
+\begin{proof}
+    ``\(\Leftarrow\)'' очевидно
+
+    ``\(\Rightarrow\)'' докажем от противного.
+
+    \(] \{x_i\}_{i=1}^k\) --- ЛНЗ : \(\forall V\in \Lambda^k \quad V(x_1\ldots x_k)=0\)
+
+    \(\sphericalangle \{x_1\ldots x_k, y_1\ldots y_{n-k}\}\) --- базис \(X\)
+
+    \(] \{f^1\ldots f^n\}\) --- базис \(X^*\)
+
+    \(\sphericalangle \{f^j\}_{j=1}^k\quad f^1\wedge\ldots\wedge f^k(x_1\ldots x_k)=\tilde C\not=0\Rightarrow \) противоречие.
+\end{proof}
+
+% \begin{remark}
+%     \(\{x_i\}\)
+% \end{remark}
+
+\end{document}

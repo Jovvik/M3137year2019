@@ -1,0 +1,297 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{February 10, 2019}
+
+\begin{document}
+
+\section{Монотонные экстремумы}
+
+\begin{theorem}
+    Критерий монотонности
+
+    $f\in C(\langle a,b\rangle)$, дифф. в $(a, b)$
+
+    Тогда $f$ --- возрастает $\Leftrightarrow \forall x\in(a, b)\ \ f'(x) \geq 0$ 
+\end{theorem}
+\begin{proof}
+    ``$\Rightarrow$'' По определению $f' \quad \frac{f(x+h)-f(h)}{h}\geq 0$
+
+    ``$\Leftarrow$'' $x_1 > x_2$, по т. Лагранжа: $\exists c : f(x_1)-f(x_2)=f'(c)(x_1-x_2)\geq 0$
+\end{proof}
+\begin{consequence}
+    $f:\langle a,b\rangle\to\R$, тогда:
+    $f=\const\Leftrightarrow (f\in C(\langle a,b\rangle)$ --- дифф. на $\langle a,b\rangle, f'\equiv0)$
+\end{consequence}
+\begin{consequence}
+    $f\in C\langle a,b\rangle$, дифф. на $(a,b)$. Тогда:
+
+    $f$ строго возрастает $\Leftrightarrow$ \textcircled{1} и \textcircled{2}
+
+    \textcircled{1} $f'\geq 0$ на $(a,b)$
+
+    \textcircled{2} $f'\not\equiv0$ ни на каком промежутке
+\end{consequence}
+\begin{proof}
+    ``$\Rightarrow$'' очевидно
+
+    ``$\Leftarrow$'' По лемме о возрастании в отрезке
+\end{proof}
+\begin{consequence}
+    О доказательстве неравенств
+
+    $g, f\in C([a,b\rangle)$, дифф. в $(a,b)$
+
+    $f(a)\leq g(a); \forall x\in(a,b) \ \ f'(x)\leq g'(x)$
+
+    Тогда $\forall x\in[a,b\rangle \ \ f(x)\leq g(x)$
+
+    $g-f$ --- возр., $g(a)-f(a)\geq 0$
+\end{consequence}
+
+\begin{definition}
+    $f:E\subset\R\to\R, x_0\in E$ --- \textbf{локальный максимум функции}, если
+    $$\exists U(x_0) \ \ \forall x\in U(x_0)\cap E\ \ f(x)\leq f(x_0)$$
+\end{definition}
+
+\begin{theorem}
+    Необходимость и достаточность условия локального экстремума
+
+    $f:\langle a,b\rangle\to\R\quad x_0\in(a,b)\quad f$ --- дифф. на $(a,b)$
+
+    Тогда:\begin{enumerate}
+        \item $x_0$ --- лок. экстремум $\Rightarrow f'(x_0)=0$
+        \item $f$ --- $n$ раз дифф. в $x_0$
+        
+        $f'(x_0)=f''(x_0)=\ldots=f^{(n-1)}(x_0)=0$
+
+        Если $f^{(n)}(x_0)>0$, то $\begin{cases}
+            n \text{ --- чет.}: & x_0 \text{ --- локальный максимум} \\
+            n \text{ --- нечет.}: & x_0 \text{ --- не экстремум}
+        \end{cases}$
+
+        Если $f^{(n)}(x_0)<0$, то $\begin{cases}
+            n \text{ --- чет.}: & x_0 \text{ --- локальный минимум} \\
+            n \text{ --- нечет.}: & x_0 \text{ --- не экстремум}
+        \end{cases}$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item т. Ферма
+        \item ф. Тейлора
+        
+        $$f(x)=\text{Tn}(f, x_0)(x)+o((x-x_0)^n)$$
+        $$f(x)=f(x_0)+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^n)$$
+
+        при $x$, близких к $0$:
+        $$\sign(f(x)-f(x_0)) = \sign\left(\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\right)$$
+    \end{enumerate}
+\end{proof}
+
+\section{Интеграл}
+
+\subsection{Неопределенный интеграл}
+
+\begin{definition}
+    $F, f:\langle a,b\rangle\to\R$
+
+    $F$ --- \textbf{первообразная} $f$ на $\langle a,b\rangle$
+    $$\forall x\in\langle a,b\rangle\quad F'(x)=f(x)$$
+\end{definition}
+
+\begin{theorem}
+    \textbf{О существовании первообразной}
+    
+    $f\in C(\langle a,b\rangle)$ тогда у $f$ существует первообразная.
+\end{theorem}
+\begin{proof}
+    Чуть позже.
+\end{proof}
+
+\begin{theorem}
+    $F$ --- первообразная $f$ на $\langle a,b\rangle$. Тогда:
+    \begin{enumerate}
+        \item $\forall c\in\R\quad F+c$ --- тоже первообразная
+        \item Никаких других первообразных нет, т.е. если $G$ --- перв. $f$, то $\exists c\in\R : G=F+c$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item очевидно
+        \item $F'=f, G'=f \quad (G-F)'\equiv0\Rightarrow G-F=\const$
+    \end{enumerate}
+\end{proof}
+
+%<*неопределенный инетграл>
+\begin{definition}
+    \textbf{Неопределенный интеграл} $f$ на $\langle a,b\rangle$ --- множество всех первообразных $f$
+    $$\{F+c, c\in\R\} \text{, где $F$ --- первообразная}$$
+    Обозначается $\intt f=F+c$ или $\intt f(x)dx$
+\end{definition}
+%</неопределенный инетграл>
+
+%<*таблицаинтегралов>
+$$\intt x^ndx=\frac{x^{(n+1)}}{n+1}, n\not=-1$$
+$$\intt \frac{1}{x}dx=\ln x$$
+$$\intt \sin x dx = -\cos x$$
+$$\intt \cos x dx = \sin x$$
+$$\intt e^xdx = e^x$$
+$$\intt \frac{1}{\sqrt{1-x^2}}=\arcsin x$$
+$$\intt \frac{1}{\sqrt{1+x^2}} dx=\ln(x+\sqrt{1+x^2}) \text{ --- длинный логарифм}$$
+$$\intt \frac{1}{\cos^2 x}=\tg x$$
+$$\intt \frac{1}{\sin^2 x}=-\ctg x$$
+\textcolor{red}{Почему где-то нет $dx$? Кохась забыл?}
+%</таблицаинтегралов>
+
+\begin{theorem}
+    О свойствах неопределенного интеграла
+
+    $f, g$ имеют первообразную на $\langle a,b \rangle$. Тогда
+
+    \begin{enumerate}
+        \item Линейность: $$\intt (f + g) = \intt f + \intt g$$
+        $$\forall \alpha\in\R\ \ \intt \alpha f = \alpha\intt f$$
+        \item $\varphi \langle c,d\rangle\to \langle a,b\rangle$
+        % TODO: fix the подставление operator 
+        $$\intt f(\varphi(t))\cdot \varphi'(t)dt=\left(\intt f(x)dx \right)|_{x=\varphi(t)}=F(\varphi(t))$$
+        Частный случай: $\alpha, \beta\in\R:$
+        $$\intt f(\alpha t + \beta)dt=\frac{1}{\alpha}F(\alpha t+\beta)$$
+        \item $f,g$ --- дифф. на $\langle a,b\rangle$; $f'g$ --- имеет первообр.
+        
+        Тогда $fg'$ имеет первообразную и $$\intt fg'=fg-\intt f'g$$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Опущено
+        \item $(F(\varphi(t)))'=f(\varphi(t))\cdot \varphi'(t)$
+        \item $(fg-\intt f'g)'=f'g+fg'-f'g=fg'$
+    \end{enumerate}
+\end{proof}
+\begin{remark}
+    Если $\varphi$ обратима, то:
+    $$\intt f(x)dx=\left(\intt f(\varphi(t))\varphi'(t)dt \right)|_{t:=\varphi^{-1}(x)}$$
+\end{remark}
+$df:=f'(x)dx$
+
+$$\intt \frac{1}{\sqrt{1+x^2}}dx = \left[x:=\tg t\right] = \intt \frac{1}{\sqrt{1 + \tg^2 t}}\cdot \frac{1}{\cos^2 t}dt=\intt \frac{1}{\sqrt{\frac{\cos^2 t + \sin^2 t}{\cos^2 t}}}\cdot \frac{1}{\cos^2 t}dt=\intt \frac{1}{\frac{1}{\cos t}}\cdot \frac{1}{\cos^2 t}dt=$$
+$$=\intt \frac{\cos t dt}{\cos^2 t}=\intt \frac{\cos t dt}{1-\sin^2 t}=[y:=\sin t]=\intt \frac{dy}{1-y^2}=\intt \frac{1}{1-y}\cdot\frac{1}{1+y}=\intt \frac{1}{2}\left(\frac{1}{1-y}+\frac{1}{1+y}\right)dy=\frac{1}{2}\left(-\ln(1-y)+\ln(1+y)\right)=$$
+$$=\frac{1}{2}\ln\frac{1+y}{1-y}=\frac{1}{2}\ln\frac{1+\sin t}{1-\sin t}=\frac{1}{2}\ln\frac{1+\sin \arctg x}{1-\sin\arctg x}$$
+
+\subsection{Гиперболические тригонометрические функции}
+
+$$\sh t = \frac{e^t-e^{-t}}{2}\quad \ch t = \frac{e^t+e^{-t}}{2}$$
+Они полезны тем, что по ним висит нить, закрепленная в двух точках.
+
+$$\sh 2t = 2\sh t \ch t$$
+$$(\ch t)^2+\left(\frac{\sh t}{i}\right)^2=1$$
+
+$$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=\intt 1dt=t$$
+
+\subsection{Равномерно непрерывные функции}
+
+\begin{definition}
+    $f:\langle a,b\rangle\subset\R\to\R$ \textbf{равномерно непрерывна} на $\langle a,b\rangle$:
+    $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2\in\langle a,b\rangle : |x_1-x_2|<\delta \quad |f(x_1) - f(x_2)|<\varepsilon$$
+
+    Или для метрического пространства:
+    $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2 \ \ \rho(x_1, x_2)<\delta \quad \rho(f(x_1), f(x_2))<\varepsilon$$
+\end{definition}
+\begin{example}
+    \begin{enumerate}
+        \item $f(x)=x$ равномерно непрерывна.
+        \item $f(x)=x^2$ $\langle a,b\rangle=\R\quad \varepsilon:=1\ \ \exists? \delta$
+        
+        $x_1:=\frac{1}{\delta} + \frac{\delta}{2}, x_2:=\frac{1}{\delta}$
+
+        $x_1^2-x_2^2=1+\frac{\delta^2}{4}>1 \Rightarrow f$ --- не равномерно непрерывна.
+    \end{enumerate}
+\end{example}
+
+%<*теоремакантора>
+\begin{theorem}
+    Кантора.
+
+    $f:X\to Y, X$ --- комп., $f$ --- непр. на $X$
+
+    Тогда $f$ --- непр.
+\end{theorem}
+%</теоремакантора>
+\begin{proof}
+    От противного.
+
+    $$\exists \varepsilon>0 \ \ \forall \delta > 0 \ \ \exists x_\delta, \overline x_\delta : \rho(x_\delta, \overline x_\delta) < \delta \quad \rho(f(x_\delta), f(\overline x_\delta))\geq\varepsilon$$
+    $$\delta:=\frac{1}{n} \ \ \exists x_n, \overline x_n : \rho(x_n, \overline x_n) < \delta \quad \rho(f(x_n), f(\overline x_n))\geq\varepsilon$$
+
+    Выберем $x_{n_k}\to\tilde x, \overline x_{n_k}\to\dbltilde{x}$
+
+    $\rho(\tilde x, \dbltilde x)\leq 0$, т.е. $\tilde x = \dbltilde x$. Тогда $f(x_{n_k})\to f(\tilde x), f(\overline x_{n_k})\to f(\tilde x)$, противоречие с $\rho(f(x_n), f(\overline x_n))\geq\varepsilon$
+\end{proof}
+
+\begin{example}
+    $f(x)=\sqrt x\quad X=[0, +\infty)$
+
+    По т. Кантора: $f$ равномерно непрерывна на $[0,1]$
+
+    При $x\geq\frac{1}{2} \quad |\sqrt{x_1} - \sqrt{x_2}|=\frac{1}{2\sqrt c}|x_1-x_2|<|x_1-x_2|$, т.е. тоже равномерно непрерывна.
+\end{example}
+
+\subsection{Конфетка: т. Брауэра о неподвижной точке}
+
+Статья от Matousek, Zigler, Bjorner (arxiv: 1409.7890v1)
+
+Игра Hex: два игрока --- чёрный и белый, на своем ходе красят один шестиугольник в свой цвет. Условие выигрыша --- путь искомого цвета с одной стороны в сторону нужного цвета --- две противоположные стороны имеют черный цвет, две другие --- белый.
+
+\begin{theorem}
+    Дана доска для Hex --- параллелограм $k\times l$, покрашенная в 2 цвета.
+
+    Это выигрышная доска для одного из игроков.
+\end{theorem}
+\begin{proof}
+    Рассмотрим первый ряд \textit{(прилегающий к чёрной стороне)}. Если в нём нет черных клеток, белый выиграл. Пойдём по границе черных и белых клеток так, что справа всегда черная клетка, слева белая. В этом пути нет самопересечений, т.к. в точке самопересечеения с обеих сторон черные клетки, мы так не идём.
+
+    Представим доску в виде прямоугольной сетки, где вершины соединены, если из соответствующего шестиугольника можно прийти в другой соответствующий шестиугольник.
+\end{proof}
+
+\begin{theorem}
+    $f:[0,1]\times[0,1]\to[0,1]\times[0,1]$, непр.
+
+    Тогда $\exists x\in[0,1]^2 : f(x)=x$, т.е. есть неподвижная точка.
+
+    Обобщенный вариант:
+    \begin{enumerate}
+        \item $f:[0,1]^m\to[0,1]^m$ --- непр.
+        \item $f:B(0,1)\subset\R^m\to B(0,1)$ --- непр.
+        \item $f:S(0,1)\subset\R^m$ --- непр.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    $\rho : [0, 1]^2\to\R$
+
+    $\rho(x, y)=\max(|x_1-y_1|, |x_2-y_2|)$ --- непр. в $[0,1]^2$
+
+    От противного --- пусть $\forall x\in[0,1]^2 \quad f(x)\not=x$
+
+    Тогда $\forall x \quad \rho(f(x), x) > 0 \quad x\mapsto \rho(f(x), x)$ --- непр., $>0$
+
+    По т. Вейерштрасса $\exists \varepsilon>0 \ \ \forall x\in[0,1] \ \ \rho(f(x, x))\geq \varepsilon$
+
+    По т. Кантора для $f$: для этого $\varepsilon \ \ \exists \delta<\varepsilon:$
+    $$\forall x, \overline x : ||x-\overline x||<\delta \quad ||f(x)-f(\overline x)||<\varepsilon$$
+    Можно писать не $||\cdot||$, а $\rho$.
+
+    Возьмём $n: \frac{1}{n}<\delta$
+
+    Построим доску $Hex(n+1, n+1)$, где $n+1$ --- число узлов.
+
+    Логические координаты узла $(v_1, v_2)\quad v_1,v_2\in\{0\ldots n\}$ имеют физические координаты $\left(\frac{v_1}{n}, \frac{v_2}{n}\right)$
+
+    $K(V):=\min\{i\in\{1,2\} : |f(\frac{v}{n}) - \frac{v_i}{n}|\}$
+
+    Продолжение на следующей лекции.
+\end{proof}
+
+\end{document}

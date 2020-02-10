@@ -13,6 +13,9 @@
 \usepackage[left=1.5cm, right=1.5cm, top=2cm, bottom=2cm, bindingoffset=0cm, headheight=15pt]{geometry}
 \usepackage{fancyhdr}
 \usepackage[russian]{babel}
+% \usepackage[utf8]{inputenc}
+\usepackage{accents}
+\usepackage{calc}
 % \usepackage{parindent}
 
 \pagestyle{fancy}
@@ -25,6 +28,8 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\B}{\mathbb{B}}
 \newcommand{\N}{\mathbb{N}}
+
+\newcommand{\const}{\text{const}}
 
 \newcommand{\teormin}{\textcolor{red}{!}\ }
 
@@ -58,3 +63,8 @@
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
 \newtheorem*{obozn}{Обозначение}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\dbltilde}[1]{\accentset{\approx}{#1}}
+\newcommand{\intt}{\int\!}

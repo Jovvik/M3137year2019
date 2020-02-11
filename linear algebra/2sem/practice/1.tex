@@ -1,0 +1,175 @@
+\input{../../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Практика 1}
+
+\begin{document}
+
+\section{Тензорная алгебра}
+
+\subsection{Напоминание теории}
+
+Напоминание: ПЛФ --- штука, которая берет набор из $p$ векторных пространств и $q$ сопряженных пространств и эта штука линейна по всем аргументам.
+\[W:X\times X\times \ldots \times X\times X^*\times X^*\times\ldots\times X^*\to K\]
+
+Полилинейность: $W(\ldots \tilde x_s + \alpha\overline x_s\ldots ) = W(\ldots \tilde x_s\ldots ) + \alpha W(\ldots \overline x_s)$
+
+$] \{e_j\}_{j=1}^n$ --- базис \(X\), \(\{f^k\}_{k=1}^n\) --- сопр. базис \(X^*\)
+
+\[x_i=\sum\limits_{j=1}^n \xi_i^j e_j,\ \ y^l=\sum\limits_{k=1}^n \eta ^l_k f^k\]
+
+\[W(x_1\ldots x_p, y^1\ldots y^q)=\xi_1^{j_1}\xi_2^{j_2}\cdots \xi_p^{j_p}\eta^1_{k_1}\eta^2_{k_2}\cdots \eta^q_{k_q} W(e_{j_1} \ldots e_{j_p} f^{k_1}\ldots f^{k_q})=\]
+\[=\xi_1^{j_1}\xi_2^{j_2}\cdots \xi_p^{j_p}\eta^1_{k_1}\eta^2_{k_2}\cdots \eta^q_{k_q} w_{\vec j}^{\vec k}\]
+
+В произвольном базисе любой ПЛФ $W$ взаимооднозначно сопоставляется тензор $w$.
+
+\(\dim X = n =\dim X^*, \quad n^{p+q}\) --- размерность пространства ПЛФ, \((p, q)\) --- валентность. $r:=p+q$
+
+Частные случаи:
+\begin{itemize}
+    \item \(r=0 \quad w=\const\)
+    \item \(r=1 \quad \dim=n^1=n \Rightarrow \begin{cases}
+        X \Rightarrow w=\begin{bmatrix}
+            w^1 \\
+            \vdots \\
+            w^n
+        \end{bmatrix} \\
+        X^*\Rightarrow w = \begin{bmatrix}
+            w_1 & \ldots & w_n
+        \end{bmatrix}
+    \end{cases}\)
+    \item \(r = 2\quad \dim=n^2\quad w\leftrightarrow \begin{bmatrix}
+        w_{11} & \ldots & w_{1n} \\
+        \vdots & \ddots & \vdots \\
+        w_{n1} & \ldots & w_{nn} \\
+    \end{bmatrix}\)
+\end{itemize}
+
+Индексы читаются слева направо и сверху вниз, сначала строка, потом столбец.
+
+\begin{example}
+    \(n=2\quad W-(0, 2)\)
+
+    \[w=\begin{bmatrix}
+        w^{11} & w^{12} \\
+        w^{21} & w^{22}
+    \end{bmatrix}\]
+\end{example}
+
+\begin{itemize}
+    \item \(r=3\quad n^3\). Можно писать любым из следующих вариантов: $w^{ijk}, w^{ij}_k, w^{i}_{jk}, w_{ijk}$. Последний индекс называется индексом слоя.
+\end{itemize}
+
+\begin{example}
+    \(n=3\)
+    \[w=
+    \left[
+    \begin{array}{@{}ccc|ccc|ccc@{}}
+        w^{1}_{11} & w^{1}_{21} & w^{1}_{31} & w^{1}_{12} & \ldots &\ldots&\ldots&\ldots&\ldots\\
+        w^{2}_{11} & w^{2}_{21} & w^{2}_{31} & \ldots \\
+        w^{3}_{11} & w^{3}_{21} & w^{3}_{31} & \ldots \\
+    \end{array}
+    \right]
+    \]
+\end{example}
+\begin{example}
+    \(\varepsilon_{ijk}=\begin{cases}
+        1 & (i, j, k) \text{ --- чётню} \\
+        -1 & (i, j, k) \text{ --- нечётно} \\
+        0 & \text{ иначе}
+    \end{cases}\)
+    \[\varepsilon=
+    \left[
+    \begin{array}{@{}ccc|ccc|ccc@{}}
+        0&0&0&0&0&-1&0&1&0\\
+        0&0&1&0&0&0&-1&0&0\\
+        0&-1&0&1&0&0&0&0&0\\
+    \end{array}
+    \right]
+    \]
+\end{example}
+
+\begin{itemize}
+    \item \(r=4, n=2\)
+    \[w=
+    \left[
+    \begin{array}{@{}cc|cc@{}}
+        w_{11}^{11} & w_{11}^{12} &.&. \\
+        w_{11}^{21} & w_{11}^{22} &.&. \\
+        \hline
+        .&.&.&.\\
+        .&.&.&.\\
+    \end{array}
+    \right]
+    \]
+\end{itemize}
+
+\begin{example}
+    $n=2$
+
+    $\delta^{ijk}_l=\begin{cases}
+        1 & i=j\not=k=l \\
+        -1 & i=k\not=j=l \\
+        0 & \text{иначе}
+    \end{cases}$
+
+    \[w=
+    \left[
+    \begin{array}{@{}cc|cc@{}}
+        0&0&0&-1\\
+        0&1&0&0\\
+        \hline
+        0&0&1&0\\
+        -1&0&0&0\\
+    \end{array}
+    \right]
+    \]
+\end{example}
+
+\subsection{Операции над тензорами}
+
+\subsubsection{Линейные операции}
+
+Эти операции аналогичны операциям на соответствующих матрицах.
+
+\subsubsection{Тензорное произведение}
+
+\(a^{ij}\cdot b_k=w^{ij}_k\)
+
+\begin{example}
+    $a^i_j\to A=\begin{bmatrix}
+        1 & 2 \\
+        3 & 4
+    \end{bmatrix}$
+
+    $b_k\to B=\begin{bmatrix}
+        5 & 6
+    \end{bmatrix}$
+
+    $] c=a\otimes b \to c^i_{jk}=a^i_j\cdot b_k$
+
+    \[c=
+    \left[
+    \begin{array}{@{}cc|cc@{}}
+        5 & 10 & 6 & 12 \\
+        15 & 20 & 18 & 24
+    \end{array}
+    \right]
+    \]
+
+    $] d=b\otimes a \to d=b_k\cdot a^i_j$
+
+    \[d=
+    \left[
+    \begin{array}{@{}cc|cc@{}}
+        5 & 6 & 10 & 12 \\
+        15 & 18 & 20 & 24
+    \end{array}
+    \right]
+    \]
+
+    Запись сначала векторов, потом форм называется консолидация.
+\end{example}
+
+\end{document}

@@ -22,8 +22,8 @@
     ``$\Rightarrow$'' По определению $f' \quad \frac{f(x+h)-f(h)}{h}\geq 0$
 
     ``$\Leftarrow$'' $x_1 > x_2$, по т. Лагранжа: $\exists c : f(x_1)-f(x_2)=f'(c)(x_1-x_2)\geq 0$
-\end{proof}
 %</критериймонотонностиproof>
+\end{proof}
 %<*критериймонотонностиследствия1>
 \begin{consequence}
     $f:\langle a,b\rangle\to\R$, тогда:
@@ -40,11 +40,13 @@
     \textcircled{2} $f'\not\equiv0$ ни на каком промежутке
 \end{consequence}
 %</критериймонотонностиследствия1>
+%<*критериймонотонностиследствия1proof>
 \begin{proof}
     ``$\Rightarrow$'' очевидно
 
     ``$\Leftarrow$'' По лемме о возрастании в отрезке
 \end{proof}
+%</критериймонотонностиследствия1proof>
 %<*критериймонотонностиследствия2>
 \begin{consequence}
     О доказательстве неравенств
@@ -73,8 +75,7 @@
 %</локальныймаксимум>
 
 \begin{theorem}
-    Необходимость и достаточность условия локального экстремума
-
+%<*необходимостьидостаточностьусловиялокальногоэкстремума>
     $f:\langle a,b\rangle\to\R\quad x_0\in(a,b)\quad f$ --- дифф. на $(a,b)$
 
     Тогда:\begin{enumerate}
@@ -93,7 +94,9 @@
             n \text{ --- нечет.}: & x_0 \text{ --- не экстремум}
         \end{cases}$
     \end{enumerate}
+%</необходимостьидостаточностьусловиялокальногоэкстремума>
 \end{theorem}
+%<*необходимостьидостаточностьусловиялокальногоэкстремумаproof>
 \begin{proof}
     \begin{enumerate}
         \item т. Ферма
@@ -106,27 +109,28 @@
         $$\sign(f(x)-f(x_0)) = \sign\left(\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\right)$$
     \end{enumerate}
 \end{proof}
+%</необходимостьидостаточностьусловиялокальногоэкстремумаproof>
 
 \section{Интеграл}
 
 \subsection{Неопределенный интеграл}
 
-%<*первообразная>
 \begin{definition}
+    %<*первообразная>
     $F, f:\langle a,b\rangle\to\R$
 
     $F$ --- \textbf{первообразная} $f$ на $\langle a,b\rangle$
     $$\forall x\in\langle a,b\rangle\quad F'(x)=f(x)$$
-\end{definition}
 %</первообразная>
+\end{definition}
 
-%<*осуществованиипервообразной>
 \begin{theorem}
     \textbf{О существовании первообразной}
+%<*осуществованиипервообразной>
     
     $f\in C(\langle a,b\rangle)$ тогда у $f$ существует первообразная.
-\end{theorem}
 %</осуществованиипервообразной>
+\end{theorem}
 \begin{proof}
     Чуть позже.
 \end{proof}
@@ -145,13 +149,13 @@
     \end{enumerate}
 \end{proof}
 
-%<*неопределенныйинтеграл>
 \begin{definition}
-    \textbf{Неопределенный интеграл} $f$ на $\langle a,b\rangle$ --- множество всех первообразных $f$
+    %<*неопределенныйинтеграл>
+    \textbf{Неопределенный интеграл} $f$ на $\langle a,b\rangle$ --- множество всех первообразных $f$:
     $$\{F+c, c\in\R\} \text{, где $F$ --- первообразная}$$
     Обозначается $\intt f=F+c$ или $\intt f(x)dx$
+    %</неопределенныйинтеграл>
 \end{definition}
-%</неопределенныйинтеграл>
 
 %<*таблицапервообразных>
 $$\intt x^ndx=\frac{x^{(n+1)}}{n+1}, n\not=-1$$
@@ -175,7 +179,6 @@ $$\intt \frac{1}{\sin^2 x}=-\ctg x$$
         \item Линейность: $$\intt (f + g) = \intt f + \intt g$$
         $$\forall \alpha\in\R\ \ \intt \alpha f = \alpha\intt f$$
         \item $\varphi \langle c,d\rangle\to \langle a,b\rangle$
-        % TODO: fix the подставление operator 
         $$\intt f(\varphi(t))\cdot \varphi'(t)dt=\left(\intt f(x)dx \right)|_{x=\varphi(t)}=F(\varphi(t))$$
         Частный случай: $\alpha, \beta\in\R:$
         $$\intt f(\alpha t + \beta)dt=\frac{1}{\alpha}F(\alpha t+\beta)$$
@@ -198,8 +201,8 @@ $$\intt \frac{1}{\sin^2 x}=-\ctg x$$
 $df:=f'(x)dx$
 
 $$\intt \frac{1}{\sqrt{1+x^2}}dx = \left[x:=\tg t\right] = \intt \frac{1}{\sqrt{1 + \tg^2 t}}\cdot \frac{1}{\cos^2 t}dt=\intt \frac{1}{\sqrt{\frac{\cos^2 t + \sin^2 t}{\cos^2 t}}}\cdot \frac{1}{\cos^2 t}dt=\intt \frac{1}{\frac{1}{\cos t}}\cdot \frac{1}{\cos^2 t}dt=$$
-$$=\intt \frac{\cos t dt}{\cos^2 t}=\intt \frac{\cos t dt}{1-\sin^2 t}=[y:=\sin t]=\intt \frac{dy}{1-y^2}=\intt \frac{1}{1-y}\cdot\frac{1}{1+y}=\intt \frac{1}{2}\left(\frac{1}{1-y}+\frac{1}{1+y}\right)dy=\frac{1}{2}\left(-\ln(1-y)+\ln(1+y)\right)=$$
-$$=\frac{1}{2}\ln\frac{1+y}{1-y}=\frac{1}{2}\ln\frac{1+\sin t}{1-\sin t}=\frac{1}{2}\ln\frac{1+\sin \arctg x}{1-\sin\arctg x}$$
+$$=\intt \frac{\cos t dt}{\cos^2 t}=\intt \frac{\cos t dt}{1-\sin^2 t}=[y:=\sin t]=\intt \frac{dy}{1-y^2}=\intt \frac{1}{1-y}\cdot\frac{1}{1+y}=\intt \frac{1}{2}\left(\frac{1}{1-y}+\frac{1}{1+y}\right)dy=$$
+$$=\frac{1}{2}\left(-\ln(1-y)+\ln(1+y)\right)=\frac{1}{2}\ln\frac{1+y}{1-y}=\frac{1}{2}\ln\frac{1+\sin t}{1-\sin t}=\frac{1}{2}\ln\frac{1+\sin \arctg x}{1-\sin\arctg x}$$
 
 \subsection{Гиперболические тригонометрические функции}
 
@@ -213,15 +216,15 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 
 \subsection{Равномерно непрерывные функции}
 
-%<*равномернаянепрерывность>
 \begin{definition}
+%<*равномернаянепрерывность>
     $f:\langle a,b\rangle\subset\R\to\R$ \textbf{равномерно непрерывна} на $\langle a,b\rangle$:
     $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2\in\langle a,b\rangle : |x_1-x_2|<\delta \quad |f(x_1) - f(x_2)|<\varepsilon$$
 
     Или для метрического пространства:
     $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2 \ \ \rho(x_1, x_2)<\delta \quad \rho(f(x_1), f(x_2))<\varepsilon$$
-\end{definition}
 %</равномернаянепрерывность>
+\end{definition}
 \begin{example}
     \begin{enumerate}
         \item $f(x)=x$ равномерно непрерывна.
@@ -233,15 +236,14 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
     \end{enumerate}
 \end{example}
 
-%<*теоремакантора>
 \begin{theorem}
-    Кантора.
-
+%<*теоремакантора>
     $f:X\to Y, X$ --- комп., $f$ --- непр. на $X$
 
     Тогда $f$ --- непр.
-\end{theorem}
 %</теоремакантора>
+\end{theorem}
+%<*теоремакантораproof>
 \begin{proof}
     От противного.
 
@@ -252,6 +254,7 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 
     $\rho(\tilde x, \dbltilde x)\leq 0$, т.е. $\tilde x = \dbltilde x$. Тогда $f(x_{n_k})\to f(\tilde x), f(\overline x_{n_k})\to f(\tilde x)$, противоречие с $\rho(f(x_n), f(\overline x_n))\geq\varepsilon$
 \end{proof}
+%</теоремакантораproof>
 
 \begin{example}
     $f(x)=\sqrt x\quad X=[0, +\infty)$
@@ -279,6 +282,7 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 \end{proof}
 
 \begin{theorem}
+    %<*теоремаонеподвижнойточке>
     $f:[0,1]\times[0,1]\to[0,1]\times[0,1]$, непр.
 
     Тогда $\exists x\in[0,1]^2 : f(x)=x$, т.е. есть неподвижная точка.
@@ -289,8 +293,9 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
         \item $f:B(0,1)\subset\R^m\to B(0,1)$ --- непр.
         \item $f:S(0,1)\subset\R^m$ --- непр.
     \end{enumerate}
+    %</теоремаонеподвижнойточке>
 \end{theorem}
-
+%<*теоремаонеподвижнойточкеproof>
 \begin{proof}
     $\rho : [0, 1]^2\to\R$
 
@@ -316,5 +321,6 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 
     Продолжение на следующей лекции.
 \end{proof}
+%</теоремаонеподвижнойточкеproof>
 
 \end{document}

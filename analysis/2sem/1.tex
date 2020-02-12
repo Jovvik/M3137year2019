@@ -9,19 +9,25 @@
 \section{Монотонные экстремумы}
 
 \begin{theorem}
-    Критерий монотонности
+    \textbf{Критерий монотонности}
+%<*критериймонотонности>
 
     $f\in C(\langle a,b\rangle)$, дифф. в $(a, b)$
 
     Тогда $f$ --- возрастает $\Leftrightarrow \forall x\in(a, b)\ \ f'(x) \geq 0$ 
+%</критериймонотонности>
 \end{theorem}
+%<*критериймонотонностиproof>
 \begin{proof}
     ``$\Rightarrow$'' По определению $f' \quad \frac{f(x+h)-f(h)}{h}\geq 0$
 
     ``$\Leftarrow$'' $x_1 > x_2$, по т. Лагранжа: $\exists c : f(x_1)-f(x_2)=f'(c)(x_1-x_2)\geq 0$
 \end{proof}
+%</критериймонотонностиproof>
+%<*критериймонотонностиследствия1>
 \begin{consequence}
     $f:\langle a,b\rangle\to\R$, тогда:
+
     $f=\const\Leftrightarrow (f\in C(\langle a,b\rangle)$ --- дифф. на $\langle a,b\rangle, f'\equiv0)$
 \end{consequence}
 \begin{consequence}
@@ -33,11 +39,13 @@
 
     \textcircled{2} $f'\not\equiv0$ ни на каком промежутке
 \end{consequence}
+%</критериймонотонностиследствия1>
 \begin{proof}
     ``$\Rightarrow$'' очевидно
 
     ``$\Leftarrow$'' По лемме о возрастании в отрезке
 \end{proof}
+%<*критериймонотонностиследствия2>
 \begin{consequence}
     О доказательстве неравенств
 
@@ -49,11 +57,20 @@
 
     $g-f$ --- возр., $g(a)-f(a)\geq 0$
 \end{consequence}
+%</критериймонотонностиследствия2>
 
+%<*локальныймаксимум>
 \begin{definition}
     $f:E\subset\R\to\R, x_0\in E$ --- \textbf{локальный максимум функции}, если
     $$\exists U(x_0) \ \ \forall x\in U(x_0)\cap E\ \ f(x)\leq f(x_0)$$
 \end{definition}
+
+Аналогично определеяется минимум.
+
+\begin{definition}
+    \textbf{Экстремум} --- точка минимума либо максимума.
+\end{definition}
+%</локальныймаксимум>
 
 \begin{theorem}
     Необходимость и достаточность условия локального экстремума
@@ -94,18 +111,22 @@
 
 \subsection{Неопределенный интеграл}
 
+%<*первообразная>
 \begin{definition}
     $F, f:\langle a,b\rangle\to\R$
 
     $F$ --- \textbf{первообразная} $f$ на $\langle a,b\rangle$
     $$\forall x\in\langle a,b\rangle\quad F'(x)=f(x)$$
 \end{definition}
+%</первообразная>
 
+%<*осуществованиипервообразной>
 \begin{theorem}
     \textbf{О существовании первообразной}
     
     $f\in C(\langle a,b\rangle)$ тогда у $f$ существует первообразная.
 \end{theorem}
+%</осуществованиипервообразной>
 \begin{proof}
     Чуть позже.
 \end{proof}
@@ -124,15 +145,15 @@
     \end{enumerate}
 \end{proof}
 
-%<*неопределенный инетграл>
+%<*неопределенныйинтеграл>
 \begin{definition}
     \textbf{Неопределенный интеграл} $f$ на $\langle a,b\rangle$ --- множество всех первообразных $f$
     $$\{F+c, c\in\R\} \text{, где $F$ --- первообразная}$$
     Обозначается $\intt f=F+c$ или $\intt f(x)dx$
 \end{definition}
-%</неопределенный инетграл>
+%</неопределенныйинтеграл>
 
-%<*таблицаинтегралов>
+%<*таблицапервообразных>
 $$\intt x^ndx=\frac{x^{(n+1)}}{n+1}, n\not=-1$$
 $$\intt \frac{1}{x}dx=\ln x$$
 $$\intt \sin x dx = -\cos x$$
@@ -143,7 +164,7 @@ $$\intt \frac{1}{\sqrt{1+x^2}} dx=\ln(x+\sqrt{1+x^2}) \text{ --- длинный 
 $$\intt \frac{1}{\cos^2 x}=\tg x$$
 $$\intt \frac{1}{\sin^2 x}=-\ctg x$$
 \textcolor{red}{Почему где-то нет $dx$? Кохась забыл?}
-%</таблицаинтегралов>
+%</таблицапервообразных>
 
 \begin{theorem}
     О свойствах неопределенного интеграла
@@ -192,6 +213,7 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 
 \subsection{Равномерно непрерывные функции}
 
+%<*равномернаянепрерывность>
 \begin{definition}
     $f:\langle a,b\rangle\subset\R\to\R$ \textbf{равномерно непрерывна} на $\langle a,b\rangle$:
     $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2\in\langle a,b\rangle : |x_1-x_2|<\delta \quad |f(x_1) - f(x_2)|<\varepsilon$$
@@ -199,6 +221,7 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
     Или для метрического пространства:
     $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2 \ \ \rho(x_1, x_2)<\delta \quad \rho(f(x_1), f(x_2))<\varepsilon$$
 \end{definition}
+%</равномернаянепрерывность>
 \begin{example}
     \begin{enumerate}
         \item $f(x)=x$ равномерно непрерывна.

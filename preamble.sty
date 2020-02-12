@@ -14,9 +14,13 @@
 \usepackage{fancyhdr}
 \usepackage[russian]{babel}
 % \usepackage[utf8]{inputenc}
+\usepackage{catchfilebetweentags}
 \usepackage{accents}
 \usepackage{calc}
-% \usepackage{parindent}
+\usepackage{etoolbox}
+
+\providetoggle{useproofs}
+\settoggle{useproofs}{false}
 
 \pagestyle{fancy}
 \lfoot{M3137y2019}
@@ -68,3 +72,30 @@
 
 \newcommand{\dbltilde}[1]{\accentset{\approx}{#1}}
 \newcommand{\intt}{\int\!}
+
+% magical thing that fixes paragraphs
+\makeatletter
+\def\CatchFBT@sanitize{%
+   \@sanitize
+   \@makeother\{%
+   \@makeother\}%
+}
+\makeatother
+
+\newcommand{\get}[2]{
+    \ExecuteMetaData[#1]{#2}
+}
+
+\newcommand{\getproof}[2]{
+    \iftoggle{useproofs}{\ExecuteMetaData[#1]{#2proof}}{}
+}
+
+\newcommand{\getwithproof}[2]{
+    \get{#1}{#2}
+    \getproof{#1}{#2}
+}
+
+\newcommand{\import}[3]{
+    \subsection{#1}
+    \getwithproof{#2}{#3}
+}

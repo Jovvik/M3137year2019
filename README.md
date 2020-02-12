@@ -4,6 +4,16 @@
 
 Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм @aeriu.
 
+## 2 семестр
+
+### Матанализ
+- [Лекция #1](analysis/2sem/1.pdf)
+- [Практика #1](analysis/2sem/practice/1.pdf)
+
+### Линейная алгреба
+- [Практика #1](linear%20algebra/2sem/practice/1.pdf)
+- [Лекция #1](linear%20algebra/2sem/1.pdf)
+
 ## 1 семестр
 
 ### Линейная алгебра

@@ -14,6 +14,9 @@
 - [Практика #1](linear%20algebra/2sem/practice/1.pdf)
 - [Лекция #1](linear%20algebra/2sem/1.pdf)
 
+### Дискретная математика
+- [Лекция #1](discrete/2sem/1.pdf)
+
 ## 1 семестр
 
 ### Линейная алгебра

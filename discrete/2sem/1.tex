@@ -1,0 +1,89 @@
+\input{../../preamble.sty}
+
+\lhead{Дискретная математика}
+\cfoot{}
+
+\begin{document}
+
+\section{Дискретная теория вероятности}
+
+\begin{definition}
+    \textbf{Множетсво элементарных исходов} обозначается $\Omega$. Это множество не более чем счётное в дискретной теории вероятности
+\end{definition}
+\begin{definition}
+    \textbf{Дискретная вероятностная мера \textit{(дискретная плотность вероятности)}} - отображение $p: \Omega \to \R^+; \omega\mapsto$ вероятность исхода $\omega$. $$\sum\limits_{\omega\in\Omega} p(\omega) = 1$$
+\end{definition}
+\begin{example}
+    Честная монета
+    $$\Omega = \{0, 1\} \quad p(0) = p(1) = \frac{1}{2} \quad p(\text{\O})=0 \quad p(\{0, 1\})=1 \text{ --- достоверное событие}$$
+\end{example}
+\begin{example}
+    Нечестная монета \textit{(распределение Бернулли)}
+    $$\Omega = \{0, 1\} \quad p(0) = p \quad p(1) = q \quad p + q = 1$$
+\end{example}
+\begin{example}
+    Честная игральная кость
+    $$\Omega = \{1, 2, 3, 4, 5, 6\} \quad p(1) = p(2) = \ldots = p(6) = \frac{1}{6}$$
+    $$Even := \{2, 4, 6\} \quad Big := \{4, 5, 6\}$$
+    $$P(Even) = \frac{1}{2} \quad P(Big) = \frac{1}{2}$$
+    $$VeryBig := \{5, 6\} \quad P(VeryBig) = \frac{1}{3}$$
+\end{example}
+\begin{example}
+    Честная колода карт
+    $$\Omega = \{(r, s)\ |\ r=1\ldots13, s=1\ldots4\} \quad p((r, s))=\frac{1}{52}$$
+\end{example}
+\begin{example}
+    Честная монета с ребром
+    $$\Omega = \{0, 1, \perp\} \quad p(0) = p(1) = \frac{1}{2} \quad p(\perp) = 0$$
+\end{example}
+\begin{example}
+    Очень нечестная монета
+    $$p = 1 \quad q = 0$$
+\end{example}
+\begin{definition}
+    \textbf{Событие} --- множество элементарных исходов
+    $$A\subset\Omega$$
+\end{definition}
+$$P:2^\Omega \to \R^+ \quad P(A) = \sum\limits_{\omega \in A}: p(\omega)$$
+\begin{definition}
+    $A$ и $B$ --- \textbf{независимые}, если вероятность их пересечения равна произведению их вероятностей:
+    $$P(A\cap B)=P(A)\cdot P(B)$$
+\end{definition}
+$$P(Even \cap Big) = P(\{4, 6\}) = \frac{1}{3}$$
+$$P(Even) \cdot P(Big) = \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4} \Rightarrow Even \text{ и } Big \text{ не независимы}$$
+$$P(Even \cap VeryByg) = P(\{6\}) = \frac{1}{6}$$
+$$P(Even) \cdot P(VeryBig) = \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6} \Rightarrow Even \text{ и } VeryBig \text{ независимы}$$
+$$\sphericalangle \Omega_1, p_1, \Omega_2, p_2 \quad \Omega := \Omega_1 \times \Omega_2 \quad P(\omega)=p_1(\omega_1)p_2(\omega_2)$$
+\begin{definition}
+    События $A_1\ldots A_n$ --- \textbf{независимые в совокупности}, если
+    $$\forall I\subset\{1\ldots n\} \quad P\left(\bigcap\limits_{i\in I} A_i\right)=\prod\limits_{i\in I}P(A_i)$$
+\end{definition}
+\begin{definition}
+    События $A_1\ldots A_n$ --- \textbf{независимые попарно}, если
+    $$\forall i, j\in\{1\ldots n\} \quad P(A_i\cap A_j)=P(A_i)P(A_j)$$
+\end{definition}
+\begin{definition}
+    \textbf{Условная вероятность} --- вероятность того, что произойдет $A$, если произошло $B$:
+    $$P(A|B)=\frac{P(A\cap B)}{P(B)}$$
+\end{definition}
+$$P(Big|Even) = \frac{P(Big \cap Even)}{P(Even)} = \frac{\frac{1}{3}}{\frac{1}{2}} = \frac{2}{3}$$
+$] A$ и $B$ --- независимые
+$$P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A)\cdot P(B)}{P(B)} = P(A)$$
+$\sphericalangle A_1, A_2, \ldots A_k$ --- разбиение : $\bigcap\limits_{i=1}^k A_i=\Omega \quad A_i\cap A_j=\text{\O}$
+\begin{theorem}
+    Формула полной вероятности:
+    $$P(B)=\sum\limits_{i=1}^k P(B|A_i)\cdot P(A_i)$$
+\end{theorem}
+\begin{proof}
+    $$P(B)=\sum\limits_{i=1}^k P(B\cap A_i)=\sum\limits_{i=1}^k P(B|A_i)\cdot P(A_i)$$
+\end{proof}
+\begin{theorem}
+    Формула Байеса:
+    $$P(A_j|B)=\frac{P(A_j\cap B)}{P(B)}=\frac{P(B|A_j)P(A_j)}{\sum\limits_{i=1}^k P(B|A_i)P(A_i)}$$
+\end{theorem}
+% [============================================================================]
+% |Формула Байеыса:                                                            |
+% |P(Aj|B) = P(Cross(Aj,B))/P(B) = P(B|Aj)*P(Aj)/Sum(i = 1 to K): P(B|Aj)*P(Ai)|
+% [============================================================================]
+
+\end{document}

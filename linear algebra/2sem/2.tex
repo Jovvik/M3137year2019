@@ -1,0 +1,262 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Лекция 1}
+
+\newcommand\Warning{%
+ \makebox[1.4em][c]{%
+ \makebox[0pt][c]{\raisebox{.1em}{\small!}}%
+ \makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}%
+
+\begin{document}
+
+\begin{remark}
+    \(\{x_i\}_{i=1}^k\) --- ЛЗ \(\Leftrightarrow \{x_i\}_{i=1}^k\) обнуляет все базисные ПЛФ из $\Lambda^K$ ($C^k_n$ штук)
+\end{remark}
+
+\(\sphericalangle C=\begin{bmatrix}
+    \xi_1^1 & \xi_2^1 & \ldots & x_n^1 \\
+    \xi_1^2 & \xi_2^2 & \ldots & x_n^2 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \xi_1^n & \xi_2^n & \ldots & x_n^n \\
+\end{bmatrix}\)
+
+$$\det C = \det \{x_1\ldots x_n\} \stackrel{\triangle}{=} {}^{1\ldots n}F(x_1\ldots x_n) = \sum\limits_{(i_1\ldots i_n)} (-1)^{[i_1\ldots i_n]} \xi_1^{i_1}\ldots \xi_n^{i_n}$$
+
+\begin{definition}
+    \textbf{Рангом} $r$ матрицы $A_{m\times n}$ называется порядок её наибольшего отличного от нуля минора.
+\end{definition}
+
+\begin{remark}
+    $rank(A) \quad rg(A) \quad rang(A)$
+
+    $\exists L_{j_1\ldots j_r}^{i_1\ldots i_r}\not=0$, но $] \exists L_{j_1\ldots j_{r+1}}^{i_1\ldots i_{r+1}} \not = 0$
+\end{remark}
+
+\(\sphericalangle C=\begin{bmatrix}
+    c_{11} & c_{21} & \ldots & c_{n1} \\
+    0 & c_{22} & \ldots & c_{n2} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \ldots & c_{nn} \\
+\end{bmatrix}\)
+
+
+$$\begin{bmatrix}
+    c_{11} & c_{21} & \ldots & c_{n1} & 0 & \ldots & 0 \\
+    0 & c_{22} & \ldots & c_{n2} & 0 & \ldots & 0\\
+    \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \ldots & c_{nn} & 0 & \ldots & 0\\
+    0 & \ldots &\ldots &\ldots &\ldots & \ldots & 0 \\
+\end{bmatrix}$$
+
+\begin{enumerate}
+    \item $L_1^1=C_1 \Rightarrow rg A \geq 1$
+    \item $L_1^1=C_1C_{22}\not=0 \Rightarrow rg A \geq 2$
+    \item $L_1^1=C_1C_{22}C_{33}\not=0 \Rightarrow rg A \geq 3$
+    
+    $\vdots$
+    \item $L_{1\ldots r}^{1\ldots r+1} = \prod\limits_{i=1}^r c_{ii}\not=0 \Rightarrow rg A\geq r$
+    \item $L_{1\ldots r}^{1\ldots r+1} = 0 \Rightarrow rg A= r$
+\end{enumerate}
+$\Rightarrow rg A\leq \min(m, n)$
+
+\begin{theorem}
+    О базисном миноре
+
+    \begin{enumerate}
+        \item Число ЛНЗ строк (столбцов) матрицы $A$ равно её рангу
+        \item Любая строка (столбец) матрицы $A$ может быть представлена в виде ЛК строк (столбцов), входящих в её минор наибольшего порядка, отличного от нуля (базисный минор)
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Следует из критерия ЛНЗ
+        \item Строки (столбцы), входящие в базисный минор, образуют максимальный ЛНЗ поднабор всех строк (столбцов) матрицы $A$.        
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Крамера
+
+    $\sphericalangle$ СЛАУ: $\sum\limits_{j=1}^n a_{ij} \xi^j = b_i$, такую что $A=||a_j^i||_{i,j=1}^n \quad \det A\not=0$
+
+    Тогда:
+    \begin{enumerate}
+        \item СЛАУ совместна и определена
+        \item $\xi^j=\frac{\triangle_j}{\triangle},\quad \triangle_j=(a_1\ldots a_{j-1}, b, a_{j+1}\ldots a_n)$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $\det A = \det \{a_1\ldots a_n\} \not= 0 \Rightarrow \{a_j\}_{j=1}^n$ --- ЛНЗ $\Rightarrow$ базис $\R^n\ni b$
+        \item $\triangle_j=\det\{a_1\ldots a_{j-1}, b, a_{j+1}\ldots a_n\}=\det\{a_1\ldots a_{j-1}, \sum\limits_{j=1}^n a_{j} \xi^j, a_{j+1}\ldots a_n\}=$
+        
+        $=\sum\limits_{j=1}^n \xi^j\det\{a_1\ldots a_{j-1},  a_{j} , a_{j+1}\ldots a_n\}=\xi^k\cdot\triangle$
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Кронекера-Капелли
+
+    $\sphericalangle \sum\limits_{j=1}^n a_j\xi^j=b, ] A = \begin{bmatrix}
+        a_1 & a_2 & \ldots & a_n
+    \end{bmatrix}$
+
+    $\tilde A = \begin{bmatrix}
+        a_1 & a_2 & \ldots & a_n & | & b
+    \end{bmatrix}$
+
+    СЛАУ совместна $\Leftrightarrow rg \tilde A = rg A$
+\end{theorem}
+\begin{proof}
+    Тривиально.
+\end{proof}
+
+\section{Тензорная алгерба}
+
+\subsection{Преобразование координат в $X$ и $X^*$}
+
+$] \{e_j\}$ --- базис $X$
+
+$] \{\tilde e_k\}$ --- базис $X$
+
+$\Rightarrow \forall k \ \ \tilde e_k=\sum_{j=1}^n t_k^je_j$
+
+\begin{definition}
+    Набор $T=||t_j^i||$ образует матрицу, которая называется \textbf{матрицей перехода} от базиса $\{e_j\}$ к базису $\{\tilde e_k\}$
+\end{definition}
+
+\begin{remark}
+    $\sphericalangle E=\begin{bmatrix}
+        e_1 & e_2 & \ldots & e_n
+    \end{bmatrix}, \tilde E=\begin{bmatrix}
+        \tilde e_1 & \tilde e_2 & \ldots & \tilde e_n
+    \end{bmatrix} \Rightarrow \tilde E = ET$
+\end{remark}
+
+\begin{lemma}
+    $] \xi$ --- координаты вектора $x$ в базисе $\{e_j\}$
+    
+    $] \tilde \xi$ --- координаты вектора $x$ в базисе $\{\tilde e_k\}$
+
+    Тогда $\xi=T\tilde\xi$ или $\tilde \xi = S \xi, S=T^{-1}$
+\end{lemma}
+\begin{proof}
+    $x=\sum\limits_{k=1}^n\tilde\xi^k \tilde e_k = \sum\limits_{k=1}^n \tilde x^k \sum\limits_{j=1}^n t_k^j e_j=\sum\limits_{j=1}^n (\sum\limits_{k=1}^n \tilde \xi^k t_k^j)e_j=\sum\limits_{j=1}^n \xi^j e_j \Rightarrow \xi=T\tilde\xi$
+\end{proof}
+
+\begin{lemma}
+    $] \{f^l\}$ --- базис $X^*$, сопряженный $\{e_j\}$, т.е. $f^l(e_j)=\delta_j^l$
+    
+    $] \{\tilde f^m\}$ --- базис $X^*$, сопряженный $\{\tilde e_k\}$, т.е. $\tilde f^m(\tilde e_k)=\delta_m^k$
+
+    $] F=\begin{bmatrix}
+        f^1 & f^2 & \ldots & f^n
+    \end{bmatrix}^T,\quad \tilde F = \begin{bmatrix}
+        \tilde f^1 & \tilde f^2 & \ldots & \tilde f^n
+    \end{bmatrix}^T$
+
+    Тогда $F=T \tilde F$ или $f^l=\sum\limits_{m=1}^n t^l_m \tilde f^m$
+\end{lemma}
+\begin{proof}
+    $\sphericalangle (\tilde f^m, \tilde e_k)=\delta^m_k=(\tilde f^m, \sum\limits_{j=1}^n t_k^j e_j)=\sum\limits_{j=1}^n t_k^j (\tilde f^m, e_j)=\sum\limits_{j=1}^n t_k^j \sum\limits_{l=1}^n a_l^m (f^l, e_j)=\sum\limits_{j=1}^n t_k^j a_j^m$
+    
+    $\Rightarrow \sum\limits_{j=1}^n a_j^mt_k^j=\delta^m_k$ или $AT=I$ --- единичная матрица $\Rightarrow A=T^{-1}$
+\end{proof}
+
+\begin{lemma}
+    $]\varphi$ --- коэфф. ЛФ в $\{e_j\}$
+
+    $]\tilde\varphi$ --- коэфф. ЛФ в $\{\tilde e_k\}$
+
+    $\Rightarrow \tilde \varphi = \varphi T$
+\end{lemma}
+\begin{proof}
+    $] g$ --- ЛФ, $\varphi_j=g(e_j) \quad \tilde \varphi_k = g(\tilde e_k)$
+
+    $$\varphi_k=g(\tilde e_k) = g\left(\sum\limits_{j=1}^n t_k^j e_j\right)=\sum\limits_{j=1}^n t_k^j g(e_j)=\sum\limits_{j=1}^n t_k^j\varphi_j$$
+
+    $\Rightarrow \tilde \varphi = \varphi T$
+\end{proof}
+
+Итого:
+$$\tilde E = ET \quad \tilde F = T^{-1}F \quad \tilde\xi = T^{-1}\xi \quad \tilde \varphi = \varphi T$$
+
+\begin{definition}
+    Величины, которые преобразуются при замене базиса так же, как базисные векторы, называются \textbf{ковариантными} величинами.
+
+    Величины, которые преобразуются при замене базиса противоположным базисным векторам образом, называются \textbf{контравариантными} величинами.    
+\end{definition}
+
+\begin{remark}
+    $\xi$ --- контрвариантная величина. Верхний индекс называется контравариантным, нижний --- ковариантным.
+\end{remark}
+
+$] W\in\Omega^p_q$ --- ПЛФ $(p, q)$
+
+$] \{e_j\}_{j=1}^n$ --- базис $X$, $\{f^k\}_{k=1}^n$ --- базис $X^*$
+
+$$\Rightarrow \omega^{j_1\ldots j_n}_{i_1\ldots i_n} \stackrel{def}{=} W(e_{i_1}\ldots e_{i_p}f^{j_1}\ldots f^{j_q})$$
+
+$$\{e_j\}\xrightarrow{T} \{\tilde e_k\} \quad \{f^l\}\xrightarrow{T^{-1}} \{\tilde f^m\}$$
+
+Пусть в паре базисов $\{\tilde e_k\}$ и $\{\tilde f^m\}$ ПЛФ $W$ имеет тензор $\tilde w_{s_1\ldots s_p}^{t_1\ldots t_q}=W(\tilde e_{s_1}\ldots \tilde e_{s_p}, \tilde f^{t_1}\ldots \tilde f^{t_q})=$
+
+$$=\Warning W(t_{s_1}^{i_1}e_{i_1} \ldots t_{s_p}^{i_p}e_{i_p}, \sigma_{j_1}^{t_1}f^{j_1}\ldots \sigma_{j_q}^{t_q}f^{j_q})=$$
+$$=t^{i_1}_{s_1}\ldots t^{i_p}_{s_p} \sigma^{j_1}_{t_1}\ldots \sigma^{j_q}_{t_q}W(e_{s_1}\ldots e_{s_p}, f^{t_1}\ldots f^{t_q})$$
+
+\begin{definition}
+    \begin{enumerate}
+        \item \textbf{Вектором} называется величина, преобразующаяся по контравариантному закону
+        \item \textbf{Линейной формой} называется величина, преобразующаяся по ковариантному закону
+        \item \textbf{Тензором} типа $(p, q)$ называется величина, преобразующаяся $p$ раз по ковариантному закону и $q$ раз по контравариантному.
+    \end{enumerate}
+\end{definition}
+
+\subsection{Операции с тензорами}
+
+\begin{enumerate}
+    \item $] w, v$ --- тензоры типа $(p, q)$. Тогда $w+\alpha w$ --- тензор $(p, q)$
+    \begin{proof}
+        Тривиально.
+    \end{proof}
+    \item Транспонирование
+    
+    $t^{(st)} : \omega^{j_1\ldots j_s \ldots j_t\ldots j_q}_{i_1\ldots i_p}\mapsto\omega^{j_1\ldots j_t \ldots j_s\ldots j_q}_{i_1\ldots i_p}$
+\end{enumerate}
+
+\begin{remark}
+    Переставлять можно только индексы одного типа
+\end{remark}
+\begin{lemma}
+    Транспонирование сохраняет тензорную природу величины.
+\end{lemma}
+
+\begin{enumerate}[resume]
+    \item Свертка: $$\stackrel{k\wedge s}{\omega}^{j_1\ldots j_n}_{i_1\ldots i_n} = \sum\limits_{m=1}^n \omega^{j_1\ldots \stackrel{k}{\not m}\ldots j_q}_{i_1\ldots \stackrel{s}{\not m} \ldots i_p}$$
+\end{enumerate}
+\begin{remark}
+    Операцию свертки можно выполнять только по индексам разных типов
+\end{remark}
+\begin{lemma}
+    Свертка сохраняет тензорную природу
+\end{lemma}
+\begin{lemma}
+    $$\stackrel{\stackrel{l\wedge m}{k \wedge s}}{\omega}=\stackrel{\stackrel{k \wedge s}{l\wedge m}}{\omega}$$
+\end{lemma}
+\begin{proof}
+    От перестановки мест слагаемых конечная сумма не меняется.
+\end{proof}
+
+\begin{enumerate}[resume]
+    \item Тензорное произведение
+    
+    $\omega (p_1, q_1); v (p_2, q_2) \quad \omega\otimes v = a$
+    $$w^{j_1\ldots j_{q_1}}_{i_1\ldots i_{p_1}} \cdot v^{j_{q_1+1} \ldots j_{q_1 + q_2}}_{i_{p_1+1}\ldots i_{p_1+p_2}}=a^{j_1\ldots j_{q_1+q_2}}_{i_1\ldots i_{p_1+p_2}}$$
+\end{enumerate}
+\begin{lemma}
+    Результат тензорного произведения является тензором типа $(p_1+p_2, q_1+q_2)$
+\end{lemma}
+
+\end{document}

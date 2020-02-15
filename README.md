@@ -11,8 +11,10 @@
 - [Практика #1](analysis/2sem/practice/1.pdf)
 
 ### Линейная алгреба
-- [Практика #1](linear%20algebra/2sem/practice/1.pdf)
 - [Лекция #1](linear%20algebra/2sem/1.pdf)
+- [Лекция #2](linear%20algebra/2sem/2.pdf)
+
+- [Практика #1](linear%20algebra/2sem/practice/1.pdf)
 
 ### Дискретная математика
 - [Лекция #1](discrete/2sem/1.pdf)

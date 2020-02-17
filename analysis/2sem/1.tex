@@ -316,13 +316,13 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
     $$\forall x, \overline x : ||x-\overline x||<\delta \quad ||f(x)-f(\overline x)||<\varepsilon$$
     Можно писать не $||\cdot||$, а $\rho$.
 
-    Возьмём $n: \frac{1}{n}<\delta$
+    Возьмём $n: \frac{\sqrt 2}{n}<\delta$
 
     Построим доску $Hex(n+1, n+1)$, где $n+1$ --- число узлов.
 
-    Логические координаты узла $(v_1, v_2)\quad v_1,v_2\in\{0\ldots n\}$ имеют физические координаты $\left(\frac{v_1}{n}, \frac{v_2}{n}\right)$
+    Логические координаты узла $(v_1, v_2)\quad v_1,v_2\in\{0\ldots n\}$ имеют физические координаты, то есть узлу сопоставляется точка на квадрате с координатами $\left(\frac{v_1}{n}, \frac{v_2}{n}\right)$
 
-    $K(V):=\min\{i\in\{1,2\} : |f(\frac{v}{n}) - \frac{v_i}{n}|\}$
+    $K(V):=\min\{i\in\{1,2\} : |f(\frac{v}{n}) - \frac{v_i}{n}|\geq \varepsilon\}$
 
     Продолжение на следующей лекции.
 \end{proof}

@@ -1,0 +1,267 @@
+\input{../../preamble.sty}
+
+\usepackage{unicode-math}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{February 17, 2020}
+
+\begin{document}
+
+Продолжение доказательства
+
+\begin{proof}
+    По лемме позиция выигрышна хотя бы для одного игрока. Рассмотрим случай, когда она выигрышна для белого игрока.
+
+    В точке $A=(0, k) \rightsquigarrow (0, \frac{k}{n})$
+    $$\left|f_1(\frac{A}{n}) - \frac{A_1}{n}\right|\geq\varepsilon$$
+    $A_1=0; f_1(\frac{A}{n}) \geq 0 \Rightarrow$ при $v=A$ $$f_1(\frac{v}{n})-\frac{v_1}{n}\geq 0$$
+
+    В точке $B=(n, l) \rightsquigarrow (1, \frac{l}{n})$
+    $$\left|f_1\left(\frac{B}{n}\right) - \frac{B_1}{n}\right|\geq \varepsilon$$
+    При $v=B$ $$f_1\left(\frac{v}{n}\right)-\frac{v_1}{n}\geq -\varepsilon$$
+\end{proof}
+
+\section{Определенный интеграл}
+
+\subsection{Площадь}
+
+\begin{definition}
+    $\Eulerconst$ --- множество всех ограниченных фигур в $\R^2$ (``фигура'' = подмножество $\R^2$)
+\end{definition}
+
+\begin{definition}
+    Площадь это $\sigma : \Eulerconst \to \R_+$, такое что:
+    \begin{enumerate}
+        \item $A\in\Eulerconst \quad A=A_1\sqcup A_2 \quad \sigma A = \sigma A_1 + \sigma A_2$ (конечная аддитивность)
+        \item $\sigma([a,b]\times [c,d])=(d-c)(b-a)$
+    \end{enumerate}
+
+    Мы пока что не знаем, существует ли площадь.
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item Монотонность: $A\subset B \quad \sigma A\leq \sigma B$
+        
+        \item $\sigma$(вертик. отр.) $=0$
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}
+    \textbf{Ослабленная площадь} $\sigma : \Eulerconst \to \R_+$:
+    \begin{enumerate}
+        \item Монотонна
+        \item Нормировка
+        \item Ослабленная аддитивность: $E\in\Eulerconst \quad E=E_1\cup E_2 \quad E_1\cap E_2$ --- вертикальный отрезок, $E_1$ и $E_2$ лежат каждый в своей полуплоскости относительно этого отрезка $\sigma E=\sigma E_1 + \sigma E_2$
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item $\sigma E = \inf \left(\sum \sigma P_i : E\subset \bigcup\limits_{\text{конечное}} P_k, P_k \text{ --- прямоугольники} \right)$
+        \item $\sigma E = \inf \left(\sum \sigma P_i : E\subset \bigcup\limits_{\text{счётн.}} P_k, P_k \text{ --- прямоугольники}\right)$
+    \end{enumerate}
+\end{example}
+
+Это разные площади. Покажем это на примере фигуры ``все точки в квадрате с рациональными координатами''. Первая площадь накрывает весь квадрат $\Rightarrow \sigma_1=1$. $\sigma_2=0$. Покажем это, накрыв $n$-тую точку квадратом размера $\frac{\varepsilon}{2^n}\times \frac{\varepsilon}{2^n}$. $\sum \frac{\varepsilon}{4^n}=\varepsilon\frac{\frac{1}{4}}{1-\frac{1}{4}}=\frac{\varepsilon}{3}\to0 \Rightarrow \inf = 0$
+
+\begin{definition}
+    $f:\langle a,b\rangle\to\R$
+
+    $f_+:=\max(f, 0)$ --- \textbf{положительная срезка}
+
+    $f_-:=\max(-f, 0)$ --- \textbf{отризательная срезка}
+\end{definition}
+
+\begin{definition}
+    $f:[a,b]\to\R; f\geq 0$
+
+    $$\text{ПГ}(f, [a,b]) = \{(x, b) : x\in[a,b]; 0\leq y\leq f(x)\}$$
+\end{definition}
+
+\begin{definition}
+    $f:[a, b] \to \R$, непр.
+
+    $$\int_a^b f = \int_a^b f(x)dx := \sigma\text{ПГ}(f_+, [a,b]) - \sigma\text{ПГ}(f_, [a,b])$$
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $f\geq 0 \Rightarrow \int^b_a f \geq 0$
+        \item $f\equiv c \Rightarrow \int^b_a f = c(b-a)$
+        \item $\int^b_a -f = -\int^b_a f$ --- верно, т.к. $(-f)_+=f_-$
+        \item $\int^b_a 0 = 0$
+    \end{enumerate}
+\end{remark}
+
+%<*свойстваинтегралов>
+Свойства инетгралов:
+\begin{enumerate}
+    \item Аддитивность по промежутку $c\in(a,b)$
+    $$\int^b_a f = \int^c_a f + \int^b_c f$$
+    \begin{proof}
+        $$\sigma\text{ПГ}(f_+, [a,b])=\sigma\text{ПГ}(f_+, [a,c])+\sigma\text{ПГ}(f_+, [c,b])$$
+    \end{proof}
+    \item Монотонность: $f, g \in C[a,b] \quad f\leq g$. Тогда
+    $$\int^b_a f \leq \int^b_a g$$
+    \begin{proof}
+        $$\text{ПГ}(f_+)\subset \text{ПГ}(g_+) \Rightarrow \sigma\text{ПГ}(f_+)\leq \sigma\text{ПГ}(g_+)$$
+        $$\text{ПГ}(f_-)\supset \text{ПГ}(g_-) \Rightarrow \sigma\text{ПГ}(f_-)\geq \sigma\text{ПГ}(g_-)$$
+        $$\sigma\text{ПГ}(f_+)-\sigma\text{ПГ}(f_-)\leq\sigma\text{ПГ}(g_+)-\sigma\text{ПГ}(g_-)$$
+    \end{proof}
+\end{enumerate}
+%</свойстваинтегралов>
+
+\begin{consequence}
+    $$\min f\cdot(b - a) \leq \int^b_a f \leq \max f\cdot (b-a)$$
+\end{consequence}
+
+\begin{enumerate}[resume]
+    \item $$\left|\int^b_a f\right|\leq \int^b_a |f|$$
+    $$-|f|\leq f \leq |f|$$
+    $$-\int^b_a|f|=\int^b_a-|f|\leq \int^b_a f\leq \int^b_a |f|$$
+\end{enumerate}
+
+%<*интегралспеременнымверхнимпределом>
+\begin{definition}
+    $f\in C[a,b] \quad \Phi : [a,b] \to\R \quad \Phi(x)=\int_a^x f$ --- \textbf{интеграл с переменным верхним пределом}
+
+    $\Phi(a)=0$
+\end{definition}
+%</интегралспеременнымверхнимпределом>
+
+%<*теоремабарроу>
+\begin{theorem}
+    $f\in C[a,b] \quad \Phi$ --- интеграл с переменным верхним пределом. Тогда $$\forall x\in[a,b] \quad \Phi'(x)=f(x)$$
+\end{theorem}
+%</теоремабарроу>
+%<*теоремабарроуproof>
+\begin{proof}
+    Зафиксируем $x\in[a,b] \quad y>x, y\leq b$
+    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{\int_x^y f}{y-x} \underset{\underset{\exists c\in[x,y]}{\text{т.о.ср.}}}{=} f(x)\xrightarrow[x\to x+0]{} f(x)$$
+    $x>y$
+    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{\int_a^y f - (\int_a^y f+ \int_y^x f)}{y-x}=\frac{1}{x-y}\int^x_y f = f(c)\xrightarrow[y\to x-0]{} f(x)$$
+\end{proof}
+%</теоремабарроуproof>
+
+%<*осуществованиипервообразнойproof>
+Теорема о существовании первообразной --- следствие теоремы Барроу.
+%</осуществованиипервообразнойproof>
+
+\begin{remark}
+    $$\Psi(x)=\int_x^b f$$
+
+    $$\Psi'(x)=-f(x)$$
+\end{remark}
+
+$$\left( \int_{x^2}^{10\sqrt x + 1} f(t)dt \right)'=f(10\sqrt x + 1) \frac{5}{\sqrt x} - f(x^2)2x$$
+
+$$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac{\sin t}{\sqrt t}dt \right)'$$
+Этот интеграл не написать в word. Tex нормас, как видите. Это единственное, зачем Кохась написал этот интеграл.
+
+%<*ньютоналейбница>
+\begin{theorem}
+    $f\in C[a,b] \quad F \text{ --- первообр. } f$
+
+    Тогда $\int_a^b f = F(b) - F(a)$
+\end{theorem}
+%</ньютоналейбница>
+%<*ньютоналейбницаproof>
+\begin{proof}
+    $\Phi(x) = \int_0^x f$ --- первообр.
+
+    $\exists C : F = \Phi + C$
+    $$\int_a^b f = \Phi(b)=\Phi(b) - \Phi(a) = F(b) - F(a)$$
+\end{proof}
+%</ньютоналейбницаproof>
+
+\begin{remark}
+    Все ослабленные площади совпадают на ПГ$(f, [a,b]), \quad f\in C[a,b]$
+\end{remark}
+
+\subsection{Правило Лопиталя}
+
+\begin{lemma}
+    Об ускоренной сходимости
+
+    \begin{enumerate}
+        \item $f, g : D\subset X \to \R \quad a$ --- предельная точка $D$
+
+        $\exists U(a) : $ при $x\in\dot U(a)\cap D \quad f(x)\not=0, g(x)\not=0$
+    
+        Пусть $\lim\limits_{x\to a} f(x) = 0 \quad \lim\limits_{x\to a} g(x) = 0$
+        
+        Тогда $$\forall x_k\to a \quad (x_k\not=a, x_k\in D) \quad \exists y_k\to a(y_k\not=a, y_k\in D)$$
+        такое, что $$\lim\limits_{k\to+\infty}\frac{f(y_k)}{g(x_k)}=0 \quad \lim\limits_{k\to+\infty} \frac{g(y_k)}{g(x_k)}=0$$
+    
+        Таким образом, $g(y_k) \to 0$ быстрее, чем $g(x_k)\to 0$
+
+        \item То же самое, но $\lim f(x)=+\infty, \lim g(x)=+\infty$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}
+        \item Очевидно.
+        $$\forall k \quad \exists N \quad \forall n>N \quad |f(x_n)|<|g(x_k)|\frac{1}{k} \quad |g(x_n)|<|g(x_k)|\frac{1}{k}$$
+        $\varepsilon:=|g(x_k)|$
+
+        $$k=1 \quad y_1 := \text{какой-нибудь } x_n : \left|\frac{f(x_n)}{g(x_k)}\right|<1 \quad \left|\frac{g(x_n)}{g(x_k)}\right|<1$$
+        $$k=2 \quad y_2 := \text{какой-нибудь } x_n : \left|\frac{f(x_n)}{g(x_k)}\right|<\frac{1}{2} \quad \left|\frac{g(x_n)}{g(x_k)}\right|<\frac{1}{2} $$
+        $$\vdots$$
+
+        \item \begin{enumerate}
+            \item Частный случай: Пусть $g(x_n)$ возрастает. Берем $k$ : $m:=\min\{n : |f(x_n)|\geq \sqrt{g(x_k)} \text{ или }$
+            
+            $|g(x_n)|\geq\sqrt{g(x_k)}\}$
+            
+            $y_k:=x_{m-1}$
+            $$\left|\frac{f(y_k)}{g(x_k)}\right|\leq \frac{\sqrt{g(x_k)}}{g(x_k)}=\frac{1}{\sqrt{g(x_k)}}\xrightarrow[k\to+\infty]{}0$$
+
+            \textcolor{red}{Зачем нужно возрастание? Кохась не знает.}
+
+            \item Общий случай: $\tilde g(x_k):=\inf\{g(x_n), n=k, k+1\ldots\} \quad \tilde g(x_k)\to+\infty$
+            
+            $\tilde g(x_k)\uparrow, \tilde g(x_k)\leq g(x_k)$. Как в пункте (a) построим $y_k$
+            $$\frac{f(y_k)}{g(x_k)}\leq \frac{f(y_k)}{\tilde g(x_k)} \leq \frac{1}{\sqrt{\tilde g(x_k)}}\xrightarrow[k\to+\infty]{} 0$$
+            $$\frac{g(y_k)}{g(x_k)}\leq \frac{g(x_k)}{\tilde g(x_k)}\leq \frac{1}{\sqrt{\tilde g(x_k)}}\to0$$
+        \end{enumerate}
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    $f,g : (a,b)\to\R \quad a\in\overline\R$
+
+    $f,g$ --- дифф., $g'\not=0$ на $(a,b)$
+
+    Пусть $\frac{f'(x)}{g'(x)}\xrightarrow[x\to a+0]{} A\in\overline\R$
+
+    Пусть $\lim\limits_{x\to a}\frac{f(x)}{g(x)}$ --- неопределенность $\left\{\frac{0}{0}, \frac{+\infty}{+\infty}\right\}$
+
+    Тогда $\exists \lim\limits_{x\to a} \frac{f(x)}{g(x)}=A$
+\end{theorem}
+\begin{proof}
+    $g'\not=0 \Rightarrow g'$ --- сохр. знак $\Rightarrow g$ --- монотонна.
+
+    Для $\frac{0}{0} \quad g(x)\not=0$ в $(a,b)$
+
+    По Гейне $x_k\to a \ \ (x_k\not=a, x_k\in(a,b))$
+
+    Выберем $y_k$ по лемме
+
+    $$\frac{f(x_k)-f(y_k)}{g(x_k)-g(y_k)}=\frac{f'(\xi_k)}{g'(\xi_k)} \text{ --- т. Коши}$$
+
+    $$\frac{f(x_k)}{g(x_k)}-\frac{f(y_k)}{g(x_k)}=\frac{f'(\xi_k)}{g'(\xi_k)}\left(1-\frac{g(y_k)}{g(x_k)}\right)$$
+
+    $x_k\to a \quad y_k\to a \quad \xi_k \to a$
+\end{proof}
+
+\begin{example}
+    $\frac{\pi}{2} - \arctg x \underset{x\to+\infty}{\sim} g(x)$
+    $$\lim\limits_{x\to +\infty} \frac{\frac{\pi}{2} - \arctg x}{g(x)}=\lim\limits_{x\to +\infty}\frac{\frac{1}{x^2+1}}{g'(x)} = 1$$
+\end{example}
+
+$$\int_0^x e^{t^2}dt \underset{x\to+\infty}{\sim} g(x)$$
+$$\lim\frac{\int_0^x e^{t^2}dt}{g(x)}=\lim\frac{e^{x^2}}{g'(x)}=1$$
+
+\end{document}

@@ -7,8 +7,11 @@
 ## 2 семестр
 
 ### Матанализ
+- [Конспект к первому опросу](analysis/2sem/opros1.pdf)
 - [Лекция #1](analysis/2sem/1.pdf)
+- [Лекция #2](analysis/2sem/2.pdf)
 - [Практика #1](analysis/2sem/practice/1.pdf)
+- [Практика #2](analysis/2sem/practice/2.pdf)
 
 ### Линейная алгебра
 - [Практика #1](linear%20algebra/2sem/practice/1.pdf)
@@ -17,6 +20,7 @@
 
 ### Дискретная математика
 - [Лекция #1](discrete/2sem/1.pdf)
+- [Лекция #2](discrete/2sem/2.pdf)
 
 ## 1 семестр
 

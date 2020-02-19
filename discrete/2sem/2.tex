@@ -1,0 +1,103 @@
+\input{../../preamble.sty}
+
+\lhead{Дискретная математика}
+\cfoot{}
+
+\begin{document}
+    
+\section{Случайные величины}
+
+\begin{definition}
+    Случайная величина --- отображение $\xi : \Omega \to \R$
+\end{definition}
+
+Рассмотрим игру, где преподаватель бросает честную монетку, и если выпал 0, то он платит 1 рубль, иначе каждый ученик платит ему 1 рубль. Заметим, что игра не честная, т.к. $win(0) = -1, win(1)=100; \quad win : \Omega \to \R$
+
+\begin{definition}
+    \textbf{Функция распределения} случайной величины:
+    $$F_\xi(a)=P(\xi\leq a)$$
+\end{definition}
+
+В выше рассмотренной игре $F_{win}(a)=\begin{cases}
+    0 & a<-1 \\
+    \frac{1}{2} & -1\leq a < 100 \\
+    1 & a \geq 100
+\end{cases}$
+
+\begin{definition}
+    \textbf{Плотность распределения} случайной величины $f_\xi(a)=P(\xi=a) \quad f_\xi(a)=F'_\xi(a)$
+\end{definition}
+
+График плотности распределения величины выигрыша для вышеуказанной игры $f_\xi(a)=\begin{cases}
+    \frac{1}{2} & a=-1 \\
+    \frac{1}{2} & a=100 \\
+    0 & \text{иначе}
+\end{cases}$
+
+Вернемся к игре преподавателя. $\Omega = \{0, 1\} \quad win(0)=-1, win(1)=100 \quad P(win = -1) = \frac{1}{2}, P(win = 100) = \frac{1}{2}$
+
+\begin{definition}
+    \textbf{Математическое ожидание} --- среднее взвешенное значение случайной величины.
+    $$E_\xi=M_\xi=\sum\limits_{\omega \in \Omega} p(\omega) \cdot \xi(\omega)$$
+\end{definition}
+
+В игре преподавателя $$E_\xi=\frac{1}{2}(-1)+\frac{1}{2}100 = 49.5$$
+
+$$E_\xi=\sum\limits_{\omega \in \Omega} p(\omega) \cdot \xi(\omega)=\sum\limits_{a}\sum\limits_{\underset{\xi(\omega) = a}{w\in\Omega}}p(\omega)\cdot a=\sum\limits_{a}a\cdot P(\xi=a)$$
+
+\subsection{Действия с случайными величинами}
+
+$\xi, \eta$ --- случайные величины. Следующие операции возможны: $$\xi+\eta \quad \xi\cdot\eta \quad a\in\R \cdot \xi \quad \xi^2 \quad \arctg \xi$$
+
+$$F_{c\xi}(a)=P(c\xi\leq a) = P(\xi\leq\frac{a}{c})=F_\xi\left(\frac{a}{c}\right)$$
+$$f_{c\xi}(a)=f_\xi\left(\frac{a}{c}\right)$$
+$$E(c\xi)=\sum\limits_{\omega\in\Omega} p(w)\cdot c\cdot \xi(\omega) = c\cdot E(\xi)$$
+$$E(\xi+\eta)=\sum\limits_{\omega}p(\omega)(\xi(\omega)+\eta(\omega))=\sum\limits_{\Omega} (p(\omega)\xi(\omega)+p(\omega)\eta(\omega))=E\xi+E\eta$$
+
+\begin{definition}
+    \textbf{Неподвижной точкой} в перестановке называется такой индекс $i$, что $\pi_i=i$
+\end{definition}
+
+Рассмотрим $\xi(\pi)$ --- количество неподвижных точек в случайной перестановке.
+
+Посчитать распределение $\xi$ --- сложная задача, в отличие от матожидания.
+
+$$\xi_i(\pi):=\begin{cases}
+    1 & \pi[i]=i \\
+    0 & \text{иначе}
+\end{cases}$$
+
+Такие величины называются \textbf{индикаторными}.
+
+$$\xi(\pi)=\sum\limits_{i=1}^n \xi_i(\pi)$$
+$$P(\xi_i=1)=\frac{(n-1)!}{n!}=\frac{1}{n}$$
+$$E_{\xi_i}=0\cdot\frac{n-1}{n}+1\cdot\frac{1}{n}=\frac{1}{n}$$
+$$E_\xi = 1$$
+
+Итого в случайной перестановке ожидается ровно 1 неподвижная точка.
+
+Можно заметить, что $\xi_i$ вроде как влияют друг на друга --- если все, кроме одной $\xi_i=1$, то и оставшаяся $\xi_j=1$. Однако это не влияет на матожидание.
+
+\begin{definition}
+    $\xi$ и $\eta$ --- \textbf{независимые}, если $\forall a, b$ события $\xi\leq a$ и $\eta\leq b$ --- независимые.
+\end{definition}
+
+Матождиание линейно всегда, в том числе для зависимых величин.
+
+\begin{theorem}
+    $\xi$ и $\eta$ --- независимые, если $E(\xi, \eta) = E_\xi E_\eta$
+\end{theorem}
+\begin{lemma}
+    $\xi$ и $\eta$ --- независимые $\Leftrightarrow [\xi=a], [\eta=b]$ независимые $\forall a$ и $b$
+\end{lemma}
+$$E(\xi\eta)=\sum\limits_{a}P(\xi\eta=a)a=\sum\limits_{a}\sum\limits_{x} P(\xi\cdot\eta=a | \xi=x)$$
+$$P(\xi=x)\cdot a=\sum\limits_{a}\sum\limits_{x} P\left(\eta=\frac{a}{x}\right)P(\xi=x)\frac{a}{x}\cdot x$$
+$$P(\xi\eta=a | \xi=x)=\frac{P(\xi\eta=a\cap\xi=x)}{P(\xi=x)}=\frac{P(\xi=x\cap \eta=\frac{a}{x})}{P(\xi=x)}=$$
+$$\frac{P(\xi=x)P(\eta=\frac{a}{x})}{P(\xi=x)}=P(\eta=\frac{a}{x})$$
+
+Матожидание --- не единственная оценка игры. Ещё есть \textbf{дисперсия} --- квадрат матожидания разности величины и её матожидания:
+$$Dx=(x-Ex)^2=E(x^2-2xEx+(Ex)^2)=Ex^2-2ExEx+(Ex)^2=Ex^2-(Ex)^2$$
+$$D(\xi+\eta)=E(\xi+\eta)^2-(E\xi+E\eta)^2=E\xi^2+E\eta^2+2E(\xi\eta)-(E\xi)^2-(E\eta)^2-2E\xi E\eta=$$
+$$=D\xi+D\eta+2(E\xi\eta - E\xi E\eta):=D\xi+D\eta+Cov(\xi, \eta)$$
+
+\end{document}

@@ -1,0 +1,185 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Лекция 3}
+
+\begin{document}
+
+\section{Линейный оператор}
+
+\subsection{Основные определения}
+
+$\sphericalangle \varphi : X\to Y$, $X, Y$ --- ЛП, $\dim X = n, \dim Y = m$
+
+\begin{definition}
+    Отображение $\varphi$ назвыается линейным, если
+    $$\forall x_1,x_2\in X \quad \varphi(x_1+x_2)=\varphi(x_1)+\varphi(x_2)$$
+    $$\forall \alpha\in K \quad \varphi(\alpha x) = \alpha \varphi (x)$$
+\end{definition}
+
+\begin{definition}
+    Отображение $\varphi$, обладающее свойством линейности называется \textbf{линейным оператором} (ЛОп)
+\end{definition}
+
+\begin{example}
+    \begin{itemize}
+        \item $\Theta : \Theta x = 0_Y$ --- нулевой оператор
+        \item $J : Jx = x$ --- единичный \textit{(тождественный)} оператор
+        \item $] X = L_1 \dot+ L_2 \stackrel{def}{\Leftrightarrow} \forall x\in X \ \ \exists! x_1\in L_1, x_2\in L_2 : x = x_1 + x_2$
+        
+        Проэктор: $$\mathcal{P}_{L_1}^{||L_2} : X\to L_1 \quad \mathcal{P}_{L_1}^{||L_2} x = x_1$$
+
+        $$\mathcal{P}_{L_2}^{||L_1} : X\to L_2 \quad \mathcal{P}_{L_2}^{||L_1} x = x_2$$
+        
+        \item $] X = C^1[-1, 1]$ --- первая производная $\exists$ и непрерывна
+        
+        $$\forall f\in X \quad (\varphi f)(x) = \int\limits_{-1}^1 f(t) K(x, t) dt$$
+
+        $K(x,t)$ --- интегральное ядро, например $x^2+tx$
+    \end{itemize}
+\end{example}
+
+$] \{e_j\}_{j=1}^n$ --- базис $X, \{h_k\}_{k=1}^m$ --- базис $Y$.
+
+$\sphericalangle \varphi : X\to Y$
+
+$\sphericalangle \varphi(e_j) = \sum\limits_{k=1}^m a_j^k h_k$
+
+\begin{definition}
+    Набор коэффициентов $||a_j^k||$ образует матрицу $m\times n$, которая называется матрицей ЛОп в паре базисов $\{e_j\}$ и $\{h_k\}$
+\end{definition}
+
+\begin{itemize}
+   \item $\Theta \to A_\Theta = 0_{m\times n}$
+   \item $J \to A_J = E$
+\end{itemize}
+
+\begin{theorem}
+    Задание ЛОп $\varphi$ эквивалентно заданию его матрицы в известной паре базисов пространств $X$ и $Y$
+\end{theorem}
+\begin{proof}
+    ``$\Rightarrow$'' очевидно
+
+    ``$\Leftarrow$'' $] A$ --- матрица ЛОп $\varphi \Rightarrow \sphericalangle x\in X, x=\sum\limits_{j=1}^n \xi^j e_j$
+    $$\sphericalangle \varphi(x) = \varphi(\sum\limits_{j=1}^n \xi^j e_j) = \sum\limits_{j=1}^n \xi^j \varphi(e_j) = \sum\limits_{j=1}^n \sum\limits_{k=1}^m \xi^j a_j^k h_k = \sum\limits_{k=1}^m \left(\sum\limits_{j=1}^n \xi^j a_j^k\right) h_k$$
+\end{proof}
+
+$] \varphi, \psi : X\to Y$ --- ЛОп
+
+$\chi = \varphi + \psi$, если $\forall x\in X \quad \chi(x) = (\varphi + \psi) x = \varphi(x) + \psi(x)$
+
+$\chi = \alpha\varphi$, если $\forall x\in X \quad \chi(x) = (\alpha\varphi) x = \alpha\varphi(x)$
+
+\begin{remark}
+    $$\dim \mathcal{L}(X, Y) = \dim X \cdot \dim Y = m\cdot n$$
+\end{remark}
+\begin{remark}
+    $] K_n^m$ --- множество матриц $m\times n$
+
+    $K_n^m$ --- линейное пространство
+
+    $\dim K_n^m=m\cdot n \Rightarrow \mathcal{L}(XY)\simeq K_n^m$
+\end{remark}
+
+\subsection{Алгебра операторов и матриц}
+
+$] \varphi : X \to Y \quad \psi : Y\to Z$
+
+$X, Y, Z$ --- ЛП: $\dim X = n, \dim Y = m, \dim Z = k$
+
+$\sphericalangle \sigma : X\to Z : \forall x \quad \sigma(x)=\psi(\varphi x)$
+
+\begin{definition}
+    Отображение $\sigma$ называется \textbf{произведением} \textit{(композицией)} $\psi$ и $\varphi$ 
+\end{definition}
+
+\begin{lemma}
+    $\sigma$ --- ЛОп
+\end{lemma}
+\begin{proof}
+    $\sphericalangle \sigma(x+y)=\psi(\varphi(x+y))=\psi(\varphi x + \varphi y) = \psi\varphi x + \psi \varphi y = \sigma x + \sigma y$
+\end{proof}
+
+$] \{e_i\}_{i=1}^n$ --- базис $X$, $\{h_j\}_{j=1}^m$ --- базис $Y$, $\{g_l\}_{l=1}^k$ --- базис $Z$
+
+$\varphi\to A=||a^j_i|| \quad \psi \to B=||b^l_j|| \quad \sigma \to C=||c_i^l||$
+
+\begin{theorem}
+    $\sigma = \psi\varphi \Leftrightarrow C=BA$
+\end{theorem}
+\begin{proof}
+    $\sigma(e_i)=\psi(\varphi(e_i))=\psi(\sum\limits_{j=1}^m a_i^j h_j) = ,\sum\limits_{j=1}^m a_i^j \psi(h_j)=\sum\limits_{j=1}^m a_i^j \sum\limits_{l=1}^k b_j^l g_l = \sum\limits_{l=1}^k \left(\sum\limits_{j=1}^m a_i^j b_j^l \right) g_l$
+
+    $c_i^l=\sum\limits_{j=1}^m a_i^j b_j^l \Rightarrow C=BA$
+\end{proof}
+
+$\sphericalangle \varphi, \psi : X\to X \Rightarrow \sigma = \psi \varphi : X\to X$
+
+Свойства композиции:
+\begin{enumerate}
+    \item $(\varphi+\psi)\sigma = \varphi\sigma + \psi\sigma$
+    \begin{proof}
+        $(\varphi+\psi)\sigma x = (\varphi + \psi)(\sigma x) = \varphi\sigma x + \psi \sigma x$
+    \end{proof}
+    \item $\varphi(\psi + \sigma)=\varphi\psi + \varphi\sigma$
+    \begin{remark}
+        $\varphi\psi\not=\psi\varphi$
+    \end{remark}
+    \item $\varphi(\alpha\psi) = (\alpha \varphi)\psi = \alpha \varphi \psi$
+    \item $\varphi(\psi \sigma) = (\varphi\psi)\sigma = \psi \varphi \sigma$
+\end{enumerate}
+
+Таким образом, ЛОп --- алгебра, т.к. это мультипликативный моноид и аддитивная полугруппа.
+
+\begin{definition}
+    Множество, наделенное согласованными структурами линейного пространства и мультипликативного моноида, называется алгеброй.
+\end{definition}
+
+\begin{theorem}
+    $\mathcal{L}(X, X) = X\times X$ --- алгебра.
+\end{theorem}
+\begin{proof}
+    См. выше
+\end{proof}
+
+$] A$ --- алгебра
+
+$] \{e_j\}_{j=1}^n$ --- базис $A$
+
+$$x,y\in X \quad x=\sum\limits_{j=1}^n \xi^je_j \quad y=\sum\limits_{k=1}^n \eta^ke_k$$
+$$\sphericalangle x\cdot y = \sum\limits_{j,k=1}^n\xi^j\eta^k(e_j\cdot e_k) = \sum\limits_{j,k=1}^n \xi^j\eta^k\sum\limits_{l=1}^n m^l_{jk}e_l=\sum\limits_{l=1}^n\left(\sum\limits_{j,k=1}^n m^l_{jk}\xi^j\eta^k \right)e_l$$
+
+\begin{definition}
+    Набор $m^l_{jk}$ называется структуной константой алгебры $A$.
+\end{definition}
+
+\begin{example}
+    $\sphericalangle \C \quad \{1, i\}$ --- базис $\C$
+
+    $$\begin{bmatrix}
+        m^l_{jk} & 1 & i \\
+        1 & 1 & i \\
+        i & i & -1
+    \end{bmatrix} \text{ --- таблица Кэли}$$
+\end{example}
+\begin{example}
+    $\R^4 \quad \{1\ i\ j\ k\}$
+
+    $$\begin{bmatrix}
+        & 1 & i & j & k \\
+        1 & 1 & i & j & k \\
+        i & i & -1 & k & -j \\
+        j & j & -k & -1 & i \\
+        k & k & j & -i & -1
+    \end{bmatrix}$$
+\end{example}
+
+$] A_1, A_2$ --- алгебры
+
+\begin{definition}
+    $A_1$ и $A_2$ называются \textbf{изоморфными}, если существует биекция, сохраняющая их алгебраическую структуру:
+    $$\forall x_1, x_2\in A_1 \quad x_1\leftrightarrow y_1, x_2\leftrightarrow y_2 \Rightarrow (x_1+x_2)\leftrightarrow (y_1+y_2) \quad \alpha x_1 \leftrightarrow \alpha y_1 \quad x_1x_2 \leftrightarrow y_1y_2$$
+\end{definition}
+
+\end{document}

@@ -1,0 +1,104 @@
+\input{../../../preamble.sty}
+
+\cfoot{}
+
+\begin{document}
+
+$$I_n(x)=\intt \sin^n x dx = \intt \sin^{n-1}\sin x dx = [u := \sin^{n-1}x, dv:= \sin x dx, v=-\cos x]=-\cos x \sin^{n-1} x+$$
+$$+ (n-1)\intt \cos^2x \sin^{n-2}x dx=-\cos x \sin ^{n-1}x + (n-1)\left(\intt \sin^{n-2}x dx - \intt \sin^n xdx\right)=$$
+$$=-\cos x \sin ^{n-1}x + (n-1)\left(I_{n-2}(x) - I_n(x)\right)$$
+$$I_n=-\cos x \sin ^{n-1}x + (n-1)\left(I_{n-2}(x) - I_n(x)\right)$$
+$$I_n=\frac{-\cos x \sin ^{n-1}x + (n-1)I_{n-2}(x)}{n}$$
+$$I_0=x$$
+$$I_1=\cos x$$
+$$I_2=\frac{-\cos x \sin x + I_0}{2}=\frac{-\cos x \sin x + x}{2}$$
+$$\left(\frac{-\cos x \sin x + x}{2}\right)'=\frac{1}{2}((\sin2x)' + 1)=\frac{1}{2}(-\cos 2x \cdot 2 + 1)=-\cos 2x + 1=\sin^2 x$$
+
+$$\intt \frac{dx}{(x^2+1)^n}=[u=\frac{1}{(x^2+1)^{n}}, dv=dx, du=-n\frac{1}{(x^2+1)^{n+1}}2xdx]=$$
+$$=\frac{1}{(x^2+1)^{n}} + \intt xn\frac{1}{(x^2+1)^{n+1}}2xdx=\frac{1}{(x^2+1)^{n}} + \intt n\frac{x^2+1-1}{(x^2+1)^{n+1}}2dx=$$
+$$=\frac{1}{(x^2+1)^{n}} + 2n\left(I_n - I_{n+1}\right)$$
+$$I_{n+1}=\frac{1}{2n}\left(\frac{x}{(x^2+1)^n}+(2n-1)I_n\right)$$
+$$I_0=x \quad I_1=\arctg x \quad I_2=\frac{1}{2}\left(\frac{x}{x^2+1}+\arctg\right)$$
+Проверка
+$$\frac{1}{2}\left(\frac{x}{x^2+1}+\arctg\right)'=\frac{1}{2}\left(\frac{x^2+1-2x^2}{(x^2+1)^2}+\frac{1}{x^2+1}\right)=\frac{1}{(x^2+1)^2}$$
+\section{Интегралы простейших дробей}
+\begin{enumerate}
+    \item $$\intt \frac{1}{x-a}dx=\ln|x-a|+C$$
+    \item $n\not=1$
+    $$\frac{dx}{(x-a)^n}=\frac{1}{(1-n)(x-a)^n}+C$$
+    \item $$\frac{dx}{x^2+1}=\arctg x$$
+    \item $$\frac{x}{x^2+1}dx=\frac{1}{2}\intt \frac{d(x^2+1)}{x^2+1}=\frac{1}{2}\ln|x^2+1|$$
+    \item $$\intt \frac{dx}{(x^2+1)^n}$$
+    \item $$\intt \frac{xdx}{(x^2+1)^n}=\frac{1}{2}\intt \frac{d(x^2+1)}{(x^2+1)^n}=\frac{1}{2}\frac{1}{(1-n)(x^2+1)^{n-1}}$$
+\end{enumerate}
+
+$$\intt \frac{Ex+F}{x^2+bx+c}dx; b^2-4c<0$$
+$$[\text{замена}] = \intt\frac{At+B}{t^2+1}$$
+$$\left(x+\frac{b}{2}\right)^2+c-\frac{b^2}{4}$$
+$$\left(\frac{Ex+F}{\left(x+\frac{b}{2}\right)^2+c-\frac{b^2}{4}}\right)=\frac{1}{c-\frac{b^2}{4}}\intt \frac{Ex+F}{\frac{(x+\frac{b}{2})^2}{c-\frac{b^2}{4}}+1}dx=\left[t=\frac{x+\frac{b}{2}}{\sqrt{c-\frac{b^2}{4}}}\right]$$
+$$\intt \frac{\tilde Et + \tilde F}{t^2+1}dt$$
+
+$$\intt \frac{3x+4}{x^2+2x+2}dx=\intt\frac{3x+4}{(x+1)^2+1}dx=[x+1=t, dx=dt]=\intt\frac{3(t-1)+4}{t^2+1}dt=$$
+$$=\frac{3}{2}\ln|t^2+1|+\arctg t + C$$
+$$\intt \frac{dt}{t^2+a^2}=\frac{1}{a}\arctg\frac{t}{a}$$
+
+\section{Интегрирование рациональных дробей}
+
+$\frac{P_n(x)}{Q_m(x)}$ --- рациональная дробь.
+$$Q_m:=\prod\limits_{k=1}^N(x-a_k)^{r_k}\cdot \prod\limits_{k=1}^M(x^2+b_kx+c_k)^{s_k}$$
+$$\frac{P_n(x)}{Q_m(x)}=\text{ целая часть, если } n\geq m + \sum\limits_{k=1}^{N}\sum\limits_{j=1}^{r_k} \frac{A_{kj}}{(x-a_k)^j} + \sum\limits_{k=1}^{M}\sum\limits_{j=1}^{s_k} \frac{B_{kj}x+C_{kj}}{(x^2+b_kx+c_k)^j}$$
+
+$$\frac{x^3+1}{x^3-5x^2+6x}$$
+$$\text{Выделим целую часть: } \frac{x^3+1}{x^3-5x^2+6x}=1+\frac{5x^2-6x+1}{x^3-5x^2+6x}=1+\frac{5x^2-6x+1}{x(x-2)(x-3)}=\frac{A}{x}+\frac{B}{x-2}+\frac{C}{x-3}$$
+
+Это метод неопределенных коэффициентов.
+
+$$=\frac{A(x^2-5x+6)+B(x^2-3x)+C(x^2-2x)}{x(x-2)(x-3)}$$
+
+$$x^2: A+B+C=5$$
+$$x: -5A-3B-2C=6$$
+$$1: 6A=1$$
+$$A=\frac{1}{6}$$
+$$B+C=\frac{29}{6}$$
+$$-\frac{5}{6}-\frac{58}{6}-B=6$$
+$$-\frac{63}{6}+\frac{36}{6}=B$$
+$$B=\frac{-27}{6}$$
+$$C=\frac{56}{6}$$
+$$\intt \frac{x^3+1}{x^3-5x^2+6x} dx = x + \frac{1}{6} \ln|x|-\frac{27}{6}\ln|x-2|+\frac{56}{6}\ln|x-3|+C$$
+$$\intt \frac{dx}{x^3+1}=\intt \frac{dx}{(x+1)(x^2-x+1)}$$
+$$\frac{1}{(x+1)(x^2-x+1)}=\frac{A}{x+1}+\frac{Bx+C}{x^2-x+1}=\frac{A(x^2-x+1)+(Bx+C)(x+1)}{(x+1)(x^2-x+1)}$$
+$$x^2=0: A+B$$
+$$x=0: -A+B+C$$
+$$1=1: A+C$$
+$$A=-B \quad C = \frac{2}{3} \quad A = \frac{1}{3} \quad B=-\frac{1}{3}$$
+
+$$\intt \frac{dx}{x^3+1}=\frac{1}{3}\intt\frac{dx}{x+1}+\frac{1}{3}\intt\frac{-x+2}{x^2-x+1}dx$$
+1 способ
+$$\intt\frac{-x+2}{x^2-x+1}dx=\intt\frac{-x+2}{\left(x-\frac{1}{2}\right)^2+\frac{3}{4}}dx=[t:=x-\frac{1}{2}]=$$
+$$\intt\frac{-t+\frac{3}{2}}{t^2+\frac{3}{4}}dx=-\frac{1}{2}\ln|t^2+\frac{3}{4}|+\frac{3}{2}\frac{2}{\sqrt 3}\arctg \frac{2t}{sqrt 3}$$
+2 способ
+$$\intt\frac{-x+2}{x^2-x+1}dx=\intt\frac{-\frac{1}{2}(2x-1)+\frac{3}{2}}{x^2-x+1}dx=-\frac{1}{2}\ln|x^2-x+1|+\frac{3}{2}\intt\frac{dx}{\left(x-\frac{1}{2}\right)^2+\frac{3}{4}}=$$
+$$=-\frac{1}{2}\ln|x^2-x+1|+\frac{3}{2}\cdot\frac{2}{\sqrt 3}\arctg\frac{x-\frac{1}{2}}{\frac{\sqrt 3}{2}}$$
+
+$$\intt\frac{dx}{x^4+1}=\intt\frac{dx}{(x^2+1)^2-2x^2}=\intt\frac{dx}{(x^2-\sqrt 2x+1)(x^2+\sqrt 2x+1)}$$
+$$\frac{1}{x^4+1}=\frac{Ax+B}{x^2-\sqrt 2 x + 1}+\frac{Cx+D}{x^2+\sqrt 2 x + 1}=\frac{(Ax+B)(x^2+\sqrt 2 x + 1)+(Cx+D)(x^2-\sqrt 2 x + 1)}{x^4+1}$$
+$$x^3:0=A+C$$
+$$x^2:0=B+D+\sqrt 2A-\sqrt 2C$$
+$$x:0=A+C+\sqrt2B-\sqrt2D$$
+$$1:1=B+D$$
+$$B=D \quad B=0.5=D \quad A=C=\frac{1}{2\sqrt 2}$$
+$$\intt\frac{\frac{1}{2\sqrt 2}x+0.5}{x^2-\sqrt 2x+1}dx=\intt\frac{\frac{1}{4\sqrt 2}(2x-\sqrt 2)+\frac{3}{4}}{x^2-\sqrt 2 x + 1}dx=$$
+$$=\frac{1}{4\sqrt 3}\ln(x^2+\sqrt 2 x + 1)+\intt\frac{\frac{3}{4}}{x^2-\sqrt 2 x + 1}dx=\intt\frac{d(x-\frac{\sqrt 2}{2})}{\left(x-\frac{\sqrt2}{2}\right)^2+\frac{1}{2}}=\sqrt 2 \arctg (\sqrt (x-\frac{\sqrt 2}{2}))$$
+
+$$\intt\frac{6x^5+6x+1}{x^6+3x^2+x+8}dx=\ln|x^6+3x^2+x+8|+C$$
+
+\section{Универсальная тригонометрическая подстановка}
+
+$$\intt\frac{dx}{2\sin x - \cos x + 5}$$
+$$\tg\frac{x}{2}=:t$$
+$$x=2\arctg t$$
+$$dx = \frac{2}{1+t^2}dt$$
+$$\frac{1}{\cos^2\frac{x}{2}}=\frac{\cos^2\frac{x}{2}+\sin^2\frac{x}{2}}{\cos^2\frac{x}{2}}=1+t^2$$
+$$\sin x = 2\frac{\sin\frac{x}{2}}{\cos\frac{x}{2}}\cdot \cos^2\frac{x}{2}=\frac{2t}{1+t^2}$$
+
+\end{document}

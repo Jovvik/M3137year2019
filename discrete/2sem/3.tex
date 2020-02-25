@@ -1,0 +1,86 @@
+\input{../../preamble.sty}
+
+\lhead{Дискретная математика}
+\cfoot{}
+\rfoot{Лекция 3}
+
+\begin{document}
+
+Рассмотрим случай, когда $\xi$ принимает значения $1,2\ldots$
+$$\sum\limits_{a} a P(\xi=a) = \sum\limits_{i=1}^\infty i P(\xi=i)=\sum\limits_{i=1}^\infty \sum\limits_{j=1}^i P(\xi=i)=\sum\limits_{j=1}^\infty \sum\limits_{i=j}^\infty P(\xi=i)= \sum\limits_{j=1}^\infty P(\xi\geq j)$$
+
+Кидаем честную монету, пока не выпадет 1, $\xi$ --- число бросков.
+
+$$P(\xi\geq i) = \frac{1}{2^{i-1}} \quad \sum\limits_{j=1}^\infty \frac{1}{2^{j-1}}=2$$
+
+$$Corr(\xi, \eta) = \frac{Cov(\xi, \eta)}{\sqrt{D\xi D\eta}}$$
+$\sphericalangle \eta=c\xi$
+$$Corr(c\xi, \xi) = \frac{Ec\xi\xi - cE\xi E\xi}{\sqrt{c^2D\xi D\xi}}=\begin{cases}
+    1, & c > 0 \\
+    -1, & c < 0
+\end{cases}$$
+
+\section{Хвостовые неравенства}
+
+\begin{definition}
+    \textbf{Хвост распределения} --- левая или правая маловероятная часть распределения
+\end{definition}
+
+\subsection{Неравенство Маркова}
+
+$\sphericalangle \xi\geq 0$
+
+Если возможных значений бесконечно, то их вероятности должны стремиться к 0, т.к. сумма всех вероятностей 1.
+
+$\sphericalangle kE\xi$. Отрежем ``хвост'' справа от $ka$.
+$$P(\xi\geq ka)\leq\frac{1}{k}$$
+$$E\xi=\sum\limits_a a\cdot P(\xi=a) = \sum\limits_{a<kE\xi} a\cdot P(\xi=a) + \sum\limits_{a\geq kE\xi}a\cdot P(\xi=a) \geq \sum\limits_{a\geq kE\xi} kE\xi\cdot P(\xi=a)=kE\xi P(\xi\geq kE\xi)$$
+$$1\geq kP(\xi\geq kE\xi)$$
+
+\subsection{Неравенство Чебышева}
+
+$\sphericalangle \xi, \eta=(\xi-E\xi)^2$
+
+$$E\eta=D\xi$$
+$$P(\eta\geq kE\eta) \leq \frac{1}{k}$$
+$k'=\frac{k}{\sqrt{D\xi}}$
+$$P((\xi-E\xi)^2\geq k^2D\xi)\leq\frac{1}{k^2}$$
+$$P(|\xi-E\xi|\geq k\sqrt{D\xi})\leq\frac{1}{k^2}$$
+$\sqrt{D\xi}=:\sigma$
+
+Лучше хвостовые неравенства не придумать, т.к. есть случайные величины, при которых эти неравенства обращаются в равенста. Но можно накладывать дополнительные ограничения на величины и получать более ``быстрые'' неравенства.
+
+Допустим, у нас есть нечестная монета и надо найти $p$. Кинем монету $n$ раз и оценим нашу уверенность в ответе.
+
+$C_n^ip^iq^{n-i} \quad E=pn \quad D = pqn$
+
+$$P\left(|\xi - E\xi| \geq k\sqrt{D\xi}\right)\leq \frac{1}{k^2}$$
+$$k\sqrt{pqn}=\left(p-\frac{1}{2}\right)n$$
+$$k=\frac{p-\frac{1}{2}}{\sqrt{pq}}\sqrt{n}$$
+
+Рассмотрим следующую случайную величину: $\xi=\sum\xi_i \quad \xi_i$ --- незав., од. распр.
+$\eta:=e^{t\xi}, t$ --- параметр
+$$P(\eta\geq k)\leq\frac{E\eta}{k} \quad k=e^{ta}$$
+$$P(\eta\geq e^{ta})\leq\frac{E\eta}{e^{ta}}$$
+$$P(e^{t\xi}\geq e^{ta})\leq\frac{E\eta}{e^{ta}}$$
+$]t>0$
+$$P(\xi\geq a)\leq \frac{Ee^{t\sum \xi_i}}{e^{ta}}=\frac{E\prod\limits_i e^{t\xi_i}}{e^{ta}}\stackrel{\text{независ.}}{=}\frac{\prod\limits_i Ee^{t\xi_i}}{e^{ta}}=\frac{\left(Ee^{t\xi_i}\right)^n}{e^{ta}}$$
+$$P(\xi\geq a)\leq \min\limits_{t>0}\frac{\left(Ee^{t\xi_i}\right)^n}{e^{ta}}$$
+
+$\sphericalangle \xi_i=\begin{cases}
+    1, & p \\
+    0, & q = 1 - p
+\end{cases}$
+
+$\xi_i=1\Rightarrow e^{t\xi_i}=e^t \quad \xi_i=0 \Rightarrow e^{t\xi_i}=1$
+$$E(e^{t\xi_i})=e^tp+q=e^p+1-p=p(e^t-1)+1$$
+$$P(\xi\geq a)\leq \min\limits_{t>0} \frac{(p(e^t-1)+1)^n}{e^{ta}}$$
+$a:=(1+\delta)pn$
+$$P(\xi\geq (1+\delta)pn) \leq \frac{(p(e^t-1)+1)^n}{e^{(1+\delta)pnt}}\leq$$
+$1+x\leq e^x$
+$$\leq\frac{e^{p(e^t-1)n}}{e^{(1+\delta)pnt}}\leq e^{pn(e^t-1-(1+\delta)t)}=$$
+$t:=\ln(1+\delta)$
+$$=e^{pn(1+\delta-1-(1+\delta)\ln(1+\delta))}\leq$$
+$\ln(1+x)\leq x$
+$$\leq e^{pn(\delta-(1+\delta)\delta)}\leq e^{-pn\frac{\delta^2}{2}}$$
+\end{document}

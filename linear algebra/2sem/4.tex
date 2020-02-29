@@ -1,0 +1,291 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Лекция 4}
+
+\begin{document}
+
+\section{Обратный оператор}
+
+\subsection{Единица. Обратный элемент}
+
+$] A(K)$ --- алгебра над полем $K$
+
+\begin{definition}
+    Единицей алгебры называется такой её элемент $e\in A$, что
+    $$\forall a\in A \quad a\cdot e = e\cdot a = a$$
+\end{definition}
+
+Кроме того, существуют левая и правая единицы:
+$$e_L : e_L\cdot a = a \quad e_R : a\cdot e_R = a \quad \forall a\in A$$
+
+\begin{lemma}
+    Если в $A \ \ \exists e_L$ и  $e_R \Rightarrow e_L=e_R\stackrel{\triangle}{=} e$
+\end{lemma}
+\begin{proof}
+    $$e_L=e_Le_R=e_R$$
+\end{proof}
+
+\begin{lemma}
+    $\exists!e$
+\end{lemma}
+\begin{proof}
+    Тривиально.
+\end{proof}
+
+$\sphericalangle x,y\in A : x\cdot y = e$
+\begin{definition}
+    Если $x\cdot y = e$, то $x$ называется \textbf{левым обратным} к $y$, а $y$ называется правым обратным к $x$.
+\end{definition}
+
+\begin{definition}
+    $] z\in A, x : xz=zx=e$, тогда $x$ --- \textbf{обратный} к $z$, обозначается $x=z^{-1}$, при этом $z$ называется \textbf{обратимым}.
+\end{definition}
+
+\begin{lemma}
+    Если $y, z\in A$ $\exists x$ --- левый обратимый и $y$ --- правый обратимый. Тогда:
+    \begin{enumerate}
+        \item $z$ --- обратимый
+        \item $z^{-1}=y\cdot x$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    $\sphericalangle z\cdot yx=e\cdot x=x$
+
+    $\sphericalangle x(zy)=x \quad (xz)y=y \Rightarrow x=y \Rightarrow z$ --- обратимый.
+\end{proof}
+
+\begin{example}
+    \begin{itemize}
+        \item $\R \quad e = 1 \quad a^{-1} = \frac{1}{a}$
+        \item $\C \quad e = 1 + 0\cdot i \quad z^{-1}=\frac{z^*}{|z|^2}$
+        \item $\R^4 \quad e = 1 + 0i + 0j + 0k \quad q^{-1}=\frac{q^*}{|q|^2}$
+    \end{itemize}
+\end{example}
+
+\subsection{Обратная матрица}
+
+$\sphericalangle K_n^n$ --- алгебра матриц
+\begin{definition}
+    \textbf{Единичной} называется матрица $E$, такая что $\forall A\in K_n^n$:
+    $$AE=EA=A$$
+\end{definition}
+\begin{remark}
+    Единичная матрица --- диагональна:
+    $$E=\begin{bmatrix}
+        1 & 0 & \ldots & 0 \\
+        0 & 1 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & 1 \\
+    \end{bmatrix}$$
+\end{remark}
+
+\begin{definition}
+    \textbf{Обратной} к матрице $A$ называется матрица $A^{-1}$:
+    $$A^{-1}A=AA^{-1}=E$$
+\end{definition}
+
+\begin{theorem}
+    $\exists A^{-1} \Leftrightarrow \det A \not=0$
+\end{theorem}
+
+Способы вычисления $A^{-1}$
+
+\subsubsection{Метод Гаусса}
+
+$$\left[\begin{array}{c|c}
+    A & E
+\end{array}\right] ~ \left[\begin{array}{c|c}
+    E & A^{-1}
+\end{array}\right]$$
+
+\begin{proof}
+    $$\left[\begin{array}{c|c}
+        A & E
+    \end{array}\right] = \left[\begin{array}{c|c}
+        T_1A & T_1E
+    \end{array}\right] = \left[\begin{array}{c|c}
+        T_2T_1A & T_2T_1E
+    \end{array}\right] = \ldots = \left[\begin{array}{c|c}
+        T_n\ldots T_1A & T_n\ldots T_1
+    \end{array}\right] = \left[\begin{array}{c|c}
+        E & T_n\ldots T_1
+    \end{array}\right]$$
+    $$\sphericalangle T_n\ldots T_1A=E\Rightarrow A^{-1}=T_n\ldots T_1$$
+\end{proof}
+
+\begin{theorem}
+    $$A^{-1}=\frac{1}{\det A}\tilde A^T$$
+\end{theorem}
+\begin{proof}
+    $AB=E \Rightarrow B=\frac{1}{\det A}\tilde A^T$ --- надо доказать.
+
+    $$\sum\limits_{j=1}^n \alpha_j^i\beta_k^j = \delta_k^i$$
+    $$] \delta^i_{k_0}=\begin{pmatrix}
+        0 & 0 & \ldots & 0 & 1_{k_0} & 0 & \ldots & 0
+    \end{pmatrix}^T = b$$
+
+    $$\beta^j_{k_0} = \xi^j \quad \alpha_j^i = a_j$$
+
+    $$\sum\limits_{j=1}^n a_j\xi^j = b \quad \xi^j = \frac{\Delta_j}{\Delta}$$
+    $$\Delta_j=\det A(a_j\to b)$$
+\end{proof}
+
+\subsection{Обратный оператор}
+
+$\sphericalangle \varphi : X\to X$
+
+\begin{definition}
+    Обратным к оператору $\varphi$ называется оператор $\varphi^{-1}$:
+    $$\varphi^{-1}\varphi=\varphi\varphi^{-1}=\mathcal{I}$$
+\end{definition}
+
+$\mathcal{L}(X,X)\simeq K_n^n$
+
+\begin{theorem}
+    Оператор $\varphi$ обратим, если $\exists$ базис, в котором его матрица невырождена/
+\end{theorem}
+
+\begin{remark}
+    $\tilde A=T^{-1}AT \quad \det\tilde A = \det(T{-1}AT)=\det T^{-1}\det A\det T$
+\end{remark}
+
+$] \varphi : X\to Y$
+
+\begin{definition}
+    \textbf{Ядро} $\varphi$ :
+    $$Ker \varphi=\{x\in X : \varphi x=0\}$$
+\end{definition}
+\begin{remark}
+    $Ker \varphi\subset X$
+\end{remark}
+\begin{lemma}
+    $Ker \varphi$ --- ЛП
+\end{lemma}
+\begin{definition}
+    \textbf{Образ} $\varphi$:
+    $$Im \varphi = \{y\in Y : \exists x : \varphi(x)=y\}$$
+\end{definition}
+\begin{remark}
+    $$Im \varphi \subset Y$$
+\end{remark}
+\begin{lemma}
+    $Im \varphi$ --- ЛП
+\end{lemma}
+
+\begin{theorem}
+    О ядре и образе
+
+    $$] \varphi : X\to X \Rightarrow \dim Ker \varphi + \dim Im \varphi = \dim X$$
+\end{theorem}
+\begin{proof}
+    $] \dim Ker \varphi = K$
+
+    $] \{e_1\ldots e_k\}$ --- базис $Ker \varphi \Rightarrow \varphi(e_j)=0 \ \ \forall j=1..k$
+
+    $\sphericalangle \{e_1\ldots e_k; e_{k+1}\ldots e_n\}$ --- базис $X$
+
+    $\sphericalangle x=\sum\limits_{j=1}^n \xi^j e_j \quad \sphericalangle \varphi(x) = \sum\limits_{j=1}^n \xi^j\varphi(e_j)=\sum\limits_{j=k+1}^n \xi^j \varphi(e_j)$
+
+    $\{\varphi(e_{k+1})\ldots \varphi(e_{n})\}$ --- полный для $Im$, т.к. любой $x\in Im$ можно по нему разложить. Докажем ЛНЗ от обратного:
+
+    $] \{\varphi(e_j)\}_{j=k+1}^n$ --- ЛЗ $\Rightarrow \exists \alpha^j : \sum\limits_{j=k+1}^n \alpha^j\varphi(e_j)=0\Rightarrow\varphi\left(\sum\limits_{j=k+1}^n \alpha^je_j\right)=0\Rightarrow$
+    $$\begin{cases}
+        \text{или } \sum\limits_{j=k+1}^n \alpha^je_j \in Ker \varphi \Rightarrow \text{ЛК } e_{k+1}\ldots e_n \text{ разложима по } e_1\ldots e_k \text{ --- противоречие} \\
+        \text{или } \sum\limits_{j=k+1}^n \alpha^je_j =0 \Rightarrow \alpha^j=0 \Rightarrow \text{ ЛНЗ}
+    \end{cases}$$
+    $\Rightarrow \{\varphi(e_j)\}_{j=k+1}^n$ --- базис $Im \varphi$.
+\end{proof}
+
+О существовании $\varphi^{-1}$
+
+$\sphericalangle \varphi: X\to Y$
+
+$\varphi : \forall x \ \ \exists! y\in Im \varphi : \varphi(x)=y$
+
+$\exists \varphi^{-1} : \forall y\in Im \varphi \ \ \exists! x\in X : \varphi^{-1}y=x$
+
+Обратный оператор существует только к изоморфизмам.
+
+\begin{theorem}
+    $] \varphi : X\to X$
+    
+    $\exists \varphi^{-1} \Leftrightarrow \dim Im \varphi=\dim X$ или $\dim Ker \varphi = 0$
+\end{theorem}
+\begin{proof}
+    $\dim Im \varphi=\dim X \Leftrightarrow Im \varphi \simeq X \Rightarrow \varphi $ --- сюръекция, $\dim Ker \varphi = 0 \Rightarrow \forall y \ \ \exists x : \varphi x = y \Rightarrow \varphi$ --- инъекция
+\end{proof}
+
+\section{Внешняя степень ЛОп}
+
+$\sphericalangle \Lambda^p \quad \{{}^{i_1\ldots i_p} F\}_{1\leq i_1<i_2<\ldots<i_p\leq n}$ --- базис $\Lambda^p$
+
+$${}^{i_1\ldots i_p} F=f^{i_1}\wedge f^{i_2}\wedge \ldots \wedge f^{i_p} \quad \dim \Lambda^p=C^p_n$$
+
+$] \{x_i\}_{i=1}^n$ --- набор векторов
+$$\det \{x_1\ldots x_n\}:={}^{1\ldots n}F(x_1\ldots x_n)$$
+
+$\sphericalangle \Lambda_p \quad \{{}_{i_1\ldots i_p} F\})_{1\leq i_1<i_2<\ldots<i_p\leq n}$ --- базис $\Lambda_p$
+
+$$\dim\Lambda_p=C_n^p \quad {}_{i_1\ldots i_p} F = \hat x_{i_1}\wedge \hat x_{i_2}\wedge\ldots\wedge\hat x_{i_p}\simeq x_1\wedge x_2\wedge\ldots\wedge x_n$$
+
+$] \{e_j\}_{j=1}^n$ --- базис $X \Rightarrow x_i=\xi^{j_i}_i e_{j_i}$
+
+$${}_{1\ldots n} F = \xi_1^{j_1}\xi_2^{j_2}\ldots \xi_n^{j_n}(e_{j_1}\wedge e_{j_2}\wedge\ldots\wedge e_{j_n})=\sum\limits_{(j_1\ldots j_n)} (-1)^{[j_1\ldots j_n]} \xi^1_{j_1}\ldots \xi^n_{j_n} (e_{1}\wedge e_{2}\wedge\ldots\wedge e_{n})=$$
+$$=\det [\xi^1_{j_1}\ldots \xi^n_{j_n}](e_{1}\wedge e_{2}\wedge\ldots\wedge e_{n})$$
+
+\begin{definition}
+    \textbf{Определителем} набора векторов $\{x_i\}_{i=1}^n$ называется число $\det [x_1\ldots x_n]$, такое, что:
+    $$x_1\wedge x_2\wedge\ldots\wedge x_n = \det[x_1\ldots x_n]e_1\wedge e_2\wedge\ldots\wedge e_n$$
+\end{definition}
+\begin{lemma}
+    $$\text{от } \Lambda^p\ \ \det \{x_1\ldots x_n\}=\det[x_1\ldots x_n] \text{ от } \Lambda_p$$
+\end{lemma}
+\begin{proof}
+    $$\det \{x_1\ldots x_n\}={}^{1\ldots n} F(x_1\ldots x_n) = \sum\limits_{(j_1\ldots j_n)} (-1)^{[j_1\ldots j_n]} \xi_1^{j_1}\xi_2^{j_2}\ldots \xi_n^{j_n}e_1\wedge e_2\wedge\ldots\wedge e_n=$$
+    $$=\det\{x_1\ldots x_n\}e_1\wedge e_2\wedge\ldots\wedge e_n$$
+    $$=\det[x_1\ldots x_n]e_1\wedge e_2\wedge\ldots\wedge e_n$$
+\end{proof}
+
+\begin{definition}
+    $] \varphi : X \to X$
+
+    \textbf{Внешней степенью} $\varphi^{\Lambda_p}$ оператора $\varphi$ называется отображение:
+    $$\varphi^{\Lambda_p}(x_1\wedge x_2\wedge\ldots\wedge x_n) = \varphi(x_1)\wedge\ldots\wedge\varphi(x_p)$$
+\end{definition}
+
+$\sphericalangle p=n$
+$$\varphi^{\Lambda_n}(e_1\wedge e_2\wedge\ldots\wedge e_n)=\varphi(e_1)\wedge\varphi(e_2)\wedge\ldots\wedge\varphi(e_n)=a^{j_1}_1e_{j_1}\wedge\ldots\wedge a^{j_n}_1e_{j_n}=$$
+$$=a_1^{j_1}\ldots a_n^{j_n}(e_{j_1}\wedge\ldots\wedge e_{j_n})=\sum\limits_{(j_1\ldots j_n)}(-1)^{[j_1\ldots j_n]}a^1_{j_1}a^2_{j_2}\ldots a^n_{j_n} e_1\wedge\ldots\wedge e_n=\det A_\varphi e_1\wedge\ldots\wedge e_n$$
+
+\begin{definition}
+    \textbf{Определителем} линейного оператора $\varphi$ называется число, такое что:
+    $$\det \varphi = \det [\varphi(e_1)\wedge\ldots\wedge \varphi(e_n)]=\det A_\varphi e_1\wedge\ldots\wedge e_n$$
+\end{definition}
+
+\begin{remark}
+    $$\forall \omega\in\Lambda_n \quad \varphi^{\Lambda_n}\omega=\det \varphi \cdot \omega$$
+    $$\omega\in\Lambda_n\Rightarrow \omega=\alpha e_1\wedge\ldots\wedge e_n$$
+    $$\varphi^{\Lambda_n}\omega=\alpha\varphi^{\Lambda_n}(e_1\wedge\ldots\wedge e_n)=\alpha\det \varphi e_1\wedge\ldots\wedge e_n = \det \varphi \cdot \omega$$
+\end{remark}
+
+\begin{remark}
+    $$\varphi^{\Lambda_p} : \Lambda_p\to \Lambda_p$$
+\end{remark}
+
+\begin{definition}
+    \textbf{Грассманова алгеба} --- алгебра по внешнему произведению
+\end{definition}
+
+\begin{theorem}
+    $$\det (\varphi\psi) = \det \varphi\det \psi$$
+\end{theorem}
+\begin{proof}
+    $$\sphericalangle \det(\varphi\psi)e_1\wedge\ldots\wedge e_n = (\varphi\psi)^{\Lambda_n}e_1\wedge\ldots\wedge e_n=\varphi(\psi(e_1))\wedge\ldots\wedge \varphi(\psi(e_n))=$$
+    $$=\varphi^{\Lambda_n}(\psi(e_1)\wedge\ldots\wedge \psi(e_n))=\det \varphi\det \psi e_1\wedge\ldots\wedge e_n$$
+\end{proof}
+
+
+
+\end{document}

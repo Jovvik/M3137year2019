@@ -1,0 +1,135 @@
+\input{../../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Практика 4}
+
+\begin{document}
+
+$] x = \begin{pmatrix}
+    \xi^1 & \xi^2 & \xi^3
+\end{pmatrix} \quad \varphi(x) = \begin{pmatrix}
+    \xi^1+\xi^2, \xi^2, \xi^3
+\end{pmatrix}$ --- линеный оператор.
+
+\begin{definition}
+    \textbf{Ядро} ЛОп $\varphi$ называется множество
+    $$Ker \varphi = \{ x\in X : \varphi x = O_Y\}$$
+\end{definition}
+\begin{remark}
+    $Ker \varphi$ --- подпространство ЛП $X$
+\end{remark}
+
+\begin{definition}
+    \textbf{Образом} ЛОп $\varphi$ называется множество:
+    $$Im \varphi = \{y\in Y : \exists x \quad \varphi x = y\} = \varphi(X)$$
+\end{definition}
+\begin{remark}
+    $Im \varphi$ --- подпространство ЛП $Y$
+\end{remark}
+\begin{proof}
+    $y_1, y_2\in Im \varphi \Rightarrow \exists x_1, x_2 \in X : \varphi x_1=y_1 \ \ \varphi x_2 = y_2$
+
+    $\sphericalangle y_1 + y_2 = \varphi(x_1) + \varphi(x_2) = \varphi(x_1+x_2) \Rightarrow y_1+y_2\in Im \varphi$
+\end{proof}
+
+\begin{example}
+    $E_3$ --- евклидово пространство
+
+    $\varphi E_3 \to E_3$
+
+    $$\varphi(\vec x) = \vec x - \frac{(\vec x \vec n)}{(\vec n \vec n)}\vec n \quad \vec n\not=\vec 0$$
+
+    \begin{enumerate}
+        \item $Ker \varphi$
+        \item $Im \varphi$
+        \item Геометрический смысл
+    \end{enumerate}
+
+    $Ker \varphi:$
+    $$\vec x - \frac{(\vec x \vec n)}{(\vec n \vec n)}\vec n=0$$
+    $$\vec x = \frac{(\vec x \vec n)}{(\vec n \vec n)}\vec n \Rightarrow Ker \varphi = \mathcal{L}(\vec n)$$
+
+    $Im \varphi:$
+    $$\sphericalangle \varphi(\vec y) = \vec y - \frac{(\vec y \vec n)}{(\vec n \vec n)}\vec n$$
+    $$y\in\mathcal{L}^\perp (\vec n) \Rightarrow \varphi(y) = y \Rightarrow Im \varphi = \mathcal{L}^\perp (\vec n)$$
+
+    $$\mathcal{L}(\vec n)\cap\mathcal{L}^\perp(\vec n)=0 \Rightarrow E_3=\mathcal{L}(\vec n) + \mathcal{L}^\perp(\vec n)$$
+\end{example}
+
+\begin{example}
+    $E_3$
+
+    $\varphi : E_3\to E_3$
+    $$\varphi(\vec x) = \vec x - \frac{(\vec x \vec n)}{(\vec a \vec n)}\vec a \quad (\vec a, \vec n)\not=0$$
+
+    $Ker \varphi=\mathcal{L}(\vec a)$
+
+    $\vec x \stackrel{!}{=} \vec y + \alpha \vec a$
+\end{example}
+
+$] \{e_j\}_{j=1}^n$ --- базис $X$, $\{h_k\}_{k=1}^m$ --- базис $Y$ $\Rightarrow \varphi(e_j)=\sum\limits_{k=1}^m a_j^kh_k$
+
+$\sphericalangle A_\varphi=||a_j^k||$ --- матрица оператора $\varphi$ в паре выбранных базисов
+
+\begin{example}
+    Найти матрицу оператора $\varphi$ в стандартном базисе $E_3$
+
+    $\vec n = \begin{pmatrix}
+        1 & 2 & 3
+    \end{pmatrix}^T$
+
+    $$\varphi(e_1)=\begin{bmatrix}
+        1 \\ 0 \\ 0
+    \end{bmatrix} - \frac{1}{14}\begin{bmatrix}
+        1 \\
+        2 \\
+        3
+    \end{bmatrix}=\begin{bmatrix}
+        \frac{13}{14} \\
+        \frac{-2}{14} \\
+        \frac{-3}{14}
+    \end{bmatrix}$$
+
+    $$\varphi(e_2)=\begin{bmatrix}
+        0 \\ 1 \\ 0
+    \end{bmatrix} - \frac{w}{14}\begin{bmatrix}
+        1 \\
+        2 \\
+        3
+    \end{bmatrix}=\begin{bmatrix}
+        \frac{-2}{14} \\
+        \frac{10}{14} \\
+        \frac{-6}{14}
+    \end{bmatrix}$$
+    То же самое для $e_3$ и собрать все в матрицу.
+\end{example}
+
+\begin{example}
+    $\varphi_\theta$ --- оператор поворота вокруг $\vec S$ на $\theta$
+
+    $] y = \beta\vec a + \gamma\vec b, \vec a\perp\vec b\perp \vec c, |\vec a|=|\vec b|=1$
+
+    $]\vec x = \alpha\vec s + \vec y = \alpha\vec s + \beta\vec a + \gamma\vec b$
+
+    $\varphi(x)=\varphi(\alpha\vec s + \beta\vec a + \gamma\vec b) = \alpha\vec s + (\beta\cos\theta-\gamma\sin\theta)\vec a + (\beta\sin\theta+\gamma\cos\theta)\vec b$
+
+    $\varphi(e_1)=...$ и так далее
+\end{example}
+
+$] \varphi : X \to X$
+
+$\{e_j\}_{j=1}^n$ --- базис $X \Rightarrow A_\varphi$
+
+$\{\tilde e_k\}_{k=1}^n$ --- базис $X \Rightarrow \tilde A_\varphi$
+
+$\{e\}\stackrel{T}{\to}\{\tilde e\}$
+
+$$\sphericalangle \varphi(\tilde e_j)=\sum\limits_{k=1}^n\tilde a_j^k \tilde e_k=\sum\limits_{k=1}^n\tilde a_j^k \sum\limits_{l=1}^n t_k^le_l$$
+$$\varphi(\tilde e_j) = \varphi\left(\sum\limits_{l=1}^n \tilde a_j^le_l\right)=\sum\limits_{l=1}^n \tilde a_j^l\varphi (e_l)=\sum\limits_{l=1}^n t_j^l\sum\limits_{k=1}^n a_l^k e_k$$
+$$\sum\limits_{k=1}^n \tilde a_j^k t_k^l = \sum\limits_{k=1}^n t_j^k a_k^l$$
+$$(T\tilde A_\varphi)_j^l=(A_\varphi T)_j^l \quad \forall l, j$$
+$$T\tilde A_\varphi=A_\varphi T$$
+$$\tilde A_\varphi=T^{-1}A_\varphi T$$
+
+\end{document}

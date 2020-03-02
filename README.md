@@ -10,6 +10,7 @@
 - [Конспект к первому опросу](analysis/2sem/opros1.pdf)
 - [Лекция #1](analysis/2sem/1.pdf)
 - [Лекция #2](analysis/2sem/2.pdf)
+- [Лекция #3](analysis/2sem/3.pdf)
 - [Практика #1](analysis/2sem/practice/1.pdf)
 - [Практика #2](analysis/2sem/practice/2.pdf)
 

@@ -1,0 +1,266 @@
+\input{../../preamble.sty}
+
+\usepackage{unicode-math}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 3}
+
+\begin{document}
+
+\begin{example}
+    $f(x)=\begin{cases}
+        e^{-\cfrac{1}{x^2}} &, x\not=0 \\
+        0 &, x\not=0
+    \end{cases}$
+    
+    $$f'(x)=\cfrac{2}{x^3}e^{-\cfrac{1}{x^2}}, x\not=0$$
+    $f'(0)=?$
+
+    Следствие из теоремы Лагранжа:
+    $$\lim\limits_{x\to x_0}f'(x)=A \text{ тогда } f'(x_0)=A$$
+    $$f'(0)=\lim\limits_{x\to0}\cfrac{2}{x^3}e^{-\cfrac{1}{x^2}}=\left[\cfrac{0}{0}\right]=\lim 2\cfrac{\cfrac{2}{x^3}e^{-\cfrac{1}{x^2}}}{3x^2}=\lim\cfrac{4}{3}\cfrac{e^{-\cfrac{1}{x^2}}}{x^5}=\text{ больно, не надо так}$$
+    $$\lim\limits_{x\to0}\cfrac{2}{x^3}e^{-\cfrac{1}{x^2}}=\lim\cfrac{\cfrac{2}{x^3}}{e^{\frac{1}{x^2}}}=\left[\cfrac{\infty}{\infty}\right]=\lim\cfrac{\cfrac{-6}{x^4}}{\cfrac{-2}{x^3}e^{\frac{1}{x^2}}}=\lim\cfrac{\cfrac{3}{x}}{e^{\frac{1}{x^2}}}=\left[\cfrac{\infty}{\infty}\right]=\lim\cfrac{\cfrac{-3}{x^2}}{\cfrac{-2}{x^3}e^{\frac{1}{x^2}}}=\lim\cfrac{3}{2}\cfrac{x}{e^{\frac{1}{x^2}}}=\cfrac{0}{\infty}=0$$
+
+    $$f'(x)=\begin{cases}
+        \cfrac{2}{x^3}e^{-\cfrac{1}{x^2}} & , x\not=0 \\
+        0 & , x=0
+    \end{cases}$$
+    $$f^{(n)}(x)= \begin{cases}
+        P_n\left(\cfrac{1}{x}\right)\cdot e^{-\cfrac{1}{x^2}} & , x\not=0 \\
+        0 &, x=0
+    \end{cases}$$
+
+    Заметим, что многочлен Тейлора этой функции при $x\to0$ не становится точнее при увеличении числа слагаемых, т.к. они все $=0$.
+\end{example}
+
+Будем складывать дроби неправильно: $$\cfrac{a}{b}+\cfrac{c}{d}=\cfrac{a+c}{b+d}$$
+Это работает в неравенствах, если $a,b,c,d>0$
+
+\begin{theorem}
+    Штольца.
+
+    Это дискретная версия правила Лопиталя.
+
+    $y_n\to0, x_n\to0$ --- строго монот.
+
+    $$\lim\cfrac{x_n-x_{n-1}}{y_n-y_{n-1}}=a\in\R$$
+
+    Тогда $\exists\lim\cfrac{x_n}{y_n}=a$
+\end{theorem}
+\begin{remark}
+    Аналогичное верно, если $x_n\to+\infty, y_n\to+\infty$
+\end{remark}
+\begin{proof}
+    \begin{enumerate}
+        \item $a>0 \quad (a\not=+\infty)$
+        
+        $$\forall \varepsilon > 0 \ \ [\varepsilon<a] \ \ \exists N_1 \ \ \forall n>N_1 \ \ a_\varepsilon<\cfrac{x_n-x_{n-1}}{y_n-y_{n-1}}<a+\varepsilon$$
+        Берем $N>N_1$
+        $$a-\varepsilon<\cfrac{x_{N+1}-x_{N}}{y_{N+1}-y_{N}}<a+\varepsilon$$
+        $$\vdots$$
+        $$a-\varepsilon<\cfrac{x_{n}-x_{n-1}}{y_{n}-y_{n-1}}<a+\varepsilon$$
+        По неправильному сложению:\textit{(оно применимо, т.к. все дроби положительные)}
+        $$a-\varepsilon<\cfrac{x_n-x_N}{y_n-y_N}<a+\varepsilon$$
+        $n\to+\infty$
+        $$a-\varepsilon<\cfrac{x_N}{y_N}<a+\varepsilon$$
+
+        \item $a=+\infty$ доказывается так же
+        \item $a<0$ поменяем знак и докажем так же
+        \item $a=0$ т.к. знаки $x_n-x_{n-1}$ и $y_n-y_{n-1}$ фикс., $a=+0$ или $a=-0$
+        
+        Для $a=+0 \lim\cfrac{y_n-y_{n-1}}{x_n-x_{n-1}}=+\infty$
+    \end{enumerate}
+\end{proof}
+
+$x_n=1+2+3+\ldots+n\stackrel{?}{\equ\limits_{n\to+\infty}}y_n$
+
+$$\lim\cfrac{x_n}{y_n}=\lim\cfrac{x_n-x_{n-1}}{y_n-y_{n-1}}=\lim\limits_{n\to+\infty}\cfrac{n}{y_n-y_{n-1}}=\left[y_n:=\cfrac{n^2}{2}\right]=\lim\cfrac{n}{n-\cfrac{1}{2}}=1$$
+$$x_n\equ \cfrac{n^2}{2}$$
+$$x_n=1^\alpha+2\alpha+3\alpha+\ldots+n\alpha-\cfrac{n^{\alpha+1}}{\alpha+1}\equ z_n$$
+$$\lim\cfrac{x_n}{z_n}=\lim\cfrac{n^\alpha-\left(\cfrac{n^{\alpha+1}}{\alpha+1}-\cfrac{(n-1)^{\alpha+1}}{\alpha+1}\right)}{z_n-z_{n-1}}$$
+$$n^\alpha-\cfrac{1}{\alpha+1}n^{\alpha+1}\left(1-\left(1-\cfrac{1}{n}\right)^{\alpha+1}\right)=$$
+$$=n^\alpha-\cfrac{1}{\alpha+1}n^{\alpha+1}\left((\alpha+1)\cfrac{1}{n}-\cfrac{(\alpha+1)\alpha}{2}\cfrac{1}{n^2}+o\left(\cfrac{1}{n^2}\right)\right)=\cfrac{\alpha}{2}n^{\alpha-1}+o(n^{\alpha-1})=$$
+$$=\frac{\alpha}{2}n^{\alpha-1}+o(n^{\alpha-1})$$
+$$\lim\cfrac{x_n}{z_n}=\lim\cfrac{\cfrac{\alpha}{2}n^{\alpha-1}}{z_n-z_{n-1}}$$
+
+Функциональные свойства определенного интеграла:
+\begin{enumerate}
+    \item $\forall \alpha, \beta\in\R,\ \ f,g\in C[a,b]$
+    $$\int\limits_{a}^b \alpha f+\beta g dx = \alpha\int\limits_a^b f + \beta\int\limits_a^b g$$
+    \begin{proof}
+        По формуле Ньютона-Лейбница $f\leftrightarrow F \quad g\leftrightarrow G \quad \alpha f + \beta g \leftrightarrow \alpha F + \beta G$
+    \end{proof}
+    \item Замена переменных: $f\in C[a,b]$
+    $\varphi : \langle \alpha,\beta\rangle \to [a,b], \varphi\in C^1$
+
+    $[p, q]\subset \langle \alpha,\beta\rangle$
+
+    Тогда $$\int\limits_p^q f(\varphi(t))\varphi'(t)dt=\int\limits_{\varphi(p)}^{\varphi(q)} f(x)dx$$
+    \begin{proof}
+        $f\leftrightarrow F \quad f(\varphi(t))\varphi'(t)\leftrightarrow F(\varphi(t))$
+    \end{proof}
+    \begin{remark}
+        \begin{enumerate}
+            \item $\varphi([p,q])$ может быть шире, чем ``$[\varphi(p), \varphi(q)]$''
+            \item $\varphi(p)$ может быть $>\varphi(q)$
+        \end{enumerate}
+    \end{remark}
+
+    \item Интегрирование по частям
+    
+    $f|_a^b\stackrel{\text{def}}{=}f(b)-f(a)$
+
+    $f,g\in C^1[a,b]$
+
+    $$\int\limits_a^b fg'=fg|_a^b-\int\limits_a^b f'g$$
+
+    \begin{proof}
+        $$(fg)'=f'g+fg'$$
+        $$fg'=(fg)'-f'g$$
+        Проинтегрируем по $[a,b]$
+        $$\int\limits_a^b fg'=fg|_a^b-\int\limits_a^b f'g$$
+    \end{proof}
+\end{enumerate}
+
+\begin{example}
+    Неравенство Чебышева
+
+    $f,g\in C[a,b]$ монот. возр.
+
+    Тогда
+    $$I_f\cdot I_g\leq I_{fg}$$
+    $$\int\limits_a^b f \int\limits_a^b g\leq (b-a)\int\limits_a^b fg$$
+\end{example}
+\begin{proof}
+    $x,y\in[a,b] \quad (f(x)-f(y))(g(x)-g(y))\geq 0$
+    $$f(x)g(x)-f(y)g(x)-f(x)g(y)+f(y)g(y)\geq 0$$
+    Интегрируем по $x$ по $[a,b]$
+    $$I_{fg}-f(y)I_g-g(y)I_f+f(y)g(y)\geq 0$$
+    Интегрируем по $y$ по $[a,b]$
+    $$I_{fg}-I_fI_g-I_gI_f+I_{fg}\geq 0$$
+\end{proof}
+
+\begin{example}
+    $$H_n:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} fg' dt$$
+    $$H_n=\left[f'=-2n\left(\frac{\pi^2}{4}-t^2\right)^{n-1}t \quad g=\sin t\right]=$$
+    $$=\frac{1}{n!}\left(\frac{\pi^2}{4}-t^2\right)^n\sin t|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}+\frac{2}{(n-1)!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \left(\frac{\pi^2}{4}-t^2\right)^{n-1}t\sin t$$
+    $$=0+\frac{2}{(n-1)!}\left(\frac{\pi^2}{4}-t^2\right)^{n-1}+\sin t|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}+$$
+    $$+\frac{2}{(n-1)!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left((2n-1)\left(\frac{\pi^2}{4}-t^2\right)^{n-1}-\frac{\pi^2}{2}(n-1)\left(\frac{\pi^2}{4}-t^2\right)^{n-2}\right)\cos t dt=$$
+    $$=(4n-2)H_{n-1}-\pi^2H_{n-2}$$
+\end{example}
+
+\begin{theorem}
+    Число $\pi$ --- иррационально
+\end{theorem}
+\begin{proof}
+    Пусть $\pi=\frac{p}{q}; H_n$ задано выше
+
+    $$H_n=(4n-2)H_{n-1}-\pi^2 H_{n-2}$$
+    
+    $H_0 = 2, \quad H_1=\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}(\frac{\pi^2}{4}-t^2)\cos t = 2\int\limits_{-\frac{\pi}{2}}^{\pi^2} t\sin t dt = 2t(-\cos t)|_{\ldots}^{\ldots}+2\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos t = 4$
+
+    $$H_n=\ldots H_1+\ldots H_0 = P_n(\pi^2) \text{ --- многочлен с целыми коэффициентами, степень}\leq n$$
+    $$q^{2n}P_n\left(\frac{p^2}{q^2}\right)=\text{ целое число }=q^{2n}H_n=q^{2n}H_n>0 \Rightarrow q^{2n}H_n\geq 1$$
+    $$1\leq\frac{q^{2n}}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt \leq \frac{q^2n 4^n}{n!}\pi\to0$$
+    Противоречие.
+\end{proof}
+
+$f\leftrightarrow F$
+$$\int\limits_{x_0}^x\frac{f^{(n)}(x_0)}{n!}(t-x_0)^ndt = \frac{F^{(n+1)}(x_0)}{(n+1)!}(x-x_0)^{n+1}$$
+$$\frac{1}{\sqrt{1-x^2}}=1+\frac{1}{2}x^2+\frac{3}{8}x^4+o(x^4)$$
+$$\arcsin t = t + \frac{1}{6}t^3 + \frac{3}{40} t^5 + o(t^5)$$
+
+\begin{definition}
+    $f:[a,b] \to \R$, \textbf{кусочно непрерывна}
+
+    $f$ --- непр. на $[a,b]$ за исключением конечного числа точек, в которых разрывы I рода
+    \begin{example}
+        $f(x) = [x], x\in[0, 2020]$
+    \end{example}
+\end{definition}
+
+\begin{definition}
+    $F:[a,b]\to\R$ --- \textbf{почти первообразная} кусочно непрерывной функции $f$:
+    
+    $F$ --- непр. и $\exists F'(x) = f(x)$ всюду, кроме конечного числа точек
+    \begin{example}
+        $f=\sign x, x\in[-1,1]$
+
+        $F:=|x|$
+    \end{example}
+\end{definition}
+
+$f$ --- кус. непр.
+
+$x_0=a<x_1\ldots<x_n=b$
+
+$$\int\limits_a^b f := \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} f$$
+
+Утверждение: Верна формула Ньютона-Лейбница
+
+$f$ --- кус. непр. на $[a,b]$, $F$ --- почти первообразная
+
+$$\int\limits_{a}^{b} f = F(b)-F(a)=\sum\int\limits_{x_{k-1}}^{x_k} f = \sum F(t)|_{x_{k-1}}^{x_k}=\sum F(x_k)-F(x_{k-1})=F(b)-F(a)$$
+
+\begin{example}
+    Дискретное неравенство Чебышева
+
+    $a_1\leq a_2\leq \ldots \leq a_n, b_1\leq b_2\leq\ldots\leq b_n$
+    $$\frac{1}{n}\sum\limits_{i=1}^n a_i\cdot \frac{1}{n}\sum b_i\leq \frac{1}{n}\sum a_ib_i$$
+\end{example}
+\begin{proof}
+    $$f(x)=a_i, x\in(i-1, i], i=1\ldots n \text{ --- задана на } (0,n]$$
+    $$g(x) = \ldots b_i$$
+    $$I_fI_g\leq I_{fg}$$
+\end{proof}
+
+\section{Приложение определенного интеграла}
+
+$$Segm\langle a,b\rangle \text{ --- множество всевозм. отрезков, лежащих в } \langle a,b\rangle = \{[p, q] : [p,q]\subset\langle a,b\rangle\}$$
+\begin{definition}
+    \textbf{Функция промежутка} $\Phi : Segm\langle a,b\rangle \to \R$
+\end{definition}
+\begin{definition}
+    \textbf{Аддитивная функция промежутка}: $\Phi$ --- функция промежутка и
+    $$\forall [p,q]\in Segm\langle a,b\rangle \ \ \forall r : p < r < q \quad \Phi([p,q])=\Phi([p,r])+\Phi([r,q])$$
+\end{definition}
+\begin{example}
+    \begin{itemize}
+        \item Цена куска колбасы от $p$ до $q$.
+        \item Цена билета от станции $p$ до станции $q$.
+    \end{itemize}
+    Эти две функции обычно не аддитивны.
+    \begin{itemize}
+        \item $[p,q]\to\int_p^q f$
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    \textbf{Плотность аддитивной функции промежутка}: $f:\langle a,b\rangle \to\R$ --- плотность $\Phi$, если:
+    $$\forall \delta\in Segm\langle a,b\rangle \quad \inf\limits_{x\in\delta} f(x)\cdot len_\delta\leq \Phi(\delta)\geq\sup f \cdot len_\delta$$
+\end{definition}
+
+\begin{theorem}
+    О вычислении аддитивной функции промежутка по плотности
+
+    $f:\langle a,b\rangle \to \R$ --- непр. $\quad \Phi : Segm\langle a,b\rangle\to\R$
+
+    $f$ --- плотность $\Phi$
+
+    Тогда $\Phi([p,q])=\int\limits_b^a f, \quad [p,q]\subset \langle a,b\rangle$
+\end{theorem}
+\begin{proof}
+    $$F(x):=\begin{cases}
+        0 &, x=a \\
+        \Phi([a,x]) &, x>a
+    \end{cases} \text{ --- первообразная } f$$
+    Это утверждение ещё не доказано, но если мы его докажем, то:
+    $$\Phi([p,q])=\Phi[a,q]-\Phi[a,p]=F(q)-F(p)=\int\limits_p^af$$
+    Докажем утверждение:
+    $$\frac{F(x+h)-F(x)}{h}=\frac{\Phi[a,x+h]-\Phi[a,x]}{h}=\frac{\Phi[x,x+h]}{h}=[0\leq\Theta\leq1]=f(x+\Theta h)$$
+\end{proof}
+
+Тут последовал пример про нахождение площади круга, но мне лень.
+
+\end{document}

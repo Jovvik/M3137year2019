@@ -1,0 +1,63 @@
+\input{../../preamble.sty}
+
+\lhead{Дискретная математика}
+\cfoot{}
+\rfoot{Лекция 4}
+
+\begin{document}
+
+Информация $=-$ неопределенность
+
+Рассмотрим вероятностное пространство $\Omega=\{\omega_1\ldots \omega_n\} \quad p_1\ldots p_n \quad \sum\limits_{i=1}^n p_i=1$
+
+\begin{definition}
+    $H$ --- \textbf{мера неопределенности случайного источника \textit{(энтропия)}}, если это отображение удовлетворяет следующему:
+\end{definition}
+$$H(p_1\ldots p_n) : \R^n\to\R_+$$
+$$H(\frac{1}{n},\frac{1}{n}\ldots \frac{1}{n}) < H(\frac{1}{n+1}\ldots \frac{1}{n+1})$$
+$H$ --- непр. от всех аргументов
+
+Рассмотрим два эксперимента, где у первого исходы $p_i$, у второго $q_{ij}$.
+$$H(p_1q_{11}, p_2q_{12}\ldots p_1q_{1m_1}, p_2q_{21}\ldots p_nq_{nm_n})=H(p_1\ldots p_n)+\sum\limits_{i=1}^n p_iH(q_{i1}\ldots q_{im_i})$$
+
+$h(n)=H(\frac{1}{n}\ldots\frac{1}{n})$
+
+\begin{lemma}
+    $h(n)=c\log_2 n$
+\end{lemma}
+
+$p_i=\frac{1}{n} \ \ m_i=m \ \ a_{ij}=\frac{1}{m}$
+
+$h(mn)=h(n)+h(m)$
+
+$h(2)=c$ --- бит.
+
+$$2^i\leq n^k < 2^{i+1}$$
+$$i\leq k\log_2 n < i+1$$
+$$\frac{i}{k}\leq\log_2 n<\frac{i+1}{k}$$
+$$h(2^i)\leq h(n^k) < h(2^{i+1})$$
+$$ci\leq h(n^k) < c(i+1)$$
+$$ci\leq k\cdot h(n) < c(i+1)$$
+$$\frac{i}{k}\leq \frac{h(n)}{c} < \frac{i+1}{k}$$
+Т.к. $\frac{h(n)}{c}$ и $\log_2 n$ зажимаются $\frac{i}{k}$ и $\frac{i+1}{k} \Rightarrow \frac{h(n)}{c}=\log_2 n$
+
+$] p_i=\frac{a_i}{b} \quad \sphericalangle q_{ij}=\frac{1}{a_i}, m_i=a_i$
+$$h(b)=H(p_1\ldots p_n) + \sum\limits_{i=1}^n p_ih(a_i)$$
+$$H(p_1\ldots p_n)=c\log_2 b - c\sum\limits_{i=1}^n p_i\log_2 a_i = -c\left(\sum\limits_{i=1}^n p_i(\log_2a_i-\log_2b)\right)=$$
+$$=-c\sum\limits_{i=1}^n p_i\log_2p_i$$
+
+Рассмотрим арифметическое кодирование:
+$$H(p_1 \ldots p_n)=-\sum\limits_{i=1}^n p_i\log_2 p_i$$
+$$L\geq \frac{1}{2^q} \Rightarrow -\log_2 L \leq q$$
+$$\prod\limits_{i=1}^n\left(\frac{f_i}{m}\right)^{f_i}$$
+$$-\log_2 \prod\limits_{i=1}^n\left(\frac{f_i}{m}\right)^{f_i}=-\sum\limits_{i=1}^n f_i\log_2 p_i = m\left(-\sum\limits_{i=1}^n p_i\log_2 p_i\right)=mH(p_1\ldots p_n)$$
+
+\section{Симуляция одного распределения другим}
+
+Рассмотрим распределение $1\ldots n$ с вероятностями $p_1\ldots p_n, n\geq 2, p_i>0$
+
+Задача: сгенерировать распределение с вероятностями $q_1\ldots q_m$
+
+Поделим отрезок $[0,1]$ в пропорциях $p_i$. Если отрезок $p_i$ не лежит полностью в одном отрезке, то делают зум по всем отрезкам $q_j$, которым соответствует какое-то число из $p_i$.
+
+\end{document}

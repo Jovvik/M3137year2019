@@ -1,0 +1,163 @@
+\input{../../preamble.sty}
+
+\begin{document}
+
+Примеры к прошлой теореме:
+\begin{enumerate}
+    \item $f$ --- непр., $\Phi ([p,q]) := \sigma (\text{ПГ}(f[p,q]))=\int\limits_p^q f dx$
+    
+    Тогда выполняется определение плотности аддитивной плотности промежутка.
+
+    \item $\Phi [\alpha, \beta] = S_{\text{сектор}(\alpha,\beta)}=\frac{1}{2} \int\limits_{\alpha}^\beta r^2(\varphi)d\varphi$
+\end{enumerate}
+
+\begin{example}
+
+$x(t), y(t)$ --- кривая в $\R^2$
+
+$$S=\frac{1}{2}\int_\alpha^\beta r^2(\varphi) d\varphi = \frac{1}{2}\int_{t_\alpha}^{t_\beta}(x(t)^2+y(t)^2)\frac{1}{1+\left(\frac{y}{x}\right)^2}\cdot\frac{y'(t)x(t)-y(t)x'(t)}{x^2(t)}dt=$$
+$$=\frac{1}{2}\int\limits_{t_\alpha}^{t_\beta}y'(t)x(t)-y(t)x'(t)dt$$
+$x:=\sin t, y:=\cos t$
+$$S=\frac{1}{2}\int\limits_{0}^{\frac{\pi}{2}}-\sin^2 t -\cos^2 t  dt = -\frac{\pi}{4} \text{ --- проблема, отрицательная площадь}$$
+
+\end{example}
+
+\section{Выпуклость функций}
+
+$\forall z\in[x,y] \ \ \exists \alpha\in[0,1]: z = \alpha x + (1-\alpha) y$
+
+$\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{|xy|}$
+
+\begin{definition}
+    $f:\langle a,b\rangle\to\R$ --- выпуклая
+    $$\forall x,y\in\langle a,b\rangle \quad \forall \alpha\in[0,1] \quad f(\alpha x + (1-\alpha)y)\leq \alpha f(x) + (1-\alpha)f(y)$$
+\end{definition}
+
+\begin{remark}
+    $f$ --- выпуклая $\Leftrightarrow$ всякая хорда графика $f$ расположена ``выше'' графика \textit{(нестрого выше)} $\Leftrightarrow$ $\text{НГ}(f, \langle a,b\rangle)\{(x,y) : x\in\langle a,b\rangle \ \ y\geq f(x)\}$
+\end{remark}
+
+Выпуклый = выпуклый вниз; вогнутый = выпуклый вверх
+
+\begin{definition}
+    $f:\langle a,b\rangle\to\R$ --- строго выпуклая
+    $$\forall x,y\in\langle a,b\rangle \quad \forall \alpha\in(0,1) \quad f(\alpha x + (1-\alpha)y)< \alpha f(x) + (1-\alpha)f(y)$$
+\end{definition}
+
+\begin{lemma}
+    о трех хордах
+
+    $f:\langle a,b\rangle\to\R$. Тогда эквивалентны следующие утверждения:
+    \begin{enumerate}
+        \item $f$ --- вып. $\langle a,b\rangle$
+        \item $\forall x_1,x_2,x_3\in\langle a,b\rangle \ \ x_1<x_2<x_3 \quad \frac{f(x_2)-f(x_1)}{x_2-x_1}\leq\frac{f(x_3)-f(x_1)}{x_3-x_1}\leq\frac{f(x_3)-f(x_2)}{x_3-x_2}$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Левое $\Leftrightarrow f(x_2)(x_3-x_1)\leq f(x_3)(x_2-x_1)+f(x_1)(x_3-x_1-(x_2-x_1))$
+
+    $f(x_3\frac{x_2-x_1}{x_3-x_1}+x_1\frac{x_3-x_2}{x_3-x_1})=f(x_2)\leq f(x_3)\frac{x_2-x_1}{x_3-x_1}+f(x_1)\frac{x_3-x_2}{x_3-x_1}$
+\end{proof}
+\begin{remark}
+    Если $f$ --- строго выпуклая, то в лемме оба неравенства строгие.
+\end{remark}
+
+\begin{theorem}
+    об одностронней дифференциируемости выпуклой функции.
+
+    $f$ --- вып. $\langle a,b\rangle$. Тогда $\forall x\in(a,b) \ \ \exists f_+'(x), f_-'(x)$ и $\forall x_1, x_2\in(a,b), x_1<x_2$Ж
+    $$f_-'(x_1)\leq f_+'(x_1)\leq \frac{f(x_2)-f(x_1)}{x_2-x_1}\leq f_-'(x_2)$$
+\end{theorem}
+\begin{proof}
+    $f_+'(x_1)=\lim\limits_{x\to x_1+0}\frac{f(x)-f(x_1)}{x-x_1}$ --- монотонно убывающая функция от $x$
+
+    Фиксируем $x_0<x_1$. По лемме о трех хордах $\frac{f(x_0)-f(x_1)}{x_0-x_1}\leq\frac{f(x)-f(x_1)}{x-x_1}$
+\end{proof}
+
+\begin{consequence}
+    $f$ --- вып. на $\langle a,b\rangle \Rightarrow f$ непр. на $(a,b)$
+    $$\lim\limits_{x\to x_0+0}f(x)=f(x_0)$$
+\end{consequence}
+
+\begin{theorem}
+    выпуклость в терминах касательных
+
+    $f$ --- вып. на $\langle a,b\rangle$. Тогда график $f$ расположен не ниже любой касательной
+
+    т.е. $\forall x, x_0 \quad f(x)\geq f(x_0)+f'(x_0)(x-x_0)$
+\end{theorem}
+
+\begin{proof}
+    ``$\Rightarrow$''
+    
+    Если $x>x_0 \quad f'(x_0)\geq\frac{f(x)-f(x_0)}{x-x_0}$, это неравенство 2. из предыдущей теоремы
+
+    $x<x_0$ аналогично
+
+    ``$\Leftrightarrow$'' фиксируем $x_0$. Берем $x_1<x_0<x_2$
+
+    $f(x_1)\geq f(x_0)+f'(x_0)(x_1-x_0)$; $f(x_2)\geq f(x_0)+f'(x_0)(x_2-x_0)$, т.е. $\frac{f(x_1)-f(x_0)}{x_1-x_0}\leq f'(x_0)\leq \frac{f(x_2)-f(x_0)}{x_2-x_0}$. Это верно по лемме.
+\end{proof}
+
+\begin{definition}
+    $A\subset \R^2$ --- вып. $l\subset \R^2$ --- прямая
+
+    $l$ --- \textbf{опорная прямая} к $A$, если $A$ содержится в одной полуплоскости относительно $l, l\cap A=\text{\O}$
+\end{definition}
+
+\begin{theorem}
+    дифференциальный критерий выпуклости
+
+    \begin{enumerate}
+        \item $f:\langle a,b\rangle\to\R$, дифф. в $(a,b)$
+        
+        Тогда $f$ --- вып. $\Rightarrow f'$ возр. на $(a,b)$
+
+        Если $f$ --- строго выпуклая $\Rightarrow$ $f'$ строго возрастает
+
+        \item $f:\langle a,b\rangle\to\R$, дважды дифф. на $(a,b)$
+        
+        $f$ --- вып. $\Leftrightarrow f''\geq0$ на $(a,b)$
+        \begin{enumerate}
+            \item ``$\Rightarrow$'' $f_+'(x_1)\leq f_-'(x_2) \quad (x_1<x_2)$
+            
+            ``$\Leftarrow$'' $?f$ вып. $\frac{f(x_2)-f(x_1)}{x_2-x_1}=f'(c_1)<f'(c_2)=\frac{f(x_3)-f(x_2)}{x_3-x_2}$
+
+            Теперь утверждение 2. очевидно.
+        \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+    $f:\langle a,b\rangle\to\R$ --- вып.
+
+    Тогда $f$ --- дифф. на $(a,b)$ за исключением, может быть, счетного множества точек.
+
+    $\forall x \ \ \exists f_+'(x), f_-'(x)$
+
+    $f_\pm'$ возрастает
+
+    $f_-'(x)=f_+'(x)\Rightarrow f$ дифф. в $x$
+
+    $f_-'(x)<f_+'(x)\Rightarrow f$ не дифф. в $x$
+
+    Тогда $x$ --- точка скачка для $f_+', f_-'$, их НБСЧ.
+\end{remark}
+
+\begin{example}
+    Изопериметрическое пространство
+
+    $G\subset\R^2$ --- выпуклое замкнутое множество (ограниченное)
+
+    $diam G = \sup\{\rho(x,y), \ x,y\in G\}$
+
+    $diam G \leq 1$
+
+    Тогда $\sigma(G)\leq \frac{\pi}{4}$
+
+    Пойдём от некоторой точки на границе $G$ под углом $\varphi$ внутрь фигуры по прямой. В какой-то момент мы встретим другую граничную точку. Назовем этот процесс $r(\varphi)$ \textit{(возвращает длину пути)}. Очевидно, что $r^2(\varphi)+r^2(\varphi-\frac{\pi}{2})\leq (diam G)^2\leq 1$
+
+    $$\sigma(G)=\frac{1}{2}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} r^2(\varphi)d\varphi = \frac{1}{2}\int\limits_{-\frac{\pi}{2}}^0\ldots + \int\limits^{\frac{\pi}{2}}_0\ldots = \frac{1}{2}\int\limits_{0}^{\frac{\pi}{2}}r^2()$$
+\end{example}
+
+\end{document}

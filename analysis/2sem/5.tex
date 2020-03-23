@@ -1,0 +1,145 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 5}
+
+\begin{document}
+
+\begin{theorem}
+    Обобщенная теорема о плотности.
+
+    $\Phi:Segm\langle a,b\rangle\to\R$ --- аддитивная функция промежутка
+
+    $f:\langle a,b\rangle\to\R$ --- непр.
+
+    $\forall \Delta\in Segm\langle a,b\rangle\ \ \exists m_\Delta, M_\Delta$ --- не точный минимум/максимум
+
+    \begin{enumerate}
+        \item $m_\Delta l_\Delta\leq \Phi(\Delta)\leq M_\Delta l_\Delta$
+        \item $m_\Delta\leq f(x)\leq M_\Delta$ при всех $x\in\Delta$
+        \item $\forall$ фикс. $x\quad$ $M_\Delta-m_\Delta\xrightarrow[\text{``}\Delta\to x\text{''}]{} 0$
+        
+        $\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall \Delta: l_\Delta<\delta \quad |M_\Delta-m_\Delta|<\varepsilon$
+    \end{enumerate}
+
+    Тогда $\forall [p,q]\in Segm\langle a,b] \quad \Phi([p,q])=\int\limits_p^q f$
+\end{theorem}
+\begin{proof}
+    $F(x)=\begin{cases}
+        0, & x=a \\
+        \Phi[a,x], & x>a
+    \end{cases}$
+
+    Докажем, что $F$ --- первообразная $f$.
+
+    Фиксируем $x$
+
+    По 1.:
+    $$m_\Delta\leq\frac{F(x+h)-F(x)}{h}=\frac{\Phi[x,x+h]}{h}\leq M_\Delta$$
+
+    По 2.:
+    $$m_\Delta\leq f(x)\leq M_\Delta$$
+
+    $$\left|\frac{F(x+h)-F(x)}{h}-f(x)\right|\leq M_\Delta-m_\Delta\xrightarrow[\text{``}\Delta\to x\text{''}]{}0$$
+
+    Мы не можем написать ``$\Delta\to x$'' без кавычек, т.к. $\Delta$ --- не число, но ``$\Delta\to x$''$\Leftrightarrow h\to0$
+
+    Таким образом, $$\frac{F(x+h)-F(x)}{h}-f(x)\xrightarrow[h\to0]{}f(x)$$
+\end{proof}
+
+\subsection*{Объемы фигур вращения}
+
+Объем это $V: Fig\to\R$:
+\begin{enumerate}
+    \item $V$ --- кон., адд.: $V(A_1\sqcup A_2)=V(A_1)+V(A_2)$
+    \item $V(\text{ед. куб})=1$
+    \item $V$ не меняется при движении
+\end{enumerate}
+
+Проблема: такой функции не существует.
+
+Поэтому будем использовать объем для частных случаев фигур, а не для всех.
+
+\begin{definition}
+    $\sphericalangle A\in\R^2$ --- фигура в I квадранте.
+
+    \textbf{Вращение} $A$:
+    \begin{enumerate}
+        \item по оси $x$ : $A_x=\{x,y,z\in\R^3 : (x,\sqrt{y^2+z^2})\in A\}$
+        \item по оси $y$ : $A_y=\{x,y,z\in\R^3 : (\sqrt{x^2+z^2}, y)\in A\}$
+    \end{enumerate}
+\end{definition}
+
+Для непр. $f:[a,b]\to\R, c\mapsto \tilde c\geq 0:$
+$$\Phi(\Delta)=V(\text{ПГ}(f,\Delta)_x) \textit{(или $y$)}$$
+
+\begin{theorem}
+    $f:\langle a,b\rangle\to\R$ --- непр., $f\geq 0$
+
+    $\Phi_x(\Delta)=$ ``объем фигуры вращения вокруг оси $OX$''
+
+    $\Phi_y(\Delta)=$ ``объем фигуры вращения вокруг оси $OY$''
+
+    Тогда : $\forall \Delta = [p,q]\in Segm\langle a,b\rangle:$
+    \begin{enumerate}
+        \item $\Phi_x[p,q]=\pi\int\limits_p^q f^2(x)dx$
+        \item $\Phi_y[p,q]=2\pi\int\limits_p^q xf(x)dx$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Это --- упражнение, оно не использует ничего умного.
+        \item Мы знаем, что объем цилиндра $=S(\text{основание})\cdot h$.
+        
+        Для оценки $\Phi(\Delta)$ найдем прямоугольник, который является минимальным по площади сечения и максимальный прямоугольники: $\text{П}_{min}$ и $\text{П}_{max}$.
+
+        $$\pi m_\Delta(q-p)=\pi\min f\min 2x \cdot (q-p)\leq V((\text{П}_{min})_y)\leq \Phi(\Delta)\leq$$
+        $$\leq V((\text{П}_{max})_y)\leq \pi\max\limits_{x\in[p,q]}f \max\limits_{x\in[p,q]} 2x\cdot (q-p)=\pi M_\Delta(q-p)$$
+
+        Можем заметить, что $\Phi$ подходит под все три пункта теоремы об обобщенной плотности.
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    Объем тора.
+
+    Будем вращать окружность, центр которой лежат на оси $OX$ в точке $R$, с радиусом $r$, относительно оси $OY$.
+
+    $$\frac{1}{2}V=2\pi \int\limits_{R-2}^{R+2}(x\mp R)\sqrt{r^2-(x-R)^2}dx=\pi\int\limits_{R_2}^{R+2} 2(x-R)\sqrt{r^2-(x-R)^2}dx+2\pi\int\limits_{R-2}^{R+2} R\sqrt{r^2-(x-r)^2}dx=$$
+    $$=-\pi\frac{1}{3}(r^2-(x-R)^2)^{\frac{3}{2}}|_{x=R-2}^{x=R+2}+2\pi R\frac{\pi r^2}{2}=2\pi R\cdot \pi r^2$$
+\end{example}
+
+\subsection*{Длина гладкого пути}
+
+$\gamma:[a,b]\to\R^m$ --- непр.
+
+$\gamma(a)$ --- начало; $\gamma(b)$ --- конец
+
+$\gamma:t\mapsto \begin{pmatrix}
+    \gamma_1(t) \\
+    \gamma_2(t) \\
+    \vdots \\
+    \gamma_m(t)
+\end{pmatrix}$; $\gamma_i$ --- коорд. функции
+
+Если все $\gamma_i\in C^1 [a,b]$, то $\gamma$ --- \textbf{гладкий путь}.
+
+$$\gamma'(t)=\lim\limits_{\Delta t\to0}\frac{\gamma(t+\Delta t)-\gamma(t)}{\Delta t}=\lim \begin{pmatrix}
+    \frac{\gamma_1(t+\Delta t)-\gamma_1(t)}{\Delta t} \\
+    \vdots \\
+    \frac{\gamma_m(t+\Delta t)-\gamma_m(t)}{\Delta t} \\
+\end{pmatrix}=\begin{pmatrix}
+    \gamma_1;(t) \\
+    \gamma_2'(t) \\
+    \vdots \\
+    \gamma_m'(t)
+\end{pmatrix}$$
+
+Кривая Пеано: $[0,1]\to[0,1]\times[0,1]$ --- ломает длину пути, но она не гладкая, поэтому мы рассматриваем только гладкие пути.
+
+\begin{definition}
+    \textbf{Длина пути}
+\end{definition}
+
+\end{document}

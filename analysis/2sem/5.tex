@@ -139,7 +139,66 @@ $$\gamma'(t)=\lim\limits_{\Delta t\to0}\frac{\gamma(t+\Delta t)-\gamma(t)}{\Delt
 Кривая Пеано: $[0,1]\to[0,1]\times[0,1]$ --- ломает длину пути, но она не гладкая, поэтому мы рассматриваем только гладкие пути.
 
 \begin{definition}
-    \textbf{Длина пути}
+    \textbf{Длина пути} --- фукнция $l$, заданная на множестве гладких путей в $\R^m$, такая что:
+    \begin{enumerate}
+        \item $l\geq 0$
+        \item $l$ --- аддитивна: $\forall [a,b] \ \ \forall \gamma:[a,b]\to\R^m \ \ \forall c\in(a,b) \quad l(\gamma)=l(\gamma|_{[a,c]})+l(\gamma|_{[c,b]})$
+        \item $\forall \gamma, \tilde \gamma$ --- гладкие пути, $C_\gamma, C_{\tilde \gamma}$ --- носители путей
+        
+        Если $\exists T : C_\gamma\to C_{\tilde\gamma}$ --- сжатие: $(\forall M, M' \ \ \rho(T(M), T(M'))\leq \rho(M, M'))$, тогда $l(\tilde\gamma)\leq l(\gamma)$
+
+        \item Нормировка: $\gamma$ --- гладкий путь, $\gamma(t)=vt+u; \ \ u,v\in\R^m$:
+        $$l(\gamma)=\rho(\gamma(a), \gamma(b))$$
+    \end{enumerate}
 \end{definition}
 
+Свойства:
+\begin{enumerate}
+    \item ``Длина пути'' $\geq$ ``длина хорды''
+    \item При растяжениях длина растет.
+    \item Длина не меняется при движении.
+\end{enumerate}
+
+Существование длины пути:
+
+$[a,b] \quad t_0=a<t_1<t_2<\ldots<t_n=b$
+
+$T=\{t_0\ldots t_n\}$ --- дробление отрезка.
+
+$$l(\gamma)=\sup\{T : \sum\limits_{i=1}^n \rho(\gamma(t_{i-1}), \gamma(t_i))\}$$
+
+\begin{example}
+    Рассмотрим путь из $A$ в $B$, который проходится за $1$ час со скоростью $5$ км/ч. Длина этого пути --- $5$ км.
+\end{example}
+
+\begin{theorem}
+    $\gamma\in C^1([a,b]\to\R^m)$
+
+    Тогда $l(\gamma)=\int\limits_a^b ||\gamma'(t)||dt$
+\end{theorem}
+\begin{proof}
+    Будем считать $\gamma'\not=0$, $\gamma$ --- инъективная.
+
+    $\Phi: [p,q]\subset [a,b]\mapsto l(\gamma|_{[p,q]})$ --- адд. ф-ция промежутка.
+
+    Докажем, что $f(t)=||\gamma'(t)||$ --- плотность $\Phi$
+
+    $$\Delta\subset [a,b] \quad m_i(\Delta):=\min\limits_{t\in\Delta}|\gamma'_i(t)| \quad M_i(\Delta)=\max|\gamma'_i(t)|$$
+    $$m_\Delta=\sqrt{\sum\limits_{i=1}^m m_i(\Delta)^2} \quad M_\Delta=\sqrt{\sum\limits_{i=1}^m M_i(\Delta)^2}$$
+    Докажем, что $m_\Delta l_\Delta\leq \Phi(\Delta)\leq M_\Delta l_\Delta$
+
+    $\tilde \gamma : \Delta\to\R^m$ --- лин. путь
+
+    $\tilde \gamma(t)=\vec M\cdot t$, где $\vec M=\begin{pmatrix}
+        M_1(\Delta) & \ldots & M_m(\Delta)
+    \end{pmatrix}$
+
+    $T: C_{\gamma|_\Delta}\to C_{\tilde \gamma} \quad \gamma(t)\mapsto \tilde \gamma(t)$
+
+    Утверждение: $T$ --- растяжение.
+    $$||\vec M_q - \vec M_p||=(q-p)||\vec M||=(q-p)M_\Delta$$
+
+    $$\rho(\gamma(t_0), \gamma(t_1))=\sqrt{\sum\limits_{i=1}^m (\gamma_i(t_0)-\gamma_i(t_1))^2}\stackrel{\text{т. Лагранжа}}{=}\sqrt{\sum\limits_{i=1}^m \gamma_i'(\overline t_i)^2 (t_0-t_1)^2}\leq ||\vec M||\cdot|t_0-t_1|=$$
+    $$=\rho(\tilde\gamma(t_0), \tilde\gamma(t_1))|t_0-t_1|$$
+\end{proof}
 \end{document}

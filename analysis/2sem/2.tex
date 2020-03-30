@@ -1,6 +1,6 @@
 \input{../../preamble.sty}
 
-\usepackage{unicode-math}
+% \usepackage{unicode-math}
 
 \lhead{Конспект по матанализу}
 \cfoot{}
@@ -27,13 +27,13 @@
 \subsection{Площадь}
 
 \begin{definition}
-    $\Eulerconst$ --- множество всех ограниченных фигур в $\R^2$ (``фигура'' = подмножество $\R^2$)
+    $ℇ$ --- множество всех ограниченных фигур в $\R^2$ (``фигура'' = подмножество $\R^2$)
 \end{definition}
 
 \begin{definition}
-    Площадь это $\sigma : \Eulerconst \to \R_+$, такое что:
+    Площадь это $\sigma : ℇ \to \R_+$, такое что:
     \begin{enumerate}
-        \item $A\in\Eulerconst \quad A=A_1\sqcup A_2 \quad \sigma A = \sigma A_1 + \sigma A_2$ (конечная аддитивность)
+        \item $A\in ℇ \quad A=A_1\sqcup A_2 \quad \sigma A = \sigma A_1 + \sigma A_2$ (конечная аддитивность)
         \item $\sigma([a,b]\times [c,d])=(d-c)(b-a)$
     \end{enumerate}
 
@@ -49,11 +49,11 @@
 \end{remark}
 
 \begin{definition}
-    \textbf{Ослабленная площадь} $\sigma : \Eulerconst \to \R_+$:
+    \textbf{Ослабленная площадь} $\sigma : ℇ \to \R_+$:
     \begin{enumerate}
         \item Монотонна
         \item Нормировка
-        \item Ослабленная аддитивность: $E\in\Eulerconst \quad E=E_1\cup E_2 \quad E_1\cap E_2$ --- вертикальный отрезок, $E_1$ и $E_2$ лежат каждый в своей полуплоскости относительно этого отрезка $\sigma E=\sigma E_1 + \sigma E_2$
+        \item Ослабленная аддитивность: $E\in ℇ \quad E=E_1\cup E_2 \quad E_1\cap E_2$ --- вертикальный отрезок, $E_1$ и $E_2$ лежат каждый в своей полуплоскости относительно этого отрезка $\sigma E=\sigma E_1 + \sigma E_2$
     \end{enumerate}
 \end{definition}
 

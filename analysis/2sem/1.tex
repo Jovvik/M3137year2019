@@ -105,11 +105,16 @@
         \item т. Ферма
         \item ф. Тейлора
         
-        $$f(x)=\text{Tn}(f, x_0)(x)+o((x-x_0)^n)$$
+        $$f(x)=\text{T}_n(f, x_0)(x)+o((x-x_0)^n)$$
         $$f(x)=f(x_0)+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^n)$$
 
         при $x$, близких к $x_0$:
         $$\sign(f(x)-f(x_0)) = \sign\left(\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\right)$$
+        Тогда при чётном $n$ $$\sign(f(x)-f(x_0))=\sign f^{(n)}(x_0) \Rightarrow x_0 \text{ --- экстр.}$$
+        При нечётном $n$ $$\sign(f(x)-f(x_0))=\begin{cases}
+            f^{(n)}(x_0), & x>x_0 \\
+            -f^{(n)}(x_0), & x<x_0 \\
+        \end{cases} \Rightarrow x_0 \text{ --- не экстр.}$$
     \end{enumerate}
 \end{proof}
 %</необходимостьидостаточностьусловиялокальногоэкстремумаproof>
@@ -119,7 +124,7 @@
 \subsection{Неопределенный интеграл}
 
 \begin{definition}
-    %<*первообразная>
+%<*первообразная>
     $F, f:\langle a,b\rangle\to\R$
 
     $F$ --- \textbf{первообразная} $f$ на $\langle a,b\rangle$
@@ -153,11 +158,12 @@
 \end{proof}
 
 \begin{definition}
-    %<*неопределенныйинтеграл>
+%<*неопределенныйинтеграл>
+
     \textbf{Неопределенный интеграл} $f$ на $\langle a,b\rangle$ --- множество всех первообразных $f$:
     $$\{F+c, c\in\R\} \text{, где $F$ --- первообразная}$$
     Обозначается $\intt f=F+c$ или $\intt f(x)dx$
-    %</неопределенныйинтеграл>
+%</неопределенныйинтеграл>
 \end{definition}
 
 %<*таблицапервообразных>
@@ -166,10 +172,10 @@ $$\intt \frac{1}{x}dx=\ln x$$
 $$\intt \sin x dx = -\cos x$$
 $$\intt \cos x dx = \sin x$$
 $$\intt e^xdx = e^x$$
-$$\intt \frac{1}{\sqrt{1-x^2}}=\arcsin x$$
+$$\intt \frac{1}{\sqrt{1-x^2}}dx=\arcsin x$$
 $$\intt \frac{1}{\sqrt{1+x^2}} dx=\ln(x+\sqrt{1+x^2}) \text{ --- длинный логарифм}$$
-$$\intt \frac{1}{\cos^2 x}=\tg x$$
-$$\intt \frac{1}{\sin^2 x}=-\ctg x$$
+$$\intt \frac{1}{\cos^2 x}dx=\tg x$$
+$$\intt \frac{1}{\sin^2 x}dx=-\ctg x$$
 \textcolor{red}{Почему где-то нет $dx$? Кохась забыл?}
 %</таблицапервообразных>
 
@@ -228,6 +234,7 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 
     Или для метрического пространства:
     $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2 \ \ \rho(x_1, x_2)<\delta \quad \rho(f(x_1), f(x_2))<\varepsilon$$
+    Отличие от непрерывности на отрезке в том, что $\delta$ зависит только от $\varepsilon$ и подходит для всех $x_1, x_2$.
 %</равномернаянепрерывность>
 \end{definition}
 \begin{example}
@@ -245,7 +252,7 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 %<*теоремакантора>
     $f:X\to Y, X$ --- комп., $f$ --- непр. на $X$
 
-    Тогда $f$ --- непр.
+    Тогда $f$ --- равномерно непр.
 %</теоремакантора>
 \end{theorem}
 %<*теоремакантораproof>
@@ -257,7 +264,9 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 
     Выберем $x_{n_k}\to\tilde x, \overline x_{n_k}\to\dbltilde{x}$
 
-    $\rho(\tilde x, \dbltilde x)\leq 0$, т.е. $\tilde x = \dbltilde x$. Тогда $f(x_{n_k})\to f(\tilde x), f(\overline x_{n_k})\to f(\tilde x)$, противоречие с $\rho(f(x_n), f(\overline x_n))\geq\varepsilon$
+    $$\rho(\tilde x, \dbltilde x)\leq \lim_{n\to\infty}\delta=0 \Rightarrow \tilde x = \dbltilde x$$
+
+    Тогда $f(x_{n_k})\to f(\tilde x), f(\overline x_{n_k})\to f(\tilde x)$, противоречие с $\rho(f(x_n), f(\overline x_n))\geq\varepsilon$
 \end{proof}
 %</теоремакантораproof>
 

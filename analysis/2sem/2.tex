@@ -25,16 +25,21 @@
 \subsection{Площадь}
 
 \begin{definition}
+    %<*фигуры>
     $\mathcal E$ --- множество всех ограниченных фигур в $\R^2$ (``фигура'' = подмножество $\R^2$)
+    %</фигуры>
 \end{definition}
 
 \begin{definition}
-    Площадь это $\sigma : \mathcal E \to \R_+$, такое что:
+    %<*площадь>
+
+    \textbf{Площадь} это $\sigma : \mathcal E \to \R_+$, такое что:
     \begin{enumerate}
-        \item $A\in \mathcal E \quad A=A_1\sqcup A_2 \quad \sigma A = \sigma A_1 + \sigma A_2$ (конечная аддитивность)
+        \item $A\in \mathcal E \quad A=A_1\sqcup A_2 \quad \sigma A = \sigma A_1 + \sigma A_2$ \textit{(конечная аддитивность)}
         \item $\sigma([a,b]\times [c,d])=(d-c)(b-a)$
     \end{enumerate}
 
+    %</площадь>
     Мы пока что не знаем, существует ли площадь.
 \end{definition}
 
@@ -47,12 +52,15 @@
 \end{remark}
 
 \begin{definition}
+    %<*ослабленнаяплощадь>
+
     \textbf{Ослабленная площадь} $\sigma : \mathcal E \to \R_+$:
     \begin{enumerate}
         \item Монотонна
-        \item Нормировка
-        \item Ослабленная аддитивность: $E\in \mathcal E \quad E=E_1\cup E_2 \quad E_1\cap E_2$ --- вертикальный отрезок, $E_1$ и $E_2$ лежат каждый в своей полуплоскости относительно этого отрезка $\sigma E=\sigma E_1 + \sigma E_2$
+        \item Нормирована
+        \item Ослабленная аддитивность: $E\in \mathcal E \quad E=E_1\cup E_2 \quad E_1\cap E_2$ --- вертикальный отрезок, $E_1$ и $E_2$ лежат каждый в своей полуплоскости относительно этого отрезка $\Rightarrow \sigma E=\sigma E_1 + \sigma E_2$
     \end{enumerate}
+    %</ослабленнаяплощадь>
 \end{definition}
 
 \begin{example}
@@ -65,11 +73,14 @@
 Это разные площади. Покажем это на примере фигуры ``все точки в квадрате с рациональными координатами''. Первая площадь накрывает весь квадрат $\Rightarrow \sigma_1=1$. $\sigma_2=0$. Покажем это, накрыв $n$-тую точку квадратом размера $\frac{\varepsilon}{2^n}\times \frac{\varepsilon}{2^n}$. $\sum \frac{\varepsilon}{4^n}=\varepsilon\frac{\frac{1}{4}}{1-\frac{1}{4}}=\frac{\varepsilon}{3}\to0 \Rightarrow \inf = 0$
 
 \begin{definition}
+%<*срезки>
+
     $f:\langle a,b\rangle\to\R$
 
     $f_+:=\max(f, 0)$ --- \textbf{положительная срезка}
 
     $f_-:=\max(-f, 0)$ --- \textbf{отрицательная срезка}
+%</срезки>
 \end{definition}
 
 \begin{definition}
@@ -79,9 +90,11 @@
 \end{definition}
 
 \begin{definition}
-    $f:[a, b] \to R$, непр.
+    %<*определенныйинтеграл>
+    $f:[a, b] \to \R$, непр.
 
-    $$\int_a^b f = \int_a^b f(x)dx := \sigma\text{ПГ}(f_+, [a,b]) - \sigma\text{ПГ}(f_, [a,b])$$
+    $$\int_a^b f = \int_a^b f(x)dx := \sigma\text{ПГ}(f_+, [a,b]) - \sigma\text{ПГ}(f_-, [a,b])$$
+    %</определенныйинтеграл>
 \end{definition}
 
 \begin{remark}
@@ -101,13 +114,17 @@
     \begin{proof}
         $$\sigma\text{ПГ}(f_+, [a,b])=\sigma\text{ПГ}(f_+, [a,c])+\sigma\text{ПГ}(f_+, [c,b])$$
     \end{proof}
-    \item Монотонность: $f, g \in C[a,b] \quad f\leq g$. Тогда
+    \item Монотонность: %<*интегрированиенеравенств>
+    $f, g \in C[a,b] \quad f\leq g$. Тогда
     $$\int^b_a f \leq \int^b_a g$$
+    %</интегрированиенеравенств>
+    %<*интегрированиенеравенствproof>
     \begin{proof}
         $$\text{ПГ}(f_+)\subset \text{ПГ}(g_+) \Rightarrow \sigma\text{ПГ}(f_+)\leq \sigma\text{ПГ}(g_+)$$
         $$\text{ПГ}(f_-)\supset \text{ПГ}(g_-) \Rightarrow \sigma\text{ПГ}(f_-)\geq \sigma\text{ПГ}(g_-)$$
         $$\sigma\text{ПГ}(f_+)-\sigma\text{ПГ}(f_-)\leq\sigma\text{ПГ}(g_+)-\sigma\text{ПГ}(g_-)$$
     \end{proof}
+    %</интегрированиенеравенствproof>
 \end{enumerate}
 %</свойстваинтегралов>
 
@@ -129,11 +146,11 @@
 \end{definition}
 %</интегралспеременнымверхнимпределом>
 
-%<*теоремабарроу>
 \begin{theorem}
+    %<*теоремабарроу>
     $f\in C[a,b] \quad \Phi$ --- интеграл с переменным верхним пределом. Тогда $$\forall x\in[a,b] \quad \Phi'(x)=f(x)$$
+    %</теоремабарроу>
 \end{theorem}
-%</теоремабарроу>
 %<*теоремабарроуproof>
 \begin{proof}
     Зафиксируем $x\in[a,b] \quad y>x, y\leq b$

@@ -154,9 +154,9 @@
 %<*теоремабарроуproof>
 \begin{proof}
     Зафиксируем $x\in[a,b] \quad y>x, y\leq b$
-    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{\int_x^y f}{y-x} \underset{\underset{\exists c\in[x,y]}{\text{т.о.ср.}}}{=} f(x)\xrightarrow[x\to x+0]{} f(x)$$
+    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{\int_a^y f - (\int_a^y f+ \int_y^x f)}{y-x}=\frac{\int_x^y f}{y-x} \underset{\underset{\exists c\in[x,y]}{\text{т.о.ср.}}}{=}  \frac{c(y-x)}{y-x}=c\xrightarrow[y\to x+0]{} f(x)$$
     $x>y$
-    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{\int_a^y f - (\int_a^y f+ \int_y^x f)}{y-x}=\frac{1}{x-y}\int^x_y f = f(c)\xrightarrow[y\to x-0]{} f(x)$$
+    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{1}{x-y}\int^x_y f = c\xrightarrow[y\to x-0]{} f(x)$$
 \end{proof}
 %</теоремабарроуproof>
 

@@ -1,7 +1,5 @@
 \input{../../preamble.sty}
 
-\usepackage{unicode-math}
-
 \lhead{Конспект по матанализу}
 \cfoot{}
 \rfoot{Лекция 3}
@@ -184,6 +182,7 @@ $$\arcsin t = t + \frac{1}{6}t^3 + \frac{3}{40} t^5 + o(t^5)$$
 \end{definition}
 
 \begin{definition}
+    %<*почтипервообразная>
     $F:[a,b]\to\R$ --- \textbf{почти первообразная} кусочно непрерывной функции $f$:
     
     $F$ --- непр. и $\exists F'(x) = f(x)$ всюду, кроме конечного числа точек
@@ -192,6 +191,7 @@ $$\arcsin t = t + \frac{1}{6}t^3 + \frac{3}{40} t^5 + o(t^5)$$
 
         $F:=|x|$
     \end{example}
+    %</почтипервообразная>
 \end{definition}
 
 $f$ --- кус. непр.
@@ -222,11 +222,16 @@ $$\int\limits_{a}^{b} f = F(b)-F(a)=\sum\int\limits_{x_{k-1}}^{x_k} f = \sum F(t
 
 $$Segm\langle a,b\rangle \text{ --- множество всевозм. отрезков, лежащих в } \langle a,b\rangle = \{[p, q] : [p,q]\subset\langle a,b\rangle\}$$
 \begin{definition}
+    %<*функцияпромежутка>
     \textbf{Функция промежутка} $\Phi : Segm\langle a,b\rangle \to \R$
+    %</функцияпромежутка>
 \end{definition}
 \begin{definition}
+    %<*аддитивнаяфункцияпромежутка>
+
     \textbf{Аддитивная функция промежутка}: $\Phi$ --- функция промежутка и
     $$\forall [p,q]\in Segm\langle a,b\rangle \ \ \forall r : p < r < q \quad \Phi([p,q])=\Phi([p,r])+\Phi([r,q])$$
+    %</аддитивнаяфункцияпромежутка>
 \end{definition}
 \begin{example}
     \begin{itemize}

@@ -187,7 +187,7 @@ $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac
     $\Phi(x) = \int_0^x f$ --- первообр.
 
     $\exists C : F = \Phi + C$
-    $$\int_a^b f = \Phi(b)=\Phi(b) - \Phi(a) = F(b) - F(a)$$
+    $$\int_a^b f = \Phi(b) - \Phi(a) = F(b) - F(a)$$
 \end{proof}
 %</ньютоналейбницаproof>
 
@@ -199,6 +199,7 @@ $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac
 
 \begin{lemma}
     Об ускоренной сходимости
+%<*обускореннойсходимости>
 
     \begin{enumerate}
         \item $f, g : D\subset X \to \R \quad a$ --- предельная точка $D$
@@ -214,7 +215,9 @@ $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac
 
         \item То же самое, но $\lim f(x)=+\infty, \lim g(x)=+\infty$
     \end{enumerate}
+%</обускореннойсходимости>
 \end{lemma}
+%<*обускореннойсходимостиproof>
 \begin{proof}
     \begin{enumerate}
         \item Очевидно.
@@ -243,8 +246,10 @@ $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac
         \end{enumerate}
     \end{enumerate}
 \end{proof}
+%</обускореннойсходимостиproof>
 
 \begin{theorem}
+    %<*правилолопиталя>
     $f,g : (a,b)\to\R \quad a\in\overline\R$
 
     $f,g$ --- дифф., $g'\not=0$ на $(a,b)$
@@ -254,7 +259,9 @@ $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac
     Пусть $\lim\limits_{x\to a}\frac{f(x)}{g(x)}$ --- неопределенность $\left\{\frac{0}{0}, \frac{+\infty}{+\infty}\right\}$
 
     Тогда $\exists \lim\limits_{x\to a} \frac{f(x)}{g(x)}=A$
+    %</правилолопиталя>
 \end{theorem}
+%<*правилолопиталяproof>
 \begin{proof}
     $g'\not=0 \Rightarrow g'$ --- сохр. знак $\Rightarrow g$ --- монотонна.
 
@@ -270,6 +277,7 @@ $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac
 
     $x_k\to a \quad y_k\to a \quad \xi_k \to a$
 \end{proof}
+%</правилолопиталяproof>
 
 \begin{example}
     $\frac{\pi}{2} - \arctg x \underset{x\to+\infty}{\sim} g(x)$

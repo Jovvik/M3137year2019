@@ -38,6 +38,7 @@
 \begin{theorem}
     Штольца.
 
+    %<*штольца>
     Это дискретная версия правила Лопиталя.
 
     $y_n\to0, x_n\to0$ --- строго монот.
@@ -45,10 +46,12 @@
     $$\lim\cfrac{x_n-x_{n-1}}{y_n-y_{n-1}}=a\in\R$$
 
     Тогда $\exists\lim\cfrac{x_n}{y_n}=a$
+    %</штольца>
 \end{theorem}
 \begin{remark}
     Аналогичное верно, если $x_n\to+\infty, y_n\to+\infty$
 \end{remark}
+%<*штольцаproof>
 \begin{proof}
     \begin{enumerate}
         \item $a>0 \quad (a\not=+\infty)$
@@ -70,6 +73,7 @@
         Для $a=+0 \lim\cfrac{y_n-y_{n-1}}{x_n-x_{n-1}}=+\infty$
     \end{enumerate}
 \end{proof}
+%</штольцаproof>
 
 $x_n=1+2+3+\ldots+n\stackrel{?}{\equ\limits_{n\to+\infty}}y_n$
 
@@ -122,6 +126,7 @@ $$\lim\cfrac{x_n}{z_n}=\lim\cfrac{\cfrac{\alpha}{2}n^{\alpha-1}}{z_n-z_{n-1}}$$
 \end{enumerate}
 
 \begin{example}
+    %<*неравенствочебышева>
     Неравенство Чебышева
 
     $f,g\in C[a,b]$ монот. возр.
@@ -129,7 +134,9 @@ $$\lim\cfrac{x_n}{z_n}=\lim\cfrac{\cfrac{\alpha}{2}n^{\alpha-1}}{z_n-z_{n-1}}$$
     Тогда
     $$I_f\cdot I_g\leq I_{fg}$$
     $$\int\limits_a^b f \int\limits_a^b g\leq (b-a)\int\limits_a^b fg$$
+    %</неравенствочебышева>
 \end{example}
+%<*неравенствочебышеваproof>
 \begin{proof}
     $x,y\in[a,b] \quad (f(x)-f(y))(g(x)-g(y))\geq 0$
     $$f(x)g(x)-f(y)g(x)-f(x)g(y)+f(y)g(y)\geq 0$$
@@ -138,6 +145,7 @@ $$\lim\cfrac{x_n}{z_n}=\lim\cfrac{\cfrac{\alpha}{2}n^{\alpha-1}}{z_n-z_{n-1}}$$
     Интегрируем по $y$ по $[a,b]$
     $$I_{fg}-I_fI_g-I_gI_f+I_{fg}\geq 0$$
 \end{proof}
+%</неравенствочебышеваproof>
 
 \begin{example}
     $$H_n:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} fg' dt$$
@@ -207,22 +215,30 @@ $f$ --- кус. непр. на $[a,b]$, $F$ --- почти первообраз�
 $$\int\limits_{a}^{b} f = F(b)-F(a)=\sum\int\limits_{x_{k-1}}^{x_k} f = \sum F(t)|_{x_{k-1}}^{x_k}=\sum F(x_k)-F(x_{k-1})=F(b)-F(a)$$
 
 \begin{example}
+    %<*дискретноенеравенствочебышева>
+
     Дискретное неравенство Чебышева
 
     $a_1\leq a_2\leq \ldots \leq a_n, b_1\leq b_2\leq\ldots\leq b_n$
     $$\frac{1}{n}\sum\limits_{i=1}^n a_i\cdot \frac{1}{n}\sum b_i\leq \frac{1}{n}\sum a_ib_i$$
+    %</дискретноенеравенствочебышева>
 \end{example}
+%<*дискретноенеравенствочебышеваproof>
 \begin{proof}
     $$f(x)=a_i, x\in(i-1, i], i=1\ldots n \text{ --- задана на } (0,n]$$
     $$g(x) = \ldots b_i$$
     $$I_fI_g\leq I_{fg}$$
 \end{proof}
+%</дискретноенеравенствочебышеваproof>
 
 \section{Приложение определенного интеграла}
 
-$$Segm\langle a,b\rangle \text{ --- множество всевозм. отрезков, лежащих в } \langle a,b\rangle = \{[p, q] : [p,q]\subset\langle a,b\rangle\}$$
+%<*segm>
+$Segm\langle a,b\rangle = \{[p, q] : [p,q]\subset\langle a,b\rangle\}$ --- множество всевозм. отрезков, лежащих в $\langle a,b\rangle$
+%</segm>
 \begin{definition}
     %<*функцияпромежутка>
+
     \textbf{Функция промежутка} $\Phi : Segm\langle a,b\rangle \to \R$
     %</функцияпромежутка>
 \end{definition}
@@ -245,8 +261,10 @@ $$Segm\langle a,b\rangle \text{ --- множество всевозм. отре�
 \end{example}
 
 \begin{definition}
+    %<*плотностьаддитивнойфункциипромежутка>
     \textbf{Плотность аддитивной функции промежутка}: $f:\langle a,b\rangle \to\R$ --- плотность $\Phi$, если:
     $$\forall \delta\in Segm\langle a,b\rangle \quad \inf\limits_{x\in\delta} f(x)\cdot len_\delta\leq \Phi(\delta)\leq\sup f \cdot len_\delta$$
+    %</плотностьаддитивнойфункциипромежутка>
 \end{definition}
 
 \begin{theorem}

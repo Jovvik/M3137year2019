@@ -142,4 +142,147 @@ $$P_\infty[K]=\{p_n(\lambda)=\sum_{i=1}^n \alpha_i \lambda^i \quad \forall n\}$$
     $\forall p\in q\cdot P_\infty[K] \Rightarrow p=qr; r\in P_\infty[K] \Rightarrow \forall p\mid q \Rightarrow q=p_J$
 \end{proof}
 
+\begin{lemma}
+    Сравнение идеалов:
+    $$J_1\subset J_2 \Leftrightarrow p_{J_1}\mid p_{J_2}$$
+\end{lemma}
+\begin{proof}
+    ``$\Rightarrow$''
+
+    $J_1\subset J_2 \Rightarrow p_{J_1}\in J_2 \Rightarrow p_{J_1}\mid p_{J_2}$
+
+    ``$\Leftarrow$''
+
+    $] p_{J_1}\mid p_{J_2} \Rightarrow p_{J_1} = rp_{J_2}$
+
+    $\forall q\in J_1 \quad q=\tilde q p_{J_1}=\tilde r P_{J_2} \Rightarrow q\mid p_{J_2} \Rightarrow J_1\subset J_2$
+\end{proof}
+\begin{lemma}
+    О минимальном полиноме пересечения
+
+    $$J_1\leftrightarrow p_{J_1} \ \ J_2\leftrightarrow p_{J_2} \Rightarrow J_r = J_1\cap J_2 \leftrightarrow r_J=\text{НОК}(p_{J_1}, p_{J_2})$$
+\end{lemma}
+\begin{proof}
+    $J_r=J_1\cap J_2 \Rightarrow J_r\subset J_1 \wedge J_r\subset J_2 \Rightarrow r_J \mid p_{J_1} \wedge r_J\mid p_{J_2} \Rightarrow r_J=\text{НОК}(p_{J_1}, p_{J_2})$
+\end{proof}
+
+\begin{lemma}
+    О минимальном полиноме суммы
+
+    $$J_s=J_1 + J_2 \Rightarrow S_J=\text{НОД}(p_{J_1}, p_{J_2})$$
+\end{lemma}
+\begin{proof}
+    $J_s=J_1+J_2 \Rightarrow J_S\supset J_1 \wedge J_S\supset J_2 \Rightarrow p_{J_1} \mid S_J \wedge p_{J_2} \mid S_j \Rightarrow S_j=\text{НОД}(p_{J_1}, p_{J_2})$
+\end{proof}
+
+\begin{theorem}
+    О взаимно простых полиномах
+
+    $] p_1, p_2$ --- взаимно простые, т.е. $\text{НОД}(p_1, p_2)=1 \Rightarrow \exists q_1, q_2\in P_\infty[K] : p_1q_1 + p_2q_2=1$
+\end{theorem}
+\begin{proof}
+    $p_1\leftrightarrow J_1=p_1 P_\infty[K]$
+
+    $p_2\leftrightarrow J_2=p_2 P_\infty[K]$
+
+    $\text{НОД}(p_1, p_2)=1\leftrightarrow J_1+J_2=P_\infty[K]$
+
+    $p_1q_1 + p_2q_2=1$
+\end{proof}
+
+\begin{theorem}
+    Обобщение
+
+    $$p_1\ldots p_k \in P_\infty[K], \text{НОД}(p_1\ldots p_k)=1\Rightarrow \exists q_1\ldots q_k : \sum_{i=1}^k p_iq_i=1$$
+\end{theorem}
+\begin{proof}
+    Аналогично.
+\end{proof}
+
+\begin{remark}
+    $] p = p_1\cdot p_2\cdots p_k, \{p_i\}$ взаимно простые $\Rightarrow \exists q_1\ldots q_k : p_1'q_1+p_2'q_2+\ldots+p_k'q_k=1, p_j'=\frac{p}{p_j}$
+\end{remark}
+
+\section*{Алгебра операторных полиномов}
+
+$] \varphi : X\to X$ --- линейный оператор
+
+\begin{definition}
+    \textbf{Операторным полиномом} $p(\varphi)$ называется полином вида:
+    $$p(\varphi)=\sum_{i=1}^n \alpha_i\varphi^i, \varphi^0=I$$
+\end{definition}
+
+\begin{definition}
+    $\mathcal P_\varphi=\{p_n(\varphi)\quad \forall n\}$ --- \textbf{множество операторных полиномов}
+\end{definition}
+
+\begin{lemma}
+    $\mathcal P_\varphi$ --- линейное пространство
+\end{lemma}
+\begin{lemma}
+    $\mathcal P_\varphi$ --- коммутативная алгебра
+\end{lemma}
+\begin{proof}
+    $$\forall p(\varphi), q(\varphi) \quad p(\varphi)q(\varphi)=q(\varphi)p(\varphi) \Leftrightarrow \varphi^m\varphi^n=\varphi^n\varphi^m$$
+\end{proof}
+
+$\sphericalangle S_\varphi : P_\infty[K] \to \mathcal P_\varphi$
+
+$$p(\lambda)=\sum_{i=1}^n \alpha_i\lambda^i \stackrel{S_\varphi}{\mapsto} p(\varphi)=\sum_{i=1}^n \alpha_i\varphi^i$$
+
+\begin{lemma}
+    $S_\varphi$ --- гомоморфизм алгебр $P_\infty[K]$ и $\mathcal P_\varphi$
+\end{lemma}
+\begin{proof}
+    $$p(\lambda)+q(\lambda)=(p+q)(\lambda)=\sum_{i=1}^n(\lambda_i+\beta_i)\lambda^i\mapsto \sum_{i=1}^n(\lambda_i+\beta_i)\varphi^i=(p+q)(\varphi)=p(\varphi)+q(\varphi)$$
+    $$\alpha p(\lambda)\mapsto \alpha p(\varphi) \text{ аналогично}$$
+    $$p(\lambda)q(\lambda)=(pq)(\lambda)=\sum_{i=1}^n\sum_{j=1}^n \alpha_i\beta_j\lambda^{i+j}\mapsto \sum_{i=1}^n\sum_{j=1}^n \alpha_i\beta_j\varphi^{i+j}=(pq)(\varphi)=p(\varphi)q(\varphi)$$
+    $$1\mapsto \varphi^0=I$$
+\end{proof}
+
+\begin{lemma}
+    $p_1, p_2 \in P_\infty[K], \text{НОД}(p_1, p_2)=1\Rightarrow \exists q_1, q_2\in P_\infty[K] : p_1(\varphi)q_1(\varphi)+p_2(\varphi)q_2(\varphi)=I$
+\end{lemma}
+\begin{proof}
+    Применим к обеим частям $p_1(\lambda)q_1(\lambda)+p_2(\lambda)q_2(\lambda)=1$ отображение $S_\varphi$ :
+    $$p_1(\varphi)q_1(\varphi)+p_2(\varphi)q_2(\varphi)=I$$
+\end{proof}
+
+\begin{theorem}
+    О сумме ядер.
+
+    $] p=p_1\cdot p_2, \ \ p_1, p_2\in P_\infty[K]$
+
+    $] p_1, p_2$ --- взаимно простые
+
+    Тогда
+    $$\ker p(\varphi)=\ker p_1(\varphi)\dot+\ker p_2(\varphi)$$
+    Т.е., по определению $\dot+$:
+    $$\forall x\in\ker p(\varphi) \ \ \exists! x_1\in\ker p_1(\varphi), x_2\in \ker p_2(\varphi) \quad x=x_1+x_2$$
+\end{theorem}
+\begin{proof}
+    Покажем, что $\ker p_1(\varphi)+\ker p_2(\varphi)\subset \ker p(\varphi)$
+
+    $] x_j\in \ker p_j(\varphi) \Rightarrow$
+    $$p(\varphi)(x)=p(\varphi)(x_1+x_2)=p_1(\varphi)p_2(\varphi)x_1+p_1(\varphi)p_2(\varphi)x_2=0+0=0$$
+    Покажем, что $\ker p(\varphi)\subset \ker p_1(\varphi)+\ker p_2(\varphi)$
+
+    $] x\in\ker p(\varphi)$
+
+    $$\text{НОД}(p_1, p_2)=1 \Rightarrow p_1(\varphi)q_1(\varphi)+p_2(\varphi)q_2(\varphi)=I$$
+    $$x=Ix = p_1(\varphi)q_1(\varphi)x+p_2(\varphi)q_2(\varphi)x$$
+    $$p_2(\varphi)q_2(\varphi)x\in\ker p_1(\varphi)\Leftarrow p_1(\varphi)p_2(\varphi)q_2(\varphi)x=p(\varphi)q_2(\varphi)x=0$$
+
+    Покажем, что $\ker p_1(\varphi)+\ker p_2(\varphi)$ --- прямая сумма
+
+    $\sphericalangle \ker p_1(\varphi)\cap \ker p_2(\varphi)\ni z$
+    $$z=Iz=p_1(\varphi)q_1(\varphi)z+p_2(\varphi)q_2(\varphi)z=0+0=0\Rightarrow \dim \ker p_1(\varphi)\cap\ker p_2(\varphi)=0\Rightarrow$$
+    $$\Rightarrow \ker p_1(\varphi)+\ker p_2(\varphi) \text{ --- прямая сумма}$$
+\end{proof}
+
+\begin{remark}
+    Пусть $p=p_1\ldots p_k, \{p_k\}$ --- взаимно простые $\Rightarrow$
+    $$\ker p(\varphi)=\dot+\sum_{j=1}^k \ker p_j(\varphi)$$
+\end{remark}
+
 \end{document}

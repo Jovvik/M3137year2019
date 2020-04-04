@@ -1,0 +1,145 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Лекция 7}
+
+\begin{document}
+
+\section*{Алгебра скалярных полиномов}
+
+$] K$ --- поле, над которым задано множество полиномов $K_\infty[\lambda]$, также обозначается $P_\infty[K]$
+$$P_\infty[K]=\{p_n(\lambda)=\sum_{i=1}^n \alpha_i \lambda^i \quad \forall n\}$$
+
+\begin{remark}
+    $P_\infty[K]$ --- линейное пространство:
+
+    $] p, q\in P_\infty[K]; \lambda\in K \Rightarrow \begin{cases}
+        (p+q)(\lambda)=p(\lambda)+q(\lambda) \\
+        (\lambda p)(\lambda) = \alpha p(\lambda)
+    \end{cases} \Rightarrow P_\infty[K]$ --- линейное пространство
+\end{remark}
+
+\begin{remark}
+    $P_\infty[K]$ --- коммутативная алгебра
+
+    Зададим операцию умножения в $P_\infty[K]$:
+    $$\forall p, q\in P_\infty[K] \quad (p\cdot q)(\lambda)=p(\lambda)q(\lambda)$$
+    $$(p\cdot q)(\lambda)=p(\lambda)q(\lambda)=q(\lambda)p(\lambda)=(qp)(\lambda) \Rightarrow \text{коммутативность}$$
+    $$(p\cdot q)\cdot r = p\cdot (q\cdot r) = p\cdot q\cdot r$$
+    $$(p+q)r=pr+qr$$
+    $$(\lambda p)q=p(\lambda q)=\lambda(pq)$$
+
+    Нейтральный элемент:
+    \begin{itemize}
+        \item по сложению: $0(\lambda)=0$
+        \item по умножению: $1(\lambda)=1$
+    \end{itemize}
+\end{remark}
+
+\begin{remark}
+    $\{1, t, t^2 \ldots t^n \ldots \}$ --- базис $P_\infty[K] \Rightarrow \dim P_\infty[K]=\infty$
+\end{remark}
+
+\begin{definition}
+    \textbf{Идеалом} $J$ алгебры $P_\infty[K]$ называется такое её подпространство, что
+    $$\forall q\in J \ \ \forall p\in P_\infty[K] \quad q\cdot p\in J$$
+\end{definition}
+\begin{example}
+    Тривиальные идеалы:
+    \begin{itemize}
+        \item $\{0\}$
+        \item $P_\infty[K]$
+    \end{itemize}
+\end{example}
+\begin{lemma}
+    $J$ --- линейное подпространство $P_\infty[K]$
+\end{lemma}
+\begin{proof}
+    $] q_1, q_2\in J \quad q_1+q_2\in J?$
+
+    $q_1, q_2\in J \Rightarrow \forall p \ \ q_1p, q_2p\in J$
+
+    $q_1=r\tilde q_1, q_2=r\tilde q_2 \quad (q_1+q_2)p=r(\tilde q_1+\tilde q_2)p$
+
+    $(\tilde q_1+\tilde q_2)p\in P_\infty[K] \Rightarrow r(\tilde q_1+\tilde q_2)p\in J$
+\end{proof}
+\begin{lemma}
+    $J$ --- подалгебра $P_\infty[K]$
+\end{lemma}
+\begin{proof}
+    $$(q_1\cdot q_2)p=q_1(q_2 p)\in J$$
+\end{proof}
+\begin{example}
+    $J_\alpha=\{p\in P_\infty[K] : p(\alpha)=0\}$ --- идеал
+\end{example}
+\begin{lemma}
+    $] q\in P_\infty[K] \Rightarrow J_q=q\cdot P_\infty[K]$ --- идеал в $P_\infty[K]$
+\end{lemma}
+\begin{proof}
+    $] r\in J_q \Rightarrow \exists p\in P_\infty[K] : r = q\cdot p$
+
+    $] \tilde p\in P_\infty[K]$
+
+    $r\tilde p = (qp)\tilde p=q(p\tilde p)$
+    
+    $p\tilde p \in P_\infty[K] \Rightarrow q(p\tilde p)\in q\cdot P_\infty[K]=J_q \Rightarrow J_q \text{ --- идеал}$
+\end{proof}
+\begin{definition}
+    Полином $q : J_q = q\cdot P_\infty[K]$ называется \textbf{порождающим полиномом} идеала $J_q$
+\end{definition}
+\begin{remark}
+    Если идеал содержит $1(\lambda)$, то данный идеал совпадает с $P_\infty[K]$:
+    $$J_1=1\cdot P_\infty[K]=P_\infty[K]$$
+\end{remark}
+\begin{definition}
+    $] J_1$ и $J_2$ --- идеалы в $P_\infty[K]$
+    \begin{enumerate}
+        \item Суммой $J_1 + J_2$ называется множество
+        $$J_s=\{p\in P_\infty[K] : p = p_1 + p_2 \quad p_1\in J_1, p_2\in J_2\}$$
+        \item Пересечением $J_1 \cap J_2$ называется множество:
+        $$J_r=\{p\in P_\infty[K] : p\in J_1 \wedge p\in J_2\}$$
+    \end{enumerate}
+\end{definition}
+\begin{lemma}
+    $J_s$ и $J_r$ --- идеалы в $P_\infty[K]$
+\end{lemma}
+\begin{proof}
+    $J_s=J_1+J_2$ --- идеал?
+
+    $] q\in J_s \Rightarrow q=q_1+q_2 \quad q_1\in J_1, q_2\in J_2$
+
+    $] p\in P_\infty[K] \quad qp = (q_1+q_2)p=q_1p+q_2p$
+
+    $q_1p \in J_1, q_2p \in J_2 \Rightarrow q_1p+q_2p\in J_s$
+
+    $J_r=J_1\cap J_2$ --- идеал?
+
+    $] q\in J_r \Rightarrow q\in J_1; q\in J_2$
+
+    $] p\in P_\infty[K] \quad qp \in J_1; qp\in J_2 \Rightarrow qp \in J_r$
+\end{proof}
+
+\begin{definition}
+    Нетривиальный полином минимальной степени, содержащийся в идеале, называется \textbf{минимальным полиномом} идеала.
+\end{definition}
+\begin{lemma}
+    Любой полином идеала $J$ делится на $p_J$ без остатка:
+    $$] p\in J \Rightarrow p\mid p_J$$
+\end{lemma}
+\begin{proof}
+    $] \exists p : p\nmid p_J \Rightarrow p=qp_J+r; \deg r < \deg p_J \Rightarrow r=p-qp_J$ : $\min$ полином --- противоречие.
+\end{proof}
+\begin{remark}
+    Если $p_1$ и $p_2$ --- минимальные полиномы $J$ $\Rightarrow p_1=\alpha p_2; \alpha\in K$
+\end{remark}
+\begin{theorem}
+    Минимальный полином идеала является его порождающим полиномом.
+\end{theorem}
+\begin{proof}
+    $\forall p\in J \quad p\mid p_J\Rightarrow p=p_J\cdot q\in p_J\cdot P_\infty[K]$
+
+    $\forall p\in q\cdot P_\infty[K] \Rightarrow p=qr; r\in P_\infty[K] \Rightarrow \forall p\mid q \Rightarrow q=p_J$
+\end{proof}
+
+\end{document}

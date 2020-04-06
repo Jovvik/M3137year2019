@@ -1,0 +1,74 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 6}
+
+\usepackage[]{graphics}
+
+\begin{document}
+
+\section*{Интегральные суммы}
+
+\begin{definition}
+    \textbf{Дробление} отрезка $[a,b]$ это разбиение отрезка на $n$ частей следующим образом:
+    $$x_0=a<x_1<x_2<\ldots<x_n=b \quad [x_{i-1}, x_i]$$
+\end{definition}
+
+\begin{definition}
+    \textbf{Ранг \textit{(мелкость)}} дробления --- длина самого длинного из отрезков дробления:
+    $$\tau = \{x_0\ldots x_n\} \quad |\tau|=\max(x_i-x_{i-1})$$
+\end{definition}
+
+\begin{definition}
+    \textbf{Оснащение} --- множество точек $\{\xi_1\ldots \xi_n\} : \xi_i\in[x_{i-1}, x_i]$
+\end{definition}
+
+\begin{definition}
+    \textbf{Интегральная сумма} для разбиения $\{x_i\}$, произвольной функции $f$ и оснащения $\{\xi_i\}$ это следующая сумма:
+    $$\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})$$
+\end{definition}
+
+Геометрически интегральная сумма интерпретируема следующим образом:
+
+\begin{figure}[!htbp]
+    \includegraphics[scale=0.4]{images/riemann-sum.pdf}
+    \centering
+\end{figure}
+
+\begin{theorem}
+    Об интеграле как пределе интегральных сумм.
+
+    %<*обинтегралекакпределеинтегральныхсумм>
+    $f\in C[a,b]$
+    $$\forall \varepsilon > 0 \ \ \exists \delta>0 \ \ \forall \text{дробление } \tau=\{x_0\ldots x_n\} : |\tau|<\delta \ \ \forall \text{оснащение } \xi_i \quad \left|\int_a^b f(x)dx - \sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\right| < \varepsilon$$
+    %</обинтегралекакпределеинтегральныхсумм>
+\end{theorem}
+%<*обинтегралекакпределеинтегральныхсумм>
+\begin{proof}
+    По теореме Кантора о равномерной непрерывности на компакте.
+
+    $[a,b]$ --- компакт, $f$ непрерывна на $[a,b] \Rightarrow f$ равномерно непрерывна на $[a,b]$:
+    $$\forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall x, \overline x\in[a,b] : |x-\overline x|<\delta \quad |f(x)-f(\overline x)|<\varepsilon$$
+    По двойной бухгалтерии заменим $\varepsilon$ на $\cfrac{\varepsilon}{b-a}$:
+    $$\forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall x, \overline x\in[a,b] : |x-\overline x|<\delta \quad |f(x)-f(\overline x)|<\frac{\varepsilon}{b-a}$$
+    Разобьем интеграл на части:
+    $$\int_a^b f(x)dx=\sum_{i=1}^n \left(\int_{x_{i-1}}^{x_i} f(x)dx\right)$$
+    Запишем $(x_i-x_{i-1})$ в виде интеграла $\int_{x_{i-1}}^{x_i} dx$
+    $$\left|\int_a^b f(x)dx - \sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\right|=\left|\sum_{i=1}^n\left(\int_{x_{i-1}}^{x_i} f(x)dx - f(\xi_i)\int_{x_{i-1}}^{x_i} dx\right)\right|=$$
+    $$=\left|\sum_{i=1}^n\int_{x_{i-1}}^{x_i}(f(x)-f(\xi_i))dx\right|\leq\sum\left|\int\right|\leq\sum_{i=1}^n\int_{x_{i-1}}^{x_i}|(f(x)-f(\xi_i))dx|\leq \sum_{i=1}^n\int_{x_{i-1}}^{x_i}\frac{\varepsilon}{b-a}dx=$$
+    $$=\frac{\varepsilon}{b-a}\sum_{i=1}^n\int_{x_{i-1}}^{x_i}dx=\frac{\varepsilon}{b-a}\sum_{i=1}^n(x_{i}-x_{i-1})=\frac{\varepsilon}{b-a}(b-a)=\varepsilon$$
+
+\end{proof}
+%</обинтегралекакпределеинтегральныхсумм>
+
+% Простейший случай формулы Эйлера-Маклорена
+
+% $m, n\in \Z, f\in C^2[m, n]$. Тогда
+% $$\int_m^n f(x)dx=\left(\sum_{i=m}^n\right)' f(i)-\frac{1}{2}\int f ''(x)[x](1-[x])dx$$
+% $'$ означает, что крайние слагаемые берутся с весом $\frac{1}{2}$
+% \begin{proof}
+%     Очевидно.
+% \end{proof}
+
+\end{document}

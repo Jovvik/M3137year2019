@@ -1,0 +1,15 @@
+digraph dka {
+spline=true;
+overlap=scalexy;
+nodesep=1;
+    esep=0.5;
+    node [label = "", shape=circle]
+    enter [shape=none]
+    enter->a
+    a [peripheries=2, label=chet]
+    b [label=nechet]
+    a->a [label="1"]
+    a->b [label="0"]
+    b->b [label="1"]
+    b->a [label="   0  "]
+}

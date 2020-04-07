@@ -1,0 +1,18 @@
+digraph dka {
+spline=true;
+overlap=scalexy;
+nodesep=0.7;
+    esep=0.3;
+    node [label = "", shape=circle]
+    enter [shape=none]
+    enter->a
+    a [label="not 0"]
+    b [label="last 0"]
+    c [label="00", peripheries=2]
+    a->a [label=1]
+    a->b [label="0 "]
+    b->a [label=1]
+    b->c [label=0]
+    c->c [label=0, headport=sw]
+    c->c [label=1]
+}

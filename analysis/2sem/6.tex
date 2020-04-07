@@ -58,9 +58,30 @@
     $$\left|\int_a^b f(x)dx - \sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\right|=\left|\sum_{i=1}^n\left(\int_{x_{i-1}}^{x_i} f(x)dx - f(\xi_i)\int_{x_{i-1}}^{x_i} dx\right)\right|=$$
     $$=\left|\sum_{i=1}^n\int_{x_{i-1}}^{x_i}(f(x)-f(\xi_i))dx\right|\leq\sum\left|\int\right|\leq\sum_{i=1}^n\int_{x_{i-1}}^{x_i}|(f(x)-f(\xi_i))dx|\leq \sum_{i=1}^n\int_{x_{i-1}}^{x_i}\frac{\varepsilon}{b-a}dx=$$
     $$=\frac{\varepsilon}{b-a}\sum_{i=1}^n\int_{x_{i-1}}^{x_i}dx=\frac{\varepsilon}{b-a}\sum_{i=1}^n(x_{i}-x_{i-1})=\frac{\varepsilon}{b-a}(b-a)=\varepsilon$$
-
 \end{proof}
 %</обинтегралекакпределеинтегральныхсумм>
+
+\begin{remark}
+    $f\in C^1[a,b]$; $M:=\max\limits_{x\in[a,b]} |f'(x)|$
+
+    $$|f(x)-f(\overline x)|=|f'(\overline x)(x-\overline x)|\leq M|x-\overline x|$$
+\end{remark}
+
+\begin{consequence}
+    Равномерное дробление: $x_i=a+\frac{b-a}{n}i; |\tau|=\frac{b-a}{n}$
+    $$\int-\sum\leq M(b-a)^2\frac{1}{n}$$
+\end{consequence}
+
+\begin{theorem}
+    Об интегральных суммах центральных прямоугольников
+
+    $f\in C^2[a,b] \ \ x_0=a<x_1\ldots <x_n=b \ \ \delta=\max(x_i-x_{i-1}) \ \ \xi_i:=\frac{x_{i-1}+x_i}{2}$. Тогда
+    $$\left|\int_a^b f-\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\right|\leq \frac{\delta^2}{8}\int_a^b |f''|dx$$
+\end{theorem}
+\begin{proof}
+    $$\int_{x_{i-1}}^{x_i} f(x)dx = \int_{x_{i-1}}^{\xi_i} f(x)dx + \int_{\xi_i}^{x_i} f(x)dx = \int_{x_{i-1}}^{\xi_i} f(x)d(x-x_{i-1}) + \int_{\xi_i}^{x_i} f(x)d(x-x_i)=$$
+    $$=f(x)(x-x_{i-1})|_{x=x_{i-1}}^{x=\xi_i}-\int_{x_{i-1}}^{\xi_i} f'(x)(x-x_{i-1})dx+f(x)(x-x_{i-1})|^{x=x_{i}}_{x=\xi_i}$$
+\end{proof}
 
 % Простейший случай формулы Эйлера-Маклорена
 

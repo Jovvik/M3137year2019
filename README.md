@@ -22,6 +22,7 @@
 - [Практика #3](linear%20algebra/2sem/practice/3.pdf)
 - [Практика #4](linear%20algebra/2sem/practice/4.pdf)
 - [Практика #5](linear%20algebra/2sem/practice/5.pdf)
+- [Практика #7](linear%20algebra/2sem/practice/7.pdf)
 - [Лекция #1](linear%20algebra/2sem/1.pdf)
 - [Лекция #2](linear%20algebra/2sem/2.pdf)
 - [Лекция #3](linear%20algebra/2sem/3.pdf)

@@ -13,6 +13,7 @@
 - [Лекция #3](analysis/2sem/3.pdf)
 - [Лекция #4](analysis/2sem/4.pdf)
 - [Лекция #5](analysis/2sem/5.pdf)
+- [Лекция #6](analysis/2sem/6.pdf)
 - [Практика #1](analysis/2sem/practice/1.pdf)
 - [Практика #2](analysis/2sem/practice/2.pdf)
 
@@ -32,6 +33,7 @@
 - [Лекция #2](discrete/2sem/2.pdf)
 - [Лекция #3](discrete/2sem/3.pdf)
 - [Лекция #4](discrete/2sem/4.pdf)
+- [Лекция #7](discrete/2sem/7.pdf)
 
 ## 1 семестр
 

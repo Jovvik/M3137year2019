@@ -167,4 +167,91 @@ $L$ --- инвариантное подпространство оператор
     Инвариантное подпространство называется \textbf{минимальным}, если оно не содержит внутри себя нетривиальных инвариантных подпространств меньшей размерности.
 \end{definition}
 
+\begin{lemma}
+    $] \varphi : X \to X$ --- линейный оператор $\Rightarrow \ker p(\varphi)$ --- инвариантное подпространство $\varphi$
+\end{lemma}
+\begin{proof}
+    $] x\in \ker p(\varphi) \Rightarrow p(\varphi) x = 0$
+
+    $\sphericalangle \varphi : p(\varphi)(\varphi x) = \varphi p(\varphi) x = 0$
+\end{proof}
+
+\begin{lemma}
+    $] p_\varphi(\lambda)=p_1(\lambda)p_2(\lambda)$ --- минимальный полином $\varphi \Rightarrow \ker p_i(\varphi)$ --- нетривиальное инвариантное подпространство $\varphi$
+\end{lemma}
+\begin{proof}
+    $$] p_1(\lambda) : \ker p_1(\varphi) = X, \deg p_1(\lambda) < \deg p_\varphi(\lambda) \Rightarrow p_1(\varphi)\stackrel{def}{=}0 \Rightarrow p_1(\lambda)\in J_\varphi, \deg p_1(\lambda)\subset \deg p_\varphi(\lambda)$$
+    Это противоречит определению минимального полинома $p_\varphi$. Аналогично для $p_2$.
+
+    $$] p_1(\lambda) : \ker p_1(\varphi) = 0 \Rightarrow x = \ker p_1(\varphi)\dot+\ker p_2(\varphi) \quad \dim p_1 (\varphi) = 0 \Rightarrow \ker p_2(\varphi) =x$$
+    Это чему-то противоречит.
+
+    Итого $p_i(\varphi)\not=0$ и $p_i(\varphi)\not=X \Rightarrow \ker p_i(\varphi)$  --- нетривиальное подпространство.
+\end{proof}
+
+\begin{remark}
+    $\ker p_1(\varphi)$ --- ИП, $\ker p_2(\varphi)$ --- ИП, $\ker p_1(\varphi)\dot+\ker p_2(\varphi) \Rightarrow p_1, p_2$ --- ультраинвариантные подпространства
+\end{remark}
+
+\begin{theorem}
+    Обобщение.
+
+    $p_\varphi(\lambda)=p_1(\lambda)\ldots p_k(\lambda)$ --- взаимно простые
+    $$X = \dot + \sum_{j=1}^k \ker p_j(\varphi) = \dot+\sum_{j=1}^n L_j$$
+    , где $L_j = \ker p_j (\varphi)$ --- ультраинвариантные подпространства.
+\end{theorem}
+\begin{proof}
+    Тривиально.
+\end{proof}
+
+$\mathcal P_j = \mathcal P_{L_j} = p_j'(\varphi) q_j$ --- проектора на ультраинвариантное подпространство $L_j$ \textit{(ультрапроектор)}
+
+$\sphericalangle \varphi_j = \varphi / L_j : L_j\to L_J$ --- компонента $\varphi$ в ультраинвариантном подпространстве $L_j$
+$$\varphi=\dot+\sum_{j=1}^k \varphi_j = \sum_{j=1}^k \varphi_j \mathcal P_j$$
+
+\begin{lemma}
+    $] p_\varphi=p_1\ldots p_k$ --- минимальный аннулирующий полином $\varphi$
+
+    $\Rightarrow p_j(\lambda)$ --- минимальный аннулирующий полином $\varphi_j$
+\end{lemma}
+\begin{proof}
+    $\varphi_j : L_j \rightarrow L_j , L_j=\ker p_j(\varphi)$
+
+    $] x\in\ker p_j(\varphi) \quad p_j(\varphi) x = 0 \ \ \forall x\in L_j \Rightarrow p_j\in I_{\varphi_j}$
+
+    $] \tilde p_j(\lambda)$ --- минимальный полином $I_{\varphi_j}$
+    $$p_j(\lambda)=q_j(\lambda)\tilde p_j(\lambda)$$
+    $$\sphericalangle p_\varphi(\lambda)=p_1(\lambda)p_2(\lambda)\ldots p_j(\lambda)\ldots p_k(\lambda)=p_1(\lambda)p_2(\lambda)\ldots \tilde p_j(\lambda)\ldots p_k(\lambda)q_j(\lambda)=\tilde p_\varphi(\lambda)q(\lambda)$$
+    $\Rightarrow \deg p_\varphi(\lambda) > \deg \tilde p_\varphi(\lambda)$, но $p_\varphi(\lambda)$ --- минимальный --- противоречие.
+\end{proof}
+
+\begin{theorem}
+    Спектральная теорема.
+    $$p_\varphi(\lambda)=\prod_{j=1}^k (\lambda-\lambda_j)^{m_j}=p_1(\lambda)\ldots p_k(\lambda) \quad p_j(\lambda)=(\lambda-\lambda_j)^{m_j}, \lambda\not=\lambda_{i\not=j}$$
+    $$\Rightarrow L_j=\ker p_j(\varphi)=\ker(\varphi-\lambda_j\mathcal I)^{m_j} \text{ --- ультраинвариантное подпространство}$$
+    $$\Rightarrow X = \dot+ \sum_{j=1}^n \ker (\varphi-\lambda_j\mathcal I)^{m_j}=\dot+\sum_{j=1}^k L_j$$
+    $$\varphi = \sum_{j=1}^k \varphi_j \mathcal P_j \quad \varphi_j = \varphi|_{L_j}$$
+\end{theorem}
+
+% $$\sphericalangle L_j = \ker (\varphi_j - \lambda_j \mathcal I)^{m_j} \quad p_j(\lambda)=(\lambda-\lambda_j)^{m_j} - \min$$
+
+\begin{definition}
+    \textbf{Нильпотентным оператором} порядка $m$ называется минимальный оператор $\tau$, такой что:
+    $$\tau^m=0 \quad \forall k<m \ \ \tau^k\not=0$$
+\end{definition}
+\begin{remark}
+    $(\varphi_j - \lambda_j \mathcal I)=\tau_j$ --- Нильпотентный оператор порядка $m_j$
+\end{remark}
+
+$\varphi=\sum\limits_{j=1}^K (\lambda_j \mathcal I + \tau_j)\mathcal P_j$ --- спектральная теорема \textit{(другая формулировка)}.
+
+\begin{definition}
+    \begin{itemize}
+        \item $\lambda_j$ --- элементарная порция спектра
+        \item $\mathcal P_j$ --- спектральный ультрапроектор на $L_j$
+        \item $L_j$ --- спектральное ультраинвариантное \textit{(корневое)} подпространство
+        \item $\varphi_j$ --- спектральная компонента оператора $\varphi$ в инвариантном подпространстве $L_j$
+    \end{itemize}
+\end{definition}
+
 \end{document}

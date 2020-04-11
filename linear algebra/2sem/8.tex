@@ -1,0 +1,170 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Лекция 8}
+
+\begin{document}
+
+\section*{Спектральная теорема для оператора общего вида}
+
+\begin{definition}
+    Операторный полином $p\in \mathcal P_\infty [K]$ называется аннулирующим полиномом линейного оператора $\varphi$, если $p(\varphi)=0$
+\end{definition}
+\begin{remark}
+    Множество аннулирующих полиномов операторов $\varphi$ --- ядро гомоморфизма $S_\varphi$ по определению.
+\end{remark}
+
+\begin{theorem}
+    Аннулирующий полином существует.
+\end{theorem}
+\begin{proof}
+    $\dim \mathcal P [\varphi] = n^2 \Rightarrow \exists n^2$ ЛНЗ элементов. Эти элементы : $\varphi, \varphi^2 \ldots \varphi^{n^2}$. Тогда $\{\mathcal I, \varphi, \varphi^2 \ldots \varphi^{n^2}\}$ --- ЛЗ
+    $$\Rightarrow \exists p[\varphi] = \sum_{i=0}^{n^2} \alpha_i\varphi^i = 0 \Rightarrow \exists$$
+\end{proof}
+
+$] J_\varphi$ --- множество аннулирующих полиномов оператора $\varphi$
+\begin{lemma}
+    $J_\varphi$ --- идеал в $P_\infty [K]$
+\end{lemma}
+\begin{proof}
+    $] p\in J_\varphi \Rightarrow p(\varphi)=0$
+
+    $] q\in P_\infty[K]$
+
+    $\sphericalangle p(\lambda)q(\lambda) \xrightarrow{S_\varphi} p(\varphi)q(\varphi)=0 \Rightarrow p(\lambda)q(\lambda)$ --- аннулирующий $\Rightarrow p(\lambda)q(\lambda)\in J_\varphi$
+\end{proof}
+\begin{definition}
+    \textbf{Минимальным аннулирующим полиномом} оператора $\varphi$ назвыается мнимальнй полином $J_\varphi$
+\end{definition}
+\begin{remark}
+    Обозначение минимального полинома: $p_\varphi(\lambda) \leftrightarrow p_\varphi(\varphi)=0$
+\end{remark}
+
+\begin{example}
+    $] \varphi : X\to X$ --- оператор с простым спектром
+
+    $] \chi_\varphi(\lambda)$ --- характеристический полином $\varphi \Rightarrow \chi_\varphi(\lambda)=p_\varphi(\lambda)$
+\end{example}
+\begin{proof}
+    $$\varphi=\sum_{i=1}^n \lambda_i\mathcal P_i \Rightarrow \chi_\varphi(\varphi)=\sum_{i=1}^n \chi_\varphi(\lambda_i)\mathcal P_i=0$$
+    Предположим обратное: $] p_\varphi(\lambda)$ --- минимальный полином, такой что $\deg p_\varphi < \deg \chi_\varphi$
+
+    $] \chi_\varphi(\lambda)=(\lambda-\lambda_k)p_\varphi(\lambda)$
+
+    $$\sphericalangle p_\varphi(\varphi)=\sum_{i=1}^n p_\varphi(\lambda_i)\mathcal P_i = p(\lambda_k)\mathcal P_k \Rightarrow p_\varphi(\varphi)\not=0 \Rightarrow \text{противоречие}$$
+\end{proof}
+
+\begin{lemma}
+    $] p(\varphi)=q(\varphi) \Leftrightarrow [p(\lambda)-q(\lambda)] \mid p_\varphi(\lambda)$
+\end{lemma}
+\begin{proof}
+    $\sphericalangle p(\lambda)-q(\lambda)=0 \Rightarrow p(\lambda)-q(\lambda)\in J_\varphi$
+\end{proof}
+
+\begin{lemma}
+    $] p(\lambda)=q(\lambda)p_\varphi(\lambda)+r(\lambda) \Rightarrow p(\varphi)=r(\varphi)$
+\end{lemma}
+
+\begin{theorem}
+    $\sphericalangle p_\varphi=p_1\ldots p_k$, $p_1\ldots p_k$ --- взаимно простые
+    $$\Rightarrow \dot+\sum_{j=1}^k \ker p_j(\varphi)=X$$
+\end{theorem}
+\begin{proof}
+    $$\ker p_\varphi(\varphi)=\dot+\sum_{j=1}^k \ker p_j(\varphi)$$
+    $$\ker p_\varphi(\varphi)=\ker 0 = X$$
+\end{proof}
+\begin{theorem}
+    О ядре и образе.
+
+    $] p_\varphi(\lambda)=p_1(\lambda)p_2(\lambda) \Rightarrow \ker p_1(\varphi)=\im p_2(\varphi)$
+\end{theorem}
+\begin{proof}
+    Покажем, что:
+    \begin{enumerate}
+        \item $\im p_2(\varphi)\subset \ker p_1(\varphi)$
+        \item $\dim \im p_2(\varphi)=\dim \ker p_1(\varphi)$
+    \end{enumerate}
+
+    \begin{enumerate}
+        \item $\im p_2(\varphi)\subset \ker p_1(\varphi)$
+        
+        $] y \in \im p_2(\varphi) \Rightarrow \exists x\in X : y=p_2(\varphi) x$
+
+        $\sphericalangle p_1(\varphi) y = p_1(\varphi)p_2(\varphi) x = p_\varphi(\varphi) = 0$
+
+        \item $\ker p_\varphi(\varphi) = \ker p_1(\varphi) \dot+ \ker p_2(\varphi) \Rightarrow$
+        $$\dim X = \dim \ker p_1(\varphi) + \dim \ker p_2(\varphi)$$
+        $$\dim X = \dim \ker p_2(\varphi) + \dim \im p_2(\varphi)$$
+        $$\dim \ker p_1(\varphi)=\dim \im p_2(\varphi)$$
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    $] p_\varphi(\lambda) = \prod\limits_{i=1}^k p_i(\lambda)$ --- минимальный аннулирующий полином $\varphi$, $p_1\ldots p_k$ --- взаимно простые делители
+
+    $\Rightarrow$
+    \begin{enumerate}
+        \item $\sum\limits_{j=1}^k p_j'(\varphi)q_j(\varphi)=\mathcal I, \quad p_j'=\frac{p_\varphi}{p_j}$
+        \item $p_j'(\varphi)q_j(\varphi)=\mathcal P_{L_j} \quad L_j=\ker p_j(\varphi)$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    $\sphericalangle p_\varphi(\lambda) = p_1(\lambda)p_2(\lambda)\ldots p_k(\lambda) \quad \exists q_1\ldots q_k :$
+    $$\sum_{j=1}^k p_j'(\lambda)q_j(\lambda)=1 \xrightarrow{S_\varphi} \sum_{j=1}^n p_j'(\varphi)q_j(\varphi)=\mathcal I$$
+    $] p_1(\lambda)=p_i(\lambda), p_2(\lambda)=p_i'(\lambda) \Rightarrow \im p_1(\varphi) = \ker p_2(\varphi)$
+
+    $\sphericalangle \mathcal P_{L_1} x = p_i'(\varphi)q(\varphi) \in \ker p_i(\varphi)$, т.к.
+    $$p_i(\varphi)[p_i'(\varphi)q_i(\varphi) x]=p_i(\varphi)p_i'(\varphi)q_i(\varphi)x=p_\varphi(\varphi)q_i(\varphi)x=0$$
+
+    Осталось доказать, что $\mathcal P_{L_i}\mathcal P_{L_j}=\delta_i^j \mathcal P_{L_i}$
+
+    $$] i\not=j \Rightarrow \mathcal P_{L_i}\mathcal P_{L_j}=p_i'(\varphi)q_i(\varphi)p_j'(\varphi)q_j(\varphi)=\frac{p_\varphi(\varphi)}{p_i(\varphi)p_j(\varphi)}q_i(\varphi)q_j(\varphi)p_\varphi(\varphi)=0$$
+    $$] i = j \Rightarrow \mathcal P_{L_i} (x) = \mathcal P_{L_i} (\mathcal I \cdot x)=\mathcal P_{L_i} \left(\sum_{j=1}^n \mathcal P_{L_j}\right) x=\mathcal P_{L_i}\mathcal P_{L_i} x \quad \forall x$$
+    $$\Rightarrow \mathcal P_{L_i}\mathcal P_{L_i}=\mathcal P_{L_i}$$
+\end{proof}
+
+\section*{Ультраинвариантные подпространства}
+
+$] \varphi : X\to X, \dim X = n$
+
+$L\subset X$ --- инвариантное подпространство $\varphi$, если $\varphi(L)\subset L$
+
+\begin{definition}
+    Инвариантное подпространство называется \textbf{ультраинвариантным подпространством}, если существует его дополнение $L'$, такое что:
+    $$L\dot + L'=X \quad L' \text{ --- инвариантное подпространство }\varphi$$
+\end{definition}
+
+$L$ --- инвариантное подпространство оператора $\varphi$
+
+\begin{definition}
+    Оператор $\varphi_L : L\to L$, такой что:
+    $$\varphi_L x =\varphi x \quad \forall x\in L$$
+    называется \textbf{сужением} оператора $\varphi$ на $L$.
+
+    Если $L$ --- ультраинвариантное подпространство, то $\varphi_L$ называется \textbf{компонетной} $\varphi$ в $L$ 
+\end{definition}
+
+\begin{lemma}
+    Дополнение $L'$ ультраинвариантного подпространства $L$ является ультраинвариантным подпространством.
+\end{lemma}
+\begin{lemma}
+    $] X = L \dot+ L' \quad L,L'$ --- ультраинвариантное подпространства $\Rightarrow$
+    $$\varphi = \varphi_L \mathcal P_L^{\parallel L'} + \varphi_{L'} \mathcal P_{L'}^{\parallel L}$$
+\end{lemma}
+\begin{proof}
+    $$X = L \dot+ L' \Rightarrow \forall x! = x_1+x_2 = \mathcal P_L^{\parallel L'} x + \mathcal P_{L'}^{\parallel L} x$$
+    $$\varphi x = \varphi \mathcal P_L^{\parallel L'} x + \varphi \mathcal P_{L'}^{\parallel L} x \quad \forall x \quad \Rightarrow$$
+    $$\Rightarrow \varphi=\varphi_L \mathcal P_L^{\parallel L'} + \varphi_{L'} \mathcal P_{L'}^{\parallel L} \quad (*)$$
+\end{proof}
+
+\begin{remark}
+    Запись $(*)$ эквивалентна записи
+    $$\varphi = \varphi_L \dot+ \varphi_{L'}$$
+\end{remark}
+
+\begin{definition}
+    Инвариантное подпространство называется \textbf{минимальным}, если оно не содержит внутри себя нетривиальных инвариантных подпространств меньшей размерности.
+\end{definition}
+
+\end{document}

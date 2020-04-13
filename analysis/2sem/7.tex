@@ -1,0 +1,264 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 7}
+
+\begin{document}
+
+\section*{Несобственные интегралы}
+
+\begin{definition}
+    $f : [a, b) \to \R \quad -\infty<a<b\leq+\infty$
+
+    --- допустима $\forall A\in (a, b)$, если $f$ --- кусочно-непрерывна на $[a, A]$
+    
+    $$\Phi(A):=\int_a^A f$$
+
+    $$?\exists\lim\limits_{A\to b-0} \Phi(A)$$
+    
+    \begin{itemize}
+        \item Если да, то это \textbf{несобственный интеграл} $\int\limits_{a}^{\rightarrow b} fdx$.
+        \item Если этот предел конечный, то тот несобственный интеграл \textbf{сходится}.
+        \item Если этот предел бесконечный или не существует, то несобственный интеграл \textbf{расходится}.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    $$\int_1^{+\infty} \frac{1}{x^p} dx=\lim_{A\to\infty}\int_1^{A} \frac{1}{x^p} dx$$
+    $$\int_1^{A} \frac{1}{x^p} dx=\begin{cases}
+        \frac{A^{1-p}-1^{1-p}}{1-p}, & p\not=1 \\
+        \ln A - \ln 1, & p=1
+    \end{cases}$$
+    $$\lim_{A\to\infty}\int_1^{A} \frac{1}{x^p} dx=\begin{cases}
+        \frac{1}{p-1}, & p>1 \\
+        +\infty, & p<1 \\
+        +\infty, & p=1
+    \end{cases}$$
+
+    $p>1$ --- интеграл сходится, $p\leq 1$ --- интеграл расходится.
+\end{example}
+
+\begin{example}
+    $$\int_{\rightarrow 0}^{1} \frac{1}{x^p}dx$$
+
+    $$\lim_{A\to\infty} \int_A^1 \frac{1}{x^p}dx = \begin{cases}
+        \text{кон}., & p<1 \\
+        +\infty, & p\geq 1
+    \end{cases}$$
+
+    Можно разбивать интеграл с $>1$ причиной несобственности на части, где только одна причина:
+    $$\int_0^{+\infty} \frac{1}{x^p}dx = \int_0^{10} + \int_{10}^{+\infty}$$
+    Если все интегралы в правой части сходятся, то в левой части тоже.
+\end{example}
+
+\begin{example}
+    $$\int_{-1}^1 \frac{1}{x}dx=\int_{-1}^0 \frac{1}{x}dx + \int_{\rightarrow 0}^{1} \frac{1}{x}dx$$
+    $$\int_{-1}^0 \frac{1}{x}dx = -\infty \quad \int_{\rightarrow 0}^{1} \frac{1}{x}dx=+\infty$$
+    Итого $\int_{-1}^1 \frac{1}{x}dx$ расходится. Хочется сократить бесконечности, особенно если посмотреть на график $\frac{1}{x}$ --- он симметричен. Кажется, что $\int_{-1}^1 \frac{1}{x}dx=0$. Однако мы все равно считаем этот интеграл расходящимся. Это можно обосновать так: если нагреть одну сторону стула до +200 градусов, а другую охладить до -170, то вы не захотите на нем сидеть, хотя средняя температура адекватная.
+\end{example}
+
+\subsection*{Свойства}
+
+\subsubsection*{Критерий Больцано-Коши}
+
+$$\lim_{A\to b-0} \int_a^A \text{ кон.} \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \Delta\in(a,b) \ \ \forall A, B\in(\Delta, b) \quad \left|\int_A^B f\right|<\varepsilon$$
+\begin{proof}
+    Тривиально из определения предела.
+\end{proof}
+
+\begin{consequence}
+    Если $\exists A_n, B_n \to b-0 \ \ \int\limits_{A_n}^{B_n} f \not\xrightarrow{n\to+\infty} 0$, то $\int\limits_a^{\rightarrow b} f$ расходится.
+\end{consequence}
+
+\begin{example}
+    $$\int_1^{+\infty} \sin\sqrt x dx$$
+    Это синусоида с увеличивающимся периодом.
+
+    Чтобы доказать, что интеграл расходится, возьмём $A_n, B_n$ такие что $ \int\limits_{A_n}^{B_n} \sin\sqrt x dx \not\xrightarrow{n\to+\infty} 0$.
+
+    $$A_n:=(2\pi n+\frac{\pi}{6})^2 \quad B_n:=\left(2\pi(n+1)-\frac{\pi}{6}\right)^2$$
+    $$\int_{A_n}^{B_n} \sin\sqrt x dx \geq \frac{1}{2}(B_n-A_n)\to\infty$$
+\end{example}
+
+\subsubsection*{Аддитивность по промежутку}
+
+$f$ --- допустима. $[a, b) \quad c\in (a,b)$
+
+Тогда $\int_a^{\rightarrow b} f$ и $\int_c^{\rightarrow b} f$ --- сходятся/расходятся одновременно и, если сходятся, $\int_a^{\rightarrow b} f = \int_a^c f + \int_c^{\rightarrow b} f$
+
+Берем $A>c$ $\int_a^A = \int_a^c + \int_c^A$
+
+\begin{consequence}
+    $f$ --- допустима. $[a, +\infty)$, $\int_a^{+\infty} f$ --- сходится. Тогда
+    $$\int_A^{+\infty} f \xrightarrow{A\to+\infty} 0$$
+    Это называется ``хвост''.
+\end{consequence}
+
+\subsubsection*{Линейность}
+
+$f, g$ --- допустима $\int_a^{\rightarrow b} f, \int_a^{\rightarrow b} g$ --- сход.
+
+$\lambda\in\R$
+
+Тогда $\lambda f, f\pm g$ --- допустима b $\int_a^{\rightarrow b} \lambda f, \int_a^{\rightarrow b} f\pm g$ --- сходятся.
+
+$$\int_a^{\rightarrow b} \lambda f = \lambda \int_a^{\rightarrow b} f \quad\quad \int_a^{\rightarrow b} f\pm g = \int_a^{\rightarrow b} f \pm \int_a^{\rightarrow b} g$$
+
+\begin{proof}
+    Тривиально.
+\end{proof}
+
+\subsubsection*{Интегрирование неравенств}
+
+$f, g$ --- доп., $\int_a^{\rightarrow b} f, \int_a^{\rightarrow b} g$ --- существуют в $\overline \R$
+
+$f\leq g$ на $[a, b)$. Тогда
+$$\int_a^{\rightarrow b} f \leq \int_a^{\rightarrow b} g$$
+
+Очевидно: $\int_a^A f\leq \int_a^A g, A\to b-0$
+
+\subsubsection*{Пятое свойство}
+
+$f, g$ --- дифф. $[a, b); f',g'$ --- допустимы. Это эквивалентно $f,g\in C^1[a, b)$.
+
+Тогда* $$\int_a^{\rightarrow b} fg' = fg\Bigg|_a^{\rightarrow b} - \int_a^{\rightarrow b} f'g$$
+
+* значит, что если два из трех  пределов существуют, то существует третий и выполняется равенство.
+
+\subsubsection*{Шестое свойство}
+
+$\varphi : [\alpha, \beta) \rightarrow \langle A, B\rangle, \varphi\in C^1$
+
+$f : \langle A, B\rangle \rightarrow \R, f$ --- непр., $\exists \varphi(\beta-0)\in\overline \R$
+
+Тогда*
+$$\int_\alpha^{\rightarrow \beta} f(\varphi(t))\varphi'(t)dt = \int_{\varphi(\alpha)}^{\rightarrow \varphi(\beta-0)} f(x)dx$$
+
+\begin{remark}
+    $f$ --- кусочно непрерывна на $[a,b]$. $f$ можно также рассматривать на $[a, b)$. Тогда
+    $$\int_a^{\rightarrow b} f = \int_a^b f$$
+\end{remark}
+
+Упраздняем ``$\rightarrow$''.
+
+\subsection*{Признаки сходимости несобственных интегралов}
+
+$f$ --- допустима на $[a, b), f\geq 0, \Phi(A) = \int_a^A fdx$
+
+$\int_a^b f$ --- сходится $\Leftrightarrow \Phi$ ограничена.
+
+\begin{proof}
+    $\int_a^b f$ --- сх. $\Leftrightarrow \lim\limits_{A\to b-0} \Phi(A)$ кон. $\Leftrightarrow \Phi$ --- огр.
+\end{proof}
+
+\section*{\textcolor{red}{20 минут скипнуто}}
+
+\begin{example}
+    $$\int_0^{+\infty}\frac{\cos^2 x}{1+x^2}dx \text{ сходится?}$$
+    С трюком:
+    $$\frac{\cos^2 x}{1+x^2}\leq \frac{1}{1+x^2} \quad \int_0^{+\infty} \frac{1}{1+x^2}=\arctan\Bigg|_0^{+\infty}=\frac{\pi}{2}$$
+    Более цинично:
+    $$\frac{\cos^2 x}{1+x^2}\leq \frac{1}{x^2} \text{ на } [2020, +\infty)$$
+    $$\int_{2020}^{+\infty} \frac{1}{x^2} \text{ cходится } \Rightarrow \int_{2020}^{+\infty} f \text{ cходится }$$
+\end{example}
+
+
+\begin{example}
+    Этот пример будет на экзамене.
+
+    При каких $\alpha$ и $\beta$ сходится:
+    $$\int_{10}^{+\infty} \frac{dx}{x^\alpha (\ln x)^\beta}$$
+
+    Мы знаем, что $\int_1^\infty \frac{dx}{x^p}$ сходится при $p>1$ и расходится при $p\leq 1$.
+
+    При $\alpha>1, \beta>0$
+    $$\frac{1}{x^\alpha (\ln x)^\beta} < \frac{1}{x^\alpha}$$
+    Таким же образом можно еще что-то выяснить, но мы так делать не будем. Вместо этого воспользуемся методом \textbf{``удавливание логарифма''}
+
+    \begin{enumerate}
+        \item $\alpha>1 \quad \alpha=1+2a, a>0$
+        $$0\leq \frac{1}{x^{1+2a}(\ln x)^\beta}=\frac{1}{x^{1+a}}\cdot\frac{1}{x^a (\ln x)^\beta}$$
+        $$\beta\geq 0 \quad x^a(\ln x)^\beta \to+\infty$$
+        $$b:=-\beta \quad \beta < 0 \quad x^a(\ln x)^\beta = \frac{x^a}{(\ln x)^b}=\left(\frac{x^{\frac{a}{b}}}{}\right) \textcolor{red}{todo}$$
+        $$x^a (\ln x)^\beta \xrightarrow{x\to+\infty} +\infty \quad \Rightarrow \frac{1}{x^{1+a}}\cdot\frac{1}{x^a (\ln x)^\beta} < \frac{1}{x^{1+a}}$$
+
+        \item $\alpha<1 \quad \alpha=1-2a, a>0$
+        $$\frac{1}{x^{1-2a}(\ln x)^\beta}=\frac{1}{x^{1-a}}\cdot\frac{x^a}{(\ln x)^\beta}>\frac{1}{x^{1-a}}$$
+        $$\int_{10}^{+\infty} \frac{dx}{x^\alpha (\ln x)^\beta} \stackrel{y=\ln x}{=}\int_{10}^{+\infty} \frac{dy}{y^\beta}$$
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    $\Gamma$ --- гамма-функция Эйлера
+    $$\Gamma(t)=\int_0^{+\infty} x^{t-1}e^{-x}dx$$
+\end{example}
+
+\subsubsection*{Область определения}
+
+\begin{enumerate}
+    \item $\int_1^{+\infty} x^{t-1}e^{-x}dx$ --- сходится при всех $t\in\R$:
+    $$\int_1^{+\infty} e^{-x} dx = -e^{-x}\Bigg|_1^{+\infty} = e$$
+    $$0\leq x^{t-1}e^{-x}\leq x^{t-1}e^{-\frac{x}{2}}e^{-\frac{x}{2}}$$
+    $$x^{t-1}e^{-\frac{x}{2}}\xrightarrow{x\to+\infty} 0\Rightarrow \text{ при больших } x \ \ x^{t-1}e^{-\frac{x}{2}}e^{-\frac{x}{2}}\leq e^{-\frac{x}{2}}$$
+    \item $\int_{\rightarrow 0}^1 x^{t-1}e^{-x}dx$
+    $$x^{t-1}e^{-x}\equ_{x\to0} x^{t-1} \quad t>0 \text{ сходится, } t\leq 0 \text{ расходится}$$
+\end{enumerate}
+
+\subsubsection*{Выпуклость}
+
+Подынтегральное выражение как функция от $t$ является выпуклой функцией (при $x\geq 0$)
+
+$$t\mapsto x^{t-1} e^{-x} = f_x(t)$$
+$$f(\alpha t_1 + (1-\alpha)t_2)\leq \alpha f_x(t_1) + (1-\alpha)f_x(t_2)$$
+$$\int_0^{+\infty} f_x dx \leq \alpha \int_0^{+\infty} f_x(t_1)dx + (1-\alpha) \int_0^{\infty} f_x(t_2) dx$$
+Определение выпуклости: $$x^{(\alpha t_1 + (1-\alpha)t_2)-1}e^{-x}\leq \alpha x^{t_1-1}e^{-x}+(1-\alpha)x^{t_2-1}e^{-x}$$
+Зафиксируем $\alpha, t_1, t_2$. Проинтегрируем по $x$ от $0$ до $+\infty$:
+$$\Gamma(\alpha t_1 + (1-\alpha)t_2)\leq \alpha\Gamma(t_1) + (1-\alpha)\Gamma(t_2)$$
+
+$\Gamma$ --- выпуклая $\Rightarrow \Gamma$ --- непрерывная
+
+\subsubsection*{Третье свойство}
+
+$\Gamma(t+1)=t\Gamma(t)$
+$$\Gamma(t+1)=\int_0^{+\infty} x^t e^{-x}dx = -x^t e^{-x}\Bigg|_0^{+\infty} + t\int_0^{+\infty} x^{t-1}e^{-x} dx=0+t\Gamma(t)$$
+
+\begin{consequence}
+    $\Gamma(n+1)=n!$
+\end{consequence}
+\begin{proof}
+    $$\Gamma(n+1)=n\Gamma(n)=n(n-1)\Gamma(n-1)=\ldots = n(n-1)\cdots 1 \Gamma(1)=n!$$
+\end{proof}
+
+\subsubsection*{Четвертое свойство}
+
+$$\Gamma(t) = \frac{\Gamma(t+1)}{t}\equ_{t\to+0}\frac{1}{t}$$
+
+\subsubsection*{Пятое свойство}
+
+$$\Gamma\left(\frac{1}{2}\right)=\int_0^{+\infty} \frac{1}{\sqrt x} e^{-x} dx \stackrel{x=y^2}{=}2\int_0^{+\infty} e^{-y^2}dy=2\frac{1}{2}\sqrt\pi \text{ --- интеграл Эйлера-Пуассона}$$
+
+\begin{proof}
+    $$1-x^2\leq e^{-x^2}\leq \frac{1}{1+x^2} \quad \forall x\in\R$$
+    Оба неравенства следуют из неравенства $e^t \geq 1+t \ \ \forall t$.
+
+    Зафиксируем $n\in\N$
+    $$(1-x^2)^n\leq e^{-nx^2}\leq \left(\frac{1}{1+x^2}\right)^{n}$$
+    $$\int_0^1 (1-x^2)^n dx \leq \int_0^1 e^{-nx^2} \leq \int_0^{+\infty} e^{-nx^2} \leq \int_0^{+\infty} \frac{1}{(1+x^2)^{n}}$$
+    Казалось бы, переход от интеграла $\int_0^1$ к $\int_0^{+\infty}$ очень грубый, но это не так.
+    $$\int_0^{+\infty} e^{-nx^2}\stackrel{y=\sqrt n x}{=}\frac{1}{\sqrt n} I$$
+    $$\int_0^1 (1-x^2)^n dx\stackrel{x=\cos y}{=} \int_0^{\frac{\pi}{2}} \sin^{2n+1}ydy$$
+    $$\int_0^{+\infty} \frac{1}{(1+x^2)^{n}}\stackrel{x=\tg y}{=}\int_0^{\frac{\pi}{2}} (\cos y)^{2n-1} dy = \int_0^{\frac{\pi}{2}} (\sin t)^{2n-2} dt$$
+    $$\sqrt n \int_0^{\frac{\pi}{2}} \sin^{2n+1}ydy \leq I \leq \int_0^{\frac{\pi}{2}} (\sin t)^{2n-2} dt$$
+
+    $$\int_0^{\frac{\pi}{2}} \sin^n x dx = \frac{(n-1)!!}{n!!}\begin{cases}
+        \frac{\pi}{2} , & n \text{ чет.} \\
+        1 , & n \text{ нечет.}
+    \end{cases}$$
+    $$\sqrt n \frac{(2n)!!}{(2n+1)!!} \leq I \leq \frac{(2n-3)!!}{(2n-2)!!}\frac{\pi}{2}\sqrt n$$
+    По формуле Валлиса ($\frac{(2k)!!}{(2k-1)!!}\cdot\frac{1}{\sqrt k}\to\sqrt \pi$):
+    $$\sqrt n \frac{(2n)!!}{(2n+1)!!}=\left(\frac{1}{\sqrt n}\frac{(2n)!!}{(2n-1)!!}\right)\frac{n}{2n+1}\to\frac{\pi}{2}$$
+    $$\frac{(2n-3)!!}{(2n-2)!!}\frac{\pi}{2}\sqrt n = \frac{\frac{\pi}{2}\sqrt n\frac{1}{\sqrt {n-1}}}{\frac{(2n-2)!!}{(2n-3)!!}\frac{1}{\sqrt {n-1}}}\to \frac{\sqrt n}{2}$$
+\end{proof}
+
+\end{document}

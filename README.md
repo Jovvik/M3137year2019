@@ -28,6 +28,7 @@
 - [Лекция #4](linear%20algebra/2sem/4.pdf)
 - [Лекция #5](linear%20algebra/2sem/5.pdf)
 - [Лекция #7](linear%20algebra/2sem/7.pdf)
+- [Лекция #8](linear%20algebra/2sem/8.pdf)
 
 ### Дискретная математика
 - [Лекция #1](discrete/2sem/1.pdf)

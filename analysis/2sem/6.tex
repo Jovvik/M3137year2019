@@ -181,6 +181,33 @@ $'$ означает, что крайние слагаемые берутся с
 
 \subsection*{Формула Валлиса}
 
+$$I_n := \int_0^{\frac{\pi}{2}} \sin^n x dx = \left[\begin{array}{rl}
+    u = \sin^{n-1} x & du = (n-1)\sin^{n-2} x \cos x dx \\
+    dv = \sin x dx & v = -\cos x
+\end{array}\right]=$$
+$$=-\cos x \sin^{n-1} x \bigg|_0^{\frac{\pi}{2}} + \int_0^{\frac{\pi}{2}} \cos^2 x (n-1)\sin^{n-2} x dx=$$
+$$(n-1) \int_0^{\frac{\pi}{2}} (1-sin^2 x) \sin^{n-2} x =(n-1) (I_{n-2}-I_n)$$
+$$I_n=\frac{n-1}{n}I_{n-2}=\frac{n-1}{n}\frac{n-3}{n-2}I_{n-4}=\frac{n-1}{n}\frac{n-3}{n-2}\frac{n-5}{n-4}I_{n-6}=\ldots=\begin{cases}
+    \frac{(n-1)!!}{n!!} \frac{\pi}{2} , & n \text{ --- чёт.} \\
+    \frac{(n-1)!!}{n!!}1 , & n \text{ --- нечет.}
+\end{cases}$$
 
+$$\sin^{2k+1} x \leq \sin^{2x} x \leq \sin^{2k-1} x$$
+Проинтегрируем по $\left[0, \frac{\pi}{2}\right]$:
+$$\frac{(2k)!!}{(2k+1)!!} \leq \frac{(2k-1)!!}{(2k)!!}\frac{\pi}{2} \leq \frac{(2k-2)!!}{(2k-1)!!}$$
+$$\left(\frac{(2k)!!}{(2k-1)!!}\right)^2 \frac{1}{2k+1} \leq \frac{\pi}{2} \leq \left(\frac{(2k)!!}{(2k-1)!!}\right)^2 \frac{1}{2k}$$
+$$\text{Правая часть $-$ левая часть} = \left(\frac{(2k)!!}{(2k-1)!!}\right)\left(\frac{1}{2k}-\frac{1}{2k+1}\right)=\left(\frac{(2k)!!}{(2k-1)!!}\right)\frac{1}{2k}\frac{1}{2k+1}\leq \frac{\pi}{2}\frac{1}{2k}\xrightarrow{k\to+\infty}0$$
+$$\lim_{k\to+\infty}\left(\frac{(2k)!!}{(2k-1)!!}\right)^2\frac{1}{2k}=\frac{\pi}{2} \quad  \lim_{k\to+\infty}\frac{(2k)!!}{(2k-1)!!}\frac{1}{\sqrt k}=\sqrt \pi$$
 
+Вернемся к нахождению $C$.
+$$\sqrt \pi =  \lim_{k\to+\infty}\frac{2\cdot4\cdots(2k)}{1\cdot3\cdots(2k-1)}\frac{1}{\sqrt k}=$$
+Домножим дробь на знаменатель:
+$$=\lim_{k\to+\infty} \frac{1}{\sqrt k}\frac{2^2\cdot4^2\cdots(2k)^2}{(2k)!}=$$
+Вынесем $2$ из каждого множителя в числителе:
+$$=\lim_{k\to+\infty} \frac{1}{\sqrt k}\frac{(2^k k!)^2}{(2k)!}=$$
+Замена на эквивалент:
+$$=\lim_{k\to+\infty} \frac{1}{\sqrt k}\frac{(2^k Ck^k e^{-k}\sqrt k)^2}{C (2k)^{2k} e^{-2k}\sqrt{2k}}=\lim_{k\to+\infty} \frac{C}{\sqrt 2}=\frac{C}{\sqrt 2}$$
+$$C=\sqrt{2\pi}$$
+$$n! \equ_{n\to+\infty} n^n e^{-n}\sqrt n\sqrt {2\pi}$$
+Это формула Стирлинга.
 \end{document}

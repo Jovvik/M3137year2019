@@ -1,0 +1,9 @@
+digraph dka {
+    nodesep=0.3;
+    rankdir = LR
+    node [shape=circle, label=""]
+    enter [width=0]
+    enter->a
+    a->b [label=c]
+    b [peripheries=2]
+}

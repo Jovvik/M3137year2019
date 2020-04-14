@@ -1,0 +1,10 @@
+digraph dka {
+spline=true;
+overlap=scalexy;
+nodesep=0.7;
+    esep=0.3;
+    rankdir = LR
+    node [label = "", shape=circle]
+    a->b [label=a]
+    a->c [label=a]
+}

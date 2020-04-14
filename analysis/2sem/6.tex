@@ -80,16 +80,107 @@
 \end{theorem}
 \begin{proof}
     $$\int_{x_{i-1}}^{x_i} f(x)dx = \int_{x_{i-1}}^{\xi_i} f(x)dx + \int_{\xi_i}^{x_i} f(x)dx = \int_{x_{i-1}}^{\xi_i} f(x)d(x-x_{i-1}) + \int_{\xi_i}^{x_i} f(x)d(x-x_i)=$$
-    $$=f(x)(x-x_{i-1})|_{x=x_{i-1}}^{x=\xi_i}-\int_{x_{i-1}}^{\xi_i} f'(x)(x-x_{i-1})dx+f(x)(x-x_{i-1})|^{x=x_{i}}_{x=\xi_i}$$
+    $$=f(x)(x-x_{i-1})\Big|_{x=x_{i-1}}^{x=\xi_i}-\int_{x_{i-1}}^{\xi_i} f'(x)(x-x_{i-1})dx+f(x)(x-x_i)\Big|^{x=x_{i}}_{x=\xi_i} - \int_{\xi_i}^{x_i} f'(x)(x-x_{i-1})dx=(*)$$
+    Заметим, что $\xi_i-x_{i-1}=x_i-\xi_i$, поэтому $f(x)(x-x_{i-1})\Big|_{x=x_{i-1}}^{x=\xi_i}+f(x)(x-x_i)\Big|^{x=x_{i}}_{x=\xi_i}=f(\xi_i)(x_i-x_{i-1})$
+    $$(*)=f(\xi_i)(x_i-x_{i-1}) - \Big( f'(x) \frac{(x-x_{i-1})^2}{2} \Big|_{x_{i-1}}^{\xi_i} - \frac{1}{2} \int_{x_{i-1}}^{\xi_i} f''(x-x_{i-1})^2 dx +$$
+    $$+f'(x)\frac{(x-x_i)^2}{2} \Big|^{x_i}_{\xi_i} - \frac{1}{2} \int_{\xi_i}^{x_i} f''(x-x_i)^2 dx \Big)=$$
+    $$=f(\xi_i)(x_i-x_{i-1})-0+\frac{1}{2}\int_{x_{i-1}}^{x_i} f''(x)\varphi(x)dx$$
+    $$\varphi(x)= \begin{cases}
+        (x-x_{i-1})^2, & x\in [x_{i-1}, \xi_i] \\
+        (x-x_i)^2, & x\in [\xi_i, x_i]
+    \end{cases}$$
+    Итого:
+    $$\int_a^b f(\xi_i)(x_i-x_{i-1})=\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})+\frac{1}{2}\int_a^n f''(x)\varphi(x)dx$$
+    $$\left| \int - \sum \right| \leq \frac{1}{2}\int_a^b |f''(x)|\varphi(x)dx$$
+    $$\max_{x\in[a,b]}\varphi(x)\stackrel{\text{достигается на отрезке длины }\delta}{=}\frac{\delta}{4}$$
+    $$\frac{1}{2}\int_a^b |f''(x)|\varphi(x)dx\leq\frac{\delta^2}{8}\int_a^b |f''|$$
 \end{proof}
 
-% Простейший случай формулы Эйлера-Маклорена
+\begin{theorem}
+    О формуле трапеций. 
 
-% $m, n\in \Z, f\in C^2[m, n]$. Тогда
-% $$\int_m^n f(x)dx=\left(\sum_{i=m}^n\right)' f(i)-\frac{1}{2}\int f ''(x)[x](1-[x])dx$$
-% $'$ означает, что крайние слагаемые берутся с весом $\frac{1}{2}$
-% \begin{proof}
-%     Очевидно.
-% \end{proof}
+    $f\in C^2[a,b], \tau, \delta=|\tau|$
+
+    Тогда
+    $$\left|\int_a^b fdx - \sum \frac{f(x_i) + f(x_{i-1})}{2} (x_i-x_{i-1}) \right|\leq\frac{\delta^2}{8}\int_a^b |f''|$$
+\end{theorem}
+\begin{proof}
+    Берем $\xi_i=\frac{x_{i-1}+x_i}{2}$
+    $$\int_{x_{i-1}}^{x_i} f(x)dx=\int_{x_{i-1}}^{x_i} f(x)d(x-\xi_i)=f(x)(x-\xi_i)\Bigg|_{x_{i-1}}^{x_i} - \int_{x_{i-1}}^{x_i}f'(x)(x-\xi_i)dx=$$
+    $$=(f(x_i)+f(x_{i-1}))\frac{x_i-x_{i-1}}{2} - \int_{x_{i-1}}^{x_i}f'(x)\cdot \left(-\frac{1}{2}\right)d((x-x_{i-1})(x_i-x))=(*)$$
+    Проверим, что замена выражение под дифференциалом верное:
+    $$((x-x_{i-1})(x_i-x))'=(-x^2+x(x_i+x_{i-1})-x_{i-1}x)'=-2\left(x-\frac{x_i+x_{i-1}}{2}\right)$$
+    Действительно верно.
+    $$\psi(x):=(x-x_{i-1})(x_i-x)$$
+    $$(*)=(f(x_i)+f(x_{i-1}))\frac{x_i-x_{i-1}}{2} + \frac{1}{2}f'(x)(x-x_{i-1})(x_i-x)\Bigg|_{x_{i-1}}^{x_i} - \frac{1}{2}\int_{x_{i-1}}^{x_i} f''\psi(x)dx$$
+    $$\left| \int - \sum \right|\leq\frac{1}{2}\int_a^b |f''|\psi(x)dx$$
+    $$\max \psi = \frac{\delta^2}{4}$$
+\end{proof}
+
+\begin{remark}
+    $f$ --- выпуклая $( f'' \geq 0 )$
+
+    Тогда $\int - \sum_{\text{пр}} \geq 0$, $\int - \sum_{\text{тр}} \leq 0$
+\end{remark}
+
+\begin{example}
+    $$\lim_{n\to+\infty} \sum_{k=1}^n \frac{k}{k^2+n^2+1}=?$$
+    $[a, b] := [0, 1], x_i=\frac{i}{n}, \xi_k=\frac{k}{n}$ (дробление равномерное)
+
+
+    $$\lim_{n\to+\infty} \sum_{k=1}^n \frac{k}{k^2+n^2+1} = \lim_{n\to+\infty} \sum_{k=1}^n \frac{\frac{k}{n}}{\left(\frac{k}{n}\right)^2 + 1 + \frac{1}{n^2}} \frac{1}{n} \stackrel{\text{по рукомаханию}}{\approx} \lim_{n\to+\infty} \sum_{k=1}^n \frac{\frac{k}{n}}{\left(\frac{k}{n}\right)^2 + 1} \frac{1}{n}=$$
+    По теореме
+    $\sum f\left(\xi_k\right)\frac{1}{n}=\sum f\left(\frac{k}{n}\right)\frac{1}{n}\xrightarrow{n\to\infty}\int_0^1 f(x)dx$
+    $$=\int_0^1 \frac{x}{x^2+1}dx = \frac{1}{2}\ln(x^2+1)\Bigg|_0^1 = \frac{1}{2}\ln 2$$
+    Вернемся к рукомаханию. Мы заменили $\frac{1}{n^2}$ на $0$ \textit{(эквивалентную)} при $n\to\infty$, тем самым совершив ``небольшую ошибку''. Но эта ошибка совершена в $n$ слагаемых, т.е. у нас много небольших ошибок, а это может быть большой ошибкой. Докажем, что разность выражения с заменой и выражения без замены бесконечно мала:
+    $$\left|\sum_{k=1}^n \frac{\frac{k}{n}}{\left(\frac{k}{n}\right)^2 + 1 + \frac{1}{n^2}} - \sum_{k=1}^n \frac{\frac{k}{n}}{\left(\frac{k}{n}\right)^2 + 1}\right| \leq \sum_{k=1}^n \left|\frac{1}{n}\frac{k}{n}\frac{-\frac{1}{n^2}}{(\left(\frac{k}{n}\right)^2 + 1 + \frac{1}{n^2})(\left(\frac{k}{n}\right)^2 + 1)}\right|\leq$$
+    $$\leq\sum\frac{1}{n^3}1 \frac{1}{1\cdot 1}=\frac{1}{n^2}\xrightarrow{n\to+\infty}0$$
+\end{example}
+
+Простейший случай формулы Эйлера-Маклорена
+
+$m, n\in \Z, f\in C^2[m, n]$. Тогда
+$$\int_m^n f(x)dx=\left(\sum_{i=m}^n\right)' f(i)-\frac{1}{2}\int f ''(x)\{x\}(1-\{x\})dx$$
+$'$ означает, что крайние слагаемые берутся с весом $\frac{1}{2}$, $\{x\}$ --- дробная часть $x$
+
+\begin{proof}
+    Это очевидно по формуле трапеций: $x_i:=i$
+    $$\int_m^n f(x)dx = \sum_{i=m+1}^n \frac{f(i)+f(i-1)}{2}\cdot 1 - \frac{1}{2}\int_m^n f''(x) \psi(x)$$
+    $$\psi(x)\stackrel{def}{=}(x-x_{i-1})(x_i-x)=(x-i+1)(i-x)=(x-i+1)(1-(x-i+1))=\{x\}(1-\{x\})$$
+
+    $f(n)/2$ и $f(m)/2$ в сумму попадают только 1 раз, остальные --- 2 раза, как и в искомой формуле.
+\end{proof}
+
+Обычно эта формула используется, чтобы из суммы получить интеграл, а не наоборот.
+
+\begin{example}
+    $p > -1 \quad f(x)=x^p$
+    $$1^p+2^p+\ldots n^p=\int_1^n x^p dx + \frac{1}{2} 1^p+\frac{1}{2}n^p+\frac{1}{2}\int_1^n p(p-1) x^{p-2}\{x\}(1-\{x\})=$$
+    $\frac{1}{2} 1^p+\frac{1}{2}n^p$ добавлены, чтобы не писать слева деление крайних слагаемых на 2.
+    $$=\frac{n^{p+1}}{p+1} - \frac{1}{p+1}+\frac{1}{2}+\frac{1}{2}n^p+\mathcal O(\max(1, n^{p-1}))=(*)$$
+    Откуда появилось $\mathcal O$? $\{x\}(1-\{x\})<1 \Rightarrow \int_1^n p(p-1) x^{p-2}\{x\}(1-\{x\})\leq C(n^{p-1}-1)$, $C$ --- некоторая константа.
+
+    Занесем константы под $\mathcal O$:
+    $$(*)=\frac{n^{p+1}}{p+1} + \frac{1}{2}n^p + \mathcal O(\max(1, n^{p-1}))$$
+
+    $$] p = -\frac{1}{2} \quad 1+\frac{1}{\sqrt 2} + \frac{1}{\sqrt 3} + \ldots + \frac{1}{\sqrt n} = 2\sqrt n + \mathcal O(1)$$
+    $$] p = \pi \quad 1^\pi + 2^\pi + \ldots + n^\pi = \frac{n^{\pi + 1}}{\pi + 1} + \frac{1}{2}n^\pi + \mathcal O(n^{\pi - 1})$$
+    $$] p = 1 \quad 1 + 2 + \ldots + n = \frac{n^2}{2} + \frac{n}{2} + \mathcal O(1)=\frac{n^2}{2}+\frac{n}{2}$$
+    $\mathcal O(1)=0$ в данной ситуации, т.к. при интеграле $p-1=0$ и $\frac{1}{2}$ сократилось с подстановкой в первый интеграл 1.
+    $$] p = -1 \quad 1+\frac{1}{2}+\ldots+\frac{1}{n}=\ln n+\frac{1}{2}+\frac{1}{2n} + \int_1^n x^{-3}\{x\}(1-\{x\})=(*)$$
+    $$\int_1^n x^{-3}\{x\}(1-\{x\}) \leq \frac{1}{4}\int_1^n \frac{dx}{x^3} = \frac{1}{8}\frac{-1}{\alpha^2}\Bigg|_1^n=\frac{1}{8}\left(1-\frac{1}{n^2}\right)<\frac{1}{8}$$
+    $$(*)=\ln n + \gamma + O(1) \quad \gamma\in\left[\frac{1}{2}, \frac{5}{8}\right]$$
+    $\gamma$ --- постоянная Эйлера. $\approx 0.577$
+    $$] f(x) = \ln x \quad \ln 1 + \ln 2 + \ldots + \ln n = \int_1^n \ln x dx + \frac{\ln n}{2} + \frac{1}{2} \int_1^n \frac{\{x\}(1-\{x\})}{x^2}dx\leq$$
+    $$\leq n\ln n - n + 1 + \frac{\ln n}{2} + \frac{1}{2}\frac{1}{4}\int_1^n \frac{1}{x^2} = n\ln n - n + \frac{\ln n}{2} + C_1 + o(1)$$
+    $$\ln 1 + \ln 2 + \ldots + \ln n = \ln n!$$
+    $$n! = e^{n\ln n - n + \frac{\ln n}{2} + C_1 + o(1)}$$
+    $$n! = n^n e^{-n} \sqrt n e^{C_1 + o(1)}\equ_{n\to+\infty} Cn^n e^{-n}\sqrt n$$
+    Найдём $C$.
+\end{example}
+
+\subsection*{Формула Валлиса}
+
+
 
 \end{document}

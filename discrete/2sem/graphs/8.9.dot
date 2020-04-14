@@ -1,0 +1,28 @@
+digraph dka {
+    nodesep=0.3;
+    rankdir = LR
+    node [shape=circle, label=""]
+    subgraph cluster_0 {
+        rank=same;
+        0 [style = invis, width=0];
+        a->0->b [style=invis, width=0]
+        a
+        b
+        label = A
+    }
+    subgraph cluster_1 {
+        rank=same;
+        1 [style = invis, width=0];
+        c->1->d [style=invis, width=0]
+        c
+        d
+        label = B
+    }
+    enter [width=0]
+    enter->s
+    s->a [label=e]
+    s->c [label=e]
+    e [peripheries = 2]
+    d->e [label=e]
+    b->e [label=e]
+}

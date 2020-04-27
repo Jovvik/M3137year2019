@@ -1,0 +1,197 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 9}
+
+\begin{document}
+
+Для последовательности $x_n$:
+$y_n=\sup(x_n, x_{n+1}\ldots), z_n=\inf(x_n, x_{n+1}\ldots)$. Тогда $z_n\leq x_n\leq y_n \ \ y_n\downarrow, z_n\uparrow$
+$$\overline{\lim} x_n:=\lim y_n \quad \underline{\lim}x_n:=\lim z_n$$
+
+\begin{theorem}
+    Техническое описание верхнего предела.
+
+    \begin{enumerate}
+        \item $\overline \lim x_n = +\infty \Leftrightarrow x_n$ --- неогр. сверху
+        \item $\overline \lim x_n = -\infty \Leftrightarrow x_n \to -\infty$
+        \item $\overline \lim x_n = l\in\R \Leftrightarrow $ a и b:
+        \begin{enumerate}
+            \item $\forall \varepsilon > 0 \ \ \exists N \ \ \forall n > N \ \ x_n < l + \varepsilon$
+            \item $\forall \varepsilon > 0 $ для бесконечного множества номеров $n$ : $l-\varepsilon < x_n$
+        \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Очевидно, т.к. $y_n=\sup(x_n, x_{n+1}\ldots) = +\infty \Leftrightarrow x_n$ --- неогр. сверху
+        \item \begin{itemize}
+            \item [``$\Rightarrow$''] $x_n\leq y_n \to -\infty$
+            \item [``$\Leftarrow$''] $\forall A \ \ \exists N \ \ \forall n>N \ \ y_n\leq A, x_n < A$
+            \end{itemize}
+        \item \begin{itemize}
+            \item [``$\Rightarrow$''] \begin{enumerate}
+                \item $y_n \to l \quad \forall \varepsilon>0 \ \ \exists N \ \ \forall n > N \quad x_n \leq y_n < l + \varepsilon$
+                \item Берём $\varepsilon>0$, предположим противное : $\exists$ конечное мн-во $n : l-\varepsilon<x_n$
+                
+                $] n_0$ --- максимальный номер, такой что $l-\varepsilon<x_{n_0}$, тогда $y_{n_0} \leq l - \varepsilon$, но $y_n\downarrow \Rightarrow \lim y_n\leq l-\varepsilon$
+            \end{enumerate}
+            \item [``$\Leftarrow$''] $\forall \varepsilon>0 \ \ \exists N \ \ \forall n > N \quad x_n<l+\varepsilon \Rightarrow y_n\leq l+\varepsilon$, но в $x_n, x_{n+1}\ldots $ $\exists x_i : l - \varepsilon < x_i \Rightarrow y_n=\sup(x_n, x_{n+1}\ldots) > l - \varepsilon$. Итого $l + \varepsilon \geq y_n > l - \varepsilon \Rightarrow l=\lim y_n=\overline \lim x_n$
+        \end{itemize}
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    $$\exists \lim x_n \in \overline\R \Leftrightarrow \overline \lim x_n = \underline \lim x_n$$
+    % \begin{remark}
+    %     $\overline \lim$
+    % \end{remark}
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item [``$\Rightarrow$''] \begin{enumerate}
+            \item $\lim x_n = +\infty \Rightarrow \overline \lim x_n = \lim y_n \geq \lim x_n=+\infty$
+            \item $\lim x_n = -\infty$ аналогично
+            \item $\lim x_n = l\in\R$ очевидно из технического описания предела, пункт 3.
+            \end{enumerate}
+        \item [``$\Leftarrow$''] $\underline \lim x_n \leftarrow z_n\leq x_n \leq y_n\to \overline \lim x_n$, по теореме о городовых $\exists \lim x_n=\overline \lim x_n$
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    $n_k : n_1 < n_2 < n_3 < \ldots \quad \lim\limits_{k\to +\infty} x_{n_k}$ --- \textbf{частичный предел}
+\end{definition}
+
+\begin{theorem}
+    О характеризации в \textcolor{red}{???} как частичных.
+
+    \begin{enumerate}
+        \item $\forall l$ --- частичный пр. $x_n$ $\underline \lim x_n \leq l \leq \overline \lim x_n$
+        \item $\exists (n_k) : x_{n_k} \to \overline \lim x_n \ \ \exists m_k : x_{m_k}\to \underline \lim x_n$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $x_{n_k}\to l \quad \underline \lim x_n \leftarrow z_{n_k} \leq x_{n_k} \leq y_{n_k}\to \overline \lim x_n \Rightarrow \underline \lim x_n \leq l \leq \overline \lim x_n$
+        \item \begin{enumerate}
+            \item $\overline \lim x_n = +\infty \Leftrightarrow x_n$ --- неогр сверху $\Rightarrow$ можно выбрать $x_{n_1}<x_{n_2}<\ldots x_n\to+\infty$
+            \item $\overline \lim x_n = -\infty$ тривиально.
+            \item $\overline \lim x_n = l\in\R$ $\exists x_{n_k} : l - \frac{1}{k} < x_{n_k} < l + \frac{1}{k}$
+        \end{enumerate}
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item $\overline \lim \sin n = 1, \underline \lim \sin n = -1$
+        \item $\forall l \in [-1, 1]$ --- частичный передел последовательности $\sin n$
+    \end{enumerate}
+\end{example}
+
+\section{Простейшие свойства рядов}
+
+\begin{definition}
+    $a_1+a_2+\ldots $, $\sum\limits_{i=1}^{+\infty} a_i$ --- \textbf{числовой ряд} ($a_i\in\R$)
+\end{definition}
+\begin{definition}
+    $\forall N\in\N \quad S_n:=\sum\limits_{i=1}^n a_i$ --- \textbf{частичная сумма}
+\end{definition}
+
+Если $\exists \lim_{N\to+\infty} S_n=S\in\R$, ряд \textbf{сходится}, иначе ряд \textbf{расходится}.
+
+\begin{example}
+    $x\in\R$
+    $$\sum_{n=0}^{+\infty} \frac{x^n}{n!}$$
+    $$e^x = \sum_{k=0}^N \frac{x^k}{k!} + \frac{e^{\Theta}}{(N+1)!}x^{N+1}$$
+    $$\sum_{n=0}^{+\infty} \frac{2^n}{n!}=e^2$$
+\end{example}
+
+\begin{example}
+    $$\sum_{n=1}^{+\infty}\frac{1}{n^k}, k\in N, p=-k$$
+    $$\sum_{n=1}^{+\infty}n^p = \frac{N^{p+1}}{p+1} + \frac{N^p}{2} + \frac{1}{2} + \frac{1}{2} \int_1^N (x^p)''\{x\}(1-\{x\})=\frac{N^{p+1}}{p+1} + \frac{N^p}{2} + \frac{1}{2} + \mathcal O(\max (1, N^{p-1}))$$
+    \begin{itemize}
+        \item $p > -1$ расходится
+        \item $p = -1$ расходится
+        \item $p < -1$ сходится
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    $\sum\limits_{k=N}^{+\infty} a_k$ --- $N$-й \textbf{остаток ряда}
+\end{definition}
+
+Свойства:
+\begin{enumerate}
+    \item $\sum a_n, \sum b_n$ сходятся, $c_n:=a_n+b_n$. Тогда $\sum c_n$ сходится
+    \item $\sum a_n$ --- сходится, $\lambda\in\R$. Тогда $\sum \lambda a_n$ сходится и $\sum \lambda a_n = \lambda \sum a_n$
+    \item \begin{enumerate}
+        \item $\sum a_n$ --- сходится $\Rightarrow$ любой остаток сходится
+        \item остаток сходится $\Rightarrow \sum a_n$ сходится
+        \item $r_n = \sum\limits_{n\geq N} a_n$ сходится $\Leftrightarrow r_n\to 0, N\to+\infty$
+    \end{enumerate}
+\end{enumerate}
+\begin{proof}
+    \begin{itemize}
+        \item [(a)] $?m$-й остаток, $N\geq m : \sum\limits_{n=1}^N a_n = \sum\limits_{n=1}^{m-1} a_n + \sum\limits_{n=m}^N a_n$
+        \item [(b)] 
+        \item [(c)]
+    \end{itemize}
+\end{proof}
+
+\begin{lemma}
+    Необходимое условие сходимости
+
+    $\sum a_n$ сходится $\Rightarrow a_n\to 0$
+\end{lemma}
+\begin{proof}
+    Тривиально. $a_n = S_n-S_{n-1}\to0$
+\end{proof}
+
+Обратное неверно, например $\sum \frac{1}{n^p}$ расходится, $p\in (0, 1]$
+
+\begin{theorem}
+    Критерий сходимости ряда Больцано-Коши
+    $$\sum a_n \text{ сходится } \Leftrightarrow \forall \varepsilon > 0 \ \ \exists N \ \ \forall k > N \ \ \forall m\in\N \quad |a_{k+1}+a_{k+2}+\ldots+a_{k+m}|<\varepsilon$$
+\end{theorem}
+\begin{proof}
+    Тривиально.
+\end{proof}
+
+Докажем расходимость $\sum\frac{1}{n}$ по критерию Больцано-Коши.
+$$m:=k \quad \frac{1}{k+1}+\frac{1}{k+2}+\ldots+\frac{1}{2k}>k\frac{1}{2k}=\frac{1}{2}$$
+$$\exists \varepsilon=\frac{1}{2} \ \ \forall N \ \ \exists k>N \ \ \exists m:=k \quad |a_{k+1}+a_{k+2}+\ldots+a_{k+k}|\geq\varepsilon$$
+
+\begin{lemma}
+    $a_n\geq 0 \quad \sum a_n$ сходится $\Leftrightarrow S_n$ ограничено сверху.
+\end{lemma}
+\begin{proof}
+    $\exists$ кон. $\lim S_n \Leftrightarrow S_n$ ограничено сверху.
+\end{proof}
+
+\begin{theorem}
+    Признак сравнения.
+
+    $a_k, b_k\geq 0$
+    \begin{enumerate}
+        \item $\forall k \ \ a_k\leq b_k$. Тогда $\sum b_k$ cх. $\Rightarrow$ $\sum a_k$ cх., $\sum a_k$ расх. $\Rightarrow$ $\sum b_k$ расх.
+        \item $\exists \lim\frac{a_k}{b_k} = l\in [0, +\infty]$. Тогда при
+        \begin{enumerate}
+            \item [$0<l<+\infty:$] $\sum a_k$ сх. $\Leftrightarrow$ $\sum b_k$ сх.
+            \item [$l=0:$] $\sum b_k$ сх. $\Rightarrow$ $\sum a_k$ сх., $\sum a_k$ расх. $\Rightarrow \sum b_k$ расх.
+            \item [$l=+\infty:$] $\sum a_k$ сх. $\Rightarrow$ $\sum b_k$ сх., $\sum b_k$ расх. $\Rightarrow$ $\sum a_k$ расх.
+        \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item $$\sum_{n=1}^{+\infty} \frac{n^3 + 14n + 1}{n^5 + n^4 + \sqrt n}=\sum_{n=1}^{+\infty} a_n$$
+        $a_n\sim \frac{n^3}{n^5}=\frac{1}{n^2}, 2>1 \Rightarrow$ ряд сходится.
+    \end{enumerate}
+\end{example}
+
+\end{document}

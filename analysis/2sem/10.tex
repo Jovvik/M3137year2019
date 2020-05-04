@@ -1,0 +1,240 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 10}
+
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+
+\begin{document}
+
+\section*{Несколько классических неравенств}
+
+\subsection{Неравенство Йенсена}
+
+$f$ --- выпуклая на $\langle a,b \rangle$. Тогда
+$$\forall x_1\ldots x_n\in\langle a,b \rangle \ \ \forall \alpha_1\ldots \alpha_n : \alpha_i\geq 0 \ \ \alpha_1+\ldots+\alpha_n=1 \quad f(\alpha_1x_1+\ldots+\alpha_nx_n)\leq \alpha_1f(x_1)+\ldots+\alpha_nf(x_n)$$
+
+\begin{proof}
+    Для $x_1=x_2=\ldots=x_n$ тривиально.
+    
+    $$\min x_i\leq x^*:=\alpha_1x_1+\ldots+\alpha_nx_n\leq(\alpha_1+\ldots+\alpha_n)\max(x_i)=\max(x_i)$$
+    $$\Rightarrow x^*\in \langle a,b \rangle$$
+    В $x^*$ можно провести опорную прямую $y=kx+b$
+    $$f(x^*)=kx^*+b=\sum_{i=1}^n (\alpha_ikx_i) + b = \sum_{i=1}^n \alpha_i(kx_i + b)\leq\sum_{i=1}^n \alpha_i f(x_i)$$
+\end{proof}
+
+\begin{consequence}
+    Неравенство Коши.
+
+    $$a_i>0 \quad \frac{1}{n} \sum a_i \geq \sqrt[n]{a_1\cdots a_n}$$
+\end{consequence}
+\begin{proof}
+    $f(x)=\ln x$ --- вогн.
+    $$\ln\left(\frac{1}{n}a_1+\ldots+\frac{1}{n}a_n\right)\geq\frac{1}{n}\ln a_1+\ldots+\frac{1}{n}\ln a_n$$
+    \textcolor{red}{Как это доказывает?}
+    %~0:23
+\end{proof}
+
+\subsection{Интегральное неравенство Йенсена}
+\begin{itemize}
+    \item $f$ --- выпуклая на $\langle A,B \rangle$
+    \item $\varphi : [a,b]\to\langle A,B \rangle$ --- непрерывная
+    \item $\lambda:[a,b]\to[0,+\infty)$ --- непрерывная \textit{(для кусочно-непрерывной тоже верно)}
+    \item $\int_a^b \lambda(t)dt=1$
+\end{itemize}
+Тогда
+$$f\left(\int_a^b \lambda(t)\varphi(t)dt \right) \leq \int_a^b \lambda(t)f(\varphi(t))dt$$
+
+\begin{proof}
+    $m:=\inf \varphi, M:=\sup \varphi$
+    $$m\leq m\int_a^b \lambda(t) \leq \int_a^b \lambda(t)\varphi(t)\leq M\int_a^b \lambda(t) = M$$
+    $$x^*:=\int_a^b \lambda(t)\varphi(t)dt \Rightarrow x^*\in\langle A,B\rangle$$
+    Для $m=M$ тривиально.
+
+    $y=kx+b$ --- опорная прямая в точке $x^*$ графика $f$.
+    $$f(x^*)=kx^*+b=k\int_a^b \lambda\varphi + b\int_a^b\lambda=\int_a^b \lambda(t)(k\varphi(t)+b)dt\leq$$
+    $$\leq \int_a^b \lambda(t)f(\varphi(t))dt$$
+\end{proof}
+
+\begin{example}
+    $$f>0, f\in C[a,b] \quad \exp\left(\frac{1}{b-a} \int_a^b \ln f(x)dx \right) \leq \frac{1}{b-a}\int_a^b f(x)dx$$
+    % Правая часть --- среднее арифметическое $f$ на $[a,b]$ по интегральным суммам.
+
+    % Левая часть:
+    % $$\exp\left(\frac{1}{b-a} \int_a^b \ln f(x)dx \right) = \exp\left(\sum \frac{1}{n} \ln f(x_i) \right)=\prod_{i=1}^n \exp\left(\frac{\ln(f(x_i))}{n}\right)$$
+
+    Возьмём логарифм от искомого неравенства:
+    $$\frac{1}{b-a}\int_a^b \ln f(x)dx \leq \ln\left(\frac{1}{b-a}\int_a^b f\right)$$
+
+    Подставим в интегральное неравенство Йенсена:
+    \begin{itemize}
+        \item $f\leftrightarrow \ln$
+        \item $\lambda(t)\leftrightarrow\frac{1}{b-a}$
+        \item $\varphi\leftrightarrow ??$
+    \end{itemize}
+\end{example}
+
+\subsection{Неравенство Гёльдера}
+
+$a_1\ldots a_n, b_1\ldots b_n > 0, p>1, q>1 \ \ \frac{1}{p}+\frac{1}{q}=1$. Тогда
+$$\sum_{i=1}^n a_ib_i \leq \left(\sum a_i^p\right)^{\frac{1}{p}}\left(\sum b_i^q\right)\frac{1}{q}$$
+
+Частный случай при $p=q=2$ --- неравенство Коши-Буняковского.
+
+\begin{proof}
+    $f(x)=x^p, (p>1)$ --- строго выпуклая $\Rightarrow f''=p(p-1)x^{p-2}>0$
+    
+    По Йенсену $\left(\sum \alpha_i x_i\right)^p\leq \sum \alpha_i x_i^p$
+
+    % $$\alpha_i:=\frac{b_i^q}{\sum b_i^q} \quad x_i := a_ib_i^{\frac{-1}{p-1}}\left(\sum b_i^q \right)$$
+    % $$x_1=x_2=\ldots=x_n$$
+    % $$a_1b_1^{\frac{-1}{p-1}} = a_2b_2^{\frac{-1}{p-1}}$$
+    % $$a_1^pb_1^{-q}=a_2^pb_2^{-q}$$
+
+    $$\text{Левая часть}^{\frac{1}{p}}=\sum\frac{b_i^q}{\sum b_i^q} a_ib_i^{\frac{-1}{p-1}} \sum b^q=\sum a_ib_i$$
+    $$\text{Правая часть}=\sum\frac{b_i^q}{\sum b_i^q} a_i^pb_i^{-q}\left(\sum b_j^q\right)^p=\left(\sum a_i^p\right)\left(\sum b_j^q\right)^\frac{p}{q}$$
+    $$\text{Правая часть}^{\frac{1}{p}}=\left(\sum a_i^p\right)^{\frac{1}{p}}\left(\sum b_j^q\right)^\frac{1}{q}$$
+\end{proof}
+
+Общий вид: $a_i, b_i\in\R$
+$$\left|\sum a_ib_i\right|\leq \left(\sum |a_i|^p\right)^{\frac{1}{p}}\left(\sum |b_i|^q\right)^{\frac{1}{q}}$$
+
+\subsection{Интегральное неравенство Гёльдера}
+
+$p>1, q>1, \frac{1}{p}+\frac{1}{q}=1 \quad f, g\in C[a,b]$. Тогда
+$$\left|\int_a^b f(x)g(x)dx\right|\leq\left(\int_a^b |f|^p\right)^{\frac{1}{p}}\left(\int_a^b |g|^q\right)^{\frac{1}{q}}$$
+\begin{proof}
+    По интегральным суммам:
+    $$x_i:=a+i\frac{b-a}{n} \quad \Delta x_i = x_i-x_{i-1} \quad a_i:=f(x_i)(\Delta x_i)^{\frac{1}{p}} \quad b_i=g(x_i)(\Delta x_i)^{\frac{1}{q}}$$
+    $$a_ib_i=f(x_i)g(x_i)(\Delta x_i)$$
+    $$\left|\sum_{i=1}^n f(x_i)g(x_i)\Delta x_i\right| \leq \left(\sum |f(x_i)|^p \Delta x_i\right)^{\frac{1}{p}}\left(\sum |g(x_i)|^q \Delta x_i\right)^{\frac{1}{q}}$$
+    Предельный переход доказывает искомое.
+\end{proof}
+
+Неравенство КБШ в пространстве функций --- частный случай этого неравенства.
+
+\subsection{Неравенство Минковского}
+
+$p\geq 1,\ \ a_i,b_i\in\R$
+
+$$\left(\sum_{i=1}^n |a_i+b_i|^p\right)^{\frac{1}{p}}\leq \left(\sum |a_i|^p\right)^{\frac{1}{p}}+\left(\sum |b_i|^p\right)^{\frac{1}{p}}$$
+
+Это неравенство треугольника для нормы $||a||_p=\left(\sum |a_i|^p\right)^{\frac{1}{p}}$
+
+\begin{proof}
+    $p=1$ тривиально.
+
+    Докажем для положительных $a_i, b_i$, другие случаи сводятся к этому.
+
+    $$\sum a_i(a_i+b_i)^{p-1} \leq \left(\sum a_i^p\right)^\frac{1}{p}\left(\sum (a_i+b_i)^{q(p-1)}\right)^{\frac{1}{q}}$$
+    $$\sum b_i(a_i+b_i)^{p-1} \leq \left(\sum b_i^p\right)^\frac{1}{p}\left(\sum (a_i+b_i)^{q(p-1)}\right)^{\frac{1}{q}}$$
+    Сложим эти два неравенства:
+    $$\sum (a_i+b_i)^p\leq \left(\left(\sum a_i^p\right)^{\frac{1}{p}} + \left(\sum b_i^q\right)^{\frac{1}{q}}\right)\left(\sum (a_i+b_i)^p\right)^{\frac{1}{q}}$$
+    \textcolor{red}{Как это доказывает?}
+\end{proof}
+
+\subsection{Интегральное неравенство Минковского}
+
+$f,g\in C[a,b], p\geq 1$
+
+$$\left(\int_a^b |f+g|^p\right)^{\frac{1}{p}} \leq \left(\int_a^b |f|^p\right)^{\frac{1}{p}} + \left(\int_a^b |g|^p\right)^{\frac{1}{p}}$$
+
+\begin{proof}
+    Оставлено как упражнение читателю.
+\end{proof}
+
+\begin{theorem}
+    Признак Коши
+
+    $a_n\geq 0, K_n:=\sqrt[n]{a_n}$. Тогда:
+
+    Lite:
+    \begin{enumerate}
+        \item Если $\exists q<1 : K_n\leq q$, начиная с некоторого места \textit{(НСНМ)} ($\exists N : \forall n>N$) $\Rightarrow \sum a_n$ сходится.
+        \item $K_n\geq 1$ для бесконечного множества $\Rightarrow$ $\sum a_n$ расходится.
+    \end{enumerate}
+
+    Pro: $K:=\overline \lim K_n$
+    \begin{enumerate}
+        \item $K<1 \Rightarrow \sum a_n$ сходится
+        \item $K>1 \Rightarrow \sum a_n$ расходится
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Lite:
+    \begin{enumerate}
+        \item НСНМ $\sqrt[n]{a_n} \leq q \Leftrightarrow a_n\leq q^n$, $q_n$ сх. $\Rightarrow \sum a_n$ сх.
+        \item $\sqrt[n]{a_n} \geq 1 \Leftrightarrow a_n\geq 1 \Rightarrow a_n\not\to0 \Rightarrow \sum a_n$ расх.
+    \end{enumerate}
+    Pro:
+    \begin{enumerate}
+        \item По техническому описанию $\overline \lim$ $\exists N \ \ \forall n > N \ \ K_n<1$
+        \item \textcolor{red}{надо написать}
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Признак Даламбера.
+
+    $a_n>0, D_n:=\frac{a_{n+1}}{a_n}$
+
+    Lite:
+    \begin{enumerate}
+        \item $\exists q < 1$ : $D_n < q$ НСНМ $\Rightarrow \sum a_n$ сх.
+        \item $D_n\geq 1$ НСНМ $\Rightarrow \sum a_n$ расх.
+    \end{enumerate}
+    Pro: $D:=\lim D_n$
+    \begin{enumerate}
+        \item $D < 1 \Rightarrow \sum a_n$ сх.
+        \item $D > 1 \Rightarrow \sum a_n$ расх.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Lite:
+    \begin{enumerate}
+        \item $\exists N : \frac{a_{N+1}}{a_N} < q, \frac{a_{N+2}}{a_{N+1}} < q, \ldots$
+        $$\frac{a_n}{a_N} < q^{n-N}$$
+        $$a_n < q^n\left(\frac{a_N}{q^N}\right)$$
+        $\sum q^n$ сх. $\Rightarrow \sum a_n$ сх.
+        \item \textcolor{red}{надо написать}
+    \end{enumerate}
+    Pro:
+    \begin{enumerate}
+        \item $q:=\frac{1+D}{2}$. По определению предела $\varepsilon:=q-D \ \ \exists N \ \ \forall n>N \ \ D_n<q \xRightarrow{Lite1} \sum a_n$ сх.
+        \item $\varepsilon:=D-1 \ \ \exists N \ \ \forall n > N \ \ D_n>1\xRightarrow{Lite2} \sum a_n$ расх.
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    $a_n, b_n > 0$ $\frac{a_{n+1}}{a_n} < \frac{b_{n+1}}{b_n}$ НСНМ.
+
+    Тогда:
+    \begin{enumerate}
+        \item $\sum b_n$ сх. $\Rightarrow \sum a_n$ сх.
+        \item $\sum a_n$ расх. $\Rightarrow \sum b_n$ расх.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Будем игнорировать ``НСНМ''
+
+    $$\frac{a_2}{a_1}\leq\frac{b_2}{b_1} \quad \frac{a_3}{a_2} \leq \frac{b_3}{b_2} \quad \ldots$$
+    $$a_n\leq b_n \frac{a_1}{b_1}$$
+    По признаку сравнения все работает.
+\end{proof}
+
+\begin{theorem}
+    Признак Раабе
+
+    $a_n > 0, R_n:=n\left( \frac{a_n}{a_{n+1}} - 1 \right)$. Тогда:
+    \begin{enumerate}
+        \item $\exists r > 1 \ \ R_n\geq r$ НСНМ $\Rightarrow \sum a_n$ сх.
+        \item $R_n\leq r$ НСНМ $\Rightarrow \sum a_n$ сх.
+    \end{enumerate}
+\end{theorem}
+
+\textcolor{red}{Еще следствие}1
+
+\end{document}

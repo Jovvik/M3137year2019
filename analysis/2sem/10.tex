@@ -209,7 +209,7 @@ $$\left(\int_a^b |f+g|^p\right)^{\frac{1}{p}} \leq \left(\int_a^b |f|^p\right)^{
 \end{proof}
 
 \begin{lemma}
-    $a_n, b_n > 0$ $\frac{a_{n+1}}{a_n} < \frac{b_{n+1}}{b_n}$ НСНМ.
+    $a_n, b_n > 0$ $\frac{a_{n+1}}{a_n} \le \frac{b_{n+1}}{b_n}$ НСНМ.
 
     Тогда:
     \begin{enumerate}
@@ -236,5 +236,17 @@ $$\left(\int_a^b |f+g|^p\right)^{\frac{1}{p}} \leq \left(\int_a^b |f|^p\right)^{
 \end{theorem}
 
 \textcolor{red}{Еще следствие}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $R_n\geq r\Leftrightarrow \frac{a_n}{a_{n+1}}\ge 1 + \frac{r}{n}$
+        $$\frac{\left(1+\frac{1}{n}\right)^s - 1}{\frac{1}{n}}<r \Leftrightarrow \left(1+\frac{1}{n}\right)^s < 1 + \frac{r}{n}$$
+        $$b_n:=\frac{1}{n^s} \quad \frac{a_{n+1}}{a_n}=\frac{1}{\frac{a_n}{a_{n+1}}}\leq \frac{1}{1+\frac{r}{n}} < \frac{1}{\left(1+\frac{1}{n}\right)^s}=\frac{b_{n+1}}{b_n}$$
+        $\sum b_n$ сх. $\Rightarrow \sum a_n$ сх. по лемме 1.
+        \item $R_n \le 1 \Leftrightarrow \frac{a_n}{a_{n+1}} \le 1 + \frac{1}{n}$
+        $$\frac{a_{n+1}}{a_n}\geq \frac{n}{n+1}=\frac{\frac{1}{n+1}}{\frac{1}{n}}$$
+        $b_n=\frac{1}{n}$ расх. $\Rightarrow \sum a_n$ расх.
+    \end{enumerate}
+\end{proof}
 
 \end{document}

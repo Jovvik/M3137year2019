@@ -14,6 +14,10 @@
 - [Лекция #4](analysis/2sem/4.pdf)
 - [Лекция #5](analysis/2sem/5.pdf)
 - [Лекция #6](analysis/2sem/6.pdf)
+- [Лекция #7](analysis/2sem/7.pdf)
+- [Лекция #8](analysis/2sem/8.pdf)
+- [Лекция #9](analysis/2sem/9.pdf)
+- [Лекция #10](analysis/2sem/10.pdf)
 - [Практика #1](analysis/2sem/practice/1.pdf)
 - [Практика #2](analysis/2sem/practice/2.pdf)
 

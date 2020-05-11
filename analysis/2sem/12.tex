@@ -1,0 +1,273 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 12}
+
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+
+\begin{document}
+
+$$\int_a^b fg' = fg\Big|_a^b - \int_a^b f'g$$
+$$\int \leftrightarrow \sum \quad a\leftrightarrow g \quad b\leftrightarrow f \quad \sum_{i=1}^k a_i=A_k \quad f'\leftrightarrow b_{k+1}-b_k$$
+$$\sum_{k=1}^n a_kb_k = A_nb_n + \sum_{k=1}^{n-1} A_k(b_k-b_{k+1})$$
+Это \textbf{суммирование по частям}, оно же \textbf{правило Абеля cуммы}.
+\begin{proof}
+    $\sphericalangle b_7$, посмотрим с какими коэффициентами оно входит в выражения по обе части равенства:
+    \begin{itemize}
+        \item Левая часть: $a_7$
+        \item Правая часть: $A_7-A_6=a_7$
+    \end{itemize}
+    Для других случаев тоже верно. %TODO
+\end{proof}
+
+\begin{theorem}
+    Признак Абеля-Дирихле
+
+    \textbf{Дирихле}:
+    \begin{enumerate}
+        \item Последовательность $A_k=\sum\limits_{i=1}^k a_i$ ограничена: $\exists C_A > 0 \ \ \forall k \ \ |A_k|<C_A$
+        \item $b_k$ монотонна и $\to0$
+    \end{enumerate}
+
+    \textbf{Абеля}:
+    \begin{enumerate}
+        \item Ряд $\sum a_k$ сходится
+        \item $b_k$ монотонна, ограничена: $\exists C_B > 0 \ \ \forall k \ \ |A_k|<C_B$
+    \end{enumerate}
+
+    Если хотя бы один из этих признаков состоялся, $\sum\limits_{k=1}^n a_kb_k$ сходится.
+\end{theorem}
+\begin{proof}
+    $$\sum_{k=1}^n a_kb_k = \underbrace{A_nb_n}_{\to0} + \underbrace{\sum_{k=1}^{n-1} A_k(b_k-b_{k+1})}_{\substack{\exists \text{ конечный предел,} \\ \text{т.к. ряд абсолютно сходится}}}$$
+    Докажем Дирихле.
+    $$\sum_{k=1}^{n-1}|A_k||b_k-b_{k+1}| \le C_A\sum_{k=1}^{n-1}|b_k-b_{k+1}|=\pm C_A\sum_{k=1}^{n-1}b_k-b_{k+1}=\pm \underbrace{C_a(b_1-b_n)}_{\text{огр.}}\le C_AC_B$$
+    Докажем Абеля.
+
+    $\exists$ конечный $\beta=\lim\limits_{k\to+\infty} b_k$
+    $$\sum_{k=1}^n a_kb_k=\beta\sum_{k=1}^n a_k + \sum_{k=1}^n a_k(b_k-\beta)$$
+    Второй ряд сходится по признаку Дирихле, первый сходится по условию.
+\end{proof}
+
+\begin{example}
+    $$\sum \frac{\sin n}{\sqrt n}$$
+    Докажем сходимость по признаку Дирихле:
+    $a_n = \sin n, b_n=\frac{1}{\sqrt n}$
+
+    $b_n$ монот., $\to0$
+
+    $A_k=\left(\sum\limits_{k=1}^n \sin k\right)$ - огр.?
+    $$|\sin 1 + \sin 2 + \ldots + \sin n| = |\Im(e^i+e^{2i}+e^{3i}+\ldots+e^{ni})| \le |e^i+e^{2i}+\ldots+e^{ni}|=$$
+    $$=\left|e^i\frac{e^{ni}-1}{e^i-1}\right|=|e^i|\frac{|e^{ni}-1|}{|e^i-1|}\le 1\frac{2}{|e^i-1|} =: C_A$$
+    Итого $A_k$ ограничено $\Rightarrow$ искомая последовательность сходится по признаку Дирихле.
+\end{example}
+
+\section*{Свойства сходящихся рядов}
+
+\subsection{Группировка}
+
+$$\sum_{k=1}^{+\infty} a_k = \underbrace{(a_1 + a_2 + \ldots + a_{n_1})}_{b_1} + \underbrace{(a_{n_1+1} + \ldots + a_{n_2})}_{b_2} + \ldots$$
+$n_1<n_2<\ldots$
+% $$\sum_{l=1}^{\infty}b_l$$
+\begin{theorem}
+    $$A=\sum a_k \quad b_l = \sum_{i=n_l+1}^{n_{l+1}}a_i \quad B=\sum b_l$$
+    \begin{enumerate}
+        \item Если $A$ сходится, $B$ сходится и имеет ту же сумму
+        \item Если $\forall k \ \ a_k \ge 0$, $A$ и $B$ имеют одинаковую сумму.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    $$\sum_{i=1}^m b_i = \sum_{i=1}^{n_m} a_i$$
+    \begin{enumerate}
+        \item $A$ сходится $\Rightarrow \exists$ кон. $\lim \sum\limits_{i=1}^n a_i$. Тогда $$\lim_{m\to+\infty} \sum_{i=1}^m b_i=\lim_{n\to+\infty} \sum_{i=1}^{n_m} a_i=\lim_{n\to+\infty}  \sum_{i=1}^{n} a_i$$
+        \item \textcolor{red}{Cкипнуто}
+    \end{enumerate}
+\end{proof}
+\begin{remark}
+    \begin{enumerate}
+        \item $B$ сходится $\not\Rightarrow A$ сходится. Контрпример: $\sum(-1)^n$
+        \item $a_n\to0$, скобки ``ограниченного размера'': $\exists M \ \ \forall k \ \ |n_k-n_{k-1}|<M$
+        
+        Тогда $B$ сходится $\Rightarrow A$ сходится:
+        $$|a_n|\to0 \ \ |a_n|+|a_{n+1}|\to0 $$
+        \textcolor{red}{Скипнуто}
+    \end{enumerate}
+\end{remark}
+
+\begin{example}
+    $$\frac{1}{k(k+1)}=\frac{k}{k+1}-\frac{k-1}{k}$$
+    $$\sum_{k=1}^{+\infty} \frac{1}{k(k+1)} = \frac{1}{2}-\frac{0}{1}+\frac{2}{3}-\frac{1}{2}+\frac{3}{4}-\frac{2}{3}+\ldots=0$$
+\end{example}
+
+Односторонний предел в $\R$:
+$$\lim_{x\to a+0} f(x) = \lim_{x\to a} f\Big|_{[a, +\infty)\cap D}$$
+$f:D\subset \R^m \to \R, D_1\subset D, a$ --- предельная точка $D, D_1$
+
+$\lim\limits_{x\to a} f\Big|_{D_1}$ --- предел по подмножеству, аналог одностороннего предела
+
+\begin{definition}
+    \textbf{Предел по направлению} $l, |l|=1$:
+    $$\lim_{t\to0+0} f(a+t \vec l)$$
+\end{definition}
+
+\begin{enumerate}
+    \item Если $\exists \lim\limits_{x\to a} f(x) = L$, то $\exists$ и пределы всем направлениям и они равны $L$.
+    \item Если пределы по направлениям $\exists$ и не равны, то $\not\exists \lim\limits_{x\to a}f(x)$
+\end{enumerate}
+
+\begin{example}
+    $$f=\frac{xy}{x^2+y^2}$$
+    $$l:=(\cos \varphi, \sin \varphi) \quad \lim_{t\to 0} \frac{t\cos \varphi t\sin \varphi}{t^2(\cos^2 \varphi + \sin^2 \varphi)}=\cos\varphi\sin\varphi\Rightarrow \not\exists\lim_{(x,y)\to(0,0)}f(x,y)$$
+\end{example}
+
+\begin{definition}
+    Предел вдоль кривой
+
+    \textcolor{red}{Скипнуто}
+\end{definition}
+
+Линейное отображение = линейный оператор
+
+$$f:\R^m \to\R^n \text{ --- лин.} \quad \forall \alpha,\beta\in\R \ \ \forall x,y\in\R^m \ \ f(\alpha x + \beta y)=\alpha f(x) + \beta f(x)$$
+
+\begin{definition}
+    Линейное отображение $f:\R^m \to \R$ --- \textbf{линейный функционал}
+\end{definition}
+
+\textcolor{red}{Скипнуто}
+
+Линейные отображения образуют линейное пространство, т.е. это множестве замкнуто по сложению и умножению на скаляры.
+
+Линейное отображение задается матрицей:
+$$f:\R^m\to \R^n \quad f\leftrightarrow A = \begin{bmatrix}
+    a_{11} & \ldots & a_{1m} \\
+    \vdots & \ddots & \vdots \\
+    a_{n1} & \ldots & a_{nm} 
+\end{bmatrix}$$
+$$f(x) = Ax$$
+
+\begin{theorem}
+    $\mathcal A:\R^m\to\R^m$ --- лин. оператор
+
+    Эквивалентны следующие утверждения:
+    \begin{enumerate}
+        \item $\mathcal A$ --- обратим
+        \item $\mathcal A(\R^m)=\R^m$
+    \end{enumerate}
+\end{theorem}
+
+Линейные отображения ``общего вида'':
+\begin{itemize}
+    \item $\R\to\R \quad f(x)=\alpha x \quad f\leftrightarrow \alpha\in\R$
+    \item $\R^m\to\R \quad f(x)=\langle x,a \rangle \quad f\leftrightarrow a\in\R^m$
+    \item $\R\to\R^m \quad f(x)=xv \quad f\leftrightarrow v\in\R^m$
+\end{itemize}
+
+\subsection{Дифференциирование отображений}
+
+\begin{definition}
+    \begin{enumerate}
+        \item \textbf{Бесконечно малое отображение} $\varphi : E\subset\R^m \to\R^l$
+
+        $x_0$ --- предельная точка $E$
+    
+        $\varphi$ --- бесконечно малое отображение при $x\to x_0$ $\varphi(x)\xrightarrow{x\to x_0}0$
+
+        \item $o(h)$ (оно же $o(|h|)$)
+        
+        $\varphi : E\subset \R^m \to \R^l$, $0$ --- предельная точка $E$
+
+        $\varphi(h) = o(h)$ при $h\to0$, если $\frac{\varphi(h)}{|h|}\xrightarrow{h\to0}0$
+
+        По-другому: $\exists \alpha : E\to\R^l$ --- бесконечно малое при $h\to0$:
+        $$\varphi(h)=|h|\alpha(h)$$
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    $F:E\subset\R^m\to\R^l, a\in Int E$
+
+    $F$ --- дифф. в точке $a$, если:
+    $$\exists \text{ лин. оп. } L : \R^m\to\R^l \ \ \exists \text{ бесконечно малое } \alpha : E\to\R^l:$$
+    $$F(a+h)=F(a)+Lh+|h|\alpha(h), h\to0$$
+    $$F(a+h)=F(a)+Lh+o(h)$$
+    $$x:=a+h$$
+    $$F(x)=F(a)+L(x-a)+|x-a|\alpha(x-a)$$
+\end{definition}
+
+\begin{definition}
+    Оператор $L$ из определения 1 --- \textbf{производный оператор} отображениия $F$ в точке $a$ (``производная''), обозначается $F'(a)$.
+
+    Матрица $F'(a)$ --- \textbf{матрица Якоби} $F$ в точке $a$
+\end{definition}
+
+\begin{definition}
+    Выражение $F'(a)h$ называется \textbf{дифференциалом} отображения $F$ в точке $a$.
+
+    Это понимают как:
+    \begin{enumerate}
+        \item Производный оператор $h\mapsto F'(a)h$
+        \item Отображение $E\times \R^m\to\R^l \quad (x, h)\mapsto F'(x)\cdot h$
+    \end{enumerate}
+\end{definition}
+
+$F:\C\to\C \quad a\in\C$
+\begin{definition}
+    $F$ \textbf{комплексно дифференциируема} в точке $A$, если $\exists \lambda\in\C$:
+    $$F(a+h)=F(a)+\lambda h + o(h), h\to0$$
+    $$h=x+iy \leftrightarrow \begin{pmatrix}
+        x \\
+        y
+    \end{pmatrix}\in\R^2 \quad \lambda=a+bi$$
+    $$h\mapsto \lambda h$$
+    $$(x+iy)\mapsto (a+bi)(x+iy)=ax-by+i(ay+bx)$$
+    $$\begin{pmatrix}
+        x \\
+        y
+    \end{pmatrix} \mapsto \begin{pmatrix}
+        ax-by \\
+        ay+bx
+    \end{pmatrix} = \begin{pmatrix}
+        a & -b \\
+        b & a
+    \end{pmatrix}\begin{pmatrix}
+        x \\
+        y
+    \end{pmatrix}$$
+    $$L=\begin{pmatrix}
+        a & -b \\
+        b & a
+    \end{pmatrix}$$
+    Этому соответствует вещественное отображение $F:\R^2\to\R^2$
+    $$F(a+h)=F(a)+Lh+o(h)$$
+\end{definition}
+
+\begin{lemma}
+    Производный оператор единственный
+\end{lemma}
+\begin{proof}
+    $$\exists \delta>0 \ \ \forall h : |h|<\delta \ \ a+h\in E$$
+    Возьмём $v\in\R^m \quad h:=tv, t<\frac{\delta}{|v|}$
+    
+    По определению дифференциала:
+    $$F(a+tv)=F(a)+F'(a)tv + |tv| \alpha(tv)=F(a)+tF'(a)v+|t||v|\alpha(tv)$$
+    $$F'(a)v=\frac{F(a+tv)-F(a)}{t} - \overbrace{\underbrace{\frac{|t|}{t}}_{\pm1} |v|\alpha(tv)}^{\xrightarrow[t\to0]{}\pm |v|0}$$
+    $$F'(a)v=\lim_{t\to0}\frac{F(a+tv)-F(a)}{t}$$
+    Т.к. по всем направлениям производная равна, оператор единственный.
+\end{proof}
+
+\begin{remark}
+    О дифференциировании функций нескольких переменных
+
+    $f:E\subset\R^m \to \R , a\in Int E$
+
+    $f$ --- дифф. $\exists \lambda_1 \ldots \lambda_m \in\R, \exists \varphi$ бесконечно малая при $x\to a$
+
+    $$f(x_1\ldots x_m)=f(a_1\ldots a_m)+\lambda_1(x_1-a_1)+\lambda_2(x_2-a_2)+\ldots+\lambda_m(x_m-a_m)+|x-a|\varphi(x)$$
+\end{remark}
+
+\begin{remark}
+    $F$ дифф. в $a \Rightarrow F$ непр. в $a$
+\end{remark}
+
+\end{document}

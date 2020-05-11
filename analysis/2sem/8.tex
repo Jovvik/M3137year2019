@@ -1,0 +1,72 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 8}
+
+\begin{document}
+
+\begin{definition}
+    $f$ --- допустимая функция на $[a, b)$
+
+    $\int_a^b f$ --- \textbf{абсолютно сходится}, если:
+    \begin{enumerate}
+        \item $\int_a^b f$ сходится
+        \item $\int_a^b |f|$ --- сходится
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    $f$ --- доп. на $[a, b)$. Тогда эквивалентны следующие утверждения:
+    \begin{enumerate}
+        \item $\int_a^b f$ сходится
+        \item $\int_a^b |f|$ сходится
+        \item $\int_a^b f^+, \int_a^b f^-$ оба сходятся
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    1$\Rightarrow$2 --- тривиально
+
+    2$\Rightarrow$3 : $0\leq f^{\pm}\leq |f|$
+
+    3$\Rightarrow$1 : $f=f^+ - f^- \Rightarrow \int_a^b f = \int_a^b f^+ - \int_a^b f^-$
+\end{proof}
+
+\begin{example}
+    $$\int_{10}^{+\infty} \frac{\sin x}{x}dx \stackrel{\text{по частям}}{=} \left[\begin{array}{lr}
+        u = \frac{1}{x} & du = -\frac{1}{x^2} dx \\
+        dv = \sin x dx & v = -\cos x
+    \end{array}\right]=-\cos \frac{1}{x} \bigg|_{10}^{+\infty} - \int_{10}^{+\infty} \frac{\cos x}{x^2} dx$$
+    Также можно было оставить нижнюю границу $0$, но использовать $v=1-\cos x$
+
+    Первое слагаемое очевидно конечно, а второе конечно по абсолютной сходимости: $\left|\frac{\cos x}{x^2}\right|\leq \frac{1}{x}$. Тогда искомый интеграл сходится.
+\end{example}
+
+\begin{example}
+    $$\int_1^{+\infty} \frac{\sin x}{x^p}$$
+    \begin{itemize}
+        \item При каких $p$ сходится?
+        \item При каких $p$ абсолютно сходится?
+    \end{itemize}
+    \begin{enumerate}
+        \item $p > 1 \Rightarrow$ абсолютно сходится, т.к. $\left|\frac{\sin x}{x^p}\right|<\frac{1}{x^{p-1}}$
+        \item $p > 0 \Rightarrow$ сходится, т.к. (по частям):
+        $$\int_1^{+\infty} \frac{\sin x}{x^p} = -\frac{\cos x}{x^p}\bigg|_1^{+\infty} - p \int_1^{+\infty} \frac{\cos x}{x^{p+1}}$$
+        Первое конечно, второе абсолютно сходится.
+        \item $p \leq 0$, по критерию Коши:
+        $$\exists A_n, B_n \to b \quad \int_{A_n}^{B_n} f\not\to0 \Rightarrow \int_a^b f \text{ расходится}$$
+        $$A_n:=2\pi n, B_n:=2\pi n+\pi \quad \int_{A_n}^{B_n} \frac{\sin x}{x^p} dx \geq (2\pi n)^{-p}\int_{A_n}^{B_n} \sin x \text{ расходится}$$
+        Итого для $p\leq 0$ расходится.
+        \item $0<p\leq 1$
+    \end{enumerate}
+\end{example}
+
+\section*{\textcolor{red}{Скипнуто до конца лекции}}
+
+\begin{example}
+    Интеграл Дирихле.
+
+    $$\int_0^{+\infty} \frac{\sin x}{x}dx = \frac{\pi}{2}$$
+\end{example}
+
+\end{document}

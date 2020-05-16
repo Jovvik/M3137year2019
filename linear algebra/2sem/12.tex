@@ -1,0 +1,211 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Лекция 12}
+
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+\makeatletter
+\renewcommand*{\@seccntformat}[1]{\csname the#1\endcsname\hspace{0.1cm}}
+\makeatother
+
+\begin{document}
+
+\section*{Тензоры в еквлидовом пространстве}
+
+\subsection{Естественный изоморфизм $X$ и $X^*$}
+
+$] X$ --- линейное пространство, $X^*$ сопряжено $X$
+
+В $X$ введена еквлидова структура $\forall x,y\in X \ \ \langle x,y\rangle \in K$, удовлетворяющая свойствам \textit{(см. прошлые лекции)}
+
+$\sphericalangle \langle x,y\rangle = \tilde x(y), \tilde x\in X^*$, т.е. для фиксированного $x$ отображение $\langle x,y\rangle$ это форма $\tilde x\in X^*$
+
+\begin{lemma}
+    Скалярное произведение устанавливает естественный изоморфизм пространств $X$ и $X^*$:
+    $$x\in X \leftrightarrow \tilde x\in X^*$$
+\end{lemma}
+\begin{proof}
+    Необходимо и достаточно показать, что это биекция, сохраняющая линейную структуру \textit{(по определению изоморфизма)}
+
+    \begin{enumerate}
+        \item Биективность: \textit{(от противного)}
+        \begin{enumerate}
+            \item Слева направо $$] \exists \tilde x_1, \tilde x_2 \in X^* : x\leftrightarrow \tilde x_1, x\leftrightarrow \tilde x_2$$
+            $$\tilde x_1(y) - \tilde x_2(y) = \langle x, y\rangle - \langle x, y\rangle = 0 \Rightarrow \tilde x_1 - \tilde x_2 = \Theta \Rightarrow \tilde x_1 = \tilde x_2$$
+        
+            \item Справа налево $$] \tilde x \leftrightarrow x_1, \tilde x \leftrightarrow x_2$$
+            $$0 = \tilde x(y) - \tilde x(y) = \langle x_1, y\rangle - \langle x_2, y\rangle = \langle x_1-x_2, y\rangle$$
+            $$\Rightarrow x_1-x_2=0\Rightarrow x_1=x_2$$
+        \end{enumerate}
+        \item Линейность: \textcolor{red}{скипнуто}
+    \end{enumerate}
+\end{proof}
+
+$\sphericalangle \{e_j\}_{j=1}^n$ --- базис $X$, $\{f^k\}$ --- базис $X^*$, сопряженный базису $\{e_j\}$
+
+$f^k(e_j)=\langle e^k, e_j\rangle = \delta_j^k$
+
+\begin{definition}
+    $\{e_j\}_{j=1}^n, \{e^k\}_{k=1}^n$ --- \textbf{биортогональные базисы} $X$, если:
+    $$\langle e^k, e_j\rangle = \delta_j^k$$
+\end{definition}
+
+Разложим $\{e_i\}$ по $\{e^k\}$:
+$$e_i=\sum_{k=1}^n \alpha_{ik} e^k$$
+Домножим скалярно на $e_j$:
+$$\langle e_i, e_j\rangle = \langle \sum_{k=1}^n \alpha_{ik} e^k, e_j\rangle=\sum_{k=1}^n \alpha_{ik} \langle e^k, e_j \rangle=\sum_{k=1}^n \alpha_{ik} \delta^i_j=\alpha_{ij}$$
+Таким образом, метрический тензор монжо получить из разложения $\{e_i\}$ по $\{e^k\}$
+
+\begin{lemma}
+    $$e_i = \sum_{k=1}^n g_{ik}e^k \quad e^k = \sum_{i=1}^n g^{ki} e_i$$
+\end{lemma}
+\begin{proof}
+    выше
+\end{proof}
+
+\begin{lemma}
+    О переходе в базис, биортогональный исходному.
+    $$x \in X \quad x = \sum_{j=1}^n \xi^j e_j, x = \sum_{k=1}^n \xi_k e^k$$
+    Тогда:
+    $$\xi^j = \sum_{k=1}^n \xi_k g^{ki}, \xi_k = \sum_{j=1}^n \xi^j g_{jk}$$
+\end{lemma}
+\begin{proof}
+    $$x = \sum_{j=1}^n \xi^j e_j = \sum_{j=1}^n \xi^j \sum_{k=1}^n g_{jk}e^k = \sum_{k=1}^n \left(\sum_{j=1}^n \xi^j g_{jk}\right)e^k$$
+\end{proof}
+
+\begin{lemma}
+    $$x = \sum_{j=1}^n \xi^j e_j \Rightarrow \xi^j = \langle e^i, x\rangle$$
+\end{lemma}
+\begin{proof}
+    $$\langle e^i, x\rangle = \langle e^i, \sum_{j=1}^n \xi^j e_j\rangle = \sum_{j=1}^n \langle e^i, e_j\rangle\xi^j =\xi^i$$
+\end{proof}
+
+\begin{remark}
+    $$x = \sum_{j=1}^n \langle e^j, x\rangle e_j = \sum_{k=1}^n \langle x, e_k\rangle e^k$$
+\end{remark}
+
+\begin{lemma}
+    Явный вид изоморфиза $X\simeq X^*$:
+    $$x = \sum_{k=1}^n \langle x, e_k\rangle e^k \mapsto \sum_{k=1}^n \langle x, e_k\rangle f^k$$
+\end{lemma}
+
+\begin{remark}
+    Биортогональный базис к нормированному базису --- он сам:
+
+    $\{e_j\}_{j=1}^n$ --- ортономированный $\Rightarrow g_{ij}=\delta^i_j \Rightarrow g^{ij} = \delta^i_j \Rightarrow e_j=\sum_{k=1}^n g_{jk}e^k = \sum_{k=1}^n \delta_{jk} e^k = e^j$
+\end{remark}
+
+\subsection{Сопряженные и эрмитовские операторы}
+
+\begin{definition}
+    Оператор $\varphi^* : X \to X$ называется \textbf{сопряженными оператору} $\varphi : X \to X$, если: $$\langle x, \varphi y \rangle = \langle \varphi^* x , y \rangle$$
+\end{definition}
+
+\begin{theorem}
+    В конечномерном евклидовом простраснстве $\forall \varphi \ \exists! \varphi^*$
+\end{theorem}
+\begin{proof}
+    Рассматриваем $\C$, поэтому черта --- комплексное сопряжение.
+
+    $\{e_j\}_{j=1}^n$ --- базис $X$
+    $$\varphi(e_i) = \sum_{j=1}^n a_i^j e_j$$
+    $$x = \sum_{j=1}^n \xi^j e_j \quad y = \sum_{k=1}^n \eta^k e_k \quad \langle x , \varphi y\rangle \stackrel{?}{=} \langle \varphi^* x, y \rangle$$
+    $$\langle x, \varphi y \rangle = \langle \sum_{j=1}^n \xi^j e_j, \varphi\left(\sum_{k=1}^n \eta^k e_k\right)\rangle = \sum_{j,k=1}^n \overline \xi^j \eta^k \langle e_j, \varphi e_k\rangle = \sum_{i,j,k=1}^n \overline \xi^j \eta^k a_k^i \underbrace{\langle e_j, e_i\rangle}_{\delta_{ji}}=$$
+    $$=\sum_{j,k=1}^n \overline\xi^j \eta^k a_k^j = \sum_{k=1}^n \left(\sum_{j=1}^n \overline{\overline a_k^i \xi_i }\right)\eta^k=\sum_{k=1}^n \overline \zeta_k\eta^k$$
+    $$\zeta_k = \sum_{i=1}^n \overline a_k^i \xi_i = \zeta^k$$
+    $$x\leftrightarrow \xi \Rightarrow \varphi^* x \leftrightarrow \zeta \quad \zeta = \overline A^T \xi$$
+    $$\varphi \leftrightarrow A \Rightarrow \varphi^* = \overline A^T \stackrel{def}{=} A^+$$
+\end{proof}
+
+Свойства операции сопряжения оператора:
+\begin{enumerate}
+    \item $(\varphi^*)^* = \varphi$
+    \item $(\varphi\pm\psi)^*=\varphi^*\pm\psi^*$
+    \item $(\alpha \varphi)^* = \overline \alpha \varphi^*$
+    \item $(\varphi\psi)^* = \psi^*\varphi^*$ --- порядок важен, умножение операторов не коммутативно
+\end{enumerate}
+
+\begin{definition}
+    Оператор, обладающий свойством $\varphi^*=\varphi$ называется \textbf{эрмитовским} или \textbf{самосопряженным}
+\end{definition}
+
+\begin{example}
+    $\varphi\leftrightarrow A = \begin{bmatrix}
+        2 & 2i \\
+        -2i & 5
+    \end{bmatrix} \quad A^T = \begin{bmatrix}
+        2 & -2i \\
+        2i & 5
+    \end{bmatrix} \quad A^+ = \begin{bmatrix}
+        2 & 2i \\
+        -2i & 5
+    \end{bmatrix} = A$
+\end{example}
+
+\begin{lemma}
+    $\varphi$ эрмитов $\Rightarrow \sigma_\varphi\subset\R$
+\end{lemma}
+\begin{proof}
+    $x$ --- СВ $\Rightarrow \varphi x = \lambda x$:
+    $$\langle \varphi x, x \rangle = \langle \lambda x, x \rangle = \overline \lambda \langle x, x \rangle$$
+    $$\langle x, \varphi x \rangle = \langle x, \lambda x \rangle = \lambda \langle x, x \rangle$$
+    $$\lambda = \overline \lambda \Rightarrow \lambda\in\R$$
+\end{proof}
+
+\begin{lemma}
+    $\varphi$ эрмитов, $\lambda_1, \lambda_2\in\sigma_\varphi : \lambda_1 \not= \lambda_2$
+
+    \textcolor{red}{Скипнуто}
+\end{lemma}
+
+\begin{definition}
+    $\varphi : X \to X$, $L$ --- инвариантное подпространство $\varphi$
+
+    $L$ называется \textbf{приводящим подпространством} $\varphi$, если $L^\perp$ --- тоже инвариантное подпространство $\varphi$
+\end{definition}
+
+\begin{lemma}
+    Любое инвариантное подпространство $L$ эрмитова оператора является приводящим.
+\end{lemma}
+\begin{proof}
+    $x\in L, y\in L^\perp$
+    $$0 = \langle \varphi x, y \rangle = \langle x, \varphi y \rangle = 0 \Rightarrow L^\perp\ \ inv$$
+\end{proof}
+
+\begin{theorem}
+    Эримтов оператор --- скалярного типа.
+\end{theorem}
+\begin{proof}
+    От противного.
+
+    $\{x_j\}_{j=1}^m$ --- набор собственных векторов эрмитова оператора $\varphi, m<\dim X$
+
+    $L = \mathcal{L}\{x_1\ldots  x_m\}, \dim L = m$
+
+    $L$ --- инвариантное подпространство $X \Rightarrow L$ приводящее для $X$
+
+    $\Rightarrow L^\perp$ инвариантное подпространство $\varphi \Rightarrow \exists$ хотя бы 1 собственный вектор оператора $\varphi$, $] y$ --- СВ $\varphi$
+
+    $y\perp L \Rightarrow \{x_1\ldots x_m y\}$ --- ЛНЗ, противоречие.
+\end{proof}
+
+\begin{consequence}
+    \begin{enumerate}
+        \item Эрмитов оператор имеет скалярный тпип
+        \item $\forall \lambda : r_i = n_i$
+        \item Из собственных векторов эрмитова оператора можно построить ортономированный базис.
+    \end{enumerate}
+\end{consequence}
+
+\textcolor{red}{Скипнуто}
+
+\begin{theorem}
+    Спектральная теорема для эрмитова оператора
+
+    $\varphi : X \to X$, $\varphi e_j = \lambda_j e_j$, $\{e_j\}$ --- ортономированный базис СВ
+
+    $$\Rightarrow \varphi = \sum_{i=1}^n \lambda_i \mathcal{P}_{\lambda_i} = \sum_{i=1}^n \lambda_i \langle e_i, \cdot \rangle e_i$$
+\end{theorem}
+
+\end{document}

@@ -30,20 +30,39 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
 
 \begin{definition}
     %<*выпуклаяфункция>
-    $f:\langle a,b\rangle\to\R$ --- выпуклая
+    $f:\langle a,b\rangle\to\R$ --- \textbf{выпуклая}
     $$\forall x,y\in\langle a,b\rangle \quad \forall \alpha\in[0,1] \quad f(\alpha x + (1-\alpha)y)\leq \alpha f(x) + (1-\alpha)f(y)$$
     %</выпуклаяфункция>
 \end{definition}
 
+%<*выпуклаяфункцияremark>
 \begin{remark}
+    
     $f$ --- выпуклая $\Leftrightarrow$ всякая хорда графика $f$ расположена ``выше'' графика \textit{(нестрого выше)} $\Leftrightarrow$ $\text{НГ}(f, \langle a,b\rangle)\{(x,y) : x\in\langle a,b\rangle \ \ y\geq f(x)\}$
 \end{remark}
+%</выпуклаяфункцияremark>
 
 Выпуклый = выпуклый вниз; вогнутый = выпуклый вверх
 
 \begin{definition}
-    $f:\langle a,b\rangle\to\R$ --- строго выпуклая
+    %<*строговыпуклаяфункция>
+    $f:\langle a,b\rangle\to\R$ --- \textbf{строго выпуклая}
     $$\forall x,y\in\langle a,b\rangle \quad \forall \alpha\in(0,1) \quad f(\alpha x + (1-\alpha)y)< \alpha f(x) + (1-\alpha)f(y)$$
+    %</строговыпуклаяфункция>
+\end{definition}
+
+\begin{definition}
+    %<*выпуклоемножество>
+    $A\subset \R^m$ --- \textbf{выпуклое множество в $\R^m$}, если
+    $$\forall x,y\in A, \alpha\in[0,1] \quad \alpha x + (1-\alpha) y \in A$$
+    \textcolor{red}{Это определение с вики}
+    %</выпуклоемножество>
+\end{definition}
+
+\begin{definition}
+    %<*надграфик>
+    \textbf{Надграфик} функции $f:\langle a,b\rangle\to \R$ это множество $\{(x, y)\ |\ x\in\langle a,b\rangle, y\ge f(x)\}$
+    %</надграфик>
 \end{definition}
 
 \begin{lemma}
@@ -102,9 +121,15 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
 \end{proof}
 
 \begin{definition}
+   %<*опорнаяпрямая>
     $A\subset \R^2$ --- вып. $l\subset \R^2$ --- прямая
 
-    $l$ --- \textbf{опорная прямая} к $A$, если $A$ содержится в одной полуплоскости относительно $l, l\cap A=\text{\O}$
+    $l$ --- \textbf{опорная прямая} к $A$, если:
+    \begin{enumerate}
+        \item $A$ содержится в одной полуплоскости относительно $l$
+        \item $l\cap A\not=\text{\O}$
+    \end{enumerate}
+   %</опорнаяпрямая>
 \end{definition}
 
 \begin{theorem}
@@ -147,7 +172,7 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
 \end{remark}
 
 \begin{example}
-    Изопериметрическое пространство
+    Изопериметрическое неравенство
 
     $G\subset\R^2$ --- выпуклое замкнутое множество (ограниченное)
 

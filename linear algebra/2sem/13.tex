@@ -1,0 +1,178 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Лекция 13}
+
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+\makeatletter
+\renewcommand*{\@seccntformat}[1]{\csname the#1\endcsname\hspace{0.1cm}}
+\makeatother
+
+\begin{document}
+
+
+\begin{definition}
+    $U : X\to X$, такой что:
+    \begin{enumerate}
+        \item $\forall x,y \quad \langle Ux, Uy \rangle = \langle x, y\rangle$
+        \item $\forall x \quad ||Ux||=||x||$
+        \item $U^* = U^{-1} \Leftrightarrow U^*U=UU^*=I$
+    \end{enumerate}
+    называется \textbf{унитарным оператором}
+\end{definition}
+
+\begin{theorem}
+    Свойства 1,2 и 3 эквивалентны.
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item $1\Rightarrow 2$
+        $$\forall x,y \quad \langle Ux, Uy \rangle = \langle x, y\rangle \stackrel{?}{\Rightarrow} ||Ux||=||x||$$
+        $$||Ux||^2 = \langle Ux, Uy \rangle = \langle x, y\rangle = ||x||^2$$
+        \item $2\Rightarrow 3$
+        $$||Ux||=||x|| \stackrel{?}{\Rightarrow} U^*U=I$$
+        $$||Ux||^2 = \langle Ux, Ux \rangle = \langle U^*Ux, x \rangle = \langle x, x\rangle$$
+        $$U^*U=I$$
+        \item $3\Rightarrow 1$
+        $$U^*=U^{-1} \stackrel{?}{\Rightarrow} \langle Ux, Uy \rangle = \langle x, y\rangle$$
+        $$\langle Ux, Uy \rangle = \langle U^*Ux, y \rangle = \langle x, y\rangle$$
+    \end{itemize}
+\end{proof}
+\begin{lemma}
+    $|\det U| = 1$
+\end{lemma}
+\begin{proof}
+    $$1 = \det I = \det(U^*U)=\det U^* \det U \stackrel{def}{=} \det \overline U^T \det U = \det \overline U \det U=\overline {\det U} \det U = |\det U|^2$$
+\end{proof}
+
+\begin{lemma}
+    Матрица унитарного преобразования обладает свойством ортогональности по строкам и столбцам.
+\end{lemma}
+\begin{proof}
+    Здесь $\mathcal U$ - оператор, $U$ - его матрица:
+    $$\mathcal U \leftrightarrow U=||U_{ij}||$$
+    $$\mathcal U^* \mathcal U=I \Rightarrow U^+U = E$$
+    В следующей строке подразумевается $\forall i,k$
+    $$\sum_{j=1}^n \overline U_{ji}U_{jk}=\sum_{j=1}^n (\overline U^T)_{ij} U_{jk} = \delta{ik}$$
+\end{proof}
+\begin{example}
+    Матрица поворота - ортогональное преобразование.
+\end{example}
+\begin{lemma}
+    Множество унитарных операторов образует мультипликативную группу $U(n)$:
+    \begin{enumerate}
+        \item $U_1, U_2\in U(n) \Rightarrow U_1\cdot U_2\in U(n)$
+        \item $\exists I : I^*=I$
+        \item $\forall U \ \ \exists U^{-1} = U^*$
+        \item $U_1(U_2U_3)=(U_1U_2)U_3=U_1U_2U_3$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}
+        \item $U_1U_2$ - унитарный?
+        $$\langle U_1U_2x, U_1U_2y \rangle = \langle U_1^*U_1U_2x, U_2y \rangle = \langle U_2 x, U_2 y\rangle = \langle x, y\rangle$$
+
+        Остальное очевидно.
+    \end{enumerate}
+\end{proof}
+
+$U(n)$ называется \textbf{унитарной группой операторов над унитарным пространством $X$, $\dim X = n$}
+
+$\sphericalangle SU(n) \stackrel{def}{=} \{U\in U(n) : \det U = 1\}$
+
+\begin{lemma}
+    $SU(n)$ --- подгруппа $U(n)$
+\end{lemma}
+\begin{lemma}
+    Все собственные значения унитарного оператора по модулю равны единице.
+    $$\lambda\in \sigma_U \Rightarrow |\lambda|=1 \Leftrightarrow \lambda = e^{i\varphi}$$
+\end{lemma}
+\begin{proof}
+    $] Ux = \lambda x$
+    $$||x||=||Ux||=||\lambda x||=\lambda ||x||$$
+\end{proof}
+\begin{lemma}
+    Собственные вектора $U$, отвечающие различным собственным значениям, являются ортогональными.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}
+    Любое инвариантное подпространство $U$ является приводящим.
+    $$X = L + L^\perp \quad y\in L^\perp \Rightarrow Uy \in L^+$$
+\end{lemma}
+\begin{proof}
+    $$\sphericalangle y\in L^\perp : 0 \langle x, y\rangle = \langle Ux, Uy\rangle=0$$
+\end{proof}
+\begin{theorem}
+    Из собственных векторов унитарного оператора можно построить ортонормированный базис.
+\end{theorem}
+\begin{proof}
+    Очевидно от противного, как с эрмитовым оператором.
+\end{proof}
+
+\begin{remark}
+    Унитарный оператор имеет скалярный тип, ортогональный оператор \textit{(унитарный, но над $\C$)} может не иметь.
+\end{remark}
+
+\begin{theorem}
+    Спектральная теорема для унитарного оператора:
+    $$U=\sum_{j=1}^n \lambda_j \mathcal P_j = \sum_{j=1}^n e^{i\varphi_j}\langle e^j, \cdot \rangle e_j$$
+\end{theorem}
+
+\begin{theorem}
+    Эрмитова матрица может быть приведена к диагональной формме унитарным преобразованием:
+    $$\varphi^* = \varphi \Rightarrow \exists \mathcal U\in \mathcal U(n) : A_\varphi^d = U^+A_\varphi U$$
+\end{theorem}
+\begin{proof}
+    $$A_\varphi^d = T^{-1}A_\varphi T$$
+    $T$ --- состоит из собственных векторов $\varphi$, но $\varphi^*=\varphi \Rightarrow$ столбцы $T$ ортогональны $\Rightarrow T = U \leftrightarrow \mathcal U\in\mathcal U(n)$
+\end{proof}
+
+\begin{remark}
+    $\varphi$ --- эрмитовский оператор $\Rightarrow e^{i\varphi}$ --- унитарный оператор.
+\end{remark}
+\begin{proof}
+    $$(e^{i\varphi})^* = e^{-i\varphi^*}=e^{-i\varphi}$$
+    $$(e^{i\varphi})^*e^{i\varphi}=I$$
+\end{proof}
+
+\section*{Квадратичные формы}
+
+$] X$ --- линейное пространство
+
+\begin{definition}
+    Отображение $b : X\times X \to K$ --- \textbf{билинейная форма}, если выполняется следующее:
+    \begin{enumerate}
+        \item $K=\R:$ $b(x, y) = b(y, x) \ \ b(\alpha x + y, z) = \alpha b(x, z) + b(y, z)$
+        \item $K=\C:$ $b(x, y) = \overline{b(y, x)} \ \ b(\alpha x + y, z) = \overline\alpha b(x, z) + b(y, z)$
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+    $b\in \Omega_0^2$ --- тензор типа $(2, 0)$
+\end{remark}
+
+$] \{e_j\}_{j=1}^n$ --- базис $X$
+$$\forall x,y\in X \quad x=\sum_{j=1}^n \xi^j e_j \quad y = \sum_{k=1}^n \eta^k e_k$$
+$$b(x, y) = b(\sum_{j=1}^n \xi^j e_j, \sum_{k=1}^n \eta^k e_k)=\sum_{k,j=1}^n \overline \xi^j \eta^k \cdot \underbrace{b(e_j, e_k)}_{\text{элемент тензора }b}=\sum_{k,j=1}^n \overline \xi^j \eta^k b_{jk}$$
+
+\begin{remark}
+    В матричной форме $b(x,y) = \xi^+ B \eta$
+\end{remark}
+
+\begin{definition}
+    \textbf{Квадратичной формой}, соответствующей билиненой форме $b$, называется отображение $q$:
+    $$q(x)=b(x, x)$$
+\end{definition}
+
+\begin{lemma}
+    $\{e_j\}_{j=1}^n \xrightarrow{T} \{\tilde e_k\}_{k=1}^n \Rightarrow \tilde Q = T^T Q T$
+\end{lemma}
+\begin{proof}
+    Очевидно.
+\end{proof}
+
+\textcolor{red}{Скипнуто до конца лекции.}
+
+\end{document}

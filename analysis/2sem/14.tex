@@ -1,0 +1,249 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 14}
+
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+\begin{document}
+
+\section*{Бесконечные произведения}
+
+\begin{definition}
+    $\prod\limits_{i=1}^{+\infty} p_n$ : $\prod_N := \prod\limits_{n=1}^N p_n \ \ \lim\limits_{n\to+\infty}\prod_N=P$
+
+    \begin{itemize}
+        \item $P\in (0, +\infty) \Rightarrow \prod\limits_{i=1}^{+\infty} p_n$ сходится к $P$
+        \item $P=+\infty \Rightarrow \prod\limits_{i=1}^{+\infty} p_n$ расходится к $+\infty$
+        \item $P=0 \Rightarrow \prod\limits_{i=1}^{+\infty} p_n$ расходится к $0$
+        \item $\not\exists\lim \prod_n :$ расходится
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    $$\prod_{n=2}^{+\infty}\left(1-\frac{1}{n^2}\right)=\frac{3}{4}\frac{8}{9}\frac{15}{16}\ldots$$
+    $$1-\frac{1}{n^2}=\frac{(n-1)(n+1)}{n^2} \quad \sideset{}{_N}\prod = \frac{1\cdot 3}{2^2}\frac{2\cdot4}{3^2}\frac{3\cdot5}{4^2}\cdots\frac{(N-1)(N+1)}{N^2} = \frac{N+1}{2N}$$
+\end{example}
+
+\begin{example}
+    Формула Валлиса:
+    $$\frac{2}{1}\frac{2}{3}\frac{4}{3}\frac{4}{5}\frac{6}{5}\ldots=\frac{\pi}{2}$$
+    $$\left(\frac{(2n)!!}{(2n-1)!!}\right)\frac{1}{2n}$$
+\end{example}
+
+\begin{example}
+    $$\cos\frac{\varphi}{2}\cdot\cos\frac{\varphi}{4}\cdots\cos\frac{\varphi}{2^n}=\frac{\sin\varphi}{2^n\sin\frac{\varphi}{2^n}}\xrightarrow[n\to+\infty]{}\frac{\sin\varphi}{\varphi}$$
+    $$\prod_{n=1}^{+\infty}\cos\frac{\varphi}{2^n}=\frac{\sin\varphi}{\varphi}$$
+\end{example}
+
+\begin{definition}
+    $\pi_m:=\prod\limits_{n=m+1}^{+\infty} p_n$
+\end{definition}
+
+Свойства:
+\begin{enumerate}
+    \item $\prod\limits_{n=1}^{+\infty} p_n$ сходится $\Leftrightarrow \forall m \ \ \pi_m$ сходится
+    \item $\prod\limits_{n=1}^{+\infty} p_n$ сходится. Тогда $\pi_m\xrightarrow[m\to+\infty]{}1$
+    \item $\prod\limits_{n=1}^{+\infty} p_n$ сходится $\Rightarrow p_n\to1$
+    \item $\prod\limits_{n=1}^{+\infty} p_n$ сходится $\Leftrightarrow \sum\limits_{n=1}^{+\infty} \ln p_n$ сходится
+\end{enumerate}
+
+$$\pi_m = \lim_{N\to+\infty}\frac{\prod\limits_{n=1}^N p_n}{\prod\limits_{k=1}^m p_n}=\frac{P}{\prod_m}$$
+$$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
+
+\begin{theorem}
+    \begin{enumerate}
+        \item $a_n>0$ НСНМ. Тогда $\prod$ сходится $\Leftrightarrow \sum a_n$ сходится.
+        \item $\sum a_n$ сходится, $\sum a_n^2$ сходится $\Rightarrow \prod(1+a_n)$ сходится.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \setcounter{enumi}{1}
+        \item $\ln(1+a_n)=a_n-\frac{a_n^2}{2}+o(a_n^2)$
+        $$\sum_{n=1}^N \ln(1+a_n)=\sum_{n=1}^N a_n - \frac{1}{2}\sum_{n=1}^N a_n^2 + \underbrace{\sum_{n=1}^N o(a_n^2)}_{\text{абс.сх}}$$
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    $\prod(n, x) := \int\limits_0^n \left(1-\frac{t}{n}\right)^n t^{x-1}dt, x>0$
+
+    Тогда $\prod(n, x) = \frac{1\cdot2\cdots n}{x\cdot(x+1)\cdots(x+n)}n^x$
+\end{lemma}
+\begin{proof}
+    $$\prod(n, x)\stackrel{t=ny}{=}n^x\int\limits_0^1 (1-y)^ny^{x-1}dy=$$
+    $$=n^x\left((1-y)^n\frac{1}{x}y^x\Bigg|_{y=0}^{y=1} + \frac{n}{x} \int\limits_0^1 (1-y)^{n-1} y^x dy \right)=$$
+    $$=n^x\frac{n}{x}\int\limits_0^1 (1-y)^{n-1} y^x dy=$$
+    $$=n^x\frac{n}{x}\frac{n-1}{x+1}\int\limits_0^1 (1-y)^{n-2} y^{x+1} dy=$$
+    $$=\ldots=n^x\frac{n}{x}\frac{n-1}{x+1}\cdots\frac{1}{x+n-1}\int\limits_0^1 y^{x+n-1} dy$$
+\end{proof}
+
+\begin{lemma}
+    $0\le t\le n$. Тогда
+    $$0\le e^{-t} - \left(1-\frac{t}{n}\right)^n \le \frac{t^2e^{-t}}{n}$$
+\end{lemma}
+\begin{proof}
+    $$1+y\le e^y \le (1-y)^{-1}\ ,\ y\in[0,1]$$
+    Это неравенство следует из выпуклости экспоненты.
+    $$y:=\frac{t}{n}$$
+    $$1+\frac{t}{n}\le e^{\frac{t}{n}} \le \left(1-\frac{t}{n}\right)^{-1}$$
+    $$\left(1+\frac{t}{n}\right)^{-n} \stackrel{*}{\ge} e^{-t} \ge \left(1-\frac{t}{n}\right)^{n}$$
+    $$e^{-t}\left(1 - \left(1+\frac{t}{n}\right)^{-n}\left(1-\frac{t}{n}\right)^n\right) \stackrel{*}{\ge} e^{-t}\left(1 - e^t\left(1-\frac{t}{n}\right)^n\right) = e^{-t} - \left(1-\frac{t}{n}\right)^{n} \ge 0$$
+    $$e^{-t}\left(1 -\left(1-\frac{t^2}{n^2}\right)^n\right) \stackrel{\text{неравенство Бернулли}}{\le} \frac{t^2}{n}e^{-t}$$
+\end{proof}
+
+\begin{theorem}
+    Формула Эйлера.
+
+    При $x>0$ $$\lim_{n\to+\infty} \frac{1\cdot2\cdots n}{x(x+1)\cdots(x+n)}n^x=\Gamma(x)$$
+\end{theorem}
+\begin{remark}
+    $$\Gamma(x)=\int\limits_0^{+\infty}t^{x-1}e^{-t}dt$$
+    $$\Gamma(n+1)=n!$$
+    $$\Gamma(x+1)=x\Gamma(x)$$
+\end{remark}
+\begin{proof}
+    $$\Gamma(x) - \lim\Pi(n, x) = \int\limits_0^{+\infty} t^{x-1}e^{-t}dt - \lim\int\limits_0^n \left(1-\frac{t}{n}\right)^n t^{x-1}dt$$
+    $$\lim_{n\to+\infty}\left(\underbrace{\int\limits_0^n\left(e^{-t}-\left(1-\frac{t}{n}\right)^n\right) t^{x-1} dt}_{\text{I}} + \underbrace{\int\limits_{n}^{+\infty} e^{-t}t^{x-1}dt}_{\text{II}}\right)\stackrel{?}{=}0$$
+    \textcolor{red}{Доказательство скипнуто}
+\end{proof}
+
+\begin{theorem}
+    Формула Вейерштрасса.
+
+    При $x>0$:
+    $$\frac{1}{\Gamma(x)} = x e^{\gamma x} \prod_{k=1}^{+\infty}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}$$
+    где $\gamma = \lim(1+\ldots+\frac{1}{n}-\ln n)$ --- постоянная Эйлера. 
+\end{theorem}
+\begin{proof}
+    $$``1+a_k''=\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}} = \left(1+\frac{x}{k}\right)\left(1-\frac{x}{k}+\frac{x^2}{2k^2}+\ldots\right)=$$
+    $$1-\frac{x^2}{2k^2}+o(\frac{1}{k^2})$$
+    \textcolor{red}{Доказательство скипнуто}
+\end{proof}
+
+\begin{lemma}
+    Об оценке нормы линейного отображения.
+
+    $A:\R^m \to \R^l \ \ A=(a_{ij})$. Тогда $\forall x\in\R^m$: $|Ax|\le C_A|x|$, где $C_a=\left(\sum\limits_{i, j} a_{ij}^2\right)^{\frac{1}{2}}$
+\end{lemma}
+\begin{proof}
+    $$|Ax|^2 = \sum_{j}\left(\sum_j a_{ij}x_j\right)^2 \stackrel{\text{КБШ}}{\le} \sum_i\left(\left(\sum_j a_{ij}^2\right)\left(\sum_j x_{j}^2\right)\right)$$
+\end{proof}
+
+\begin{consequence}
+    Линейное отображение непрерывно всюду:
+    $$|Ax-Ax_0|=|A(x-x_0)|\le C_a|x-x_0|$$
+\end{consequence}
+
+\begin{theorem}
+    \begin{itemize}[itemsep=1mm, after=\vspace{5mm}]
+        \item $F:E\subset\R^m\to\R^l$
+        \item $G:I\subset\R^l\to\R^n$
+        \item $F(E)\subset I$
+        \item $a\in Int E$
+        \item $F$ дифф. в $a$
+        \item $F(a)\in Int I$
+        \item $G$ дифф. в $F(a)$
+    \end{itemize}
+
+    Тогда $G\circ F$ дифф. в $a$, $(G\circ F)'(a)=G'(F(a))F'(a)$
+\end{theorem}
+\begin{proof}
+    $b:=F(a)$. По определению:
+    $$F(a+h)=F(a) + F'(a)h + \alpha(h)|h|$$
+    $$G(b+k)=G(b) + G'(b)k + \beta(k)|k|$$
+    $$G(F(a+h))=G(F(a))+G'(F(a))(F'(a)h+\alpha(h)|h|)+\beta(k)|k|=$$
+    $$=G(F(a))+G'(F(a))F'(a)h+G'(b)\alpha(h)|h|+\beta(k)|F'(a)h+\alpha(h)|h||$$
+    Надо доказать, что $\underbrace{G'(b)\alpha(h)|h|}_{\text{I}}+\underbrace{\beta(k)|F'(a)h+\alpha(h)|h||}_{\text{II}}=\gamma(h)|h|$.
+    $$\text{I}=|G'(b)\alpha(h)|h||\le C_{G'(b)} |\alpha(h)||h|$$
+    $$|F'(a)h+\alpha(h)|h||\le |F'(a)h|+|\alpha(h)||h|\le (C_{F'(a)}+\alpha(h))|h|$$
+    \textcolor{red}{Доказательство скипнуто}
+\end{proof}
+
+\begin{remark}
+    $(F\circ G\circ H)'(x) = F'(G(H(x)))\cdot G'(H(x)) \cdot H'(x)$
+\end{remark}
+
+% \begin{example}
+%     $G:\R^m\to\R^l \quad x,v\in\R^m$
+
+%     $$H(t):=G(x+tv), t\in \R$$
+%     $H'(t_0)=? \quad \sphericalangle F:\R\to\R^m \ \ F(t) = x+tv \quad F'=\begin{pmatrix}
+%         v_1 \\
+%         \vdots \\
+%         v_m
+%     \end{pmatrix}=v$
+% \end{example}
+
+$F=(f_1, f_2\ldots f_l) \quad G=(g_1, g_2\ldots g_n) \quad H=G\circ F = (h_1\ldots h_n)$
+
+$h_j(x_1\ldots x_m)=g_j(f_1(x_1\ldots x_m), f_2(x_1\ldots x_m)\ldots f_l(x_1\ldots x_m))$
+
+$$\frac{\partial h_j}{\partial x_i} = \sum_k \frac{\partial g_j}{\partial y_k} \frac{\partial f_k}{\partial x_i} $$
+$$h'(x)=\frac{\partial g}{\partial y_1} \frac{df_1}{d x} + \frac{\partial g}{\partial y_2} \frac{df_2}{d x}+\ldots\frac{\partial g}{\partial y_m} \frac{df_m}{d x}$$
+
+\textcolor{red}{Скипнуто}
+
+\begin{lemma}
+    \begin{itemize}[itemsep=1mm, after=\vspace{3mm}]
+        \item $F, G: E\subset \R^m \to\R^l$
+        \item $a\in IntE$
+        \item $\lambda:E\to\R$
+        \item $F,G,\lambda$ дифф. в $a$
+    \end{itemize}
+
+    Тогда $\lambda F, \langle F, G\rangle$ --- дифф. в $a$:
+    \begin{enumerate}
+        \item $(\lambda F)'(a) (h) = (\lambda'(a)h)F(A) + \lambda(a) F'(a)h$
+        \item $\langle F, G\rangle'(a) (h) = \langle F'(a)h, G(a) \rangle + \langle F(a), G'(a)h\rangle$
+    \end{enumerate}
+    
+    Здесь $h$ нигде не умножается, на него действуют операторы дифференциирования.
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}
+        \item Для координатной функции $l=1$:
+        $$\lambda f(a+h)-\lambda f(a) = (\lambda(a)+\lambda'(a)h+o(h))(f(a)+f'(a)h+o(h))-\lambda(a)f(a)=$$
+        $$=(\lambda'(a)h)f(a)+\lambda(a)f'(a)h+o(h)$$
+        $$|(\lambda'(a)h)(f'(a)h)|\le C_{\lambda'(a)}|h|C_{f'(a)}|h|$$
+
+        \item $$\langle F,G\rangle=\sum_{i=1}^l f_ig_i$$
+        По линейности всего и пункту 1:
+        $$\langle F,G\rangle'(a)h=\sum_i (f_ig_i)'(a)h\stackrel{1.}{=}\sum_i f_i'(a)h g_i(a)+f(a)g_i'(a)(h)=\langle F'(a)h, G(a) \rangle + \langle F(a), G'(a)h\rangle$$
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    $m=1$:
+    $$\langle F,G\rangle'(a) = \langle F'(a), G(a) \rangle + \langle F(a), G'(a) \rangle$$
+\end{remark}
+
+\begin{theorem}
+    Лагранжа для векторнозначных функций.
+
+    $F:[a,b]\to\R^m$ --- непр. на $[a,b]$, дифф. на $(a, b)$
+
+    Тогда $\exists c\in(a,b) : |F(b) - F(a)| \le |F'(c)|(b-a)$
+\end{theorem}
+\begin{proof}
+    $$\varphi(t):=\langle F(b) - F(a), F(t) - F(a)\rangle, t\in[a,b]$$
+    $$\varphi(a) = 0 \quad \varphi(b) = |F(b) - F(a)|^2$$
+    $$\varphi'(t) = \langle F(b) - F(a), F'(t)\rangle$$
+    Теорема Лагранжа \textit{(для обычных функций)}:
+    $$\varphi(b)-\varphi(a)=\varphi'(c)(b-a)$$
+    $$|F(b)-F(a)|^2=(b-a)\langle F(b) - F(a), F'(c)\rangle \stackrel{\text{КБШ}}{\le} (b-a)|F(b)-F(a)||F'(c)|$$
+\end{proof}
+
+\begin{remark}
+    ``$=$'' не достигается, если ехать быстро и криво. % каво?
+\end{remark}
+\begin{example}
+    $F:[0, 2\pi]\to\R^2 \quad t\mapsto (\cos t, \sin t) \quad F'(t)=(-\sin t, \cos t)$
+
+    $a:=0, b:=2\pi$
+    $$F(b)-F(a)=0\stackrel{?}{=}|F'(c)|(b-a)$$
+    Нет.
+\end{example}
+
+\end{document}

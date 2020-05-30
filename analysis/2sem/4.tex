@@ -8,15 +8,20 @@
     
     Тогда выполняется определение плотности аддитивной плотности промежутка.
 
-    \item $\Phi [\alpha, \beta] = S_{\text{сектор}(\alpha,\beta)}=\frac{1}{2} \int\limits_{\alpha}^\beta r^2(\varphi)d\varphi$
+    \item %<*площадькриволинейногосектора1>
+    $$\Phi [\alpha, \beta] = S_{\text{сектор}(\alpha,\beta)}=\frac{1}{2} \int\limits_{\alpha}^\beta r^2(\varphi)d\varphi$$
+    %</площадькриволинейногосектора1>
 \end{enumerate}
 
 \begin{example}
+
+%<*площадькриволинейногосектора2>
 
 $x(t), y(t)$ --- кривая в $\R^2$
 
 $$S=\frac{1}{2}\int_\alpha^\beta r^2(\varphi) d\varphi = \frac{1}{2}\int_{t_\alpha}^{t_\beta}(x(t)^2+y(t)^2)\frac{1}{1+\left(\frac{y}{x}\right)^2}\cdot\frac{y'(t)x(t)-y(t)x'(t)}{x^2(t)}dt=$$
 $$=\frac{1}{2}\int\limits_{t_\alpha}^{t_\beta}y'(t)x(t)-y(t)x'(t)dt$$
+%</площадькриволинейногосектора2>
 $x:=\sin t, y:=\cos t$
 $$S=\frac{1}{2}\int\limits_{0}^{\frac{\pi}{2}}-\sin^2 t -\cos^2 t  dt = -\frac{\pi}{4} \text{ --- проблема, отрицательная площадь}$$
 
@@ -68,17 +73,21 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
 \begin{lemma}
     о трех хордах
 
+    %<*леммаотреххордах>
     $f:\langle a,b\rangle\to\R$. Тогда эквивалентны следующие утверждения:
     \begin{enumerate}
         \item $f$ --- вып. $\langle a,b\rangle$
         \item $\forall x_1,x_2,x_3\in\langle a,b\rangle \ \ x_1<x_2<x_3 \quad \frac{f(x_2)-f(x_1)}{x_2-x_1}\leq\frac{f(x_3)-f(x_1)}{x_3-x_1}\leq\frac{f(x_3)-f(x_2)}{x_3-x_2}$
     \end{enumerate}
+    %</леммаотреххордах>
 \end{lemma}
+%<*леммаотреххордахproof>
 \begin{proof}
     Левое $\Leftrightarrow f(x_2)(x_3-x_1)\leq f(x_3)(x_2-x_1)+f(x_1)(x_3-x_1-(x_2-x_1))$
 
-    $f(x_3\frac{x_2-x_1}{x_3-x_1}+x_1\frac{x_3-x_2}{x_3-x_1})=f(x_2)\leq f(x_3)\frac{x_2-x_1}{x_3-x_1}+f(x_1)\frac{x_3-x_2}{x_3-x_1}$
+    $$f\left(x_3\frac{x_2-x_1}{x_3-x_1}+x_1\frac{x_3-x_2}{x_3-x_1}\right)=f(x_2)\leq f(x_3)\frac{x_2-x_1}{x_3-x_1}+f(x_1)\frac{x_3-x_2}{x_3-x_1}$$
 \end{proof}
+%</леммаотреххордахproof>
 \begin{remark}
     Если $f$ --- строго выпуклая, то в лемме оба неравенства строгие.
 \end{remark}
@@ -86,28 +95,37 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
 \begin{theorem}
     об одностронней дифференциируемости выпуклой функции.
 
-    $f$ --- вып. $\langle a,b\rangle$. Тогда $\forall x\in(a,b) \ \ \exists f_+'(x), f_-'(x)$ и $\forall x_1, x_2\in(a,b), x_1<x_2$Ж
+    %<*ободностроннейдифференциируемостивыпуклойфункции>
+    $f$ --- вып. $\langle a,b\rangle$. Тогда $\forall x\in(a,b) \ \ \exists f_+'(x), f_-'(x)$ и $\forall x_1, x_2\in(a,b), x_1<x_2$
     $$f_-'(x_1)\leq f_+'(x_1)\leq \frac{f(x_2)-f(x_1)}{x_2-x_1}\leq f_-'(x_2)$$
+    %</ободностроннейдифференциируемостивыпуклойфункции>
 \end{theorem}
+%<*ободностроннейдифференциируемостивыпуклойфункцииproof>
 \begin{proof}
     $f_+'(x_1)=\lim\limits_{x\to x_1+0}\frac{f(x)-f(x_1)}{x-x_1}$ --- монотонно убывающая функция от $x$
 
     Фиксируем $x_0<x_1$. По лемме о трех хордах $\frac{f(x_0)-f(x_1)}{x_0-x_1}\leq\frac{f(x)-f(x_1)}{x-x_1}$
 \end{proof}
+%</ободностроннейдифференциируемостивыпуклойфункцииproof>
 
 \begin{consequence}
+    %<*следствиеоточкахразрывапроизводнойвыпуклойфункции>
     $f$ --- вып. на $\langle a,b\rangle \Rightarrow f$ непр. на $(a,b)$
     $$\lim\limits_{x\to x_0+0}f(x)=f(x_0)$$
+    %</следствиеоточкахразрывапроизводнойвыпуклойфункции>
 \end{consequence}
 
 \begin{theorem}
     выпуклость в терминах касательных
 
+    %<*описаниевыпуклостиспомощьюкасательных>
     $f$ --- вып. на $\langle a,b\rangle$. Тогда график $f$ расположен не ниже любой касательной
 
     т.е. $\forall x, x_0 \quad f(x)\geq f(x_0)+f'(x_0)(x-x_0)$
+    %</описаниевыпуклостиспомощьюкасательных>
 \end{theorem}
 
+%<*описаниевыпуклостиспомощьюкасательныхproof>
 \begin{proof}
     ``$\Rightarrow$''
     
@@ -119,6 +137,7 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
 
     $f(x_1)\geq f(x_0)+f'(x_0)(x_1-x_0)$; $f(x_2)\geq f(x_0)+f'(x_0)(x_2-x_0)$, т.е. $\frac{f(x_1)-f(x_0)}{x_1-x_0}\leq f'(x_0)\leq \frac{f(x_2)-f(x_0)}{x_2-x_0}$. Это верно по лемме.
 \end{proof}
+%</описаниевыпуклостиспомощьюкасательныхproof>
 
 \begin{definition}
    %<*опорнаяпрямая>
@@ -135,6 +154,7 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
 \begin{theorem}
     дифференциальный критерий выпуклости
 
+    %<*дифференциальныйкритерийвыпуклости>
     \begin{enumerate}
         \item $f:\langle a,b\rangle\to\R$, дифф. в $(a,b)$
         
@@ -153,6 +173,7 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
             Теперь утверждение 2. очевидно.
         \end{enumerate}
     \end{enumerate}
+    %</дифференциальныйкритерийвыпуклости>
 \end{theorem}
 
 \begin{remark}
@@ -172,6 +193,7 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
 \end{remark}
 
 \begin{example}
+    %<*изопериметрическоенеравенство>
     Изопериметрическое неравенство
 
     $G\subset\R^2$ --- выпуклое замкнутое множество (ограниченное)
@@ -181,10 +203,16 @@ $\alpha$ --- доля отрезка $zy$ от $xy$, т.е. $\alpha=\frac{|zy|}{
     $diam G \leq 1$
 
     Тогда $\sigma(G)\leq \frac{\pi}{4}$
+    %</изопериметрическоенеравенство>
 
-    Пойдём от некоторой точки на границе $G$ под углом $\varphi$ внутрь фигуры по прямой. В какой-то момент мы встретим другую граничную точку. Назовем этот процесс $r(\varphi)$ \textit{(возвращает длину пути)}. Очевидно, что $r^2(\varphi)+r^2(\varphi-\frac{\pi}{2})\leq (diam G)^2\leq 1$
+    %<*изопериметрическоенеравенствоproof>
+    \begin{proof}
+        Пойдём от некоторой точки на границе $G$ под углом $\varphi$ внутрь фигуры по прямой. В какой-то момент мы встретим другую граничную точку. Назовем этот процесс $r(\varphi)$ \textit{(возвращает длину пути)}. Очевидно, что $r^2(\varphi)+r^2(\varphi-\frac{\pi}{2})\leq (diam G)^2\leq 1$
 
-    $$\sigma(G)=\frac{1}{2}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} r^2(\varphi)d\varphi = \frac{1}{2}\int\limits_{-\frac{\pi}{2}}^0\ldots + \int\limits^{\frac{\pi}{2}}_0\ldots = \frac{1}{2}\int\limits_{0}^{\frac{\pi}{2}}r^2()$$
+        $$\sigma(G)=\frac{1}{2}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} r^2(\varphi)d\varphi = \frac{1}{2}\left(\int\limits_{-\frac{\pi}{2}}^0r^2(\varphi)d\varphi + \int\limits^{\frac{\pi}{2}}_0r^2(\varphi)d\varphi\right) =$$
+        $$=\frac{1}{2}\int\limits_{0}^{\frac{\pi}{2}}\left(r^2(\varphi)+r^2\left(\varphi-\frac{\pi}{2}\right)\right)d\varphi\le \frac{1}{2}\int\limits_{0}^{\frac{\pi}{2}}1 d\varphi=\frac{\pi}{4}$$
+    \end{proof}
+    %</изопериметрическоенеравенствоproof>
 \end{example}
 
 \end{document}

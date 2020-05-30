@@ -112,6 +112,7 @@ $$\Phi(\Delta)=V(\text{ПГ}(f,\Delta)_x) \textit{(или $y$)}$$
 
 \subsection*{Длина гладкого пути}
 
+%<*гладкийпуть>
 $\gamma:[a,b]\to\R^m$ --- непр.
 
 $\gamma(a)$ --- начало; $\gamma(b)$ --- конец
@@ -124,21 +125,27 @@ $\gamma:t\mapsto \begin{pmatrix}
 \end{pmatrix}$; $\gamma_i$ --- коорд. функции
 
 Если все $\gamma_i\in C^1 [a,b]$, то $\gamma$ --- \textbf{гладкий путь}.
+%</гладкийпуть>
 
+%<*векторскорости>
+
+Вектор скорости:
 $$\gamma'(t)=\lim\limits_{\Delta t\to0}\frac{\gamma(t+\Delta t)-\gamma(t)}{\Delta t}=\lim \begin{pmatrix}
     \frac{\gamma_1(t+\Delta t)-\gamma_1(t)}{\Delta t} \\
     \vdots \\
     \frac{\gamma_m(t+\Delta t)-\gamma_m(t)}{\Delta t} \\
 \end{pmatrix}=\begin{pmatrix}
-    \gamma_1;(t) \\
+    \gamma_1'(t) \\
     \gamma_2'(t) \\
     \vdots \\
     \gamma_m'(t)
 \end{pmatrix}$$
+%</векторскорости>
 
 Кривая Пеано: $[0,1]\to[0,1]\times[0,1]$ --- ломает длину пути, но она не гладкая, поэтому мы рассматриваем только гладкие пути.
 
 \begin{definition}
+    %<*длинагладкогопути>
     \textbf{Длина пути} --- фукнция $l$, заданная на множестве гладких путей в $\R^m$, такая что:
     \begin{enumerate}
         \item $l\geq 0$
@@ -150,6 +157,7 @@ $$\gamma'(t)=\lim\limits_{\Delta t\to0}\frac{\gamma(t+\Delta t)-\gamma(t)}{\Delt
         \item Нормировка: $\gamma$ --- гладкий путь, $\gamma(t)=vt+u; \ \ u,v\in\R^m$:
         $$l(\gamma)=\rho(\gamma(a), \gamma(b))$$
     \end{enumerate}
+    %</длинагладкогопути>
 \end{definition}
 
 Свойства:

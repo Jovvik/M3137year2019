@@ -1,0 +1,175 @@
+\input{../../preamble.sty}
+
+\lhead{Конспект по матанализу}
+\cfoot{}
+\rfoot{Лекция 15}
+
+\begin{document}
+
+Альтернативный вывод формулы Вейерштрасса \textit{(из формулы Эйлера)}:
+\begin{proof}
+    $$\frac{1}{\Gamma(x)}=\lim n^{-x}\frac{x(x+1)\ldots (x+n)}{n!}=x\lim n^{-x}\prod_{k=1}^n \left(1+\frac{x}{k}\right)=$$
+    $$=x\lim \underbrace{e^{x\left(1+\frac{1}{2}+\frac{1}{n}\right)-x\ln n}}_{e^{\gamma+O(1)}}\prod\limits_{k=1}^{n}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}$$
+\end{proof}
+
+\begin{remark}
+    $$\Gamma(x)\Gamma(1-x)=\Gamma(x)(-x)\Gamma(-x)=\frac{(-x)}{xe^{\gamma x}\prod \left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}(-x)e^{-\gamma x}\prod \left(1-\frac{x}{k}\right)e^{\frac{x}{k}}}=$$
+    $$=\frac{1}{x \prod \left(1-\frac{x^2}{k^2}\right)}=\frac{\pi}{\sin \pi x}$$
+\end{remark}
+
+\begin{example}
+    $a_n=\frac{P(n)}{Q(n)}$, $P$ и $Q$ --- многочлены.
+
+    $\prod a_n=?$
+
+    Пусть $P$ и $Q$ разложены на множители, т.е:
+    $$P(n)=\alpha(n+a_1)(n+a_2)\ldots(n+a_k)$$
+    $$Q(n)=\beta(n+b_1)(n+b_2)\ldots(n+b_l)$$
+    $$a_n=\frac{\alpha}{\beta}\frac{(n+a_1)\ldots(n+a_k)}{(n+b_1)\ldots(n+b_l)}$$
+    Если $k\not=l$, то $a_n\to0$ или $a_n\to+\infty \Rightarrow \prod a_n$ расходится.
+    $\sphericalangle k=l$
+    $$a_n\xrightarrow[n\to+\infty]{}\frac{\alpha}{\beta}$$
+    Если $\frac{\alpha}{\beta}$, то $a_n\not\to1 \Rightarrow \prod a_n$ расходится.
+    $\sphericalangle \frac{\alpha}{\beta}=1$
+    $$a_n=\frac{\left(1+\frac{a_1}{n}\right)\ldots \left(1+\frac{a_k}{n}\right)}{\left(1+\frac{b_1}{n}\right)\ldots \left(1+\frac{b_l}{n}\right)}=1+\frac{1}{n}(a_1+\ldots+a_k-b_1-\ldots-b_k)+O(\frac{1}{n^2})$$
+    Если $\sum\limits_{i=1}^k a_i\not=\sum\limits_{i=1}^l b_i$, то $\prod a_n$ расходится. $\sphericalangle \sum\limits_{i=1}^k a_i=\sum\limits_{i=1}^l b_i$
+    $$\prod_{n=1}^N \frac{\left(1+\frac{a_1}{n}\right)\ldots \left(1+\frac{a_k}{n}\right)}{\left(1+\frac{b_1}{n}\right)\ldots \left(1+\frac{b_l}{n}\right)}=\prod_{n=1}^N \frac{\left(1+\frac{a_1}{n}\right)e^{-\frac{a_1}{n}}\ldots \left(1+\frac{a_k}{n}\right)e^{-\frac{a_k}{n}}}{\left(1+\frac{b_1}{n}\right)e^{-\frac{b_1}{n}}\ldots \left(1+\frac{b_l}{n}\right)e^{-\frac{b_l}{n}}}$$
+    Равенство состоялось, т.к. $\sum a_i=\sum b_i$.
+
+    По формуле Вейерштрасса:
+    $$\prod_{n=1}^N \left(1+\frac{a}{n}\right)e^{-\frac{a}{n}}\xrightarrow[N\to+\infty]{}\frac{1}{ae^{\gamma a}\Gamma(a)}$$
+    $$\prod_{n=1}^N \frac{\left(1+\frac{a_1}{n}\right)e^{-\frac{a_1}{n}}\ldots \left(1+\frac{a_k}{n}\right)e^{-\frac{a_k}{n}}}{\left(1+\frac{b_1}{n}\right)e^{-\frac{b_1}{n}}\ldots \left(1+\frac{b_l}{n}\right)e^{-\frac{b_l}{n}}}\xrightarrow[]{}\frac{b_1e^{\gamma b_1}\Gamma(b_1)\ldots b_le^{\gamma b_l}\Gamma(b_l)}{a_1e^{\gamma a_1}\Gamma(a_1)\ldots a_ke^{\gamma a_k}\Gamma(a_k)}=$$
+    $$=\frac{e^{\gamma b_1}\Gamma(b_1+1)\ldots e^{\gamma b_l}\Gamma(b_l+1)}{e^{\gamma a_1}\Gamma(a_1+1)\ldots e^{\gamma a_k}\Gamma(a_k+1)}=\frac{\Gamma(b_1+1)\ldots \Gamma(b_l+1)}{\Gamma(a_1+1)\ldots \Gamma(a_k+1)}$$
+\end{example}
+
+$$\prod_{n=1}^{+\infty}\frac{4n^2}{4n^2-1}=\prod_{n=1}^{+\infty}\frac{(n-0)(n-0)}{\left(n-\frac{1}{2}\right)\left(n+\frac{1}{2}\right)}=\frac{\Gamma\left(\frac{1}{2}\right)\Gamma\left(\frac{3}{2}\right)}{\Gamma(1)\Gamma(1)}=\Gamma\left(\frac{1}{2}\right)\frac{1}{2}\,\Gamma\left(\frac{1}{2}\right)=\frac{\pi}{2}$$
+
+\subsection*{\centering Градиент}
+
+\begin{definition}
+    $f:\R^m\to\R$, дифф. $a$, т.е. $\exists L\in\R^m$
+    $$f(a+h)=f(a)+\langle L, h\rangle + o(h)$$
+    $L$ --- \textbf{градиент} функции $f$ в точке $a$, обозначается $\grad f(a), \grad_a f, \grad(f, a)$.
+    
+    Физики \textit{(и млщики)} обозначают $\nabla f$
+\end{definition}
+
+\subsection*{\centering Производная по направлению}
+
+``направление'' = ``единичный вектор''
+
+\begin{definition}
+    \textbf{Производная по вектору} $h\in\R^m, h\not=0$:
+    $$\frac{\partial f}{\partial h}(x) = \lim_{t\to0} \frac{f(x+th)-f(x)}{t}$$
+\end{definition}
+
+\begin{enumerate}
+    \item $f$ --- дифф. $\Rightarrow f$ дифф. по любому вектору
+    \item Частная производная $\frac{\partial f}{\partial x_k}$ --- производная по направлению $e_k=(0 \ldots 0, \underbrace1_{k}, 0 \ldots 0)$
+    \item $$\frac{\partial f}{\partial h} = \lim\limits_{t\to0}\frac{f(x_1+th_1, \ldots x_m+th_m)-f(x_1\ldots x_m)}{t}=$$
+    $$=\lim\limits_{t\to0}\frac{\frac{\partial f}{\partial x_1}(x) th_1+\ldots+\frac{\partial f}{\partial x_m}(x) th_m+o(t)}{t}=$$
+    $$=\frac{\partial f}{\partial x_1}h_1+\ldots+\frac{\partial f}{\partial x_m}h_m=\langle \nabla f, h \rangle$$
+\end{enumerate}
+
+\begin{theorem}
+    Экстремальное свойство градиента.
+
+    $f:E\subset \R^m\to\R$, $f$ дифф. $a\in Int E$, $\nabla f(a)\not= 0$.
+    
+    Тогда $l = \frac{\nabla f(a)}{|\nabla f(a)|}$ --- направление наискорейшего возрастания функции, т.е. $$\forall h\in\R^m : |h|=1, -|\nabla f(a)|\le \frac{\partial f}{\partial h}(a) \le |\nabla f(a)|$$
+    , причем ``$=$'' достигаеся только при $h=\pm l$, где при ``$+$'' достигается ``$=$'' 
+\end{theorem}
+
+\begin{example}
+    Градиентный спуск.
+
+    $\sphericalangle z=1-x^2-y^2$
+
+    $\nabla z=(-2x, -2y)$
+
+    $\nabla (z, (0, 1)) = (0, -2) \Rightarrow$ с параболоида из точки $(0, 1)$ быстрее всего съезжать по направлению $\vec v=(0, 1)$
+
+    Это простейший метод нахождения локального минимума.
+\end{example}
+
+\subsection*{\centering Частные производные высших порядков}
+
+$f : E\subset\R^m \to\R, a\in Int E$
+
+$k\in\{1\ldots m\}$. Если $\exists g(x)=\frac{\partial f}{\partial x_k}$ в окрестности точки $a$:
+
+$i\in\{1\ldots m\}$, $\frac{\partial g}{\partial x_i}$ называется второй частной производной (производной второго порядка) по переменным $i$ и $k$, обозначается $\frac{\partial^2 f}{\partial x_i \partial x_k}$
+
+В общем случае:
+$$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\stackrel{def}{=}\frac{\partial}{\partial x_i}\left(\frac{\partial^{k-1} f}{\partial x_{i_2}\ldots \partial x_{i_k}}\right)$$
+
+\begin{theorem}
+    О независмости частных производных от порядка дифференциирования.
+    
+    $f: E\subset\R^2\to\R, (x_0, y_0)\in E$
+
+    $\exists r>0 \ \ B((x_0, y_0), r)\subset E$
+
+    Пусть в этом шаре $\exists f''_{xy}, f''_{yx}$ и они непрерывны. Тогда $f''_{xy}(x_0, y_0)=f''_{yx}(x_0, y_0)$
+\end{theorem}
+\begin{proof}
+    $\Delta^2(h, k)=f(x_0 + h, y_0 + k) - f(x_0 + h, y_0) - f(x_0, y_0 + k) + f(x_0, y_0)$
+
+    $\alpha(h):=\Delta^2(h, k)$ при фиксированном $k$
+
+    $\alpha(h)=\alpha(h)-\alpha(0)\stackrel{\text{т. Лагранжа}}=\alpha'(\overline h)h=(f'_x (x_0 + \overline h, y_0 + k) - f'_x(x_0+\overline h, y))h\stackrel{\text{т. Лагранжа}}= f''_{xy}(x_0+\overline h, y_0+\overline k)hk$
+
+    $\beta(k):=\Delta^2(h, k)$ при фиксированном $h$
+    
+    $\beta(k)=f''_{yx}(x_0+\overline{\overline h}, y_0+\overline{\overline k})hk$
+    $$f''_{xy}(x_0+\overline h, y_0+\overline k)hk=f''_{yx}(x_0+\overline{\overline h}, y_0+\overline{\overline k})hk$$
+    $$(h, k)\to (0, 0) \Rightarrow (\overline h, \overline k)\to(0, 0), (\overline{\overline h}, \overline{\overline k})\to(0, 0)$$
+    $$f''_{xy}(x_0, y_0)=f''_{yx}(x_0, y_0)$$
+\end{proof}
+
+\begin{remark}
+    $E\subset \R^m$, откр. Класс $C^r(E), r\in \N$:
+
+    $f\in C^r(E)$, если у $f$ существуют все частные производные порядка $\le r$ на всём $E$ и они непрерывны.
+
+    $C(E)$ --- непр. функции $=C^0(E)$
+
+    $C(E)\stackrel{\not=}{\supset} C^1(E)\stackrel{\not=}{\supset} C^2(E)\ldots$
+\end{remark}
+
+Общий вид теоремы: $f\in C^r(E) \ \ \forall k\le r$
+
+$\forall x\in E \ \ \forall i_1\ldots i_k :$ Если $(j_1\ldots j_k)$ --- перестановка $(i_1\ldots i_k)$, то:
+$$\frac{\partial^k f}{\partial x_{i_1}\ldots \partial x_{i_k}}(x)=\frac{\partial^k f}{\partial x_{j_1}\ldots \partial x_{j_k}}(x)$$
+
+\begin{definition}
+    \textbf{Мультииндекс} (для $\R^m$) --- вектор $(k_1, k_2\ldots k_m)$, $k_i\in \N\cup\{0\}$
+    \begin{itemize}
+        \item $|k|:=\sum_{i=1}^m k_i$ --- \textbf{высота} мультииндекса
+        \item $k! = k_1!k_2!\ldots k_m!$
+        \item $x\in\R^m \ \ x^k = x_1^{k_1}x_2^{k_2}\ldots x_m^{k_m}$
+        \item $f^{(k)}=\frac{\partial^{|k|}}{\partial x^k} f = \frac{\partial^{|k|}f}{x_1^{k_1}x_2^{k_2}\ldots x_m^{k_m}}$
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+    Полиномиальная формула.
+
+    $a_i\in\R$ \textit{(верно для любого кольца)}. Тогда $\forall r\in\N$:
+    $$(a_1+\ldots a_m)^r\stackrel{\text{очев}}=\sum_{n_1=1}^{m}\ldots \sum_{n_r=1}^{m}a_{n_1}a_{n_2}\ldots a_{n_r}=\sum_{j : |j|=r} \frac{r!}{j!}a^j$$
+\end{lemma}
+
+\begin{proof}
+    По индукции.
+
+    База: \textcolor{red}{скипнуто}
+
+    Переход: $$(a_1+\ldots+a_m)^{r+1}=(a_1+\ldots+a_m)\sum_{\substack{j_1\ldots j_m\ge 0 \\ j_1+\ldots+j_m=r}}\frac{r!}{j_1!\ldots j_m!}a_1^{j_1}\ldots a_m^{j_m}=$$
+    $$=\sum \frac{r!}{j_1!\ldots j_m!}a_1^{j_1+1}\ldots a_m^{j_m}+\ldots+ \sum \frac{r!}{j_1!\ldots j_m!}a_1^{j_1}\ldots a_m^{j_m+1}=$$
+    $$=\sum_{\substack{k_1 \ge 1 \\ k_2\ldots k_m \ge 0 \\ k_1+\ldots k_m=r+1}} \frac{r!k_1}{k_1!\ldots k_m!}a_1^{k_1}\ldots a_m^{k_m}+\ldots+ \sum_{\substack{k_2 \ge 1 \\ k_1,k_3,k_4\ldots k_m \ge 0 \\ k_1+\ldots k_m=r+1}} \frac{r!k_2}{j_1!\ldots j_m!}a_1^{j_1}\ldots a_m^{j_m+1}=$$
+    $$=\sum_{\substack{k_1 \ge 0 \\ k_2\ldots k_m \ge 0 \\ k_1+\ldots k_m=r+1}} \frac{r!k_1}{k_1!\ldots k_m!}a_1^{k_1}\ldots a_m^{k_m}+\ldots+ \sum_{\substack{k_2 \ge 0 \\ k_1,k_3,k_4\ldots k_m \ge 0 \\ k_1+\ldots k_m=r+1}} \frac{r!k_2}{j_1!\ldots j_m!}a_1^{j_1}\ldots a_m^{j_m+1}=$$
+    $$=\sum_{\substack{k_1\ldots k_m \ge 0 \\ k_1+\ldots k_m=r+1}}\frac{r!(k_1+\ldots+k_m)}{k_1!\ldots k_m!}a_1^{k_1}\ldots a_m^{k_m}=$$
+    $$=\sum_{\substack{k_1\ldots k_m \ge 0 \\ k_1+\ldots k_m=r+1}}\frac{(r+1)!}{k_1!\ldots k_m!}a_1^{k_1}\ldots a_m^{k_m}$$
+\end{proof}
+
+\end{document}

@@ -1,0 +1,98 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Частичный конспект к экзамену}
+
+\newcommand{\secс}[1]{\subsection*{\centering #1}}
+
+\begin{document}
+
+\secс{1.3 Алгебра. Примеры. Изоморфизм алгебр.}
+
+\textbf{Алгебра} --- модуль над коммутативным кольцом с единицей, являющийся кольцом.
+
+\textbf{Кольцо} --- множество, на котором заданы бинарные операции $+$ и $\cdot$ с следующими свойствами:
+\begin{enumerate}
+    \item $a+b=b+a$
+    \item $a+(b+c)=(a+b)+c$
+    \item $\exists 0\in R : \forall x\in R : x + 0 = 0 + x = x$
+    \item $\forall x\in R : \exists (-x)\in R : x + (-x) = (-x) + x = 0$
+    \item $a\cdot(b\cdot c)=(a\cdot b)\cdot c$
+    \item $a\cdot (b + c) = a \cdot b + a \cdot c$
+    \item $(b + c)\cdot a = b \cdot a + c \cdot a$
+\end{enumerate}
+
+\textbf{Коммутативное кольцо} --- кольцо с коммутативным умножением: $a\cdot b = b\cdot a$
+
+\textbf{Кольцо с единицей} --- кольцо с нейтральным элементом по умножению: $\exists 1\in R : a\cdot 1 = a$
+
+\textbf{Модуль над кольцом} \textit{(коммутативным, с единицей)} $R$ --- множество $M$ с операциями:
+\begin{enumerate}
+    \item $+:M\times M\to M$ \begin{enumerate}
+        \item $a+b=b+a$
+        \item $a+(b+c)=(a+b)+c$
+        \item $\exists 0\in R : \forall x\in R : x + 0 = 0 + x = x$
+        \item $\forall x\in R : \exists (-x)\in R : x + (-x) = (-x) + x = 0$
+    \end{enumerate}
+    \item $\cdot : M\times R\to M$ \begin{enumerate}
+        \item $(r_1r_2)m=r_1(r_2m)$
+        \item $1m=m$
+        \item $r(m_1+m_2)=rm_1+rm_2$
+        \item $(r_1+r_2)m=r_1m+r_2m$
+    \end{enumerate}
+\end{enumerate}
+
+Примеры:
+\begin{enumerate}
+    \item $\R$
+    \item $\C$
+    \item $\mathbb H$
+    \item Многочлены
+\end{enumerate}
+
+\textbf{Изоморфизм алгебр} --- биекция $F : A\to B$, где $A$ и $B$ --- алгебры, сохраняющая ``$+$'' и ``$\cdot$'':
+\begin{enumerate}
+    \item $F(kx)=kF(x)$
+    \item $F(x + y) = F(x) + F(y)$
+    \item $F(xy) = F(x)F(y)$
+\end{enumerate}
+
+Из этого следует, что $F(0_X)=0_Y$
+
+\secс{1.4 Алгебра операторов и матриц.}
+
+Умножение ЛОП: $(\mathcal B \cdot \mathcal A)x = \mathcal B(\mathcal A x)$
+
+Умножение матриц: $(A\cdot B)_{ik}=\sum\limits_{j} a_{ij}b_{jk}$
+
+\begin{theorem}
+    $$\underbrace{\mathcal C}_{C} = \underbrace{\mathcal B}_{B} \underbrace{\mathcal A}_{A} \Leftrightarrow C = BA$$
+\end{theorem}
+\begin{proof}
+    $$\mathcal C e_i = \mathcal B(\mathcal A e_i) = \mathcal B\left(\sum_{j} a_{ji}e_j\right)=\sum_j a_{ji} \mathcal B e_j = \sum_j a_{ji} \sum_k b_{kj} e_k$$
+    $$c_{il} = (\mathcal C e_i)_l = \sum_j a_{ji} b_{lj} \Rightarrow C = BA$$
+\end{proof}
+
+Пространство ЛОП $\mathcal F : X\to X$ --- алгебра, пространство квадратных матриц $\R_n^n$ --- алгебра.
+
+\secс{1.5 Обратная матрица: критерий обратимости, метод Гаусса вычисления обратной матрицы.}
+
+В алгебре $A$ выполняется $a_1 \cdot a_2 = e$, где $e$ --- единичный элемент матрицы. Тогда:
+\begin{enumerate}
+    \item $a_1$ --- \textbf{левый обратный} элемент для $a_2$
+    \item $a_2$ --- \textbf{правый обратный} элемент для $a_1$
+\end{enumerate}
+
+Если $a_1$ --- и левый, и правый обратный к $a_2$, то он называется \textbf{обратным} элементом к $a_2$.
+
+\begin{theorem}
+    $\exists A^{−1} \Leftrightarrow \det A \not= 0$
+\end{theorem}
+% \begin{proof}
+%     ``$\Leftarrow$''
+%     $$\det A\not=0 \stackrel{?}{\Rightarrow} \exists A^{-1} : AA^{-1}=E, A^{-1}A=E$$
+%     $$\sum_j a_{ij}a^{-1}_{jk}=\delta_{ik}$$
+% \end{proof}
+
+\end{document}

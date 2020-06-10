@@ -7,6 +7,7 @@
 \begin{document}
 
 \begin{theorem}
+    %<*обобщеннаятеоремаоплотности>
     Обобщенная теорема о плотности.
 
     $\Phi:Segm\langle a,b\rangle\to\R$ --- аддитивная функция промежутка
@@ -24,7 +25,9 @@
     \end{enumerate}
 
     Тогда $\forall [p,q]\in Segm\langle a,b] \quad \Phi([p,q])=\int\limits_p^q f$
+    %</обобщеннаятеоремаоплотности>
 \end{theorem}
+%<*обобщеннаятеоремаоплотностиproof>
 \begin{proof}
     $F(x)=\begin{cases}
         0, & x=a \\
@@ -47,6 +50,7 @@
 
     Таким образом, $$\frac{F(x+h)-F(x)}{h}-f(x)\xrightarrow[h\to0]{}f(x)$$
 \end{proof}
+%</обобщеннаятеоремаоплотностиproof>
 
 \subsection*{Объемы фигур вращения}
 
@@ -61,20 +65,23 @@
 
 Поэтому будем использовать объем для частных случаев фигур, а не для всех.
 
+%<*вращениефигуры>
 \begin{definition}
     $\sphericalangle A\in\R^2$ --- фигура в I квадранте.
 
     \textbf{Вращение} $A$:
     \begin{enumerate}
-        \item по оси $x$ : $A_x=\{x,y,z\in\R^3 : (x,\sqrt{y^2+z^2})\in A\}$
-        \item по оси $y$ : $A_y=\{x,y,z\in\R^3 : (\sqrt{x^2+z^2}, y)\in A\}$
+        \item по оси $x$ : $A_x=\{(x,y,z)\in\R^3 : (x,\sqrt{y^2+z^2})\in A\}$
+        \item по оси $y$ : $A_y=\{(x,y,z)\in\R^3 : (\sqrt{x^2+z^2}, y)\in A\}$
     \end{enumerate}
 \end{definition}
 
 Для непр. $f:[a,b]\to\R, c\mapsto \tilde c\geq 0:$
 $$\Phi(\Delta)=V(\text{ПГ}(f,\Delta)_x) \textit{(или $y$)}$$
+%</вращениефигуры>
 
 \begin{theorem}
+    %<*объемвращения>
     $f:\langle a,b\rangle\to\R$ --- непр., $f\geq 0$
 
     $\Phi_x(\Delta)=$ ``объем фигуры вращения вокруг оси $OX$''
@@ -86,7 +93,9 @@ $$\Phi(\Delta)=V(\text{ПГ}(f,\Delta)_x) \textit{(или $y$)}$$
         \item $\Phi_x[p,q]=\pi\int\limits_p^q f^2(x)dx$
         \item $\Phi_y[p,q]=2\pi\int\limits_p^q xf(x)dx$
     \end{enumerate}
+    %</объемвращения>
 \end{theorem}
+%<*объемвращенияproof>
 \begin{proof}
     \begin{enumerate}
         \item Это --- упражнение, оно не использует ничего умного.
@@ -100,6 +109,7 @@ $$\Phi(\Delta)=V(\text{ПГ}(f,\Delta)_x) \textit{(или $y$)}$$
         Можем заметить, что $\Phi$ подходит под все три пункта теоремы об обобщенной плотности.
     \end{enumerate}
 \end{proof}
+%</объемвращенияproof>
 
 \begin{example}
     Объем тора.
@@ -167,23 +177,38 @@ $$\gamma'(t)=\lim\limits_{\Delta t\to0}\frac{\gamma(t+\Delta t)-\gamma(t)}{\Delt
     \item Длина не меняется при движении.
 \end{enumerate}
 
-Существование длины пути:
+% Существование длины пути:
 
-$[a,b] \quad t_0=a<t_1<t_2<\ldots<t_n=b$
+\begin{definition}
+    %<*вариацияфункции>
+    $\gamma: [a,b]\to\R^n \quad t_0=a<t_1<t_2<\ldots<t_n=b$
 
-$T=\{t_0\ldots t_n\}$ --- дробление отрезка.
+    $\tau=\{t_0\ldots t_n\}$ --- дробление отрезка.
 
-$$l(\gamma)=\sup\{T : \sum\limits_{i=1}^n \rho(\gamma(t_{i-1}), \gamma(t_i))\}$$
+    Тогда \textbf{вариация функции} $\gamma$ на отрезке $[a, b]$ это $l$:
+    $$l(\gamma)=\sup_\tau\Big\{\sum\limits_{i=1}^n \rho(\gamma(t_{i-1}), \gamma(t_i))\Big\}$$
+    %</вариацияфункции>
+\end{definition}
+
+\begin{lemma}
+    Вариация $\gamma$ на отрезке $[a, b]$ --- длина пути $\gamma$.
+\end{lemma}
+\begin{proof}
+    Тривиальная проверка определения длины пути. \textcolor{red}{Кохась не говорил, но надо доказать.}
+\end{proof}
 
 \begin{example}
     Рассмотрим путь из $A$ в $B$, который проходится за $1$ час со скоростью $5$ км/ч. Длина этого пути --- $5$ км.
 \end{example}
 
 \begin{theorem}
+    %<*длинапутивrm>
     $\gamma\in C^1([a,b]\to\R^m)$
 
     Тогда $l(\gamma)=\int\limits_a^b ||\gamma'(t)||dt$
+    %</длинапутивrm>
 \end{theorem}
+%<*длинапутивrmproof>
 \begin{proof}
     Будем считать $\gamma'\not=0$, $\gamma$ --- инъективная.
 
@@ -209,4 +234,35 @@ $$l(\gamma)=\sup\{T : \sum\limits_{i=1}^n \rho(\gamma(t_{i-1}), \gamma(t_i))\}$$
     $$\rho(\gamma(t_0), \gamma(t_1))=\sqrt{\sum\limits_{i=1}^m (\gamma_i(t_0)-\gamma_i(t_1))^2}\stackrel{\text{т. Лагранжа}}{=}\sqrt{\sum\limits_{i=1}^m \gamma_i'(\overline t_i)^2 (t_0-t_1)^2}\leq ||\vec M||\cdot|t_0-t_1|=$$
     $$=\rho(\tilde\gamma(t_0), \tilde\gamma(t_1))|t_0-t_1|$$
 \end{proof}
+%</длинапутивrmproof>
+
+\begin{example}
+    %<*длинаграфика>
+    Длина графика $y = f(x), f\in C^1$ на отрезке $[a, b]$
+
+    $$\gamma(x)=\begin{pmatrix}
+        x \\
+        f(x)
+    \end{pmatrix} \quad \gamma'(x) = \begin{pmatrix}
+        1 \\
+        f'(x)
+    \end{pmatrix} \quad ||\gamma'(x)|| = \sqrt{1+(f'(x))^2}$$
+    $$l = \int_a^b \sqrt{1+(f'(x))^2}dx$$
+    %</длинаграфика>
+\end{example}
+
+\begin{example}
+    %<*длинавполярных>
+    Длина кривой $r=r(\varphi)$ в полярных координатах, $\varphi\in[\alpha, \beta]$
+    $$x=r(\varphi)\cos\varphi \quad y=r(\varphi)\sin\varphi$$
+    $$\gamma'(\varphi)=\begin{pmatrix}
+        r'(\varphi)\cos\varphi - r(\varphi)\sin\varphi \\
+        r'(\varphi)\sin\varphi + r(\varphi)\cos\varphi
+    \end{pmatrix}$$
+    $$||\gamma'(\varphi)||=\sqrt{(r'(\varphi))^2+(r(\varphi))^2-2r'(\varphi)r(\varphi)\cos\varphi\sin\varphi+2r'(\varphi)r(\varphi)\cos\varphi\sin\varphi}$$
+    $$||\gamma'(\varphi)||=\sqrt{(r'(\varphi))^2+(r(\varphi))^2}$$
+    $$l=\int_\alpha^\beta\sqrt{r^2+(r')^2}d\varphi$$
+    %</длинавполярных>
+\end{example}
+
 \end{document}

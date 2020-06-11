@@ -19,11 +19,14 @@
 \begin{theorem}
     $f$ --- доп. на $[a, b)$. Тогда эквивалентны следующие утверждения:
     \begin{enumerate}
-        \item $\int_a^b f$ сходится
+        \item $\int_a^b f$ абсолютно сходится
         \item $\int_a^b |f|$ сходится
         \item $\int_a^b f^+, \int_a^b f^-$ оба сходятся
     \end{enumerate}
 \end{theorem}
+\begin{remark}
+    $f^+ = \max(f, 0), f^- = \max(-f, 0)$
+\end{remark}
 \begin{proof}
     1$\Rightarrow$2 --- тривиально
 
@@ -57,16 +60,192 @@
         $$\exists A_n, B_n \to b \quad \int_{A_n}^{B_n} f\not\to0 \Rightarrow \int_a^b f \text{ расходится}$$
         $$A_n:=2\pi n, B_n:=2\pi n+\pi \quad \int_{A_n}^{B_n} \frac{\sin x}{x^p} dx \geq (2\pi n)^{-p}\int_{A_n}^{B_n} \sin x \text{ расходится}$$
         Итого для $p\leq 0$ расходится.
-        \item $0<p\leq 1$
+        \item $0<p\leq 1$, абсолютная сходимость?
+        $$\int_1^{+\infty} \frac{|\sin x|}{x^p}$$
+        \begin{enumerate}
+            \item Первый способ. $A_n:=\pi n, B_n:=2\pi n$
+            $$\int_{A_n}^{B_n}\frac{|\sin x|}{x^p} \ge \frac{1}{(2\pi n)^p}\underbrace{\int_{A_n}^{B_n}|\sin x|}_{\text{площадь } n \text{ арок синуса}}=\frac{2n}{(2\pi n)^p}=Cn^{1-p}\not\to0$$
+            \item Второй способ.
+            $$\int_1^{+\infty} \frac{|\sin x|}{x^p} \ge \int_1^{+\infty} \frac{\sin^2 x}{x^p} = \int_1^{+\infty} \frac{1-\cos(2x)}{2x^p} = \underbrace{\int_1^{+\infty} \frac{1}{2x^p}}_{+\infty} - \underbrace{\int_1^{+\infty} \frac{\cos 2x}{2x^p}}_{\substack{\text{При } p>0 \text{ сходится} \\ \text{ как в пункте 2}}}$$
+        \end{enumerate}
+        Итого абсолютной сходимости нет.
     \end{enumerate}
 \end{example}
 
-\section*{\textcolor{red}{Скипнуто до конца лекции}}
+\begin{remark}
+    \begin{enumerate}
+        \item $\int_a^b f$ --- сходится $\not\Rightarrow f(x)\xrightarrow{x\to b-0} 0$
+        $$\int_1^{+\infty} x\sin x^3 dx = \left[\begin{array}{rl}
+            t = x^3 &\\
+            x = \sqrt[3]{t} & dx = \frac{1}{3}t^{-2/3}dt
+        \end{array}\right] = \frac{1}{3} \int_1^{+\infty} t^{-1/3} \sin t dt = \frac{1}{3} \int_1^{+\infty} \frac{\sin t}{t^{1/3}} dt$$
+        Этот интеграл сходится, но $f(x)\not\to0$
+        \item $\int_a^b f$ --- абсолютно сходится $\not\Rightarrow f(x)\xrightarrow{x\to b-0} 0$
+    \end{enumerate}
+\end{remark}
+\begin{exercise}
+    $\int_1^{+\infty} x\sin x^3 dx$ не сходится абсолютно
+\end{exercise}
+
+\begin{theorem}
+    Признак Абеля-Дирихле.
+
+    $f$ --- допустима на $[a, b)$, $g\in C^1 [a, b)$
+
+    Если выполняется 1 или 2, то $\int_a^b fg$ --- сходится
+    \begin{enumerate}
+        \item \begin{enumerate}
+            \item $F(A) := \int_a^A f(x)dx , A\in [a, b), F$ ограничена, т.е.:
+            $$\exists K : \forall A\in [a, b) \quad \left|\int_a^A f\right|\le K$$
+            \item $g(x)$ монотонна, $g(x)\xrightarrow{x\to b-0} 0$
+        \end{enumerate}
+        \item \begin{enumerate}
+            \item $\int_a^b f(x)dx$ сходится, необязательно абсолютно
+            \item $g(x)$ монотонна, $g(x)$ ограничена, т.е.: $\exists L \ \ \forall x \in [a, b) \quad |g(x)| \le L$
+        \end{enumerate}
+    \end{enumerate}
+    1 часть --- Дирихле, 2 --- Абель.
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $$\int_a^b fg = F(x)g(x)\Big|_a^b - \int_a^b F(x)g'(x)dx$$
+        $$\lim_{x\to b - 0} \underbrace{F(x)}_{\text{огр.}}\underbrace{g(x)}_{\text{б.м.}}=0 \Rightarrow F(x)g(x)\Big|_a^b \text{ --- конечн.}$$
+        Покажем абсолютную сходимость, из нее следует обычная сходимость:
+        $$\int_a^b |F(x)g'(x)|dx \le \int_a^b K\int_a^b |g'|=$$
+        Можно снять модуль, т.к. $g$ монотонна $\Rightarrow$ $\sign(g')=\const$
+        $$=\pm K \int_a^b g'=\pm K g(x)\Big|_a^b=\pm K(\underbrace{\lim_{x\to b - 0}g(x)}_{0} - \underbrace{g(a)}_{\text{кон.}})$$
+        \item $\alpha:=\lim\limits_{x\to b-0} g(x)$ --- кон.
+        $$\int_a^b fg = \underbrace{\int_a^b f\alpha}_{\text{кон. по а}} + \underbrace{\int_a^b f(g-\alpha)}_{\text{сс ходится по 1}}$$
+        Пояснение насчет сходимости $\int_a^b f(g-\alpha)$:
+        \begin{enumerate}
+            \item $F : A \mapsto \int_a^A f$ --- ограничена, т.к. $\int_a^b f$ сходится
+            \item $g\to\alpha \Rightarrow (g-\alpha)\to0$ 
+        \end{enumerate}
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    $$\int_{10}^{+\infty} \sin(x^3-x) dx = \int_{10}^{+\infty} \underbrace{(3x^2-1)\sin(x^3-x)}_{f}\underbrace{\frac{1}{3x^2-1}}_{g}dx$$
+    Сходится по признаку Дирихле.
+    
+    \textcolor{red}{Дальше в лекции была проверка на абсолютную сходимость.}
+\end{exercise}
 
 \begin{example}
     Интеграл Дирихле.
 
     $$\int_0^{+\infty} \frac{\sin x}{x}dx = \frac{\pi}{2}$$
 \end{example}
+\begin{proof}
+    $$\cos x + \cos 2x + \ldots + \cos nx = \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin \frac{x}{2}}-\frac{1}{2}$$
+    $$2\sin \frac{x}{2}\cos x + 2\sin \frac{x}{2}\cos 2x + \ldots + 2\sin \frac{x}{2}\cos nx = \sin\left(n+\frac{1}{2}\right)x -\frac{1}{2}$$
+    $$\sin\frac{3}{2}x-\sin\frac{1}{2}x+\ldots+\sin\left(n+\frac{1}{2}\right)x - \sin\left(n-\frac{1}{2}\right)x = \sin\left(n+\frac{1}{2}\right)x -\frac{1}{2}$$
+    $$\int_0^\pi \cos kx = \frac{1}{k}\sin kx\Big|_0^\pi=0$$
+    Проинтегрируем исходное выражение по $[0, \pi]$:
+    $$0=\int_0^\pi\ldots=\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}dx-\frac{\pi}{2}$$
+    $$\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}dx=\frac{\pi}{2}$$
+    $$\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{\sin x}dx = \left[\begin{array}{ll}
+        y = \left(n+\frac{1}{2}\right)x &\\
+        x = \frac{1}{n+\frac{1}{2}} & dx = \frac{1}{n+\frac{1}{2}}dy
+    \end{array}\right] = $$
+    $$ = \int_0^{\left(n+\frac{1}{2}\right)\pi} \frac{\sin y}{\frac{1}{n+\frac{1}{2}}y}\frac{1}{n+\frac{1}{2}}dy = \int_0^{\left(n+\frac{1}{2}\right)\pi} \frac{\sin y}{y}dy$$
+    Итого:
+    $$\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{x}dx = \int_0^{\left(n+\frac{1}{2}\right)\pi} \frac{\sin y}{y}dy$$
+    Проверим:
+    $$\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}dx -  \int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{x}dx \xrightarrow[n\to+\infty]{} 0$$
+
+    $$\int_0^\pi \sin\left(n+\frac{1}{2}\right)x h(x)dx$$
+    $$h(x)=\frac{1}{2\sin\frac{x}{2}}-\frac{1}{x}=\frac{x-2\sin\frac{x}{2}}{2x\sin\frac{x}{2}}=\frac{\mathcal O(x^3)}{x^2}\xrightarrow[x\to0]{}0$$
+    $$\int_0^\pi \sin\left(n+\frac{1}{2}\right)x h(x)dx = \left[\begin{array}{ll}
+        f = h(x) \\
+        g' = \sin\left(n+\frac{1}{2}\right)x
+    \end{array}\right]=$$
+    $$=\frac{-1}{n+\frac{1}{2}}\cos\left(n+\frac{1}{2}\right)x h(x)\Big|_0^\pi + \frac{1}{n+\frac{1}{2}}\int_0^\pi \cos\left(n+\frac{1}{2}\right) h'(x)dx$$
+    $$h'(x) = -\frac{\cos\frac{x}{2}}{4\sin^2\frac{x}{2}}+\frac{1}{x^2}=\frac{x^2\cos\frac{x}{2} - 4\sin^2 \frac{x}{2}}{4x^2\sin^2\frac{x}{2}} = \frac{x^2\left(1-\frac{x^2}{4}+o(x^3)\right) - 4\left(\frac{x}{2}-\frac{x^3}{48}+o(x^3)\right)}{4x^2\sin^2\frac{x}{2}}\xrightarrow[x\to0]{} \const$$
+    $\Rightarrow h'(0)=\const$ (той, которая $\lim$) и $h\in C^1[0,\pi]$
+
+    $$\int_0^\pi \sin\left(n+\frac{1}{2}\right)x h(x)dx=\underbrace{\frac{-1}{n+\frac{1}{2}}\underbrace{\cos\left(n+\frac{1}{2}\right)x}_{\text{огр.}} \underbrace{h(x)}_{\text{огр.}}}_{\to0}\Big|_0^\pi + \underbrace{\frac{1}{n+\frac{1}{2}}\underbrace{\int_0^\pi \underbrace{\cos\left(n+\frac{1}{2}\right) \underbrace{h'(x)}_{\text{огр., т.к.}\in C^1}}_{\text{огр., непр.}}dx}_{\text{огр. как ф-ция от } n}}_{\to0}$$
+
+    $$\underbrace{\int_0^{\left(n+\frac{1}{2}\right)\pi} \frac{\sin x}{x}dx}_{\to\text{инт. Дирихле}} = \underbrace{\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{x}dx - \int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}dx}_{\to0} + \int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}dx\to\frac{\pi}{2}$$
+\end{proof}
+
+\subsection*{Верхний предел и нижний предел последовательности}
+
+\begin{definition}
+    \textbf{Частичный предел} вещественной последовательности $x_n$ --- предел вдоль подпоследовательности $n_k$:
+    $$n_k\to+\infty, n_1<n_2<\ldots \quad \lim x_{n_k}\in\overline\R$$
+\end{definition}
+
+\begin{example}
+    $x_n=(-1)^n, n_i=2i$
+\end{example}
+
+\begin{definition}
+    Дана последовательность $x_n$.
+    \begin{itemize}
+        \item $y_n:=\sup(x_n, x_{n+1}, x_{n+2},\ldots)$
+        \item $z_n:=\inf(x_n, x_{n+1}, x_{n+2},\ldots)$
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $y_n\downarrow, z_n\uparrow$
+        \item $z_n\le x_n\le y_n$
+        \item Если изменить конечное число элементов $x_n$, то изменится конечное число элементов $y_n, z_n$
+    \end{enumerate}
+\end{remark}
+
+\begin{example}
+    \begin{enumerate}
+        \item $x_n=(-1)^n, y_n\equiv1, z_n\equiv-1$
+        \item $x_n=(1+(-1)^n)n, y_n\equiv+\infty, z_n\equiv0$
+    \end{enumerate}
+\end{example}
+
+% \begin{definition}
+    \begin{itemize}
+        \item \textbf{Верхний предел} $x_n$: $\overline{\lim\limits_{n\to+\infty}} x_n := \lim\limits_{n\to+\infty}y_n$
+        \item \textbf{Нижний предел} $x_n$: $\underline{\lim\limits_{n\to+\infty}} x_n := \lim\limits_{n\to+\infty}z_n$
+    \end{itemize}
+    Верхний и нижний пределы всегда существуют.
+% \end{definition}
+
+\begin{theorem}
+    Свойства верхнего и нижнего пределов
+    \begin{enumerate}
+        \item $\underline{\lim} x_n \le \overline{\lim} x_n$
+        \item $\forall n \ \ x_n \le \tilde x_n \Rightarrow$:
+        \begin{enumerate} 
+            \item $\overline \lim x_n\le \overline \lim \tilde x_n$
+            \item $\underline \lim x_n\le \underline \lim \tilde x_n$
+        \end{enumerate}
+        \item $\lambda \ge 0 \Rightarrow \overline \lim (\lambda x_n) = \lambda \overline \lim x_n; \underline \lim \lambda x_n = \lambda \underline \lim x_n$, считаем что $0\cdot(\pm\infty)=0$
+        \item $\overline \lim -x_n = - \underline \lim x_n ; \underline \lim -x_n = - \overline \lim x_n$
+        \item $\overline \lim (x_n + y_n) \le \overline \lim x_n + \overline \lim y_n$, если правая часть имеет смысл, т.е. нет ситуации вида $+\infty - \infty$
+        
+        $\underline \lim (x_n + y_n) \le \underline \lim x_n + \underline \lim y_n$
+
+        \item $t_n\to l\in\R \Rightarrow \overline \lim (x_n + t_n) = \overline \lim x_n + l$
+        \item $t_n\to l\in(0,+\infty) \Rightarrow \overline \lim(t_nx_n) = l \overline \lim x_n$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $y_n \le x_n \le z_n$, по предельному переходу тривиально.
+        \item $z_n=\sup(x_n, x_{n+1}, \ldots), \tilde z_n=\sup(\tilde x_n, \tilde x_{n+1}\ldots) \Rightarrow z_n\le \tilde z_n$
+        \item $\sup \lambda E = \lambda\sup E$
+        \item $\sup - E = -\inf E$
+        \item $\sup(x_n+y_n, x_{n+1}+y_{n+1}, \ldots) \le \sup(x_n, x_{n+1}\ldots) + \sup(y_n, y_{n+1}\ldots)$
+        \item $\forall \varepsilon > 0 \ \ \exists N_0 \ \ \forall k > N_0 \quad x_k+l-\varepsilon < x_k + t_k < x_k + l + \varepsilon$
+        
+        $\sphericalangle N>N_0$, перейдем к $\sup$ по $k\ge N$:
+        $$y_N + l - \varepsilon < \sup(x_N + t_N, x_{N+1} + t_{N+1}, \ldots)\le y_N + l + \varepsilon$$
+        Предельный переход:
+        $$\overline \lim x_N + l - \varepsilon \le \overline \sup (x_N + t_N) \le \overline \lim x_N + l + \varepsilon$$
+        $$\lim (x_n + t_n) = \overline \lim x_n + l$$
+        \item То же самое.
+    \end{enumerate}
+\end{proof}
 
 \end{document}

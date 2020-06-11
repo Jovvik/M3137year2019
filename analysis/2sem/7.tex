@@ -9,10 +9,14 @@
 \section*{Несобственные интегралы}
 
 \begin{definition}
+    %<*допустимаяфункция>
     $f : [a, b) \to \R \quad -\infty<a<b\leq+\infty$
 
-    --- допустима $\forall A\in (a, b)$, если $f$ --- кусочно-непрерывна на $[a, A]$
-    
+    $f$ \textbf{допустима}, если $f$ --- кусочно-непрерывна на $[a, A] \ \ \forall A\in (a, b)$
+    %</допустимаяфункция>
+\end{definition}
+\begin{definition}
+    %<*несобственныйинтеграл,cходимость,расходимость>
     $$\Phi(A):=\int_a^A f$$
 
     $$?\exists\lim\limits_{A\to b-0} \Phi(A)$$
@@ -22,6 +26,7 @@
         \item Если этот предел конечный, то тот несобственный интеграл \textbf{сходится}.
         \item Если этот предел бесконечный или не существует, то несобственный интеграл \textbf{расходится}.
     \end{itemize}
+    %</несобственныйинтеграл,cходимость,расходимость>
 \end{definition}
 
 \begin{example}
@@ -62,10 +67,14 @@
 
 \subsubsection*{Критерий Больцано-Коши}
 
+%<*критерийбольцанокошисходимости>
 $$\lim_{A\to b-0} \int_a^A \text{ кон.} \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \Delta\in(a,b) \ \ \forall A, B\in(\Delta, b) \quad \left|\int_A^B f\right|<\varepsilon$$
+%</критерийбольцанокошисходимости>
+%<*критерийбольцанокошисходимостиproof>
 \begin{proof}
     Тривиально из определения предела.
 \end{proof}
+%</критерийбольцанокошисходимостиproof>
 
 \begin{consequence}
     Если $\exists A_n, B_n \to b-0 \ \ \int\limits_{A_n}^{B_n} f \not\xrightarrow{n\to+\infty} 0$, то $\int\limits_a^{\rightarrow b} f$ расходится.
@@ -81,6 +90,7 @@ $$\lim_{A\to b-0} \int_a^A \text{ кон.} \Leftrightarrow \forall \varepsilon >
     $$\int_{A_n}^{B_n} \sin\sqrt x dx \geq \frac{1}{2}(B_n-A_n)\to\infty$$
 \end{example}
 
+%<*свойстванесобственногоинтеграла>
 \subsubsection*{Аддитивность по промежутку}
 
 $f$ --- допустима. $[a, b) \quad c\in (a,b)$
@@ -139,6 +149,7 @@ $$\int_\alpha^{\rightarrow \beta} f(\varphi(t))\varphi'(t)dt = \int_{\varphi(\al
     $f$ --- кусочно непрерывна на $[a,b]$. $f$ можно также рассматривать на $[a, b)$. Тогда
     $$\int_a^{\rightarrow b} f = \int_a^b f$$
 \end{remark}
+%</свойстванесобственногоинтеграла>
 
 Упраздняем ``$\rightarrow$''.
 
@@ -152,7 +163,60 @@ $\int_a^b f$ --- сходится $\Leftrightarrow \Phi$ ограничена.
     $\int_a^b f$ --- сх. $\Leftrightarrow \lim\limits_{A\to b-0} \Phi(A)$ кон. $\Leftrightarrow \Phi$ --- огр.
 \end{proof}
 
-\section*{\textcolor{red}{20 минут скипнуто}}
+\begin{lemma}
+    Признак сравнения:
+
+    %<*признаксравнения>
+    $f,g \ge 0$, допустимы на $[a, b)$
+    \begin{enumerate}
+        \item $f\le g$ на $[a, b)$. Тогда:
+        \begin{enumerate}
+            \item $\int_a^b g$ --- сходится $\Rightarrow \int_a^b f$ --- сходится
+            \item $\int_a^b f$ --- расходится $\Rightarrow \int_a^b g$ --- расходится
+        \end{enumerate}
+        \item $\exists\lim\limits_{x\to b-0} \frac{f(x)}{g(x)} = l<+\infty:$
+        \begin{enumerate}
+            \item $\int_a^b g$ --- сходится $\Rightarrow \int_a^b f$ --- сходится
+            \item $\int_a^b f$ --- расходится $\Rightarrow \int_a^b g$ --- расходится
+        \end{enumerate} 
+    \end{enumerate}
+    %</признаксравнения>
+\end{lemma}
+%<*признаксравненияproof>
+\begin{proof}
+    \begin{enumerate}
+        \item $\Phi(A):=\int_a^B f, \Psi(a)=\int_a^A g$
+        
+        $0\le \Phi(A)\le \Psi(A)$
+        
+        \begin{enumerate}
+            \item $\int_a^b g$ --- сходится $\Rightarrow$ $\Psi$ огр. $\Rightarrow \Phi$ огр. $\Rightarrow \int_a^b f$ --- сходится
+            \item $\int_a^b f$ --- расходится $\Rightarrow$ $\Phi$ неогр. $\Rightarrow \Psi$ неогр. $\Rightarrow \int_a^b g$ --- расходится
+        \end{enumerate}
+        
+        \item $l < +\infty \xRightarrow{def} \exists a_1 : \forall x > a_1 \ \ 0\le\frac{f(x)}{g(x)}\le l+1 \Rightarrow f(x) \le g(x)(l+1)$, дальше тривиально \textit{(предположительно по пункту 1.)}
+    \end{enumerate}
+\end{proof}
+%</признаксравненияproof>
+
+%<*признаксравнения2>
+\begin{remark}
+    $l>0$:
+    $$\exists a_2 : \forall x > a_2 \quad \frac{l}{2}<\frac{f(x)}{g(x)}$$
+    \begin{enumerate}
+        \item $\int_a^b f$ --- сходится $\Rightarrow \int_a^b g$ --- сходится
+        \item $\int_a^b g$ --- расходится $\Rightarrow \int_a^b f$ --- расходится
+    \end{enumerate}
+\end{remark}
+
+\begin{consequence}
+    Если $+\infty>l>0$, то:
+    \begin{enumerate}
+        \item $\int_a^b f$ --- сходится $\Leftrightarrow \int_a^b g$ --- сходится
+        \item $\int_a^b f$ --- расходится $\Leftrightarrow \int_a^b g$ --- расходится
+    \end{enumerate}
+\end{consequence}
+%</признаксравнения2>
 
 \begin{example}
     $$\int_0^{+\infty}\frac{\cos^2 x}{1+x^2}dx \text{ сходится?}$$
@@ -167,6 +231,7 @@ $\int_a^b f$ --- сходится $\Leftrightarrow \Phi$ ограничена.
 \begin{example}
     Этот пример будет на экзамене.
 
+    %<*изучениеинтеграла>
     При каких $\alpha$ и $\beta$ сходится:
     $$\int_{10}^{+\infty} \frac{dx}{x^\alpha (\ln x)^\beta}$$
 
@@ -177,23 +242,29 @@ $\int_a^b f$ --- сходится $\Leftrightarrow \Phi$ ограничена.
     Таким же образом можно еще что-то выяснить, но мы так делать не будем. Вместо этого воспользуемся методом \textbf{``удавливание логарифма''}
 
     \begin{enumerate}
-        \item $\alpha>1 \quad \alpha=1+2a, a>0$
+        \item $\alpha > 1 \quad \alpha=1+2a, a>0$
         $$0\leq \frac{1}{x^{1+2a}(\ln x)^\beta}=\frac{1}{x^{1+a}}\cdot\frac{1}{x^a (\ln x)^\beta}$$
         $$\beta\geq 0 \quad x^a(\ln x)^\beta \to+\infty$$
-        $$b:=-\beta \quad \beta < 0 \quad x^a(\ln x)^\beta = \frac{x^a}{(\ln x)^b}=\left(\frac{x^{\frac{a}{b}}}{}\right) \textcolor{red}{todo}$$
-        $$x^a (\ln x)^\beta \xrightarrow{x\to+\infty} +\infty \quad \Rightarrow \frac{1}{x^{1+a}}\cdot\frac{1}{x^a (\ln x)^\beta} < \frac{1}{x^{1+a}}$$
+        $$b:=-\beta \quad \beta < 0 \quad x^a(\ln x)^\beta = \frac{x^a}{(\ln x)^b}=\left(\frac{x^{\frac{a}{b}}}{\ln x}\right)^b\xrightarrow[x\to\infty]{}\left[\frac{\infty}{\infty}\right]\xrightarrow{\text{лопиталь}}\frac{\frac{a}{b}x^{\frac{a}{b} - 1}}{\frac{1}{x}}\to+\infty$$
+        $$x^a (\ln x)^\beta \xrightarrow{x\to+\infty} +\infty \Rightarrow \frac{1}{x^{1+a}}\cdot\frac{1}{x^a (\ln x)^\beta} < \frac{1}{x^{1+a}} \text{ --- сходится}$$
 
-        \item $\alpha<1 \quad \alpha=1-2a, a>0$
+        \item $\alpha < 1 \quad \alpha=1-2a, a>0$
         $$\frac{1}{x^{1-2a}(\ln x)^\beta}=\frac{1}{x^{1-a}}\cdot\frac{x^a}{(\ln x)^\beta}>\frac{1}{x^{1-a}}$$
-        $$\int_{10}^{+\infty} \frac{dx}{x^\alpha (\ln x)^\beta} \stackrel{y=\ln x}{=}\int_{10}^{+\infty} \frac{dy}{y^\beta}$$
+        \item $\alpha = 1$
+        $$\int_{10}^{+\infty} \frac{dx}{x (\ln x)^\beta} \stackrel{y=\ln x}{=}\int_{\ln 10}^{+\infty} \frac{dy}{y^\beta}$$
+        Сходится при $\beta>1$, расходится при $\beta\ge 1$
     \end{enumerate}
+    %</изучениеинтеграла>
 \end{example}
 
-\begin{example}
-    $\Gamma$ --- гамма-функция Эйлера
-    $$\Gamma(t)=\int_0^{+\infty} x^{t-1}e^{-x}dx$$
-\end{example}
+\subsection*{Гамма-функция Эйлера}
 
+%<*гаммафункция>
+$\Gamma$ --- \textbf{гамма-функция Эйлера}
+$$\Gamma(t)=\int_0^{+\infty} x^{t-1}e^{-x}dx$$
+%</гаммафункция>
+
+%<*свойствагаммафункции>
 \subsubsection*{Область определения}
 
 \begin{enumerate}
@@ -235,9 +306,13 @@ $$\Gamma(t+1)=\int_0^{+\infty} x^t e^{-x}dx = -x^t e^{-x}\Bigg|_0^{+\infty} + t\
 $$\Gamma(t) = \frac{\Gamma(t+1)}{t}\equ_{t\to+0}\frac{1}{t}$$
 
 \subsubsection*{Пятое свойство}
+%</свойствагаммафункции>
 
+%<*интегралэйлерапуассона>
 $$\Gamma\left(\frac{1}{2}\right)=\int_0^{+\infty} \frac{1}{\sqrt x} e^{-x} dx \stackrel{x=y^2}{=}2\int_0^{+\infty} e^{-y^2}dy=2\frac{1}{2}\sqrt\pi \text{ --- интеграл Эйлера-Пуассона}$$
+%</интегралэйлерапуассона>
 
+%<*интегралэйлерапуассонаproof>
 \begin{proof}
     $$1-x^2\leq e^{-x^2}\leq \frac{1}{1+x^2} \quad \forall x\in\R$$
     Оба неравенства следуют из неравенства $e^t \geq 1+t \ \ \forall t$.
@@ -256,9 +331,10 @@ $$\Gamma\left(\frac{1}{2}\right)=\int_0^{+\infty} \frac{1}{\sqrt x} e^{-x} dx \s
         1 , & n \text{ нечет.}
     \end{cases}$$
     $$\sqrt n \frac{(2n)!!}{(2n+1)!!} \leq I \leq \frac{(2n-3)!!}{(2n-2)!!}\frac{\pi}{2}\sqrt n$$
-    По формуле Валлиса ($\frac{(2k)!!}{(2k-1)!!}\cdot\frac{1}{\sqrt k}\to\sqrt \pi$):
+    По формуле Валлиса $\frac{(2k)!!}{(2k-1)!!}\cdot\frac{1}{\sqrt k}\to\sqrt \pi$:
     $$\sqrt n \frac{(2n)!!}{(2n+1)!!}=\left(\frac{1}{\sqrt n}\frac{(2n)!!}{(2n-1)!!}\right)\frac{n}{2n+1}\to\frac{\pi}{2}$$
     $$\frac{(2n-3)!!}{(2n-2)!!}\frac{\pi}{2}\sqrt n = \frac{\frac{\pi}{2}\sqrt n\frac{1}{\sqrt {n-1}}}{\frac{(2n-2)!!}{(2n-3)!!}\frac{1}{\sqrt {n-1}}}\to \frac{\sqrt n}{2}$$
 \end{proof}
+%</интегралэйлерапуассонаproof>
 
 \end{document}

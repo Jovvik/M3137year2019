@@ -24,6 +24,7 @@ $$\sum_{k=1}^n a_kb_k = A_nb_n + \sum_{k=1}^{n-1} A_k(b_k-b_{k+1})$$
 \begin{theorem}
     Признак Абеля-Дирихле
 
+    %<*признакабелядирихле>
     \textbf{Дирихле}:
     \begin{enumerate}
         \item Последовательность $A_k=\sum\limits_{i=1}^k a_i$ ограничена: $\exists C_A > 0 \ \ \forall k \ \ |A_k|<C_A$
@@ -37,7 +38,9 @@ $$\sum_{k=1}^n a_kb_k = A_nb_n + \sum_{k=1}^{n-1} A_k(b_k-b_{k+1})$$
     \end{enumerate}
 
     Если хотя бы один из этих признаков состоялся, $\sum\limits_{k=1}^n a_kb_k$ сходится.
+    %</признакабелядирихле>
 \end{theorem}
+%<*признакабелядирихлеproof>
 \begin{proof}
     $$\sum_{k=1}^n a_kb_k = \underbrace{A_nb_n}_{\to0} + \underbrace{\sum_{k=1}^{n-1} A_k(b_k-b_{k+1})}_{\substack{\exists \text{ конечный предел,} \\ \text{т.к. ряд абсолютно сходится}}}$$
     Докажем Дирихле.
@@ -48,6 +51,7 @@ $$\sum_{k=1}^n a_kb_k = A_nb_n + \sum_{k=1}^{n-1} A_k(b_k-b_{k+1})$$
     $$\sum_{k=1}^n a_kb_k=\beta\sum_{k=1}^n a_k + \sum_{k=1}^n a_k(b_k-\beta)$$
     Второй ряд сходится по признаку Дирихле, первый сходится по условию.
 \end{proof}
+%</признакабелядирихлеproof>
 
 \begin{example}
     $$\sum \frac{\sin n}{\sqrt n}$$
@@ -66,16 +70,19 @@ $$\sum_{k=1}^n a_kb_k = A_nb_n + \sum_{k=1}^{n-1} A_k(b_k-b_{k+1})$$
 
 \subsection{Группировка}
 
-$$\sum_{k=1}^{+\infty} a_k = \underbrace{(a_1 + a_2 + \ldots + a_{n_1})}_{b_1} + \underbrace{(a_{n_1+1} + \ldots + a_{n_2})}_{b_2} + \ldots$$
-$n_1<n_2<\ldots$
 % $$\sum_{l=1}^{\infty}b_l$$
 \begin{theorem}
+    %<*группировкарядов>
+    $$\sum_{k=1}^{+\infty} a_k = \underbrace{(a_1 + a_2 + \ldots + a_{n_1})}_{b_1} + \underbrace{(a_{n_1+1} + \ldots + a_{n_2})}_{b_2} + \ldots$$
+    $n_1<n_2<\ldots$
     $$A=\sum a_k \quad b_l = \sum_{i=n_l+1}^{n_{l+1}}a_i \quad B=\sum b_l$$
     \begin{enumerate}
         \item Если $A$ сходится, $B$ сходится и имеет ту же сумму
         \item Если $\forall k \ \ a_k \ge 0$, $A$ и $B$ имеют одинаковую сумму.
     \end{enumerate}
+    %</группировкарядов>
 \end{theorem}
+%<*группировкарядовproof>
 \begin{proof}
     $$\sum_{i=1}^m b_i = \sum_{i=1}^{n_m} a_i$$
     \begin{enumerate}
@@ -83,6 +90,8 @@ $n_1<n_2<\ldots$
         \item \textcolor{red}{Cкипнуто}
     \end{enumerate}
 \end{proof}
+%</группировкарядовproof>
+%<*группировкарядовremark>
 \begin{remark}
     \begin{enumerate}
         \item $B$ сходится $\not\Rightarrow A$ сходится. Контрпример: $\sum(-1)^n$
@@ -93,6 +102,7 @@ $n_1<n_2<\ldots$
         \textcolor{red}{Скипнуто}
     \end{enumerate}
 \end{remark}
+%</группировкарядовremark>
 
 \begin{example}
     $$\frac{1}{k(k+1)}=\frac{k}{k+1}-\frac{k-1}{k}$$

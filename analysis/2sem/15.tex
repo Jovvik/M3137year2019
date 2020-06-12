@@ -128,6 +128,7 @@ $$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\s
 \end{proof}
 
 \begin{remark}
+    %<*классce>
     $E\subset \R^m$, откр. Класс $C^r(E), r\in \N$:
 
     $f\in C^r(E)$, если у $f$ существуют все частные производные порядка $\le r$ на всём $E$ и они непрерывны.
@@ -135,6 +136,7 @@ $$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\s
     $C(E)$ --- непр. функции $=C^0(E)$
 
     $C(E)\stackrel{\not=}{\supset} C^1(E)\stackrel{\not=}{\supset} C^2(E)\ldots$
+    %</классce>
 \end{remark}
 
 Общий вид теоремы: $f\in C^r(E) \ \ \forall k\le r$
@@ -143,6 +145,7 @@ $\forall x\in E \ \ \forall i_1\ldots i_k :$ Если $(j_1\ldots j_k)$ --- пе
 $$\frac{\partial^k f}{\partial x_{i_1}\ldots \partial x_{i_k}}(x)=\frac{\partial^k f}{\partial x_{j_1}\ldots \partial x_{j_k}}(x)$$
 
 \begin{definition}
+    %<*мультииндекс>
     \textbf{Мультииндекс} (для $\R^m$) --- вектор $(k_1, k_2\ldots k_m)$, $k_i\in \N\cup\{0\}$
     \begin{itemize}
         \item $|k|:=\sum_{i=1}^m k_i$ --- \textbf{высота} мультииндекса
@@ -150,6 +153,7 @@ $$\frac{\partial^k f}{\partial x_{i_1}\ldots \partial x_{i_k}}(x)=\frac{\partial
         \item $x\in\R^m \ \ x^k = x_1^{k_1}x_2^{k_2}\ldots x_m^{k_m}$
         \item $f^{(k)}=\frac{\partial^{|k|}}{\partial x^k} f = \frac{\partial^{|k|}f}{x_1^{k_1}x_2^{k_2}\ldots x_m^{k_m}}$
     \end{itemize}
+    %</мультииндекс>
 \end{definition}
 
 \begin{lemma}

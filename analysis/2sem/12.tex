@@ -116,8 +116,10 @@ $f:D\subset \R^m \to \R, D_1\subset D, a$ --- предельная точка $D
 $\lim\limits_{x\to a} f\Big|_{D_1}$ --- предел по подмножеству, аналог одностороннего предела
 
 \begin{definition}
+    %<*пределпонаправлению>
     \textbf{Предел по направлению} $l, |l|=1$:
     $$\lim_{t\to0+0} f(a+t \vec l)$$
+    %</пределпонаправлению>
 \end{definition}
 
 \begin{enumerate}
@@ -136,9 +138,11 @@ $\lim\limits_{x\to a} f\Big|_{D_1}$ --- предел по подмножеств
     \textcolor{red}{Скипнуто}
 \end{definition}
 
+%<*линейныйоператор>
 Линейное отображение = линейный оператор
 
 $$f:\R^m \to\R^n \text{ --- лин.} \quad \forall \alpha,\beta\in\R \ \ \forall x,y\in\R^m \ \ f(\alpha x + \beta y)=\alpha f(x) + \beta f(x)$$
+%</линейныйоператор>
 
 \begin{definition}
     Линейное отображение $f:\R^m \to \R$ --- \textbf{линейный функционал}
@@ -177,13 +181,17 @@ $$f(x) = Ax$$
 
 \begin{definition}
     \begin{enumerate}
-        \item \textbf{Бесконечно малое отображение} $\varphi : E\subset\R^m \to\R^l$
+        \item 
+        %<*бесконечномалоеотображение>
+        \textbf{Бесконечно малое отображение} $\varphi : E\subset\R^m \to\R^l$
 
         $x_0$ --- предельная точка $E$
     
         $\varphi$ --- бесконечно малое отображение при $x\to x_0$ $\varphi(x)\xrightarrow{x\to x_0}0$
+        %</бесконечномалоеотображение>
 
-        \item $o(h)$ (оно же $o(|h|)$)
+        \item %<*омалоеотображение>
+        $o(h)$ (оно же $o(|h|)$)
         
         $\varphi : E\subset \R^m \to \R^l$, $0$ --- предельная точка $E$
 
@@ -191,10 +199,12 @@ $$f(x) = Ax$$
 
         По-другому: $\exists \alpha : E\to\R^l$ --- бесконечно малое при $h\to0$:
         $$\varphi(h)=|h|\alpha(h)$$
+        %</омалоеотображение>
     \end{enumerate}
 \end{definition}
 
 \begin{definition}
+    %<*дифференциируемоеотображение>
     $F:E\subset\R^m\to\R^l, a\in Int E$
 
     $F$ --- дифф. в точке $a$, если:
@@ -203,15 +213,20 @@ $$f(x) = Ax$$
     $$F(a+h)=F(a)+Lh+o(h)$$
     $$x:=a+h$$
     $$F(x)=F(a)+L(x-a)+|x-a|\alpha(x-a)$$
+    %</дифференциируемоеотображение>
 \end{definition}
 
 \begin{definition}
-    Оператор $L$ из определения 1 --- \textbf{производный оператор} отображениия $F$ в точке $a$ (``производная''), обозначается $F'(a)$.
+    %<*производныйоператорматрицаякоби>
+    Оператор $L$ из определения --- \textbf{производный оператор} отображениия $F$ в точке $a$ (``производная''), обозначается $F'(a)$.
 
     Матрица $F'(a)$ --- \textbf{матрица Якоби} $F$ в точке $a$
+    %</производныйоператорматрицаякоби>
 \end{definition}
 
 \begin{definition}
+    %<*дифференциалотображения>
+    
     Выражение $F'(a)h$ называется \textbf{дифференциалом} отображения $F$ в точке $a$.
 
     Это понимают как:
@@ -219,6 +234,7 @@ $$f(x) = Ax$$
         \item Производный оператор $h\mapsto F'(a)h$
         \item Отображение $E\times \R^m\to\R^l \quad (x, h)\mapsto F'(x)\cdot h$
     \end{enumerate}
+    %</дифференциалотображения>
 \end{definition}
 
 $F:\C\to\C \quad a\in\C$

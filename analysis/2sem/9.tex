@@ -13,6 +13,7 @@ $$\overline{\lim} x_n:=\lim y_n \quad \underline{\lim}x_n:=\lim z_n$$
 \begin{theorem}
     Техническое описание верхнего предела.
 
+    %<*техническоеописаниеверхнегопредела>
     \begin{enumerate}
         \item $\overline \lim x_n = +\infty \Leftrightarrow x_n$ --- неогр. сверху
         \item $\overline \lim x_n = -\infty \Leftrightarrow x_n \to -\infty$
@@ -22,7 +23,9 @@ $$\overline{\lim} x_n:=\lim y_n \quad \underline{\lim}x_n:=\lim z_n$$
             \item $\forall \varepsilon > 0 $ для бесконечного множества номеров $n$ : $l-\varepsilon < x_n$
         \end{enumerate}
     \end{enumerate}
+    %</техническоеописаниеверхнегопредела>
 \end{theorem}
+%<*техническоеописаниеверхнегопределаproof>
 \begin{proof}
     \begin{enumerate}
         \item Очевидно, т.к. $y_n=\sup(x_n, x_{n+1}\ldots) = +\infty \Leftrightarrow x_n$ --- неогр. сверху
@@ -41,13 +44,14 @@ $$\overline{\lim} x_n:=\lim y_n \quad \underline{\lim}x_n:=\lim z_n$$
         \end{itemize}
     \end{enumerate}
 \end{proof}
+%</техническоеописаниеверхнегопределаproof>
 
 \begin{theorem}
+    %<*осуществованиипределавтерминахверхнегоинижнегопределов>
     $$\exists \lim x_n \in \overline\R \Leftrightarrow \overline \lim x_n = \underline \lim x_n$$
-    % \begin{remark}
-    %     $\overline \lim$
-    % \end{remark}
+    %</осуществованиипределавтерминахверхнегоинижнегопределов>
 \end{theorem}
+%<*осуществованиипределавтерминахверхнегоинижнегопределовproof>
 \begin{proof}
     \begin{itemize}
         \item [``$\Rightarrow$''] \begin{enumerate}
@@ -58,19 +62,23 @@ $$\overline{\lim} x_n:=\lim y_n \quad \underline{\lim}x_n:=\lim z_n$$
         \item [``$\Leftarrow$''] $\underline \lim x_n \leftarrow z_n\leq x_n \leq y_n\to \overline \lim x_n$, по теореме о городовых $\exists \lim x_n=\overline \lim x_n$
     \end{itemize}
 \end{proof}
+%</осуществованиипределавтерминахверхнегоинижнегопределовproof>
 
 \begin{definition}
     $n_k : n_1 < n_2 < n_3 < \ldots \quad \lim\limits_{k\to +\infty} x_{n_k}$ --- \textbf{частичный предел}
 \end{definition}
 
 \begin{theorem}
-    О характеризации в \textcolor{red}{???} как частичных.
+    О характеризации верхнего предела как частичного.
 
+    %<*охарактеризации>
     \begin{enumerate}
         \item $\forall l$ --- частичный пр. $x_n$ $\underline \lim x_n \leq l \leq \overline \lim x_n$
         \item $\exists (n_k) : x_{n_k} \to \overline \lim x_n \ \ \exists m_k : x_{m_k}\to \underline \lim x_n$
     \end{enumerate}
+    %</охарактеризации>
 \end{theorem}
+%<*охарактеризацииproof>
 \begin{proof}
     \begin{enumerate}
         \item $x_{n_k}\to l \quad \underline \lim x_n \leftarrow z_{n_k} \leq x_{n_k} \leq y_{n_k}\to \overline \lim x_n \Rightarrow \underline \lim x_n \leq l \leq \overline \lim x_n$
@@ -81,24 +89,44 @@ $$\overline{\lim} x_n:=\lim y_n \quad \underline{\lim}x_n:=\lim z_n$$
         \end{enumerate}
     \end{enumerate}
 \end{proof}
+%</охарактеризацииproof>
 
 \begin{example}
+    %<*частичныепределыsin>
     \begin{enumerate}
         \item $\overline \lim \sin n = 1, \underline \lim \sin n = -1$
         \item $\forall l \in [-1, 1]$ --- частичный передел последовательности $\sin n$
     \end{enumerate}
+    %</частичныепределыsin>
 \end{example}
+%<*частичныепределыsinproof>
+\begin{proof}
+    \begin{enumerate}
+        \item Тривиально
+        \item $n_k := \arcsin l + 2\pi k$
+    \end{enumerate}
+    \textcolor{red}{У Кохася было непонятное длинное доказательство}
+\end{proof}
+%</частичныепределыsinproof>
 
 \section{Простейшие свойства рядов}
 
 \begin{definition}
+    %<*числовойряд>
     $a_1+a_2+\ldots $, $\sum\limits_{i=1}^{+\infty} a_i$ --- \textbf{числовой ряд} ($a_i\in\R$)
+    %</числовойряд>
 \end{definition}
 \begin{definition}
+    %<*частичнаясумма>
     $\forall N\in\N \quad S_n:=\sum\limits_{i=1}^n a_i$ --- \textbf{частичная сумма}
+    %</частичнаясумма>
 \end{definition}
 
-Если $\exists \lim_{N\to+\infty} S_n=S\in\R$, ряд \textbf{сходится}, иначе ряд \textbf{расходится}.
+\begin{definition}
+    %<*сходимостьрасходимостьряда>
+    Если $\exists \lim_{N\to+\infty} S_n=S\in\R$, ряд \textbf{сходится}, иначе ряд \textbf{расходится}.
+    %</сходимостьрасходимостьряда>
+\end{definition}
 
 \begin{example}
     $x\in\R$
@@ -118,63 +146,74 @@ $$\overline{\lim} x_n:=\lim y_n \quad \underline{\lim}x_n:=\lim z_n$$
 \end{example}
 
 \begin{definition}
+    %<*нйостатокряда>
     $\sum\limits_{k=N}^{+\infty} a_k$ --- $N$-й \textbf{остаток ряда}
+    %</нйостатокряда>
 \end{definition}
 
 Свойства:
+%<*линейностьсвойстваостатка>
 \begin{enumerate}
     \item $\sum a_n, \sum b_n$ сходятся, $c_n:=a_n+b_n$. Тогда $\sum c_n$ сходится
     \item $\sum a_n$ --- сходится, $\lambda\in\R$. Тогда $\sum \lambda a_n$ сходится и $\sum \lambda a_n = \lambda \sum a_n$
     \item \begin{enumerate}
         \item $\sum a_n$ --- сходится $\Rightarrow$ любой остаток сходится
         \item остаток сходится $\Rightarrow \sum a_n$ сходится
-        \item $r_n = \sum\limits_{n\geq N} a_n$ сходится $\Leftrightarrow r_n\to 0, N\to+\infty$
+        \item $r_N = \sum\limits_{n\geq N} a_n$ сходится $\Leftrightarrow r_N\xrightarrow[N\to+\infty]{} 0$
     \end{enumerate}
 \end{enumerate}
+%</линейностьсвойстваостатка>
+%<*линейностьсвойстваостаткаproof>
 \begin{proof}
     \begin{itemize}
         \item [(a)] $?m$-й остаток, $N\geq m : \sum\limits_{n=1}^N a_n = \sum\limits_{n=1}^{m-1} a_n + \sum\limits_{n=m}^N a_n$
-        \item [(b)] 
-        \item [(c)]
+        \item [(b)] Аналогично.
+        \item [(c)] \begin{itemize}
+            \item [``$\Leftarrow$''] Тривиально.
+            \item [``$\Rightarrow$''] $\sum\limits_{n=1}^{+\infty} a_n = \sum\limits_{n=1}^{m-1}a_n + r_m \xRightarrow{m\to+\infty} \sum\limits_{n=1}^{+\infty} a_n = \sum\limits_{n=1}^{+\infty}a_n + r_{+\infty} \Rightarrow r_N\to0 $
+        \end{itemize}
     \end{itemize}
 \end{proof}
+%</линейностьсвойстваостаткаproof>
 
 \begin{lemma}
     Необходимое условие сходимости
 
+    %<*необходимоеусловиесходимости>
     $\sum a_n$ сходится $\Rightarrow a_n\to 0$
+    %</необходимоеусловиесходимости>
 \end{lemma}
+%<*необходимоеусловиесходимостиproof>
 \begin{proof}
     Тривиально. $a_n = S_n-S_{n-1}\to0$
 \end{proof}
+%</необходимоеусловиесходимостиproof>
 
 Обратное неверно, например $\sum \frac{1}{n^p}$ расходится, $p\in (0, 1]$
 
 \begin{theorem}
     Критерий сходимости ряда Больцано-Коши
+    %<*критерийбольцанокошидляряда>
     $$\sum a_n \text{ сходится } \Leftrightarrow \forall \varepsilon > 0 \ \ \exists N \ \ \forall k > N \ \ \forall m\in\N \quad |a_{k+1}+a_{k+2}+\ldots+a_{k+m}|<\varepsilon$$
+    %</критерийбольцанокошидляряда>
 \end{theorem}
+%<*критерийбольцанокошидлярядаproof>
 \begin{proof}
     Тривиально.
 \end{proof}
+%</критерийбольцанокошидлярядаproof>
 
 Докажем расходимость $\sum\frac{1}{n}$ по критерию Больцано-Коши.
 $$m:=k \quad \frac{1}{k+1}+\frac{1}{k+2}+\ldots+\frac{1}{2k}>k\frac{1}{2k}=\frac{1}{2}$$
 $$\exists \varepsilon=\frac{1}{2} \ \ \forall N \ \ \exists k>N \ \ \exists m:=k \quad |a_{k+1}+a_{k+2}+\ldots+a_{k+k}|\geq\varepsilon$$
 
-\begin{lemma}
-    $a_n\geq 0 \quad \sum a_n$ сходится $\Leftrightarrow S_n$ ограничено сверху.
-\end{lemma}
-\begin{proof}
-    $\exists$ кон. $\lim S_n \Leftrightarrow S_n$ ограничено сверху.
-\end{proof}
-
 \begin{theorem}
     Признак сравнения.
 
+    %<*признаксравненияряда>
     $a_k, b_k\geq 0$
     \begin{enumerate}
-        \item $\forall k \ \ a_k\leq b_k$. Тогда $\sum b_k$ cх. $\Rightarrow$ $\sum a_k$ cх., $\sum a_k$ расх. $\Rightarrow$ $\sum b_k$ расх.
+        \item $\forall k \ \ a_k\leq b_k$, или $\exists c>0 \ \ \forall k \ \ a_k\le cb_k$. Тогда $\sum b_k$ cх. $\Rightarrow$ $\sum a_k$ cх., $\sum a_k$ расх. $\Rightarrow$ $\sum b_k$ расх.
         \item $\exists \lim\frac{a_k}{b_k} = l\in [0, +\infty]$. Тогда при
         \begin{enumerate}
             \item [$0<l<+\infty:$] $\sum a_k$ сх. $\Leftrightarrow$ $\sum b_k$ сх.
@@ -182,10 +221,26 @@ $$\exists \varepsilon=\frac{1}{2} \ \ \forall N \ \ \exists k>N \ \ \exists m:=k
             \item [$l=+\infty:$] $\sum a_k$ сх. $\Rightarrow$ $\sum b_k$ сх., $\sum b_k$ расх. $\Rightarrow$ $\sum a_k$ расх.
         \end{enumerate}
     \end{enumerate}
+    %</признаксравненияряда>
 \end{theorem}
+%<*признаксравнениярядаproof>
 \begin{proof}
-    
+    \begin{lemma}
+        $a_n\geq 0 \quad \sum a_n$ сходится $\Leftrightarrow S_n$ ограничено сверху.
+    \end{lemma}
+    \begin{proof}
+        $\exists$ кон. $\lim S_n \Leftrightarrow S_n$ ограничено сверху.
+    \end{proof}
+    \begin{enumerate}
+        \item $S_n^{(a)}\le S_n^{(b)}; \ \ S_n^{(b)}$ огр. $\Rightarrow S_n^{(a)}$ огр., по леммме $a_n$ сходится. Аналогично расходимость.
+        \item \begin{enumerate}
+            \item $0<l<+\infty:$ Для $\varepsilon=\frac{l}{2}\ \ \exists N \ \ \forall n>N \ \ \frac{1}{2} l b_n<a_n<\frac{3}{2}l b_n$, дальше по 1 пункту.
+            \item $l=0:$ $\forall \varepsilon > 0 \ \ \exists N \ \ \forall n>N \ \ \frac{a_n}{b_n}<\varepsilon \Rightarrow a_n < \varepsilon b_n \Rightarrow$ по 1 пункту.
+            \item $l=+\infty:$ $\forall \varepsilon > 0 \ \ \exists N \ \ \forall n>N \ \ \frac{a_n}{b_n}>\varepsilon \Rightarrow a_n>b_n \varepsilon \Rightarrow$ по 1 пункту.
+        \end{enumerate}
+    \end{enumerate}
 \end{proof}
+%</признаксравнениярядаproof>
 
 \begin{example}
     \begin{enumerate}

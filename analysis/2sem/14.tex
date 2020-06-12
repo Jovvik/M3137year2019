@@ -52,19 +52,23 @@ $$\pi_m = \lim_{N\to+\infty}\frac{\prod\limits_{n=1}^N p_n}{\prod\limits_{k=1}^m
 $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 
 \begin{theorem}
+    %<*условиясходимостипроизведения>
     \begin{enumerate}
         \item $a_n>0$ НСНМ. Тогда $\prod$ сходится $\Leftrightarrow \sum a_n$ сходится.
         \item $\sum a_n$ сходится, $\sum a_n^2$ сходится $\Rightarrow \prod(1+a_n)$ сходится.
     \end{enumerate}
+    %</условиясходимостипроизведения>
 \end{theorem}
 
+%<*условиясходимостипроизведенияproof>
 \begin{proof}
     \begin{enumerate}
-        \setcounter{enumi}{1}
+        \item \textcolor{red}{???}
         \item $\ln(1+a_n)=a_n-\frac{a_n^2}{2}+o(a_n^2)$
         $$\sum_{n=1}^N \ln(1+a_n)=\sum_{n=1}^N a_n - \frac{1}{2}\sum_{n=1}^N a_n^2 + \underbrace{\sum_{n=1}^N o(a_n^2)}_{\text{абс.сх}}$$
     \end{enumerate}
 \end{proof}
+%</условиясходимостипроизведенияproof>
 
 \begin{lemma}
     $\prod(n, x) := \int\limits_0^n \left(1-\frac{t}{n}\right)^n t^{x-1}dt, x>0$

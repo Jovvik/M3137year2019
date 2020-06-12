@@ -24,8 +24,11 @@ $$-1+1-\frac{1}{2}-\frac{1}{2}+\frac{1}{2}-\frac{1}{4}-\frac{1}{4}+\frac{1}{2}-\
     $b_k:=a_{w(k)}$, $\sum b_k$ называется \textbf{перестановкой} ряда $\sum a_k$
 \end{definition}
 \begin{theorem}
+    %<*оперестановкеслагаемых>
     Ряд $A$ абсолютно сходится, тогда его перестановка $B$ тоже абсолютно сходится и имеет ту же сумму.
+    %</оперестановкеслагаемых>
 \end{theorem}
+%<*оперестановкеслагаемыхproof>
 \begin{proof}
     \begin{enumerate}
         \item $a_k\ge 0$
@@ -43,6 +46,7 @@ $$-1+1-\frac{1}{2}-\frac{1}{2}+\frac{1}{2}-\frac{1}{4}-\frac{1}{4}+\frac{1}{2}-\
         Срезки сходятся по пункту 1., в силу абсолютной сходимости частичные суммы конечны $\Rightarrow S^{(a)}=S^{(b)}$
     \end{enumerate}
 \end{proof}
+%</оперестановкеслагаемыхproof>
 
 \begin{theorem}
     Римана.
@@ -76,18 +80,23 @@ $$-1+1-\frac{1}{2}-\frac{1}{2}+\frac{1}{2}-\frac{1}{4}-\frac{1}{4}+\frac{1}{2}-\
 $(a_1+\ldots+a_k)(b_1+\ldots+b_l)=\sum\sum a_ib_j$
 
 \begin{definition}
+    %<*произведениерядов>
     $\sum a_k, \sum b_k$
 
     $\gamma : \N\to\N\times\N$ --- биекция, $\gamma(k)=(\varphi(k),\psi(k))$
 
     \textbf{Произведение рядов} $A$ и $B$ --- ряд $\sum_{k=1}^{+\infty} a_{\varphi(k)}b_{\psi(k)}$
+    %</произведениерядов>
 \end{definition}
 
 \begin{theorem}
     Коши.
 
+    %<*опроизведениирядов>
     Пусть ряды $\sum a_k, \sum b_k$ абсолютно сходятся. Тогда $\forall$ биекции $\gamma:\N\to\N\times\N$ произведение рядов абсолютно сходится и его сумма $=AB$ 
+    %</опроизведениирядов>
 \end{theorem}
+%<*опроизведениирядовproof>
 \begin{proof}
     $\sum |a_k|=A^*, \sum |b_k|=B^*, 0\le A^*,B^*<+\infty$
 
@@ -98,12 +107,15 @@ $(a_1+\ldots+a_k)(b_1+\ldots+b_l)=\sum\sum a_ib_j$
     Возьмём $\gamma$ такое, что оно обходит точки $\N\times\N$ ``по квадратам'', т.е. не заходит в следующий квадрат, пока не обошло предыдущий. Тогда:
     $$\sum_{k=1}^{n^2}a_{\varphi(k)}b_{\psi(k)}=\sum_{i=1}^n a_i \sum_{j=1}^n b_j\xrightarrow[n\to+\infty]{}AB$$
 \end{proof}
+%</опроизведениирядовproof>
 
 \begin{example}
+    %<*произведениестепенныхрядов>
     $x\in\R, x$ --- фиксированный
     $$\sum_{k=0}^{+\infty} a_kx^k \sum_{j=0}^{+\infty} b_jx^j = \sum_{n=0}^{+\infty} c_n x^n$$
     $$c_n=a_0b_n+a_1b_{n-1}+\ldots+a_nb_0$$
     Это называется произведение степенных рядов.
+    %</произведениестепенныхрядов>
 \end{example}
 
 \section*{Функции нескольких переменных}

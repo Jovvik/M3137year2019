@@ -11,10 +11,13 @@
 \begin{theorem}
     Интегральный признак Коши.
 
+    %<*интегральныйкоши>
     $f:[1, +\infty)\to\R$ монотонно убывает, $f\geq 0, f$ непр.
 
     Тогда $\sum_{k=1}^\infty f(k)$ и $\int_1^{+\infty} f(x)dx$ сходится/расходится одновременно.
+    %</интегральныйкоши>
 \end{theorem}
+%<*интегральныйкошиproof>
 \begin{proof}
     $$\sum_{k=1}^n f(k) = \int_1^{n+1} f(x)dx + \Delta_n$$
     \begin{figure}[h]
@@ -33,6 +36,7 @@
     $$\int_k^{k+1} f(x)dx \ge \int_k^{k+1} f(k+1)dx=f(k+1)$$
     $$\sum_{k=1}^n\left(f(k) - \int_k^{k+1} f(x)dx \right) \le \sum_{k=1}^n f(k) - f(k+1) = f(1) - f(n+1)$$
 \end{proof}
+%</интегральныйкошиproof>
 
 \begin{example}
     $\sum \frac{1}{k^\alpha (\ln k)^\beta}$
@@ -77,12 +81,14 @@
 \end{example}
 
 \begin{theorem}
+    %<*абсолютносходящийсярядproof>
     $\sum a_n, a_n\in\R$. Тогда эквивалентны следующие утверждения:
     \begin{enumerate}
         \item $\sum a_n$ абс. сх.
         \item $\sum |a_n|$ сх.
         \item Оба ряда $\sum a_n^+, \sum a_n^-$ сх. 
     \end{enumerate}
+    %</абсолютносходящийсярядproof>
 \end{theorem}
 
 \section*{Сходимость рядов \textcolor{red}{\ldots}}
@@ -90,15 +96,19 @@
 \begin{theorem}
     Признак Лейбница.
 
+    %<*признаклейбница>
     $c_n\ge 0, c_1\ge c_2\ge c_3 \ge \ldots, c_n\to 0$
 
     Тогда $\sum_{n=1}^{+\infty} (-1)^n c_n$ сх.
+    %</признаклейбница>
 \end{theorem}
+%<*признаклейбницаproof>
 \begin{proof}
     $$S_{2N}=c_1-c_2+\ldots + c_{2N-1}-c_{2N}$$
     $$S_{2N+2}=S_{2N}+(c_{2N+1}-c_{2N+2})\geq S_{2N}$$
     $$S_{2N}\uparrow, S_{2N}\leq c_1$$
 \end{proof}
+%</признаклейбницаproof>
 
 \begin{remark}
     Секретное приложение к признаку Лейбница.

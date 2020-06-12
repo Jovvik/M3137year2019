@@ -19,16 +19,19 @@
 \end{definition}
 
 \begin{theorem}
+    %<*абсолютносходящийсяинтегралтеорема>
     $f$ --- доп. на $[a, b)$. Тогда эквивалентны следующие утверждения:
     \begin{enumerate}
         \item $\int_a^b f$ абсолютно сходится
         \item $\int_a^b |f|$ сходится
         \item $\int_a^b f^+, \int_a^b f^-$ оба сходятся
     \end{enumerate}
+    \begin{remark}
+        $f^+ = \max(f, 0), f^- = \max(-f, 0)$
+    \end{remark}
+    %</абсолютносходящийсяинтегралтеорема>
 \end{theorem}
-\begin{remark}
-    $f^+ = \max(f, 0), f^- = \max(-f, 0)$
-\end{remark}
+%<*абсолютносходящийсяинтегралтеоремаproof>
 \begin{proof}
     1$\Rightarrow$2 --- тривиально
 
@@ -36,6 +39,7 @@
 
     3$\Rightarrow$1 : $f=f^+ - f^- \Rightarrow \int_a^b f = \int_a^b f^+ - \int_a^b f^-$
 \end{proof}
+%</абсолютносходящийсяинтегралтеоремаproof>
 
 \begin{example}
     $$\int_{10}^{+\infty} \frac{\sin x}{x}dx \stackrel{\text{по частям}}{=} \left[\begin{array}{lr}
@@ -48,7 +52,8 @@
 \end{example}
 
 \begin{example}
-    $$\int_1^{+\infty} \frac{\sin x}{x^p}$$
+    %<*интегралsinxxp>
+    $$\int_1^{+\infty} \frac{\sin x}{x^p} dx$$
     \begin{itemize}
         \item При каких $p$ сходится?
         \item При каких $p$ абсолютно сходится?
@@ -72,6 +77,7 @@
         \end{enumerate}
         Итого абсолютной сходимости нет.
     \end{enumerate}
+    %</интегралsinxxp>
 \end{example}
 
 \begin{remark}
@@ -92,6 +98,7 @@
 \begin{theorem}
     Признак Абеля-Дирихле.
 
+    %<*признакабелядирихле>
     $f$ --- допустима на $[a, b)$, $g\in C^1 [a, b)$
 
     Если выполняется 1 или 2, то $\int_a^b fg$ --- сходится
@@ -107,7 +114,9 @@
         \end{enumerate}
     \end{enumerate}
     1 часть --- Дирихле, 2 --- Абель.
+    %</признакабелядирихле>
 \end{theorem}
+%<*признакабелядирихлеproof>
 \begin{proof}
     \begin{enumerate}
         \item $$\int_a^b fg = F(x)g(x)\Big|_a^b - \int_a^b F(x)g'(x)dx$$
@@ -125,6 +134,7 @@
         \end{enumerate}
     \end{enumerate}
 \end{proof}
+%</признакабелядирихлеproof>
 
 \begin{exercise}
     $$\int_{10}^{+\infty} \sin(x^3-x) dx = \int_{10}^{+\infty} \underbrace{(3x^2-1)\sin(x^3-x)}_{f}\underbrace{\frac{1}{3x^2-1}}_{g}dx$$
@@ -136,8 +146,11 @@
 \begin{example}
     Интеграл Дирихле.
 
+    %<*интегралдирихле>
     $$\int_0^{+\infty} \frac{\sin x}{x}dx = \frac{\pi}{2}$$
+    %</интегралдирихле>
 \end{example}
+%<*интегралдирихлеproof>
 \begin{proof}
     $$\cos x + \cos 2x + \ldots + \cos nx = \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin \frac{x}{2}}-\frac{1}{2}$$
     $$2\sin \frac{x}{2}\cos x + 2\sin \frac{x}{2}\cos 2x + \ldots + 2\sin \frac{x}{2}\cos nx = \sin\left(n+\frac{1}{2}\right)x -\frac{1}{2}$$
@@ -170,6 +183,7 @@
 
     $$\underbrace{\int_0^{\left(n+\frac{1}{2}\right)\pi} \frac{\sin x}{x}dx}_{\to\text{инт. Дирихле}} = \underbrace{\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{x}dx - \int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}dx}_{\to0} + \int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}dx\to\frac{\pi}{2}$$
 \end{proof}
+%</интегралдирихлеproof>
 
 \subsection*{Верхний предел и нижний предел последовательности}
 
@@ -219,6 +233,7 @@
 
 \begin{theorem}
     Свойства верхнего и нижнего пределов
+    %<*свойстваверхнегоинижнегопределов>
     \begin{enumerate}
         \item $\underline{\lim} x_n \le \overline{\lim} x_n$
         \item $\forall n \ \ x_n \le \tilde x_n \Rightarrow$:
@@ -235,7 +250,9 @@
         \item $t_n\to l\in\R \Rightarrow \overline \lim (x_n + t_n) = \overline \lim x_n + l$
         \item $t_n\to l\in(0,+\infty) \Rightarrow \overline \lim(t_nx_n) = l \overline \lim x_n$
     \end{enumerate}
+    %</свойстваверхнегоинижнегопределов>
 \end{theorem}
+%<*свойстваверхнегоинижнегопределовproof>
 \begin{proof}
     \begin{enumerate}
         \item $y_n \le x_n \le z_n$, по предельному переходу тривиально.
@@ -253,5 +270,6 @@
         \item То же самое.
     \end{enumerate}
 \end{proof}
+%</свойстваверхнегоинижнегопределовproof>
 
 \end{document}

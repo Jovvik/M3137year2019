@@ -132,54 +132,122 @@
 \begin{itemize}
     \item Линейное пространство $x=(x_1\ldots x_m), x_i\in\R$. Строка/столбец --- не важно.
     
+    %<*характеристикаrm>
     $$\langle x,y\rangle=\sum_{i=1}^m x_iy_i$$
     
     $$|x|=\sqrt{\langle x,x\rangle}=\sqrt{\sum x_i^2}$$
     
     $$\rho(x,y):=|x-y|$$
+    %</характеристикаrm>
 
     \item Окрестности, шар
     
+    %<*окрестность>
     $B(a, r)=\{x\in\R^m : |x-a|<r\}$ --- открытый шар, $r$-окрестность точки $a$
 
-    Открытые множества, замкнутые множества.
+    $a$ --- {\bf внутренняя точка} множества $D$, если $\exists U(a) : U(a)\subset D$, т.е. $\exists r>0 : B(a,r)\subset D$
 
-    Внутренняя точка, предельная точка множества.
+    $D$ --- \textbf{открытое множество}, если $\forall a \in D : a$ --- внтурення точка $D$
+    %</окрестность>
+
+    %<*замкнутость>
+    $a$ --- {\bf предельная точка} множества $D$, если $\forall \dot U(a) \ \ \dot U(a)\cap D\not = \text{\O}$
+
+    $D$ --- {\bf замкнутое множество}, если оно содержит все свои предельные точки.
+
+    {\bf Замыканием} множества $D$ называется $\overline D=D\cup$(множество предельных точек $D$)
+    %</замкнутость>
 
     \item Сходимость, предел
     
-    $$x_n\to a, x_n \text{ --- посл. в } \R^m, a\in\R^m$$
+    %<*cходимость>
+    $\sphericalangle x_n$ --- посл. в $\R^m, a\in\R^m$
 
-    $$\forall U(a) \ \ \exists \ \ N \ \ \forall n > N \ \ x_n\in U(a)$$
+    $$x_n\to a \Leftrightarrow \forall U(a) \ \ \exists N \ \ \forall n > N \ \ x_n\in U(a)$$
 
-    $$x_n\to a, y_n\to b \Rightarrow \langle x_n, y_n\rangle \to \langle a,b\rangle$$
+    Норма и скалярное произведение сохраняют сходимость:
+    $$x_n\to a, y_n\to b \Rightarrow \langle x_n, y_n\rangle \to \langle a,b\rangle, |x_n|\to |a|$$
     
-    % $f : O\subset \R^m \to \R^n$
+    Сходимость функций:
 
-    % $a$ --- предельная точка $O$, $L\in \R^n$
+    $f : O\subset \R^m \to \R^n$
 
-    % $\lim\limits_{x\to a} f(x) = L$
+    $a$ --- предельная точка $O$, $L\in \R^n$
 
-    \textcolor{red}{Немного скипнуто}
+    $$\lim_{x\to a} f(x) = L \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall x : 0 < |x - a| < \delta \quad |f(x) - L| < \varepsilon$$
+
+    То же самое, но по Гейне:
+    $$\forall (x_k) : \begin{cases}
+        x_k\in O\subset \R^m \\
+        x_k\to a \\
+        \forall k \ \ x_k\not=a
+    \end{cases} \quad f(x_k)\xRightarrow[k\to+\infty]{}L$$
+
+    \textbf{Покоординатная сходимость}:
+    $$\lim_{x\to a} f(x)=L \Leftrightarrow \forall i : 1\le i\le n : \lim_{x\to a} f(x)_i = L_i$$
+    $$x_k\to a \Leftrightarrow \forall i : 1\le i\le n : x_i^{(k)}\xrightarrow[k\to+\infty]{}a_i$$
+    %</cходимость>
+
+    \item Компактность
+
+    \textbf{Параллелепипед} $[a,b]$ $=\{x : \forall i : 1\le i\le m \quad a_i\le x_i \le b_i\}$
+
+    %<*компактность>
+    $K$ \textbf{компактно}, если $K\subset \bigcup\limits_{\alpha\in A} \underbrace{G_\alpha}_{\text{откр.}} \Rightarrow K \subset \bigcup\limits_{i=1}^n G_{\alpha_i}$
 
     В $\R^m$ комп. $\Leftrightarrow$ замкн. и огр.
 
     Секвенциальная компактность: $\forall (x_n), x_n\in K \Rightarrow \exists n_k, a\in K : x_{n_k}\to a$
 
-    Применение компактности : принцип выбора Больцано-Вейерштрасса, теорема Вейерштрасса.
+    Принцип выбора Больцано-Вейерштрасса: если в $\R^m$ $(x_n)$ --- ограниченная последовательность, то у неё существует сходящаяся подпоследовательность.
+    %</компактность>
+
+    % Применение компактности : принцип выбора Больцано-Вейерштрасса, теорема Вейерштрасса.
 \end{itemize}
 
 $$\lim_{y\to0, x\to0} \frac{x+y}{x-y}=\lim_{y\to0} \lim_{x\to0} \frac{x+y}{x-y}=\lim_{y\to0} -1$$
 $$=\lim_{x\to0} \lim_{y\to0} \frac{x+y}{x-y} = \lim 1 = 1$$
 Получили противоречие. Что мы сделали не так?
 
+\begin{definition}
+    %<*координатнаяфункция>
+    $\sphericalangle F:X\to \R^m; x\mapsto F(x) = (F_1(x), \ldots, F_m(x))$, то $F_1(x) \ldots F_m(x)$ --- \textbf{координатные функции} отображения $F$
+    %</координатнаяфункция>
+\end{definition}
+
+\begin{definition}
+    %<*повторныйпредел>
+    $D_1, D_2\subset \R$, $a$ --- пр. точка $D_1$, $b$ --- пр. точка $D_2$
+
+    $(D_1\setminus\{a\})\times(D_2\setminus \{b\}) \subset D \quad f:D\to \R$
+
+    $\forall x \in D_1\setminus\{a\} \ \ \exists$ кон. $\varphi(x) = \lim\limits_{y\to b} f(x, y)$
+
+    Если $\exists \lim\limits_{x\to a}\varphi(x)$ --- это \textbf{повторный предел}.
+    %</повторныйпредел>
+\end{definition}
+
+Как предел в метрическом пространстве:
+$$\lim_{(x,y)\to(a,b)} f(x,y)=A \Leftrightarrow \forall w(A) \ \ \exists U(a), V(b) \ \ \forall (x,y)\in U(a)\times V(b) \quad f(x,y)\in W(A)$$
+
+%<*двойнойпредел>
+
+\textbf{Двойной предел}:
+$$\lim_{\substack{x\to a \\ y\to b}} f(x,y)=A \Leftrightarrow \forall w(A) \ \ \exists U(a), V(b) \ \ \forall x\in \dot U(a), \forall y\in\dot V(b) \quad f(x,y)\in W(A)$$
+%</двойнойпредел>
+
+\begin{remark}
+    $(D_1\setminus\{a\})\times(D_2\setminus \{b\}) = D$:
+    $$\lim_{(x,y)\to(a,b)} f = \lim_{\substack{x\to a \\ y\to b}} f$$
+\end{remark}
+
 \begin{theorem}
     О повторных пределах
 
-    $D_1, D_2\in\R$, $a$ --- пр. точка $D_1$, $b$ --- пр. точка $D_2$
+    $D_1, D_2\subset \R$, $a$ --- пр. точка $D_1$, $b$ --- пр. точка $D_2$
 
-    $D=(D_1\setminus\{a\})\times(D_2\setminus \{b\})$
-
+    $D = (D_1\setminus\{a\})\times(D_2\setminus \{b\}) \quad f:D\to \R$
+    
     Пусть:
     \begin{enumerate}
         \item $\exists \lim\limits_{(x,y)\to (a,b)} f(x, y)=A\in\overline\R$
@@ -192,7 +260,7 @@ $$=\lim_{x\to0} \lim_{y\to0} \frac{x+y}{x-y} = \lim 1 = 1$$
     Пусть $A\in\R$
     $$\forall \varepsilon > 0 \ \ \exists \delta>0 \ \ \forall x \in D_1 \ \ |x-a|<\delta$$
     $$\forall \varepsilon > 0 \ \ \exists \delta>0 \ \ \forall y \in D_2 \ \ |y-b|<\delta$$
-    $$|f(x,y) - A| < \varepsilon \xRightarrow{y\to b} |\varphi(x)-A|\le \varepsilon$$
+    $$|f(x,y) - A| < \varepsilon \xrightarrow[y\to b]{} |\varphi(x)-A|\le \varepsilon$$
 \end{proof}
 
 \begin{example}

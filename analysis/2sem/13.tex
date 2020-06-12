@@ -150,11 +150,15 @@ $(a_1+\ldots+a_k)(b_1+\ldots+b_l)=\sum\sum a_ib_j$
 
 \subsection{Частные производные}
 
-$f:E\subset \R^m \to \R, a\in Int E$
-
-Фиксируем $k\in\{1\ldots m\}$ $\varphi_k(t):=f(a_1,a_2\ldots t\ldots a_m)$
-
-$\lim\limits_{h\to0}\frac{\varphi_k(a_k+h)-\varphi_k(a_k)}{h} = \varphi_k'(a_k)$ называется \textbf{частной производной} функции $f$ в точке $a$
+\begin{definition}
+    %<*частнаяпроизводная>
+    $f:E\subset \R^m \to \R, a\in Int E$
+    
+    Фиксируем $k\in\{1\ldots m\}$ $\varphi_k(t):=f(a_1,a_2\ldots t\ldots a_m)$
+    
+    $\lim\limits_{h\to0}\frac{\varphi_k(a_k+h)-\varphi_k(a_k)}{h} = \varphi_k'(a_k)$ называется \textbf{частной производной} функции $f$ в точке $a$
+    %</частнаяпроизводная>
+\end{definition}
 
 $$f_k'(a)=\frac{\partial f}{\partial x_k}(a)=D_k f(a)$$
 

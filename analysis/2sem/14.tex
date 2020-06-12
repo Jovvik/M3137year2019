@@ -10,6 +10,7 @@
 \section*{Бесконечные произведения}
 
 \begin{definition}
+    %<*бесконечноепроизведение>
     $\prod\limits_{i=1}^{+\infty} p_n$ : $\prod_N := \prod\limits_{n=1}^N p_n \ \ \lim\limits_{n\to+\infty}\prod_N=P$
 
     \begin{itemize}
@@ -18,6 +19,7 @@
         \item $P=0 \Rightarrow \prod\limits_{i=1}^{+\infty} p_n$ расходится к $0$
         \item $\not\exists\lim \prod_n :$ расходится
     \end{itemize}
+    %</бесконечноепроизведение>
 \end{definition}
 
 \begin{example}
@@ -84,9 +86,13 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 \end{proof}
 
 \begin{lemma}
+    %<*приближениеепределом>
     $0\le t\le n$. Тогда
     $$0\le e^{-t} - \left(1-\frac{t}{n}\right)^n \le \frac{t^2e^{-t}}{n}$$
+    \textcolor{red}{Надо проверить формулировку}
+    %</приближениеепределом>
 \end{lemma}
+%<*приближениеепределомproof>
 \begin{proof}
     $$1+y\le e^y \le (1-y)^{-1}\ ,\ y\in[0,1]$$
     Это неравенство следует из выпуклости экспоненты.
@@ -96,35 +102,44 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
     $$e^{-t}\left(1 - \left(1+\frac{t}{n}\right)^{-n}\left(1-\frac{t}{n}\right)^n\right) \stackrel{*}{\ge} e^{-t}\left(1 - e^t\left(1-\frac{t}{n}\right)^n\right) = e^{-t} - \left(1-\frac{t}{n}\right)^{n} \ge 0$$
     $$e^{-t}\left(1 -\left(1-\frac{t^2}{n^2}\right)^n\right) \stackrel{\text{неравенство Бернулли}}{\le} \frac{t^2}{n}e^{-t}$$
 \end{proof}
+%</приближениеепределомproof>
 
 \begin{theorem}
     Формула Эйлера.
 
+    %<*формулаэйлера>
     При $x>0$ $$\lim_{n\to+\infty} \frac{1\cdot2\cdots n}{x(x+1)\cdots(x+n)}n^x=\Gamma(x)$$
+    %</формулаэйлера>
 \end{theorem}
 \begin{remark}
     $$\Gamma(x)=\int\limits_0^{+\infty}t^{x-1}e^{-t}dt$$
     $$\Gamma(n+1)=n!$$
     $$\Gamma(x+1)=x\Gamma(x)$$
 \end{remark}
+%<*формулаэйлераproof>
 \begin{proof}
     $$\Gamma(x) - \lim\Pi(n, x) = \int\limits_0^{+\infty} t^{x-1}e^{-t}dt - \lim\int\limits_0^n \left(1-\frac{t}{n}\right)^n t^{x-1}dt$$
     $$\lim_{n\to+\infty}\left(\underbrace{\int\limits_0^n\left(e^{-t}-\left(1-\frac{t}{n}\right)^n\right) t^{x-1} dt}_{\text{I}} + \underbrace{\int\limits_{n}^{+\infty} e^{-t}t^{x-1}dt}_{\text{II}}\right)\stackrel{?}{=}0$$
     \textcolor{red}{Доказательство скипнуто}
 \end{proof}
+%</формулаэйлераproof>
 
 \begin{theorem}
     Формула Вейерштрасса.
 
+    %<*формулавейерштрасса>
     При $x>0$:
     $$\frac{1}{\Gamma(x)} = x e^{\gamma x} \prod_{k=1}^{+\infty}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}$$
     где $\gamma = \lim(1+\ldots+\frac{1}{n}-\ln n)$ --- постоянная Эйлера. 
+    %</формулавейерштрасса>
 \end{theorem}
+%<*формулавейерштрассаproof>
 \begin{proof}
     $$``1+a_k''=\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}} = \left(1+\frac{x}{k}\right)\left(1-\frac{x}{k}+\frac{x^2}{2k^2}+\ldots\right)=$$
     $$1-\frac{x^2}{2k^2}+o(\frac{1}{k^2})$$
     \textcolor{red}{Доказательство скипнуто}
 \end{proof}
+%</формулавейерштрассаproof>
 
 \begin{lemma}
     Об оценке нормы линейного отображения.

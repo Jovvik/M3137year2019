@@ -141,15 +141,17 @@ $$\left(\sum_{i=1}^n |a_i+b_i|^p\right)^{\frac{1}{p}}\leq \left(\sum |a_i|^p\rig
 
 %<*неравенствоминковскогоproof>
 \begin{proof}
-    $p=1$ тривиально.
+    $p=1$ тривиально, $|a_i+b_i|\le |a_i|+|b_i|$
 
     Докажем для положительных $a_i, b_i$, другие случаи сводятся к этому.
 
-    $$\sum a_i(a_i+b_i)^{p-1} \leq \left(\sum a_i^p\right)^\frac{1}{p}\left(\sum (a_i+b_i)^{q(p-1)}\right)^{\frac{1}{q}}$$
-    $$\sum b_i(a_i+b_i)^{p-1} \leq \left(\sum b_i^p\right)^\frac{1}{p}\left(\sum (a_i+b_i)^{q(p-1)}\right)^{\frac{1}{q}}$$
+    По неравенству Гёльдера для $q=p/(p-1)$:
+    $$\sum a_i(a_i+b_i)^{p-1} \leq \left(\sum a_i^p\right)^\frac{1}{p}\left(\sum (a_i+b_i)^{q(p-1)}\right)^{\frac{1}{q}}=\left(\sum a_i^p\right)^\frac{1}{p}\left(\sum (a_i+b_i)^p\right)^{\frac{1}{q}}$$
+    $$\sum b_i(a_i+b_i)^{p-1} \leq \left(\sum b_i^p\right)^\frac{1}{p}\left(\sum (a_i+b_i)^{q(p-1)}\right)^{\frac{1}{q}}=\left(\sum b_i^p\right)^\frac{1}{p}\left(\sum (a_i+b_i)^{p}\right)^{\frac{1}{q}}$$
     Сложим эти два неравенства:
     $$\sum (a_i+b_i)^p\leq \left(\left(\sum a_i^p\right)^{\frac{1}{p}} + \left(\sum b_i^q\right)^{\frac{1}{q}}\right)\left(\sum (a_i+b_i)^p\right)^{\frac{1}{q}}$$
-    \textcolor{red}{Как это доказывает?}
+    $$\left(\sum (a_i+b_i)^p\right)^{1-\frac{1}{q}}\leq \left(\sum a_i^p\right)^{\frac{1}{p}} + \left(\sum b_i^q\right)^{\frac{1}{q}}$$
+    $$\left(\sum (a_i+b_i)^p\right)^{\frac{1}{p}}\leq \left(\sum a_i^p\right)^{\frac{1}{p}} + \left(\sum b_i^q\right)^{\frac{1}{q}}$$
 \end{proof}
 %</неравенствоминковскогоproof>
 

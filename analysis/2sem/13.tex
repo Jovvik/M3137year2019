@@ -123,6 +123,7 @@ $(a_1+\ldots+a_k)(b_1+\ldots+b_l)=\sum\sum a_ib_j$
 \begin{lemma}
     О дифференциируемости отображения и его координатных функций.
 
+    %<*одифференциируемсотиотображения>
     $F : E\subset \R^m \to \R^n \quad a\in Int E$
 
     $F(x) = (f_1(x),f_2(x)\ldots f_n(x))$. Тогда:
@@ -130,6 +131,7 @@ $(a_1+\ldots+a_k)(b_1+\ldots+b_l)=\sum\sum a_ib_j$
         \item $F$ --- дифф. в $a \Leftrightarrow$ все $f_i$ дифференциируемы в $a$
         \item $\forall i = 1\ldots n \quad i$-я строка матрицы Якоби $F$ есть матрица Якоби $f_i$
     \end{enumerate}
+    %</одифференциируемсотиотображения>
 \end{lemma}
 
 \begin{example}
@@ -177,12 +179,15 @@ $$\frac{\partial f}{\partial x_k}(a) = \lim_{h\to0}\frac{f(a_1,a_2\ldots a_{k}+h
 \end{example}
 
 \begin{theorem}
-    Необходимое условие дифференциирования.
+    Необходимое условие дифференциируемости.
 
+    %<*необходимоеусловиедифференциируемости>
     $f:E\subset \R^m \to\R, a\in IntE, f$ --- дифф. $a$
 
     Тогда $\exists f_1'(a),\ldots,f_m'(a)$ и матрица Якоби $f$ в точке $a=(f_1'(a),\ldots,f_m'(a))$
+    %</необходимоеусловиедифференциируемости>
 \end{theorem}
+%<*необходимоеусловиедифференциируемостиproof>
 \begin{proof}
     $$f(x)=f(a)+(l_1\ldots l_m)(x-a)+\alpha(x)|x-a|$$
     $$\lim_{x\to a} \frac{f(x)-f(a)-L(x-a)}{|x-a|}=0$$
@@ -190,6 +195,7 @@ $$\frac{\partial f}{\partial x_k}(a) = \lim_{h\to0}\frac{f(a_1,a_2\ldots a_{k}+h
 
     $$f(a+te_k)-f(a)+l_xt+\alpha_k(t)|t| \Rightarrow \exists \frac{\partial f}{\partial x_k}(a)=l_k$$
 \end{proof}
+%</необходимоеусловиедифференциируемостиproof>
 
 \begin{consequence}
     $F:F\subset \R^m \to\R^l, a\in IntE, F$ --- дифф. в $a$
@@ -200,8 +206,11 @@ $$\frac{\partial f}{\partial x_k}(a) = \lim_{h\to0}\frac{f(a_1,a_2\ldots a_{k}+h
 \begin{theorem}
     Достаточное условие дифференциирования.
 
+    %<*достаточноеусловиедифференциируемости>
     $f:E\subset \R^m \to\R \ \ \exists r>0 \ \ B(a,r)\subset E$ и в этом шаре $\exists f_1'\ldots f_m$ (конечные) и они непрерывны в точке $a$. Тогда $f$ дифф. в $a$
+    %</достаточноеусловиедифференциируемости>
 \end{theorem}
+%<*достаточноеусловиедифференциируемостиproof>
 \begin{proof}
     $\sphericalangle m=2$
 
@@ -210,6 +219,7 @@ $$\frac{\partial f}{\partial x_k}(a) = \lim_{h\to0}\frac{f(a_1,a_2\ldots a_{k}+h
     $$=f_2'(x_1, \overline x_2)(x_2-a_2)+f_1'(\overline x_1, a_2)(x_1-a_1)=$$
     $$=f_2'(a_1,a_2)(x_2-a_2)+f_1'(a_1, a_2)(x_1-a_2)+(f_2'(x_1, \overline x_2)-f_2'(a_1, a_2)) \frac{x_2-a_1}{|x-a|}|x-a|+\text{ аналогично}$$
 \end{proof}
+%</достаточноеусловиедифференциируемостиproof>
 
 \section*{Правила дифференциирования}
 

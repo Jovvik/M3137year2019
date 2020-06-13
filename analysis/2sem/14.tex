@@ -144,11 +144,15 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 \begin{lemma}
     Об оценке нормы линейного отображения.
 
+    %<*оценканормыотображения>
     $A:\R^m \to \R^l \ \ A=(a_{ij})$. Тогда $\forall x\in\R^m$: $|Ax|\le C_A|x|$, где $C_a=\left(\sum\limits_{i, j} a_{ij}^2\right)^{\frac{1}{2}}$
+    %</оценканормыотображения>
 \end{lemma}
+%<*оценканормыотображенияproof>
 \begin{proof}
     $$|Ax|^2 = \sum_{j}\left(\sum_j a_{ij}x_j\right)^2 \stackrel{\text{КБШ}}{\le} \sum_i\left(\left(\sum_j a_{ij}^2\right)\left(\sum_j x_{j}^2\right)\right)$$
 \end{proof}
+%</оценканормыотображенияproof>
 
 \begin{consequence}
     Линейное отображение непрерывно всюду:
@@ -156,6 +160,7 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 \end{consequence}
 
 \begin{theorem}
+    %<*дифференциированиекомпозиции>
     \begin{itemize}[itemsep=1mm, after=\vspace{5mm}]
         \item $F:E\subset\R^m\to\R^l$
         \item $G:I\subset\R^l\to\R^n$
@@ -167,7 +172,9 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
     \end{itemize}
 
     Тогда $G\circ F$ дифф. в $a$, $(G\circ F)'(a)=G'(F(a))F'(a)$
+    %</дифференциированиекомпозиции>
 \end{theorem}
+%<*дифференциированиекомпозицииproof>
 \begin{proof}
     $b:=F(a)$. По определению:
     $$F(a+h)=F(a) + F'(a)h + \alpha(h)|h|$$
@@ -179,6 +186,7 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
     $$|F'(a)h+\alpha(h)|h||\le |F'(a)h|+|\alpha(h)||h|\le (C_{F'(a)}+\alpha(h))|h|$$
     \textcolor{red}{Доказательство скипнуто}
 \end{proof}
+%</дифференциированиекомпозицииproof>
 
 \begin{remark}
     $(F\circ G\circ H)'(x) = F'(G(H(x)))\cdot G'(H(x)) \cdot H'(x)$
@@ -205,6 +213,7 @@ $$h'(x)=\frac{\partial g}{\partial y_1} \frac{df_1}{d x} + \frac{\partial g}{\pa
 \textcolor{red}{Скипнуто}
 
 \begin{lemma}
+    %<*дифференциированиепроизведений>
     \begin{itemize}[itemsep=1mm, after=\vspace{3mm}]
         \item $F, G: E\subset \R^m \to\R^l$
         \item $a\in IntE$
@@ -219,7 +228,9 @@ $$h'(x)=\frac{\partial g}{\partial y_1} \frac{df_1}{d x} + \frac{\partial g}{\pa
     \end{enumerate}
     
     Здесь $h$ нигде не умножается, на него действуют операторы дифференциирования.
+    %</дифференциированиепроизведений>
 \end{lemma}
+%<*дифференциированиепроизведенийproof>
 \begin{proof}
     \begin{enumerate}
         \item Для координатной функции $l=1$:
@@ -232,6 +243,7 @@ $$h'(x)=\frac{\partial g}{\partial y_1} \frac{df_1}{d x} + \frac{\partial g}{\pa
         $$\langle F,G\rangle'(a)h=\sum_i (f_ig_i)'(a)h\stackrel{1.}{=}\sum_i f_i'(a)h g_i(a)+f(a)g_i'(a)(h)=\langle F'(a)h, G(a) \rangle + \langle F(a), G'(a)h\rangle$$
     \end{enumerate}
 \end{proof}
+%</дифференциированиепроизведенийproof>
 
 \begin{remark}
     $m=1$:
@@ -241,10 +253,13 @@ $$h'(x)=\frac{\partial g}{\partial y_1} \frac{df_1}{d x} + \frac{\partial g}{\pa
 \begin{theorem}
     Лагранжа для векторнозначных функций.
 
+    %<*теоремалагранжадлявекторнозначных>
     $F:[a,b]\to\R^m$ --- непр. на $[a,b]$, дифф. на $(a, b)$
 
     Тогда $\exists c\in(a,b) : |F(b) - F(a)| \le |F'(c)|(b-a)$
+    %</теоремалагранжадлявекторнозначных>
 \end{theorem}
+%<*теоремалагранжадлявекторнозначныхproof>
 \begin{proof}
     $$\varphi(t):=\langle F(b) - F(a), F(t) - F(a)\rangle, t\in[a,b]$$
     $$\varphi(a) = 0 \quad \varphi(b) = |F(b) - F(a)|^2$$
@@ -253,6 +268,7 @@ $$h'(x)=\frac{\partial g}{\partial y_1} \frac{df_1}{d x} + \frac{\partial g}{\pa
     $$\varphi(b)-\varphi(a)=\varphi'(c)(b-a)$$
     $$|F(b)-F(a)|^2=(b-a)\langle F(b) - F(a), F'(c)\rangle \stackrel{\text{КБШ}}{\le} (b-a)|F(b)-F(a)||F'(c)|$$
 \end{proof}
+%</теоремалагранжадлявекторнозначныхproof>
 
 \begin{remark}
     ``$=$'' не достигается, если ехать быстро и криво. % каво?

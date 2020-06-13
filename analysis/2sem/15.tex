@@ -110,12 +110,15 @@ $$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\s
 \begin{theorem}
     О независмости частных производных от порядка дифференциирования.
     
+    %<*независимостьчастныхпроизводныхотпорядка>
     $f: E\subset\R^2\to\R, (x_0, y_0)\in E$
 
     $\exists r>0 \ \ B((x_0, y_0), r)\subset E$
 
     Пусть в этом шаре $\exists f''_{xy}, f''_{yx}$ и они непрерывны. Тогда $f''_{xy}(x_0, y_0)=f''_{yx}(x_0, y_0)$
+    %</независимостьчастныхпроизводныхотпорядка>
 \end{theorem}
+%<*независимостьчастныхпроизводныхотпорядкаproof>
 \begin{proof}
     $\Delta^2(h, k)=f(x_0 + h, y_0 + k) - f(x_0 + h, y_0) - f(x_0, y_0 + k) + f(x_0, y_0)$
 
@@ -130,6 +133,7 @@ $$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\s
     $$(h, k)\to (0, 0) \Rightarrow (\overline h, \overline k)\to(0, 0), (\overline{\overline h}, \overline{\overline k})\to(0, 0)$$
     $$f''_{xy}(x_0, y_0)=f''_{yx}(x_0, y_0)$$
 \end{proof}
+%</независимостьчастныхпроизводныхотпорядкаproof>
 
 \begin{remark}
     %<*классce>

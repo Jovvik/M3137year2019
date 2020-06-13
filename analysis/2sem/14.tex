@@ -140,7 +140,10 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 \begin{proof}
     $$\Gamma(x) - \lim\Pi(n, x) = \int\limits_0^{+\infty} t^{x-1}e^{-t}dt - \lim\int\limits_0^n \left(1-\frac{t}{n}\right)^n t^{x-1}dt$$
     $$\lim_{n\to+\infty}\left(\underbrace{\int\limits_0^n\left(e^{-t}-\left(1-\frac{t}{n}\right)^n\right) t^{x-1} dt}_{\text{I}} + \underbrace{\int\limits_{n}^{+\infty} e^{-t}t^{x-1}dt}_{\text{II}}\right)\stackrel{?}{=}0$$
-    \textcolor{red}{Доказательство скипнуто}
+    $\text{II}\xrightarrow[n\to+\infty]{}0$, т.к. это ``остаточный интеграл'', при $n\to+\infty$ интеграл ``берется по нулевому промежутку''.
+
+    По лемме о приближении $e$ пределом:
+    $$0 \le \text{I} \le \int_0^n \frac{1}{n}t^2e^{-t}t^{x-1}dt \le \frac{1}{n} \int_0^n e^{-t}t^{x+1}dt \le \frac{1}{n} \int_0^{+\infty} e^{-t}t^{x+1}dt=\frac{\Gamma(x+2)}{n}\xrightarrow[n\to+\infty]{}0$$
 \end{proof}
 %</формулаэйлераproof>
 

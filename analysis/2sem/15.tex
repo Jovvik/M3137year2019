@@ -18,6 +18,7 @@
 \end{remark}
 
 \begin{example}
+    %<*произведениерацдробей>
     $a_n=\frac{P(n)}{Q(n)}$, $P$ и $Q$ --- многочлены.
 
     $\prod a_n=?$
@@ -40,6 +41,7 @@
     $$\prod_{n=1}^N \left(1+\frac{a}{n}\right)e^{-\frac{a}{n}}\xrightarrow[N\to+\infty]{}\frac{1}{ae^{\gamma a}\Gamma(a)}$$
     $$\prod_{n=1}^N \frac{\left(1+\frac{a_1}{n}\right)e^{-\frac{a_1}{n}}\ldots \left(1+\frac{a_k}{n}\right)e^{-\frac{a_k}{n}}}{\left(1+\frac{b_1}{n}\right)e^{-\frac{b_1}{n}}\ldots \left(1+\frac{b_l}{n}\right)e^{-\frac{b_l}{n}}}\xrightarrow[]{}\frac{b_1e^{\gamma b_1}\Gamma(b_1)\ldots b_le^{\gamma b_l}\Gamma(b_l)}{a_1e^{\gamma a_1}\Gamma(a_1)\ldots a_ke^{\gamma a_k}\Gamma(a_k)}=$$
     $$=\frac{e^{\gamma b_1}\Gamma(b_1+1)\ldots e^{\gamma b_l}\Gamma(b_l+1)}{e^{\gamma a_1}\Gamma(a_1+1)\ldots e^{\gamma a_k}\Gamma(a_k+1)}=\frac{\Gamma(b_1+1)\ldots \Gamma(b_l+1)}{\Gamma(a_1+1)\ldots \Gamma(a_k+1)}$$
+    %</произведениерацдробей>
 \end{example}
 
 $$\prod_{n=1}^{+\infty}\frac{4n^2}{4n^2-1}=\prod_{n=1}^{+\infty}\frac{(n-0)(n-0)}{\left(n-\frac{1}{2}\right)\left(n+\frac{1}{2}\right)}=\frac{\Gamma\left(\frac{1}{2}\right)\Gamma\left(\frac{3}{2}\right)}{\Gamma(1)\Gamma(1)}=\Gamma\left(\frac{1}{2}\right)\frac{1}{2}\,\Gamma\left(\frac{1}{2}\right)=\frac{\pi}{2}$$
@@ -74,10 +76,12 @@ $$\prod_{n=1}^{+\infty}\frac{4n^2}{4n^2-1}=\prod_{n=1}^{+\infty}\frac{(n-0)(n-0)
 \begin{theorem}
     Экстремальное свойство градиента.
 
+    %<*экстремальноесвойствоградиента>
     $f:E\subset \R^m\to\R$, $f$ дифф. $a\in Int E$, $\nabla f(a)\not= 0$.
     
     Тогда $l = \frac{\nabla f(a)}{|\nabla f(a)|}$ --- направление наискорейшего возрастания функции, т.е. $$\forall h\in\R^m : |h|=1, -|\nabla f(a)|\le \frac{\partial f}{\partial h}(a) \le |\nabla f(a)|$$
     , причем ``$=$'' достигаеся только при $h=\pm l$, где при ``$+$'' достигается ``$=$'' 
+    %</экстремальноесвойствоградиента>
 \end{theorem}
 
 \begin{example}
@@ -159,10 +163,13 @@ $$\frac{\partial^k f}{\partial x_{i_1}\ldots \partial x_{i_k}}(x)=\frac{\partial
 \begin{lemma}
     Полиномиальная формула.
 
+   %<*полиномиальнаяформула>
     $a_i\in\R$ \textit{(верно для любого кольца)}. Тогда $\forall r\in\N$:
     $$(a_1+\ldots a_m)^r\stackrel{\text{очев}}=\sum_{n_1=1}^{m}\ldots \sum_{n_r=1}^{m}a_{n_1}a_{n_2}\ldots a_{n_r}=\sum_{j : |j|=r} \frac{r!}{j!}a^j$$
+   %</полиномиальнаяформула>
 \end{lemma}
 
+%<*полиномиальнаяформулаproof>
 \begin{proof}
     По индукции.
 
@@ -175,5 +182,6 @@ $$\frac{\partial^k f}{\partial x_{i_1}\ldots \partial x_{i_k}}(x)=\frac{\partial
     $$=\sum_{\substack{k_1\ldots k_m \ge 0 \\ k_1+\ldots k_m=r+1}}\frac{r!(k_1+\ldots+k_m)}{k_1!\ldots k_m!}a_1^{k_1}\ldots a_m^{k_m}=$$
     $$=\sum_{\substack{k_1\ldots k_m \ge 0 \\ k_1+\ldots k_m=r+1}}\frac{(r+1)!}{k_1!\ldots k_m!}a_1^{k_1}\ldots a_m^{k_m}$$
 \end{proof}
+%</полиномиальнаяформулаproof>
 
 \end{document}

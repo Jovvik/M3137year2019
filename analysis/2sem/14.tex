@@ -181,10 +181,12 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
     $$G(b+k)=G(b) + G'(b)k + \beta(k)|k|$$
     $$G(F(a+h))=G(F(a))+G'(F(a))(F'(a)h+\alpha(h)|h|)+\beta(k)|k|=$$
     $$=G(F(a))+G'(F(a))F'(a)h+G'(b)\alpha(h)|h|+\beta(k)|F'(a)h+\alpha(h)|h||$$
-    Надо доказать, что $\underbrace{G'(b)\alpha(h)|h|}_{\text{I}}+\underbrace{\beta(k)|F'(a)h+\alpha(h)|h||}_{\text{II}}=\gamma(h)|h|$.
-    $$\text{I}=|G'(b)\alpha(h)|h||\le C_{G'(b)} |\alpha(h)||h|$$
-    $$|F'(a)h+\alpha(h)|h||\le |F'(a)h|+|\alpha(h)||h|\le (C_{F'(a)}+\alpha(h))|h|$$
-    \textcolor{red}{Доказательство скипнуто}
+    Надо доказать, что $\underbrace{G'(b)\alpha(h)|h|}_{\text{I}}+\beta(k)\underbrace{|F'(a)h+\alpha(h)|h||}_{\text{II}}=\gamma(h)|h|$.
+    $$|\text{I}|=|G'(b)\alpha(h)|h||\le C_{G'(b)} |\alpha(h)||h|$$
+    $$|F'(a)h+\alpha(h)|h||\le |F'(a)h|+|\alpha(h)||h|\le \underbrace{(C_{F'(a)}+\alpha(h))}_{\text{огр.}}\underbrace{|h|}_{\to0}$$
+    $$k\xrightarrow[h\to0]{}0$$
+    $$|\text{II}|\le \underbrace{|\beta(k)|}_{\to0}\underbrace{(C_{F'(a)}+\alpha(h))}_{\text{огр.}}\underbrace{|h|}_{\to0}$$
+    $$|\text{I}| + |\text{II}|\xrightarrow[h\to0]{}0$$
 \end{proof}
 %</дифференциированиекомпозицииproof>
 

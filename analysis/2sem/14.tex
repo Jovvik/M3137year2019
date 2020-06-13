@@ -75,6 +75,10 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 \begin{lemma}
     $\prod(n, x) := \int\limits_0^n \left(1-\frac{t}{n}\right)^n t^{x-1}dt, x>0$
 
+    \begin{remark}
+        При $x\le 0$ интеграл расходится.
+    \end{remark}
+
     Тогда $\prod(n, x) = \frac{1\cdot2\cdots n}{x\cdot(x+1)\cdots(x+n)}n^x$
 \end{lemma}
 \begin{proof}
@@ -89,18 +93,34 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
     %<*приближениеепределом>
     $0\le t\le n$. Тогда
     $$0\le e^{-t} - \left(1-\frac{t}{n}\right)^n \le \frac{t^2e^{-t}}{n}$$
-    \textcolor{red}{Надо проверить формулировку}
     %</приближениеепределом>
 \end{lemma}
 %<*приближениеепределомproof>
 \begin{proof}
-    $$1+y\le e^y \le (1-y)^{-1}\ ,\ y\in[0,1]$$
-    Это неравенство следует из выпуклости экспоненты.
+    Т.к. $y=1+x$ --- график касательной к $e^x$ в $x=0$ и экспонента выпуклая:
+    $$1+y\le e^y$$
+    Произошла коллизия переменных, $x$ стал $y$.
+
+    Заменим $y$ на $-y$:
+    $$1-y\le e^{-y}$$
+    Возведем в степень $-1$:
+    $$(1-y)^{-1}\ge e^y$$
+    Итого:
+    $$1+y\le e^y \le (1-y)^{-1}$$
     $$y:=\frac{t}{n}$$
     $$1+\frac{t}{n}\le e^{\frac{t}{n}} \le \left(1-\frac{t}{n}\right)^{-1}$$
-    $$\left(1+\frac{t}{n}\right)^{-n} \stackrel{*}{\ge} e^{-t} \ge \left(1-\frac{t}{n}\right)^{n}$$
-    $$e^{-t}\left(1 - \left(1+\frac{t}{n}\right)^{-n}\left(1-\frac{t}{n}\right)^n\right) \stackrel{*}{\ge} e^{-t}\left(1 - e^t\left(1-\frac{t}{n}\right)^n\right) = e^{-t} - \left(1-\frac{t}{n}\right)^{n} \ge 0$$
+    $$\left(1+\frac{t}{n}\right)^{-n} \ge e^{-t} \ge \left(1-\frac{t}{n}\right)^{n}$$
+    По правому неравенству:
+    $$e^{-t} - \left(1-\frac{t}{n}\right)^{n} \ge 0$$
+    Возведем левое неравенство в степень $-1$:
+    $$\left(1+\frac{t}{n}\right)^{n} \le e^{t}$$
+    $$e^{-t} - \left(1-\frac{t}{n}\right)^{n} = e^{-t}\left(1 - e^t\left(1-\frac{t}{n}\right)^n\right) \le e^{-t}\left(1 - \left(1+\frac{t}{n}\right)^{n}\left(1-\frac{t}{n}\right)^n\right)=e^{-t}\left(1-\left(1-\frac{t^2}{n^2}\right)^n\right)$$
     $$e^{-t}\left(1 -\left(1-\frac{t^2}{n^2}\right)^n\right) \stackrel{\text{неравенство Бернулли}}{\le} \frac{t^2}{n}e^{-t}$$
+    \begin{remark}
+        Неравенство Бернулли: $(1+a)^n\ge 1+an, a \ge -1$, в данном случае $a=-\frac{t^2}{n^2}$
+    \end{remark}
+
+    В неравенстве Бернулли $n\in \N \Rightarrow$ \textcolor{red}{предположительно} в лемме $n\in\N$, на лекции этого не было сказано.
 \end{proof}
 %</приближениеепределомproof>
 

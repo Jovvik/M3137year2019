@@ -79,15 +79,23 @@ $$\prod_{n=1}^{+\infty}\frac{4n^2}{4n^2-1}=\prod_{n=1}^{+\infty}\frac{(n-0)(n-0)
     %<*экстремальноесвойствоградиента>
     $f:E\subset \R^m\to\R$, $f$ дифф. $a\in Int E$, $\nabla f(a)\not= 0$.
     
-    Тогда $l = \frac{\nabla f(a)}{|\nabla f(a)|}$ --- направление наискорейшего возрастания функции, т.е. $$\forall h\in\R^m : |h|=1, -|\nabla f(a)|\le \frac{\partial f}{\partial h}(a) \le |\nabla f(a)|$$
+    Тогда $l = \frac{\nabla f(a)}{|\nabla f(a)|}$ --- направление наискорейшего возрастания функции, т.е. $$\forall h\in\R^m : |h|=1 \quad -|\nabla f(a)|\le \frac{\partial f}{\partial h}(a) \le |\nabla f(a)|$$
     , причем ``$=$'' достигаеся только при $h=\pm l$, где при ``$+$'' достигается ``$=$'' 
     %</экстремальноесвойствоградиента>
 \end{theorem}
+%<*экстремальноесвойствоградиентаproof>
+\begin{proof}
+    $$\frac{\partial f}{\partial h}(a) = \langle \nabla f, h \rangle$$
+    $$-|\nabla f(a)| |h| \le \langle \nabla f, h \rangle \le |\nabla f(a)| |h|$$
+    $|h| = 1$ по построению:
+    $$-|\nabla f(a)| \le \langle \nabla f, h \rangle \le |\nabla f(a)|$$
+\end{proof}
+%</экстремальноесвойствоградиентаproof>
 
 \begin{example}
     Градиентный спуск.
 
-    $\sphericalangle z=1-x^2-y^2$
+    $\sphericalangle z=1-x^2-y^2$ --- параболоид
 
     $\nabla z=(-2x, -2y)$
 

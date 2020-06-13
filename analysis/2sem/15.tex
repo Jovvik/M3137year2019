@@ -169,7 +169,7 @@ $$\frac{\partial^k f}{\partial x_{i_1}\ldots \partial x_{i_k}}(x)=\frac{\partial
 
    %<*полиномиальнаяформула>
     $a_i\in\R$ \textit{(верно для любого кольца)}. Тогда $\forall r\in\N$:
-    $$(a_1+\ldots a_m)^r\stackrel{\text{очев}}=\sum_{n_1=1}^{m}\ldots \sum_{n_r=1}^{m}a_{n_1}a_{n_2}\ldots a_{n_r}=\sum_{j : |j|=r} \frac{r!}{j!}a^j$$
+    $$(a_1+\ldots+ a_m)^r\stackrel{\text{очев}}=\sum_{n_1=1}^{m}\ldots \sum_{n_r=1}^{m}a_{n_1}a_{n_2}\ldots a_{n_r}=\sum_{j : |j|=r} \frac{r!}{j!}a^j$$
    %</полиномиальнаяформула>
 \end{lemma}
 
@@ -177,7 +177,9 @@ $$\frac{\partial^k f}{\partial x_{i_1}\ldots \partial x_{i_k}}(x)=\frac{\partial
 \begin{proof}
     По индукции.
 
-    База: \textcolor{red}{скипнуто}
+    База: $\sphericalangle r=1$
+    $$a_1+\ldots+a_m=\frac{1!}{1!0!\ldots0!}a_1+\frac{1!}{0!1!\ldots0!}a_2+\ldots+a_m$$
+    $$a_1+\ldots+a_m=a_1+\ldots+a_m$$
 
     Переход: $$(a_1+\ldots+a_m)^{r+1}=(a_1+\ldots+a_m)\sum_{\substack{j_1\ldots j_m\ge 0 \\ j_1+\ldots+j_m=r}}\frac{r!}{j_1!\ldots j_m!}a_1^{j_1}\ldots a_m^{j_m}=$$
     $$=\sum \frac{r!}{j_1!\ldots j_m!}a_1^{j_1+1}\ldots a_m^{j_m}+\ldots+ \sum \frac{r!}{j_1!\ldots j_m!}a_1^{j_1}\ldots a_m^{j_m+1}=$$

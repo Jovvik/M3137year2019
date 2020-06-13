@@ -37,12 +37,13 @@ $$\forall x_1\ldots x_n\in\langle a,b \rangle \ \ \forall \alpha_1\ldots \alpha_
 \end{consequence}
 %<*неравенствокошиproof>
 \begin{proof}
-    $f(x)=\ln x$ --- вогн.
-    $$\ln\left(\frac{1}{n}a_1+\ldots+\frac{1}{n}a_n\right)\geq\frac{1}{n}\ln a_1+\ldots+\frac{1}{n}\ln a_n$$
-    \textcolor{red}{Как это доказывает?}
+    $f(x)=\ln x$ --- вогн., $\alpha_i=\frac{1}{n}$, по неравенству Йенсена:
+    $$\ln\left(\frac{1}{n}a_1+\ldots+\frac{1}{n}a_n\right)\ge \frac{1}{n}\ln a_1+\ldots+\frac{1}{n}\ln a_n$$
+    $$\ln\left(\frac{a_1+\ldots+a_n}{n}\right)\ge \frac{1}{n}\ln(a_1\cdots a_n)$$
+    $$\ln\left(\frac{a_1+\ldots+a_n}{n}\right)\ge \ln(a_1\cdots a_n)^{\frac{1}{n}}$$
+    $$\frac{a_1+\ldots+a_n}{n}\ge (a_1\cdots a_n)^{\frac{1}{n}}$$
 \end{proof}
 %</неравенствокошиproof>
-    %~0:23
 
 \subsection{Интегральное неравенство Йенсена}
 %<*интегральноенеравенствойенсена>

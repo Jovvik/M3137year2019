@@ -162,24 +162,23 @@
 \import{Теорема Кантора о равномерной непрерывности}{1.tex}{теоремакантора}
 
 \import{Теорема Брауэра о неподвижной точке}{1.tex}{теоремаонеподвижнойточке}
+\textcolor{red}{Надо дописать}
 
 \import{Теорема о свойствах неопределенного интеграла}{1.tex}{свойстванеопределенногоинтеграла}
 \label{integralproperties}
 
 \import{\teormin Интегрирование неравенств. Теорема о среднем}{2.tex}{интегрированиенеравенств}
-Теорема о среднем: $f\in C[a,b], m\le f(x) \le M \Rightarrow \exists c : m\le c \le M \quad \int_a^b f = c(b-a)$
+Теорема о среднем: $f\in C[a,b] \Rightarrow \exists c\in[a,b] : \int_a^b f = f(c)(b-a)$
 \begin{proof}
-    По монотонности интеграла
-    $$m(b-a)\le \int_a^b f \le M(b-a)$$
-    $$m\le \frac{1}{b-a}\int_a^b f \le M$$
-    $$c := \frac{1}{b-a}\int_a^b f$$
+    $$\min f(b-a)\le \int_a^b f \le \max f(b-a)$$
+    $$\min f\le \frac{1}{b-a}\int_a^b f \le \max f$$
+    $$f(c) := \frac{1}{b-a}\int_a^b f$$
+    Такое $c$ существует, т.к. $f\in C[a,b]$
 \end{proof}
-\textcolor{red}{Взято с вики}
 
 \import{Теорема Барроу}{2.tex}{теоремабарроу}
 
 \import{Формула Ньютона-Лейбница, в том числе, для кусочно-непрерывных функций}{2.tex}{ньютоналейбница}
-\textcolor{red}{Что с кусочно-непрерывными?}
 
 \import{Лемма об ускоренной сходимости}{2.tex}{обускореннойсходимости}
 

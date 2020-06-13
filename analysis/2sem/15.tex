@@ -6,11 +6,14 @@
 
 \begin{document}
 
-Альтернативный вывод формулы Вейерштрасса \textit{(из формулы Эйлера)}:
+%<*формулавейерштрассаproof>
+
+Вывод формулы Вейерштрасса \textit{(из формулы Эйлера)}:
 \begin{proof}
     $$\frac{1}{\Gamma(x)}=\lim n^{-x}\frac{x(x+1)\ldots (x+n)}{n!}=x\lim n^{-x}\prod_{k=1}^n \left(1+\frac{x}{k}\right)=$$
-    $$=x\lim \underbrace{e^{x\left(1+\frac{1}{2}+\frac{1}{n}\right)-x\ln n}}_{e^{\gamma+O(1)}}\prod\limits_{k=1}^{n}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}$$
+    $$=x\lim \underbrace{e^{x\left(1+\frac{1}{2}+\ldots+\frac{1}{n}\right)-x\ln n}}_{e^{\gamma+o(1)}}\prod\limits_{k=1}^{n}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}=e^{\gamma x} \prod\limits_{k=1}^{+\infty}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}$$
 \end{proof}
+%</формулавейерштрассаproof>
 
 \begin{remark}
     $$\Gamma(x)\Gamma(1-x)=\Gamma(x)(-x)\Gamma(-x)=\frac{(-x)}{xe^{\gamma x}\prod \left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}(-x)e^{-\gamma x}\prod \left(1-\frac{x}{k}\right)e^{\frac{x}{k}}}=$$

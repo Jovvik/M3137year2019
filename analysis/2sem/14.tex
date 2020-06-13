@@ -56,7 +56,7 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 \begin{theorem}
     %<*условиясходимостипроизведения>
     \begin{enumerate}
-        \item $a_n>0$ НСНМ. Тогда $\prod$ сходится $\Leftrightarrow \sum a_n$ сходится.
+        \item $a_n>0$ НСНМ. Тогда $\prod 1 + a_n$ сходится $\Leftrightarrow \sum a_n$ сходится.
         \item $\sum a_n$ сходится, $\sum a_n^2$ сходится $\Rightarrow \prod(1+a_n)$ сходится.
     \end{enumerate}
     %</условиясходимостипроизведения>
@@ -65,7 +65,7 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 %<*условиясходимостипроизведенияproof>
 \begin{proof}
     \begin{enumerate}
-        \item \textcolor{red}{???}
+        \item $\prod (1+a_n)$ --- сх. $\Leftrightarrow \sum\ln(1+a_n)$ --- сх. $\Leftrightarrow \sum a_n$ --- сх.
         \item $\ln(1+a_n)=a_n-\frac{a_n^2}{2}+o(a_n^2)$
         $$\sum_{n=1}^N \ln(1+a_n)=\sum_{n=1}^N a_n - \frac{1}{2}\sum_{n=1}^N a_n^2 + \underbrace{\sum_{n=1}^N o(a_n^2)}_{\text{абс.сх}}$$
     \end{enumerate}
@@ -153,16 +153,14 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
     %<*формулавейерштрасса>
     При $x>0$:
     $$\frac{1}{\Gamma(x)} = x e^{\gamma x} \prod_{k=1}^{+\infty}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}$$
-    где $\gamma = \lim(1+\ldots+\frac{1}{n}-\ln n)$ --- постоянная Эйлера. 
+    где $\gamma = \lim\limits_{n\to+\infty}(1+\ldots+\frac{1}{n}-\ln n)$ --- постоянная Эйлера. 
     %</формулавейерштрасса>
 \end{theorem}
-%<*формулавейерштрассаproof>
-\begin{proof}
-    $$``1+a_k''=\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}} = \left(1+\frac{x}{k}\right)\left(1-\frac{x}{k}+\frac{x^2}{2k^2}+\ldots\right)=$$
-    $$1-\frac{x^2}{2k^2}+o(\frac{1}{k^2})$$
-    \textcolor{red}{Доказательство скипнуто}
-\end{proof}
-%</формулавейерштрассаproof>
+$\prod (1+a_k)$ сходится, если $\sum a_k$ сходится, поэтому распишем ``$1+a_k$'':
+$$\text{``}1+a_k\text{''}=\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}} = \left(1+\frac{x}{k}\right)\left(1-\frac{x}{k}+\frac{x^2}{2k^2}+\ldots\right)=1-\frac{x^2}{2k^2}+o\left(\frac{1}{k^2}\right)$$
+$\sum -\frac{x^2}{2k^2}+o\left(\frac{1}{k^2}\right)$ очевидно сходится, кроме того, $x$ может быть $\le 0$, сходимость не изменится. $\Gamma(x)$ не определено для $x<0$, но если рассматривать формулу Вейерштрасса как определение $\Gamma$, то для $x\in\N^-$ $\Gamma(x)=+\infty$, т.к. $\prod 1+a_k=0$. Кроме того, можно подставлять и $x\in \C$.
+
+Доказательство будет на следующей лекции.
 
 \begin{lemma}
     Об оценке нормы линейного отображения.

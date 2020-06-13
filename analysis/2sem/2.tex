@@ -161,9 +161,9 @@
 %<*теоремабарроуproof>
 \begin{proof}
     Зафиксируем $x\in[a,b] \quad y>x, y\leq b$
-    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{\int_a^y f - (\int_a^y f+ \int_y^x f)}{y-x}=\frac{\int_x^y f}{y-x} \underset{\underset{\exists c\in[x,y]}{\text{т.о.ср.}}}{=}  \frac{c(y-x)}{y-x}=c\xrightarrow[y\to x+0]{} f(x)$$
+    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{\int_a^y f - (\int_a^y f+ \int_y^x f)}{y-x}=\frac{\int_x^y f}{y-x} \underset{\underset{\exists c\in[x,y]}{\text{т.о.ср.}}}{=}  \frac{f(c)(y-x)}{y-x}=f(c)\xrightarrow[y\to x+0]{} f(x)$$
     $x>y$
-    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{1}{x-y}\int^x_y f = c\xrightarrow[y\to x-0]{} f(x)$$
+    $$\frac{\Phi(y)-\Phi(x)}{y-x}=\frac{1}{x-y}\int^x_y f = f(c)\xrightarrow[y\to x-0]{} f(x)$$
 \end{proof}
 %</теоремабарроуproof>
 
@@ -175,7 +175,6 @@
 %<*среднеезначениефункциинапромежутке>
 Среднее значение функции на промежутке:
 $$\frac{\int_a^b f(x)dx}{b-a}$$
-Взято с гугла, стоит спросить Кохася, верно ли это.
 %</среднеезначениефункциинапромежутке>
 
 \begin{remark}
@@ -189,13 +188,15 @@ $$\left( \int_{x^2}^{10\sqrt x + 1} f(t)dt \right)'=f(10\sqrt x + 1) \frac{5}{\s
 $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac{\sin t}{\sqrt t}dt \right)'$$
 Этот интеграл не написать в word. Tex нормас, как видите. Это единственное, зачем Кохась написал этот интеграл.
 
-%<*ньютоналейбница>
 \begin{theorem}
+    %<*ньютоналейбница>
     $f\in C[a,b] \quad F \text{ --- первообр. } f$
 
     Тогда $\int_a^b f = F(b) - F(a)$
+
+    Для кусочно-непрерывных $f$ это тоже верно.
+    %</ньютоналейбница>
 \end{theorem}
-%</ньютоналейбница>
 %<*ньютоналейбницаproof>
 \begin{proof}
     $\Phi(x) = \int_0^x f$ --- первообр.

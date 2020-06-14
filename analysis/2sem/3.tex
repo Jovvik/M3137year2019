@@ -7,29 +7,31 @@
 \begin{document}
 
 \begin{example}
+    %<*неаналитическаяфункция>
     $f(x)=\begin{cases}
-        e^{-\cfrac{1}{x^2}} &, x\not=0 \\
+        e^{-\frac{1}{x^2}} &, x\not=0 \\
         0 &, x\not=0
     \end{cases}$
     
-    $$f'(x)=\cfrac{2}{x^3}e^{-\cfrac{1}{x^2}}, x\not=0$$
+    $$f'(x)=\frac{2}{x^3}\ e^{-\frac{1}{x^2}}, x\not=0$$
     $f'(0)=?$
 
     Следствие из теоремы Лагранжа:
     $$\lim\limits_{x\to x_0}f'(x)=A \text{ тогда } f'(x_0)=A$$
-    $$f'(0)=\lim\limits_{x\to0}\cfrac{2}{x^3}e^{-\cfrac{1}{x^2}}=\left[\cfrac{0}{0}\right]=\lim 2\cfrac{\cfrac{2}{x^3}e^{-\cfrac{1}{x^2}}}{3x^2}=\lim\cfrac{4}{3}\cfrac{e^{-\cfrac{1}{x^2}}}{x^5}=\text{ больно, не надо так}$$
-    $$\lim\limits_{x\to0}\cfrac{2}{x^3}e^{-\cfrac{1}{x^2}}=\lim\cfrac{\cfrac{2}{x^3}}{e^{\frac{1}{x^2}}}=\left[\cfrac{\infty}{\infty}\right]=\lim\cfrac{\cfrac{-6}{x^4}}{\cfrac{-2}{x^3}e^{\frac{1}{x^2}}}=\lim\cfrac{\cfrac{3}{x}}{e^{\frac{1}{x^2}}}=\left[\cfrac{\infty}{\infty}\right]=\lim\cfrac{\cfrac{-3}{x^2}}{\cfrac{-2}{x^3}e^{\frac{1}{x^2}}}=\lim\cfrac{3}{2}\cfrac{x}{e^{\frac{1}{x^2}}}=\cfrac{0}{\infty}=0$$
+    $$f'(0)=\lim\limits_{x\to0}\cfrac{2}{x^3}\ e^{-\frac{1}{x^2}}=\left[\cfrac{0}{0}\right]=\lim 2\cfrac{\cfrac{2}{x^3}\ e^{-\frac{1}{x^2}}}{3x^2}=\lim\cfrac{4}{3}\cfrac{e^{-\frac{1}{x^2}}}{x^5}=\text{ больно, не надо так}$$
+    $$\lim\limits_{x\to0}\cfrac{2}{x^3}\ e^{-\frac{1}{x^2}}=\lim\cfrac{\cfrac{2}{x^3}}{e^{\frac{1}{x^2}}}=\left[\cfrac{\infty}{\infty}\right]=\lim\cfrac{\cfrac{-6}{x^4}}{\cfrac{-2}{x^3}\ e^{\frac{1}{x^2}}}=\lim\cfrac{\cfrac{3}{x}}{e^{\frac{1}{x^2}}}=\left[\cfrac{\infty}{\infty}\right]=\lim\cfrac{\cfrac{-3}{x^2}}{\cfrac{-2}{x^3}\ e^{\frac{1}{x^2}}}=\lim\cfrac{3}{2}\cfrac{x}{e^{\frac{1}{x^2}}}=\cfrac{0}{\infty}=0$$
 
     $$f'(x)=\begin{cases}
-        \cfrac{2}{x^3}e^{-\cfrac{1}{x^2}} & , x\not=0 \\
+        \cfrac{2}{x^3}\ e^{-\frac{1}{x^2}} & , x\not=0 \\
         0 & , x=0
     \end{cases}$$
     $$f^{(n)}(x)= \begin{cases}
-        P_n\left(\cfrac{1}{x}\right)\cdot e^{-\cfrac{1}{x^2}} & , x\not=0 \\
+        P_n\left(\cfrac{1}{x}\right)\cdot e^{-\frac{1}{x^2}} & , x\not=0 \\
         0 &, x=0
     \end{cases}$$
 
-    Заметим, что многочлен Тейлора этой функции при $x\to0$ не становится точнее при увеличении числа слагаемых, т.к. они все $=0$.
+    Заметим, что многочлен Тейлора этой функции при $x\to0$ не становится точнее при увеличении числа слагаемых, т.к. они все $=0$. Таким образом, эта функция по определению неаналитическая.
+    %</неаналитическаяфункция>
 \end{example}
 
 Будем складывать дроби неправильно: $$\cfrac{a}{b}+\cfrac{c}{d}=\cfrac{a+c}{b+d}$$

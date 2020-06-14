@@ -28,7 +28,7 @@
 \begin{consequence}
     $f:\langle a,b\rangle\to\R$, тогда:
 
-    $f=\const\Leftrightarrow (f\in C(\langle a,b\rangle)$ --- дифф. на $\langle a,b\rangle, f'\equiv0)$
+    $f=\const\Leftrightarrow (f\in C(\langle a,b\rangle)$ --- дифф. на $(a,b), f'\equiv0)$
 \end{consequence}
 \begin{consequence}
     $f\in C\langle a,b\rangle$, дифф. на $(a,b)$. Тогда:
@@ -70,7 +70,7 @@
     $$\exists U(x_0) \ \ \forall x\in U(x_0)\cap E\ \ f(x)\leq f(x_0)$$
 \end{definition}
 
-Аналогично определеяется минимум.
+Аналогично определяется минимум.
 
 \begin{definition}
     \textbf{Экстремум} --- точка минимума либо максимума.
@@ -87,12 +87,12 @@
         
         $f'(x_0)=f''(x_0)=\ldots=f^{(n-1)}(x_0)=0$
 
-        Если $f^{(n)}(x_0)>0$, то $\begin{cases}
+        Если $f^{(n)}(x_0)<0$, то $\begin{cases}
             n \text{ --- чет.}: & x_0 \text{ --- локальный максимум} \\
             n \text{ --- нечет.}: & x_0 \text{ --- не экстремум}
         \end{cases}$
 
-        Если $f^{(n)}(x_0)<0$, то $\begin{cases}
+        Если $f^{(n)}(x_0)>0$, то $\begin{cases}
             n \text{ --- чет.}: & x_0 \text{ --- локальный минимум} \\
             n \text{ --- нечет.}: & x_0 \text{ --- не экстремум}
         \end{cases}$
@@ -258,7 +258,7 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 \begin{proof}
     От противного.
 
-    $$\exists \varepsilon>0 \ \ \forall \delta > 0 \ \ \exists x_\delta, \overline x_\delta : \rho(x_\delta, \overline x_\delta) < \delta \quad \rho(f(x_\delta), f(\overline x_\delta))\geq\varepsilon$$
+    $$\exists \varepsilon>0 \ \ \forall \delta > 0 \ \ \exists x_n, \overline x_n : \rho(x_n, \overline x_n) < \delta \quad \rho(f(x_n), f(\overline x_n))\geq\varepsilon$$
     $$\delta:=\frac{1}{n} \ \ \exists x_n, \overline x_n : \rho(x_n, \overline x_n) < \delta \quad \rho(f(x_n), f(\overline x_n))\geq\varepsilon$$
 
     Выберем $x_{n_k}\to\tilde x, \overline x_{n_k}\to\dbltilde{x}$

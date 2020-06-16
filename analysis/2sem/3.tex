@@ -37,10 +37,27 @@
 Будем складывать дроби неправильно: $$\cfrac{a}{b}+\cfrac{c}{d}=\cfrac{a+c}{b+d}$$
 Это работает в неравенствах, если $a,b,c,d>0$
 
-\begin{theorem}
-    Штольца.
+\textcolor{red}{Это неверно, т.к.} $\frac{1}{2}+\frac{2}{3}\not=\frac{3}{5}$ \textcolor{red}{, но верно следующее:}
 
+\begin{lemma}
+    %<*леммадляштольца>
+    ``Неправильное'' сложение дробей:
+
+    $a,b,c,d>0$
+    $$\frac{a}{b} < \frac{c}{d} \Rightarrow \frac{a}{b} < \frac{a+c}{b+d} < \frac{c}{d}$$
+    %</леммадляштольца>
+\end{lemma}
+%<*леммадляштольцаproof>
+\begin{proof}
+    $$\frac{a+c}{b+d} - \frac{a}{b}=\frac{ba-ba+bc-ad}{b(b+d)}=\frac{d}{b+d}\left(\frac{c}{d}-\frac{a}{b}\right)>0$$
+    $$\frac{c}{d} - \frac{a+c}{b+d}=\frac{bc-ad}{d(b+d)}=\frac{b}{b+d}\left(\frac{c}{d}-\frac{a}{b}\right)>0$$
+\end{proof}
+%</леммадляштольцаproof>
+
+\begin{theorem}
     %<*штольца>
+    Теорема Штольца.
+
     Это дискретная версия правила Лопиталя.
 
     $y_n\to0, x_n\to0$ --- строго монот.
@@ -48,11 +65,11 @@
     $$\lim\cfrac{x_n-x_{n-1}}{y_n-y_{n-1}}=a\in\R$$
 
     Тогда $\exists\lim\cfrac{x_n}{y_n}=a$
+    \begin{remark}
+        Аналогичное верно, если $x_n\to+\infty, y_n\to+\infty$
+    \end{remark}
     %</штольца>
 \end{theorem}
-\begin{remark}
-    Аналогичное верно, если $x_n\to+\infty, y_n\to+\infty$
-\end{remark}
 %<*штольцаproof>
 \begin{proof}
     \begin{enumerate}

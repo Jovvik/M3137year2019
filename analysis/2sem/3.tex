@@ -89,7 +89,7 @@
         \item $a<0$ поменяем знак и докажем так же
         \item $a=0$ т.к. знаки $x_n-x_{n-1}$ и $y_n-y_{n-1}$ фикс., $a=+0$ или $a=-0$
         
-        Для $a=+0 \lim\cfrac{y_n-y_{n-1}}{x_n-x_{n-1}}=+\infty$
+        Для $a=+0 \quad \lim\cfrac{y_n-y_{n-1}}{x_n-x_{n-1}}=+\infty$
     \end{enumerate}
 \end{proof}
 %</штольцаproof>
@@ -160,7 +160,7 @@ $$\lim\cfrac{x_n}{z_n}=\lim\cfrac{\cfrac{\alpha}{2}n^{\alpha-1}}{z_n-z_{n-1}}$$
     $x,y\in[a,b] \quad (f(x)-f(y))(g(x)-g(y))\geq 0$
     $$f(x)g(x)-f(y)g(x)-f(x)g(y)+f(y)g(y)\geq 0$$
     Интегрируем по $x$ по $[a,b]$
-    $$I_{fg}-f(y)I_g-g(y)I_f+f(y)g(y)\geq 0$$
+    $$I_{fg}-f(y)I_g-g(y)I_f+\frac{f(y)g(y)}{b - a}\geq 0$$
     Интегрируем по $y$ по $[a,b]$
     $$I_{fg}-I_fI_g-I_gI_f+I_{fg}\geq 0$$
 \end{proof}
@@ -171,7 +171,7 @@ $$\lim\cfrac{x_n}{z_n}=\lim\cfrac{\cfrac{\alpha}{2}n^{\alpha-1}}{z_n-z_{n-1}}$$
     $$H_n:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} fg' dt$$
     $$H_n=\left[f'=-2n\left(\frac{\pi^2}{4}-t^2\right)^{n-1}t \quad g=\sin t\right]=$$
     $$=\frac{1}{n!}\left(\frac{\pi^2}{4}-t^2\right)^n\sin t\Big|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}+\frac{2}{(n-1)!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \left(\frac{\pi^2}{4}-t^2\right)^{n-1}t\sin t$$
-    $$=0+\frac{2}{(n-1)!}\left(\frac{\pi^2}{4}-t^2\right)^{n-1}+\sin t\Big|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}+$$
+    $$=0+\frac{2}{(n-1)!}\left(\frac{\pi^2}{4}-t^2\right)^{n-1}(-\cos t)\Big|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}+$$
     $$+\frac{2}{(n-1)!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left((2n-1)\left(\frac{\pi^2}{4}-t^2\right)^{n-1}-\frac{\pi^2}{2}(n-1)\left(\frac{\pi^2}{4}-t^2\right)^{n-2}\right)\cos t dt=$$
     $$=(4n-2)H_{n-1}-\pi^2H_{n-2}$$
     %</hдляпи>
@@ -188,11 +188,11 @@ $$\lim\cfrac{x_n}{z_n}=\lim\cfrac{\cfrac{\alpha}{2}n^{\alpha-1}}{z_n-z_{n-1}}$$
 
     $$H_n=(4n-2)H_{n-1}-\pi^2 H_{n-2}$$
     
-    $$H_0 = 2, \quad H_1=\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}(\frac{\pi^2}{4}-t^2)\cos t = 2\int\limits_{-\frac{\pi}{2}}^{\pi^2} t\sin t dt = 2t(-\cos t)\Big|_{\ldots}^{\ldots}+2\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos t = 4$$
+    $$H_0 = 2, \quad H_1=\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}(\frac{\pi^2}{4}-t^2)\cos t = 2\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} t\sin t dt = 2t(-\cos t)\Big|_{\ldots}^{\ldots}+2\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos t = 4$$
 
     $$H_n=\ldots H_1+\ldots H_0 = P_n(\pi^2) \text{ --- многочлен с целыми коэффициентами, степень}\leq n$$
-    $$q^{2n}P_n\left(\frac{p^2}{q^2}\right)=\text{ целое число }=q^{2n}H_n=q^{2n}H_n>0 \Rightarrow q^{2n}H_n\geq 1$$
-    $$1\leq\frac{q^{2n}}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt \leq \frac{q^2n 4^n}{n!}\pi\to0$$
+    $$q^{2n}P_n\left(\frac{p^2}{q^2}\right)=\text{ целое число }=q^{2n}H_n>0 \Rightarrow q^{2n}H_n\geq 1$$
+    $$1\leq\frac{q^{2n}}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt \leq \frac{q^{2n} 4^n}{n!}\pi\xrightarrow[n\to +\infty]{}0$$
     Противоречие.
 \end{proof}
 %</иррациональностьпиproof>
@@ -234,11 +234,14 @@ $x_0=a<x_1\ldots<x_n=b$
 $$\int\limits_a^b f := \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} f$$
 
 Утверждение: Верна формула Ньютона-Лейбница
-
+%<*ньютоналейбницадлякусочнонепрерывных>
 $f$ --- кус. непр. на $[a,b]$, $F$ --- почти первообразная
-
-$$\int\limits_{a}^{b} f = F(b)-F(a)=\sum\int\limits_{x_{k-1}}^{x_k} f = \sum F(t)|_{x_{k-1}}^{x_k}=\sum F(x_k)-F(x_{k-1})=F(b)-F(a)$$
-
+%<\ньютоналейбницадлякусочнонепрерывных>
+%<*ньютоналейбницадлякусочнонепрерывныхproof>
+\begin{proof}
+    $$\int\limits_{a}^{b} f = F(b)-F(a)=\sum\int\limits_{x_{k-1}}^{x_k} f = \sum F(t)|_{x_{k-1}}^{x_k}=\sum F(x_k)-F(x_{k-1})=F(b)-F(a)$$
+\end{proof}
+%<\ньютоналейбницадлякусочнонепрерывныхproof>
 \begin{example}
     %<*дискретноенеравенствочебышева>
 
@@ -300,7 +303,7 @@ $Segm\langle a,b\rangle = \{[p, q] : [p,q]\subset\langle a,b\rangle\}$ --- мн�
 
     $f$ --- плотность $\Phi$
 
-    Тогда $\Phi([p,q])=\int\limits_b^a f, \quad [p,q]\subset \langle a,b\rangle$
+    Тогда $\Phi([p,q])=\int\limits_p^q f, \quad\forall [p,q]\in Segm\langle a,b\rangle$
     %</овычисленииаддитивнойфункциипромежуткапоплотности>
 \end{theorem}
 %<*овычисленииаддитивнойфункциипромежуткапоплотностиproof>
@@ -310,9 +313,9 @@ $Segm\langle a,b\rangle = \{[p, q] : [p,q]\subset\langle a,b\rangle\}$ --- мн�
         \Phi([a,x]) &, x>a
     \end{cases} \text{ --- первообразная } f$$
     Это утверждение ещё не доказано, но если мы его докажем, то:
-    $$\Phi([p,q])=\Phi[a,q]-\Phi[a,p]=F(q)-F(p)=\int\limits_p^af$$
+    $$\Phi([p,q])=\Phi[a,q]-\Phi[a,p]=F(q)-F(p)=\int\limits_p^qf$$
     Докажем утверждение:
-    $$\frac{F(x+h)-F(x)}{h}=\frac{\Phi[a,x+h]-\Phi[a,x]}{h}=\frac{\Phi[x,x+h]}{h}=[0\leq\Theta\leq1]=f(x+\Theta h)$$
+    $$\frac{F(x+h)-F(x)}{h}=\frac{\Phi[a,x+h]-\Phi[a,x]}{h}=\frac{\Phi[x,x+h]}{h}=[0\leq\Theta\leq1]=f(x+\Theta h) \xrightarrow[h\to 0]{}f(x)$$
 \end{proof}
 %</овычисленииаддитивнойфункциипромежуткапоплотностиproof>
 

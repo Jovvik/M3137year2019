@@ -285,11 +285,15 @@ $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac
 
     По Гейне $x_k\to a \ \ (x_k\not=a, x_k\in(a,b))$
 
-    Выберем $y_k$ по лемме
+    Выберем $y_k$ по лемме об ускоренной сходимости.
 
     $$\frac{f(x_k)-f(y_k)}{g(x_k)-g(y_k)}=\frac{f'(\xi_k)}{g'(\xi_k)} \text{ --- т. Коши}$$
 
+    $$f(x_k)-f(y_k)=\frac{f'(\xi_k)}{g'(\xi_k)}(g(x_k)-g(y_k))$$
+
     $$\frac{f(x_k)}{g(x_k)}-\frac{f(y_k)}{g(x_k)}=\frac{f'(\xi_k)}{g'(\xi_k)}\left(1-\frac{g(y_k)}{g(x_k)}\right)$$
+
+    $$\frac{f(y_k)}{g(x_k)}\to0 \quad \frac{g(y_k)}{g(x_k)}\to0$$
 
     $x_k\to a \quad y_k\to a \quad \xi_k \to a$
 \end{proof}

@@ -157,7 +157,8 @@ $$\lim\cfrac{x_n}{z_n}=\lim\cfrac{\cfrac{\alpha}{2}n^{\alpha-1}}{z_n-z_{n-1}}$$
 \end{example}
 %<*неравенствочебышеваproof>
 \begin{proof}
-    $x,y\in[a,b] \quad (f(x)-f(y))(g(x)-g(y))\geq 0$
+    $x,y\in[a,b] : x\ge y \Rightarrow f(x)\ge f(y), g(x)\ge g(y)$
+    $$(f(x)-f(y))(g(x)-g(y))\geq 0$$
     $$f(x)g(x)-f(y)g(x)-f(x)g(y)+f(y)g(y)\geq 0$$
     Интегрируем по $x$ по $[a,b]$
     $$I_{fg}-f(y)I_g-g(y)I_f+\frac{f(y)g(y)}{b - a}\geq 0$$
@@ -248,7 +249,7 @@ $f$ --- кус. непр. на $[a,b]$, $F$ --- почти первообраз�
     Дискретное неравенство Чебышева
 
     $a_1\leq a_2\leq \ldots \leq a_n, b_1\leq b_2\leq\ldots\leq b_n$
-    $$\frac{1}{n}\sum\limits_{i=1}^n a_i\cdot \frac{1}{n}\sum b_i\leq \frac{1}{n}\sum a_ib_i$$
+    $$\frac{1}{n}\left(\sum\limits_{i=1}^n a_i\right)\cdot \frac{1}{n}\left(\sum b_i\right)\leq \frac{1}{n}\sum a_ib_i$$
     %</дискретноенеравенствочебышева>
 \end{example}
 %<*дискретноенеравенствочебышеваproof>

@@ -160,19 +160,26 @@ $$\lim\cfrac{x_n}{z_n}=\lim\cfrac{\cfrac{\alpha}{2}n^{\alpha-1}}{z_n-z_{n-1}}$$
     $x,y\in[a,b] : x\ge y \Rightarrow f(x)\ge f(y), g(x)\ge g(y)$
     $$(f(x)-f(y))(g(x)-g(y))\geq 0$$
     $$f(x)g(x)-f(y)g(x)-f(x)g(y)+f(y)g(y)\geq 0$$
-    Интегрируем по $x$ по $[a,b]$
+    Интегрируем по $x$ по $[a,b]$ и делим на $b-a$:
     $$I_{fg}-f(y)I_g-g(y)I_f+\frac{f(y)g(y)}{b - a}\geq 0$$
-    Интегрируем по $y$ по $[a,b]$
+    Интегрируем по $y$ по $[a,b]$ и делим на $b-a$:
     $$I_{fg}-I_fI_g-I_gI_f+I_{fg}\geq 0$$
 \end{proof}
 %</неравенствочебышеваproof>
 
 \begin{example}
     %<*hдляпи>
-    $$H_n:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} fg' dt$$
-    $$H_n=\left[f'=-2n\left(\frac{\pi^2}{4}-t^2\right)^{n-1}t \quad g=\sin t\right]=$$
-    $$=\frac{1}{n!}\left(\frac{\pi^2}{4}-t^2\right)^n\sin t\Big|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}+\frac{2}{(n-1)!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \left(\frac{\pi^2}{4}-t^2\right)^{n-1}t\sin t$$
-    $$=0+\frac{2}{(n-1)!}\left(\frac{\pi^2}{4}-t^2\right)^{n-1}(-\cos t)\Big|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}+$$
+    $$H_n:=\frac{1}{n!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left(\frac{\pi^2}{4}-t^2\right)^n\cos t dt = \left[\begin{array}{ll}
+        f = \left(\frac{\pi^2}{4}-t^2\right)^n & g = \sin t \\
+        df =-2n\left(\frac{\pi^2}{4}-t^2\right)^{n-1}tdt & dg = \cos t dt
+    \end{array}\right]=$$
+    $$=\frac{1}{n!}\left(\frac{\pi^2}{4}-t^2\right)^n\sin t\Bigg|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}+\frac{2}{(n-1)!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \left(\frac{\pi^2}{4}-t^2\right)^{n-1}t\sin t=$$
+    $$=\left[\begin{array}{ll}
+        f = \left(\frac{\pi^2}{4}-t^2\right)^{n-1}t & g = -\cos t \\
+        df = \left(-2(n-1)\left(\frac{\pi^2}{4}-t^2\right)^{n-2}t^2 + \left(\frac{\pi^2}{4}-t^2\right)^{n-1} \right)dt & dg = \sin t dt
+    \end{array}\right]=$$
+    \textcolor{red}{Непонятно, откуда появился $\pi^2$}
+    $$=0+\frac{2}{(n-1)!}\left(\frac{\pi^2}{4}-t^2\right)^{n-1}t(-\cos t)\Bigg|_{-\frac{\pi}{2}}^{\frac{\pi}{2}}+$$
     $$+\frac{2}{(n-1)!}\int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\left((2n-1)\left(\frac{\pi^2}{4}-t^2\right)^{n-1}-\frac{\pi^2}{2}(n-1)\left(\frac{\pi^2}{4}-t^2\right)^{n-2}\right)\cos t dt=$$
     $$=(4n-2)H_{n-1}-\pi^2H_{n-2}$$
     %</hдляпи>

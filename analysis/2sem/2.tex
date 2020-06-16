@@ -59,7 +59,7 @@
     \textbf{Ослабленная площадь} $\sigma : \mathcal E \to \R_+$:
     \begin{enumerate}
         \item Монотонна
-        \item Нормирована
+        \item Нормирована: $E\subset D \Rightarrow \sigma E \le \sigma D$
         \item Ослабленная аддитивность: $E\in \mathcal E \quad E=E_1\cup E_2 \quad E_1\cap E_2$ --- вертикальный отрезок, $E_1$ и $E_2$ лежат каждый в своей полуплоскости относительно этого отрезка $\Rightarrow \sigma E=\sigma E_1 + \sigma E_2$
     \end{enumerate}
     \textcolor{red}{Почему отрезок вертикальный? В конспекте СПбГУ допускается горизонтальный.}
@@ -223,7 +223,7 @@ $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac
     
         Пусть $\lim\limits_{x\to a} f(x) = 0 \quad \lim\limits_{x\to a} g(x) = 0$
         
-        Тогда $$\forall x_k\to a \quad (x_k\not=a, x_k\in D) \quad \exists y_k\to a(y_k\not=a, y_k\in D)$$
+        Тогда $$\forall x_k\to a \quad (x_k\not=a, x_k\in D) \quad \exists y_k\to a \quad (y_k\not=a, y_k\in D)$$
         такое, что $$\lim\limits_{k\to+\infty}\frac{f(y_k)}{g(x_k)}=0 \quad \lim\limits_{k\to+\infty} \frac{g(y_k)}{g(x_k)}=0$$
     
         Таким образом, $g(y_k) \to 0$ быстрее, чем $g(x_k)\to 0$

@@ -48,7 +48,7 @@
 
     Мы не можем написать ``$\Delta\to x$'' без кавычек, т.к. $\Delta$ --- не число, но ``$\Delta\to x$''$\Leftrightarrow h\to0$
 
-    Таким образом, $$\frac{F(x+h)-F(x)}{h}-f(x)\xrightarrow[h\to0]{}f(x)$$
+    Таким образом, $$\frac{F(x+h)-F(x)}{h}-f(x)\xrightarrow[h\to0]{}0$$
 \end{proof}
 %</обобщеннаятеоремаоплотностиproof>
 
@@ -234,7 +234,7 @@ $$\gamma'(t)=\lim\limits_{\Delta t\to0}\frac{\gamma(t+\Delta t)-\gamma(t)}{\Delt
     $$||\vec Mq - \vec Mp||=(q-p)||\vec M||=(q-p)M_\Delta$$
 
     $$\rho(\gamma(t_0), \gamma(t_1))=\sqrt{\sum\limits_{i=1}^m (\gamma_i(t_0)-\gamma_i(t_1))^2}\stackrel{\text{т. Лагранжа}}{=}\sqrt{\sum\limits_{i=1}^m \gamma_i'(\overline t_i)^2 (t_0-t_1)^2}\leq ||\vec M||\cdot|t_0-t_1|=$$
-    $$=\rho(\tilde\gamma(t_0), \tilde\gamma(t_1))|t_0-t_1|$$
+    $$=\rho(\tilde\gamma(t_0), \tilde\gamma(t_1))=\rho(T(\gamma(t_0)), T(\gamma(t_1)))$$
 \end{proof}
 %</длинапутивrmproof>
 

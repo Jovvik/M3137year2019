@@ -106,9 +106,9 @@
         (x-x_i)^2, & x\in [\xi_i, x_i]
     \end{cases}$$
     Итого:
-    $$\int_a^b f(\xi_i)(x_i-x_{i-1})=\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})+\frac{1}{2}\int_a^n f''(x)\varphi(x)dx$$
+    $$\int_a^b f(x)=\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})+\frac{1}{2}\int_a^b f''(x)\varphi(x)dx$$
     $$\left| \int - \sum \right| \leq \frac{1}{2}\int_a^b |f''(x)|\varphi(x)dx$$
-    $$\max_{x\in[a,b]}\varphi(x)\stackrel{\text{достигается на отрезке длины }\delta}{=}\frac{\delta}{4}$$
+    $$\max_{x\in[a,b]}\varphi(x)\stackrel{\text{достигается на отрезке длины }\delta}{=}\frac{\delta^2}{4}$$
     $$\frac{1}{2}\int_a^b |f''(x)|\varphi(x)dx\leq\frac{\delta^2}{8}\int_a^b |f''|$$
 \end{proof}
 %</обинтегральныхсуммахдляцентральныхпрямоугольниковproof>
@@ -235,7 +235,7 @@ $$\sin^{2k+1} x \leq \sin^{2k} x \leq \sin^{2k-1} x$$
 Проинтегрируем по $\left[0, \frac{\pi}{2}\right]$:
 $$\frac{(2k)!!}{(2k+1)!!} \leq \frac{(2k-1)!!}{(2k)!!}\frac{\pi}{2} \leq \frac{(2k-2)!!}{(2k-1)!!}$$
 $$\left(\frac{(2k)!!}{(2k-1)!!}\right)^2 \frac{1}{2k+1} \leq \frac{\pi}{2} \leq \left(\frac{(2k)!!}{(2k-1)!!}\right)^2 \frac{1}{2k}$$
-$$\text{Правая часть $-$ левая часть} = \left(\frac{(2k)!!}{(2k-1)!!}\right)\left(\frac{1}{2k}-\frac{1}{2k+1}\right)=\left(\frac{(2k)!!}{(2k-1)!!}\right)\frac{1}{2k}\frac{1}{2k+1}\leq \frac{\pi}{2}\frac{1}{2k}\xrightarrow{k\to+\infty}0$$
+$$\text{Правая часть $-$ левая часть} = \left(\frac{(2k)!!}{(2k-1)!!}\right)^2\left(\frac{1}{2k}-\frac{1}{2k+1}\right)=\left(\frac{(2k)!!}{(2k-1)!!}\right)^2\frac{1}{2k}\frac{1}{2k+1}\leq \frac{\pi}{2}\frac{1}{2k}\xrightarrow{k\to+\infty}0$$
 Таким образом, левая и правая части стремятся друг другу и зажимают $\pi/2$.
 %</формулаваллисаproof>
 %<*формулаваллиса>
@@ -246,7 +246,7 @@ $$\lim_{k\to+\infty}\frac{(2k)!!}{(2k-1)!!}\frac{1}{\sqrt k}=\sqrt \pi$$
 Вернемся к нахождению $C$.
 %<*формуластирлингаproof2>
 $$\sqrt \pi =  \lim_{k\to+\infty}\frac{2\cdot4\cdots(2k)}{1\cdot3\cdots(2k-1)}\frac{1}{\sqrt k}=$$
-Домножим дробь на знаменатель:
+Домножим дробь на числитель:
 $$=\lim_{k\to+\infty} \frac{1}{\sqrt k}\frac{2^2\cdot4^2\cdots(2k)^2}{(2k)!}=$$
 Вынесем $2$ из каждого множителя в числителе:
 $$=\lim_{k\to+\infty} \frac{1}{\sqrt k}\frac{(2^k k!)^2}{(2k)!}=$$

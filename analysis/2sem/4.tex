@@ -19,7 +19,11 @@
 
 $x(t), y(t)$ --- кривая в $\R^2$
 
-$$S=\frac{1}{2}\int_\alpha^\beta r^2(\varphi) d\varphi = \frac{1}{2}\int_{t_\alpha}^{t_\beta}(x(t)^2+y(t)^2)\frac{1}{1+\left(\frac{y}{x}\right)^2}\cdot\frac{y'(t)x(t)-y(t)x'(t)}{x^2(t)}dt=$$
+$$S=\frac{1}{2}\int_\alpha^\beta r^2(\varphi) d\varphi = \frac{1}{2}\int_{t_\alpha}^{t_\beta} r^2(\varphi(t)) d\varphi(t) = \frac{1}{2}\int_{t_\alpha}^{t_\beta} r^2(t) \varphi'(t) dt =$$
+$$= \frac{1}{2}\int_{t_\alpha}^{t_\beta} \sqrt{x^2(t) + y^2(t)}^2 \left(\arctg\frac{y(t)}{x(t)}\right)'dt =$$
+$$= \frac{1}{2}\int_{t_\alpha}^{t_\beta} \left(x^2(t) + y^2(t)\right) \frac{1}{1+\left(\frac{y(t)}{x(t)}\right)^2}\left(\frac{y(t)}{x(t)}\right)'dt =$$
+$$=\frac{1}{2}\int_{t_\alpha}^{t_\beta} \left(x^2(t) + y^2(t)\right) \frac{1}{1+\left(\frac{y(t)}{x(t)}\right)^2}\frac{y'(t)x(t)-y(t)x'(t)}{x^2(t)}dt=$$
+$$=\frac{1}{2}\int_{t_\alpha}^{t_\beta} \left(x^2(t) + y^2(t)\right) \frac{x^2(t)}{x^2(t)+y^2(t)}\frac{y'(t)x(t)-y(t)x'(t)}{x^2(t)}dt=$$
 $$=\frac{1}{2}\int\limits_{t_\alpha}^{t_\beta}y'(t)x(t)-y(t)x'(t)dt$$
 %</площадькриволинейногосектора2>
 $x:=\sin t, y:=\cos t$

@@ -323,8 +323,8 @@ $$\Gamma\left(\frac{1}{2}\right)=\int_0^{+\infty} \frac{1}{\sqrt x} e^{-x} dx \s
     Казалось бы, переход от интеграла $\int_0^1$ к $\int_0^{+\infty}$ очень грубый, но это не так.
     $$\int_0^{+\infty} e^{-nx^2}\stackrel{y=\sqrt n x}{=}\frac{1}{\sqrt n} I$$
     $$\int_0^1 (1-x^2)^n dx\stackrel{x=\cos y}{=} \int_0^{\frac{\pi}{2}} \sin^{2n+1}ydy$$
-    $$\int_0^{+\infty} \frac{1}{(1+x^2)^{n}}\stackrel{x=\tg y}{=}\int_0^{\frac{\pi}{2}} (\cos y)^{2n-1} dy = \int_0^{\frac{\pi}{2}} (\sin t)^{2n-2} dt$$
-    $$\sqrt n \int_0^{\frac{\pi}{2}} \sin^{2n+1}ydy \leq I \leq \int_0^{\frac{\pi}{2}} (\sin t)^{2n-2} dt$$
+    $$\int_0^{+\infty} \frac{1}{(1+x^2)^{n}}\stackrel{x=\tg y}{=}\int_0^{\frac{\pi}{2}} (\cos y)^{2n-2} dy = \int_0^{\frac{\pi}{2}} (\sin t)^{2n-2} dt$$
+    $$\sqrt n \int_0^{\frac{\pi}{2}} \sin^{2n+1}ydy \leq I \leq \sqrt{n} \int_0^{\frac{\pi}{2}} (\sin t)^{2n-2} dt$$
 
     $$\int_0^{\frac{\pi}{2}} \sin^n x dx = \frac{(n-1)!!}{n!!}\begin{cases}
         \frac{\pi}{2} , & n \text{ чет.} \\
@@ -333,7 +333,7 @@ $$\Gamma\left(\frac{1}{2}\right)=\int_0^{+\infty} \frac{1}{\sqrt x} e^{-x} dx \s
     $$\sqrt n \frac{(2n)!!}{(2n+1)!!} \leq I \leq \frac{(2n-3)!!}{(2n-2)!!}\frac{\pi}{2}\sqrt n$$
     По формуле Валлиса $\frac{(2k)!!}{(2k-1)!!}\cdot\frac{1}{\sqrt k}\to\sqrt \pi$:
     $$\sqrt n \frac{(2n)!!}{(2n+1)!!}=\left(\frac{1}{\sqrt n}\frac{(2n)!!}{(2n-1)!!}\right)\frac{n}{2n+1}\to\frac{\sqrt\pi}{2}$$
-    $$\frac{(2n-3)!!}{(2n-2)!!}\frac{\pi}{2}\sqrt n = \frac{\frac{\pi}{2}\sqrt n\frac{1}{\sqrt {n-1}}}{\frac{(2n-2)!!}{(2n-3)!!}\frac{1}{\sqrt {n-1}}}\to \frac{\sqrt n}{2}$$
+    $$\frac{(2n-3)!!}{(2n-2)!!}\frac{\pi}{2}\sqrt n = \frac{\frac{\pi}{2}\sqrt n\frac{1}{\sqrt {n-1}}}{\frac{(2n-2)!!}{(2n-3)!!}\frac{1}{\sqrt {n-1}}}\to \frac{\sqrt \pi}{2}$$
 \end{proof}
 %</интегралэйлерапуассонаproof>
 

@@ -99,14 +99,31 @@ $$\Phi(\Delta)=V(\text{ПГ}(f,\Delta)_x) \textit{(или $y$)}$$
 \begin{proof}
     \begin{enumerate}
         \item Это --- упражнение, оно не использует ничего умного.
+        
+        На лекции было сказано, что это доказывается через плотность аналогично площади криволинейного сектора.
+        
         \item Мы знаем, что объем цилиндра $=S(\text{основание})\cdot h$.
         
-        Для оценки $\Phi(\Delta)$ найдем прямоугольник, который является минимальным по площади сечения и максимальный прямоугольники: $\text{П}_{min}$ и $\text{П}_{max}$.
+        Для оценки $\Phi(\Delta)$ найдем прямоугольник, который является минимальным по площади сечения и максимальный прямоугольники: $\Pi_{min}$ и $\Pi_{max}$.
 
-        $$\pi m_\Delta(q-p)=\pi\min f\min 2x \cdot (q-p)\leq V((\text{П}_{min})_y)\leq \Phi(\Delta)\leq$$
-        $$\leq V((\text{П}_{max})_y)\leq \pi\max\limits_{x\in[p,q]}f \max\limits_{x\in[p,q]} 2x\cdot (q-p)=\pi M_\Delta(q-p)$$
+        \begin{figure}[h]
+            \includegraphics[scale=2.5]{images/rotation.pdf}
+            \centering
+        \end{figure}
 
-        Можем заметить, что $\Phi$ подходит под все три пункта теоремы об обобщенной плотности.
+        Покажем, что $2\pi x f(x)$ подходит под обобщенную теорему о плотности для $\Phi$:
+        $$V((\Pi_{\min})_y)\leq \Phi(\Delta)\leq V((\Pi_{\max})_y)$$
+        $$V((\Pi_{\max})_y) = S_\text{кольца} \max_{x\in[p, q]} f = \pi (q - p) (q + p) \max_{x\in[p, q]} f \le \pi (q-p) \overbrace{\max_{x\in[p, q]} 2x}^{=2q\ge q+p} \max_{x\in[p, q]} f$$
+        $$V((\Pi_{\min})_y) \le \pi \min 2x (q-p) \min f$$
+        $$M_\Delta := \max_{x\in[p, q]} 2\pi xf(x) \quad m_\Delta := \min_{x\in[p, q]} 2\pi xf(x)$$
+        \textcolor{red}{На лекции было дано $m_\Delta$ и $M_\Delta$ без $\pi$.}
+
+        Все три условия теоремы очевидно выполнены:
+        \begin{enumerate}
+            \item $m_\Delta (q-p) \le \Phi(\Delta) \le M_\Delta (q-p)$
+            \item $m_\Delta \le 2\pi x f(x) \le M_\Delta \quad \forall x\in \Delta$
+            \item $\pi(\max f \max 2x - \min f \min 2x) \xrightarrow[\text{``}\Delta\to x\text{''}]{}0$
+        \end{enumerate}
     \end{enumerate}
 \end{proof}
 %</объемвращенияproof>

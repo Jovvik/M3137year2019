@@ -238,6 +238,26 @@ $$\gamma'(t)=\lim\limits_{\Delta t\to0}\frac{\gamma(t+\Delta t)-\gamma(t)}{\Delt
 \end{proof}
 %</длинапутивrmproof>
 
+%<*длинапутивrmaltproof>
+\begin{proof}
+    \textit{(альтернативное)}.
+    
+    Покажем, что $\int ||\gamma'||$ удовлетворяет всем требованиям длины гладкого пути:
+    \begin{enumerate}
+        \item $\forall \gamma \ \ l(\gamma)\ge 0$ --- очевидно, т.к. $||\gamma'||\ge 0$
+        \item Линейность: очевидно по линейности определенного интеграла.
+        \item Сжатие: $\exists T : C_\gamma \to C_{\tilde \gamma}$
+        $$\gamma'(t) = \lim_{h\to0} \frac{\gamma(t + h) - \gamma(t)}{h}$$
+        $$||\gamma'(t)||=\lim_{h\to0} \frac{||\gamma(t + h), \gamma(t)||}{|h|}$$
+        $$||\gamma'(t)||=\lim_{h\to0} \frac{\rho(\gamma(t + h), \gamma(t))}{|h|} \quad ||\tilde \gamma'(t)||=\lim_{h\to0} \frac{\rho(\tilde \gamma(t + h), \tilde \gamma(t))}{|h|}$$
+        $$\rho(\gamma(t + h), \gamma(t)) \ge \rho(\tilde \gamma(t + h), \tilde \gamma(t)) \Rightarrow ||\gamma'(t)|| \ge ||\tilde \gamma'(t)|| \Rightarrow l(\gamma)\ge l(\tilde \gamma)$$
+        \item Нормировка. $\sphericalangle \gamma : \gamma(t) = \vec u + \vec v t$
+        $$l(\gamma) = \int_a^b ||\vec v|| dt = ||\vec v|| (b-a)$$
+        $$\rho(\gamma(a), \gamma(b)) = ||\vec u + \vec v a - \vec u - \vec v b|| = ||\vec v(a-b)|| = \sqrt{\sum_{i=1}^m v_i^2 (b-a)^2}=(b-a)||\vec v||$$
+    \end{enumerate}
+\end{proof}
+%</длинапутивrmaltproof>
+
 \begin{example}
     %<*длинаграфика>
     Длина графика $y = f(x), f\in C^1$ на отрезке $[a, b]$

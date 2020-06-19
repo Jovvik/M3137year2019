@@ -153,15 +153,15 @@
 %<*интегралдирихлеproof>
 \begin{proof}
     $$\cos x + \cos 2x + \ldots + \cos nx = \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin \frac{x}{2}}-\frac{1}{2}$$
-    $$2\sin \frac{x}{2}\cos x + 2\sin \frac{x}{2}\cos 2x + \ldots + 2\sin \frac{x}{2}\cos nx = \sin\left(n+\frac{1}{2}\right)x -\frac{1}{2}$$
-    $$\sin\frac{3}{2}x-\sin\frac{1}{2}x+\ldots+\sin\left(n+\frac{1}{2}\right)x - \sin\left(n-\frac{1}{2}\right)x = \sin\left(n+\frac{1}{2}\right)x -\frac{1}{2}$$
+    $$2\sin \frac{x}{2}\cos x + 2\sin \frac{x}{2}\cos 2x + \ldots + 2\sin \frac{x}{2}\cos nx = \sin\left(n+\frac{1}{2}\right)x -\sin\frac{x}{2}$$
+    $$\sin\frac{3}{2}x-\sin\frac{1}{2}x+\ldots+\sin\left(n+\frac{1}{2}\right)x - \sin\left(n-\frac{1}{2}\right)x = \sin\left(n+\frac{1}{2}\right)x -\sin\frac{x}{2}$$
     $$\int_0^\pi \cos kx = \frac{1}{k}\sin kx\Big|_0^\pi=0$$
     Проинтегрируем исходное выражение по $[0, \pi]$:
     $$0=\int_0^\pi\ldots=\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}dx-\frac{\pi}{2}$$
     $$\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}dx=\frac{\pi}{2}$$
-    $$\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{\sin x}dx = \left[\begin{array}{ll}
+    $$\int_0^\pi \frac{\sin\left(n+\frac{1}{2}\right)x}{x}dx = \left[\begin{array}{ll}
         y = \left(n+\frac{1}{2}\right)x &\\
-        x = \frac{1}{n+\frac{1}{2}} & dx = \frac{1}{n+\frac{1}{2}}dy
+        x = \frac{1}{n+\frac{1}{2}}y & dx = \frac{1}{n+\frac{1}{2}}dy
     \end{array}\right] = $$
     $$ = \int_0^{\left(n+\frac{1}{2}\right)\pi} \frac{\sin y}{\frac{1}{n+\frac{1}{2}}y}\frac{1}{n+\frac{1}{2}}dy = \int_0^{\left(n+\frac{1}{2}\right)\pi} \frac{\sin y}{y}dy$$
     Итого:

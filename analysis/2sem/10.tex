@@ -71,11 +71,13 @@ $$f\left(\int_a^b \lambda(t)\varphi(t)dt \right) \leq \int_a^b \lambda(t)f(\varp
 %</интегральноенеравенствойенсенаproof>
 
 \begin{example}
+	%<*интегральноенеравенствокоши>
+	Неравенство Коши для интегралов:
     $$f>0, f\in C[a,b] \quad \exp\left(\frac{1}{b-a} \int_a^b \ln f(x)dx \right) \leq \frac{1}{b-a}\int_a^b f(x)dx$$
-    % Правая часть --- среднее арифметическое $f$ на $[a,b]$ по интегральным суммам.
+    Правая часть --- среднее арифметическое $f$ на $[a,b]$ по интегральным суммам.
 
-    % Левая часть:
-    % $$\exp\left(\frac{1}{b-a} \int_a^b \ln f(x)dx \right) = \exp\left(\sum \frac{1}{n} \ln f(x_i) \right)=\prod_{i=1}^n \exp\left(\frac{\ln(f(x_i))}{n}\right)$$
+    Левая часть --- среднее геометрическое.
+    $$\exp\left(\frac{1}{b-a} \int_a^b \ln f(x)dx \right) = \exp\left(\sum \frac{1}{n} \ln f(x_i) \right)=\prod_{i=1}^n \exp\left(\frac{\ln(f(x_i))}{n}\right)=\sqrt[n]{f(x_i)\cdots f(x_n)}$$
 
     Возьмём логарифм от искомого неравенства:
     $$\frac{1}{b-a}\int_a^b \ln f(x)dx \leq \ln\left(\frac{1}{b-a}\int_a^b f\right)$$
@@ -84,8 +86,10 @@ $$f\left(\int_a^b \lambda(t)\varphi(t)dt \right) \leq \int_a^b \lambda(t)f(\varp
     \begin{itemize}
         \item $f\leftrightarrow \ln$
         \item $\lambda(t)\leftrightarrow\frac{1}{b-a}$
-        \item $\varphi\leftrightarrow \textcolor{red}{???}$
+        \item $\varphi\leftrightarrow f$
     \end{itemize}
+    % cлева из йенсена, справа из текущего
+    %</интегральноенеравенствокоши>
 \end{example}
 
 \subsection{Неравенство Гёльдера}

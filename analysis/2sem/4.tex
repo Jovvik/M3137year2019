@@ -2,22 +2,25 @@
 
 \begin{document}
 
-Примеры к прошлой теореме:
-\begin{enumerate}
-    \item $f$ --- непр., $\Phi ([p,q]) := \sigma (\text{ПГ}(f[p,q]))=\int\limits_p^q f dx$
-    
-    Тогда выполняется определение плотности аддитивной плотности промежутка.
+%<*площадькриволинейногосектора1>
+$\Phi ([\alpha, \beta]) := S_{\text{сектор}(\alpha,\beta)} \quad g(\varphi):=r^2(\varphi)/2$
 
-    \item %<*площадькриволинейногосектора1>
-    $$\Phi [\alpha, \beta] = S_{\text{сектор}(\alpha,\beta)}=\frac{1}{2} \int\limits_{\alpha}^\beta r^2(\varphi)d\varphi$$
-    %</площадькриволинейногосектора1>
-\end{enumerate}
+$\forall\Delta\in Segm \ \ |\Delta|\inf_\Delta g \le \Phi(\Delta) \le |\Delta|\sup_\Delta g$ очевидно выполняется, т.к. $|\Delta|\inf_\Delta g$ --- площадь синего сектора, а $|\Delta|\sup_\Delta g$ --- площадь зеленого:
+
+\begin{wrapfigure}[10]{r}{0.4\textwidth}\centering
+    \includegraphics[scale=2.5]{images/sector.pdf}
+    % \caption{$|\Delta|\inf\Delta g$ и $|\Delta|\sup g$}
+\end{wrapfigure}
+
+По теореме о вычислении аддитивной функции отрезка по плотности:
+$$\Phi ([\alpha, \beta]) = \int\limits_{\alpha}^\beta g(\varphi)d\varphi = \int r^2(\varphi)d\varphi$$
+%</площадькриволинейногосектора1>
 
 \begin{example}
 
 %<*площадькриволинейногосектора2>
 
-$x(t), y(t)$ --- кривая в $\R^2$
+$\sphericalangle x(t), y(t)$ --- кривая в $\R^2$
 
 $$S=\frac{1}{2}\int_\alpha^\beta r^2(\varphi) d\varphi = \frac{1}{2}\int_{t_\alpha}^{t_\beta} r^2(\varphi(t)) d\varphi(t) = \frac{1}{2}\int_{t_\alpha}^{t_\beta} r^2(t) \varphi'(t) dt =$$
 $$= \frac{1}{2}\int_{t_\alpha}^{t_\beta} \sqrt{x^2(t) + y^2(t)}^2 \left(\arctg\frac{y(t)}{x(t)}\right)'dt =$$

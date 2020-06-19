@@ -77,11 +77,8 @@
 
 % magical thing that fixes paragraphs
 \makeatletter
-\def\CatchFBT@sanitize{%
-   \@sanitize
-   \@makeother\{%
-   \@makeother\}%
-}
+\patchcmd{\CatchFBT@Fin@l}{\endlinechar\m@ne}{}
+  {}{\typeout{Unsuccessful patch!}}
 \makeatother
 
 \newcommand{\get}[2]{

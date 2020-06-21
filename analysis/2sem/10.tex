@@ -97,25 +97,30 @@ $$f\left(\int_a^b \lambda(t)\varphi(t)dt \right) \leq \int_a^b \lambda(t)f(\varp
 
 %<*неравенствогельдера>
 $a_1\ldots a_n, b_1\ldots b_n > 0, p>1, q>1 \ \ \frac{1}{p}+\frac{1}{q}=1$. Тогда
-$$\sum_{i=1}^n a_ib_i \leq \left(\sum a_i^p\right)^{\frac{1}{p}}\left(\sum b_i^q\right)\frac{1}{q}$$
+$$\sum_{i=1}^n a_ib_i \leq \left(\sum a_i^p\right)^{\frac{1}{p}}\left(\sum b_i^q\right)^\frac{1}{q}$$
 
 Частный случай при $p=q=2$ --- неравенство Коши-Буняковского.
 %</неравенствогельдера>
 
 %<*неравенствогельдераproof>
 \begin{proof}
-    $f(x)=x^p, (p>1)$ --- строго выпуклая $\Rightarrow f''=p(p-1)x^{p-2}>0$
+    $f(x)=x^p, (p>1)$ --- строго выпуклая, т.к. $f''=p(p-1)x^{p-2}>0$
     
     По Йенсену $\left(\sum \alpha_i x_i\right)^p\leq \sum \alpha_i x_i^p$
 
-    $$\text{Левая часть}^{\frac{1}{p}}=\sum\frac{b_i^q}{\sum b_i^q} a_ib_i^{\frac{-1}{p-1}} \sum b^q=\sum a_ib_i$$
-    $$\text{Правая часть}=\sum\frac{b_i^q}{\sum b_i^q} a_i^pb_i^{-q}\left(\sum b_j^q\right)^p=\left(\sum a_i^p\right)\left(\sum b_j^q\right)^\frac{p}{q}$$
+    $$\alpha_i := \frac{b_i^q}{\sum b_j^q} \quad x_i := a_ib_i^{\frac{-1}{p-1}}\left(\sum b_j^q\right)$$
+
+    $$\text{Левая часть}^{\frac{1}{p}}=\sum_{i=1}^n\left(\frac{b_i^q}{\sum b_j^q} a_ib_i^{\frac{-1}{p-1}} \sum b_j^q\right)=\sum a_ib_i^{q-\frac{1}{p-1}}=\sum a_ib_i$$
+    $$\text{Правая часть}=\sum\frac{b_i^q}{\sum b_j^q} a_i^pb_i^{\frac{-p}{p-1}}\left(\sum b_j^q\right)^p=\sum\frac{b_i^q}{\sum b_j^q} a_i^pb_i^{-q}\left(\sum b_j^q\right)^p=$$
+    $$=\left(\sum a_i^p\right)\left(\sum b_j^q\right)^{p-1}=\left(\sum a_i^p\right)\left(\sum b_j^q\right)^{\frac{p}{q}}$$
     $$\text{Правая часть}^{\frac{1}{p}}=\left(\sum a_i^p\right)^{\frac{1}{p}}\left(\sum b_j^q\right)^\frac{1}{q}$$
 \end{proof}
 %</неравенствогельдераproof>
 
+%<*неравенствогельдераобщийвид>
 Общий вид: $a_i, b_i\in\R$
 $$\left|\sum a_ib_i\right|\leq \left(\sum |a_i|^p\right)^{\frac{1}{p}}\left(\sum |b_i|^q\right)^{\frac{1}{q}}$$
+%</неравенствогельдераобщийвид>
 
 \subsection{Интегральное неравенство Гёльдера}
 

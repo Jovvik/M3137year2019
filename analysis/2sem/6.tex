@@ -96,7 +96,7 @@
 %<*обинтегральныхсуммахдляцентральныхпрямоугольниковproof>
 \begin{proof}
     $$\int_{x_{i-1}}^{x_i} f(x)dx = \int_{x_{i-1}}^{\xi_i} f(x)dx + \int_{\xi_i}^{x_i} f(x)dx = \int_{x_{i-1}}^{\xi_i} f(x)d(x-x_{i-1}) + \int_{\xi_i}^{x_i} f(x)d(x-x_i)=$$
-    $$=f(x)(x-x_{i-1})\Big|_{x=x_{i-1}}^{x=\xi_i}-\int_{x_{i-1}}^{\xi_i} f'(x)(x-x_{i-1})dx+f(x)(x-x_i)\Big|^{x=x_{i}}_{x=\xi_i} - \int_{\xi_i}^{x_i} f'(x)(x-x_{i-1})dx=(*)$$
+    $$=f(x)(x-x_{i-1})\Big|_{x=x_{i-1}}^{x=\xi_i}-\int_{x_{i-1}}^{\xi_i} f'(x)(x-x_{i-1})dx+f(x)(x-x_i)\Big|^{x=x_{i}}_{x=\xi_i} - \int_{\xi_i}^{x_i} f'(x)(x-x_i)dx=(*)$$
     Заметим, что $\xi_i-x_{i-1}=x_i-\xi_i$, поэтому $f(x)(x-x_{i-1})\Big|_{x=x_{i-1}}^{x=\xi_i}+f(x)(x-x_i)\Big|^{x=x_{i}}_{x=\xi_i}=f(\xi_i)(x_i-x_{i-1})$
     $$(*)=f(\xi_i)(x_i-x_{i-1}) - \Big( f'(x) \frac{(x-x_{i-1})^2}{2} \Big|_{x_{i-1}}^{\xi_i} - \frac{1}{2} \int_{x_{i-1}}^{\xi_i} f''(x)(x-x_{i-1})^2 dx +$$
     $$+f'(x)\frac{(x-x_i)^2}{2} \Big|^{x_i}_{\xi_i} - \frac{1}{2} \int_{\xi_i}^{x_i} f''(x)(x-x_i)^2 dx \Big)=$$

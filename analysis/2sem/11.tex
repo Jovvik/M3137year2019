@@ -91,7 +91,7 @@
     %</абсолютносходящийсярядтеорема>
 \end{theorem}
 
-\section*{Сходимость рядов \textcolor{red}{\ldots}}
+\section*{Сходимость рядов со слагаемыми произвольного знака}
 
 \begin{theorem}
     Признак Лейбница.
@@ -99,14 +99,16 @@
     %<*признаклейбница>
     $c_n\ge 0, c_1\ge c_2\ge c_3 \ge \ldots, c_n\to 0$
 
-    Тогда $\sum_{n=1}^{+\infty} (-1)^n c_n$ сх.
+    Тогда $\sum_{n=1}^{+\infty} (-1)^{n - 1} c_n$ сх.
     %</признаклейбница>
 \end{theorem}
 %<*признаклейбницаproof>
 \begin{proof}
     $$S_{2N}=c_1-c_2+\ldots + c_{2N-1}-c_{2N}$$
-    $$S_{2N+2}=S_{2N}+(c_{2N+1}-c_{2N+2})\geq S_{2N}$$
-    $$S_{2N}\uparrow, S_{2N}\leq c_1$$
+    $$S_{2N+2}=S_{2N}+\underbrace{(c_{2N+1}-c_{2N+2})}_{\ge 0}\geq S_{2N} \Rightarrow S_{2N}\uparrow$$
+    $$S_{2N} = c_1 - \underbrace{(c_2-c_3)}_{\ge 0} - \underbrace{(c_3-c_4)}_{\ge 0} - \ldots - c_{2N} \le c_1$$
+    $$\begin{rcases} S_{2N} \uparrow \\ S_{2N} \le c_1 \end{rcases} \Rightarrow \exists \lim_{N\to+\infty} S_{2N} \in\R$$
+    $$S_{2N+1} = \underbrace{S_{2N}}_{\to l\in \R} + \underbrace{c_{2N+1}}_{\to0} \Rightarrow S_{2N+1} \to l \Rightarrow S_N \to l$$
 \end{proof}
 %</признаклейбницаproof>
 

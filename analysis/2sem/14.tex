@@ -72,6 +72,7 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 \end{proof}
 %</условиясходимостипроизведенияproof>
 
+%<*леммапи>
 \begin{lemma}
     $\prod(n, x) := \int\limits_0^n \left(1-\frac{t}{n}\right)^n t^{x-1}dt, x>0$
 
@@ -81,6 +82,8 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 
     Тогда $\prod(n, x) = \frac{1\cdot2\cdots n}{x\cdot(x+1)\cdots(x+n)}n^x$
 \end{lemma}
+%</леммапи>
+%<*леммапиproof>
 \begin{proof}
     $$\prod(n, x)\stackrel{t=ny}{=}n^x\int\limits_0^1 (1-y)^ny^{x-1}dy=$$
     $$=n^x\left((1-y)^n\frac{1}{x}y^x\Bigg|_{y=0}^{y=1} + \frac{n}{x} \int\limits_0^1 (1-y)^{n-1} y^x dy \right)=$$
@@ -88,6 +91,7 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
     $$=n^x\frac{n}{x}\frac{n-1}{x+1}\int\limits_0^1 (1-y)^{n-2} y^{x+1} dy=$$
     $$=\ldots=n^x\frac{n}{x}\frac{n-1}{x+1}\cdots\frac{1}{x+n-1}\int\limits_0^1 y^{x+n-1} dy$$
 \end{proof}
+%</леммапиproof>
 
 \begin{lemma}
     %<*приближениеепределом>
@@ -125,9 +129,9 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
 %</приближениеепределомproof>
 
 \begin{theorem}
-    Формула Эйлера.
-
     %<*формулаэйлера>
+    Формула Эйлера:
+
     При $x>0$ $$\lim_{n\to+\infty} \frac{1\cdot2\cdots n}{x(x+1)\cdots(x+n)}n^x=\Gamma(x)$$
     %</формулаэйлера>
 \end{theorem}

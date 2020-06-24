@@ -11,7 +11,7 @@
 Вывод формулы Вейерштрасса \textit{(из формулы Эйлера)}:
 \begin{proof}
     $$\frac{1}{\Gamma(x)}=\lim n^{-x}\frac{x(x+1)\ldots (x+n)}{n!}=x\lim n^{-x}\prod_{k=1}^n \left(1+\frac{x}{k}\right)=$$
-    $$=x\lim \underbrace{e^{x\left(1+\frac{1}{2}+\ldots+\frac{1}{n}\right)-x\ln n}}_{e^{\gamma+o(1)}}\prod\limits_{k=1}^{n}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}=e^{\gamma x} \prod\limits_{k=1}^{+\infty}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}$$
+    $$=x\lim \underbrace{e^{x\left(1+\frac{1}{2}+\ldots+\frac{1}{n}\right)-x\ln n}}_{e^{x(\gamma+o(1))}}\prod\limits_{k=1}^{n}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}=e^{\gamma x} \prod\limits_{k=1}^{+\infty}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}$$
 \end{proof}
 %</формулавейерштрассаproof>
 
@@ -33,10 +33,10 @@
     Если $k\not=l$, то $a_n\to0$ или $a_n\to+\infty \Rightarrow \prod a_n$ расходится.
     $\sphericalangle k=l$
     $$a_n\xrightarrow[n\to+\infty]{}\frac{\alpha}{\beta}$$
-    Если $\frac{\alpha}{\beta}$, то $a_n\not\to1 \Rightarrow \prod a_n$ расходится.
+    Если $\frac{\alpha}{\beta}\not=1$, то $a_n\not\to1 \Rightarrow \prod a_n$ расходится.
     $\sphericalangle \frac{\alpha}{\beta}=1$
     $$a_n=\frac{\left(1+\frac{a_1}{n}\right)\ldots \left(1+\frac{a_k}{n}\right)}{\left(1+\frac{b_1}{n}\right)\ldots \left(1+\frac{b_l}{n}\right)}=1+\frac{1}{n}(a_1+\ldots+a_k-b_1-\ldots-b_k)+O(\frac{1}{n^2})$$
-    Если $\sum\limits_{i=1}^k a_i\not=\sum\limits_{i=1}^l b_i$, то $\prod a_n$ расходится. $\sphericalangle \sum\limits_{i=1}^k a_i=\sum\limits_{i=1}^l b_i$
+    Если $\sum\limits_{i=1}^k a_i\not=\sum\limits_{i=1}^l b_i$, то $\prod a_n$ расходится, т.к. $\prod 1+\frac{c}{n}$ расходится, т.к. $\sum \frac{c}{n}$ расходится. $\sphericalangle \sum\limits_{i=1}^k a_i=\sum\limits_{i=1}^l b_i$
     $$\prod_{n=1}^N \frac{\left(1+\frac{a_1}{n}\right)\ldots \left(1+\frac{a_k}{n}\right)}{\left(1+\frac{b_1}{n}\right)\ldots \left(1+\frac{b_l}{n}\right)}=\prod_{n=1}^N \frac{\left(1+\frac{a_1}{n}\right)e^{-\frac{a_1}{n}}\ldots \left(1+\frac{a_k}{n}\right)e^{-\frac{a_k}{n}}}{\left(1+\frac{b_1}{n}\right)e^{-\frac{b_1}{n}}\ldots \left(1+\frac{b_l}{n}\right)e^{-\frac{b_l}{n}}}$$
     Равенство состоялось, т.к. $\sum a_i=\sum b_i$.
 

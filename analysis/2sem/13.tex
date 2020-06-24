@@ -224,9 +224,9 @@ $$\frac{\partial f}{\partial x_k}(a) = \lim_{h\to0}\frac{f(a_1,a_2\ldots a_{k}+h
     $\sphericalangle m=2$
 
     $$f(x_1,x_2)-f(a_1,a_2)=$$
-    $$=f(x_1,x_2)-f(x_1,a_2)+f(x_1, a_2)-f(a_1,a_2)=$$
+    $$=f(x_1,x_2)-f(x_1,a_2)+f(x_1, a_2)-f(a_1,a_2)\stackrel{\text{т. Лагранжа}}{=}$$
     $$=f_2'(x_1, \overline x_2)(x_2-a_2)+f_1'(\overline x_1, a_2)(x_1-a_1)=$$
-    $$=f_2'(a_1,a_2)(x_2-a_2)+f_1'(a_1, a_2)(x_1-a_2)+(f_2'(x_1, \overline x_2)-f_2'(a_1, a_2)) \frac{x_2-a_1}{|x-a|}|x-a|+\text{ аналогично}$$
+    $$=f_2'(a_1,a_2)(x_2-a_2)+f_1'(a_1, a_2)(x_1-a_1)+\underbrace{\underbrace{(f_2'(x_1, \overline x_2)-f_2'(a_1, a_2))}_{\to0} \underbrace{\frac{x_2-a_2}{|x-a|}}_{<1}}_{\to0}|x-a|+\text{ аналогично}$$
 \end{proof}
 %</достаточноеусловиедифференциируемостиproof>
 

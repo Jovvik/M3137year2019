@@ -119,14 +119,14 @@ $i\in\{1\ldots m\}$, $\frac{\partial g}{\partial x_i}$ называется вт
 $$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\stackrel{def}{=}\frac{\partial}{\partial x_i}\left(\frac{\partial^{k-1} f}{\partial x_{i_2}\ldots \partial x_{i_k}}\right)$$
 
 \begin{theorem}
-    О независмости частных производных от порядка дифференциирования.
+    О независимости частных производных от порядка дифференциирования.
     
     %<*независимостьчастныхпроизводныхотпорядка>
     $f: E\subset\R^2\to\R, (x_0, y_0)\in E$
 
     $\exists r>0 \ \ B((x_0, y_0), r)\subset E$
 
-    Пусть в этом шаре $\exists f''_{xy}, f''_{yx}$ и они непрерывны. Тогда $f''_{xy}(x_0, y_0)=f''_{yx}(x_0, y_0)$
+    Пусть в этом шаре $\exists f''_{xy}, f''_{yx}$ и они непрерывны в $x_0$. Тогда $f''_{xy}(x_0, y_0)=f''_{yx}(x_0, y_0)$
     %</независимостьчастныхпроизводныхотпорядка>
 \end{theorem}
 %<*независимостьчастныхпроизводныхотпорядкаproof>
@@ -160,10 +160,19 @@ $$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\s
     %</классce>
 \end{remark}
 
+%<*независимостьчастныхпроизводныхотпорядкаобщийвид>
 Общий вид теоремы: $f\in C^r(E) \ \ \forall k\le r$
 
 $\forall x\in E \ \ \forall i_1\ldots i_k :$ Если $(j_1\ldots j_k)$ --- перестановка $(i_1\ldots i_k)$, то:
 $$\frac{\partial^k f}{\partial x_{i_1}\ldots \partial x_{i_k}}(x)=\frac{\partial^k f}{\partial x_{j_1}\ldots \partial x_{j_k}}(x)$$
+%</независимостьчастныхпроизводныхотпорядкаобщийвид>
+%<*независимостьчастныхпроизводныхотпорядкаобщийвидproof>
+\begin{proof}
+    По частному случаю теоремы:
+    $$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}(x)=\frac{\partial^k f}{\partial x_{i_2}\partial x_{i_1}\ldots \partial x_{i_k}}(x)$$
+    Таким образом, можно осуществить транспозицию $\Rightarrow$ можно осуществить любую перестановку.
+\end{proof}
+%</независимостьчастныхпроизводныхотпорядкаобщийвидproof>
 
 \begin{definition}
     %<*мультииндекс>

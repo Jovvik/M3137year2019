@@ -10,7 +10,7 @@
 - [Итоговый конспект](analysis/2sem/final.pdf)
 
 ### Линейная алгебра
-- [Частчиный итоговый конспект](linear%20algebra/2sem/final.pdf)
+- [Итоговый конспект](linear%20algebra/2sem/final.pdf)
 - [Практика #1](linear%20algebra/2sem/practice/1.pdf)
 - [Практика #3](linear%20algebra/2sem/practice/3.pdf)
 - [Практика #4](linear%20algebra/2sem/practice/4.pdf)

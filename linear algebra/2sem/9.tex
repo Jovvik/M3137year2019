@@ -1,0 +1,198 @@
+\input{../../preamble.sty}
+
+\lhead{Линейная алгерба}
+\cfoot{}
+\rfoot{Лекция 9}
+
+\begin{document}
+
+\section*{Нильпотентный оператор. Базис Жордана}
+
+$\sphericalangle \tau : L \to L$ --- нильпотентный оператор
+
+$] \{e_j\}_{j=1}^n$ --- базис $L \Rightarrow \tau \leftrightarrow A_\tau$
+$$\tau(e_i)=\sum_{j=1}^n a_i^j e_j, ||a_i^j||=A_\tau$$
+
+$$\tau(\tau(e_i))=\sum_{j=1}^n a_i^j \sum_{k=1}^n a_j^k e_k = \sum_{j,k=1}^n a_i^j a_j^ke_k$$
+$$0=\tau(\ldots \tau(\tau(e_i)))=\sum_{j,k,l\ldots = 1}^n a_i^j a_j^k\cdots a_k^l e_l$$
+Если хотя бы один диагональный элемент $a_i^i\not=0$, то для $j=k=\ldots=i$ получается ненулевой коэффициент при $e_i \Rightarrow$ результат суммы не $0$, что противоречит нильпотентности $\Rightarrow a_i^i=0$
+
+Канонический вид матрицы нильпотентного оператора: $\begin{bmatrix}
+    0 & 1 & 0 & 0 & \ldots & 0 \\
+    0 & 0 & 1 & 0 & \ldots & 0 \\
+    0 & 0 & 0 & 1 & \ldots & 0 \\
+    0 & 0 & 0 & 0 & \ldots & 0 \\
+    \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & 0 & \ldots & 0 
+\end{bmatrix}$
+
+\begin{definition}
+    Линейный оператор, который в некотором базисе имеет своей матрицей (жорданову) клетку вида $A_\tau$ называется \textbf{одноклеточным} нильпотентным оператором.
+\end{definition}
+
+\begin{lemma}
+    $p_\tau(\lambda)=\lambda^m$ --- минимальный многочлен для $\tau^m$
+\end{lemma}
+
+$] \{e_j\}_{j=1}^4=\begin{bmatrix}
+    1 \\
+    0 \\
+    0 \\
+    0
+\end{bmatrix}\begin{bmatrix}
+    0 \\
+    1 \\
+    0 \\
+    0
+\end{bmatrix}\begin{bmatrix}
+    0 \\
+    0 \\
+    1 \\
+    0
+\end{bmatrix}\begin{bmatrix}
+    0 \\
+    0 \\
+    0 \\
+    1
+\end{bmatrix}, A_\tau=\begin{bmatrix}
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 \\
+\end{bmatrix}$
+
+$A_\tau(e_4)=\begin{bmatrix}
+    0 \\
+    0 \\
+    1 \\
+    0
+\end{bmatrix}=e_3, A_\tau(e_3)=e_2, A_\tau(e_2)=e_1, A_\tau(e_1)=\begin{bmatrix}
+    0 \\
+    0 \\
+    0 \\
+    0
+\end{bmatrix}$
+
+$e_1$ --- единственный собственный вектор для $\tau$, собственное значение $=0$
+
+$\sigma_\tau=\{0^{(m)}\}$
+
+$\sphericalangle L_j=\mathcal L\{e_1\ldots e_j\}$ --- инвариантное подпространство $\forall j$, но не ультраинвариантное, т.к. $\mathcal L\{e_{j+1}\ldots e_n\}$ --- не инвариантное подпространство.
+
+$e_2$ --- присоединенный вектор первого порядка, т.к. $\tau e_2=e_1$
+
+$e_3$ --- присоединенный вектор второго порядка
+
+$] \tau$ --- не одноклеточный, тогда $$\tau=\dot+ \sum_{i=1}^k \tau_i=\sum_{i=1}^k \tau_i\mathcal P_i$$
+
+\begin{lemma}
+    $\tau$ --- нильпотентный оператор порядка $m=\max\limits_{i=1\ldots k} m_i$
+\end{lemma}
+\begin{proof}
+    $\tau\leftrightarrow A_\tau = diag \{A_\tau^1, A_\tau^2\ldots A_\tau^k\}$, где $A_\tau^j$ одноклеточная.
+    $$A^l = diam \{(A_\tau^1)^{l}, (A_\tau^2)^l \ldots (A_\tau^k)^l\} = 0 \Leftrightarrow \forall j \ \ (A_\tau^j)^l = 0 \Leftrightarrow l=\max_{i=1\ldots k}m_i$$
+\end{proof}
+
+$] \tau : X\to X$ --- нильпотентный оператор порядка $m$, тогда в $x$ $\exists$ базис, в котором:
+$$\tau = \dot+ \sum_{i=1}^k \tau_i$$
+где $\tau_i$ --- одноклеточный оператор.
+\begin{proof}
+    $] \{L_j\}_{j=1}^k$ --- ультраинвариантные для $\tau$, $k$ --- число собственных векторов оператора $\tau$.
+
+    $L_j\to \tau_j \to T_j$ --- одноклеточный оператор.
+\end{proof}
+
+Таким образом, в базисе Жордана $\varphi_j = \lambda_j \mathcal I + \tau_j$
+
+$] \varphi : X\to X, X = \dot+\sum_{j=1}^k L_j$
+
+$] \beta(X)$ --- базис $X \Rightarrow \beta(X) = \{\beta(L_j)\}_{j=1}^k$
+
+$\beta(L_j)$ --- базис Жордана в $L_j$ (чтобы $\varphi_j$ выглядел как выше)
+
+$\beta(X)$ --- базис Жордана в пространстве $X$
+
+\begin{definition}
+    Матрица оператора $\varphi$ в базисе $\beta(x)$ называется \textbf{жордановой нормальной формой} матрицы линейного оператора $\varphi$.
+\end{definition}
+
+$\varphi = diag \{\varphi_1 \ldots \varphi_k\} \quad \varphi_j=diag \{\lambda_j \mathcal I_1 + \tau_1, \lambda_j\mathcal I_2+\tau_2\ldots\}$
+
+\begin{theorem}
+    Гамильтона-Коши.
+
+    $$\chi_\varphi(\lambda)\in J_\varphi$$
+\end{theorem}
+\begin{proof}
+    Тривиально.
+\end{proof}
+
+$$p_\varphi(\lambda) = \prod_{j=1}^k (\lambda-\lambda_j)^{m_j} \quad \chi_\varphi(\lambda) = \prod_{j=1}^k (\lambda - \lambda_j)^{n_j}$$
+\begin{definition}
+    \begin{itemize}
+        \item $n_j$ --- \textbf{полная кратность} собственных значений $\lambda_j$
+        \item $n_j$ --- \textbf{алгебраическая кратность} собственных значений $\lambda_j$
+    \end{itemize}
+\end{definition}
+
+$$n_j = \dim L_j \quad m_j = \dim \ker(\lambda-\lambda_j) \quad r_j = \text{чило жордановых блоков}$$
+
+\begin{lemma}
+    $$1\leq m_j\leq n_j, 1\leq r_j\leq n_j$$
+\end{lemma}
+
+Частные случаи:
+\begin{enumerate}
+    \item $n_i=1 \Rightarrow r_i=m_i=1 \Rightarrow$ оператор с простым спектром
+    \item $r_i = n_i \Leftrightarrow m_i = 1 \Rightarrow$ оператор скалярного типа
+    \item $r_i = 1 \Leftrightarrow m_i=n_i \Rightarrow$ один жорданов блок
+\end{enumerate}
+
+\section*{Функции от оператора}
+
+$$\varphi : X\to X, f(x) = \sum_{m=0}^\infty c_m x^m$$
+$\sphericalangle f(\varphi)-?$
+
+$$\varphi = \dot+ \sum_{j=1}^k \varphi_j \Rightarrow A_\varphi = diag \{A_\varphi^{(1)}, A_\varphi^{(2)}\ldots A_\varphi^{(k)}\}$$
+$$f(\varphi)= diag \{f(A_\varphi^{(1)}), f(A_\varphi^{(2)})\ldots f(A_\varphi^{(k)})\}$$
+$$f(\varphi_j)-? \quad \varphi_j = \lambda_j\mathcal I + \tau_j, \tau_j^{m_j}=0$$
+$$\sphericalangle (\lambda_j\mathcal I + \tau_j)^m = \sum_{r=1}^m c_m^r \tau_j^r \lambda_j^{m-r}$$
+Если $r\geq m_j$, то слагаемое $=0$, т.к. $\tau_j^{m_j}=0$
+$$diag_0 (\lambda_j\mathcal I + \tau_j)^m = \{c_m^0\lambda_j^m, c_m^0\lambda_j^m \ldots c_m^0\lambda_j^m\}$$
+$$diag_{+1} (\lambda_j\mathcal I + \tau_j)^m = \{c_m^1\lambda_j^{m-1}, c_m^1\lambda_j^{m-1} \ldots c_m^1\lambda_j^{m-1}\}$$
+$$\vdots$$
+$$diag_{+m_{j-1}} (\lambda_j\mathcal I + \tau_j) = \{c_m^{m-1}\lambda_j, c_m^{m-1}\lambda_j \ldots c_m^{m-1}\lambda_j\}$$
+\begin{remark}
+    $$diag f(\lambda_j\mathcal I + \tau_j) = \{f(\lambda_j), f(\lambda_j) \ldots f(\lambda_j)\}$$
+    $$diag_{+1} f(\lambda_j\mathcal I + \tau_j) = \{f'(\lambda_j), f'(\lambda_j) \ldots f'(\lambda_j)\}$$
+    $$diag_{+2} f(\lambda_j\mathcal I + \tau_j) = \{\frac{1}{2!}f''(\lambda_j), \frac{1}{2!}f''(\lambda_j) \ldots \frac{1}{2!}f''(\lambda_j)\}$$
+\end{remark}
+\begin{remark}
+    $$\tilde A_\varphi = SA_\varphi T \quad (\tilde A_\varphi)^p = SA_\varphi^p T$$
+\end{remark}
+
+\begin{example}
+    $f(x) = \sin x \quad A_\varphi=\begin{bmatrix}
+        \lambda & 1 & 0 & 0 \\
+        0 & \lambda & 1 & 0 \\
+        0 & 0 & \lambda & 1 \\
+        0 & 0 & 0 & \lambda \\
+    \end{bmatrix}$
+    $$f(A_\varphi) = \begin{bmatrix}
+        \sin \lambda & \cos \lambda & -\frac{1}{2}\sin \lambda & -\frac{1}{6}\cos \lambda \\
+        0 & \sin \lambda & \cos \lambda & -\frac{1}{2}\sin \lambda \\
+        0 & 0 & \sin \lambda & \cos \lambda \\
+        0 &0 & 0 & \sin \lambda
+    \end{bmatrix}$$
+\end{example}
+
+% \begin{remark}
+%     $f(A_\varphi) = \begin{bmatrix}
+%         f(\lambda) & f'(\lambda) & \frac{f''}{2!} & 0 \\
+%         0 & f(\lambda) & f'(\lambda) & 0 \\
+%         0 & 0 & f(\lambda) & 0 \\
+%         0 & 0 & 0 & f(\lambda)
+%     \end{bmatrix}$
+% \end{remark}
+
+\end{document}

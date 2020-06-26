@@ -10,10 +10,11 @@
 
 \subsection{Основные определения}
 
+%<*лоп>
 $\sphericalangle \varphi : X\to Y$, $X, Y$ --- ЛП, $\dim X = n, \dim Y = m$
 
 \begin{definition}
-    Отображение $\varphi$ назвыается линейным, если
+    Отображение $\varphi$ называется линейным, если
     $$\forall x_1,x_2\in X \quad \varphi(x_1+x_2)=\varphi(x_1)+\varphi(x_2)$$
     $$\forall \alpha\in K \quad \varphi(\alpha x) = \alpha \varphi (x)$$
 \end{definition}
@@ -25,14 +26,14 @@ $\sphericalangle \varphi : X\to Y$, $X, Y$ --- ЛП, $\dim X = n, \dim Y = m$
 \begin{example}
     \begin{itemize}
         \item $\Theta : \Theta x = 0_Y$ --- нулевой оператор
-        \item $J : Jx = x$ --- единичный \textit{(тождественный)} оператор
-        \item $] X = L_1 \dot+ L_2 \stackrel{def}{\Leftrightarrow} \forall x\in X \ \ \exists! x_1\in L_1, x_2\in L_2 : x = x_1 + x_2$
+        \item $\mathcal I : \mathcal Ix = x$ --- единичный \textit{(тождественный)} оператор
+        \item $X = L_1 \dot+ L_2 \stackrel{def}{\Leftrightarrow} \forall x\in X \ \ \exists! x_1\in L_1, x_2\in L_2 : x = x_1 + x_2$
         
-        Проэктор: $$\mathcal{P}_{L_1}^{||L_2} : X\to L_1 \quad \mathcal{P}_{L_1}^{||L_2} x = x_1$$
+        Проектор: $$\mathcal{P}_{L_1}^{||L_2} : X\to L_1 \quad \mathcal{P}_{L_1}^{||L_2} x = x_1$$
 
         $$\mathcal{P}_{L_2}^{||L_1} : X\to L_2 \quad \mathcal{P}_{L_2}^{||L_1} x = x_2$$
         
-        \item $] X = C^1[-1, 1]$ --- первая производная $\exists$ и непрерывна
+        \item $X = C^1[-1, 1]$ --- первая производная $\exists$ и непрерывна
         
         $$\forall f\in X \quad (\varphi f)(x) = \int\limits_{-1}^1 f(t) K(x, t) dt$$
 
@@ -40,19 +41,16 @@ $\sphericalangle \varphi : X\to Y$, $X, Y$ --- ЛП, $\dim X = n, \dim Y = m$
     \end{itemize}
 \end{example}
 
-$] \{e_j\}_{j=1}^n$ --- базис $X, \{h_k\}_{k=1}^m$ --- базис $Y$.
-
-$\sphericalangle \varphi : X\to Y$
-
-$\sphericalangle \varphi(e_j) = \sum\limits_{k=1}^m a_j^k h_k$
+$\{e_j\}_{j=1}^n$ --- базис $X, \{h_k\}_{k=1}^m$ --- базис $Y, \varphi(e_j) = \sum\limits_{k=1}^m a_j^k h_k$
 
 \begin{definition}
-    Набор коэффициентов $||a_j^k||$ образует матрицу $m\times n$, которая называется матрицей ЛОп в паре базисов $\{e_j\}$ и $\{h_k\}$
+    Набор коэффициентов $||a_j^k||$ образует матрицу $m\times n$, которая называется \textbf{матрицей ЛОп} в паре базисов $\{e_j\}$ и $\{h_k\}$
 \end{definition}
+%</лоп>
 
 \begin{itemize}
    \item $\Theta \to A_\Theta = 0_{m\times n}$
-   \item $J \to A_J = E$
+   \item $\mathcal I \to A_{\mathcal I} = E$
 \end{itemize}
 
 \begin{theorem}
@@ -65,26 +63,31 @@ $\sphericalangle \varphi(e_j) = \sum\limits_{k=1}^m a_j^k h_k$
     $$\sphericalangle \varphi(x) = \varphi(\sum\limits_{j=1}^n \xi^j e_j) = \sum\limits_{j=1}^n \xi^j \varphi(e_j) = \sum\limits_{j=1}^n \sum\limits_{k=1}^m \xi^j a_j^k h_k = \sum\limits_{k=1}^m \left(\sum\limits_{j=1}^n \xi^j a_j^k\right) h_k$$
 \end{proof}
 
-$] \varphi, \psi : X\to Y$ --- ЛОп
+%<*пространстволоп>
+$\sphericalangle \varphi, \psi : X\to Y$ --- ЛОп
 
 $\chi = \varphi + \psi$, если $\forall x\in X \quad \chi(x) = (\varphi + \psi) x = \varphi(x) + \psi(x)$
 
 $\chi = \alpha\varphi$, если $\forall x\in X \quad \chi(x) = (\alpha\varphi) x = \alpha\varphi(x)$
+%</пространстволоп>
 
 \begin{remark}
+    %<*размерностьпространствалоп>
     $$\dim \mathcal{L}(X, Y) = \dim X \cdot \dim Y = m\cdot n$$
+    %</размерностьпространствалоп>
 \end{remark}
 \begin{remark}
     $] K_n^m$ --- множество матриц $m\times n$
 
     $K_n^m$ --- линейное пространство
 
-    $\dim K_n^m=m\cdot n \Rightarrow \mathcal{L}(XY)\simeq K_n^m$
+    $\dim K_n^m=m\cdot n \Rightarrow \mathcal{L}(X, Y)\simeq K_n^m$
 \end{remark}
 
 \subsection{Алгебра операторов и матриц}
 
-$] \varphi : X \to Y \quad \psi : Y\to Z$
+%<*алгебралоп>
+$\sphericalangle \varphi : X \to Y \quad \psi : Y\to Z$
 
 $X, Y, Z$ --- ЛП: $\dim X = n, \dim Y = m, \dim Z = k$
 
@@ -131,6 +134,7 @@ $\sphericalangle \varphi, \psi : X\to X \Rightarrow \sigma = \psi \varphi : X\to
 \end{enumerate}
 
 Таким образом, ЛОп --- алгебра, т.к. это мультипликативный моноид и аддитивная полугруппа.
+%</алгебралоп>
 
 \begin{definition}
     Множество, наделенное согласованными структурами линейного пространства и мультипликативного моноида, называется алгеброй.

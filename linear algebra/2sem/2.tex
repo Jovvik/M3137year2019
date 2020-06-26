@@ -185,6 +185,7 @@ $\Rightarrow \forall k \ \ \tilde e_k=\sum_{j=1}^n t_k^je_j$
 $$\tilde E = ET \quad \tilde F = T^{-1}F \quad \tilde\xi = T^{-1}\xi \quad \tilde \varphi = \varphi T$$
 %</преобразованиекоординат>
 
+%<*ковариантность>
 \begin{definition}
     Величины, которые преобразуются при замене базиса так же, как базисные векторы, называются \textbf{ковариантными} величинами.
 
@@ -215,6 +216,7 @@ $$=t^{i_1}_{s_1}\ldots t^{i_p}_{s_p} \sigma^{j_1}_{t_1}\ldots \sigma^{j_q}_{t_q}
         \item \textbf{Тензором} типа $(p, q)$ называется величина, преобразующаяся $p$ раз по ковариантному закону и $q$ раз по контравариантному.
     \end{enumerate}
 \end{definition}
+%</ковариантность>
 
 \subsection{Операции с тензорами}
 
@@ -223,21 +225,29 @@ $$=t^{i_1}_{s_1}\ldots t^{i_p}_{s_p} \sigma^{j_1}_{t_1}\ldots \sigma^{j_q}_{t_q}
     \begin{proof}
         Тривиально.
     \end{proof}
-    \item Транспонирование
+    \item %<*транспонирование>
+    Транспонирование
     
     $t^{(st)} : \omega^{j_1\ldots j_s \ldots j_t\ldots j_q}_{i_1\ldots i_p}\mapsto\omega^{j_1\ldots j_t \ldots j_s\ldots j_q}_{i_1\ldots i_p}$
+    %</транспонирование>
 \end{enumerate}
 
+%<*транспонированиесвойства>
 \begin{remark}
-    Переставлять можно только индексы одного типа
+    Транспонировать можно только по индексам одного типа
 \end{remark}
 \begin{lemma}
     Транспонирование сохраняет тензорную природу величины.
 \end{lemma}
+%</транспонированиесвойства>
+
 
 \begin{enumerate}[resume]
-    \item Свертка: $$\stackrel{k\wedge s}{\omega}^{j_1\ldots j_n}_{i_1\ldots i_n} = \sum\limits_{m=1}^n \omega^{j_1\ldots \stackrel{k}{\not m}\ldots j_q}_{i_1\ldots \stackrel{s}{\not m} \ldots i_p}$$
+    \item %<*сверткатензора>
+    Свертка: $$\stackrel{k\wedge s}{\omega}^{j_1\ldots j_n}_{i_1\ldots i_n} = \sum\limits_{m=1}^n \omega^{j_1\ldots \stackrel{k}{\not m}\ldots j_q}_{i_1\ldots \stackrel{s}{\not m} \ldots i_p}$$
+    %</сверткатензора>
 \end{enumerate}
+%<*свойствасвертки>
 \begin{remark}
     Операцию свертки можно выполнять только по индексам разных типов
 \end{remark}
@@ -250,6 +260,7 @@ $$=t^{i_1}_{s_1}\ldots t^{i_p}_{s_p} \sigma^{j_1}_{t_1}\ldots \sigma^{j_q}_{t_q}
 \begin{proof}
     От перестановки мест слагаемых конечная сумма не меняется.
 \end{proof}
+%</свойствасвертки>
 
 \begin{enumerate}[resume]
     \item Тензорное произведение

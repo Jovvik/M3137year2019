@@ -1,5 +1,10 @@
 \input{../../preamble.sty}
 
+\usepackage{sectsty}
+
+\allsectionsfont{\raggedright}
+\subsectionfont{\fontsize{14}{15}\selectfont}
+
 \lhead{Линейная алгерба}
 \cfoot{}
 \rfoot{Конспект к экзамену}
@@ -7,6 +12,11 @@
 \newcommand{\yoba}[0]{
     \includegraphics[height=20pt]{images/yoba.png}
 }
+
+\newcommand\Warning{%
+ \makebox[1.4em][c]{%
+ \makebox[0pt][c]{\raisebox{.1em}{\small!}}%
+ \makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}%
 
 \begin{document}
 
@@ -142,23 +152,42 @@ $$b_{jk} = \frac{(\tilde A^T)^j_k}{\det A} \Rightarrow B = \frac{\tilde A_k^j}{\
 \get{2.tex}{преобразованиекоординат}
 
 \subsection{Преобразование матрицы линейного оператора при замене базиса. Преобразование подобия.}
+$\sphericalangle \overline{\mathcal A} : \overline X \to \overline Y, \mathcal A : X \to Y$
 
+$\mathcal A \leftrightarrow A, \overline{\mathcal A} \leftrightarrow \overline A$
+
+$\mathcal X$ --- матрица перехода $\overline X\to X$, $\mathcal Y$ --- матрица перехода $\overline Y\to Y$
+
+$x\in X, y:=\mathcal A x, \overline x := \mathcal X x, \overline y := \mathcal Y y$
+
+$$\overline A \overline x = \overline y \Rightarrow A x = y = \mathcal Y^{-1} \overline y = \mathcal Y^{-1} \overline A \overline x = \mathcal Y^{-1} \overline A \mathcal X x$$
+$$\forall x \quad Ax = \mathcal Y^{-1} \overline A \mathcal X x \Leftrightarrow A = \mathcal Y^{-1} \overline A \mathcal X$$
 
 \subsection{Тензоры \textit{(ковариантность, независимое от ПЛФ определение)}. Пространство тензоров.}
-
+\get{2.tex}{ковариантность}
+\begin{itemize}
+    \item Сложение тензоров и умножение тензора на скаляр --- поэлементное
+    \item Нулевой элемент по сложению --- тензор, принимающий значение $0$ на любом входе
+    \item Очевидно $w + \alpha v$ --- тензор того же типа, что и $w \Rightarrow$ тензоры образуют линейное пространство $T^p_q, \dim T^p_q = p + q$
+\end{itemize}
 
 \subsection{Свертка тензора.}
-
+\get{2.tex}{сверткатензора}
+\get{2.tex}{свойствасвертки}
 
 \subsection{Транспонирование тензора.}
-
+\get{2.tex}{транспонирование}
+\get{2.tex}{транспонированиесвойства}
 
 \subsection{Определитель линейного оператора. Внешняя степень оператора.}
-
+\get{4.tex}{определитель}
+\get{4.tex}{определительвнешняястепень}
 
 \subsection{Независимость определителя оператора от базиса. Теорема умножения определителей.}
+\get{5.tex}{инвариантdet}
+\get{4.tex}{умножениеопределителей}
 
-% \section{Спектральный анализ линейных операторов в конечномерных пространствах}
+\section{Спектральный анализ линейных операторов в конечномерных пространствах}
 
 % \subsection{Инварианты линейного оператора. Инвариантные подпространства. }
 % \subsection{Собственные векторы и собственные значения линейного оператора: основные определения и свойства. }

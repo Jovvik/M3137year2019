@@ -231,6 +231,7 @@ $\exists \varphi^{-1} : \forall y\in \im \varphi \ \ \exists! x\in X : \varphi^{
 
 \section{Внешняя степень ЛОп}
 
+%<*определитель>
 $\sphericalangle \Lambda^p \quad \{{}^{i_1\ldots i_p} F\}_{1\leq i_1<i_2<\ldots<i_p\leq n}$ --- базис $\Lambda^p$
 
 $${}^{i_1\ldots i_p} F=f^{i_1}\wedge f^{i_2}\wedge \ldots \wedge f^{i_p} \quad \dim \Lambda^p=C^p_n$$
@@ -259,13 +260,19 @@ $$=\det [\xi^1_{j_1}\ldots \xi^n_{j_n}](e_{1}\wedge e_{2}\wedge\ldots\wedge e_{n
     $$=\det\{x_1\ldots x_n\}e_1\wedge e_2\wedge\ldots\wedge e_n$$
     $$=\det[x_1\ldots x_n]e_1\wedge e_2\wedge\ldots\wedge e_n$$
 \end{proof}
+%</определитель>
 
+%<*определительвнешняястепень>
 \begin{definition}
-    $] \varphi : X \to X$
+    $\sphericalangle \varphi : X \to X$
 
     \textbf{Внешней степенью} $\varphi^{\Lambda_p}$ оператора $\varphi$ называется отображение:
     $$\varphi^{\Lambda_p}(x_1\wedge x_2\wedge\ldots\wedge x_n) = \varphi(x_1)\wedge\ldots\wedge\varphi(x_p)$$
 \end{definition}
+
+\begin{remark}
+    $$\varphi^{\Lambda_p} : \Lambda_p\to \Lambda_p$$
+\end{remark}
 
 $\sphericalangle p=n$
 $$\varphi^{\Lambda_n}(e_1\wedge e_2\wedge\ldots\wedge e_n)=\varphi(e_1)\wedge\varphi(e_2)\wedge\ldots\wedge\varphi(e_n)=a^{j_1}_1e_{j_1}\wedge\ldots\wedge a^{j_n}_1e_{j_n}=$$
@@ -281,15 +288,13 @@ $$=a_1^{j_1}\ldots a_n^{j_n}(e_{j_1}\wedge\ldots\wedge e_{j_n})=\sum\limits_{(j_
     $$\omega\in\Lambda_n\Rightarrow \omega=\alpha e_1\wedge\ldots\wedge e_n$$
     $$\varphi^{\Lambda_n}\omega=\alpha\varphi^{\Lambda_n}(e_1\wedge\ldots\wedge e_n)=\alpha\det \varphi e_1\wedge\ldots\wedge e_n = \det \varphi \cdot \omega$$
 \end{remark}
-
-\begin{remark}
-    $$\varphi^{\Lambda_p} : \Lambda_p\to \Lambda_p$$
-\end{remark}
+%</определительвнешняястепень>
 
 \begin{definition}
     \textbf{Грассманова алгеба} --- алгебра по внешнему произведению
 \end{definition}
 
+%<*умножениеопределителей>
 \begin{theorem}
     $$\det (\varphi\psi) = \det \varphi\det \psi$$
 \end{theorem}
@@ -297,6 +302,7 @@ $$=a_1^{j_1}\ldots a_n^{j_n}(e_{j_1}\wedge\ldots\wedge e_{j_n})=\sum\limits_{(j_
     $$\sphericalangle \det(\varphi\psi)e_1\wedge\ldots\wedge e_n = (\varphi\psi)^{\Lambda_n}e_1\wedge\ldots\wedge e_n=\varphi(\psi(e_1))\wedge\ldots\wedge \varphi(\psi(e_n))=$$
     $$=\varphi^{\Lambda_n}(\psi(e_1)\wedge\ldots\wedge \psi(e_n))=\det \varphi\det \psi e_1\wedge\ldots\wedge e_n$$
 \end{proof}
+%</умножениеопределителей>
 
 
 

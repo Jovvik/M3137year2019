@@ -8,22 +8,6 @@
 
 ### Матанализ
 - [Итоговый конспект](analysis/2sem/final.pdf)
-- [Лекция #1](analysis/2sem/1.pdf)
-- [Лекция #2](analysis/2sem/2.pdf)
-- [Лекция #3](analysis/2sem/3.pdf)
-- [Лекция #4](analysis/2sem/4.pdf)
-- [Лекция #5](analysis/2sem/5.pdf)
-- [Лекция #6](analysis/2sem/6.pdf)
-- [Лекция #7](analysis/2sem/7.pdf)
-- [Лекция #8](analysis/2sem/8.pdf)
-- [Лекция #9](analysis/2sem/9.pdf)
-- [Лекция #10](analysis/2sem/10.pdf)
-- [Лекция #11](analysis/2sem/11.pdf)
-- [Лекция #12](analysis/2sem/12.pdf)
-- [Лекция #13](analysis/2sem/13.pdf)
-- [Лекция #14](analysis/2sem/14.pdf)
-- [Практика #1](analysis/2sem/practice/1.pdf)
-- [Практика #2](analysis/2sem/practice/2.pdf)
 
 ### Линейная алгебра
 - [Частчиный итоговый конспект](linear%20algebra/2sem/final.pdf)

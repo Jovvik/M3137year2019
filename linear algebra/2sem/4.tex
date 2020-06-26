@@ -94,9 +94,10 @@ $\sphericalangle K_n^n$ --- алгебра матриц
 
 \subsubsection{Метод Гаусса}
 
+%<*методгаусса>
 $$\left[\begin{array}{c|c}
     A & E
-\end{array}\right] ~ \left[\begin{array}{c|c}
+\end{array}\right] \sim \left[\begin{array}{c|c}
     E & A^{-1}
 \end{array}\right]$$
 
@@ -114,7 +115,9 @@ $$\left[\begin{array}{c|c}
     \end{array}\right]$$
     $$\sphericalangle T_n\ldots T_1A=E\Rightarrow A^{-1}=T_n\ldots T_1$$
 \end{proof}
+%</методгаусса>
 
+%<*присоединеннаяматрица>
 \begin{theorem}
     $$A^{-1}=\frac{1}{\det A}\tilde A^T$$
 \end{theorem}
@@ -131,91 +134,100 @@ $$\left[\begin{array}{c|c}
     $$\sum\limits_{j=1}^n a_j\xi^j = b \quad \xi^j = \frac{\Delta_j}{\Delta}$$
     $$\Delta_j=\det A(a_j\to b)$$
 \end{proof}
+%</присоединеннаяматрица>
 
 \subsection{Обратный оператор}
 
 $\sphericalangle \varphi : X\to X$
 
+%<*обратныйоператор>
 \begin{definition}
     Обратным к оператору $\varphi$ называется оператор $\varphi^{-1}$:
     $$\varphi^{-1}\varphi=\varphi\varphi^{-1}=\mathcal{I}$$
 \end{definition}
+%</обратныйоператор>
 
 $\mathcal{L}(X,X)\simeq K_n^n$
 
+%<*другойкритерийобратимости>
 \begin{theorem}
-    Оператор $\varphi$ обратим, если $\exists$ базис, в котором его матрица невырождена/
+    Оператор $\varphi$ обратим, если $\exists$ базис, в котором его матрица невырождена
 \end{theorem}
+%</другойкритерийобратимости>
 
 \begin{remark}
     $\tilde A=T^{-1}AT \quad \det\tilde A = \det(T{-1}AT)=\det T^{-1}\det A\det T$
 \end{remark}
 
-$] \varphi : X\to Y$
+%<*ядроиобраз>
+$\sphericalangle \varphi : X\to Y$
 
 \begin{definition}
     \textbf{Ядро} $\varphi$ :
-    $$Ker \varphi=\{x\in X : \varphi x=0\}$$
+    $$\ker \varphi=\{x\in X : \varphi x=0\}$$
 \end{definition}
 \begin{remark}
-    $Ker \varphi\subset X$
+    $\ker \varphi\subset X$
 \end{remark}
 \begin{lemma}
-    $Ker \varphi$ --- ЛП
+    $\ker \varphi$ --- ЛП
 \end{lemma}
 \begin{definition}
     \textbf{Образ} $\varphi$:
-    $$Im \varphi = \{y\in Y : \exists x : \varphi(x)=y\}$$
+    $$\im \varphi = \{y\in Y : \exists x : \varphi(x)=y\}$$
 \end{definition}
 \begin{remark}
-    $$Im \varphi \subset Y$$
+    $$\im \varphi \subset Y$$
 \end{remark}
 \begin{lemma}
-    $Im \varphi$ --- ЛП
+    $\im \varphi$ --- ЛП
 \end{lemma}
 
 \begin{theorem}
     О ядре и образе
 
-    $$] \varphi : X\to X \Rightarrow \dim Ker \varphi + \dim Im \varphi = \dim X$$
+    $$] \varphi : X\to X \Rightarrow \dim \ker \varphi + \dim \im \varphi = \dim X$$
 \end{theorem}
 \begin{proof}
-    $] \dim Ker \varphi = K$
+    $] \dim \ker \varphi = K$
 
-    $] \{e_1\ldots e_k\}$ --- базис $Ker \varphi \Rightarrow \varphi(e_j)=0 \ \ \forall j=1..k$
+    $] \{e_1\ldots e_k\}$ --- базис $\ker \varphi \Rightarrow \varphi(e_j)=0 \ \ \forall j=1..k$
 
     $\sphericalangle \{e_1\ldots e_k; e_{k+1}\ldots e_n\}$ --- базис $X$
 
     $\sphericalangle x=\sum\limits_{j=1}^n \xi^j e_j \quad \sphericalangle \varphi(x) = \sum\limits_{j=1}^n \xi^j\varphi(e_j)=\sum\limits_{j=k+1}^n \xi^j \varphi(e_j)$
 
-    $\{\varphi(e_{k+1})\ldots \varphi(e_{n})\}$ --- полный для $Im$, т.к. любой $x\in Im$ можно по нему разложить. Докажем ЛНЗ от обратного:
+    $\{\varphi(e_{k+1})\ldots \varphi(e_{n})\}$ --- полный для $\im$, т.к. любой $x\in \im$ можно по нему разложить. Докажем ЛНЗ от обратного:
 
     $] \{\varphi(e_j)\}_{j=k+1}^n$ --- ЛЗ $\Rightarrow \exists \alpha^j : \sum\limits_{j=k+1}^n \alpha^j\varphi(e_j)=0\Rightarrow\varphi\left(\sum\limits_{j=k+1}^n \alpha^je_j\right)=0\Rightarrow$
     $$\begin{cases}
-        \text{или } \sum\limits_{j=k+1}^n \alpha^je_j \in Ker \varphi \Rightarrow \text{ЛК } e_{k+1}\ldots e_n \text{ разложима по } e_1\ldots e_k \text{ --- противоречие} \\
+        \text{или } \sum\limits_{j=k+1}^n \alpha^je_j \in \ker \varphi \Rightarrow \text{ЛК } e_{k+1}\ldots e_n \text{ разложима по } e_1\ldots e_k \text{ --- противоречие} \\
         \text{или } \sum\limits_{j=k+1}^n \alpha^je_j =0 \Rightarrow \alpha^j=0 \Rightarrow \text{ ЛНЗ}
     \end{cases}$$
-    $\Rightarrow \{\varphi(e_j)\}_{j=k+1}^n$ --- базис $Im \varphi$.
+    $\Rightarrow \{\varphi(e_j)\}_{j=k+1}^n$ --- базис $\im \varphi$.
 \end{proof}
+%</ядроиобраз>
 
 О существовании $\varphi^{-1}$
 
 $\sphericalangle \varphi: X\to Y$
 
-$\varphi : \forall x \ \ \exists! y\in Im \varphi : \varphi(x)=y$
+$\varphi : \forall x \ \ \exists! y\in \im \varphi : \varphi(x)=y$
 
-$\exists \varphi^{-1} : \forall y\in Im \varphi \ \ \exists! x\in X : \varphi^{-1}y=x$
+$\exists \varphi^{-1} : \forall y\in \im \varphi \ \ \exists! x\in X : \varphi^{-1}y=x$
 
 Обратный оператор существует только к изоморфизмам.
 
+%<*существованиеобратногоопреатора>
 \begin{theorem}
-    $] \varphi : X\to X$
+    $\sphericalangle \varphi : X\to X$
     
-    $\exists \varphi^{-1} \Leftrightarrow \dim Im \varphi=\dim X$ или $\dim Ker \varphi = 0$
+    $\exists \varphi^{-1} \Leftrightarrow \dim \im \varphi=\dim X$ или $\dim \ker \varphi = 0$
 \end{theorem}
 \begin{proof}
-    $\dim Im \varphi=\dim X \Leftrightarrow Im \varphi \simeq X \Rightarrow \varphi $ --- сюръекция, $\dim Ker \varphi = 0 \Rightarrow \forall y \ \ \exists x : \varphi x = y \Rightarrow \varphi$ --- инъекция
+    $\dim \im \varphi=\dim X \Leftrightarrow \im \varphi \simeq X \Rightarrow \varphi $ --- сюръекция, $\dim \ker \varphi = 0 \Rightarrow \forall y \ \ \exists x : \varphi x = y \Rightarrow \varphi$ --- инъекция
 \end{proof}
+%</существованиеобратногоопреатора>
 
 \section{Внешняя степень ЛОп}
 

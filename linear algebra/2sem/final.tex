@@ -257,9 +257,54 @@ $$\mathcal A x = \lambda x \Leftrightarrow A \xi = \lambda \xi \Leftrightarrow A
 \end{proof}
 
 \subsection{Спектральный анализ линейного оператора с простым спектром: спектр, диагональный вид матрицы, спектральные проекторы, спектральная теорема.}
+\begin{definition}
+    Собственное значение $\lambda$ --- \textbf{простое}, если оно --- корень $\chi_{\mathcal A}(\lambda)$ единичной кратности.
+\end{definition}
+\begin{definition}
+    Спектр $\sigma$ называется \textbf{простым}, если все собственные значения в нём простые.
+\end{definition}
 
+\begin{theorem}
+    $\sphericalangle \mathcal A : X \to X$ --- ЛОП с простым спектром $\sigma_{\mathcal A} = \{\lambda_i\}_{i=1}^n$, $\{x_i\}_{i=1}^n$ --- СВ.
+    
+    Тогда $A$ можно привести к диагональной форме $A^d$:
+    $$A^d = T^{-1} A T$$
+    где $T$ --- матрица перехода от базиса $\{e_i\}$ к $\{x_i\}$
+\end{theorem}
+\begin{proof}
+    Очевидно, т.к. $\mathcal A$ в базисе $\{x_i\}$ имеет диагональную матрицу $diag\{\lambda_1 \ldots \lambda_n\}$
+\end{proof}
+
+\begin{definition}
+    $\sphericalangle \lambda_i$ --- собственное значение ЛОП $\mathcal A : X\to X$.
+
+    \textbf{Спектральным проектором} $\mathcal P_{\lambda_i}^{\parallel}$ называется оператор проектирования на подпространство $L_{\lambda_i}$ (множество векторов, отвечающих $\lambda_i$)
+\end{definition}
+
+\begin{lemma}
+    Спектральные проекторы оператора с простым спектром имеют вид:
+    $$\mathcal P_{\lambda_i} = x_i \cdot f^i$$
+    где $\{x_i\}$ --- базис $X$ из СВ, $\{f^i\}$ --- сопряженный ему базис.
+\end{lemma}
+\begin{proof}
+    Необходимо показать, что для $x\in L_{\lambda_i}$ $\mathcal P_{\lambda_i}^{\parallel} x=x$, для $y\in \mathcal L\{x_1\ldots x_{i-1}, x_{i+1}\ldots x_n\}$ $\mathcal P_{\lambda_i}^{\parallel} y=0$
+
+    $$\mathcal P_{\lambda_i} x = x_i \cdot f^i x = x_i \cdot \alpha f^i x_i = \alpha x_i$$
+    $$\mathcal P_{\lambda_i} y = x_i \cdot f^i \left(\sum_{j=1, j\not=i}^n \alpha_jx_j \right) x_i \cdot 0$$
+\end{proof}
+
+\begin{theorem}
+    Спектральная теорема
+
+    $$\mathcal A = \sum_i \lambda_i \mathcal P_{\lambda_i}$$
+\end{theorem}
+\begin{proof}
+    $$\mathcal A x = \mathcal A\left( \sum_i \mathcal P_{\lambda_i}^{\parallel} x \right) = \sum_i \mathcal A \mathcal P_{\lambda_i}^{\parallel} x = \sum_i \lambda_i \mathcal P_{\lambda_i}^{\parallel} x$$
+\end{proof}
 
 \subsection{Спектральный анализ скалярного оператора: спектр, диагональный вид матрицы, спектральные проекторы, спектральная теорема.}
+
+
 
 \subsection{Спектральная теорема и функциональное исчисление для скалярного оператора.}
 

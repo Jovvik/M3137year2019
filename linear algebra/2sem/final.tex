@@ -294,7 +294,7 @@ $$\mathcal A x = \lambda x \Leftrightarrow A \xi = \lambda \xi \Leftrightarrow A
 \end{proof}
 
 \begin{theorem}
-    Спектральная теорема
+    Спектральная теорема для скалярного оператора:
 
     $$\mathcal A = \sum_i \lambda_i \mathcal P_{\lambda_i}$$
 \end{theorem}
@@ -304,15 +304,38 @@ $$\mathcal A x = \lambda x \Leftrightarrow A \xi = \lambda \xi \Leftrightarrow A
 
 \subsection{Спектральный анализ скалярного оператора: спектр, диагональный вид матрицы, спектральные проекторы, спектральная теорема.}
 
+Спектр, диагональный вид матрицы, спектральная теорема: см. выше.
 
+\begin{lemma}
+    Спектральные проекторы оператора скалярного типа имеют вид:
+    $$\mathcal P_{\lambda_i} = \sum_{j=1}^{m_j} x_j^{(i)} \cdot f^j_{(i)}$$
+    где $\{x_j^{(i)}\}_{j=1}^{m_j}$ --- СВ, отвечающие $\lambda_i$, $\{f^j_{(i)}\}_{j=1}^{m_j}$ --- сопряженный ему базис.
+\end{lemma}
 
 \subsection{Спектральная теорема и функциональное исчисление для скалярного оператора.}
+Спектральная теорема: см. выше
+
+$p(\lambda)$ --- скалярный полином. Тогда
+$$p(\mathcal A) = \sum p(\lambda_i) \mathcal P_{\lambda_i}$$
+\begin{proof}
+    $$\mathcal A + \mathcal A = \sum (\lambda_i + \lambda_i) \mathcal P_{\lambda_i} = 2\mathcal A$$
+    $$\alpha \mathcal A = \sum (\alpha \lambda_i) \mathcal P_{\lambda_i}$$
+    $$\mathcal A \cdot \mathcal A = \left(\sum_i \lambda_i \mathcal P_{\lambda_i} \right) \left(\sum_j \lambda_j \mathcal P_{\lambda_j} \right) = \sum_i \sum_j \lambda_i \lambda_j P_{\lambda_i} P_{\lambda_j} = \sum_i \sum_j \lambda_i \lambda_j P_{\lambda_i} \delta^i_j = \sum_i \lambda^2_i P_{\lambda_i} = \mathcal A^2$$
+\end{proof}
 
 \subsection{Спектральная теорема и инварианты скалярного оператора. Тождество Кэли.}
+Спектральная теорема, инварианты скалярного оператора: см. выше.
+\begin{lemma}
+    Тождество Кэли.
 
-
+    $\sphericalangle \chi_{\mathcal A}(\lambda)$ --- характеристический полином ЛОП $\mathcal A$, то $\chi_{\mathcal A}(\mathcal A)=0$
+\end{lemma}
+\begin{proof}
+    $$\chi_{\mathcal A}(\mathcal A) = \sum \chi_{\mathcal A}(\lambda_i) \mathcal P_{\lambda_i} = \sum 0 P_{\lambda_i} = 0$$
+\end{proof}
 
 \section{Спектральный анализ линейных операторов в конечномерном пространстве: операторы общего вида}
+
 
 % \subsection{Ультраинвариантные подпространства. }
 % \subsection{Алгебра скалярных полиномов. Идеал. Минимальный полином. }

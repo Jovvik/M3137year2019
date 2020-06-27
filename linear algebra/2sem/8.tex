@@ -8,6 +8,7 @@
 
 \section*{Спектральная теорема для оператора общего вида}
 
+%<*операторныеполиномы>
 \begin{definition}
     Операторный полином $p\in \mathcal P_\infty [K]$ называется аннулирующим полиномом линейного оператора $\varphi$, если $p(\varphi)=0$
 \end{definition}
@@ -35,7 +36,7 @@ $] J_\varphi$ --- множество аннулирующих полиномов
     $\sphericalangle p(\lambda)q(\lambda) \xrightarrow{S_\varphi} p(\varphi)q(\varphi)=0 \Rightarrow p(\lambda)q(\lambda)$ --- аннулирующий $\Rightarrow p(\lambda)q(\lambda)\in J_\varphi$
 \end{proof}
 \begin{definition}
-    \textbf{Минимальным аннулирующим полиномом} оператора $\varphi$ назвыается мнимальнй полином $J_\varphi$
+    \textbf{Минимальным аннулирующим полиномом} оператора $\varphi$ называется мнимальнй полином $J_\varphi$
 \end{definition}
 \begin{remark}
     Обозначение минимального полинома: $p_\varphi(\lambda) \leftrightarrow p_\varphi(\varphi)=0$
@@ -65,7 +66,9 @@ $] J_\varphi$ --- множество аннулирующих полиномов
 \begin{lemma}
     $] p(\lambda)=q(\lambda)p_\varphi(\lambda)+r(\lambda) \Rightarrow p(\varphi)=r(\varphi)$
 \end{lemma}
+%</операторныеполиномы>
 
+%<*44>
 \begin{theorem}
     $\sphericalangle p_\varphi=p_1\ldots p_k$, $p_1\ldots p_k$ --- взаимно простые
     $$\Rightarrow \dot+\sum_{j=1}^k \ker p_j(\varphi)=X$$
@@ -123,10 +126,12 @@ $] J_\varphi$ --- множество аннулирующих полиномов
     $$] i = j \Rightarrow \mathcal P_{L_i} (x) = \mathcal P_{L_i} (\mathcal I \cdot x)=\mathcal P_{L_i} \left(\sum_{j=1}^n \mathcal P_{L_j}\right) x=\mathcal P_{L_i}\mathcal P_{L_i} x \quad \forall x$$
     $$\Rightarrow \mathcal P_{L_i}\mathcal P_{L_i}=\mathcal P_{L_i}$$
 \end{proof}
+%</44>
 
 \section*{Ультраинвариантные подпространства}
 
-$] \varphi : X\to X, \dim X = n$
+%<*ультраинваринтноепространство>
+$\sphericalangle \varphi : X\to X, \dim X = n$
 
 $L\subset X$ --- инвариантное подпространство $\varphi$, если $\varphi(L)\subset L$
 
@@ -134,8 +139,6 @@ $L\subset X$ --- инвариантное подпространство $\varph
     Инвариантное подпространство называется \textbf{ультраинвариантным подпространством}, если существует его дополнение $L'$, такое что:
     $$L\dot + L'=X \quad L' \text{ --- инвариантное подпространство }\varphi$$
 \end{definition}
-
-$L$ --- инвариантное подпространство оператора $\varphi$
 
 \begin{definition}
     Оператор $\varphi_L : L\to L$, такой что:
@@ -149,7 +152,7 @@ $L$ --- инвариантное подпространство оператор
     Дополнение $L'$ ультраинвариантного подпространства $L$ является ультраинвариантным подпространством.
 \end{lemma}
 \begin{lemma}
-    $] X = L \dot+ L' \quad L,L'$ --- ультраинвариантное подпространства $\Rightarrow$
+    $X = L \dot+ L' \quad L,L'$ --- ультраинвариантное подпространства $\Rightarrow$
     $$\varphi = \varphi_L \mathcal P_L^{\parallel L'} + \varphi_{L'} \mathcal P_{L'}^{\parallel L}$$
 \end{lemma}
 \begin{proof}
@@ -157,6 +160,7 @@ $L$ --- инвариантное подпространство оператор
     $$\varphi x = \varphi \mathcal P_L^{\parallel L'} x + \varphi \mathcal P_{L'}^{\parallel L} x \quad \forall x \quad \Rightarrow$$
     $$\Rightarrow \varphi=\varphi_L \mathcal P_L^{\parallel L'} + \varphi_{L'} \mathcal P_{L'}^{\parallel L} \quad (*)$$
 \end{proof}
+%</ультраинваринтноепространство>
 
 \begin{remark}
     Запись $(*)$ эквивалентна записи
@@ -225,6 +229,7 @@ $$\varphi=\dot+\sum_{j=1}^k \varphi_j = \sum_{j=1}^k \varphi_j \mathcal P_j$$
     $\Rightarrow \deg p_\varphi(\lambda) > \deg \tilde p_\varphi(\lambda)$, но $p_\varphi(\lambda)$ --- минимальный --- противоречие.
 \end{proof}
 
+%<*спектральнаятеорема>
 \begin{theorem}
     Спектральная теорема.
     $$p_\varphi(\lambda)=\prod_{j=1}^k (\lambda-\lambda_j)^{m_j}=p_1(\lambda)\ldots p_k(\lambda) \quad p_j(\lambda)=(\lambda-\lambda_j)^{m_j}, \lambda\not=\lambda_{i\not=j}$$
@@ -232,6 +237,7 @@ $$\varphi=\dot+\sum_{j=1}^k \varphi_j = \sum_{j=1}^k \varphi_j \mathcal P_j$$
     $$\Rightarrow X = \dot+ \sum_{j=1}^n \ker (\varphi-\lambda_j\mathcal I)^{m_j}=\dot+\sum_{j=1}^k L_j$$
     $$\varphi = \dot+\sum_{j=1}^k \varphi_j \quad \varphi_j = \varphi|_{L_j}$$
 \end{theorem}
+%</спектральнаятеорема>
 
 % $$\sphericalangle L_j = \ker (\varphi_j - \lambda_j \mathcal I)^{m_j} \quad p_j(\lambda)=(\lambda-\lambda_j)^{m_j} - \min$$
 
@@ -240,7 +246,7 @@ $$\varphi=\dot+\sum_{j=1}^k \varphi_j = \sum_{j=1}^k \varphi_j \mathcal P_j$$
     $$\tau^m=0 \quad \forall k<m \ \ \tau^k\not=0$$
 \end{definition}
 \begin{remark}
-    $(\varphi_j - \lambda_j \mathcal I)=\tau_j$ --- Нильпотентный оператор порядка $m_j$
+    $(\varphi_j - \lambda_j \mathcal I)=\tau_j$ --- нильпотентный оператор порядка $m_j$
 \end{remark}
 
 $\varphi=\sum\limits_{j=1}^K (\lambda_j \mathcal I + \tau_j)\mathcal P_j$ --- спектральная теорема \textit{(другая формулировка)}.

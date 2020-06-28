@@ -11,24 +11,6 @@
 
 ### Линейная алгебра
 - [Итоговый конспект](linear%20algebra/2sem/final.pdf)
-- [Практика #1](linear%20algebra/2sem/practice/1.pdf)
-- [Практика #3](linear%20algebra/2sem/practice/3.pdf)
-- [Практика #4](linear%20algebra/2sem/practice/4.pdf)
-- [Практика #5](linear%20algebra/2sem/practice/5.pdf)
-- [Лекция #1](linear%20algebra/2sem/1.pdf)
-- [Лекция #2](linear%20algebra/2sem/2.pdf)
-- [Лекция #3](linear%20algebra/2sem/3.pdf)
-- [Лекция #4](linear%20algebra/2sem/4.pdf)
-- [Лекция #5](linear%20algebra/2sem/5.pdf)
-- [Лекция #7](linear%20algebra/2sem/7.pdf)
-- [Лекция #8](linear%20algebra/2sem/8.pdf)
-
-### Дискретная математика
-- [Лекция #1](discrete/2sem/1.pdf)
-- [Лекция #2](discrete/2sem/2.pdf)
-- [Лекция #3](discrete/2sem/3.pdf)
-- [Лекция #4](discrete/2sem/4.pdf)
-- [Лекция #7](discrete/2sem/7.pdf)
 
 ## 1 семестр
 

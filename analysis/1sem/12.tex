@@ -11,17 +11,17 @@
     Рассмотрим произвольную точку отрезка $x_k$ и её окрестность размером $\frac{1}{10^k}$. Все такие окрестности образуют открытое покрытие отрезка, но их суммарная длина $\leq\frac{1}{9}$, что меньше длины произвольного отрезка. Почему-то это даёт противоречие.
 \end{proof}
 
-\begin{consequence}
+\begin{corollary}
     \textit{(из теоремы о непрерывности монотонной функции)}
     %<*омножестветочекразрыва>
     У монотонной функции, заданной на промежутке, имеется не более чем счётное \textit{(НБЧС)} множество точек разрыва.
     %</омножестветочекразрыва>
-\end{consequence}
+\end{corollary}
 \begin{example}
     $\Theta(x) = sign(x) \frac{1}{2} + \frac{1}{2}$
 
     $] x_k$ это $k$-тое рациональное число
-    $$f(x)=\sum\limits_{k=1}^{+\infty} \frac{1}{2^k}\Theta(x-x_k)$$ 
+    $$f(x)=\sum\limits_{k=1}^{+\infty} \frac{1}{2^k}\Theta(x-x_k)$$
     $f(x)$ имеет скачок в каждом рациональном значении аргумента.
 \end{example}
 %<*омножестветочекразрываproof>
@@ -44,11 +44,11 @@
         \item Существует ли на плоскости более, чем счётное множество непересекающихся окружностей?
         \item Существует ли на плоскости более, чем счётное множество восьмёрок?
         \item Можно ли в счётном множестве задать такое континуальное семейство $(A_\alpha)$, что:
-        $\forall \alpha\in\R \ \ A_\alpha\subset A$
+              $\forall \alpha\in\R \ \ A_\alpha\subset A$
 
-        $\alpha_1\not=\alpha_2 \Rightarrow A_{\alpha_1}\not=A_{\alpha_2}$
+              $\alpha_1\not=\alpha_2 \Rightarrow A_{\alpha_1}\not=A_{\alpha_2}$
 
-        $\forall \alpha,\beta: \alpha<\beta \ \ A_\alpha\subset A_\beta$
+              $\forall \alpha,\beta: \alpha<\beta \ \ A_\alpha\subset A_\beta$
     \end{enumerate}
 \end{exercise}
 \begin{theorem}
@@ -110,26 +110,26 @@ $$f_a(x) = x^a, a\in\Q$$
     \item $a\in$``$-\N$'' $\quad f_{-a}(x)\stackrel{def}{=}\frac{1}{f_a(x)}$
     \item $a=0 \quad f_0(x)\equiv 1$ (при $x\not=0$, доопределим $f_0(0)=1$) --- непр. в $\R$
     \item $a=\frac{1}{n}, n\in\N, n$ --- нечётно
-    
-    $f_n\uparrow$ строго $\quad \inf\limits_{x\in\R} f_n(x)=-\infty \quad \sup f_n=+\infty, f_n$ --- непр. $\Rightarrow$ по теореме о непрерывности монотонной функции $f^{-1}$ --- непр.
 
-    $\exists f^{-1}_n:(-\infty, +\infty)\to\R$
+          $f_n\uparrow$ строго $\quad \inf\limits_{x\in\R} f_n(x)=-\infty \quad \sup f_n=+\infty, f_n$ --- непр. $\Rightarrow$ по теореме о непрерывности монотонной функции $f^{-1}$ --- непр.
 
-    $$f_{\frac{1}{n}}(x)=f_n^{-1}(x)$$
+          $\exists f^{-1}_n:(-\infty, +\infty)\to\R$
+
+          $$f_{\frac{1}{n}}(x)=f_n^{-1}(x)$$
 
     \item $a=\frac{1}{n}, n\in\N, n$ --- чётн.
-    
-    $f_n:[0, +\infty)\to[0,+\infty)$ --- строго монот., непр.
 
-    $f(0)=0 \quad \sup f_n=+\infty$
+          $f_n:[0, +\infty)\to[0,+\infty)$ --- строго монот., непр.
 
-    $\exists f^{-1} : [0, +\infty)\to[0, +\infty)$
+          $f(0)=0 \quad \sup f_n=+\infty$
 
-    $$f_{\frac{1}{n}}(x):=f_n^{-1}(x)$$
+          $\exists f^{-1} : [0, +\infty)\to[0, +\infty)$
+
+          $$f_{\frac{1}{n}}(x):=f_n^{-1}(x)$$
 
     \item $a=\frac{p}{q}$ \textit{(несокр.)}, $p\in\Z, q\in\N$
-    
-    $$f_a:=f_\frac{1}{q}\circ f_p$$
+
+          $$f_a:=f_\frac{1}{q}\circ f_p$$
 \end{enumerate}
 
 \section{Производная}
@@ -163,7 +163,7 @@ $$f_a(x) = x^a, a\in\Q$$
 %<*равносильностьопределенийпроизводнойproof>
 \begin{proof}
     Докажем ``$\Leftarrow$''.
-    
+
     $$f(x)=f(x_0)+A\cdot(x-x_0)+o(x-x_0), x\to x_0$$
 
     $$A=\frac{f(x)-f(x_0)}{x-x_0} - \frac{o(x-x_0)}{x-x_0}$$
@@ -177,24 +177,24 @@ $$f_a(x) = x^a, a\in\Q$$
     \begin{enumerate}
         \item $f$ --- дифф. в $x_0 \Rightarrow f$ --- непр. в $x_0$
         \item $f'(x_0)$ --- обозн. для производной
-        
-        Если $x_0\in(a, b)$ в опр. 1, 2 $\quad x\to x_0+0$
 
-        $f$ --- дифф. справа $\Rightarrow A$ --- правостор. производная $f'_+(x)$
+              Если $x_0\in(a, b)$ в опр. 1, 2 $\quad x\to x_0+0$
 
-        $x\to x_0-0$ слева $f_-'(x_0)$
+              $f$ --- дифф. справа $\Rightarrow A$ --- правостор. производная $f'_+(x)$
 
-        $$\exists f_+'(x_0)=f_-'(x_0)=f \text{ --- дифф. в} x_0$$
-        
+              $x\to x_0-0$ слева $f_-'(x_0)$
+
+              $$\exists f_+'(x_0)=f_-'(x_0)=f \text{ --- дифф. в} x_0$$
+
         \item $A=\pm\infty: f'(x_0)=\pm\infty$, но $f$ не дифф.
     \end{enumerate}
 \end{remark}
 
 \begin{example}
     $$f(x)=\begin{cases}
-        0 \quad\quad\ \ \ ,\ x=0 \\
-        x\sin\frac{1}{x} \ \ ,\ x\not=0
-    \end{cases}$$
+            0 \quad\quad\ \ \ ,\ x=0 \\
+            x\sin\frac{1}{x} \ \ ,\ x\not=0
+        \end{cases}$$
 
     $$\not\exists\lim\limits_{x\to0}\frac{f(x)-f(0)}{x-0}$$
 \end{example}
@@ -270,8 +270,8 @@ $$f(x)=f(x_0)+f'(x_0)(x-x_0)+o(x-x_0)$$
 \end{proof}
 %</дифференциированиеобратнойproof>
 \begin{example}
-$$y=\sin x$$
-$$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
+    $$y=\sin x$$
+    $$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
 \end{example}
 \begin{exercise}
     $\arctan'y=0$
@@ -352,11 +352,11 @@ $$\arcsin'y=\frac{1}{\cos x}=\frac{1}{\sqrt{1-\sin^2x}}=\frac{1}{\sqrt{1-y^2}}$$
     %<*полиномылежандра>
     $n\in\N$
 
-    $\Ln(x)=((x^2-1)^n)^{(n)}$ --- \textbf{полиномы Лежандра} \textit{(с точностью до умножения на константу)}
+    $L_n(x)=((x^2-1)^n)^{(n)}$ --- \textbf{полиномы Лежандра} \textit{(с точностью до умножения на константу)}
 
-    $\deg \Ln=n$
+    $\deg L_n=n$
 
-    Утверждение: $\Ln$ имеет $n$ различных вещественных корней.
+    Утверждение: $L_n$ имеет $n$ различных вещественных корней.
     %</полиномылежандра>
 \end{example}
 %<*полиномылежандраproof>

@@ -32,18 +32,18 @@ $$-1+1-\frac{1}{2}-\frac{1}{2}+\frac{1}{2}-\frac{1}{4}-\frac{1}{4}+\frac{1}{2}-\
 \begin{proof}
     \begin{enumerate}
         \item $a_k\ge 0$
-        $$S_n^{(b)}=b_1+\ldots +b_n=a_{w(1)}+\ldots+a_{w(n)}\le S^{(a)}_N, N=\max(w(1)\ldots w(n))$$
-        Предельный переход: $S^{(b)}\le S^{(a)}$
+              $$S_n^{(b)}=b_1+\ldots +b_n=a_{w(1)}+\ldots+a_{w(n)}\le S^{(a)}_N, N=\max(w(1)\ldots w(n))$$
+              Предельный переход: $S^{(b)}\le S^{(a)}$
 
-        Т.к. $A$ --- перестановка $B$, то $S^{(a)}\le S^{(b)} \Rightarrow S^{(a)}=S^{(b)}$
+              Т.к. $A$ --- перестановка $B$, то $S^{(a)}\le S^{(b)} \Rightarrow S^{(a)}=S^{(b)}$
 
         \item Общий случай
-        
-        $a_k^+=\max(a_k, 0), a_k^-=\max(-a_k, 0)$
 
-        $\sum b_k^+$ --- перестановка $\sum a_k^+$; $\sum b_k^-$ --- перестановка $\sum a_k^-$
+              $a_k^+=\max(a_k, 0), a_k^-=\max(-a_k, 0)$
 
-        Срезки сходятся по пункту 1., в силу абсолютной сходимости $\sum a_k^+$ и $\sum a_k^-$ конечны $\Rightarrow S^{(a)}=S^{(b)}$
+              $\sum b_k^+$ --- перестановка $\sum a_k^+$; $\sum b_k^-$ --- перестановка $\sum a_k^-$
+
+              Срезки сходятся по пункту 1., в силу абсолютной сходимости $\sum a_k^+$ и $\sum a_k^-$ конечны $\Rightarrow S^{(a)}=S^{(b)}$
     \end{enumerate}
 \end{proof}
 %</оперестановкеслагаемыхproof>
@@ -93,7 +93,7 @@ $(a_1+\ldots+a_k)(b_1+\ldots+b_l)=\sum\sum a_ib_j$
     Коши.
 
     %<*опроизведениирядов>
-    Пусть ряды $\sum a_k, \sum b_k$ абсолютно сходятся. Тогда $\forall$ биекции $\gamma:\N\to\N\times\N$ произведение рядов абсолютно сходится и его сумма $=AB$ 
+    Пусть ряды $\sum a_k, \sum b_k$ абсолютно сходятся. Тогда $\forall$ биекции $\gamma:\N\to\N\times\N$ произведение рядов абсолютно сходится и его сумма $=AB$
     %</опроизведениирядов>
 \end{theorem}
 %<*опроизведениирядовproof>
@@ -103,7 +103,7 @@ $(a_1+\ldots+a_k)(b_1+\ldots+b_l)=\sum\sum a_ib_j$
     $$\sum_{k=1}^N |a_{\varphi(x)}b_{\psi(x)}|\le \sum_{i=1}^{M}|a_i|\sum_{j=1}^L |b_j|\le A^*B^*$$
     $$M:=\max(\varphi(1)\ldots \varphi(N)) \quad N:=\max(\psi(1)\ldots \psi(N))$$
     Итого произведение сходится абсолютно.
-    
+
     Произведение для $\overline\gamma\not=\gamma$ есть перестановка произведения для $\gamma \Rightarrow \forall \gamma$ произведение рядов имеет одинаковую сумму.
 
     Возьмём $\gamma$ такое, что оно обходит точки $\N\times\N$ ``по квадратам'', т.е. не заходит в следующий квадрат, пока не обошло предыдущий. Тогда:
@@ -146,14 +146,14 @@ $(a_1+\ldots+a_k)(b_1+\ldots+b_l)=\sum\sum a_ib_j$
 \begin{example}
     \begin{enumerate}
         \item $F=\const : \R^m\to\R^l$
-        
-        $\forall x\in\R^m$ $F$ дифф. в $x$, $F'(x)=\mathbf 0$
-        $$F(x)=F(a) + \underbrace{L}_{\mathbf 0}(x-a) + \underbrace{\varphi(x)}_{\mathbf 0}|x-a|$$
+
+              $\forall x\in\R^m$ $F$ дифф. в $x$, $F'(x)=\mathbf 0$
+              $$F(x)=F(a) + \underbrace{L}_{\mathbf 0}(x-a) + \underbrace{\varphi(x)}_{\mathbf 0}|x-a|$$
 
         \item $A : \R^m \to \R^l$ --- линейный оператор
-        
-        $\forall x\in\R^m$ $A$ дифф. в $x$, $A'(x)=A$
-        $$A(x)=Aa+A(x-a)+\underbrace{\varphi(x)}_{\mathbf 0}|x-a|$$
+
+              $\forall x\in\R^m$ $A$ дифф. в $x$, $A'(x)=A$
+              $$A(x)=Aa+A(x-a)+\underbrace{\varphi(x)}_{\mathbf 0}|x-a|$$
 
         \item $F(x)=v_0+Ax$ --- афинное отображение. $F'(x)=A$
     \end{enumerate}
@@ -164,9 +164,9 @@ $(a_1+\ldots+a_k)(b_1+\ldots+b_l)=\sum\sum a_ib_j$
 \begin{definition}
     %<*частнаяпроизводная>
     $f:E\subset \R^m \to \R, a\in Int E$
-    
+
     Фиксируем $k\in\{1\ldots m\}$ $\varphi_k(t):=f(a_1,a_2\ldots t\ldots a_m)$
-    
+
     $\lim\limits_{h\to0}\frac{\varphi_k(a_k+h)-\varphi_k(a_k)}{h} = \varphi_k'(a_k)$ называется \textbf{частной производной} функции $f$ в точке $a$
     %</частнаяпроизводная>
 \end{definition}
@@ -178,12 +178,12 @@ $$\frac{\partial f}{\partial x_k}(a) = \lim_{h\to0}\frac{f(a_1,a_2\ldots a_{k}+h
 \begin{example}
     \begin{enumerate}
         \item $$f(x,y)=x+(y-\alpha)\arctg\frac{x^2+y^2}{\sqrt{xy}+1}$$
-        $$\frac{\partial f}{\partial x}(1,1)=1$$
+              $$\frac{\partial f}{\partial x}(1,1)=1$$
         \item $$f(x,y)=\begin{cases}
-            \frac{2xy}{x^2+y^2} &, (x,y)\not=(0,0) \\
-            0 &, (x,y)=(0,0)
-        \end{cases}$$
-        $$\frac{\partial f}{\partial x}(0,0)=\frac{df}{dx}(x,0)=0 \quad \frac{\partial f}{\partial y}(0,0)=0$$
+                      \frac{2xy}{x^2+y^2} & , (x,y)\not=(0,0) \\
+                      0                   & , (x,y)=(0,0)
+                  \end{cases}$$
+              $$\frac{\partial f}{\partial x}(0,0)=\frac{df}{dx}(x,0)=0 \quad \frac{\partial f}{\partial y}(0,0)=0$$
     \end{enumerate}
 \end{example}
 
@@ -206,11 +206,11 @@ $$\frac{\partial f}{\partial x_k}(a) = \lim_{h\to0}\frac{f(a_1,a_2\ldots a_{k}+h
 \end{proof}
 %</необходимоеусловиедифференциируемостиproof>
 
-\begin{consequence}
+\begin{corollary}
     $F:F\subset \R^m \to\R^l, a\in IntE, F$ --- дифф. в $a$
 
     Тогда все координатные функции $F_i$ дифференциируемы в $a$ и $F'(a)=\sum_{i=1}^l \sum_{j=1}^m \left(\frac{\partial F_i}{\partial x_j}(a)\right)$
-\end{consequence}
+\end{corollary}
 
 \begin{theorem}
     Достаточное условие дифференциирования.

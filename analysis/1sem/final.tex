@@ -75,10 +75,10 @@
     Альтернативное:
 
     \begin{align*}
-        &\left(\sum_{i=1}^{n}a_i^2\right)\left(\sum_{i=1}^{n}b_i^2\right)-\left(\sum_{i=1}^{n}a_ib_i\right)^2=\\
-        &\sum_{i=1}^{n}\sum_{j=1}^{n}a_i^2b_j^2-\sum_{i=1}^{n}\sum_{j=1}^{n}a_ib_ia_jb_j=\\
-        &\frac12\sum_{i=1}^{n}\sum_{j=1}^{n}\left(a_i^2b_j^2+a_j^2b_i^2-2a_ib_ia_jb_j\right)=\\
-        &\frac12\sum_{i=1}^{n}\sum_{j=1}^{n}(a_ib_j-a_jb_i)^2\geq0
+         & \left(\sum_{i=1}^{n}a_i^2\right)\left(\sum_{i=1}^{n}b_i^2\right)-\left(\sum_{i=1}^{n}a_ib_i\right)^2= \\
+         & \sum_{i=1}^{n}\sum_{j=1}^{n}a_i^2b_j^2-\sum_{i=1}^{n}\sum_{j=1}^{n}a_ib_ia_jb_j=                      \\
+         & \frac12\sum_{i=1}^{n}\sum_{j=1}^{n}\left(a_i^2b_j^2+a_j^2b_i^2-2a_ib_ia_jb_j\right)=                  \\
+         & \frac12\sum_{i=1}^{n}\sum_{j=1}^{n}(a_ib_j-a_jb_i)^2\geq0
     \end{align*}
 \end{proof}
 
@@ -136,7 +136,7 @@
 \subsubsection{Неравенство Коши-Буняковского в линейном пространстве}
 \ExecuteMetaData[4.tex]{неравенствокошибуняковского}
 \begin{proof}
-\ExecuteMetaData[4.tex]{неравенствокошибуняковскогоproof}
+    \ExecuteMetaData[4.tex]{неравенствокошибуняковскогоproof}
 \end{proof}
 \subsubsection{Норма, порожденная скалярным произведением}
 \ExecuteMetaData[4.tex]{нормапорожденнаяскалярнымпроизведением}
@@ -164,7 +164,7 @@ $B(a,r)=\{x\in X : \rho(a,x)<r\}$ --- открыт
     Докажем, что $B(x_0, k)\subset B(a, r)$
 
     $$\forall x\in B(x_0, k) \quad \rho(x, x_0)<k$$
-    
+
     $$\rho(a, x_0) + \rho(x, x_0)<r$$
 
     $$\rho(x, a) \leq \rho(a, x_0) + \rho(x, x_0)<r$$
@@ -178,14 +178,14 @@ $B(a,r)=\{x\in X : \rho(a,x)<r\}$ --- открыт
 \begin{proof}
     \begin{enumerate}
         \item $(\bigcap F_\alpha)^c=X\setminus(\bigcap F_\alpha)=\bigcup (X\setminus F_\alpha)$
-        
-        $F_\alpha$ --- закрыто $\Rightarrow X\setminus F_\alpha$ --- открыто $\Rightarrow \bigcup (X\setminus F_\alpha)$ --- открыто
 
-        $(\bigcap F_\alpha)^c$ --- открыто $\Rightarrow \bigcap F_\alpha$ --- замкнуто
+              $F_\alpha$ --- закрыто $\Rightarrow X\setminus F_\alpha$ --- открыто $\Rightarrow \bigcup (X\setminus F_\alpha)$ --- открыто
+
+              $(\bigcap F_\alpha)^c$ --- открыто $\Rightarrow \bigcap F_\alpha$ --- замкнуто
 
         \item $(\bigcup F_i)^c=\bigcap(F_i)^c$
-        
-        $\bigcap(F_i)^c$ --- открыто, т.к. $F_i^c$ --- открыто $\Rightarrow (\bigcup F_i)^c$ --- открыто $\Rightarrow \bigcup F_i$ --- замкнуто
+
+              $\bigcap(F_i)^c$ --- открыто, т.к. $F_i^c$ --- открыто $\Rightarrow (\bigcup F_i)^c$ --- открыто $\Rightarrow \bigcup F_i$ --- замкнуто
     \end{enumerate}
 \end{proof}
 
@@ -427,20 +427,20 @@ $f$ --- произвольная показательная функция. То
     $a:=f(1), \exists \alpha : f_0(\alpha)=a$
 
     $f_0(\alpha x)$ и есть $f(x)$, т.к. у них совпадает значение в 0.
-    
+
     Докажем, что $f_0(\alpha x)$ --- показ. функция.
     $$f_0(\alpha(x+y))=f_0(\alpha x + \alpha y)=f_0(\alpha x)f_0(\alpha y)$$
 \end{proof}
-\begin{consequence}
+\begin{corollary}
     $f_0$ --- единственна.
-\end{consequence}
+\end{corollary}
 \begin{proof}
     Пусть $h(x)$ --- ещё одна такая функция $\Rightarrow \exists \alpha : h(x)=f_0(\alpha x)$
     $$1\xleftarrow[x\to0]{} \frac{h(x)-1}{x}=\frac{f_0(\alpha x)-1}{x}=\frac{f_0(\alpha x)-1}{\alpha x}\cdot \alpha\xrightarrow[x\to0]{} \alpha \Rightarrow \alpha=1$$
 \end{proof}
-\begin{consequence}
+\begin{corollary}
     $\forall a>0, a\not=1 \quad \exists! f : f(1)=a$
-\end{consequence}
+\end{corollary}
 \begin{proof}
     Для этого $a \ \ \exists! \alpha : f_0(\alpha)=a$
 
@@ -456,7 +456,7 @@ $f$ --- показ. ф-ция. $\forall r\in\R \quad f(rx)=(f(x))^r$
     Для $r\in\Q$ доказано выше. (\ref{exponentofmultiplication}, стр. \pageref{exponentofmultiplication})
 
     $\sphericalangle r\in\R$. $\exists a_{n}\in\Q \to r$
-    
+
     $f(a_nx)=f(x)^{a_n}\to f(x)^r$
 \end{proof}
 
@@ -466,7 +466,7 @@ $$f(x)=f(x_0)+\ldots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^{n+1})$$
 \begin{proof}
     \begin{lemma}
         $\varphi:\langle a,b \rangle \to \R, x_0 \in \langle a,b \rangle, \varphi$ $n$ раз дифференциируема в $x_0$ и $\varphi(x_0)=\varphi'(x_0)=\ldots=\varphi^{(n)}(x_0)=0$.
-        
+
         Тогда $\varphi(x)=o((x-x_0)^n), x\to x_0$
         \begin{proof}
             База: $n=1$.

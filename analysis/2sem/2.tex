@@ -20,7 +20,7 @@
     $$\left|f_1\left(\frac{B}{n}\right) - \frac{B_1}{n}\right|\geq \varepsilon$$
     При $v=B$ $$f_1\left(\frac{v}{n}\right)-\frac{v_1}{n}\geq -\varepsilon$$
 \end{proof}
-    %</теоремаонеподвижнойточкеproof2>
+%</теоремаонеподвижнойточкеproof2>
 
 \section{Определенный интеграл}
 
@@ -50,7 +50,7 @@
 \begin{remark}
     \begin{enumerate}
         \item Монотонность: $A\subset B \quad \sigma A\leq \sigma B$
-        
+
         \item $\sigma$(вертик. отр.) $=0$
     \end{enumerate}
 \end{remark}
@@ -78,14 +78,14 @@
 Это разные площади. Покажем это на примере фигуры ``все точки в квадрате с рациональными координатами''. Первая площадь накрывает весь квадрат $\Rightarrow \sigma_1=1$. $\sigma_2=0$. Покажем это, накрыв $n$-тую точку квадратом размера $\frac{\varepsilon}{2^n}\times \frac{\varepsilon}{2^n}$. $\sum \frac{\varepsilon}{4^n}=\varepsilon\frac{\frac{1}{4}}{1-\frac{1}{4}}=\frac{\varepsilon}{3}\to0 \Rightarrow \inf = 0$
 
 \begin{definition}
-%<*срезки>
+    %<*срезки>
 
     $f:\langle a,b\rangle\to\R$
 
     $f_+:=\max(f, 0)$ --- \textbf{положительная срезка}
 
     $f_-:=\max(-f, 0)$ --- \textbf{отрицательная срезка}
-%</срезки>
+    %</срезки>
 \end{definition}
 
 \begin{definition}
@@ -119,32 +119,32 @@
 Свойства интегралов:
 \begin{enumerate}
     \item Аддитивность по промежутку $c\in(a,b)$
-    $$\int^b_a f = \int^c_a f + \int^b_c f$$
-    \begin{proof}
-        $$\sigma\text{ПГ}(f_+, [a,b])=\sigma\text{ПГ}(f_+, [a,c])+\sigma\text{ПГ}(f_+, [c,b])$$
-    \end{proof}
+          $$\int^b_a f = \int^c_a f + \int^b_c f$$
+          \begin{proof}
+              $$\sigma\text{ПГ}(f_+, [a,b])=\sigma\text{ПГ}(f_+, [a,c])+\sigma\text{ПГ}(f_+, [c,b])$$
+          \end{proof}
     \item Монотонность: %<*интегрированиенеравенств>
-    $f, g \in C[a,b] \quad f\leq g$. Тогда
-    $$\int^b_a f \leq \int^b_a g$$
-    %</интегрированиенеравенств>
-    %<*интегрированиенеравенствproof>
-    \begin{proof}
-        $$\text{ПГ}(f_+)\subset \text{ПГ}(g_+) \Rightarrow \sigma\text{ПГ}(f_+)\leq \sigma\text{ПГ}(g_+)$$
-        $$\text{ПГ}(f_-)\supset \text{ПГ}(g_-) \Rightarrow \sigma\text{ПГ}(f_-)\geq \sigma\text{ПГ}(g_-)$$
-        $$\sigma\text{ПГ}(f_+)-\sigma\text{ПГ}(f_-)\leq\sigma\text{ПГ}(g_+)-\sigma\text{ПГ}(g_-)$$
-    \end{proof}
-    %</интегрированиенеравенствproof>
+          $f, g \in C[a,b] \quad f\leq g$. Тогда
+          $$\int^b_a f \leq \int^b_a g$$
+          %</интегрированиенеравенств>
+          %<*интегрированиенеравенствproof>
+          \begin{proof}
+              $$\text{ПГ}(f_+)\subset \text{ПГ}(g_+) \Rightarrow \sigma\text{ПГ}(f_+)\leq \sigma\text{ПГ}(g_+)$$
+              $$\text{ПГ}(f_-)\supset \text{ПГ}(g_-) \Rightarrow \sigma\text{ПГ}(f_-)\geq \sigma\text{ПГ}(g_-)$$
+              $$\sigma\text{ПГ}(f_+)-\sigma\text{ПГ}(f_-)\leq\sigma\text{ПГ}(g_+)-\sigma\text{ПГ}(g_-)$$
+          \end{proof}
+          %</интегрированиенеравенствproof>
 \end{enumerate}
 %</свойстваинтегралов>
 
-\begin{consequence}
+\begin{corollary}
     $$\min f\cdot(b - a) \leq \int^b_a f \leq \max f\cdot (b-a)$$
-\end{consequence}
+\end{corollary}
 
 \begin{enumerate}[resume]
     \item $$\left|\int^b_a f\right|\leq \int^b_a |f|$$
-    $$-|f|\leq f \leq |f|$$
-    $$-\int^b_a|f|=\int^b_a-|f|\leq \int^b_a f\leq \int^b_a |f|$$
+          $$-|f|\leq f \leq |f|$$
+          $$-\int^b_a|f|=\int^b_a-|f|\leq \int^b_a f\leq \int^b_a |f|$$
 \end{enumerate}
 
 %<*интегралспеременнымверхнимпределом>
@@ -215,52 +215,52 @@ $$\left( \int^{\int_{x^2}^{e^x} \cos y^3 dy}_{\int_x^{\cos x} e^{-n^2} dn} \frac
 
 \begin{lemma}
     Об ускоренной сходимости
-%<*обускореннойсходимости>
+    %<*обускореннойсходимости>
 
     \begin{enumerate}
         \item $f, g : D\subset X \to \R \quad a$ --- предельная точка $D$
 
-        $\exists U(a) : $ при $x\in\dot U(a)\cap D \quad f(x)\not=0, g(x)\not=0$
-    
-        Пусть $\lim\limits_{x\to a} f(x) = 0 \quad \lim\limits_{x\to a} g(x) = 0$
-        
-        Тогда $$\forall x_k\to a \quad (x_k\not=a, x_k\in D) \quad \exists y_k\to a \quad (y_k\not=a, y_k\in D)$$
-        такое, что $$\lim\limits_{k\to+\infty}\frac{f(y_k)}{g(x_k)}=0 \quad \lim\limits_{k\to+\infty} \frac{g(y_k)}{g(x_k)}=0$$
-    
-        Таким образом, $g(y_k) \to 0$ быстрее, чем $g(x_k)\to 0$
+              $\exists U(a) : $ при $x\in\dot U(a)\cap D \quad f(x)\not=0, g(x)\not=0$
+
+              Пусть $\lim\limits_{x\to a} f(x) = 0 \quad \lim\limits_{x\to a} g(x) = 0$
+
+              Тогда $$\forall x_k\to a \quad (x_k\not=a, x_k\in D) \quad \exists y_k\to a \quad (y_k\not=a, y_k\in D)$$
+              такое, что $$\lim\limits_{k\to+\infty}\frac{f(y_k)}{g(x_k)}=0 \quad \lim\limits_{k\to+\infty} \frac{g(y_k)}{g(x_k)}=0$$
+
+              Таким образом, $g(y_k) \to 0$ быстрее, чем $g(x_k)\to 0$
 
         \item То же самое, но $\lim f(x)=+\infty, \lim g(x)=+\infty$
     \end{enumerate}
-%</обускореннойсходимости>
+    %</обускореннойсходимости>
 \end{lemma}
 %<*обускореннойсходимостиproof>
 \begin{proof}
     \begin{enumerate}
         \item Очевидно.
-        $$\forall k \quad \exists N \quad \forall n>N \quad |f(x_n)|<|g(x_k)|\frac{1}{k} \quad |g(x_n)|<|g(x_k)|\frac{1}{k}$$
-        $\varepsilon:=|g(x_k)|$
+              $$\forall k \quad \exists N \quad \forall n>N \quad |f(x_n)|<|g(x_k)|\frac{1}{k} \quad |g(x_n)|<|g(x_k)|\frac{1}{k}$$
+              $\varepsilon:=|g(x_k)|$
 
-        $$k=1 \quad y_1 := \text{какой-нибудь } x_n : \left|\frac{f(x_n)}{g(x_k)}\right|<1 \quad \left|\frac{g(x_n)}{g(x_k)}\right|<1$$
-        $$k=2 \quad y_2 := \text{какой-нибудь } x_n : \left|\frac{f(x_n)}{g(x_k)}\right|<\frac{1}{2} \quad \left|\frac{g(x_n)}{g(x_k)}\right|<\frac{1}{2} $$
-        $$\vdots$$
+              $$k=1 \quad y_1 := \text{какой-нибудь } x_n : \left|\frac{f(x_n)}{g(x_k)}\right|<1 \quad \left|\frac{g(x_n)}{g(x_k)}\right|<1$$
+              $$k=2 \quad y_2 := \text{какой-нибудь } x_n : \left|\frac{f(x_n)}{g(x_k)}\right|<\frac{1}{2} \quad \left|\frac{g(x_n)}{g(x_k)}\right|<\frac{1}{2} $$
+              $$\vdots$$
 
         \item \begin{enumerate}
-            \item Частный случай: Пусть $g(x_n)$ возрастает. Берем $k$ : $m:=\min\{n : |f(x_n)|\geq \sqrt{g(x_k)} \text{ или }$
-            
-            $|g(x_n)|\geq\sqrt{g(x_k)}\}$
-            
-            $y_k:=x_{m-1} \Rightarrow |f(y_k)|\le \sqrt{g(x_k)} \ \ |g(y_k)|\le \sqrt{g(x_k)}$
-            $$\left|\frac{f(y_k)}{g(x_k)}\right|\leq \frac{\sqrt{g(x_k)}}{g(x_k)}=\frac{1}{\sqrt{g(x_k)}}\xrightarrow[k\to+\infty]{}0$$
-            $$\left|\frac{g(y_k)}{g(x_k)}\right|\leq \frac{\sqrt{g(x_k)}}{g(x_k)}=\frac{1}{\sqrt{g(x_k)}}\xrightarrow[k\to+\infty]{}0$$
+                  \item Частный случай: Пусть $g(x_n)$ возрастает. Берем $k$ : $m:=\min\{n : |f(x_n)|\geq \sqrt{g(x_k)} \text{ или }$
 
-            \textcolor{red}{Зачем нужно возрастание?}
+                        $|g(x_n)|\geq\sqrt{g(x_k)}\}$
 
-            \item Общий случай: $\tilde g(x_k):=\inf\{g(x_n), n=k, k+1\ldots\} \quad \tilde g(x_k)\to+\infty$
-            
-            $\tilde g(x_k)\uparrow, \tilde g(x_k)\leq g(x_k)$. Как в пункте (a) построим $y_k$
-            $$\frac{f(y_k)}{g(x_k)}\leq \frac{f(y_k)}{\tilde g(x_k)} \leq \frac{1}{\sqrt{\tilde g(x_k)}}\xrightarrow[k\to+\infty]{} 0$$
-            $$\frac{g(y_k)}{g(x_k)}\leq \frac{g(y_k)}{\tilde g(x_k)}\leq \frac{1}{\sqrt{\tilde g(x_k)}}\to0$$
-        \end{enumerate}
+                        $y_k:=x_{m-1} \Rightarrow |f(y_k)|\le \sqrt{g(x_k)} \ \ |g(y_k)|\le \sqrt{g(x_k)}$
+                        $$\left|\frac{f(y_k)}{g(x_k)}\right|\leq \frac{\sqrt{g(x_k)}}{g(x_k)}=\frac{1}{\sqrt{g(x_k)}}\xrightarrow[k\to+\infty]{}0$$
+                        $$\left|\frac{g(y_k)}{g(x_k)}\right|\leq \frac{\sqrt{g(x_k)}}{g(x_k)}=\frac{1}{\sqrt{g(x_k)}}\xrightarrow[k\to+\infty]{}0$$
+
+                        \textcolor{red}{Зачем нужно возрастание?}
+
+                  \item Общий случай: $\tilde g(x_k):=\inf\{g(x_n), n=k, k+1\ldots\} \quad \tilde g(x_k)\to+\infty$
+
+                        $\tilde g(x_k)\uparrow, \tilde g(x_k)\leq g(x_k)$. Как в пункте (a) построим $y_k$
+                        $$\frac{f(y_k)}{g(x_k)}\leq \frac{f(y_k)}{\tilde g(x_k)} \leq \frac{1}{\sqrt{\tilde g(x_k)}}\xrightarrow[k\to+\infty]{} 0$$
+                        $$\frac{g(y_k)}{g(x_k)}\leq \frac{g(y_k)}{\tilde g(x_k)}\leq \frac{1}{\sqrt{\tilde g(x_k)}}\to0$$
+              \end{enumerate}
     \end{enumerate}
 \end{proof}
 %</обускореннойсходимостиproof>

@@ -10,12 +10,12 @@
 
 \begin{theorem}
     \textbf{Критерий монотонности}
-%<*критериймонотонности>
+    %<*критериймонотонности>
 
     $f\in C(\langle a,b\rangle)$, дифф. в $(a, b)$
 
-    Тогда $f$ --- возрастает $\Leftrightarrow \forall x\in(a, b)\ \ f'(x) \geq 0$ 
-%</критериймонотонности>
+    Тогда $f$ --- возрастает $\Leftrightarrow \forall x\in(a, b)\ \ f'(x) \geq 0$
+    %</критериймонотонности>
 \end{theorem}
 %<*критериймонотонностиproof>
 \begin{proof}
@@ -25,12 +25,12 @@
 \end{proof}
 %</критериймонотонностиproof>
 %<*критериймонотонностиследствия1>
-\begin{consequence}
+\begin{corollary}
     $f:\langle a,b\rangle\to\R$, тогда:
 
     $f=\const\Leftrightarrow (f\in C(\langle a,b\rangle)$ --- дифф. на $(a,b), f'\equiv0)$
-\end{consequence}
-\begin{consequence}
+\end{corollary}
+\begin{corollary}
     $f\in C\langle a,b\rangle$, дифф. на $(a,b)$. Тогда:
 
     $f$ строго возрастает $\Leftrightarrow$ \textcircled{1} и \textcircled{2}
@@ -38,7 +38,7 @@
     \textcircled{1} $f'\geq 0$ на $(a,b)$
 
     \textcircled{2} $f'\not\equiv0$ ни на каком промежутке
-\end{consequence}
+\end{corollary}
 %</критериймонотонностиследствия1>
 %<*критериймонотонностиследствия1proof>
 \begin{proof}
@@ -48,7 +48,7 @@
 \end{proof}
 %</критериймонотонностиследствия1proof>
 %<*критериймонотонностиследствия2>
-\begin{consequence}
+\begin{corollary}
     О доказательстве неравенств
 
     $g, f\in C([a,b\rangle)$, дифф. в $(a,b)$
@@ -56,7 +56,7 @@
     $f(a)\leq g(a); \forall x\in(a,b) \ \ f'(x)\leq g'(x)$
 
     Тогда $\forall x\in[a,b\rangle \ \ f(x)\leq g(x)$
-\end{consequence}
+\end{corollary}
 %</критериймонотонностиследствия2>
 %<*критериймонотонностиследствия2proof>
 \begin{proof}
@@ -78,43 +78,43 @@
 %</локальныймаксимум>
 
 \begin{theorem}
-%<*необходимостьидостаточностьусловиялокальногоэкстремума>
+    %<*необходимостьидостаточностьусловиялокальногоэкстремума>
     $f:\langle a,b\rangle\to\R\quad x_0\in(a,b)\quad f$ --- дифф. на $(a,b)$
 
     Тогда:\begin{enumerate}
         \item $x_0$ --- лок. экстремум $\Rightarrow f'(x_0)=0$
         \item $f$ --- $n$ раз дифф. в $x_0$
-        
-        $f'(x_0)=f''(x_0)=\ldots=f^{(n-1)}(x_0)=0$
 
-        Если $f^{(n)}(x_0)<0$, то $\begin{cases}
-            n \text{ --- чет.}: & x_0 \text{ --- локальный максимум} \\
-            n \text{ --- нечет.}: & x_0 \text{ --- не экстремум}
-        \end{cases}$
+              $f'(x_0)=f''(x_0)=\ldots=f^{(n-1)}(x_0)=0$
 
-        Если $f^{(n)}(x_0)>0$, то $\begin{cases}
-            n \text{ --- чет.}: & x_0 \text{ --- локальный минимум} \\
-            n \text{ --- нечет.}: & x_0 \text{ --- не экстремум}
-        \end{cases}$
+              Если $f^{(n)}(x_0)<0$, то $\begin{cases}
+                      n \text{ --- чет.}:   & x_0 \text{ --- локальный максимум} \\
+                      n \text{ --- нечет.}: & x_0 \text{ --- не экстремум}
+                  \end{cases}$
+
+              Если $f^{(n)}(x_0)>0$, то $\begin{cases}
+                      n \text{ --- чет.}:   & x_0 \text{ --- локальный минимум} \\
+                      n \text{ --- нечет.}: & x_0 \text{ --- не экстремум}
+                  \end{cases}$
     \end{enumerate}
-%</необходимостьидостаточностьусловиялокальногоэкстремума>
+    %</необходимостьидостаточностьусловиялокальногоэкстремума>
 \end{theorem}
 %<*необходимостьидостаточностьусловиялокальногоэкстремумаproof>
 \begin{proof}
     \begin{enumerate}
         \item т. Ферма
         \item ф. Тейлора
-        
-        $$f(x)=\text{T}_n(f, x_0)(x)+o((x-x_0)^n)$$
-        $$f(x)=f(x_0)+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^n)$$
 
-        при $x$, близких к $x_0$:
-        $$\sign(f(x)-f(x_0)) = \sign\left(\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\right)$$
-        Тогда при чётном $n$ $$\sign(f(x)-f(x_0))=\sign f^{(n)}(x_0) \Rightarrow x_0 \text{ --- экстр.}$$
-        При нечётном $n$ $$\sign(f(x)-f(x_0))=\begin{cases}
-            f^{(n)}(x_0), & x>x_0 \\
-            -f^{(n)}(x_0), & x<x_0 \\
-        \end{cases} \Rightarrow x_0 \text{ --- не экстр.}$$
+              $$f(x)=\text{T}_n(f, x_0)(x)+o((x-x_0)^n)$$
+              $$f(x)=f(x_0)+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^n)$$
+
+              при $x$, близких к $x_0$:
+              $$\sign(f(x)-f(x_0)) = \sign\left(\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\right)$$
+              Тогда при чётном $n$ $$\sign(f(x)-f(x_0))=\sign f^{(n)}(x_0) \Rightarrow x_0 \text{ --- экстр.}$$
+              При нечётном $n$ $$\sign(f(x)-f(x_0))=\begin{cases}
+                      f^{(n)}(x_0),  & x>x_0 \\
+                      -f^{(n)}(x_0), & x<x_0 \\
+                  \end{cases} \Rightarrow x_0 \text{ --- не экстр.}$$
     \end{enumerate}
 \end{proof}
 %</необходимостьидостаточностьусловиялокальногоэкстремумаproof>
@@ -124,20 +124,20 @@
 \subsection{Неопределенный интеграл}
 
 \begin{definition}
-%<*первообразная>
+    %<*первообразная>
     $F, f:\langle a,b\rangle\to\R$
 
     $F$ --- \textbf{первообразная} $f$ на $\langle a,b\rangle$
     $$\forall x\in\langle a,b\rangle\quad F'(x)=f(x)$$
-%</первообразная>
+    %</первообразная>
 \end{definition}
 
 \begin{theorem}
     \textbf{О существовании первообразной}
-%<*осуществованиипервообразной>
-    
+    %<*осуществованиипервообразной>
+
     $f\in C^0(\langle a,b\rangle)$ тогда у $f$ существует первообразная.
-%</осуществованиипервообразной>
+    %</осуществованиипервообразной>
 \end{theorem}
 \begin{proof}
     Чуть позже.
@@ -158,12 +158,12 @@
 \end{proof}
 
 \begin{definition}
-%<*неопределенныйинтеграл>
+    %<*неопределенныйинтеграл>
 
     \textbf{Неопределенный интеграл} $f$ на $\langle a,b\rangle$ --- множество всех первообразных $f$:
     $$\{F+c, c\in\R\} \text{, где $F$ --- первообразная}$$
     Обозначается $\intt f=F+c$ или $\intt f(x)dx$
-%</неопределенныйинтеграл>
+    %</неопределенныйинтеграл>
 \end{definition}
 
 %<*таблицапервообразных>
@@ -184,14 +184,14 @@ $$\intt \frac{1}{\sin^2 x}dx=-\ctg x + C$$
 
     \begin{enumerate}
         \item Линейность: $$\intt (f + g) = \intt f + \intt g$$
-        $$\forall \alpha\in\R\ \ \intt \alpha f = \alpha\intt f$$
+              $$\forall \alpha\in\R\ \ \intt \alpha f = \alpha\intt f$$
         \item $\varphi \langle c,d\rangle\to \langle a,b\rangle$
-        $$\intt f(\varphi(t))\cdot \varphi'(t)dt=\left(\intt f(x)dx \right)|_{x=\varphi(t)}=F(\varphi(t))$$
-        Частный случай: $\alpha, \beta\in\R:$
-        $$\intt f(\alpha t + \beta)dt=\frac{1}{\alpha}F(\alpha t+\beta)$$
+              $$\intt f(\varphi(t))\cdot \varphi'(t)dt=\left(\intt f(x)dx \right)|_{x=\varphi(t)}=F(\varphi(t))$$
+              Частный случай: $\alpha, \beta\in\R:$
+              $$\intt f(\alpha t + \beta)dt=\frac{1}{\alpha}F(\alpha t+\beta)$$
         \item $f,g$ --- дифф. на $\langle a,b\rangle$; $f'g$ --- имеет первообр.
-        
-        Тогда $fg'$ имеет первообразную и $$\intt fg'=fg-\intt f'g$$
+
+              Тогда $fg'$ имеет первообразную и $$\intt fg'=fg-\intt f'g$$
     \end{enumerate}
     %</свойстванеопределенногоинтеграла>
 \end{theorem}
@@ -227,32 +227,32 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
 \subsection{Равномерно непрерывные функции}
 
 \begin{definition}
-%<*равномернаянепрерывность>
+    %<*равномернаянепрерывность>
     $f:\langle a,b\rangle\subset\R\to\R$ \textbf{равномерно непрерывна} на $\langle a,b\rangle$:
     $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2\in\langle a,b\rangle : |x_1-x_2|<\delta \quad |f(x_1) - f(x_2)|<\varepsilon$$
 
     Или для метрического пространства:
     $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x_1, x_2 \ \ \rho(x_1, x_2)<\delta \quad \rho(f(x_1), f(x_2))<\varepsilon$$
     Отличие от непрерывности на отрезке в том, что $\delta$ зависит только от $\varepsilon$ и подходит для всех $x_1, x_2$.
-%</равномернаянепрерывность>
+    %</равномернаянепрерывность>
 \end{definition}
 \begin{example}
     \begin{enumerate}
         \item $f(x)=x$ равномерно непрерывна.
         \item $f(x)=x^2$ $\langle a,b\rangle=\R\quad \varepsilon:=1\ \ \exists? \delta$
-        
-        $x_1:=\frac{1}{\delta} + \frac{\delta}{2}, x_2:=\frac{1}{\delta}$
 
-        $x_1^2-x_2^2=1+\frac{\delta^2}{4}>1 \Rightarrow f$ --- не равномерно непрерывна.
+              $x_1:=\frac{1}{\delta} + \frac{\delta}{2}, x_2:=\frac{1}{\delta}$
+
+              $x_1^2-x_2^2=1+\frac{\delta^2}{4}>1 \Rightarrow f$ --- не равномерно непрерывна.
     \end{enumerate}
 \end{example}
 
 \begin{theorem}
-%<*теоремакантора>
+    %<*теоремакантора>
     $f:X\to Y, X$ --- секвенциальный компакт, $f$ --- непр. на $X$
 
     Тогда $f$ --- равномерно непр.
-%</теоремакантора>
+    %</теоремакантора>
 \end{theorem}
 %<*теоремакантораproof>
 \begin{proof}
@@ -262,7 +262,7 @@ $$\intt \frac{1}{\sqrt{1+x^2}}dx=[x=\sh t]=\intt \frac{1}{\sqrt{ch^2 t}}ch t dt=
     $$\delta:=\frac{1}{n} \ \ \exists x_n, \overline x_n : \rho(x_n, \overline x_n) < \delta \quad \rho(f(x_n), f(\overline x_n))\geq\varepsilon$$
 
     Выберем $x_{n_k}\to\tilde x, \overline x_{n_k}\to\dbltilde{x}$
-    
+
     $$\rho(\tilde x, \dbltilde x)\leq \lim_{n\to\infty}\delta=0 \Rightarrow \tilde x = \dbltilde x$$
 
     Тогда $f(x_{n_k})\to f(\tilde x), f(\overline x_{n_k})\to f(\tilde x)$, противоречие с $\rho(f(x_n), f(\overline x_n))\geq\varepsilon$

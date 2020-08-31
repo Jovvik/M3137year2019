@@ -80,10 +80,10 @@
     $$|f(x)-f(\overline x)|=|f'(\overline x)(x-\overline x)|\leq M|x-\overline x|$$
 \end{remark}
 
-\begin{consequence}
+\begin{corollary}
     Равномерное дробление: $x_i=a+\frac{b-a}{n}i; |\tau|=\frac{b-a}{n}$
     $$\int-\sum\leq M(b-a)^2\frac{1}{n}$$
-\end{consequence}
+\end{corollary}
 
 \begin{theorem}
     Об интегральных суммах центральных прямоугольников
@@ -102,9 +102,9 @@
     $$+f'(x)\frac{(x-x_i)^2}{2} \Big|^{x_i}_{\xi_i} - \frac{1}{2} \int_{\xi_i}^{x_i} f''(x)(x-x_i)^2 dx \Big)=$$
     $$=f(\xi_i)(x_i-x_{i-1})-0+\frac{1}{2}\int_{x_{i-1}}^{x_i} f''(x)\varphi(x)dx$$
     $$\varphi(x)= \begin{cases}
-        (x-x_{i-1})^2, & x\in [x_{i-1}, \xi_i] \\
-        (x-x_i)^2, & x\in [\xi_i, x_i]
-    \end{cases}$$
+            (x-x_{i-1})^2, & x\in [x_{i-1}, \xi_i] \\
+            (x-x_i)^2,     & x\in [\xi_i, x_i]
+        \end{cases}$$
     Итого:
     $$\int_a^b f(x)=\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})+\frac{1}{2}\int_a^b f''(x)\varphi(x)dx$$
     $$\left| \int - \sum \right| \leq \frac{1}{2}\int_a^b |f''(x)|\varphi(x)dx$$
@@ -114,7 +114,7 @@
 %</обинтегральныхсуммахдляцентральныхпрямоугольниковproof>
 
 \begin{theorem}
-    О формуле трапеций. 
+    О формуле трапеций.
 
     %<*теоремаоформулетрапеций>
     $f\in C^2[a,b], \tau, \delta=|\tau|$
@@ -221,16 +221,16 @@ $'$ означает, что крайние слагаемые берутся с
 
 Вывод формулы Валлиса:
 $$I_n := \int_0^{\frac{\pi}{2}} \sin^n x dx = \left[\begin{array}{rl}
-    u = \sin^{n-1} x & du = (n-1)\sin^{n-2} x \cos x dx \\
-    dv = \sin x dx & v = -\cos x
-\end{array}\right]=$$
+            u = \sin^{n-1} x & du = (n-1)\sin^{n-2} x \cos x dx \\
+            dv = \sin x dx   & v = -\cos x
+        \end{array}\right]=$$
 $$=-\cos x \sin^{n-1} x \bigg|_0^{\frac{\pi}{2}} + \int_0^{\frac{\pi}{2}} \cos^2 x (n-1)\sin^{n-2} x dx=$$
 $$(n-1) \int_0^{\frac{\pi}{2}} (1-sin^2 x) \sin^{n-2} x =(n-1) (I_{n-2}-I_n)$$
 $$I_0 = \int_0^{\frac{\pi}{2}} dx = \frac{\pi}{2} \quad I_1 = \int_0^{\frac{\pi}{2}} \sin x dx = -\cos x\Big|_0^{\frac{\pi}{2}} = 1$$
 $$I_n=\frac{n-1}{n}I_{n-2}=\frac{n-1}{n}\frac{n-3}{n-2}I_{n-4}=\frac{n-1}{n}\frac{n-3}{n-2}\frac{n-5}{n-4}I_{n-6}=\ldots=\begin{cases}
-    \frac{(n-1)!!}{n!!} \frac{\pi}{2} , & n \text{ --- чёт.} \\
-    \frac{(n-1)!!}{n!!}1 , & n \text{ --- нечет.}
-\end{cases}$$
+        \frac{(n-1)!!}{n!!} \frac{\pi}{2} , & n \text{ --- чёт.}   \\
+        \frac{(n-1)!!}{n!!}1 ,              & n \text{ --- нечет.}
+    \end{cases}$$
 
 $$\sin^{2k+1} x \leq \sin^{2k} x \leq \sin^{2k-1} x$$
 Проинтегрируем по $\left[0, \frac{\pi}{2}\right]$:

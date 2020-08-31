@@ -67,7 +67,7 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
     \begin{enumerate}
         \item $\prod (1+a_n)$ --- сх. $\Leftrightarrow \sum\ln(1+a_n)$ --- сх. $\Leftrightarrow \sum a_n$ --- сх.
         \item $\ln(1+a_n)=a_n-\frac{a_n^2}{2}+o(a_n^2)$
-        $$\sum_{n=1}^N \ln(1+a_n)=\sum_{n=1}^N a_n - \frac{1}{2}\sum_{n=1}^N a_n^2 + \underbrace{\sum_{n=1}^N o(a_n^2)}_{\text{абс.сх, т.к. } |o(a_n^2)|\le a_n^2}$$
+              $$\sum_{n=1}^N \ln(1+a_n)=\sum_{n=1}^N a_n - \frac{1}{2}\sum_{n=1}^N a_n^2 + \underbrace{\sum_{n=1}^N o(a_n^2)}_{\text{абс.сх, т.к. } |o(a_n^2)|\le a_n^2}$$
     \end{enumerate}
 \end{proof}
 %</условиясходимостипроизведенияproof>
@@ -157,7 +157,7 @@ $$\ln\left(\prod\limits_{n=1}^{+\infty} p_n\right)=\sum_{n=1}^N \ln p_n$$
     %<*формулавейерштрасса>
     При $x>0$:
     $$\frac{1}{\Gamma(x)} = x e^{\gamma x} \prod_{k=1}^{+\infty}\left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}$$
-    где $\gamma = \lim\limits_{n\to+\infty}(1+\ldots+\frac{1}{n}-\ln n)$ --- постоянная Эйлера. 
+    где $\gamma = \lim\limits_{n\to+\infty}(1+\ldots+\frac{1}{n}-\ln n)$ --- постоянная Эйлера.
     %</формулавейерштрасса>
 \end{theorem}
 $\prod (1+a_k)$ сходится, если $\sum a_k$ сходится, поэтому распишем ``$1+a_k$'':
@@ -179,10 +179,10 @@ $\sum -\frac{x^2}{2k^2}+o\left(\frac{1}{k^2}\right)$ очевидно сходи
 \end{proof}
 %</оценканормыотображенияproof>
 
-\begin{consequence}
+\begin{corollary}
     Линейное отображение непрерывно всюду:
     $$|Ax-Ax_0|=|A(x-x_0)|\le C_a|x-x_0|$$
-\end{consequence}
+\end{corollary}
 
 \begin{theorem}
     %<*дифференциированиекомпозиции>
@@ -253,7 +253,7 @@ $$h'(x)=\frac{\partial g}{\partial y_1} \frac{df_1}{d x} + \frac{\partial g}{\pa
         \item $(\lambda F)'(a) (h) = (\lambda'(a)h)F(a) + \lambda(a) F'(a)h$
         \item $\langle F, G\rangle'(a) (h) = \langle F'(a)h, G(a) \rangle + \langle F(a), G'(a)h\rangle$
     \end{enumerate}
-    
+
     Здесь $h$ нигде не умножается, на него действуют операторы дифференциирования.
     %</дифференциированиепроизведений>
 \end{lemma}
@@ -261,13 +261,13 @@ $$h'(x)=\frac{\partial g}{\partial y_1} \frac{df_1}{d x} + \frac{\partial g}{\pa
 \begin{proof}
     \begin{enumerate}
         \item Для координатной функции $l=1$:
-        $$\lambda f(a+h)-\lambda f(a) = (\lambda(a)+\lambda'(a)h+o(h))(f(a)+f'(a)h+o(h))-\lambda(a)f(a)=$$
-        $$=(\lambda'(a)h)f(a)+\lambda(a)f'(a)h+o(h)$$
-        $$|(\lambda'(a)h)(f'(a)h)|\le C_{\lambda'(a)}|h|C_{f'(a)}|h|$$
+              $$\lambda f(a+h)-\lambda f(a) = (\lambda(a)+\lambda'(a)h+o(h))(f(a)+f'(a)h+o(h))-\lambda(a)f(a)=$$
+              $$=(\lambda'(a)h)f(a)+\lambda(a)f'(a)h+o(h)$$
+              $$|(\lambda'(a)h)(f'(a)h)|\le C_{\lambda'(a)}|h|C_{f'(a)}|h|$$
 
         \item $$\langle F,G\rangle=\sum_{i=1}^l f_ig_i$$
-        По линейности всего и пункту 1:
-        $$\langle F,G\rangle'(a)h=\sum_i (f_ig_i)'(a)h\stackrel{1.}{=}\sum_i f_i'(a)h g_i(a)+f(a)g_i'(a)(h)=\langle F'(a)h, G(a) \rangle + \langle F(a), G'(a)h\rangle$$
+              По линейности всего и пункту 1:
+              $$\langle F,G\rangle'(a)h=\sum_i (f_ig_i)'(a)h\stackrel{1.}{=}\sum_i f_i'(a)h g_i(a)+f(a)g_i'(a)(h)=\langle F'(a)h, G(a) \rangle + \langle F(a), G'(a)h\rangle$$
     \end{enumerate}
 \end{proof}
 %</дифференциированиепроизведенийproof>

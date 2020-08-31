@@ -1,25 +1,27 @@
 \documentclass[12pt, a4paper]{article}
 
-\usepackage{lastpage}
-\usepackage{mathtools}
-\usepackage{xltxtra}
-\usepackage[sb]{libertine}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{enumitem}
-\usepackage{xcolor}
-\usepackage[left=1.5cm, right=1.5cm, top=2cm, bottom=2cm, bindingoffset=0cm, headheight=15pt]{geometry}
-\usepackage{fancyhdr}
-\usepackage[russian]{babel}
-% \usepackage[utf8]{inputenc}
-\usepackage{catchfilebetweentags}
+% Math symbols
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
 \usepackage{accents}
-\usepackage{calc}
-\usepackage{etoolbox}
 \usepackage{mathrsfs}
+\usepackage{mathtools}
+
+% Page layout
+\usepackage{geometry, a4wide, parskip, fancyhdr}
+
+% Font, encoding, russian support
+\usepackage[russian]{babel}
+\usepackage[sb]{libertine}
+\usepackage{xltxtra}
+
+% Miscellaneous
+\usepackage{calc}
+\usepackage{catchfilebetweentags}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{lastpage}
 \usepackage{wrapfig}
+\usepackage{xcolor}
 
 \providetoggle{useproofs}
 \settoggle{useproofs}{false}
@@ -41,14 +43,9 @@
 
 \DeclareMathOperator*{\xor}{\oplus}
 \DeclareMathOperator*{\equ}{\sim}
-\DeclareMathOperator{\Ln}{\text{Ln}}
 \DeclareMathOperator{\sign}{\text{sign}}
 \DeclareMathOperator{\Sym}{\text{Sym}}
 \DeclareMathOperator{\Asym}{\text{Asym}}
-% \DeclareMathOperator{\sh}{\text{sh}}
-% \DeclareMathOperator{\tg}{\text{tg}}
-% \DeclareMathOperator{\arctg}{\text{arctg}}
-% \DeclareMathOperator{\ch}{\text{ch}}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\abs}{\left\lvert}{\right\rvert}
@@ -60,7 +57,7 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Примечание}
 \newtheorem*{exercise}{Упражнение}
-\newtheorem*{consequence}{Следствие}
+\newtheorem*{corollary}{Следствие}
 \newtheorem*{example}{Пример}
 \newtheorem*{observation}{Наблюдение}
 
@@ -68,8 +65,6 @@
 \newtheorem{theorem}{Теорема}
 \newtheorem*{definition}{Определение}
 \newtheorem*{obozn}{Обозначение}
-
-\setlength{\parindent}{0pt}
 
 \newcommand{\dbltilde}[1]{\accentset{\approx}{#1}}
 \newcommand{\intt}{\int\!}

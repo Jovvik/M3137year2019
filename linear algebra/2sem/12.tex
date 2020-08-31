@@ -30,14 +30,14 @@ $\sphericalangle \langle x,y\rangle = \tilde x(y), \tilde x\in X^*$, т.е. дл
 
     \begin{enumerate}
         \item Биективность: \textit{(от противного)}
-        \begin{enumerate}
-            \item Слева направо $$] \exists \tilde x_1, \tilde x_2 \in X^* : x\leftrightarrow \tilde x_1, x\leftrightarrow \tilde x_2$$
-            $$\tilde x_1(y) - \tilde x_2(y) = \langle x, y\rangle - \langle x, y\rangle = 0 \Rightarrow \tilde x_1 - \tilde x_2 = \Theta \Rightarrow \tilde x_1 = \tilde x_2$$
-        
-            \item Справа налево $$] \tilde x \leftrightarrow x_1, \tilde x \leftrightarrow x_2$$
-            $$0 = \tilde x(y) - \tilde x(y) = \langle x_1, y\rangle - \langle x_2, y\rangle = \langle x_1-x_2, y\rangle$$
-            $$\Rightarrow x_1-x_2=0\Rightarrow x_1=x_2$$
-        \end{enumerate}
+              \begin{enumerate}
+                  \item Слева направо $$] \exists \tilde x_1, \tilde x_2 \in X^* : x\leftrightarrow \tilde x_1, x\leftrightarrow \tilde x_2$$
+                        $$\tilde x_1(y) - \tilde x_2(y) = \langle x, y\rangle - \langle x, y\rangle = 0 \Rightarrow \tilde x_1 - \tilde x_2 = \Theta \Rightarrow \tilde x_1 = \tilde x_2$$
+
+                  \item Справа налево $$] \tilde x \leftrightarrow x_1, \tilde x \leftrightarrow x_2$$
+                        $$0 = \tilde x(y) - \tilde x(y) = \langle x_1, y\rangle - \langle x_2, y\rangle = \langle x_1-x_2, y\rangle$$
+                        $$\Rightarrow x_1-x_2=0\Rightarrow x_1=x_2$$
+              \end{enumerate}
         \item Линейность: \textcolor{red}{скипнуто}
     \end{enumerate}
 \end{proof}
@@ -132,15 +132,15 @@ $$\langle e_i, e_j\rangle = \langle \sum_{k=1}^n \alpha_{ik} e^k, e_j\rangle=\su
 
 \begin{example}
     $\varphi\leftrightarrow A = \begin{bmatrix}
-        2 & 2i \\
-        -2i & 5
-    \end{bmatrix} \quad A^T = \begin{bmatrix}
-        2 & -2i \\
-        2i & 5
-    \end{bmatrix} \quad A^+ = \begin{bmatrix}
-        2 & 2i \\
-        -2i & 5
-    \end{bmatrix} = A$
+            2   & 2i \\
+            -2i & 5
+        \end{bmatrix} \quad A^T = \begin{bmatrix}
+            2  & -2i \\
+            2i & 5
+        \end{bmatrix} \quad A^+ = \begin{bmatrix}
+            2   & 2i \\
+            -2i & 5
+        \end{bmatrix} = A$
 \end{example}
 
 \begin{lemma}
@@ -190,13 +190,13 @@ $$\langle e_i, e_j\rangle = \langle \sum_{k=1}^n \alpha_{ik} e^k, e_j\rangle=\su
     $y\perp L \Rightarrow \{x_1\ldots x_m y\}$ --- ЛНЗ, противоречие.
 \end{proof}
 
-\begin{consequence}
+\begin{corollary}
     \begin{enumerate}
         \item Эрмитов оператор имеет скалярный тпип
         \item $\forall \lambda : r_i = n_i$
         \item Из собственных векторов эрмитова оператора можно построить ортономированный базис.
     \end{enumerate}
-\end{consequence}
+\end{corollary}
 
 \textcolor{red}{Скипнуто}
 

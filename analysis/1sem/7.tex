@@ -61,7 +61,7 @@
         \item $x_n\in D$
         \item $x_n\not=a$
     \end{itemize}
-    
+
     $f(x_n)\to A, f(x_n)\to B \xRightarrow[\text{теор. о ед. предела посл.}]{} A=B$
 \end{proof}
 %</оединственностипределаproof>
@@ -101,13 +101,13 @@
     Для $$0 < \varepsilon < \rho(A, B) \ \ \exists V(a) \ \ \forall x\in \dot V(a)\cap D \ \ f(x)\in U_\varepsilon(A)$$ $U_\varepsilon(A)$ не содержит $B$.
 \end{proof}
 %</остабилизациизнакаproof>
-\begin{consequence} 
+\begin{corollary}
     $f:D\subset X \to \mathbb{R}$, $a$ -- пред. точка, $\lim\limits_{x\to a} f(x)=A>0 \ \ B=0$
 
     $\exists \dot V(a)\cap D : f(x)\not=0$
 
     В доказательстве $0<\varepsilon<A \ \ f(x)\in U_\varepsilon (A)=(A-\varepsilon, A+\varepsilon)$
-\end{consequence}
+\end{corollary}
 
 \begin{theorem}
     Об арифметических свойствах предела
@@ -116,20 +116,20 @@
     $f,g: D\subset X\to Y$, $X$ --- метрич. пространство, $Y$ --- норм. пространство над $\mathbb{R}$, $a$ --- пред. точка $D$
 
     $\lim\limits_{x\to a}f(x)=A, \lim\limits_{x\to a}g(x)=B$
-    
+
     $\lambda: D\to \mathbb{R}, \lim\limits_{x\to a}\lambda (x) = \lambda_0$
-    
+
     Тогда:
     \begin{enumerate}
         \item $\exists\lim\limits_{x\to a} f(x)\pm g(x)$ и $\lim\limits_{x\to a} f(x)\pm g(x)=A\pm B$
         \item $\lim\limits_{x\to a} \lambda(x) f(x) = \lambda_0 A$
         \item $\lim\limits_{x\to a} ||f(x)||=||A||$
         \item Для случая $Y=\R$ и для $B\not=0$ $$\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{A}{B}$$
-        $\frac{f}{g}$ задано на множестве $D'=D\setminus \{x:g(x)=0\}$
+              $\frac{f}{g}$ задано на множестве $D'=D\setminus \{x:g(x)=0\}$
 
-        $a$ --- пр. точка $D'$ по теореме о стабилизации знака $\exists V(a) \ \ \forall x\in V(a)\cap D \ \ g(x)$ --- того же знака, что и $B$, т.е. $g(x)\not = 0$
+              $a$ --- пр. точка $D'$ по теореме о стабилизации знака $\exists V(a) \ \ \forall x\in V(a)\cap D \ \ g(x)$ --- того же знака, что и $B$, т.е. $g(x)\not = 0$
 
-        $\dot V(a)\cap D'=\dot V(a)\cap D \Rightarrow a$ --- пред. точка для $D'$
+              $\dot V(a)\cap D'=\dot V(a)\cap D \Rightarrow a$ --- пред. точка для $D'$
     \end{enumerate}
     %</обарифметическихсвойствахпредела>
 \end{theorem}
@@ -182,7 +182,7 @@
 
     \begin{enumerate}
         \item $K$ --- комп. $\Rightarrow K$ --- замкн., $K$ --- огр.
-        \item $X$ --- комп, $K$ --- замкн. $\Rightarrow K$ --- комп. 
+        \item $X$ --- комп, $K$ --- замкн. $\Rightarrow K$ --- комп.
     \end{enumerate}
     %</опростейшихсвойствахкомпактныхмножеств>
 \end{theorem}
@@ -190,32 +190,32 @@
 \begin{proof}
     \begin{enumerate}
         \item $?K$ --- замкн. $?K^c$ --- откр.
-        
-        $a\not\in K$, проверим, что $\exists U(a)\subset K^c$
 
-        $K\subset \bigcup\limits_{x\in K} B(x, \frac{1}{2}\rho(x,a))$ --- откр. покрытие
+              $a\not\in K$, проверим, что $\exists U(a)\subset K^c$
 
-        $K$ --- комп. $\Rightarrow \exists x_1\ldots x_n \quad K\subset\bigcup\limits_{i=1}^n B(x_i, \frac{1}{2}\rho(x_i, a))$ --- открытое покрытие
+              $K\subset \bigcup\limits_{x\in K} B(x, \frac{1}{2}\rho(x,a))$ --- откр. покрытие
 
-        $r:=\min(\frac{1}{2}\rho(x_1, a))\ldots\frac{1}{2}\rho(x_n, a)))$
+              $K$ --- комп. $\Rightarrow \exists x_1\ldots x_n \quad K\subset\bigcup\limits_{i=1}^n B(x_i, \frac{1}{2}\rho(x_i, a))$ --- открытое покрытие
 
-        $B(a, r)$ не пересекается ни с одним $B(x_i, \frac{1}{2}\rho(x_i, a)) \Rightarrow B(a,r)\subset K^c$
+              $r:=\min(\frac{1}{2}\rho(x_1, a))\ldots\frac{1}{2}\rho(x_n, a)))$
 
-        $?K$ --- огр.
+              $B(a, r)$ не пересекается ни с одним $B(x_i, \frac{1}{2}\rho(x_i, a)) \Rightarrow B(a,r)\subset K^c$
 
-        $b\in X$
+              $?K$ --- огр.
 
-        $K\subset \bigcup\limits_{n=1}^{+\infty} B(b, n) = X$
+              $b\in X$
 
-        $K$ --- комп. $\Rightarrow K\subset \bigcup\limits_{n=1}^{m} \Rightarrow K\subset B(b, \max(n_1\ldots n_m))$
+              $K\subset \bigcup\limits_{n=1}^{+\infty} B(b, n) = X$
+
+              $K$ --- комп. $\Rightarrow K\subset \bigcup\limits_{n=1}^{m} \Rightarrow K\subset B(b, \max(n_1\ldots n_m))$
 
         \item $?K$ --- комп.
-        
-        $
-        \begin{cases}
-            K\subset \bigcup\limits_{\alpha\in A} G_\alpha \text{, $G_\alpha$ --- откр.} \\
-            K \text{ --- замкн., } K^c \text{ --- откр.}
-        \end{cases} \Rightarrow K^c\cup\bigcup\limits_{\alpha\in A} G_\alpha \text{ --- откр. покрытие } X \Rightarrow \\ \Rightarrow X\subset (\text{может быть } K^c)\cup \bigcup\limits_{i=1}^{n} G_{\alpha_i}$
+
+              $
+                  \begin{cases}
+                      K\subset \bigcup\limits_{\alpha\in A} G_\alpha \text{, $G_\alpha$ --- откр.} \\
+                      K \text{ --- замкн., } K^c \text{ --- откр.}
+                  \end{cases} \Rightarrow K^c\cup\bigcup\limits_{\alpha\in A} G_\alpha \text{ --- откр. покрытие } X \Rightarrow \\ \Rightarrow X\subset (\text{может быть } K^c)\cup \bigcup\limits_{i=1}^{n} G_{\alpha_i}$
     \end{enumerate}
 \end{proof}
 %</опростейшихсвойствахкомпактныхмножествproof>
@@ -265,7 +265,7 @@
     $$c\in [a, b] \subset \bigcup\limits_{\alpha\in A} G_\alpha$$
 
     $$\exists \alpha_0 \quad c\in G_{\alpha_0} \text{ --- откр.}$$
-    
+
     $$\exists U_\varepsilon(c)\subset G_{\alpha_0}$$
 
     $$\exists n \quad diam[a^n, b^n] \ll \varepsilon$$
@@ -283,14 +283,14 @@
     $\{n_k\}\cap \{m_k\}=\N$
 
     $\begin{cases}
-        x_{n_k}\to a \\
-        x_{m_k}\to a
-    \end{cases} \Rightarrow x_n\to a$
+            x_{n_k}\to a \\
+            x_{m_k}\to a
+        \end{cases} \Rightarrow x_n\to a$
 \end{remark}
 
 \begin{definition}
     %<*секвенциальнокомпактноемножество>
-    \textbf{Секвенциально компактным} называется множество $A\subset X : 
+    \textbf{Секвенциально компактным} называется множество $A\subset X :
         \forall \text{ посл. } (x_n) \text{ точек } A \\
         \exists \text{ подпосл. } x_{n_k} \text{, которая сходится к точке из } A
     $
@@ -328,13 +328,13 @@
     Если множество значений $D=\{x_n, n\in\N\}$ --- конечно, то $\exists$ сход. подпосл. очевидно.
 
     Пусть $D$ --- бесконечно
-    
+
     Если $D$ имеет предельную точку, то $x_{m_k}\to a$
 
     Если $D$ --- бесконечно и не имеет предельных точек, $K\subset \bigcup\limits_{x\in K}B(x, \varepsilon_x)$, радиус такой, что в этом шаре нет точек $D$, кроме $x$ \textit{(его может тоже не быть)}. Тогда $\bigcup\limits_{x\in K}B(x, \varepsilon_x)$ --- открытое покрытие $K$. Так как каждый шар содержит 0 или 1 точку, конечное число шаров не может покрыть $K$, т.к. в $K$ бесконечное число точек \textit{(т.к. бесконечное число различных значений $D$)}. Таким образом, мы нашли открытое покрытие $K$, у которого нет конечного подпокрытия --- противоречие.
 
     Пусть $a\in K$ --- предельная точка. Возьмём из $B(a, r_1)$ точку $x_{n_1}$. Возьмём $r_2<r_1$ и из соответствующего шара возьмём $x_{n_2}$. При $r_n\to0$ $x_{n_k}\to a$.
-    
+
     \textcolor{red}{Почему вблизи $a$ будет точка из произвольной последовательности?}
 \end{proof}
 %</охарактеристикекомпактоввrmproof>

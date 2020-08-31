@@ -141,23 +141,23 @@ $\vec a\times\vec b\times\vec c$
 \begin{enumerate}
     \item $\vec a\times\vec b\times\vec c=\vec b(\vec a\cdot\vec c) - \vec c(\vec a\cdot \vec b)$ --- можно запомнить как \textit{``бац минус цаб''}
     \item Тождество Якоби:
-    $$\vec a\times\vec b\times\vec c+\vec b\times\vec c\times\vec a + \vec c\times\vec a\times\vec b=\vec 0$$
+          $$\vec a\times\vec b\times\vec c+\vec b\times\vec c\times\vec a + \vec c\times\vec a\times\vec b=\vec 0$$
 \end{enumerate}
 
 \subsection{Замена координат при переходе к новой системе отсчета. Матрица перехода.}
 Переход от одного базиса $\{\vec e_1, \vec e_2\}$ к другому базису $\{\vec f_1, \vec f_2\}$: $$\begin{cases}
-    \vec f_1=t_1^1\vec e_1+t_1^2\vec e_2 \\
-    \vec f_2=t_2^1\vec e_1+t_2^2\vec e_2
-\end{cases}$$
+        \vec f_1=t_1^1\vec e_1+t_1^2\vec e_2 \\
+        \vec f_2=t_2^1\vec e_1+t_2^2\vec e_2
+    \end{cases}$$
 
 $$\begin{pmatrix}
-    \vec f_1 & \vec f_2
-\end{pmatrix} = \begin{pmatrix}
-    \vec e_1 & \vec e_2
-\end{pmatrix} \begin{pmatrix}
-    t_1^1 & t_1^2 \\
-    t_2^1 & t_2^2 \\
-\end{pmatrix}$$
+        \vec f_1 & \vec f_2
+    \end{pmatrix} = \begin{pmatrix}
+        \vec e_1 & \vec e_2
+    \end{pmatrix} \begin{pmatrix}
+        t_1^1 & t_1^2 \\
+        t_2^1 & t_2^2 \\
+    \end{pmatrix}$$
 
 \begin{definition}
     $T$ называется \textbf{матрица перехода}
@@ -166,22 +166,22 @@ $$\begin{pmatrix}
 С учётом переноса начала координат: $$X=A+T\cdot X'$$
 
 Парралельный перенос: $T=\begin{pmatrix}
-    1 & 0 \\
-    0 & 1
-\end{pmatrix}, A=\begin{pmatrix}
-    \alpha^1 \\
-    \alpha^2
-\end{pmatrix}$
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}, A=\begin{pmatrix}
+        \alpha^1 \\
+        \alpha^2
+    \end{pmatrix}$
 
 Сжатие-растяжение: $T=\begin{pmatrix}
-    \lambda_1 & 0 \\
-    0 & \lambda_2
-\end{pmatrix}, A=\vec 0$
+        \lambda_1 & 0         \\
+        0         & \lambda_2
+    \end{pmatrix}, A=\vec 0$
 
 Поворот на угол $\varphi: T=\begin{pmatrix}
-    \cos\varphi & -\sin\varphi \\
-    \sin\varphi & \cos\varphi
-\end{pmatrix}, A=\vec 0$
+        \cos\varphi & -\sin\varphi \\
+        \sin\varphi & \cos\varphi
+    \end{pmatrix}, A=\vec 0$
 
 \section{Аналитическая геометрия}
 
@@ -234,10 +234,10 @@ $$\vec b:=\vec r_0\times\vec s, \quad \vec r\times\vec s=\vec b$$
 
 Спроектируем векторное уравнение прямой на каждую из осей, получим параметрическое уравнение прямой:
 $$\begin{cases}
-    x=x_0+m\cdot t \\
-    y=y_0+n\cdot t \\
-    z=z_0+p\cdot t \\
-\end{cases}$$
+        x=x_0+m\cdot t \\
+        y=y_0+n\cdot t \\
+        z=z_0+p\cdot t \\
+    \end{cases}$$
 
 Выразим из каждого уравнения $t$ и приравняем:
 $$\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}$$
@@ -247,10 +247,10 @@ $$\vec r=\vec r_0 + (\vec r_1 - \vec r_0)t$$
 
 Сделаем переход, аналогичный предыдущему:
 $$\begin{cases}
-    x=x_0+(x_1-x_0)\cdot t \\
-    y=y_0+(y_1-y_0)\cdot t \\
-    z=z_0+(z_1-z_0)\cdot t \\
-\end{cases}$$
+        x=x_0+(x_1-x_0)\cdot t \\
+        y=y_0+(y_1-y_0)\cdot t \\
+        z=z_0+(z_1-z_0)\cdot t \\
+    \end{cases}$$
 $$\frac{x-x_0}{x_1-x_0}=\frac{y-y_0}{y_1-y_0}=\frac{z-z_0}{z_1-z_0}$$
 
 \subsubsection{Взаимное расположение прямых}
@@ -309,10 +309,10 @@ $$\vec r=\vec r_0+t_1\vec s_1+t_2\vec s_2$$
 \end{definition}
 Спроектируем на каждую ось:
 $$\begin{cases}
-    x=x_0+t_1m_1+t_2m_2 \\
-    y=y_0+t_1n_1+t_2n_2 \\
-    z=z_0+t_1p_1+t_2p_2 \\
-\end{cases}$$
+        x=x_0+t_1m_1+t_2m_2 \\
+        y=y_0+t_1n_1+t_2n_2 \\
+        z=z_0+t_1p_1+t_2p_2 \\
+    \end{cases}$$
 
 \subsubsection{Общее уравнение плоскости}
 Умножим векторное уравнение на $\vec n=\vec s_1\times\vec s_2$ скалярно:
@@ -369,16 +369,16 @@ $$|x|\leq a, \ \ |y|\leq b$$
 Кроме того, эллипс симметричен относительно обеих осей и относительно начала отсчета.
 
 \subsection{Эллипс: полярное
-уравнение, параметрические уравнения, директрисы, уравнение касательной к
-эллипсу.}
+    уравнение, параметрические уравнения, директрисы, уравнение касательной к
+    эллипсу.}
 
 \subsubsection{\textcolor{red}{Полярное уравнение}}
 
 \subsubsection{Параметрическое уравнение эллипса}
 $$\begin{cases}
-    x=a\cos t \\
-    y=b\sin t
-\end{cases}$$
+        x=a\cos t \\
+        y=b\sin t
+    \end{cases}$$
 Это уравнение можно проверить подстановкой в каноническое.
 
 \subsubsection{Уравнение касательной к эллипсу}
@@ -400,7 +400,7 @@ $$\frac{r_1}{d_1}=\frac{r_2}{d_2}=\varepsilon$$
 \begin{enumerate}
     \item $r_1+r_2=2a=2r, \ \ a=b=r, \ \ \varepsilon=0$
     \item Каноническое уравнение:
-    $$\frac{x^2}{r^2}+\frac{y^2}{b^2}=1\Rightarrow x^2+y^2=r^2$$
+          $$\frac{x^2}{r^2}+\frac{y^2}{b^2}=1\Rightarrow x^2+y^2=r^2$$
     \item $|x|\leq r, \ \ |y|\leq r$
     \item $\rho =r$
     \item $x=r\cos t, \ \ y=r\sin t$
@@ -468,8 +468,8 @@ $\C = \{a+bi : \forall a,b\in\R\}$
 
 Примеры: \begin{enumerate}
     \item $X=\{x=\begin{pmatrix}
-    \xi^1 & \ldots & \xi^n
-\end{pmatrix}^T, \xi^i\in\R\}$ \textit{(или $\C$)}
+                  \xi^1 & \ldots & \xi^n
+              \end{pmatrix}^T, \xi^i\in\R\}$ \textit{(или $\C$)}
     \item $\mathcal P_n=\{\text{многочлены } p(t):\deg p(t)\leq n, n\in\N\}$
 \end{enumerate}
 \subsection{Линейная зависимость векторов. Основные леммы о линейной зависимости.}
@@ -515,12 +515,12 @@ $\C = \{a+bi : \forall a,b\in\R\}$
     \textbf{Изоморфизм} --- биекция, сохраняющая линейность, установленная между двумя линейными пространствами над одним и тем же полем:
 
     $$\begin{cases}
-        x_1\leftrightarrow y_1 \\
-        x_2\leftrightarrow y_2
-    \end{cases} \Rightarrow \begin{cases}
-        x_1+x_2\leftrightarrow y_1+y_2 \\
-        \alpha x_1\leftrightarrow \alpha y_1
-    \end{cases}$$
+            x_1\leftrightarrow y_1 \\
+            x_2\leftrightarrow y_2
+        \end{cases} \Rightarrow \begin{cases}
+            x_1+x_2\leftrightarrow y_1+y_2 \\
+            \alpha x_1\leftrightarrow \alpha y_1
+        \end{cases}$$
 \end{definition}
 \subsection{Подпространства линейного пространства: определение, примеры, линейная оболочка, линейное многообразие.}
 \begin{definition}
@@ -557,11 +557,11 @@ $\C = \{a+bi : \forall a,b\in\R\}$
 \subsection{Линейные алгебраические системы. Геометрическое исследование систем. Теорема Крамера \textit{(геометрическая формулировка)}.}
 \begin{definition}
     $$\begin{cases}
-        \alpha_1^1\xi^1+\alpha_2^1\xi^2+\ldots+\alpha_n^1\xi^n=\beta^1 \\
-        \alpha_1^2\xi^1+\alpha_2^2\xi^2+\ldots+\alpha_n^2\xi^n=\beta^2 \\
-        \vdots \\
-        \alpha_1^m\xi^1+\alpha_2^m\xi^2+\ldots+\alpha_n^m\xi^n=\beta^m
-    \end{cases}$$ --- \textbf{линейная алгебраическая система}, $\alpha$ --- коэффициенты, $\beta$ --- свободные члены, $\xi$ --- неизвестные
+            \alpha_1^1\xi^1+\alpha_2^1\xi^2+\ldots+\alpha_n^1\xi^n=\beta^1 \\
+            \alpha_1^2\xi^1+\alpha_2^2\xi^2+\ldots+\alpha_n^2\xi^n=\beta^2 \\
+            \vdots                                                         \\
+            \alpha_1^m\xi^1+\alpha_2^m\xi^2+\ldots+\alpha_n^m\xi^n=\beta^m
+        \end{cases}$$ --- \textbf{линейная алгебраическая система}, $\alpha$ --- коэффициенты, $\beta$ --- свободные члены, $\xi$ --- неизвестные
 \end{definition}
 \begin{definition}
     \textbf{Решение системы} --- такой набор, при подстановке которого равенства становятся верными.
@@ -585,14 +585,14 @@ $\C = \{a+bi : \forall a,b\in\R\}$
 \begin{theorem}
     $b\in\mathcal L \Leftrightarrow$ система совместна \textit{(можно все $\xi$ справа занулить и представить b через левую часть)}. Если $r=m$, система определена, иначе --- нет.
 \end{theorem}
-\begin{consequence}
+\begin{corollary}
     Однородная система:
     \begin{enumerate}
         \item Всегда совместна, т.к. существует тривиальное решение
         \item Имеет нетривиальные решения тогда и только тогда, когда $r<m$
         \item Является неопределенной тогда и только тогда, когда $m<n$
     \end{enumerate}
-\end{consequence}
+\end{corollary}
 \subsection{Альтернатива Фредгольма для линейной системы уравнений.}
 \begin{theorem}
     Если $m=n$, то:
@@ -698,11 +698,11 @@ $$W=U\cdot V\Leftrightarrow W(x_1\ldots x_{p_1+p_2}, y^1\ldots y^{q_1+q_2})=U(x_
     \item $U\cdot(V+W)=U\cdot V+U\cdot W$
     \item $(\alpha\cdot U)\cdot V=U\cdot (\alpha\cdot V)$
     \item Пусть $\{f^i\}_{i=1}^n$ --- базис $X^*$. Тогда набор
-    $${}^{s_1\ldots s_p}W=f^{s_1}\cdots f^{s_p}$$
-    образует базис в $\Omega^p_0$:
-    $${}^{s_1\ldots s_p}W=f^{s_1}(x_1)\cdots f^{s_p}(x_p)=\xi^{s_1}_1\cdots \xi^{s_p}_p$$
+          $${}^{s_1\ldots s_p}W=f^{s_1}\cdots f^{s_p}$$
+          образует базис в $\Omega^p_0$:
+          $${}^{s_1\ldots s_p}W=f^{s_1}(x_1)\cdots f^{s_p}(x_p)=\xi^{s_1}_1\cdots \xi^{s_p}_p$$
     \item Более общий случай: $\{f^i\}_{i=1}^n$ --- базис $X^*$, $\{\hat x^i\}_{i=1}^n$ --- базис $X^{**}$, тогда в $\Omega^p_q$ базис:
-    $${}^{s_1\ldots s_p}_{t_1\ldots t_q}W=f^{s_1}\cdots f^{s_p}\cdot \hat x_{t_1}\cdots \hat x_{t_q}$$
+          $${}^{s_1\ldots s_p}_{t_1\ldots t_q}W=f^{s_1}\cdots f^{s_p}\cdot \hat x_{t_1}\cdots \hat x_{t_q}$$
 \end{enumerate}
 \subsection{Симметричные и антисимметричные ПЛФ. Операции симметризации и антисимметризации.}
 
@@ -733,7 +733,7 @@ $$W=U\cdot V\Leftrightarrow W(x_1\ldots x_{p_1+p_2}, y^1\ldots y^{q_1+q_2})=U(x_
     \item Линейность
     \item Дистрибутивность
     \item Композиция:
-    $$\Sym\Sym=\Sym, \quad \Asym\Asym=\Asym, \quad \Sym\Asym=0, \quad \Asym\Sym=0$$
+          $$\Sym\Sym=\Sym, \quad \Asym\Asym=\Asym, \quad \Sym\Asym=0, \quad \Asym\Sym=0$$
 \end{enumerate}
 \subsection{Базис линейного пространства антисимметричных ПЛФ валентности $(p, 0)$. Доказательство полноты.}
 Базис $\Lambda^p$ --- набор ПЛФ $\{{}^{s_1\ldots s_p}F\}$, такой что:
@@ -774,6 +774,6 @@ $\dim\Lambda^p=C_n^p$
     \item $(\alpha U)\wedge V=U\wedge (\alpha V)=\alpha(U\wedge V)$
     \item $U\wedge\Theta=\Theta\wedge V=\Theta$
     \item $\{f^i\}_{i=1}^n$ --- базис $X^*$. Тогда:
-    $$\forall 1\leq i_1\leq \ldots \leq i_p\leq n:\quad {}^{i_1\ldots i_p}F=f^{i_1}\wedge\ldots \wedge f^{i_p}$$
+          $$\forall 1\leq i_1\leq \ldots \leq i_p\leq n:\quad {}^{i_1\ldots i_p}F=f^{i_1}\wedge\ldots \wedge f^{i_p}$$
 \end{enumerate}
 \end{document}

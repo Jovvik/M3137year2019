@@ -20,7 +20,7 @@
     $$\Phi(A):=\int_a^A f$$
 
     $$?\exists\lim\limits_{A\to b-0} \Phi(A)$$
-    
+
     \begin{itemize}
         \item Если да, то это \textbf{несобственный интеграл} $\int\limits_{a}^{\rightarrow b} fdx$.
         \item Если этот предел конечный, то тот несобственный интеграл \textbf{сходится}.
@@ -32,14 +32,14 @@
 \begin{example}
     $$\int_1^{+\infty} \frac{1}{x^p} dx=\lim_{A\to\infty}\int_1^{A} \frac{1}{x^p} dx$$
     $$\int_1^{A} \frac{1}{x^p} dx=\begin{cases}
-        \frac{A^{1-p}-1^{1-p}}{1-p}, & p\not=1 \\
-        \ln A - \ln 1, & p=1
-    \end{cases}$$
+            \frac{A^{1-p}-1^{1-p}}{1-p}, & p\not=1 \\
+            \ln A - \ln 1,               & p=1
+        \end{cases}$$
     $$\lim_{A\to\infty}\int_1^{A} \frac{1}{x^p} dx=\begin{cases}
-        \frac{1}{p-1}, & p>1 \\
-        +\infty, & p<1 \\
-        +\infty, & p=1
-    \end{cases}$$
+            \frac{1}{p-1}, & p>1 \\
+            +\infty,       & p<1 \\
+            +\infty,       & p=1
+        \end{cases}$$
 
     $p>1$ --- интеграл сходится, $p\leq 1$ --- интеграл расходится.
 \end{example}
@@ -48,9 +48,9 @@
     $$\int_{\rightarrow 0}^{1} \frac{1}{x^p}dx$$
 
     $$\lim_{A\to\infty} \int_A^1 \frac{1}{x^p}dx = \begin{cases}
-        \text{кон}., & p<1 \\
-        +\infty, & p\geq 1
-    \end{cases}$$
+            \text{кон}., & p<1     \\
+            +\infty,     & p\geq 1
+        \end{cases}$$
 
     Можно разбивать интеграл с $>1$ причиной несобственности на части, где только одна причина:
     $$\int_0^{+\infty} \frac{1}{x^p}dx = \int_0^{10} + \int_{10}^{+\infty}$$
@@ -76,9 +76,9 @@ $$\lim_{A\to b-0} \int_a^A \text{ кон.} \Leftrightarrow \forall \varepsilon >
 \end{proof}
 %</критерийбольцанокошисходимостиproof>
 
-\begin{consequence}
+\begin{corollary}
     Если $\exists A_n, B_n \to b-0 \ \ \int\limits_{A_n}^{B_n} f \not\xrightarrow{n\to+\infty} 0$, то $\int\limits_a^{\rightarrow b} f$ расходится.
-\end{consequence}
+\end{corollary}
 
 \begin{example}
     $$\int_1^{+\infty} \sin\sqrt x dx$$
@@ -99,11 +99,11 @@ $f$ --- допустима. $[a, b) \quad c\in (a,b)$
 
 Берем $A>c$ $\int_a^A = \int_a^c + \int_c^A$
 
-\begin{consequence}
+\begin{corollary}
     $f$ --- допустима. $[a, +\infty)$, $\int_a^{+\infty} f$ --- сходится. Тогда
     $$\int_A^{+\infty} f \xrightarrow{A\to+\infty} 0$$
     Это называется ``хвост''.
-\end{consequence}
+\end{corollary}
 
 \subsubsection*{Линейность}
 
@@ -170,15 +170,15 @@ $\int_a^b f$ --- сходится $\Leftrightarrow \Phi$ ограничена.
     $f,g \ge 0$, допустимы на $[a, b)$
     \begin{enumerate}
         \item $f\le g$ на $[a, b)$. Тогда:
-        \begin{enumerate}
-            \item $\int_a^b g$ --- сходится $\Rightarrow \int_a^b f$ --- сходится
-            \item $\int_a^b f$ --- расходится $\Rightarrow \int_a^b g$ --- расходится
-        \end{enumerate}
+              \begin{enumerate}
+                  \item $\int_a^b g$ --- сходится $\Rightarrow \int_a^b f$ --- сходится
+                  \item $\int_a^b f$ --- расходится $\Rightarrow \int_a^b g$ --- расходится
+              \end{enumerate}
         \item $\exists\lim\limits_{x\to b-0} \frac{f(x)}{g(x)} = l<+\infty:$
-        \begin{enumerate}
-            \item $\int_a^b g$ --- сходится $\Rightarrow \int_a^b f$ --- сходится
-            \item $\int_a^b f$ --- расходится $\Rightarrow \int_a^b g$ --- расходится
-        \end{enumerate} 
+              \begin{enumerate}
+                  \item $\int_a^b g$ --- сходится $\Rightarrow \int_a^b f$ --- сходится
+                  \item $\int_a^b f$ --- расходится $\Rightarrow \int_a^b g$ --- расходится
+              \end{enumerate}
     \end{enumerate}
     %</признаксравнения>
 \end{lemma}
@@ -186,14 +186,14 @@ $\int_a^b f$ --- сходится $\Leftrightarrow \Phi$ ограничена.
 \begin{proof}
     \begin{enumerate}
         \item $\Phi(A):=\int_a^A f, \Psi(A)=\int_a^A g$
-        
-        $0\le \Phi(A)\le \Psi(A)$
-        
-        \begin{enumerate}
-            \item $\int_a^b g$ --- сходится $\Rightarrow$ $\Psi$ огр. $\Rightarrow \Phi$ огр. $\Rightarrow \int_a^b f$ --- сходится
-            \item $\int_a^b f$ --- расходится $\Rightarrow$ $\Phi$ неогр. $\Rightarrow \Psi$ неогр. $\Rightarrow \int_a^b g$ --- расходится
-        \end{enumerate}
-        
+
+              $0\le \Phi(A)\le \Psi(A)$
+
+              \begin{enumerate}
+                  \item $\int_a^b g$ --- сходится $\Rightarrow$ $\Psi$ огр. $\Rightarrow \Phi$ огр. $\Rightarrow \int_a^b f$ --- сходится
+                  \item $\int_a^b f$ --- расходится $\Rightarrow$ $\Phi$ неогр. $\Rightarrow \Psi$ неогр. $\Rightarrow \int_a^b g$ --- расходится
+              \end{enumerate}
+
         \item $l < +\infty \xRightarrow{def} \exists a_1 : \forall x > a_1 \ \ 0\le\frac{f(x)}{g(x)}\le l+1 \Rightarrow f(x) \le g(x)(l+1)$, дальше тривиально \textit{(предположительно по пункту 1.)}
     \end{enumerate}
 \end{proof}
@@ -209,13 +209,13 @@ $\int_a^b f$ --- сходится $\Leftrightarrow \Phi$ ограничена.
     \end{enumerate}
 \end{remark}
 
-\begin{consequence}
+\begin{corollary}
     Если $+\infty>l>0$, то:
     \begin{enumerate}
         \item $\int_a^b f$ --- сходится $\Leftrightarrow \int_a^b g$ --- сходится
         \item $\int_a^b f$ --- расходится $\Leftrightarrow \int_a^b g$ --- расходится
     \end{enumerate}
-\end{consequence}
+\end{corollary}
 %</признаксравнения2>
 
 \begin{example}
@@ -243,16 +243,16 @@ $\int_a^b f$ --- сходится $\Leftrightarrow \Phi$ ограничена.
 
     \begin{enumerate}
         \item $\alpha > 1 \quad \alpha=1+2a, a>0$
-        $$0\leq \frac{1}{x^{1+2a}(\ln x)^\beta}=\frac{1}{x^{1+a}}\cdot\frac{1}{x^a (\ln x)^\beta}$$
-        $$\beta\geq 0 \quad x^a(\ln x)^\beta \to+\infty$$
-        $$b:=-\beta \quad \beta < 0 \quad x^a(\ln x)^\beta = \frac{x^a}{(\ln x)^b}=\left(\frac{x^{\frac{a}{b}}}{\ln x}\right)^b\xrightarrow[x\to\infty]{}\left[\frac{\infty}{\infty}\right]\xrightarrow{\text{лопиталь}}\frac{\frac{a}{b}x^{\frac{a}{b} - 1}}{\frac{1}{x}}\to+\infty$$
-        $$x^a (\ln x)^\beta \xrightarrow{x\to+\infty} +\infty \Rightarrow \frac{1}{x^{1+a}}\cdot\frac{1}{x^a (\ln x)^\beta} < \frac{1}{x^{1+a}} \text{ --- сходится}$$
+              $$0\leq \frac{1}{x^{1+2a}(\ln x)^\beta}=\frac{1}{x^{1+a}}\cdot\frac{1}{x^a (\ln x)^\beta}$$
+              $$\beta\geq 0 \quad x^a(\ln x)^\beta \to+\infty$$
+              $$b:=-\beta \quad \beta < 0 \quad x^a(\ln x)^\beta = \frac{x^a}{(\ln x)^b}=\left(\frac{x^{\frac{a}{b}}}{\ln x}\right)^b\xrightarrow[x\to\infty]{}\left[\frac{\infty}{\infty}\right]\xrightarrow{\text{лопиталь}}\frac{\frac{a}{b}x^{\frac{a}{b} - 1}}{\frac{1}{x}}\to+\infty$$
+              $$x^a (\ln x)^\beta \xrightarrow{x\to+\infty} +\infty \Rightarrow \frac{1}{x^{1+a}}\cdot\frac{1}{x^a (\ln x)^\beta} < \frac{1}{x^{1+a}} \text{ --- сходится}$$
 
         \item $\alpha < 1 \quad \alpha=1-2a, a>0$
-        $$\frac{1}{x^{1-2a}(\ln x)^\beta}=\frac{1}{x^{1-a}}\cdot\frac{x^a}{(\ln x)^\beta}>\frac{1}{x^{1-a}}$$
+              $$\frac{1}{x^{1-2a}(\ln x)^\beta}=\frac{1}{x^{1-a}}\cdot\frac{x^a}{(\ln x)^\beta}>\frac{1}{x^{1-a}}$$
         \item $\alpha = 1$
-        $$\int_{10}^{+\infty} \frac{dx}{x (\ln x)^\beta} \stackrel{y=\ln x}{=}\int_{\ln 10}^{+\infty} \frac{dy}{y^\beta}$$
-        Сходится при $\beta>1$, расходится при $\beta\le 1$
+              $$\int_{10}^{+\infty} \frac{dx}{x (\ln x)^\beta} \stackrel{y=\ln x}{=}\int_{\ln 10}^{+\infty} \frac{dy}{y^\beta}$$
+              Сходится при $\beta>1$, расходится при $\beta\le 1$
     \end{enumerate}
     %</изучениеинтеграла>
 \end{example}
@@ -269,11 +269,11 @@ $$\Gamma(t)=\int_0^{+\infty} x^{t-1}e^{-x}dx$$
 
 \begin{enumerate}
     \item $\int_1^{+\infty} x^{t-1}e^{-x}dx$ --- сходится при всех $t\in\R^+$:
-    $$\int_1^{+\infty} e^{-x} dx = -e^{-x}\Bigg|_1^{+\infty} = e$$
-    $$0\leq x^{t-1}e^{-x}\leq x^{t-1}e^{-\frac{x}{2}}e^{-\frac{x}{2}}$$
-    $$x^{t-1}e^{-\frac{x}{2}}\xrightarrow{x\to+\infty} 0\Rightarrow \text{ при больших } x \ \ x^{t-1}e^{-\frac{x}{2}}e^{-\frac{x}{2}}\leq e^{-\frac{x}{2}}$$
+          $$\int_1^{+\infty} e^{-x} dx = -e^{-x}\Bigg|_1^{+\infty} = e$$
+          $$0\leq x^{t-1}e^{-x}\leq x^{t-1}e^{-\frac{x}{2}}e^{-\frac{x}{2}}$$
+          $$x^{t-1}e^{-\frac{x}{2}}\xrightarrow{x\to+\infty} 0\Rightarrow \text{ при больших } x \ \ x^{t-1}e^{-\frac{x}{2}}e^{-\frac{x}{2}}\leq e^{-\frac{x}{2}}$$
     \item $\int_{\rightarrow 0}^1 x^{t-1}e^{-x}dx$
-    $$x^{t-1}e^{-x}\equ_{x\to0} x^{t-1} \quad t>0 \text{ сходится, } t\leq 0 \text{ расходится}$$
+          $$x^{t-1}e^{-x}\equ_{x\to0} x^{t-1} \quad t>0 \text{ сходится, } t\leq 0 \text{ расходится}$$
 \end{enumerate}
 
 \subsubsection*{Выпуклость}
@@ -294,9 +294,9 @@ $\Gamma$ --- выпуклая $\Rightarrow \Gamma$ --- непрерывная
 $\Gamma(t+1)=t\Gamma(t)$
 $$\Gamma(t+1)=\int_0^{+\infty} x^t e^{-x}dx = -x^t e^{-x}\Bigg|_0^{+\infty} + t\int_0^{+\infty} x^{t-1}e^{-x} dx=0+t\Gamma(t)$$
 
-\begin{consequence}
+\begin{corollary}
     $\Gamma(n+1)=n!$
-\end{consequence}
+\end{corollary}
 \begin{proof}
     $$\Gamma(n+1)=n\Gamma(n)=n(n-1)\Gamma(n-1)=\ldots = n(n-1)\cdots 1 \Gamma(1)=n!$$
 \end{proof}
@@ -327,9 +327,9 @@ $$\Gamma\left(\frac{1}{2}\right)=\int_0^{+\infty} \frac{1}{\sqrt x} e^{-x} dx \s
     $$\sqrt n \int_0^{\frac{\pi}{2}} \sin^{2n+1}ydy \leq I \leq \sqrt{n} \int_0^{\frac{\pi}{2}} (\sin t)^{2n-2} dt$$
 
     $$\int_0^{\frac{\pi}{2}} \sin^n x dx = \frac{(n-1)!!}{n!!}\begin{cases}
-        \frac{\pi}{2} , & n \text{ чет.} \\
-        1 , & n \text{ нечет.}
-    \end{cases}$$
+            \frac{\pi}{2} , & n \text{ чет.}   \\
+            1 ,             & n \text{ нечет.}
+        \end{cases}$$
     $$\sqrt n \frac{(2n)!!}{(2n+1)!!} \leq I \leq \frac{(2n-3)!!}{(2n-2)!!}\frac{\pi}{2}\sqrt n$$
     По формуле Валлиса $\frac{(2k)!!}{(2k-1)!!}\cdot\frac{1}{\sqrt k}\to\sqrt \pi$:
     $$\sqrt n \frac{(2n)!!}{(2n+1)!!}=\left(\frac{1}{\sqrt n}\frac{(2n)!!}{(2n-1)!!}\right)\frac{n}{2n+1}\to\frac{\sqrt\pi}{2}$$

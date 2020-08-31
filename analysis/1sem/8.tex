@@ -29,12 +29,12 @@
 \end{proof}
 %</охарактеристикекомпактоввrmproof>
 
-\begin{consequence}
+\begin{corollary}
     Принцип выбора Больцано-Вейерштрасса.
     %<*принципвыборабольцановейерштрасса>
     Если в $\R^m$ $(x_n)$ --- ограниченная последовательность, то у неё существует сходящаяся подпоследовательность.
     %</принципвыборабольцановейерштрасса>
-\end{consequence}
+\end{corollary}
 %<*принципвыборабольцановейерштрассаproof>
 \begin{proof}
     $x_n$ --- огр. $\Rightarrow x_n$ содержится в замкнутом кубе. Так как куб секвенциально компактен, $x_{n_k}$ сходится.
@@ -55,7 +55,7 @@
     %<*сходящаясявсебесвойства>
     \begin{enumerate}
         \item $x_n$ --- фунд. $\Rightarrow x_n$ --- ограничена
-        \item $x_n$ --- фунд; $\exists x_{n_k}$ --- сходящ. Тогда $x_n$ сходится. 
+        \item $x_n$ --- фунд; $\exists x_{n_k}$ --- сходящ. Тогда $x_n$ сходится.
     \end{enumerate}
     %</сходящаясявсебесвойства>
 \end{lemma}
@@ -63,21 +63,21 @@
 \begin{proof}
     \begin{enumerate}
         \item $\varepsilon:=1 \ \ \exists N \ \ \forall m, n:=N+1 > N \ \ \rho(x_m, x_{N+1})<1$
-        
-        $R:=\max(1; \rho(x_1, x_{N+1}),\ldots,\rho(x_N, x_{N+1}))$
 
-        $\forall n \ \ x_n\in B(x_{N+1}, R) \Rightarrow x_n$ ограничена.
+              $R:=\max(1; \rho(x_1, x_{N+1}),\ldots,\rho(x_N, x_{N+1}))$
+
+              $\forall n \ \ x_n\in B(x_{N+1}, R) \Rightarrow x_n$ ограничена.
 
         \item $\begin{cases}
-            \varepsilon > 0 \ \ \exists K \ \ \forall k>K \ \ \rho(x_{n_k}, a)<\varepsilon \\
-            \varepsilon > 0 \ \ \exists N \ \ \forall m,n>N \ \ \rho(x_m, x_n)<\varepsilon
-        \end{cases} \xRightarrow{?} x_n\to a$
+                      \varepsilon > 0 \ \ \exists K \ \ \forall k>K \ \ \rho(x_{n_k}, a)<\varepsilon \\
+                      \varepsilon > 0 \ \ \exists N \ \ \forall m,n>N \ \ \rho(x_m, x_n)<\varepsilon
+                  \end{cases} \xRightarrow{?} x_n\to a$
 
-        $\forall \varepsilon > 0 \ \ \exists \tilde N := \max(N, K)$ при $k>\tilde N$ выполняется $k>K$, значит $n_k\geq k > K \Rightarrow \rho(x_{n_k}, a)<\varepsilon$.
+              $\forall \varepsilon > 0 \ \ \exists \tilde N := \max(N, K)$ при $k>\tilde N$ выполняется $k>K$, значит $n_k\geq k > K \Rightarrow \rho(x_{n_k}, a)<\varepsilon$.
 
-        При $n>\tilde N\geq N \ \  m:=n_k>\tilde N\geq N \Rightarrow \rho(x_n, x_{n_k})<\varepsilon$
+              При $n>\tilde N\geq N \ \  m:=n_k>\tilde N\geq N \Rightarrow \rho(x_n, x_{n_k})<\varepsilon$
 
-        Итого $\forall n>\tilde N \ \ \rho(x_n, a)\leq \rho(x_{n_k}, a) + \rho(x_n, x_{n_k})<2\varepsilon$
+              Итого $\forall n>\tilde N \ \ \rho(x_n, a)\leq \rho(x_{n_k}, a) + \rho(x_n, x_{n_k})<2\varepsilon$
     \end{enumerate}
 \end{proof}
 %</сходящаясявсебесвойстваproof>
@@ -93,15 +93,15 @@
 \begin{proof}
     \begin{enumerate}
         \item $x_n\to a \quad \forall \varepsilon>0 \ \ \exists N \ \ \forall n>N \ \ \rho(x_n, a)<\varepsilon$
-    
-        $x_n\to a \quad \forall \varepsilon>0 \ \ \exists N \ \ \forall n,m > N \rho(x_m, x_n)\leq \rho(x_n, a) + \rho(x_m, a) < 2\varepsilon$
 
-        \item $x_n$ --- фунд. $\Rightarrow x_n$ --- огр. $\xRightarrow{\text{Б.-В.}} \exists x_{n_k}$ --- сходящ. 
-        
-        $\begin{cases}
-            \exists x_{n_k}\text{ --- сходящ.} \\
-            x_n\text{ --- фунд.}
-        \end{cases} \Rightarrow x_n$ --- сходящ.
+              $x_n\to a \quad \forall \varepsilon>0 \ \ \exists N \ \ \forall n,m > N \rho(x_m, x_n)\leq \rho(x_n, a) + \rho(x_m, a) < 2\varepsilon$
+
+        \item $x_n$ --- фунд. $\Rightarrow x_n$ --- огр. $\xRightarrow{\text{Б.-В.}} \exists x_{n_k}$ --- сходящ.
+
+              $\begin{cases}
+                      \exists x_{n_k}\text{ --- сходящ.} \\
+                      x_n\text{ --- фунд.}
+                  \end{cases} \Rightarrow x_n$ --- сходящ.
     \end{enumerate}
 \end{proof}
 %</критерийкошидляпоследовательностейproof>
@@ -124,11 +124,11 @@ $\lim\limits_{x\to x_0} f(x)=L$
 $D_1\subset D, x_0$ --- предельная точка $D_1$.
 
 \begin{definition}
-%<*пределпомножеству>
+    %<*пределпомножеству>
     $f : D\subset X\to Y, D_1\subset D, x_0$ --- пред. точка $D_1$
-    
+
     Тогда \textbf{предел по множеству} $D_1$ в точке $x_0$ --- это $\lim\limits_{x\to x_0} f|_{D_1}(x)$
-%</пределпомножеству>
+    %</пределпомножеству>
 \end{definition}
 
 \begin{definition}
@@ -171,14 +171,14 @@ $\lim\limits_{x\to 0-0} f = \lim\limits_{x\to -0} f$
 \begin{proof}
     \begin{enumerate}
         \item $L:= \sup\limits_{D_1} f \quad L\stackrel{?}{=}\lim\limits_{x\to a-0} f(x)$
-    
-        $\forall \varepsilon > 0 \ \ L-\varepsilon$ --- не верхн. граница для $\{f(x) : x\in D_1\} \ \ \exists x_1: L-\varepsilon<f(x_1)$.
 
-        Тогда при $x\in(x_1, a)\cap D_1 \ \ L-\varepsilon < f(x_1) \leq f(x) \leq L$
+              $\forall \varepsilon > 0 \ \ L-\varepsilon$ --- не верхн. граница для $\{f(x) : x\in D_1\} \ \ \exists x_1: L-\varepsilon<f(x_1)$.
 
-        $\exists \delta:=|x_1-a| \ \ \forall x : x\in(x_1, a) \ \ L-\varepsilon\leq f(x) < L+\varepsilon$
+              Тогда при $x\in(x_1, a)\cap D_1 \ \ L-\varepsilon < f(x_1) \leq f(x) \leq L$
 
-        Аналогично доказывается пункт 2.
+              $\exists \delta:=|x_1-a| \ \ \forall x : x\in(x_1, a) \ \ L-\varepsilon\leq f(x) < L+\varepsilon$
+
+              Аналогично доказывается пункт 2.
     \end{enumerate}
 \end{proof}
 %</определемонотоннойфункцииproof>
@@ -269,10 +269,10 @@ $$\forall \varepsilon>0 \ \ \exists \Delta \ \ \forall x_1, x_2\in D \ \ x_1>\De
 \begin{example}
     \begin{enumerate}
         \item $f(x)=sign(x)=\begin{cases}
-            1, x>0 \\
-            0, x=0 \\
-            -1, x<0
-        \end{cases}$ $0$ --- разрыв I рода.
+                      1, x>0 \\
+                      0, x=0 \\
+                      -1, x<0
+                  \end{cases}$ $0$ --- разрыв I рода.
 
         \item $f(x)=sin(\frac{1}{x})$ $0$ --- разрыв II рода.
     \end{enumerate}
@@ -287,18 +287,18 @@ $$\forall \varepsilon>0 \ \ \exists \Delta \ \ \forall x_1, x_2\in D \ \ x_1>\De
     %<*арифметическиесвойстванепрерывныхотображений>
     \begin{enumerate}
         \item $f,g:D\subset X\to Y \ \ x_0\in D$ ($Y$ --- норм. пространство)
-        
-        $f, g$ --- непр. в $x_0; \lambda:D\to\R(\C)$ --- непр. $x_0$
-        
-        Тогда $f\pm g, ||f||, \lambda f$ --- непр. $x_0$
+
+              $f, g$ --- непр. в $x_0; \lambda:D\to\R(\C)$ --- непр. $x_0$
+
+              Тогда $f\pm g, ||f||, \lambda f$ --- непр. $x_0$
 
         \item $f,g:D\subset X\to \R \ \ x_0\in D$
-        
-        $f, g$ --- непр. в $x_0$
 
-        Тогда $f\pm g, |f|, fg$ --- непр. в $x_0$
+              $f, g$ --- непр. в $x_0$
 
-        $g(x_0)\not=0$, тогда $\frac{f}{g}$ --- непр. $x_0$
+              Тогда $f\pm g, |f|, fg$ --- непр. в $x_0$
+
+              $g(x_0)\not=0$, тогда $\frac{f}{g}$ --- непр. $x_0$
     \end{enumerate}
     %</арифметическиесвойстванепрерывныхотображений>
 \end{theorem}

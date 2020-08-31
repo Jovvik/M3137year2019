@@ -20,7 +20,7 @@ $$\forall x_1\ldots x_n\in\langle a,b \rangle \ \ \forall \alpha_1\ldots \alpha_
 %<*неравенствойенсенаproof>
 \begin{proof}
     Для $x_1=x_2=\ldots=x_n$ тривиально.
-    
+
     Покажем, что $x^*:=\alpha_1x_1+\ldots+\alpha_nx_n \in \langle a, b\rangle$:
     $$\min x_i\leq x^* \leq(\alpha_1+\ldots+\alpha_n)\max(x_i)=\max(x_i) \Rightarrow x^*\in \langle a,b \rangle$$
     В $x^*$ можно провести опорную прямую $y=kx+b$
@@ -28,13 +28,13 @@ $$\forall x_1\ldots x_n\in\langle a,b \rangle \ \ \forall \alpha_1\ldots \alpha_
 \end{proof}
 %</неравенствойенсенаproof>
 
-\begin{consequence}
+\begin{corollary}
     Неравенство Коши.
 
-%<*неравенствокоши>
+    %<*неравенствокоши>
     $$a_i>0 \quad \frac{1}{n} \sum a_i \geq \sqrt[n]{a_1\cdots a_n}$$
-%</неравенствокоши>
-\end{consequence}
+    %</неравенствокоши>
+\end{corollary}
 %<*неравенствокошиproof>
 \begin{proof}
     $f(x)=\ln x$ --- вогн., $\alpha_i=\frac{1}{n}$, по неравенству Йенсена:
@@ -71,8 +71,8 @@ $$f\left(\int_a^b \lambda(t)\varphi(t)dt \right) \leq \int_a^b \lambda(t)f(\varp
 %</интегральноенеравенствойенсенаproof>
 
 \begin{example}
-	%<*интегральноенеравенствокоши>
-	Неравенство Коши для интегралов:
+    %<*интегральноенеравенствокоши>
+    Неравенство Коши для интегралов:
     $$f>0, f\in C[a,b] \quad \exp\left(\frac{1}{b-a} \int_a^b \ln f(x)dx \right) \leq \frac{1}{b-a}\int_a^b f(x)dx$$
     Правая часть --- среднее значение $f$ на $[a,b]$, похоже на среднее арифметическое, если рассмотреть интегральную сумму:
     $$\frac{1}{b-a}\int_a^b f \approx \frac{1}{b-a} \sum \frac{1}{n}f(x_i)$$
@@ -105,7 +105,7 @@ $$\sum_{i=1}^n a_ib_i \leq \left(\sum a_i^p\right)^{\frac{1}{p}}\left(\sum b_i^q
 %<*неравенствогельдераproof>
 \begin{proof}
     $f(x)=x^p, (p>1)$ --- строго выпуклая, т.к. $f''=p(p-1)x^{p-2}>0$
-    
+
     По Йенсену $\left(\sum \alpha_i x_i\right)^p\leq \sum \alpha_i x_i^p$
 
     $$\alpha_i := \frac{b_i^q}{\sum b_j^q} \quad x_i := a_ib_i^{\frac{-1}{p-1}}\left(\sum b_j^q\right)$$
@@ -235,9 +235,9 @@ $$\left(\int_a^b |f+g|^p\right)^{\frac{1}{p}} \leq \left(\int_a^b |f|^p\right)^{
     Lite:
     \begin{enumerate}
         \item $\exists N : \frac{a_{N+1}}{a_N} < q, \frac{a_{N+2}}{a_{N+1}} < q, \ldots$
-        $$\frac{a_n}{a_N} < q^{n-N}$$
-        $$a_n < q^n\left(\frac{a_N}{q^N}\right)$$
-        $\sum q^n$ сх. $\Rightarrow \sum a_n$ сх.
+              $$\frac{a_n}{a_N} < q^{n-N}$$
+              $$a_n < q^n\left(\frac{a_N}{q^N}\right)$$
+              $\sum q^n$ сх. $\Rightarrow \sum a_n$ сх.
         \item $D_n \ge 1 \Leftrightarrow a_{n+1}\ge a_n$, при $n>N$ $a_n\ge a_N \Rightarrow a_n\ge A_N \Rightarrow a_n\not\to0$. Также можно аналогично пункту 1.
     \end{enumerate}
     Pro:
@@ -283,12 +283,12 @@ $$\left(\int_a^b |f+g|^p\right)^{\frac{1}{p}} \leq \left(\int_a^b |f|^p\right)^{
 \begin{proof}
     \begin{enumerate}
         \item $R_n\geq r\Leftrightarrow \frac{a_n}{a_{n+1}}\ge 1 + \frac{r}{n}$
-        $$\frac{\left(1+\frac{1}{n}\right)^s - 1}{\frac{1}{n}}<r \Leftrightarrow \left(1+\frac{1}{n}\right)^s < 1 + \frac{r}{n}$$
-        $$b_n:=\frac{1}{n^s} \quad \frac{a_{n+1}}{a_n}=\frac{1}{\frac{a_n}{a_{n+1}}}\leq \frac{1}{1+\frac{r}{n}} < \frac{1}{\left(1+\frac{1}{n}\right)^s}=\frac{b_{n+1}}{b_n}$$
-        $\sum b_n$ сх. $\Rightarrow \sum a_n$ сх. по лемме 1.
+              $$\frac{\left(1+\frac{1}{n}\right)^s - 1}{\frac{1}{n}}<r \Leftrightarrow \left(1+\frac{1}{n}\right)^s < 1 + \frac{r}{n}$$
+              $$b_n:=\frac{1}{n^s} \quad \frac{a_{n+1}}{a_n}=\frac{1}{\frac{a_n}{a_{n+1}}}\leq \frac{1}{1+\frac{r}{n}} < \frac{1}{\left(1+\frac{1}{n}\right)^s}=\frac{b_{n+1}}{b_n}$$
+              $\sum b_n$ сх. $\Rightarrow \sum a_n$ сх. по лемме 1.
         \item $R_n \le 1 \Leftrightarrow \frac{a_n}{a_{n+1}} \le 1 + \frac{1}{n}$
-        $$\frac{a_{n+1}}{a_n}\geq \frac{n}{n+1}=\frac{\frac{1}{n+1}}{\frac{1}{n}}$$
-        $b_n=\frac{1}{n}$ расх. $\Rightarrow \sum a_n$ расх.
+              $$\frac{a_{n+1}}{a_n}\geq \frac{n}{n+1}=\frac{\frac{1}{n+1}}{\frac{1}{n}}$$
+              $b_n=\frac{1}{n}$ расх. $\Rightarrow \sum a_n$ расх.
     \end{enumerate}
 \end{proof}
 %</признакраабеproof>

@@ -28,22 +28,22 @@
 \begin{proof}
     \begin{itemize}
         \item $1\Rightarrow 2$
-        $$\forall x,y \quad \langle Ux, Uy \rangle = \langle x, y\rangle \stackrel{?}{\Rightarrow} ||Ux||=||x||$$
-        $$||Ux||^2 = \langle Ux, Uy \rangle = \langle x, y\rangle = ||x||^2$$
+              $$\forall x,y \quad \langle Ux, Uy \rangle = \langle x, y\rangle \stackrel{?}{\Rightarrow} ||Ux||=||x||$$
+              $$||Ux||^2 = \langle Ux, Uy \rangle = \langle x, y\rangle = ||x||^2$$
         \item $2\Rightarrow 3$
-        $$||Ux||=||x|| \stackrel{?}{\Rightarrow} U^*U=I$$
-        $$||Ux||^2 = \langle Ux, Ux \rangle = \langle U^*Ux, x \rangle = \langle x, x\rangle$$
-        $$U^*U=I$$
+              $$||Ux||=||x|| \stackrel{?}{\Rightarrow} U^*U=I$$
+              $$||Ux||^2 = \langle Ux, Ux \rangle = \langle U^*Ux, x \rangle = \langle x, x\rangle$$
+              $$U^*U=I$$
         \item $3\Rightarrow 1$
-        $$U^*=U^{-1} \stackrel{?}{\Rightarrow} \langle Ux, Uy \rangle = \langle x, y\rangle$$
-        $$\langle Ux, Uy \rangle = \langle U^*Ux, y \rangle = \langle x, y\rangle$$
+              $$U^*=U^{-1} \stackrel{?}{\Rightarrow} \langle Ux, Uy \rangle = \langle x, y\rangle$$
+              $$\langle Ux, Uy \rangle = \langle U^*Ux, y \rangle = \langle x, y\rangle$$
     \end{itemize}
 \end{proof}
 \begin{lemma}
     $|\det U| = 1$
 \end{lemma}
 \begin{proof}
-    $$1 = \det I = \det(U^*U)=\det U^* \det U \stackrel{def}{=} \det \overline U^T \det U = \det \overline U \det U=\overline {\det U} \det U = |\det U|^2$$
+    $$1 = \det I = \det(U^*U)=\det U^* \det U \defeq \det \overline U^T \det U = \det \overline U \det U=\overline {\det U} \det U = |\det U|^2$$
 \end{proof}
 
 \begin{lemma}
@@ -71,15 +71,15 @@
 \begin{proof}
     \begin{enumerate}
         \item $U_1U_2$ - унитарный?
-        $$\langle U_1U_2x, U_1U_2y \rangle = \langle U_1^*U_1U_2x, U_2y \rangle = \langle U_2 x, U_2 y\rangle = \langle x, y\rangle$$
+              $$\langle U_1U_2x, U_1U_2y \rangle = \langle U_1^*U_1U_2x, U_2y \rangle = \langle U_2 x, U_2 y\rangle = \langle x, y\rangle$$
 
-        Остальное очевидно.
+              Остальное очевидно.
     \end{enumerate}
 \end{proof}
 
 $U(n)$ называется \textbf{унитарной группой операторов над унитарным пространством $X$, $\dim X = n$}
 
-$\sphericalangle SU(n) \stackrel{def}{=} \{U\in U(n) : \det U = 1\}$
+$\sphericalangle SU(n) \defeq \{U\in U(n) : \det U = 1\}$
 
 \begin{lemma}
     $SU(n)$ --- подгруппа $U(n)$

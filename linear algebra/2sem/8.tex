@@ -91,15 +91,15 @@ $] J_\varphi$ --- множество аннулирующих полиномов
 
     \begin{enumerate}
         \item $\im p_2(\varphi)\subset \ker p_1(\varphi)$
-        
-        $] y \in \im p_2(\varphi) \Rightarrow \exists x\in X : y=p_2(\varphi) x$
 
-        $\sphericalangle p_1(\varphi) y = p_1(\varphi)p_2(\varphi) x = p_\varphi(\varphi) = 0$
+              $] y \in \im p_2(\varphi) \Rightarrow \exists x\in X : y=p_2(\varphi) x$
+
+              $\sphericalangle p_1(\varphi) y = p_1(\varphi)p_2(\varphi) x = p_\varphi(\varphi) = 0$
 
         \item $\ker p_\varphi(\varphi) = \ker p_1(\varphi) \dot+ \ker p_2(\varphi) \Rightarrow$
-        $$\dim X = \dim \ker p_1(\varphi) + \dim \ker p_2(\varphi)$$
-        $$\dim X = \dim \ker p_2(\varphi) + \dim \im p_2(\varphi)$$
-        $$\dim \ker p_1(\varphi)=\dim \im p_2(\varphi)$$
+              $$\dim X = \dim \ker p_1(\varphi) + \dim \ker p_2(\varphi)$$
+              $$\dim X = \dim \ker p_2(\varphi) + \dim \im p_2(\varphi)$$
+              $$\dim \ker p_1(\varphi)=\dim \im p_2(\varphi)$$
     \end{enumerate}
 \end{proof}
 
@@ -145,7 +145,7 @@ $L\subset X$ --- инвариантное подпространство $\varph
     $$\varphi_L x =\varphi x \quad \forall x\in L$$
     называется \textbf{сужением} оператора $\varphi$ на $L$.
 
-    Если $L$ --- ультраинвариантное подпространство, то $\varphi_L$ называется \textbf{компонетной} $\varphi$ в $L$ 
+    Если $L$ --- ультраинвариантное подпространство, то $\varphi_L$ называется \textbf{компонетной} $\varphi$ в $L$
 \end{definition}
 
 \begin{lemma}
@@ -184,7 +184,7 @@ $L\subset X$ --- инвариантное подпространство $\varph
     $] p_\varphi(\lambda)=p_1(\lambda)p_2(\lambda)$ --- минимальный полином $\varphi \Rightarrow \ker p_i(\varphi)$ --- нетривиальное инвариантное подпространство $\varphi$
 \end{lemma}
 \begin{proof}
-    $$] p_1(\lambda) : \ker p_1(\varphi) = X, \deg p_1(\lambda) < \deg p_\varphi(\lambda) \Rightarrow p_1(\varphi)\stackrel{def}{=}0 \Rightarrow p_1(\lambda)\in J_\varphi, \deg p_1(\lambda)\subset \deg p_\varphi(\lambda)$$
+    $$] p_1(\lambda) : \ker p_1(\varphi) = X, \deg p_1(\lambda) < \deg p_\varphi(\lambda) \Rightarrow p_1(\varphi)\defeq0 \Rightarrow p_1(\lambda)\in J_\varphi, \deg p_1(\lambda)\subset \deg p_\varphi(\lambda)$$
     Это противоречит определению минимального полинома $p_\varphi$. Аналогично для $p_2$.
 
     $$] p_1(\lambda) : \ker p_1(\varphi) = 0 \Rightarrow x = \ker p_1(\varphi)\dot+\ker p_2(\varphi) \quad \dim p_1 (\varphi) = 0 \Rightarrow \ker p_2(\varphi) =x$$

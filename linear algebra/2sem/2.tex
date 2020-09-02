@@ -16,10 +16,10 @@
 \end{remark}
 
 \(\sphericalangle C=\begin{bmatrix}
-    \xi_1^1 & \xi_2^1 & \ldots & x_n^1 \\
-    \xi_1^2 & \xi_2^2 & \ldots & x_n^2 \\
-    \vdots & \vdots & \ddots & \vdots \\
-    \xi_1^n & \xi_2^n & \ldots & x_n^n \\
+    \xi_1^1 & \xi_2^1 & \ldots & x_n^1  \\
+    \xi_1^2 & \xi_2^2 & \ldots & x_n^2  \\
+    \vdots  & \vdots  & \ddots & \vdots \\
+    \xi_1^n & \xi_2^n & \ldots & x_n^n  \\
 \end{bmatrix}\)
 
 $$\det C = \det \{x_1\ldots x_n\} \stackrel{\triangle}{=} {}^{1\ldots n}F(x_1\ldots x_n) = \sum\limits_{(i_1\ldots i_n)} (-1)^{[i_1\ldots i_n]} \xi_1^{i_1}\ldots \xi_n^{i_n}$$
@@ -36,26 +36,26 @@ $$\det C = \det \{x_1\ldots x_n\} \stackrel{\triangle}{=} {}^{1\ldots n}F(x_1\ld
 
 \(\sphericalangle C=\begin{bmatrix}
     c_{11} & c_{21} & \ldots & c_{n1} \\
-    0 & c_{22} & \ldots & c_{n2} \\
+    0      & c_{22} & \ldots & c_{n2} \\
     \vdots & \vdots & \ddots & \vdots \\
-    0 & 0 & \ldots & c_{nn} \\
+    0      & 0      & \ldots & c_{nn} \\
 \end{bmatrix}\)
 
 
 $$\begin{bmatrix}
-    c_{11} & c_{21} & \ldots & c_{n1} & 0 & \ldots & 0 \\
-    0 & c_{22} & \ldots & c_{n2} & 0 & \ldots & 0\\
-    \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
-    0 & 0 & \ldots & c_{nn} & 0 & \ldots & 0\\
-    0 & \ldots &\ldots &\ldots &\ldots & \ldots & 0 \\
-\end{bmatrix}$$
+        c_{11} & c_{21} & \ldots & c_{n1} & 0      & \ldots & 0      \\
+        0      & c_{22} & \ldots & c_{n2} & 0      & \ldots & 0      \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & \ldots & c_{nn} & 0      & \ldots & 0      \\
+        0      & \ldots & \ldots & \ldots & \ldots & \ldots & 0      \\
+    \end{bmatrix}$$
 
 \begin{enumerate}
     \item $L_1^1=C_1 \Rightarrow rg A \geq 1$
     \item $L_1^1=C_1C_{22}\not=0 \Rightarrow rg A \geq 2$
     \item $L_1^1=C_1C_{22}C_{33}\not=0 \Rightarrow rg A \geq 3$
-    
-    $\vdots$
+
+          $\vdots$
     \item $L_{1\ldots r}^{1\ldots r+1} = \prod\limits_{i=1}^r c_{ii}\not=0 \Rightarrow rg A\geq r$
     \item $L_{1\ldots r}^{1\ldots r+1} = 0 \Rightarrow rg A= r$
 \end{enumerate}
@@ -72,7 +72,7 @@ $\Rightarrow rg A\leq \min(m, n)$
 \begin{proof}
     \begin{enumerate}
         \item Следует из критерия ЛНЗ
-        \item Строки (столбцы), входящие в базисный минор, образуют максимальный ЛНЗ поднабор всех строк (столбцов) матрицы $A$.        
+        \item Строки (столбцы), входящие в базисный минор, образуют максимальный ЛНЗ поднабор всех строк (столбцов) матрицы $A$.
     \end{enumerate}
 \end{proof}
 
@@ -91,8 +91,8 @@ $\Rightarrow rg A\leq \min(m, n)$
     \begin{enumerate}
         \item $\det A = \det \{a_1\ldots a_n\} \not= 0 \Rightarrow \{a_j\}_{j=1}^n$ --- ЛНЗ $\Rightarrow$ базис $\R^n\ni b$
         \item $\triangle_j=\det\{a_1\ldots a_{j-1}, b, a_{j+1}\ldots a_n\}=\det\{a_1\ldots a_{j-1}, \sum\limits_{j=1}^n a_{j} \xi^j, a_{j+1}\ldots a_n\}=$
-        
-        $=\sum\limits_{j=1}^n \xi^j\det\{a_1\ldots a_{j-1},  a_{j} , a_{j+1}\ldots a_n\}=\xi^k\cdot\triangle$
+
+              $=\sum\limits_{j=1}^n \xi^j\det\{a_1\ldots a_{j-1},  a_{j} , a_{j+1}\ldots a_n\}=\xi^k\cdot\triangle$
     \end{enumerate}
 \end{proof}
 
@@ -100,12 +100,12 @@ $\Rightarrow rg A\leq \min(m, n)$
     Кронекера-Капелли
 
     $\sphericalangle \sum\limits_{j=1}^n a_j\xi^j=b, ] A = \begin{bmatrix}
-        a_1 & a_2 & \ldots & a_n
-    \end{bmatrix}$
+            a_1 & a_2 & \ldots & a_n
+        \end{bmatrix}$
 
     $\tilde A = \begin{bmatrix}
-        a_1 & a_2 & \ldots & a_n & | & b
-    \end{bmatrix}$
+            a_1 & a_2 & \ldots & a_n & | & b
+        \end{bmatrix}$
 
     СЛАУ совместна $\Leftrightarrow rg \tilde A = rg A$
 \end{theorem}
@@ -130,15 +130,15 @@ $\Rightarrow \forall k \ \ \tilde e_k=\sum_{j=1}^n t_k^je_j$
 
 \begin{remark}
     $\sphericalangle E=\begin{bmatrix}
-        e_1 & e_2 & \ldots & e_n
-    \end{bmatrix}, \tilde E=\begin{bmatrix}
-        \tilde e_1 & \tilde e_2 & \ldots & \tilde e_n
-    \end{bmatrix} \Rightarrow \tilde E = ET$
+            e_1 & e_2 & \ldots & e_n
+        \end{bmatrix}, \tilde E=\begin{bmatrix}
+            \tilde e_1 & \tilde e_2 & \ldots & \tilde e_n
+        \end{bmatrix} \Rightarrow \tilde E = ET$
 \end{remark}
 
 \begin{lemma}
     $] \xi$ --- координаты вектора $x$ в базисе $\{e_j\}$
-    
+
     $] \tilde \xi$ --- координаты вектора $x$ в базисе $\{\tilde e_k\}$
 
     Тогда $\xi=T\tilde\xi$ или $\tilde \xi = S \xi, S=T^{-1}$
@@ -149,20 +149,20 @@ $\Rightarrow \forall k \ \ \tilde e_k=\sum_{j=1}^n t_k^je_j$
 
 \begin{lemma}
     $] \{f^l\}$ --- базис $X^*$, сопряженный $\{e_j\}$, т.е. $f^l(e_j)=\delta_j^l$
-    
+
     $] \{\tilde f^m\}$ --- базис $X^*$, сопряженный $\{\tilde e_k\}$, т.е. $\tilde f^m(\tilde e_k)=\delta_m^k$
 
     $] F=\begin{bmatrix}
-        f^1 & f^2 & \ldots & f^n
-    \end{bmatrix}^T,\quad \tilde F = \begin{bmatrix}
-        \tilde f^1 & \tilde f^2 & \ldots & \tilde f^n
-    \end{bmatrix}^T$
+            f^1 & f^2 & \ldots & f^n
+        \end{bmatrix}^T,\quad \tilde F = \begin{bmatrix}
+            \tilde f^1 & \tilde f^2 & \ldots & \tilde f^n
+        \end{bmatrix}^T$
 
     Тогда $F=T \tilde F$ или $f^l=\sum\limits_{m=1}^n t^l_m \tilde f^m$
 \end{lemma}
 \begin{proof}
     $\sphericalangle (\tilde f^m, \tilde e_k)=\delta^m_k=(\tilde f^m, \sum\limits_{j=1}^n t_k^j e_j)=\sum\limits_{j=1}^n t_k^j (\tilde f^m, e_j)=\sum\limits_{j=1}^n t_k^j \sum\limits_{l=1}^n a_l^m (f^l, e_j)=\sum\limits_{j=1}^n t_k^j a_j^m$
-    
+
     $\Rightarrow \sum\limits_{j=1}^n a_j^mt_k^j=\delta^m_k$ или $AT=I$ --- единичная матрица $\Rightarrow A=T^{-1}$
 \end{proof}
 
@@ -189,7 +189,7 @@ $$\tilde E = ET \quad \tilde F = T^{-1}F \quad \tilde\xi = T^{-1}\xi \quad \tild
 \begin{definition}
     Величины, которые преобразуются при замене базиса так же, как базисные векторы, называются \textbf{ковариантными} величинами.
 
-    Величины, которые преобразуются при замене базиса противоположным базисным векторам образом, называются \textbf{контравариантными} величинами.    
+    Величины, которые преобразуются при замене базиса противоположным базисным векторам образом, называются \textbf{контравариантными} величинами.
 \end{definition}
 
 \begin{remark}
@@ -200,7 +200,7 @@ $] W\in\Omega^p_q$ --- ПЛФ $(p, q)$
 
 $] \{e_j\}_{j=1}^n$ --- базис $X$, $\{f^k\}_{k=1}^n$ --- базис $X^*$
 
-$$\Rightarrow \omega^{j_1\ldots j_n}_{i_1\ldots i_n} \stackrel{def}{=} W(e_{i_1}\ldots e_{i_p}f^{j_1}\ldots f^{j_q})$$
+$$\Rightarrow \omega^{j_1\ldots j_n}_{i_1\ldots i_n} \defeq W(e_{i_1}\ldots e_{i_p}f^{j_1}\ldots f^{j_q})$$
 
 $$\{e_j\}\xrightarrow{T} \{\tilde e_k\} \quad \{f^l\}\xrightarrow{T^{-1}} \{\tilde f^m\}$$
 
@@ -222,14 +222,14 @@ $$=t^{i_1}_{s_1}\ldots t^{i_p}_{s_p} \sigma^{j_1}_{t_1}\ldots \sigma^{j_q}_{t_q}
 
 \begin{enumerate}
     \item $] w, v$ --- тензоры типа $(p, q)$. Тогда $w+\alpha w$ --- тензор $(p, q)$
-    \begin{proof}
-        Тривиально.
-    \end{proof}
+          \begin{proof}
+              Тривиально.
+          \end{proof}
     \item %<*транспонирование>
-    Транспонирование
-    
-    $t^{(st)} : \omega^{j_1\ldots j_s \ldots j_t\ldots j_q}_{i_1\ldots i_p}\mapsto\omega^{j_1\ldots j_t \ldots j_s\ldots j_q}_{i_1\ldots i_p}$
-    %</транспонирование>
+          Транспонирование
+
+          $t^{(st)} : \omega^{j_1\ldots j_s \ldots j_t\ldots j_q}_{i_1\ldots i_p}\mapsto\omega^{j_1\ldots j_t \ldots j_s\ldots j_q}_{i_1\ldots i_p}$
+          %</транспонирование>
 \end{enumerate}
 
 %<*транспонированиесвойства>
@@ -244,8 +244,8 @@ $$=t^{i_1}_{s_1}\ldots t^{i_p}_{s_p} \sigma^{j_1}_{t_1}\ldots \sigma^{j_q}_{t_q}
 
 \begin{enumerate}[resume]
     \item %<*сверткатензора>
-    Свертка: $$\stackrel{k\wedge s}{\omega}^{j_1\ldots j_n}_{i_1\ldots i_n} = \sum\limits_{m=1}^n \omega^{j_1\ldots \stackrel{k}{\not m}\ldots j_q}_{i_1\ldots \stackrel{s}{\not m} \ldots i_p}$$
-    %</сверткатензора>
+          Свертка: $$\stackrel{k\wedge s}{\omega}^{j_1\ldots j_n}_{i_1\ldots i_n} = \sum\limits_{m=1}^n \omega^{j_1\ldots \stackrel{k}{\not m}\ldots j_q}_{i_1\ldots \stackrel{s}{\not m} \ldots i_p}$$
+          %</сверткатензора>
 \end{enumerate}
 %<*свойствасвертки>
 \begin{remark}
@@ -264,9 +264,9 @@ $$=t^{i_1}_{s_1}\ldots t^{i_p}_{s_p} \sigma^{j_1}_{t_1}\ldots \sigma^{j_q}_{t_q}
 
 \begin{enumerate}[resume]
     \item Тензорное произведение
-    
-    $\omega (p_1, q_1); v (p_2, q_2) \quad \omega\otimes v = a$
-    $$w^{j_1\ldots j_{q_1}}_{i_1\ldots i_{p_1}} \cdot v^{j_{q_1+1} \ldots j_{q_1 + q_2}}_{i_{p_1+1}\ldots i_{p_1+p_2}}=a^{j_1\ldots j_{q_1+q_2}}_{i_1\ldots i_{p_1+p_2}}$$
+
+          $\omega (p_1, q_1); v (p_2, q_2) \quad \omega\otimes v = a$
+          $$w^{j_1\ldots j_{q_1}}_{i_1\ldots i_{p_1}} \cdot v^{j_{q_1+1} \ldots j_{q_1 + q_2}}_{i_{p_1+1}\ldots i_{p_1+p_2}}=a^{j_1\ldots j_{q_1+q_2}}_{i_1\ldots i_{p_1+p_2}}$$
 \end{enumerate}
 \begin{lemma}
     Результат тензорного произведения является тензором типа $(p_1+p_2, q_1+q_2)$

@@ -55,7 +55,7 @@ $$\prod_{n=1}^{+\infty}\frac{4n^2}{4n^2-1}=\prod_{n=1}^{+\infty}\frac{(n-0)(n-0)
     $f:\R^m\to\R$, дифф. $a$, т.е. $\exists L\in\R^m$
     $$f(a+h)=f(a)+\langle L, h\rangle + o(h)$$
     $L$ --- \textbf{градиент} функции $f$ в точке $a$, обозначается $\grad f(a), \grad_a f, \grad(f, a)$.
-    
+
     Физики \textit{(и млщики)} обозначают $\nabla f$
 \end{definition}
 
@@ -72,8 +72,8 @@ $$\prod_{n=1}^{+\infty}\frac{4n^2}{4n^2-1}=\prod_{n=1}^{+\infty}\frac{(n-0)(n-0)
     \item $f$ --- дифф. $\Rightarrow f$ дифф. по любому вектору
     \item Частная производная $\frac{\partial f}{\partial x_k}$ --- производная по направлению $e_k=(0 \ldots 0, \underbrace1_{k}, 0 \ldots 0)$
     \item $$\frac{\partial f}{\partial h} = \lim\limits_{t\to0}\frac{f(x_1+th_1, \ldots x_m+th_m)-f(x_1\ldots x_m)}{t}=$$
-    $$=\lim\limits_{t\to0}\frac{\frac{\partial f}{\partial x_1}(x) th_1+\ldots+\frac{\partial f}{\partial x_m}(x) th_m+o(t)}{t}=$$
-    $$=\frac{\partial f}{\partial x_1}h_1+\ldots+\frac{\partial f}{\partial x_m}h_m=\langle \nabla f, h \rangle$$
+          $$=\lim\limits_{t\to0}\frac{\frac{\partial f}{\partial x_1}(x) th_1+\ldots+\frac{\partial f}{\partial x_m}(x) th_m+o(t)}{t}=$$
+          $$=\frac{\partial f}{\partial x_1}h_1+\ldots+\frac{\partial f}{\partial x_m}h_m=\langle \nabla f, h \rangle$$
 \end{enumerate}
 
 \begin{theorem}
@@ -81,9 +81,9 @@ $$\prod_{n=1}^{+\infty}\frac{4n^2}{4n^2-1}=\prod_{n=1}^{+\infty}\frac{(n-0)(n-0)
 
     %<*экстремальноесвойствоградиента>
     $f:E\subset \R^m\to\R$, $f$ дифф. $a\in Int E$, $\nabla f(a)\not= 0$.
-    
+
     Тогда $l = \frac{\nabla f(a)}{|\nabla f(a)|}$ --- направление наискорейшего возрастания функции, т.е. $$\forall h\in\R^m : |h|=1 \quad -|\nabla f(a)|\le \frac{\partial f}{\partial h}(a) \le |\nabla f(a)|$$
-    , причем ``$=$'' достигаеся только при $h=\pm l$, где при ``$+$'' достигается ``$=$'' 
+    , причем ``$=$'' достигаеся только при $h=\pm l$, где при ``$+$'' достигается ``$=$''
     %</экстремальноесвойствоградиента>
 \end{theorem}
 %<*экстремальноесвойствоградиентаproof>
@@ -116,11 +116,11 @@ $k\in\{1\ldots m\}$. Если $\exists g(x)=\frac{\partial f}{\partial x_k}$ в 
 $i\in\{1\ldots m\}$, $\frac{\partial g}{\partial x_i}$ называется второй частной производной (производной второго порядка) по переменным $i$ и $k$, обозначается $\frac{\partial^2 f}{\partial x_i \partial x_k}$
 
 В общем случае:
-$$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\stackrel{def}{=}\frac{\partial}{\partial x_i}\left(\frac{\partial^{k-1} f}{\partial x_{i_2}\ldots \partial x_{i_k}}\right)$$
+$$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\defeq\frac{\partial}{\partial x_i}\left(\frac{\partial^{k-1} f}{\partial x_{i_2}\ldots \partial x_{i_k}}\right)$$
 
 \begin{theorem}
     О независимости частных производных от порядка дифференциирования.
-    
+
     %<*независимостьчастныхпроизводныхотпорядка>
     $f: E\subset\R^2\to\R, (x_0, y_0)\in E$
 
@@ -138,7 +138,7 @@ $$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\s
     $\alpha(h)=\alpha(h)-\alpha(0)\stackrel{\text{т. Лагранжа}}=\alpha'(\overline h)h=(f'_x (x_0 + \overline h, y_0 + k) - f'_x(x_0+\overline h, y_0))h\stackrel{\text{т. Лагранжа}}= f''_{xy}(x_0+\overline h, y_0+\overline k)hk$
 
     $\beta(k):=\Delta^2(h, k)$ при фиксированном $h$
-    
+
     $\beta(k)=f''_{yx}(x_0+\overline{\overline h}, y_0+\overline{\overline k})hk$
     $$f''_{xy}(x_0+\overline h, y_0+\overline k)hk=f''_{yx}(x_0+\overline{\overline h}, y_0+\overline{\overline k})hk$$
     $$(h, k)\to (0, 0) \Rightarrow (\overline h, \overline k)\to(0, 0), (\overline{\overline h}, \overline{\overline k})\to(0, 0)$$
@@ -149,7 +149,7 @@ $$\frac{\partial^k f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\s
 \begin{remark}
     %<*классce>
     $E\subset \R^m$, откр.
-    
+
     Класс $C^r(E), r\in \N$:
 
     $f\in C^r(E)$, если у $f$ существуют все частные производные порядка $\le r$ на всём $E$ и они непрерывны.
@@ -189,10 +189,10 @@ $$\frac{\partial^k f}{\partial x_{i_1}\ldots \partial x_{i_k}}(x)=\frac{\partial
 \begin{lemma}
     Полиномиальная формула.
 
-   %<*полиномиальнаяформула>
+    %<*полиномиальнаяформула>
     $a_i\in\R$ \textit{(верно для любого кольца)}. Тогда $\forall r\in\N$:
     $$(a_1+\ldots+ a_m)^r\stackrel{\text{очев}}=\sum_{n_1=1}^{m}\ldots \sum_{n_r=1}^{m}a_{n_1}a_{n_2}\ldots a_{n_r}=\sum_{j : |j|=r} \frac{r!}{j!}a^j$$
-   %</полиномиальнаяформула>
+    %</полиномиальнаяформула>
 \end{lemma}
 
 %<*полиномиальнаяформулаproof>

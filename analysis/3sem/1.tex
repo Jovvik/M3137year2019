@@ -1,0 +1,105 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{8.9.2020}
+
+\begin{document}
+
+\subsection*{Полиномиальная формула}
+
+\begin{definition}
+    \textbf{Мультииндекс} --- вектор $\alpha = (\alpha_1, \alpha_2\ldots \alpha_n), \alpha_i\in\Z_+$
+
+    $|\alpha| \defeq \alpha_1+\alpha_2+\ldots+\alpha_n$
+
+    $x^\alpha \defeq x_1^{\alpha_1}x_2^{\alpha_2}\ldots x_n^{\alpha_n} \quad (x\in\R^n)$
+
+    $\alpha! \defeq \alpha_1!\alpha_2!\ldots\alpha_n!$
+
+    $f^{(\alpha)}_{(x)}=\frac{\partial^{|\alpha|}}{\partial x^\alpha} f = \frac{\partial^{|\alpha|}f}{\partial x_1^{\alpha_1}\partial x_2^{\alpha_2}\ldots \partial x_m^{\alpha_m}}$
+\end{definition}
+
+$$(a_1+a_2+\ldots+a_n)^r=\sum_{i_1=1}^n\sum_{i_2=1}^n\ldots \sum_{i_n=1}^n a_{i_1}a_{i_2}\ldots a_{i_n}=\sum_{\alpha : |\alpha| = r} \frac{r!}{\alpha!} a^\alpha$$
+
+Это обобщение следующих формул:
+\begin{enumerate}
+    \item $(a+b)^2 = a^2 + 2ab + b^2$
+    \item $(a_1+a_2)^n = \sum\limits_{\alpha_1+\alpha_2=n}\frac{n!}{\alpha_1!\alpha_2!} a_1^{\alpha_1}a_2^{\alpha_2}$ \textit{(биномиальная формула)}
+\end{enumerate}
+
+\begin{lemma}
+    \itemfix
+    \begin{itemize}
+        \item $f: E\subset \R^m \to\R$
+        \item $f\in C^r(E)$ --- это подразумевает, что $E$ открыто
+        \item $a\in E$
+        \item $h\in \R^m : \forall t\in[-1, 1] \quad a+th\in E$
+        \item $\varphi(t) = f(a+th)$
+    \end{itemize}
+    Тогда при $1\le k\le r$:
+    $$\varphi^{(k)}(0)=\sum_{j : |j|=k} \frac{k!}{j!} h^j \frac{\partial^k f}{\partial x^j} (a)$$
+\end{lemma}
+
+\begin{proof}
+    $$\varphi'(t)=\sum_{i=1}^m \frac{\partial f}{\partial x_i}(a+th)h_i$$
+    $$\varphi''(t)=\sum_{i=1}^m \left(\frac{\partial f}{\partial x_i}(a+th)\right)'h_i=\sum_{i=1}^m \sum_{i_2=1}^m \frac{\partial^2 f}{\partial x_i\partial x_{i_2}}(a+th)h_ih_{i_2}$$
+    $$\varphi''(0)=\frac{\partial^2 f}{\partial x_1^2}h_1^2 + \frac{\partial^2 f}{\partial x_2^2}h_2^2 + \ldots + \frac{\partial^2 f}{\partial x_m^2}h_m^2 + 2\left( \frac{\partial^2 f}{\partial x_1\partial x_2}h_1h_2 + \frac{\partial^2 f}{\partial x_1\partial x_3}h_1h_3 + \ldots \right)$$
+    $$\varphi^{(r)}(t)=\sum_{i_1=1}^m\sum_{i_2=1}^m\ldots \sum_{i_r=1}^m \frac{\partial^r f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_r}} h_{i_1}h_{i_2}\ldots h_{i_r}$$
+\end{proof}
+
+\begin{theorem}[Формула Тейлора в терминах мультииндекса]
+    \itemfix
+    \begin{itemize}
+        \item $f\in C^{r+1}(E)$ --- это подразумевает $E\subset\R^m, f:E\to\R$
+        \item $x\in B(a, R)\subset E$
+    \end{itemize}
+    Тогда $\exists t\in(0, 1)$:
+    $$f(x) = \sum_{\alpha : 0\le |\alpha|\le r} \frac{f^{(\alpha)}(a)}{\alpha!}(x-a)^\alpha + \underbrace{\sum_{\alpha : |\alpha|=r+1} \frac{f^{(\alpha)}(a+t(x-a))}{(\alpha+1)!}(x-a)^\alpha}_{\text{Остаток в форме Лагранжа}}$$
+\end{theorem}
+
+Раскроем мультииндексы:
+
+$$f(x)=\sum_{k=0}^r\left( \sum_{\substack{(\alpha_1\ldots \alpha_m): \\ \alpha_i\ge 0 \\ \sum \alpha_i = k}} \frac{1}{\alpha_1!\alpha_2!\ldots\alpha_m!} \frac{\partial^k f(a)}{(\partial x_1)^{\alpha_1}\ldots (\partial x_m)^{\alpha_m}} (x_1-a_1)^{\alpha_1}(x_2-a_2)^{\alpha_2}\ldots (x_m-a_m)^{\alpha_m} \right)$$
+Ещё + аналогичный остаток.
+
+$$f(a+h)=\sum_{k=0}^r\sum\ldots \frac{1}{\alpha_1!\alpha_2!\ldots\alpha_m!} \frac{\partial^k f(a)}{(\partial x_1)^{\alpha_1}\ldots (\partial x_m)^{\alpha_m}} h_1^{\alpha_1}h_2^{\alpha_2}\ldots h_m^{\alpha_m}$$
+Тут тоже + аналогичный остаток.
+
+\begin{proof}
+    Кажется, это теперь почти очевидно.
+
+    $\varphi(t) = а(a+th)$, где $h=x-a$. Тогда $\varphi(0)=f(a)$
+
+    $$\varphi(t) = \varphi(0) + \frac{\varphi'(0)}{1!}+\ldots+\frac{\varphi^{(r)}(0)}{r!}t^r+\frac{\varphi^{(r+1)}(\overline t)}{(r+1)!}t^{r+1}$$
+    $$f(x) = \sum_{\alpha : 0\le |\alpha|\le r} \frac{f^{(\alpha)}(a)}{\alpha!}(x-a)^\alpha + \sum_{\alpha : |\alpha| = r+1} \frac{f^{(\alpha)}(a+\Theta(x-a))}{(\alpha+1)!}(x-a)^\alpha$$
+    По лемме:
+    $$f(x)=f(a) + \sum_{k=1}^r\sum_{\alpha : |\alpha|=k}\frac{f^{(\alpha)}}{\alpha!}h^\alpha + \sum_{\alpha : |\alpha| = r+1} \frac{f^{(\alpha)}(a+\Theta(x-a))}{\alpha!}h^\alpha$$
+\end{proof}
+
+\begin{remark}
+    $$\sum_{\alpha : |\alpha|=k} k!\frac{f^{(\alpha)}}{\alpha!}h^\alpha \defeq k\text{-й дифференциал функции $f$ в точке $k$} \defeq d^k f(a, h)$$
+\end{remark}
+
+Перепишем $f(x)$ через дифференциал:
+
+$$f(x)=\sum_{k=0}^r\frac{d^k f(a, h)}{k!} + \frac{1}{(k+1)!} d^{k+1} f(a+\Theta h, h)$$
+
+$f(a)$ это $d^k f(a, h)$ при $k=0$, поэтому он зашел под сумму.
+
+\begin{example}
+    $\sphericalangle k=2$
+
+    $$d^2 f = f''_{x_1, x_1}(a) h_1^2 + f''_{x_2, x_2}(a) h_2^2 + \ldots + f''_{x_m, x_m}(a) h_m^2 + 2\sum_{i<j} f''_{x_i, x_j}h_ih_j$$
+\end{example}
+
+Заметим, что $k!/\alpha!$ - число способов реализовать дифференцирование, т.е. в каком порядке брать частные производные.
+
+В дифференциалах работает композиция: $d^{k+1}f = d(d^k f)$
+
+Покажем это на примере:
+$$df = f'_{x_1}h_1 + f'_{x_2}h_2 + \ldots + f'_{x_m}h_m$$
+$$d^2 f = (f''_{x_1x_1}h_1+f''_{x_1x_2}h_2+\ldots + f''_{x_1x_m}h_m)h_1 + (f''_{x_2x_1}h_1+f''_{x_2x_2}h_2+\ldots + f''_{x_2x_m}h_m)h_2 + \ldots = $$
+$$= (f'_{x_1})'h_1 + (f'_{x_2})'h_2 + \ldots = d(df)$$
+
+\end{document}

@@ -1,0 +1,41 @@
+\input{../../preamble.sty}
+
+\usepackage{sectsty}
+
+\allsectionsfont{\raggedright}
+\subsectionfont{\fontsize{14}{15}\selectfont}
+
+\lhead{Итоговый конспект}
+\cfoot{}
+\rfoot{}
+
+\settoggle{useproofs}{true}
+
+\begin{document}
+
+\section{Определения}
+
+\import{Мультииндекс и обозначения с ним}{1.tex}{мультииндекс}
+
+\import{\teormin Формула Тейлора (различные виды записи)}{1.tex}{формулатейлорадифференциал}
+\get{1.tex}{формулатейлорамультииндекс}
+
+\import{$n$-й дифференциал}{1.tex}{дифференциал}
+
+\import{\teormin Норма линейного оператора}{1.tex}{нормалоп}
+
+\section{Теоремы}
+
+\import{Лемма о дифференцировании ``сдвига''}{1.tex}{леммаодиффсдвига}
+
+\import{\teormin Многомерная формула Тейлора (с остатком в форме Лагранжа и Пеано)}{1.tex}{}
+\subsubsection{В форме Лагранжа}
+\getwithproof{1.tex}{тейлорлагранж}
+\subsubsection{В форме Пеано}
+\getwithproof{1.tex}{тейлорпеано}
+
+\import{Теорема о пространстве линейных отображений}{1.tex}{опространствелинейныхотображений}
+
+\import{Лемма об условиях, эквивалентных непрерывности линейного оператора}{1.tex}{эквивалентностьнепрерывности}
+
+\end{document}

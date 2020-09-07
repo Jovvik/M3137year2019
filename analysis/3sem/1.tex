@@ -9,15 +9,16 @@
 \subsection*{Полиномиальная формула}
 
 \begin{definition}
+    %<*мультииндекс>
     \textbf{Мультииндекс} --- вектор $\alpha = (\alpha_1, \alpha_2\ldots \alpha_n), \alpha_i\in\Z_+$
 
-    $|\alpha| \defeq \alpha_1+\alpha_2+\ldots+\alpha_n$
-
-    $x^\alpha \defeq x_1^{\alpha_1}x_2^{\alpha_2}\ldots x_n^{\alpha_n} \quad (x\in\R^n)$
-
-    $\alpha! \defeq \alpha_1!\alpha_2!\ldots\alpha_n!$
-
-    $f^{(\alpha)}_{(x)}=\frac{\partial^{|\alpha|}}{\partial x^\alpha} f = \frac{\partial^{|\alpha|}f}{\partial x_1^{\alpha_1}\partial x_2^{\alpha_2}\ldots \partial x_m^{\alpha_m}}$
+    \begin{enumerate}
+        \item $|\alpha| \defeq \alpha_1+\alpha_2+\ldots+\alpha_n$
+        \item $x^\alpha \defeq x_1^{\alpha_1}x_2^{\alpha_2}\ldots x_n^{\alpha_n} \quad (x\in\R^n)$
+        \item $\alpha! \defeq \alpha_1!\alpha_2!\ldots\alpha_n!$
+        \item $f^{(\alpha)}_{(x)} \defeq \frac{\partial^{|\alpha|}}{\partial x^\alpha} f \defeq \frac{\partial^{|\alpha|}f}{\partial x_1^{\alpha_1}\partial x_2^{\alpha_2}\ldots \partial x_m^{\alpha_m}}$
+    \end{enumerate}
+    %</мультииндекс>
 \end{definition}
 
 $$(a_1+a_2+\ldots+a_n)^r=\sum_{i_1=1}^n\sum_{i_2=1}^n\ldots \sum_{i_n=1}^n a_{i_1}a_{i_2}\ldots a_{i_n}=\sum_{\alpha : |\alpha| = r} \frac{r!}{\alpha!} a^\alpha$$
@@ -30,6 +31,7 @@ $$(a_1+a_2+\ldots+a_n)^r=\sum_{i_1=1}^n\sum_{i_2=1}^n\ldots \sum_{i_n=1}^n a_{i_
 
 \begin{lemma}
     \itemfix
+    %<*леммаодиффсдвига>
     \begin{itemize}
         \item $f: E\subset \R^m \to\R$
         \item $f\in C^r(E)$ --- это подразумевает, что $E$ открыто
@@ -39,23 +41,30 @@ $$(a_1+a_2+\ldots+a_n)^r=\sum_{i_1=1}^n\sum_{i_2=1}^n\ldots \sum_{i_n=1}^n a_{i_
     \end{itemize}
     Тогда при $1\le k\le r$:
     $$\varphi^{(k)}(0)=\sum_{j : |j|=k} \frac{k!}{j!} h^j \frac{\partial^k f}{\partial x^j} (a)$$
+    %</леммаодиффсдвига>
 \end{lemma}
 
+%<*леммаодиффсдвигаproof>
 \begin{proof}
     $$\varphi'(t)=\sum_{i=1}^m \frac{\partial f}{\partial x_i}(a+th)h_i$$
     $$\varphi''(t)=\sum_{i=1}^m \left(\frac{\partial f}{\partial x_i}(a+th)\right)'h_i=\sum_{i=1}^m \sum_{i_2=1}^m \frac{\partial^2 f}{\partial x_i\partial x_{i_2}}(a+th)h_ih_{i_2}$$
     $$\varphi''(0)=\frac{\partial^2 f}{\partial x_1^2}h_1^2 + \frac{\partial^2 f}{\partial x_2^2}h_2^2 + \ldots + \frac{\partial^2 f}{\partial x_m^2}h_m^2 + 2\left( \frac{\partial^2 f}{\partial x_1\partial x_2}h_1h_2 + \frac{\partial^2 f}{\partial x_1\partial x_3}h_1h_3 + \ldots \right)$$
     $$\varphi^{(r)}(t)=\sum_{i_1=1}^m\sum_{i_2=1}^m\ldots \sum_{i_r=1}^m \frac{\partial^r f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_r}} h_{i_1}h_{i_2}\ldots h_{i_r}$$
 \end{proof}
+%</леммаодиффсдвигаproof>
 
 \begin{theorem}[Формула Тейлора в терминах мультииндекса]
     \itemfix
+    %<*тейлорлагранж>
     \begin{itemize}
         \item $f\in C^{r+1}(E)$ --- это подразумевает $E\subset\R^m, f:E\to\R$
         \item $x\in B(a, R)\subset E$
     \end{itemize}
     Тогда $\exists t\in(0, 1)$:
+    %<*формулатейлорамультииндекс>
     $$f(x) = \sum_{\alpha : 0\le |\alpha|\le r} \frac{f^{(\alpha)}(a)}{\alpha!}(x-a)^\alpha + \underbrace{\sum_{\alpha : |\alpha|=r+1} \frac{f^{(\alpha)}(a+t(x-a))}{(\alpha+1)!}(x-a)^\alpha}_{\text{Остаток в форме Лагранжа}}$$
+    %</формулатейлорамультииндекс>
+    %</тейлорлагранж>
 \end{theorem}
 
 Раскроем мультииндексы:
@@ -66,6 +75,7 @@ $$f(x)=\sum_{k=0}^r\left( \sum_{\substack{(\alpha_1\ldots \alpha_m): \\ \alpha_i
 $$f(a+h)=\sum_{k=0}^r\sum\ldots \frac{1}{\alpha_1!\alpha_2!\ldots\alpha_m!} \frac{\partial^k f(a)}{(\partial x_1)^{\alpha_1}\ldots (\partial x_m)^{\alpha_m}} h_1^{\alpha_1}h_2^{\alpha_2}\ldots h_m^{\alpha_m}$$
 Тут тоже + аналогичный остаток.
 
+%<*тейлорлагранжproof>
 \begin{proof}
     Кажется, это теперь почти очевидно.
 
@@ -76,14 +86,19 @@ $$f(a+h)=\sum_{k=0}^r\sum\ldots \frac{1}{\alpha_1!\alpha_2!\ldots\alpha_m!} \fra
     По лемме:
     $$f(x)=f(a) + \sum_{k=1}^r\sum_{\alpha : |\alpha|=k}\frac{f^{(\alpha)}}{\alpha!}h^\alpha + \sum_{\alpha : |\alpha| = r+1} \frac{f^{(\alpha)}(a+\Theta(x-a))}{\alpha!}h^\alpha$$
 \end{proof}
+%</тейлорлагранжproof>
 
-\begin{remark}
-    $$\sum_{\alpha : |\alpha|=k} k!\frac{f^{(\alpha)}}{\alpha!}h^\alpha \defeq k\text{-й дифференциал функции $f$ в точке $k$} \defeq d^k f(a, h)$$
-\end{remark}
+\begin{definition}
+    %<*дифференциал>
+    $$\sum_{\alpha : |\alpha|=k} k!\frac{f^{(\alpha)}}{\alpha!}h^\alpha \defeq k\text{-й \textbf{дифференциал} функции $f$ в точке $h$} \defeq d^k f(a, h)$$
+    %</дифференциал>
+\end{definition}
 
 Перепишем $f(x)$ через дифференциал:
 
+%<*формулатейлорадифференциал>
 $$f(x)=\sum_{k=0}^r\frac{d^k f(a, h)}{k!} + \frac{1}{(k+1)!} d^{k+1} f(a+\Theta h, h)$$
+%</формулатейлорадифференциал>
 
 $f(a)$ это $d^k f(a, h)$ при $k=0$, поэтому он зашел под сумму.
 
@@ -102,8 +117,16 @@ $$df = f'_{x_1}h_1 + f'_{x_2}h_2 + \ldots + f'_{x_m}h_m$$
 $$d^2 f = (f''_{x_1x_1}h_1+f''_{x_1x_2}h_2+\ldots + f''_{x_1x_m}h_m)h_1 + (f''_{x_2x_1}h_1+f''_{x_2x_2}h_2+\ldots + f''_{x_2x_m}h_m)h_2 + \ldots = $$
 $$= (f'_{x_1})'h_1 + (f'_{x_2})'h_2 + \ldots = d(df)$$
 
-Формула Тейлора с остатком в форме Пеано:
-$$f(a+h) = \sum_{\alpha : 0 \le |\alpha| \le r} \frac{f^{(\alpha)}(a)}{\alpha!}h^\alpha + o(|h|^r)$$
+\begin{theorem}[Формула Тейлора с остатком в форме Пеано]
+    %<*тейлорпеано>
+    $$f(a+h) = \sum_{\alpha : 0 \le |\alpha| \le r} \frac{f^{(\alpha)}(a)}{\alpha!}h^\alpha + o(|h|^r)$$
+    %</тейлорпеано>
+\end{theorem}
+%<*тейлорпеаноproof>
+\begin{proof}
+    \textcolor{red}{Отсутствует}
+\end{proof}
+%</тейлорпеаноproof>
 
 \begin{exercise}
     Если $f(a+h) = \underbrace{T_r(h)}_{\text{Многочлен степени $\le r$}} + o(|h|^r)$, то $T_r(h)$ --- многочлен Тейлора
@@ -133,11 +156,17 @@ $$f(a+h) = \sum_{\alpha : 0 \le |\alpha| \le r} \frac{f^{(\alpha)}(a)}{\alpha!}h
 \begin{definition}
     $\mathcal L(\R^m, \R^n)$ --- \textbf{множество линейных отображений} $\R^m \to \R^n$, также обозначается $\text{Lin}(\R^m, \R^n), L_{m, n}$
 
-    Это линейное пространство: $(F+G)(x)=F(x)+G(x)$, аналогично умножение на скаляр.
+    Это линейное пространство:
+    \begin{enumerate}
+        \item $(F+G)(x)=F(x)+G(x)$
+        \item $(\alpha F)x = \alpha (Fx)$
+    \end{enumerate}
 \end{definition}
 
-\begin{obozn}
-    $A\in \mathcal L(\R^m, \R^n) \quad ||A|| \defeq \sup\limits_{\substack{x\in\R^m :\\ |x|=1}} |Ax|$
+\begin{obozn}[Норма линейного оператора]
+    %<*нормалоп>
+    $$A\in \mathcal L(\R^m, \R^n) \quad ||A|| \defeq \sup\limits_{\substack{x\in\R^m :\\ |x|=1}} |Ax|$$
+    %</нормалоп>
 \end{obozn}
 
 \begin{remark}
@@ -157,7 +186,6 @@ $$f(a+h) = \sum_{\alpha : 0 \le |\alpha| \le r} \frac{f^{(\alpha)}(a)}{\alpha!}h
 \end{remark}
 
 \begin{example}
-    % TODO: таблица
     \begin{enumerate}
         \item $m=l=1 \quad A \leftrightarrow a_{11} \quad x \mapsto a_{11}x \quad ||A||=a$
         \item $m=1, l$ --- любое. $A : \R\to\R^l \quad A\leftrightarrow \begin{pmatrix}
@@ -172,6 +200,7 @@ $$f(a+h) = \sum_{\alpha : 0 \le |\alpha| \le r} \frac{f^{(\alpha)}(a)}{\alpha!}h
 
 \begin{lemma}
     \itemfix
+    %<*эквивалентностьнепрерывности>
     \begin{itemize}
         \item $X, Y$ --- линейные нормированные пространства
         \item $A\in \mathcal L(X, Y)$
@@ -183,8 +212,10 @@ $$f(a+h) = \sum_{\alpha : 0 \le |\alpha| \le r} \frac{f^{(\alpha)}(a)}{\alpha!}h
         \item $A$ --- непрерывно всюду в $X$
         \item $A$ --- равномерно непрерывно
     \end{enumerate}
+    %</эквивалентностьнепрерывности>
 \end{lemma}
 
+%<*эквивалентностьнепрерывностиproof>
 \begin{proof}
     \itemfix
     \begin{enumerate}
@@ -199,9 +230,11 @@ $$f(a+h) = \sum_{\alpha : 0 \le |\alpha| \le r} \frac{f^{(\alpha)}(a)}{\alpha!}h
               $$\forall \varepsilon > 0 \ \ \exists \delta := \frac{\varepsilon}{||A||} \ \ \forall x_1, x_0 \ \ |x_1-x_0| < \delta$$
     \end{enumerate}
 \end{proof}
+%</эквивалентностьнепрерывностиproof>
 
 \begin{theorem}[о пространстве линейных отображений]
     \itemfix
+    %<*опространствелинейныхотображений>
     \begin{enumerate}
         \item Отображение $A \to ||A||$ в $\mathcal L(\R^m, \R^n)$ --- норма, т.е.:
               \begin{enumerate}
@@ -212,20 +245,23 @@ $$f(a+h) = \sum_{\alpha : 0 \le |\alpha| \le r} \frac{f^{(\alpha)}(a)}{\alpha!}h
               \end{enumerate}
         \item $A\in \mathcal L(\R^m, \R^n), B\in \mathcal L(\R^n, \R^k) \Rightarrow ||BA|| \le ||B||\cdot ||A||$
     \end{enumerate}
+    %</опространствелинейныхотображений>
 \end{theorem}
+%<*опространствелинейныхотображенийproof>
 \begin{proof}
     \itemfix
     \begin{enumerate}
         \item $||A|| = \sup\limits_{|x| = 1} |Ax|$
 
-              1, 2, 3 --- очевидно.
+              a, b, c --- очевидно.
 
-              4: $|(A+B)x| = |Ax + Bx| \le |Ax| + |Bx| \le (||A|| + ||B||) |x|$
+              d: $|(A+B)x| = |Ax + Bx| \le |Ax| + |Bx| \le (||A|| + ||B||) |x|$
 
               По замечанию 3 $||A+B|| \le ||A|| + ||B||$
         \item $|BAx| = |B (Ax)| \le ||B||\cdot|Ax|\le ||B||\cdot||A||$
     \end{enumerate}
 \end{proof}
+%</опространствелинейныхотображенийproof>
 
 \begin{remark}
     В $\mathcal L(X, Y)$:

@@ -72,7 +72,7 @@ $$f(a+h)=\sum_{k=0}^r\sum\ldots \frac{1}{\alpha_1!\alpha_2!\ldots\alpha_m!} \fra
     $\varphi(t) = а(a+th)$, где $h=x-a$. Тогда $\varphi(0)=f(a)$
 
     $$\varphi(t) = \varphi(0) + \frac{\varphi'(0)}{1!}+\ldots+\frac{\varphi^{(r)}(0)}{r!}t^r+\frac{\varphi^{(r+1)}(\overline t)}{(r+1)!}t^{r+1}$$
-    $$f(x) = \sum_{\alpha : 0\le |\alpha|\le r} \frac{f^{(\alpha)}(a)}{\alpha!}(x-a)^\alpha + \sum_{\alpha : |\alpha| = r+1} \frac{f^{(\alpha)}(a+\Theta(x-a))}{(\alpha+1)!}(x-a)^\alpha$$
+    $$f(x) = \underbrace{\sum_{\alpha : 0\le |\alpha|\le r} \frac{f^{(\alpha)}(a)}{\alpha!}(x-a)^\alpha}_{\text{Многочлен Тейлора}} + \underbrace{\sum_{\alpha : |\alpha| = r+1} \frac{f^{(\alpha)}(a+\Theta(x-a))}{\alpha!}(x-a)^\alpha}_{\mathcal O (|x-1|^r)}$$
     По лемме:
     $$f(x)=f(a) + \sum_{k=1}^r\sum_{\alpha : |\alpha|=k}\frac{f^{(\alpha)}}{\alpha!}h^\alpha + \sum_{\alpha : |\alpha| = r+1} \frac{f^{(\alpha)}(a+\Theta(x-a))}{\alpha!}h^\alpha$$
 \end{proof}
@@ -101,5 +101,136 @@ $f(a)$ это $d^k f(a, h)$ при $k=0$, поэтому он зашел под 
 $$df = f'_{x_1}h_1 + f'_{x_2}h_2 + \ldots + f'_{x_m}h_m$$
 $$d^2 f = (f''_{x_1x_1}h_1+f''_{x_1x_2}h_2+\ldots + f''_{x_1x_m}h_m)h_1 + (f''_{x_2x_1}h_1+f''_{x_2x_2}h_2+\ldots + f''_{x_2x_m}h_m)h_2 + \ldots = $$
 $$= (f'_{x_1})'h_1 + (f'_{x_2})'h_2 + \ldots = d(df)$$
+
+Формула Тейлора с остатком в форме Пеано:
+$$f(a+h) = \sum_{\alpha : 0 \le |\alpha| \le r} \frac{f^{(\alpha)}(a)}{\alpha!}h^\alpha + o(|h|^r)$$
+
+\begin{exercise}
+    Если $f(a+h) = \underbrace{T_r(h)}_{\text{Многочлен степени $\le r$}} + o(|h|^r)$, то $T_r(h)$ --- многочлен Тейлора
+\end{exercise}
+
+\begin{example}
+    $(0.97)^{1.02} = ?$
+
+    $f(x, y) \defeq x^y$
+
+    $f(0.97, 1.02)=?$
+
+    Здесь все производные в $(1, 1)$, это не указывается ради краткости.
+    $$f(x, y) = f(1, 1) + f'_x (x-1) + f'_y(y-1) + \frac{f''_{xx}}{2!}(x-1)^2 + \frac{f''_{yy}}{2!}(y-1)^2 + f''_{xy}(x-1)(y-1) + o(\ldots)$$
+
+    \begin{itemize}
+        \item $f'_x = yx^{y-1} \to 1$
+        \item $f'_y = x^y \ln x \to 0$
+        \item $f''_{xx} = y(y-1)x^{y-2} \to 0$
+        \item $f''_{yy} = x^y \ln^2 x \to 0$
+        \item $f''_{xy} = x^{y-1} + yx^{y-1} \ln x \to 1$
+    \end{itemize}
+
+    $$f(0.97, 1.02) \approx 1 + 1 (-0.03) + 1 (-0.03)(0.02)$$
+\end{example}
+
+\begin{definition}
+    $\mathcal L(\R^m, \R^n)$ --- \textbf{множество линейных отображений} $\R^m \to \R^n$, также обозначается $\text{Lin}(\R^m, \R^n), L_{m, n}$
+
+    Это линейное пространство: $(F+G)(x)=F(x)+G(x)$, аналогично умножение на скаляр.
+\end{definition}
+
+\begin{obozn}
+    $A\in \mathcal L(\R^m, \R^n) \quad ||A|| \defeq \sup\limits_{\substack{x\in\R^m :\\ |x|=1}} |Ax|$
+\end{obozn}
+
+\begin{remark}
+    \itemfix
+    \begin{enumerate}
+        \item $\sup \Leftrightarrow \max$ в силу компактности сферы
+        \item $A = (a_{ij})$ \textit{(оператор задается матрицей)}, тогда $||A||\le \sqrt{\sum\limits_{i, j} a_{ij}^2}$ по лемме об оценке нормы линейного отображения.
+        \item $\forall x \in \R^m \quad |Ax| \le ||A||\cdot |x|$
+              \begin{proof}
+                  \begin{enumerate}
+                      \item $x=0$ --- тривиально, $0\le 0$
+                      \item $x\not=0\ $ $\ \tilde x = \frac{x}{|x|} \quad |Ax| = |A(|x|\tilde x)| = ||x| A\tilde x| = |x|\cdot |A\tilde x| \le ||A||\cdot |x|$
+                  \end{enumerate}
+              \end{proof}
+        \item Если $\exists c > 0 : \forall x\in\R^m \ \ |Ax|\le C|x|$, то $||A||\le C$
+    \end{enumerate}
+\end{remark}
+
+\begin{example}
+    % TODO: таблица
+    \begin{enumerate}
+        \item $m=l=1 \quad A \leftrightarrow a_{11} \quad x \mapsto a_{11}x \quad ||A||=a$
+        \item $m=1, l$ --- любое. $A : \R\to\R^l \quad A\leftrightarrow \begin{pmatrix}
+                      a_1    \\
+                      \vdots \\
+                      a_l
+                  \end{pmatrix} = \vec a \quad t\mapsto t\vec a \quad ||A||=|a|$
+        \item $m$ --- любое, $l=1 \quad A : \R^m\to\R \quad A\leftrightarrow \vec a \quad x\mapsto (\vec a, x) \quad ||A||=\sup\limits_{\substack{x\in\R^m :\\ |x|=1}} |(\vec a, x)| = |\vec a|$
+        \item $m$ --- любое, $l$ --- любое. $||A||=\sup|Ax|$ --- мы не знаем, как такое считать.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}
+    \itemfix
+    \begin{itemize}
+        \item $X, Y$ --- линейные нормированные пространства
+        \item $A\in \mathcal L(X, Y)$
+    \end{itemize}
+    Тогда эквивалентны следующие утверждения:
+    \begin{enumerate}
+        \item $A$ --- ограниченный оператор, т.е. $||A||$ --- конечно
+        \item $A$ --- непрерывно в нуле
+        \item $A$ --- непрерывно всюду в $X$
+        \item $A$ --- равномерно непрерывно
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    \itemfix
+    \begin{enumerate}
+        \item 4 $\Rightarrow$ 3 $\Rightarrow$ 2 --- очевидно.
+        \item 2 $\Rightarrow$ 1
+
+              Непрерывность в $0$: $\forall \varepsilon \ \ \exists \delta : \forall x : |x| \le \delta \quad |Ax|<\varepsilon$
+
+              $\sphericalangle \varepsilon = 1, |x|=1 : |Ax| = \left|A\frac{1}{\delta}\delta x\right| = \frac{1}{\delta} |A \delta x| \le \frac{1}{\delta}$
+        \item 1 $\Rightarrow$ 4
+
+              $$\forall \varepsilon > 0 \ \ \exists \delta := \frac{\varepsilon}{||A||} \ \ \forall x_1, x_0 \ \ |x_1-x_0| < \delta$$
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[о пространстве линейных отображений]
+    \itemfix
+    \begin{enumerate}
+        \item Отображение $A \to ||A||$ в $\mathcal L(\R^m, \R^n)$ --- норма, т.е.:
+              \begin{enumerate}
+                  \item $||A|| \ge 0$
+                  \item $||A|| = 0 \Rightarrow A = 0_{n \times m}$
+                  \item $\forall \lambda \in \R \ \ ||\lambda A|| = |\lambda| ||A||$
+                  \item $||A+B|| \le ||A|| + ||B||$
+              \end{enumerate}
+        \item $A\in \mathcal L(\R^m, \R^n), B\in \mathcal L(\R^n, \R^k) \Rightarrow ||BA|| \le ||B||\cdot ||A||$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \itemfix
+    \begin{enumerate}
+        \item $||A|| = \sup\limits_{|x| = 1} |Ax|$
+
+              1, 2, 3 --- очевидно.
+
+              4: $|(A+B)x| = |Ax + Bx| \le |Ax| + |Bx| \le (||A|| + ||B||) |x|$
+
+              По замечанию 3 $||A+B|| \le ||A|| + ||B||$
+        \item $|BAx| = |B (Ax)| \le ||B||\cdot|Ax|\le ||B||\cdot||A||$
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    В $\mathcal L(X, Y)$:
+
+    $$||A|| = \sup_{|x|=1} |Ax| = \sup_{|x| \le 1} |Ax| = \sup_{|x| < 1} |Ax| = \sup_{|x| \not= 0} \frac{|Ax|}{|x|} = \inf \{ C \in \R : \forall x \ \ |Ax| \le C|x|\}$$
+\end{remark}
 
 \end{document}

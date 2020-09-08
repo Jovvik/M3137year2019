@@ -1,0 +1,174 @@
+\input{../../preamble.sty}
+
+\lhead{Дифференциальные уравнения}
+\cfoot{}
+\rfoot{9.9.2020}
+
+\setcounter{section}{1}
+\setcounter{subsection}{3}
+
+\begin{document}
+
+\subsection{Задача Коши}
+
+\begin{theorem}[Пеано (\textit{существования})]\itemfix
+    \begin{itemize}
+        \item $G\subset \R^2$ --- область \textit{(открытое связное множество)}
+        \item $f\in C(G)$
+        \item $(x_0, y_0)\in G$
+    \end{itemize}
+    Тогда на некоторой окрестности $(a, b) \ni x_0 \ \ $ $\exists$ решение задачи Коши.
+\end{theorem}
+\begin{remark}
+    Теорема Пеано --- более общая, дан частный случай.
+\end{remark}
+
+\begin{theorem}[Пикара (\textit{единственности})]\itemfix
+    \begin{itemize}
+        \item $G\subset \R^2$
+        \item $f\in C(G)$
+        \item $\cfrac{\partial f}{\partial y}\in C(G)$
+        \item $(x_0, y_0)\in G$
+        \item $\varphi_1, \varphi_2$ --- решение задачи Коши на $(a,b)$
+    \end{itemize}
+    Тогда $\varphi_1 \equiv \varphi_2$ на $(a, b)$
+\end{theorem}
+\begin{remark}
+    Это тоже частный случай теоремы.
+\end{remark}
+\begin{remark}
+    Здесь и далее $G$ --- область.
+\end{remark}
+\begin{proof}
+    Будет позже.
+\end{proof}
+
+\begin{definition}
+    Решение $\varphi$ задачи Коши называется \textbf{особым}, если через каждую точку соответствующей интегральной кривой проходит ещё одна интегральная кривая, не совпадающая с данной в любой окрестности этой точки.
+\end{definition}
+\begin{example}
+    В уравнении $y'=3\sqrt[3]{y^2}$ решения имеют вид $y=(x+C)^3$. Проверим это:
+    $$y'=3(x+C)^2=3\sqrt[3]{((x+C)^3)^2}$$
+    $$\sphericalangle f(x, y) = 3\sqrt[3]{y^2}$$
+    $$\frac{\partial f}{\partial y} = 3\frac{2}{3}\frac{1}{\sqrt[3] y} = \frac{2}{\sqrt[3] y}$$
+    $\cfrac{\partial f}{\partial y}$ непрерывно на $\R^2\setminus\{(x, 0)\}$
+
+    $y=0$ --- очевидно решение, при этом в каждой точке $(x, 0)$ это решение пересекается кривой вида $y=(x+C)^3$, поэтому это решение --- особое.
+\end{example}
+
+\section{Некоторые уравнения, интегрируемые в квадратурах}
+
+Интегрируемые в квадратурах $\Leftrightarrow$ решения представляются в виде элементарных функций.
+
+\subsection{Неполные уравнения}
+
+\subsubsection{$y'=f(x)$}
+
+$\Rightarrow y=\int f(x)dx + C$
+
+\subsubsection{$y'=f(y)$}
+
+\begin{enumerate}
+    \item $f(y)\not=0 \Rightarrow f > 0$ (для $f<0$ аналогично)
+
+          $$\frac{dy}{dx} = f(y) \quad \Big| : f(y)$$
+          $$\frac{dy}{f(y)} = dx \quad y_x' = \frac{1}{x_y'}$$
+          $$x_y' = \frac{1}{f(y)}$$
+          $$x(y) = \int\frac{dy}{f(y)} + C$$
+    \item $\sphericalangle f(y_0) = 0 \Rightarrow y \equiv y_0$ --- решение
+
+          Далее область поиска интегральных кривых разбивается на подобласти.
+
+          $y'=y$
+
+          \begin{enumerate}
+              \item $y>0$
+                    $$\frac{dy}{dx} = y$$
+                    $$\frac{1}{y}=x_y'$$
+                    $$x = \int\frac{dy}{y} + C = \ln |y| + C$$
+                    $$x(y)=\ln y + C$$
+                    $$e^x = e^C y = Ay,\ A>0$$
+                    $$y = C e^x,\ C>0$$
+
+              \item $y<0$
+                    $$y = C e^x,\ C<0$$
+          \end{enumerate}
+
+          Ответ: $y = Ce^x, C\in\R$
+\end{enumerate}
+
+\subsection{$p_1(x)q_1(y)dx + p_2(x)q_2(y)dy = 0$}
+
+Попробуем поделить на $q_1(y)p_2(x)$:
+
+\begin{itemize}
+    \item Если $q_1(y_0)=0 \Rightarrow y \equiv y_0$ --- решение
+    \item Если $p_2(x_0)=0 \Rightarrow x \equiv x_0$ --- решение
+    \item Иначе можем поделить, получаем $X(x)dx + Y(y)dy=0$ --- уравнение с разделенными переменными
+\end{itemize}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item $X\in C(a, b)$
+        \item $Y\in C(c, d)$
+        \item $(x_0, y_0)\in (a,b)\times (c, d)$ --- не особая точка
+    \end{itemize}
+    Тогда
+    $$\int_{x_0}^{x} X(s)ds + \int_{y_0}^{y} Y(s)ds = 0$$
+    задает интегральную кривую уравнения $X(x)dx + Y(y)dy=0$, проходящую через $(x_0, y_0)$
+\end{theorem}
+\begin{proof}
+    $\sphericalangle Y(y_0)\not=0 \Rightarrow y'=-\cfrac{X(x)}{Y(y)}$ --- непрерывна в некоторой окрестности $(x_0, y_0) \xRightarrow{\text{Т.1.1}} \exists \varphi$ --- решение на $(\alpha, \beta)\ni x_0$
+    $$\sphericalangle U(x, y) = \int_{x_0}^{x} X(s)ds + \int_{y_0}^{y} Y(s)ds$$
+    $$\frac{d U(x, \varphi(x))}{dx} = X(x) + Y(\varphi(x)) \varphi'(x) =$$
+    $$= \frac{X(x) dx + Y(\varphi(x))\varphi'(x)dx}{dx}\equiv 0 \text{ на } (\alpha, \beta) \text{ т.к. $\varphi$ --- решение}$$
+
+    $\cfrac{d U(x, \varphi(x))}{dx} \equiv 0 \Rightarrow U(x, \varphi(x)) = C \ \ \forall x\in(\alpha, \beta)$, но $U(x_0, y_0)=0 \Rightarrow C=0 \Rightarrow \forall $ решение, проходящее через $(x_0, y_0)$ удовлетворяет равенству $U(x, y) = 0$
+\end{proof}
+
+$\begin{cases}
+        \int X(x)dx = \int_{x_0}^x X(s)ds + C_1 \\
+        \int X(y)dy = \int_{y_0}^y Y(s)ds + C_2
+    \end{cases} \Rightarrow \int X(x)dx + \int X(y)dy = C$ --- общий интеграл уравнения $X(x)dx + Y(y)dy=0$
+
+\begin{example}
+    $xdx + ydy = 0$
+
+    $$\int xdx + \int ydy = C$$
+    $$\frac{x^2}{2} + \frac{y^2}{2} = C$$
+    $$x^2 + y^2 = A,\ A>0$$
+\end{example}
+
+\subsection{Однородное уравнение}
+
+\begin{definition}
+    \textbf{Однородное уравнение} - уравнение вида $P(x, y)dx + Q(x, y)dy = 0$, если $P$ и $Q$ однородные одной степени, т.е.:
+    $$P(tx, ty) = t^\alpha P(x, y) \quad \forall t$$
+    $$Q(tx, ty) = t^\alpha Q(x, y) \quad \forall t$$
+\end{definition}
+
+\begin{example}\itemfix
+    \begin{itemize}
+        \item $x^2 + y^2$
+        \item$x^{\frac{3}{2}} + x\sqrt y$
+        \item $\cfrac{x+y}{3\sqrt{xy}}$
+    \end{itemize}
+\end{example}
+
+Замена $z=\frac{y}{x}$ сводит к уравнению с разделенными переменными.
+
+\subsection{Линейное уравнение}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \textbf{Линейное уравнение} --- уравнение вида $y'=p(x)y + q(x)$
+        \item \textbf{Линейное однородное уравнение} --- линейное уравнение, где $q\equiv 0$
+        \item \textbf{Линейное неднородное уравнение} --- линейное уравнение, где $q\not\equiv 0$
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+    $p\in C(a, b) \Rightarrow y=Ce^{\int p(x)dx}$ --- общее решение уравнения $y'=p(x)y$
+\end{lemma}
+
+\end{document}

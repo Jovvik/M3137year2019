@@ -163,12 +163,21 @@ $\begin{cases}
     \begin{itemize}
         \item \textbf{Линейное уравнение} --- уравнение вида $y'=p(x)y + q(x)$
         \item \textbf{Линейное однородное уравнение} --- линейное уравнение, где $q\equiv 0$
-        \item \textbf{Линейное неднородное уравнение} --- линейное уравнение, где $q\not\equiv 0$
+        \item \textbf{Линейное неоднородное уравнение} --- линейное уравнение, где $q\not\equiv 0$
     \end{itemize}
 \end{definition}
 
 \begin{lemma}
     $p\in C(a, b) \Rightarrow y=Ce^{\int p(x)dx}$ --- общее решение уравнения $y'=p(x)y$
 \end{lemma}
+\begin{proof}
+    $dy = p(x)ydx$
+
+    \begin{enumerate}
+        \item $y=0$ --- решение
+        \item $y>0$
+              $$\int\cfrac{dy}{y} = \int p(x)dx \Rightarrow y = Ce^{\int p(x)dx}$$
+    \end{enumerate}
+\end{proof}
 
 \end{document}

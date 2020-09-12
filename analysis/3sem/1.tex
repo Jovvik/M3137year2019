@@ -21,7 +21,7 @@
     %</мультииндекс>
 \end{definition}
 
-$$(a_1+a_2+\ldots+a_n)^r=\sum_{i_1=1}^n\sum_{i_2=1}^n\ldots \sum_{i_n=1}^n a_{i_1}a_{i_2}\ldots a_{i_n}=\sum_{\alpha : |\alpha| = r} \frac{r!}{\alpha!} a^\alpha$$
+$$(a_1+a_2+\ldots+a_n)^r=\sum_{i_1=1}^n\sum_{i_2=1}^n\ldots \sum_{i_r=1}^n a_{i_1}a_{i_2}\ldots a_{i_r}=\sum_{\alpha : |\alpha| = r} \frac{r!}{\alpha!} a^\alpha$$
 
 Это обобщение следующих формул:
 \begin{enumerate}
@@ -49,7 +49,7 @@ $$(a_1+a_2+\ldots+a_n)^r=\sum_{i_1=1}^n\sum_{i_2=1}^n\ldots \sum_{i_n=1}^n a_{i_
     $$\varphi'(t)=\sum_{i=1}^m \frac{\partial f}{\partial x_i}(a+th)h_i$$
     $$\varphi''(t)=\sum_{i=1}^m \left(\frac{\partial f}{\partial x_i}(a+th)\right)'h_i=\sum_{i=1}^m \sum_{i_2=1}^m \frac{\partial^2 f}{\partial x_i\partial x_{i_2}}(a+th)h_ih_{i_2}$$
     $$\varphi''(0)=\frac{\partial^2 f}{\partial x_1^2}h_1^2 + \frac{\partial^2 f}{\partial x_2^2}h_2^2 + \ldots + \frac{\partial^2 f}{\partial x_m^2}h_m^2 + 2\left( \frac{\partial^2 f}{\partial x_1\partial x_2}h_1h_2 + \frac{\partial^2 f}{\partial x_1\partial x_3}h_1h_3 + \ldots \right)$$
-    $$\varphi^{(r)}(t)=\sum_{i_1=1}^m\sum_{i_2=1}^m\ldots \sum_{i_r=1}^m \frac{\partial^r f}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_r}} h_{i_1}h_{i_2}\ldots h_{i_r}$$
+    $$\varphi^{(k)}(0)=\sum_{i_1=1}^m\sum_{i_2=1}^m\ldots \sum_{i_k=1}^m \frac{\partial^k f(a)}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}} h_{i_1}h_{i_2}\ldots h_{i_k}$$
 \end{proof}
 %</леммаодиффсдвигаproof>
 

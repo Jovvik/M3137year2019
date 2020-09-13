@@ -7,7 +7,7 @@
 ## 3 семестр
 
 ### Матанализ
-- [1 лекция](analysis/3sem/1.tex)
+- [1 лекция](analysis/3sem/1.pdf)
 - [Конспект к экзамену](analysis/3sem/final.pdf)
 
 ### Диффуры

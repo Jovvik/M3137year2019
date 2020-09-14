@@ -1,0 +1,277 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{14.9.2020}
+
+\begin{document}
+
+\begin{theorem}[Лагранжа для отображений]\itemfix
+    \begin{itemize}
+        \item $E$ открыто
+        \item $F : E\subset \R^m \to\R^l$
+        \item $F$ дифф. на $E$
+        \item $a, b\in E$
+        \item $[a, b]\in E$
+    \end{itemize}
+    Тогда $\exists c\in[a, b]\ (c = a + \Theta(b-a)), \Theta\in[0, 1]:$
+    $$|F(b)-F(a)|\le||F'(c)|||b-a|$$
+\end{theorem}
+\begin{proof}
+    $f(t) := F(a + t(b-a)), t\in\R$
+
+    $f'(t) = F'(a+t(b-a))(b-a)$
+
+    Тогда по теореме Лагранжа для векторнозначных функций
+    $$|f(1)-f(0)| \le |f'(c)||1-0|$$
+    $$|F(b)-F(a)| \le |F'(a+c(b-a))(b-a)| \le ||F'(a+c(b-a))|||b-a|$$
+\end{proof}
+
+\begin{remark}
+    Особенно удобная оценка происходит, когда $E$ выпукло, тогда
+    $$|f(b)-f(a)| \le \sup_{x\in E} ||F'(x)|||b-a|$$
+\end{remark}
+
+$\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item $B\in \mathcal L_{m, m}$
+        \item $\exists c > 0 \ \ \forall x\in\R^m \ \ |Bx|\ge c|x|$
+    \end{itemize}
+    Тогда $B\in\Omega_m$ и $||B^{-1}||\le\cfrac{1}{c}$
+\end{lemma}
+\begin{proof}
+    $B$ --- биекция, т.к. его ядро $\{0_m\} \Rightarrow \exists B^{-1}$.
+
+    $$|B^{-1} y| \le ||B^{-1}||\cdot |y|$$
+    $$x := B^{-1}y$$
+    $$|y| \ge c\cdot|B^{-1}y|$$
+    $$|B^{-1}y| \le \frac{1}{c}|y| \Rightarrow ||B^{-1}||\le \frac{1}{c}$$
+\end{proof}
+\begin{remark}
+    Есть геометрическое доказательство, отталкивающееся от того, что $B$ сжимает пространство на $c$.
+\end{remark}
+\begin{remark}
+    $A\in\Omega_m$. Тогда $\exists c : |Ax| \ge c|x|$
+\end{remark}
+\begin{proof}
+    $$|x| = |A^{-1}Ax| \le ||A^{-1}|| \cdot |Ax| \quad c := \frac{1}{||A^{-1}||}$$
+\end{proof}
+
+\begin{theorem}[об обратимости оператора, близкого к обратимому]\itemfix
+    %<*обобратимости>
+    \begin{itemize}
+        \item $L\in\Omega_m$
+        \item $M\in\mathcal L_{m, m}$
+        \item $||L-M|| < \cfrac{1}{||L^{-1}||}$ --- $M$ ``близкий'' к $L$
+    \end{itemize}
+    Тогда:
+    \begin{enumerate}
+        \item $M\in\Omega_m$, т.е. $\Omega_m$ открыто в $\mathcal L_{m, m}$
+        \item $||M^{-1}|| \le \cfrac{1}{||L^{-1}||^{-1} - ||L-M||}$
+        \item $||L^{-1} - M^{-1}|| \le \cfrac{||L^{-1}||}{||L^{-1}||^{-1} - ||L-M||}||L-M||$
+    \end{enumerate}
+    %</обобратимости>
+\end{theorem}
+%<*обобратимостиproof>
+\begin{proof}
+    По неравенству треугольника $|a+b|\ge |a|-|b|$:
+    \begin{align*}
+        |Mx| & = |Lx + (M-L)x|                               \\
+             & \ge |Lx| - |(M-L)x|                           \\
+             & \ge \frac{1}{||L||^{-1}}|x| - ||M-L||\cdot|x| \\
+             & \ge \left(||L^{-1}||^{-1} - ||M-L||\right)|x|
+    \end{align*}
+    Это доказало пункты 1 и 2, докажем 3:
+
+    Аналогично равенству $\frac{1}{a} + \frac{1}{b} = \frac{a+b}{ab}$ в $\R$ выполняется следующее равенство в $\Omega_m$:
+    $$M^{-1} - L^{-1} = M^{-1}(L-M)L^{-1}$$
+    Это очевидно доказывается домножением на $M$ слева и на $L$ справа:
+    \begin{proof}
+        $$M^{-1} - L^{-1} \stackrel{?}{=} M^{-1}(L-M)L^{-1}$$
+        $$E - L^{-1} \stackrel{?}{=} (L-M)L^{-1}$$
+        $$L - M = L-M$$
+    \end{proof}
+    $$||M^{-1} - L^{-1}|| = ||M^{-1}(L-M)L^{-1}|| \le \frac{||L^{-1}||}{||L^{-1}||^{-1} - ||L-M||}||L-M||$$
+\end{proof}
+%</обобратимостиproof>
+
+\begin{theorem}[о непрерывно дифференцируемом отображении]\itemfix
+    \begin{itemize}
+        \item $F:E\subset\R^m \to\R^l$
+        \item $F$ дифф. на $E$
+    \end{itemize}
+    Тогда эквивалентны 1 и 2:
+    \begin{enumerate}
+        \item $F\in C^1(E)$, т.е. $\exists$ все $\frac{\partial F_i}{\partial x_j}$ и они непрерывны на $E$
+        \item $F' : E\to\mathcal L_{m, l}$ --- непрерывно, т.е. $$\forall x\in E \ \ \forall \varepsilon > 0 \ \ \exists \delta = \delta(\varepsilon, x) \ \ \forall \overline x : |\overline x - x| < \delta \quad ||F'(x) - F'(\overline x)|| \le \varepsilon$$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{itemize}
+        \item 1 $\Rightarrow$ 2:
+
+              Берем $x, \varepsilon$. $\exists \delta > 0 : \forall \overline x \ \ \left|\frac{\partial F_i}{\partial x_j}(x) - \frac{\partial F_i}{\partial x_j}(\overline x)\right| < \frac{\varepsilon}{\sqrt{ml}}$ для всех $i, j$.
+
+              $$||F'(x)|-F'(\overline x)|| < \sqrt{\sum_{i, j} \frac{\varepsilon^2}{ml}} = \varepsilon$$
+
+        \item 2 $\Rightarrow$ 1:
+
+              $$\forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall \overline x : |x - \overline x| < \delta \quad ||F'(x)-F'(\overline x)|| < \varepsilon$$
+
+              $\sphericalangle h = (0, 0, \ldots, 0, \underbrace{1}_{j}, 0, \ldots, 0)$
+              $$|F'(x)h - F'(\overline x)h| \le ||F'(x)-F'(\overline x)|| \cdot |h| < \varepsilon$$
+              $$|F'(x)h - F'(\overline x)h| = \sqrt{\sum_{i=1}^l \left( \frac{\partial F_i}{\partial x_j}(x) - \frac{\partial F_i}{\partial x_j}(\overline x) \right)^2}$$
+              $$\sqrt{\sum_{i=1}^l \left( \frac{\partial F_i}{\partial x_j}(x) - \frac{\partial F_i}{\partial x_j}(\overline x) \right)^2} < \varepsilon \Rightarrow \forall i \ \ \left| \frac{\partial F_i}{\partial x_j}(x) - \frac{\partial F_i}{\partial x_j}(\overline x) \right| < \varepsilon$$
+    \end{itemize}
+\end{proof}
+
+\section{Экстремумы}
+
+\begin{definition}
+    %<*экстремум>
+    $f : E\subset\R^m \to \R, a\in E$ --- \textbf{локальный максимум}, если
+    $$\exists U(a)\subset E \ \ \forall x\in U(a) \quad f(x)\le f(a)$$
+
+    Аналогично определяется строгий локальный максимум, локальный минимум и строгий локальный минимум
+    %</экстремум>
+\end{definition}
+
+\begin{theorem}[Ферма]\itemfix
+    %<*ферма>
+    \begin{itemize}
+        \item $f : E\subset \R^m \to \R$
+        \item $a\in Int E$
+        \item $a$ --- точка локального экстремума
+        \item $f$ --- дифф. в точке $a$
+    \end{itemize}
+    Тогда $\forall u\in\R^m : |u|=1 \quad \cfrac{\partial f}{\partial u} = 0$
+    %</ферма>
+\end{theorem}
+%<*фермаproof>
+\begin{proof}
+    Для $f\Big|_{\text{прямая}(a, u)}$ $a$ остается локальным экстремумом, выполняется одномерная теорема Ферма.
+\end{proof}
+%</фермаproof>
+
+\begin{corollary}[необходимое условие экстремума]
+    $a$ --- локальный экстремум $f \Rightarrow \frac{\partial f}{\partial x_1}(a) \ldots \frac{\partial f}{\partial x_m}(a)$
+\end{corollary}
+
+\begin{corollary}[теорема Ролля]\itemfix
+    %<*ролля>
+    \begin{itemize}
+        \item $f: E\subset \R^m \to \R$
+        \item $K\subset E$ компакт
+        \item $f$ дифф. в $Int K$
+        \item $f$ непрерывно на $K$
+        \item $f\Big|_{\text{граница} K} = \const$
+    \end{itemize}
+
+    Тогда $\exists a\in Int K : f'(a)=\vec 0$
+    %</ролля>
+\end{corollary}
+%<*ролляproof>
+\begin{proof}
+    По теореме Вейерштрасса $f$ достигает минимального и максимального значения на компакте. Тогда либо $f$ на $K$ $\const$, либо $\exists a\in Int K$ --- точка экстремума. В первом случае $f'\equiv 0$, во втором по т. Ферма $f'(a)=0$
+\end{proof}
+%</ролляproof>
+
+\begin{definition}
+    \textbf{Квадратичная форма} $Q : \R^m \to\R$
+    $$Q(h) = \sum_{1 \le i, j\le m} a_{ij}h_ih_j$$
+\end{definition}
+
+\begin{definition}
+    \textbf{Положительно определенная кв. форма}: $\forall h\not=0 \ \ Q(h) > 0$
+\end{definition}
+\begin{definition}
+    \textbf{Отрицательно определенная кв. форма}: $\forall h\not=0 \ \ Q(h) < 0$
+\end{definition}
+\begin{definition}
+    \textbf{Неопределенная кв. форма}: $\exists \overline h : Q(h) < 0, \exists \tilde h : Q(h) > 0$
+\end{definition}
+\begin{definition}
+    \textbf{Полуопределенная (\textit{положительно определенная вырожденная}) кв. форма}: $Q(h) \ge 0 \ \ \exists \overline h\not=0 : Q(\overline h) = 0$
+\end{definition}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item $Q$ --- положительно определенная
+    \end{itemize}
+    Тогда $\exists \gamma_Q > 0 \ \ \forall h \quad Q(h) \ge \gamma_Q |h|^2$
+\end{lemma}
+\begin{proof}
+    $S^{m-1} := \{x\in\R^m : |x| = 1\}$ --- компакт, поэтому $\min$ и $\max$ достигается по т. Вейерштрасса.
+    $$\gamma_Q := \min\limits_{h\in S^{m-1}} Q(h) > 0$$
+    \begin{align*}
+        Q(h) & \ge \gamma_Q |h|^2                                              \\
+        Q(h) & = Q\left(|h|\frac{h}{|h|}\right)=|h^2|Q\left(\frac{h}{h}\right)
+    \end{align*}
+    \textcolor{red}{Не дописано}
+\end{proof}
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item $p : \R^m \to \R$ --- норма
+    \end{itemize}
+    Тогда $\exists C_1,C_2 > 0 \ \ \forall x \ \ C_2|x| \le p(x) \le C_1|x|$
+\end{lemma}
+\begin{proof}
+    $$C_1 := \min_{x\in S^{m-1}} p(x) \quad C_2 := \max_{x\in S^{m-1}} p(x)$$
+    $$p(x) = p\left(|x|\frac{x}{|x|}\right) = |x|p\left(\frac{x}{|x|}\right)\begin{cases}
+            \ge C_2|x| \\
+            \le C_1|x|
+        \end{cases}$$
+    Существование $C_1$ и $C_2$ гарантируется теоремой Вейерштрасса, но она требует непрерывности $p(x)$.
+
+    Докажем, что $p$ непрерывна.
+
+    Введем базис $\{e_i\}_{i=1}^n$. Тогда
+    \begin{align*}
+        p(x-y) & = p\left(\sum (x_k - y_k)e_k \right) \\
+               & \le \sum p((x_k - y_k)e_k)           \\
+               & = \sum |x_k-y_k|p(e_k)               \\
+               & \le |x-y| \sqrt{\sum p(e_k)^2}       \\
+               & \le |x-y|M                           \\
+    \end{align*}
+\end{proof}
+
+\subsection*{Напоминание}
+
+$$d^2 f(a, h) = f''_{x_1x_1}(a) h_1^2 + \ldots + f''_{x_mx_m}(a) h_m^2 + 2 \sum_{1\le i < j \le m} f''_{x_ix_j}h_ih_j$$
+Формула Тейлора с остатком в форме Пеано:
+$$f(x) = f(a) + df(a, x-a) + \frac{1}{2!}d^2f(a, x-a) + o(|x-a|^2)$$
+Формула Тейлора с остатком в форме Лагранжа:
+$$f(a+h) = f(a) + df(a, h) + \frac{1}{2} d^2f(a + \Theta h, h) \quad 0\le\Theta\le 1$$
+
+\begin{theorem}[достаточное условие экстремума]\itemfix
+    \begin{itemize}
+        \item $f : E\subset \R^m \to \R$
+        \item $a\in Int E$
+        \item $\frac{\partial f}{\partial x_1}(a) = 0, \ldots, \frac{\partial f}{\partial x_m}(a) = 0$
+        \item $Q(h) := d^2 f(a, h)$
+        \item $f\in C^2(E)$
+    \end{itemize}
+    Тогда:
+    \begin{itemize}
+        \item Если $Q(h)$ положительно определена, $a$ --- локальный минимум
+        \item Если $Q(h)$ отрицательно определена, $a$ --- локальный максимум
+        \item Если $Q(h)$ незнакоопределена, $a$ --- не экстремум
+        \item Если $Q(h)$ положительно определена, но вырождена, недостаточно информации.
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        f(a+h) & = f(a)                                                                                                                                                                                                                                                                                                    \\
+               & = \frac{1}{2} d^2f(a+\Theta h, h)                                                                                                                                                                                                                                                                         \\
+               & = \frac{1}{2} \left( Q(h) + \underbrace{\sum_{i=1}^n \underbrace{\left( f''_{x_ix_i} (a+\Theta h) - f''_{x_ix_i} (a)\right)}_{\to0} \underbrace{h_i^2}_{\le |h|^2} + 2 \sum_{i < j} \underbrace{\left(f_{x_ix_i}''(a+\Theta h) - f''_{x_ix_i} (a)\right)}_{\to0} \underbrace{h_ih_j}_{\substack{\le |h|^2 \\ \text{по модулю}}}}_{o(|h|^2) \Leftrightarrow < \frac{\gamma_Q}{2}|h|^2}  \right) \\
+    \end{align*}
+    $$f(a+h) - f(a) \ge \frac{1}{2}\left(\gamma_Q |h|^2 - \frac{\gamma_Q}{2}|h|^2\right) \ge \frac{1}{4}\gamma_Q|h|^2 > 0$$
+
+    $\sphericalangle \overline h : Q(\overline h) > 0 \Rightarrow f(a+t\overline h) - f(a) = \frac{1}{2}d^2 f(a+\Theta t\overline h, \overline h)t^2$
+
+    \textcolor{red}{Не дописано}
+\end{proof}
+
+\end{document}

@@ -1,6 +1,6 @@
 # Конспекты М3137
 
-Если вы хотите помочь, всё, чего не хватает в конспектах - [тут](https://github.com/Jovvik/M3137year2019/issues/2)
+<!-- Если вы хотите помочь, всё, чего не хватает в конспектах - [тут](https://github.com/Jovvik/M3137year2019/issues/2) -->
 
 Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм @aeriu.
 
@@ -14,6 +14,7 @@
 ### Диффуры
 - [1 лекция](diffeq/3sem/1.pdf)
 - [2 лекция](diffeq/3sem/2.pdf)
+- [3 лекция](diffeq/3sem/3.pdf)
 
 ## 2 семестр
 

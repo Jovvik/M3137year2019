@@ -1,0 +1,161 @@
+\input{../../preamble.sty}
+
+\lhead{Дифференциальные уравнения}
+\cfoot{}
+\rfoot{17.9.2020}
+
+\setcounter{section}{2}
+\setcounter{subsection}{4}
+
+\begin{document}
+
+\begin{theorem}[Общее решение уравнения 1-го пордяка]
+    $\sphericalangle p, q \in C(a, b)$
+    $$y = \left( C + \int q(x) e^{-\int p(x)dx} \right)e^{\int p(x)dx}, \ \ x\in(a, b), C\in\R$$
+\end{theorem}
+\begin{proof}
+    $$q(x) e^{-\int p(x)dx} e^{\int p(x)dx} + \underbrace{\left(C + \int q(x) e^{-\int p(x)dx}\right) e^{\int p(x)dx}}_{y} p(x) \equiv p(x) y + q \quad \forall x\in(a, b)$$
+    Докажем, что других решений нет.
+
+    $\sphericalangle \varphi$ --- решение на $(\alpha, \beta)\subset(a, b)$. Пусть это решение проходит через $(x_0, y_0)$. Через эту точку также проходит решение $f$, описываемой теоремой.
+
+    $\cfrac{\partial f}{\partial y} = p(x) \in C((a, b)\times \R) \Rightarrow$ по теореме Пикара $y \equiv \varphi$ на $(\alpha, \beta)$.
+\end{proof}
+
+\textbf{Метод Лагранжа}
+\begin{enumerate}
+    \item Записываем решение однородного: $y = Ce^{\int p(x) dx}$
+    \item Подставим $y = C(x) e^{\int p(x) dx}$ в линейное уравнение первого порядка:
+          $$C^1 e^{\int p(x)dx} + Ce^{\int p(x)dx} p(x) = pCe^{\int p(x)dx} + q$$
+    \item Подставим $C(x)$ вместо постоянной $C$.
+\end{enumerate}
+
+\subsection{Уравнение Бернулли и Риккати}
+
+\begin{definition}[уравнение Бернулли]
+    $y' = p(x) y + q(x) y^\alpha, \alpha\not\in\{0, 1\}$
+\end{definition}
+Замена $z=y^{1-\alpha}$ сводит это уравнение к линейному:
+\begin{align*}
+    z'                  & = (1-\alpha)y^{-\alpha}    \\
+    \frac{y'}{y^\alpha} & = p(x) y^{1-\alpha} + q(x) \\
+    \frac{z'}{1-\alpha} & = p(x) z + q(x)
+\end{align*}
+
+\begin{definition}[уравнение Риккати]
+    $y' = \underbrace{p(x)y^2 + q(x)y + r(x)}_{\text{квадратичное по } y}$
+\end{definition}
+
+Частный случай уравнения Риккати $y' = y^2 + x^\alpha$ интегрируется в квадратурах только при определенных $\alpha$.
+
+Если $\varphi$ --- решение уравнения Риккати, то замена $y = \varphi + z$ сводит искомое к уравнению Бернулли. $\varphi$ необходимо угадывать.
+
+\begin{proof}
+    \begin{align*}
+        (\varphi + z)' & = p(\varphi+z)^2 + q(\varphi+z) + r(x)                \\
+        \varphi' + z'  & = p\varphi^2 + q\varphi + 2p\varphi z + qz + r + pz^2 \\
+        z'             & = 2p\varphi z + qz + pz^2                             \\
+    \end{align*}
+\end{proof}
+
+\subsection{Уравнение в полных дифференциалах}
+
+\begin{definition}
+    $P(x, y)dx + Q(x, y)dy = 0$ --- \textbf{уравнение в полных дифференциалах}, если $\exists u(x, y): du = Pdx + Qdy$
+\end{definition}
+
+\begin{theorem}[Общее решение УПД]\itemfix
+    $\sphericalangle P, Q\in C(G)$
+    \begin{enumerate}
+        \item $y$ --- решение на $(a, b)$
+
+              Тогда $\exists C\in\R : u(x, y)=C$ неявно задает $y$.
+        \item $u(x, y)=C$ определяет $y\in C^1(a, b)$
+
+              Тогда $y$ --- решение.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $\sphericalangle y$ --- решение на $(a, b) \Rightarrow$
+              $$P(x, y(x)) + Q(x, y(x)), y'(x) \equiv 0$$
+              Левая часть $=\cfrac{d}{dx}u(x, y(x))$
+              $$\frac{du(x, y)}{dt} = \frac{\partial u}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial u}{\partial y} + \frac{\partial y}{\partial t}$$
+              $$\Rightarrow u(x, y(x)) \equiv C$$
+        \item $\sphericalangle y' : u(x, y(x)) \equiv C$
+
+              Продифференцируем.
+              \begin{align*}
+                  \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y}y' & \equiv 0 \\
+                  P + Q y'                                                        & \equiv 0
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+
+$u(x, y)$ находится следующим образом:
+$$u(x, y) = \int_{(x_0, y_0)}^{(x, y)} P(x, y)dx + Q(x, y)dy$$
+
+Найдем необходимое условие для $\exists du$:
+\begin{align*}
+    \sphericalangle du                        & = Pdx + Qdy,\ P, Q\in C^1(G)                                                \\
+    \Rightarrow P                             & = \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y}             \\
+    \Rightarrow \frac{\partial P}{\partial y} & = \frac{\partial^2 u}{\partial x\partial y} = \frac{\partial Q}{\partial x}
+\end{align*}
+
+Это условие и достаточно для $\exists du$, если $G$ --- односвязная область.
+
+\begin{example}
+    $\underbrace{e^{-y}}_{P}dx \underbrace{- (2y + xe^{-y})}_{Q} dy = 0$
+
+    Решение.
+    \begin{align*}
+        \frac{\partial P}{\partial y} = -e^{-y} \\
+        \frac{\partial Q}{\partial x} = -e^{-y} \\
+    \end{align*}
+    Частные производные совпали, область односвязна $\Rightarrow$ УПД.
+    $$\frac{\partial u}{\partial x} = P = e^{-y} \Rightarrow U(x, y) = \int e^{-y} dy + C(y) = xe{-y} + C(y)$$
+    $$\frac{\partial u}{\partial y} = xe^{-y} (-1) + C'(y) = -(2y + xe^{-y})$$
+    $$C'(y) = -2y$$
+    $$C = -y^2 + A$$
+    $$u(x, y) = xe^{-y} - y^2 + A$$
+
+    Ответ: $xe^{-y}-y^2=C$
+\end{example}
+
+\textbf{Геометрический смысл}
+
+$P(x, y)dx + Q(x, y)dy = 0$
+
+$\sphericalangle \begin{cases}
+        x = \varphi(t) \\
+        y = \psi(t)
+    \end{cases}$ --- интегральная кривая.
+
+$$(x_0, y_0) = (\varphi(t_0), \psi(t_0))$$
+$$P(\varphi, \psi) \varphi' + Q(\varphi, \psi)\psi' = 0$$
+$$P(x_0, y_0) \varphi'(t_0) + Q(x_0, y_0)\psi'(t_0) = 0$$
+
+Таким образом, $(\varphi', \psi')$ перпендикулярно $(P, Q)$ при $t=t_0$, т.е. мы ищем перпендикуляры к данному векторному полю.
+
+\begin{definition}
+    $\mu(x, y)$ --- \textbf{интегрирующий множитель} для уравнения $Pdx+Qdy = 0$, если $\mu\not=0$ и $\mu Pdx + \mu Qdy = 0$
+\end{definition}
+
+Домножая на $\mu$, можно свести диффур к УПД.
+
+$$\frac{\partial (\mu P)}{\partial y} = \frac{\partial (\mu Q)}{\partial x}$$
+$$y' = p(x)y + q(x)$$
+$$dy - (p(x)y + q(x))dx = 0$$
+$$\frac{\partial \mu}{\partial y}(-p(x)y - q(x)) + \mu(-\varphi) = \frac{\partial \mu}{\partial x}$$
+
+Предположим, что $\mu$ зависит только от $x$.
+
+$$\mu(-\varphi) = \mu' \Rightarrow \mu = Ce^{-\int p(x)dx}$$
+\begin{align*}
+    \mu(dy - (p(x)y + q(x))dx)                              & = 0                       \\
+    e^{-\int p(x)dx} dy - (p(x)y + q(x))e^{-\int p(x)dx} dx & = 0                       \\
+    e^{-\int p(x)dx} dy - p(x)ye^{-\int p(x)dx} dx          & = q(x)e^{-\int p(x)dx} dx
+\end{align*}
+Дорешать --- упражнение
+
+\end{document}

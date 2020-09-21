@@ -1,0 +1,100 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{21.9.2020}
+
+\begin{document}
+
+% \begin{example}
+%     Загадка. $f(x, y) = x^2 + Axy^2 + y^4$.
+
+%     $(a, 0)$ --- подозрительная точка, $d^2f = 2dx^2 \ge 0$
+
+%     $f(x_0 + h) \stackrel{\text{Тейлор}}{=} f(x_0) + \underbrace{df(x_0, h)}_{0} + \frac{1}{2}d^2 f(x_0, h) + \frac{1}{3!} d^3f(x_0, h) + \frac{1}{4!}d^4f(x_0, h)$
+% \end{example}
+
+В первом семестре была задача нахождения максимального по площади вписанного $n$-угольника.
+Мы выяснили, что если максимум существует, то он достигается правильным $n$-угольником (\textit{суждение про сдвиг точки}). Кроме того, мы доказали, что максимум существует, сделаем это снова, но другим методом.
+
+\begin{proof}
+    Пусть внутренние углы многоугольника $\varphi_1\ldots \varphi_n$, тогда
+    \begin{align*}
+        S & = \frac{1}{2} r^2(\sin \varphi_1 + \ldots + \sin \varphi_n)                                                 \\
+          & = \frac{1}{2} r^2(\sin \varphi_1 + \ldots + \sin \varphi_{n-1} - \sin (\varphi_1 - \ldots - \varphi_{n-1}))
+    \end{align*}
+
+    Очевидно $\forall i \ \ 0<\varphi_1<\pi \quad \pi < \varphi_1+\ldots+\varphi_{n-1} < 2\pi$.
+
+    Найдём максимум путём дифференцирования. Это требует существования максимума внутри области определения. Если все неравенства сделать нестрогими, то область определения становится замкнутой, очевидно ограниченной $\Rightarrow \exists \max$ по теореме Вейерштрасса. Кроме того, максимум не лежит на границе области определения из очевидных геометрических соображений.
+
+    $$\frac{\partial S}{\partial \varphi_i} = 0 \Leftrightarrow \cos \varphi_i = \cos(\varphi_1+\ldots+\varphi_{n-1})$$
+    \begin{align*}
+        \cos \varphi_i - \cos(\varphi_1+\ldots+\varphi_{n-1})   & = 0              \\
+        2\sin \frac{n\varphi}{2} \sin \frac{\pi - 2n\varphi}{2} & = 0              \\
+        \varphi                                                 & = \frac{2\pi}{n} \\
+    \end{align*}
+\end{proof}
+
+\section*{Диффеоморфизмы}
+
+\begin{definition}
+    \textbf{Область} --- открытое связное множество.
+\end{definition}
+
+\begin{definition}
+    $F : \underbrace{O}_{\text{область}}\subset \R^m\to \R^m$ --- \textbf{диффеоморфизм}, если:
+    \begin{itemize}
+        \item $F$ обратимо
+        \item $F$ дифференцируемо
+        \item $F^{-1}$ дифференцируемо
+    \end{itemize}
+\end{definition}
+\begin{remark}
+    $Id = F\circ F^{-1} = F^{-1}\circ F$
+
+    $E = F' (F^{-1})' \Rightarrow \forall x \ \ \det F'(x) \not=0$
+\end{remark}
+
+\begin{lemma}[о почти локальной иньективности]\itemfix
+    \begin{itemize}
+        \item $F : O\subset\R^m\to\R^m$
+        \item $F$ дифф. в $x_0\in O$
+        \item $\det F'(x_0)\not=0$
+    \end{itemize}
+    Тогда $\exists c>0, \delta>0 \ \ \forall h < \delta \ \ |F(x_0+h)-F(x_0)| > C|h|$
+\end{lemma}
+\begin{proof}
+    Если $F$ --- линейное отображение:
+    $$|F(x_0+h) - F(x_0)| = |F(h)| = |F'(x_0)h| \ge ||F'(x_0)||\cdot |h| \ge \frac{1}{||(F'(x_0))^{-1}||}|h|$$
+    $$|F(x_0+h) - F(x_0)| = |F'(x_0)h + \alpha(h)|h|| \ge c|h| - \frac{c}{2}|h| \ge \frac{c}{2}|h|$$
+\end{proof}
+
+\begin{theorem}[о сохранении области]\itemfix
+    \begin{itemize}
+        \item $F : O\subset\R^m \to\R^m$
+        \item $F$ дифф.
+        \item $\forall x\in O \ \ \det F'(x)\not=0$
+    \end{itemize}
+    Тогда $F(O)$ --- открыто.
+\end{theorem}
+
+\begin{remark}
+    $O$ --- связно, $F$ --- непр. $\Rightarrow F(O)$ связно.
+\end{remark}
+
+\begin{proof}
+    $x_0 \in O \Rightarrow F(x_0)\in F(O)$ --- внутренняя? в $F(O)$
+
+    По лемме $\exists c, \delta : \forall h \in \overline{B(0, \delta)} \ \ |F(x_0+h) - F(x_0)| > C|h|$
+
+    В частности $F(x_0 + h)\not=F(x_0)$ при $|h| = \delta$
+
+    $r := \frac{1}{2}\rho(y_0, F(S(x_0, \delta))$
+
+    \textcolor{red}{Не дописано}
+
+    % Если $y\in B(y_0\ldots)$, то $\rho(y_0\ldots)$
+\end{proof}
+
+\end{document}

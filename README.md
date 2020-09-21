@@ -9,7 +9,7 @@
 ### Матанализ
 - [1 лекция](analysis/3sem/1.pdf)
 - [2 лекция](analysis/3sem/2.pdf)
-- [3 лекция](analysis/3sem/3.pdf)
+- [3 лекция](analysis/3sem/3.pdf) - только первая половина, вторая будет позже
 - [Конспект к экзамену](analysis/3sem/final.pdf)
 
 ### Диффуры

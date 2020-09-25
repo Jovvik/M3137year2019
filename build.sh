@@ -18,4 +18,4 @@ done <   <(find . -regex ".*\(final\|opros.*\)\.tex$" -type f -print0)
 while IFS= read -r -d '' file
 do
     compile "$file"
-done <   <(git diff --name-only HEAD "$(git show 'HEAD^{/Built pdfs}' --pretty=format:"%h" --no-patch || git rev-list --max-parents=0 HEAD)" | grep "\.tex" | tr '\n' '\0')
+done <   <(git diff --name-only HEAD "$(git show 'HEAD^{/^Built pdfs}' --pretty=format:"%h" --no-patch || git rev-list --max-parents=0 HEAD)" | grep "\.tex" | tr '\n' '\0')

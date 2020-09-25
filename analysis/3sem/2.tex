@@ -203,13 +203,14 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
     Тогда $\exists \gamma_Q > 0 \ \ \forall h \quad Q(h) \ge \gamma_Q |h|^2$
 \end{lemma}
 \begin{proof}
-    $S^{m-1} := \{x\in\R^m : |x| = 1\}$ --- компакт, поэтому $\min$ и $\max$ достигается по т. Вейерштрасса.
+    $S^{m-1} := \{x\in\R^m : |x| = 1\}$ --- компакт в $\R^m$, поэтому $\min$ и $\max$ достигается по т. Вейерштрасса.
     $$\gamma_Q := \min\limits_{h\in S^{m-1}} Q(h) > 0$$
     \begin{align*}
-        Q(h) & \ge \gamma_Q |h|^2                                              \\
-        Q(h) & = Q\left(|h|\frac{h}{|h|}\right)=|h^2|Q\left(\frac{h}{h}\right)
+        % Q(h) & \ge \gamma_Q |h|^2                                              \\
+        Q(h) & = Q\left(|h|\frac{h}{|h|}\right)\stackrel{(*)}=|h^2|Q\underbrace{\left(\frac{h}{|h|}\right)}_{\text{ед. вектор}} \ge \gamma_Q |h|^2
     \end{align*}
-    \textcolor{red}{Не дописано}
+    Переход $(*)$ работает, т.к. $Q$ - квадратичная форма, поэтому:
+    $$\sum_{i, j} a_{ij}h_ih_j = \sum_{i, j} a_{ij} |h|\frac{h_i}{|h|} |h|\frac{h_j}{|h|} = |h|^2 \sum_{i, j} a_{ij} \frac{h_i}{|h|}\frac{h_j}{|h|}$$
 \end{proof}
 \begin{lemma}\itemfix
     \begin{itemize}
@@ -263,15 +264,41 @@ $$f(a+h) = f(a) + df(a, h) + \frac{1}{2} d^2f(a + \Theta h, h) \quad 0\le\Theta\
 \end{theorem}
 \begin{proof}
     \begin{align*}
-        f(a+h) & = f(a)                                                                                                                                                                                                                                                                                                    \\
-               & = \frac{1}{2} d^2f(a+\Theta h, h)                                                                                                                                                                                                                                                                         \\
-               & = \frac{1}{2} \left( Q(h) + \underbrace{\sum_{i=1}^n \underbrace{\left( f''_{x_ix_i} (a+\Theta h) - f''_{x_ix_i} (a)\right)}_{\to0} \underbrace{h_i^2}_{\le |h|^2} + 2 \sum_{i < j} \underbrace{\left(f_{x_ix_i}''(a+\Theta h) - f''_{x_ix_i} (a)\right)}_{\to0} \underbrace{h_ih_j}_{\substack{\le |h|^2 \\ \text{по модулю}}}}_{o(|h|^2) \Leftrightarrow < \frac{\gamma_Q}{2}|h|^2}  \right) \\
+        f(a+h) & = f(a)                                                                                                                                                                                                                                                                                                   \\
+               & = \frac{1}{2} d^2f(a+\Theta h, h)                                                                                                                                                                                                                                                                        \\
+               & = \frac{1}{2} \left( Q(h) + \overbrace{\sum_{i=1}^n \underbrace{\left( f''_{x_ix_i} (a+\Theta h) - f''_{x_ix_i} (a)\right)}_{\to0} \underbrace{h_i^2}_{\le |h|^2} + 2 \sum_{i < j} \underbrace{\left(f_{x_ix_i}''(a+\Theta h) - f''_{x_ix_i} (a)\right)}_{\to0} \underbrace{h_ih_j}_{\substack{\le |h|^2 \\ \text{по модулю}}}}^{o(|h|^2) \Leftrightarrow < \frac{\gamma_Q}{2}|h|^2}  \right) \\
     \end{align*}
     $$f(a+h) - f(a) \ge \frac{1}{2}\left(\gamma_Q |h|^2 - \frac{\gamma_Q}{2}|h|^2\right) \ge \frac{1}{4}\gamma_Q|h|^2 > 0$$
 
-    $\sphericalangle \overline h : Q(\overline h) > 0 \Rightarrow f(a+t\overline h) - f(a) = \frac{1}{2}d^2 f(a+\Theta t\overline h, \overline h)t^2$
+    \begin{align*}
+        \sphericalangle \overline h : Q(\overline h) > 0 \Rightarrow f(a+t\overline h) - f(a)
+         & = \frac{1}{2}d^2 f(a+\Theta t\overline h, \overline h)t^2                                                                                                                                                                  \\
+         & = \frac{1}{2}\left(\underbrace{t^2 Q(\overline h)}_{Q(t\overline h)} + t^2\underbrace{\left(\sum(f''_{x_ix_i}(a+\Theta th) - f''_{x_ix_i}(a))\overline h_i^2 + 2 \sum_{i<j} \ldots \right)}_{\text{б.м. при }t\to0}\right) \\
+         & \ge \frac{1}{2}t^2(Q(h) - \frac{1}{2}Q(h)) > 0
+    \end{align*}
+    Т.е. $f(a + t\overline h) > f(a)$ при $t$, близких к $0$.
 
-    \textcolor{red}{Не дописано}
+    Аналогично $f(a + t\overline {\overline h}) < f(a)$ при $t$, близких к $0$.
+
+    Это доказывает первые три пункта теоремы. Докажем последний пункт примером.
+
+    $f(x_1, x_2 \ldots) = x_1^2 - x_2^4 - x_3^4 \ldots$
+
+    $\overline f(x_1, x_2 \ldots) = x_1^2 + x_2^4 + x_3^4 \ldots$
+
+    $a = (0, 0, \ldots)$
+
+    $f'_{x_1}(a) = 0, f'_{x_2}(a) = 0, \ldots$
+
+    $d^2 f(a, h) = h_1^2$
+
+    $d^2 \overline f(a, h) = 2h_1^2$
+
+    Итого $f$ не имеет экстремума в $a$, но для $\overline f$ $a$ --- локальный минимум.
 \end{proof}
+
+\begin{remark}
+    Если $f$ подходит под условие теоремы и $d^2 f(a, h)$ --- положительно определенный вырожденный $\Rightarrow a$ --- не точка максимума.
+\end{remark}
 
 \end{document}

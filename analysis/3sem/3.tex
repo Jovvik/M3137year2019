@@ -90,11 +90,153 @@
 
     В частности $F(x_0 + h)\not=F(x_0)$ при $|h| = \delta$
 
-    $r := \frac{1}{2}\rho(y_0, F(S(x_0, \delta))$
+    $$r := \frac{1}{2}\rho(y_0, F(S(x_0, \delta))$$
+    $$\rho(A, B) \defeq \inf_{a\in A, b\in B} \rho(a, b)$$
+    Т.к. $S$ --- компакт, $\exists \min$.
 
-    \textcolor{red}{Не дописано}
+    Если $y\in B(y_0, r)$, то $\rho(y, F(S(x_0, \delta))) > r$:
+    \begin{figure}[h]
+        \includegraphics{images/осохраненииобласти.pdf}
+        \centering
+    \end{figure}
 
-    % Если $y\in B(y_0\ldots)$, то $\rho(y_0\ldots)$
+    \pagebreak
+
+    Проверим, что $B(y_0, r) \subset F(O)$, т.е. $\forall y\in B(y_0, r) \ \ \exists x\in B(x_0, \delta) \ \ F(x) = y$
+
+    Рассмотрим функцию $g(x) = |F(x) - y|^2$ при $x\in \overline{B(x_0, \delta)}$.
+
+    Мы хотим показать, что $\exists x : g(x) = 0$. Найдем $\min g$.
+    $$g(x_0) = |F(x_0) - y|^2 = |y_0 - y|^2 < r^2$$
+    При $x\in S(x_0, \delta) : g(x)>r^2 \Rightarrow \min g$ не лежит на границе шара $\Rightarrow$ он лежит внутри шара.
+
+    $$g(x) = (F_1(x) - y_1)^2 + \ldots + (F_m(x) - y_m)^2$$
+    $$\forall i \quad \frac{\partial g}{\partial x_i} = 0$$
+    $$2(F_1(x) - y)F'_{1x_i}(x) + \ldots + 2(F_m(x) - y)F'_{mx_i}(x) = 0$$
+    $$F'_x 2(F(x) - y) = 0$$
+    $$\forall x \ \ \det F'\not=0 \Rightarrow F(x) - y = 0$$
 \end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item $F : O\subset\R^m \to\R^l$
+        \item $F \in C^1(O)$
+        \item $l < m$
+        \item $\rg F'(x) = l \ \ \forall x\in O$
+    \end{itemize}
+    Тогда $F(O)$ открыто.
+\end{corollary}
+\begin{proof}
+    Зафискируем точку $x_0$. Пусть ранг реализуется на столбцах $1\ldots l$, т.е. определитель матрицы из столбцов $1\ldots l \not=0$, т.е.:
+    $$\det\underbrace{\left(\frac{\partial F_i}{\partial x_j}\right)_{i, j = 1\ldots l}(x_0)}_{A(x_0)} \not = 0$$
+    И для близких точек тоже $\not=0$
+    $$\tilde F : O \to\R^m \quad \tilde F(x) = \begin{pmatrix}
+            F_1(x)  \\
+            F_2(x)  \\
+            \vdots  \\
+            F_l(x)  \\
+            x_{l+1} \\
+            \vdots  \\
+            x_m
+        \end{pmatrix}$$
+    $$\tilde F'(x) = \left[\begin{array}{cc}
+                \multicolumn{2}{c}{F'(x)}        \\
+                \hline
+                \multicolumn{1}{c|}{0} & E_{m-l} \\
+            \end{array}\right]$$
+    $$\det \tilde F'(x) = \det A(x) \det E_{m-l} \not= 0 \ \ \text{ в окрестности } x_0$$
+
+    Тогда $\tilde F\Big|_{U(x_0)}$ удовлетворяет теореме $\Rightarrow \tilde F(U(x_0))$ --- открытое множество в $\R^m$
+
+    $F(U(x_0)) = \tilde F(U(x_0)) \cap \R^l$
+\end{proof}
+
+\begin{theorem}[о гладкости обратного отображения]\itemfix
+    \begin{itemize}
+        \item $T \in C^r(O, \R^m)$
+        \item $O\subset\R^m$
+        \item $r = 1, 2, \ldots +\infty$
+        \item $T$ обратимо
+        \item $\det T'(x) \not=0 \ \ \forall x\in O$
+    \end{itemize}
+    Тогда $T^{-1} \in C^r(0, \R^m)$ и $(T^{-1})'_{y_0} = (T'(x_0))^{-1}$, где $y_0 = T(x_0)$
+\end{theorem}
+\begin{proof}
+    Докажем по индукции по $r$.
+
+    \textbf{База}: $r = 1$
+
+    $S := T^{-1}$ --- непрерывно по теореме о сохранении области. Почему?
+
+    $f : X \to Y$ непр. $\Leftrightarrow \forall B$ --- откр. $\subset Y$ $f^{-1}(B)$ --- открыто.
+
+    $T'(x_0) = A$ --- невырожденный оператор.
+
+    По лемме о локальной иньективности
+    $$\exists c, \delta : \forall x\in B(x_0, \delta) \ \ |T(x) - T(x_0)| > C|x-x_0| \quad (*)$$
+
+    По определению дифференцируемости $T(x) - T(x_0) = A(x-x_0) + \omega(x)|x-x_0|$
+
+    $$T(x) = y \quad T(x_0) = y_0 \quad x = S(y) \quad x_0 = S(x_0)$$
+
+    В терминах $y$ и $S$:
+    $$S(y) - S(y_0) = A^{-1}(y-y_0) - \underbrace{A^{-1}\omega(S(y))|S(y)-S(y_0)|}_{\xrightarrow[y\to0]{?}0 \text{ быстрее, чем } |y-y_0|}$$
+    Если действительно $\to0$, то $S$ дифференцируемо по определению.
+
+    Пусть $y$ близко к $y_0$, тогда $|x-x_0| = |S(y) - S(y_0)| < \delta$
+    \begin{align*}
+        |A^{-1}w(S(y))|S(y) - S(y_0)|| & = |S(y) - S(y_0)|\cdot|A^{-1}w(S(y))|                                    \\
+                                       & \le |x-x_0| \cdot ||A^{-1}|| \cdot |w(S(y))|                             \\
+                                       & \stackrel{(*)}{\le} \frac{1}{C}|y - y_0|\cdot ||A^{-1}|| \cdot |w(S(y))|
+    \end{align*}
+
+    Мы доказали, что $S$ дифференцируемо, теперь необходимо доказать, что $S'$ непрерывно.
+
+    $$S'(y_0) = A^{-1}$$
+    ``Алгоритм'' получения обратного оператора:
+    $$y \mapsto T^{-1}(y) = x\mapsto T'(x) = A \mapsto A^{-1}$$
+
+    Здесь все шаги непрерывны, поэтому $S'$ непрерывно.
+
+    \textbf{Переход}
+
+    $$T \in C^{r+1} \quad T' : O\to\mathcal L(\R^n, \R^n) \quad T'\in C^{r} \quad ? S\in C^{r+1}$$
+    $$y \stackrel{\in C^r \text{ по инд.}}{\mapsto} S(y) \stackrel{\in C^r}{\mapsto} T'(x) \stackrel{\in C^\infty}{\mapsto} (S^{-1})'$$
+\end{proof}
+
+\begin{theorem}[о локальной обратимости]\itemfix
+    \begin{itemize}
+        \item $T\in C^r(O, \R^m)$
+        \item $x_0\in O$
+        \item $\det T'(x_0)\not=0$
+    \end{itemize}
+    Тогда $\exists U(x_0) : T\Big|_{U}$ --- диффеоморфизм, т.е. $\exists T^{-1}$
+
+    Формулировака в терминах системы уравнений:
+    $$\begin{cases}
+            f_1(x_1\ldots x_m) = y_1 \\
+            f_2(x_1\ldots x_m) = y_2 \\
+            \vdots                   \\
+            f_m(x_1\ldots x_m) = y_m \\
+        \end{cases}$$
+    Пусть $(x^0, y^0)$ --- решение этой системы, $F = (f_1\ldots f_m)$
+
+    $\det F'(x^0) \not=0$. Тогда $\exists U(y^0) : \forall y\in U(y^0)$ система имеет решение, $C^r$ гладко зависящее от $y$.
+\end{theorem}
+
+\begin{theorem}[о неявном отображении]\itemfix
+    \begin{itemize}
+        \item $F : O\subset\R^{m+n} \to\R^n$
+        \item $F\in\C^r$
+        \item $(a, b)\in O$
+        \item $F(a, b) = 0$
+        \item $\det \left(\frac{\partial F_i}{\partial y_j}(a, b)\right)_{i, j = 1\ldots n} \not=0$
+    \end{itemize}
+
+    Будем считать $(x, y)\in\R^{m+n}$, где $x\in\R^m, y\in\R^n$ и первые $m$ координат $(x, y)$ --- координаты $x$, остальные --- координаты $y$.
+
+    Тогда $\exists P(a)\subset\R^m, Q(b)\subset\R^n$ --- окрестности, $\exists \varphi : P(a) \to Q(b) \in C^r$, такие что:
+    $$\forall x\in P(a) \ \ F(x, \varphi(x)) = 0$$
+\end{theorem}
 
 \end{document}

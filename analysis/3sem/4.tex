@@ -1,0 +1,122 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{28.9.2020}
+
+\begin{document}
+
+$\sphericalangle \R^{m+n}, (x, y) \in\R^{m+n}, x=\begin{pmatrix}
+        x_1 & \ldots & x_m
+    \end{pmatrix}, y = \begin{pmatrix}
+        y_1 & \ldots & y_n
+    \end{pmatrix}$
+
+$F : O\subset\R^{m+n} \to\R^m$
+
+$$F' = \begin{pmatrix}
+        \frac{\partial F_1}{\partial x_1} & \ldots & \frac{\partial F_1}{\partial x_m} & \frac{\partial F_1}{\partial y_1} & \ldots \frac{\partial F_1}{\partial y_n} \\
+        \vdots                            &        & \vdots                            & \vdots                            & \vdots                                   \\
+        \frac{\partial F_n}{\partial x_1} & \ldots & \frac{\partial F_n}{\partial x_m} & \frac{\partial F_n}{\partial y_1} & \ldots \frac{\partial F_n}{\partial y_n} \\
+    \end{pmatrix}$$
+
+\begin{theorem}[о неявном отображении]\itemfix
+    \begin{itemize}
+        \item $F: O\subset\R^{m+n}\to\R^n$
+        \item $O$ откр.
+        \item $F\in C^r (O, \R^n)$
+        \item $(a, b)\in O$
+        \item $F(a, b) = 0$
+        \item $\det F'_y(a, b)\not=0$
+    \end{itemize}
+    Тогда:
+    \begin{enumerate}
+        \item $\exists$ откр. $P\subset\R^{m}, a\in P$
+
+              $\exists$ откр. $Q\subset\R^{n}, b\in Q$
+
+              $\exists!\ \Phi : P\to Q\in C^r : \forall x \in P \ \ F(x, \Phi(x)) = 0$
+        \item $\Phi'(x) = -\left(F'_y(x, \Phi(x))\right)^{-1}\cdot F'_x(x, \Phi(x))$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{itemize}
+        \item [$1 \Rightarrow 2$:] $F(x, \Phi(x)) = 0 \Rightarrow F'_x(x, \Phi(x)) + F'_y(x, \Phi(x))\Phi'(x) = 0$
+        \item [$1$:] $\tilde F: O\to\R^{m+n} : (x, y)\mapsto(x, F(x, y)), \tilde F(a, b) = (a, 0)$
+              $$F' = \left(\begin{array}{c|c}
+                          E_m  & 0    \\
+                          \hline
+                          F'_x & F'_y
+                      \end{array}\right)$$
+
+              Очевидно $\det \tilde F'\not=0$ в $(a, b)$, значит $\exists U(a, b) : \tilde F\Big|_{U}$ --- диффеоморфизм:
+              \begin{enumerate}
+                  \item $U = P_1 \times Q$
+                  \item $V = \tilde F(U)$
+                  \item $\tilde F$ --- диффеоморфизм на $U \Rightarrow \exists \Psi = \tilde F^{-1} : V\to U$
+                  \item $\tilde F$ не меняет первые $m$ координат $\Rightarrow \Psi(u, v) = (u, H(u, v)),  H : V\to\R^n$.
+                  \item ``Ось $x$'' $\Leftrightarrow$ ``ось $y$'', $P:=``\text{ось } u'' = \R^m\times{a}\cap V$, $P$ --- откр. в $\R^m$, $P=P_1$
+                  \item $\Phi(x) := H(x, 0)$
+
+                        $F\in C^r \Rightarrow \tilde F\in C^r \Rightarrow \Psi\in C^r \Rightarrow H\in C^r \Rightarrow \Phi\in C^r$
+
+                        Единственность: $(x, y) = \Psi(\tilde F(x, y)) = \Psi(x, 0) = (x, H(x, 0)) = (x, \Phi(x))$
+              \end{enumerate}
+    \end{itemize}
+\end{proof}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item $M\subset\R^m$
+        \item $x\in\{1 \ldots m\}$
+    \end{itemize}
+    $M$ --- \textbf{простое $k$-мерное \textit{(непрерывное)} многообразие} в $\R^m$, если оно гомеоморфно некоторому открытому множеству $O\subset\R^m$
+
+    Т.е. $\exists \underbrace{\Phi}_{\text{параметризация}} : \underbrace{O}_{\text{откр.}} \subset\R^k \xrightarrow{\text{сюрьекция}} M$ --- непр., обратимо и $\Phi^{-1}$ непрерывно.
+\end{definition}
+
+\begin{definition}
+    $M\subset\R^m$ --- \textbf{простое $k$-мерное $C^r$-гладкое многообразие} в $\R^m$, если
+
+    $$\exists \Phi : O\subset\R^k \to\R^m, \Phi(O) = M, \Phi\in C^r \ \ \forall x\in O \ \ \rg \Phi'(x)=k$$
+\end{definition}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item Полусфера в $\R^3 = \{(x, y, z)\in\R^3 : r = 0, x^2 + y^2 + z^2 = r^2\}$
+
+              $\Phi : (x, y)\mapsto (x, y, \sqrt{r^2 - x^2 - y^2})$
+
+              $\Phi : B(0, r)\subset\R^2 \to\R^3$
+
+              $\Phi\in C^{\infty}$
+
+              $\Phi' = \begin{pmatrix}
+                      1                             & 0                             \\
+                      0                             & 1                             \\
+                      \frac{-x}{\sqrt{r^2-x^2-y^2}} & \frac{-y}{\sqrt{r^2-x^2-y^2}}
+                  \end{pmatrix}, \rg \Phi' = 2$
+        \item Цилиндр $= \{(x, y, z)\in\R^3 : x^2 + y^2 = r^2, z\in(a, b)\}$
+
+              $\Phi : [0, 2\pi]\times (0, h) \to\R^3$
+
+
+              $(\varphi, z)\mapsto (r\cos \varphi, r\sin \varphi, z)$ --- не иньективно.
+
+              Не существует $\Phi : \underbrace{O}_{\text{односвязн.}}\subset\R^2 \to$ цилиндр $\subset\R^3$, потому что топология: в цилиндре есть дырка, в $O$ --- нет.
+
+              Если мы допускаем дырку в $O$, то $(x, y)\mapsto \left(\frac{rx}{\sqrt{x^2+y^2}}, \frac{ry}{\sqrt{x^2+y^2}}, \sqrt{x^2+y^2} - 1\right)$ --- параметризация.
+        \item Сфера в $\R^3$ без точки
+        
+        $\Phi : (0, 2\pi)\times\left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \to R^{3}$
+
+        $(\varphi, \psi) \mapsto \begin{pmatrix}
+            R\cos \varphi \cos \psi \\
+            R\sin \varphi \cos \psi \\
+            R\sin \psi
+        \end{pmatrix}$
+        
+    \end{enumerate}
+\end{example}
+
+\end{document}

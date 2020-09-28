@@ -170,15 +170,50 @@ $$F' = \begin{pmatrix}
 
               Тогда $(L \circ \Phi)'$ --- невырожденный оператор $\Rightarrow$ локальный диффеоморфизм. Тогда если $W(t^0)$ --- окрестность точки $t^0$, то $L\circ \Phi : W \to V\subset\R^k$ --- диффеоморфизм.
 
+              \begin{tikzpicture}
+                  \draw[-{>[length=2mm,width=3mm]}] (-1, 0) -- (5, 0) node[anchor=north west] {$x$};
+                  \draw[-{>[length=2mm,width=3mm]}] (0, -1) -- (0, 5) node[anchor=south east] {$y$};
+
+                  \node at (-0.5, -0.5) {$\R^2$};
+                  %   \draw[green, thick] (0, 3) -- (0, 2) node[anchor=south east] {$P_2$};
+                  %   \draw[green, thick] (3, 0) -- (2, 0) node[anchor=north west] {$P_1$};
+                  \node (t) [draw, circle, minimum size = 20mm, dashed, label=above:$W(t^0)$] at (2.5, 2.5) {$t^0$};
+                  % \filldraw[black] (2.5, 2.5) circle (1pt) node[anchor=south] {$t^0$};
+                  % \circle{2} 
+                  %   \filldraw[black] (0, 2.5) circle (1pt) node[anchor=west] {$b$};
+                  %   \draw[dashed] (2, 3) rectangle (3, 2) node[anchor=north west] {$U$};
+
+                  \draw[-{>[length=2mm,width=3mm]}] (7, 0) -- (13, 0) node[anchor=north west] {$\R^k$};
+                  \draw[-{>[length=2mm,width=3mm]}] (8, -1) -- (8, 5) node[anchor=south east] {$\R^{m-k}$};
+                  %   \draw[green, thick] (11, 0) -- (10, 0) node[anchor=north east] {$P_1$};
+                  %   \filldraw[black] (10.5, 0) circle (1pt) node[anchor=south] {$a$};
+                  %   \draw[] (10.5, 0) \irregularcircle{0.5cm}{1mm} node[anchor=south west] {$P$};
+                  \draw (10, 4) .. controls (12, 3.5) .. (13, 2);
+                  \draw (9.5, 3) .. controls (11.5, 2.5) .. (12.5, 1);
+                  \draw (10, 4) -- (9.5, 3);
+                  \draw (13, 2) -- (12.5, 1);
+
+                  \node (circ) at (10.5, 3.3) {};
+                  \draw[] (circ) \irregularcircle{0.4cm}{0.5mm};
+                  \draw[] ($ (circ) - (0, 5) $) \irregularcircle{0.4cm}{0.5mm};
+                  \draw[->] (circ) -- ($ (circ) - (0, 5) $) node[midway, left] {$L$};
+
+                  \draw[->] ($ (circ) - (0, 5) + (-0.3, 0.3) $) .. controls (7, 1) .. (t) node[midway, above] {$\Psi$};
+                  \draw[->] (t) .. controls (6, 0) .. ($ (circ) - (0, 5) + (-0.5, 0) $) node[midway, below] {$L \circ \Phi$};
+
+                  \draw[->] (4.5, 4) -- (6.5, 4) node[midway, above] {$\Phi$};
+                  %   \draw[->] (10, 0.5) -- (3.5, 2.5) node[midway, above] {$\psi$};
+              \end{tikzpicture}
+
               Множество $\Phi(W)$ --- график некоторого отображения $H : V\to\R^{m-k}$
 
               Пусть $\Psi = (L \circ \Phi)^{-1}$
 
-              Берем $x' \subset V$, тогда $(x', U(x')) = \Phi(\Psi(x'))$, т.е. $H\in C^2$
+              Берем $x' \in V$, тогда $(x', U(x')) = \Phi(\Psi(x'))$, т.е. $H\in C^r$
 
               Множество $\Phi(W)$ открыто в $M \Rightarrow \Phi(W) = M \cap \tilde U$, где $\tilde U$ открыто в $\R^m$
 
-              \? $\tilde U\subset V\times \R^{m-k}$
+              $\tilde U\subset V\times \R^{m-k}$
 
               Пусть $f_j : \tilde U \to\R, x\mapsto H_j(L(x)) - x_{k+j}$. Тогда $x\in M\cap \tilde U (=\Phi(W)) \Leftrightarrow f_j(x)=0$
 
@@ -192,8 +227,8 @@ $$F' = \begin{pmatrix}
                       \frac{\partial H_{m-k}}{\partial x_1} & \ldots & \frac{\partial H_{m-k}}{\partial x_k} & 0  & 0  & \ldots & -1     \\
                   \end{pmatrix}$
 
+              $\rg = k \Rightarrow$ ЛНЗ
 
-              %   $(x_1\ldots x_k, H_1(x) \ldots H_{m-k}(x))$ --- параметризация.
         \item [$2 \Rightarrow 1$:] $F := (f_1\ldots f_{m-k})$
 
               $I := \begin{pmatrix}
@@ -204,7 +239,7 @@ $$F' = \begin{pmatrix}
 
               Градиенты ЛНЗ $\Rightarrow \rg I = m-k$.
 
-              Пусть ранг реализуется на последних $m-k$ столбцах, т.е. $\det\left(\frac{\partial f_i}{\partial x_{k+j}} (p)\right)_{i, j = 1\ldots m-k} \not = 0$
+              Пусть ранг реализуется на последних $m-k$ столбцах, т.е. $$\det\left(\frac{\partial f_i}{\partial x_{k+j}} (p)\right)_{i, j = 1\ldots m-k} \not = 0$$
 
               $F(x_1\ldots x_k, x_{k+1}\ldots x_m) = 0$ при $x\in U$
 

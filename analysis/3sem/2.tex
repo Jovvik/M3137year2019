@@ -7,6 +7,7 @@
 \begin{document}
 
 \begin{theorem}[Лагранжа для отображений]\itemfix
+    %<*лагранжадляотображений>
     \begin{itemize}
         \item $E$ открыто
         \item $F : E\subset \R^m \to\R^l$
@@ -16,6 +17,7 @@
     \end{itemize}
     Тогда $\exists c\in[a, b]\ (c = a + \Theta(b-a)), \Theta\in[0, 1]:$
     $$|F(b)-F(a)|\le||F'(c)|||b-a|$$
+    %</лагранжадляотображений>
 \end{theorem}
 \begin{proof}
     $f(t) := F(a + t(b-a)), t\in\R$
@@ -98,6 +100,7 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
 %</обобратимостиproof>
 
 \begin{theorem}[о непрерывно дифференцируемом отображении]\itemfix
+    %<*онепрдифф>
     \begin{itemize}
         \item $F:E\subset\R^m \to\R^l$
         \item $F$ дифф. на $E$
@@ -107,7 +110,9 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
         \item $F\in C^1(E)$, т.е. $\exists$ все $\frac{\partial F_i}{\partial x_j}$ и они непрерывны на $E$
         \item $F' : E\to\mathcal L_{m, l}$ --- непрерывно, т.е. $$\forall x\in E \ \ \forall \varepsilon > 0 \ \ \exists \delta = \delta(\varepsilon, x) \ \ \forall \overline x : |\overline x - x| < \delta \quad ||F'(x) - F'(\overline x)|| \le \varepsilon$$
     \end{enumerate}
+    %</онепрдифф>
 \end{theorem}
+%<*онепрдиффproof>
 \begin{proof}\itemfix
     \begin{itemize}
         \item 1 $\Rightarrow$ 2:
@@ -126,6 +131,7 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
               $$\sqrt{\sum_{i=1}^l \left( \frac{\partial F_i}{\partial x_j}(x) - \frac{\partial F_i}{\partial x_j}(\overline x) \right)^2} < \varepsilon \Rightarrow \forall i \ \ \left| \frac{\partial F_i}{\partial x_j}(x) - \frac{\partial F_i}{\partial x_j}(\overline x) \right| < \varepsilon$$
     \end{itemize}
 \end{proof}
+%</онепрдиффproof>
 
 \section{Экстремумы}
 
@@ -146,7 +152,7 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
         \item $a$ --- точка локального экстремума
         \item $f$ --- дифф. в точке $a$
     \end{itemize}
-    Тогда $\forall u\in\R^m : |u|=1 \quad \cfrac{\partial f}{\partial u} = 0$
+    Тогда $\forall u\in\R^m : |u|=1 \quad \cfrac{\partial f}{\partial u}(a) = 0$
     %</ферма>
 \end{theorem}
 %<*фермаproof>
@@ -155,12 +161,14 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
 \end{proof}
 %</фермаproof>
 
+%<*необходимоеусловиеэкстремума>
 \begin{corollary}[необходимое условие экстремума]
-    $a$ --- локальный экстремум $f \Rightarrow \frac{\partial f}{\partial x_1}(a) \ldots \frac{\partial f}{\partial x_m}(a)$
+    $a$ --- локальный экстремум $f \Rightarrow \frac{\partial f}{\partial x_1}(a) \ldots \frac{\partial f}{\partial x_m}(a) = 0$
 \end{corollary}
+%</необходимоеусловиеэкстремума>
 
+%<*ролля>
 \begin{corollary}[теорема Ролля]\itemfix
-    %<*ролля>
     \begin{itemize}
         \item $f: E\subset \R^m \to \R$
         \item $K\subset E$ компакт
@@ -170,8 +178,8 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
     \end{itemize}
 
     Тогда $\exists a\in Int K : f'(a)=\vec 0$
-    %</ролля>
 \end{corollary}
+%</ролля>
 %<*ролляproof>
 \begin{proof}
     По теореме Вейерштрасса $f$ достигает минимального и максимального значения на компакте. Тогда либо $f$ на $K$ $\const$, либо $\exists a\in Int K$ --- точка экстремума. В первом случае $f'\equiv 0$, во втором по т. Ферма $f'(a)=0$
@@ -183,6 +191,7 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
     $$Q(h) = \sum_{1 \le i, j\le m} a_{ij}h_ih_j$$
 \end{definition}
 
+%<*формы>
 \begin{definition}
     \textbf{Положительно определенная кв. форма}: $\forall h\not=0 \ \ Q(h) > 0$
 \end{definition}
@@ -195,6 +204,7 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
 \begin{definition}
     \textbf{Полуопределенная (\textit{положительно определенная вырожденная}) кв. форма}: $Q(h) \ge 0 \ \ \exists \overline h\not=0 : Q(\overline h) = 0$
 \end{definition}
+%</формы>
 
 \begin{lemma}\itemfix
     \begin{itemize}
@@ -213,11 +223,14 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
     $$\sum_{i, j} a_{ij}h_ih_j = \sum_{i, j} a_{ij} |h|\frac{h_i}{|h|} |h|\frac{h_j}{|h|} = |h|^2 \sum_{i, j} a_{ij} \frac{h_i}{|h|}\frac{h_j}{|h|}$$
 \end{proof}
 \begin{lemma}\itemfix
+    %<*леммаобоценкенормы>
     \begin{itemize}
         \item $p : \R^m \to \R$ --- норма
     \end{itemize}
     Тогда $\exists C_1,C_2 > 0 \ \ \forall x \ \ C_2|x| \le p(x) \le C_1|x|$
+    %</леммаобоценкенормы>
 \end{lemma}
+%<*леммаобоценкенормыproof>
 \begin{proof}
     $$C_1 := \min_{x\in S^{m-1}} p(x) \quad C_2 := \max_{x\in S^{m-1}} p(x)$$
     $$p(x) = p\left(|x|\frac{x}{|x|}\right) = |x|p\left(\frac{x}{|x|}\right)\begin{cases}
@@ -237,6 +250,7 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
                & \le |x-y|M                           \\
     \end{align*}
 \end{proof}
+%</леммаобоценкенормыproof>
 
 \subsection*{Напоминание}
 
@@ -247,6 +261,7 @@ $$f(x) = f(a) + df(a, x-a) + \frac{1}{2!}d^2f(a, x-a) + o(|x-a|^2)$$
 $$f(a+h) = f(a) + df(a, h) + \frac{1}{2} d^2f(a + \Theta h, h) \quad 0\le\Theta\le 1$$
 
 \begin{theorem}[достаточное условие экстремума]\itemfix
+    %<*достаточноеусловиеэкстремума>
     \begin{itemize}
         \item $f : E\subset \R^m \to \R$
         \item $a\in Int E$
@@ -261,7 +276,9 @@ $$f(a+h) = f(a) + df(a, h) + \frac{1}{2} d^2f(a + \Theta h, h) \quad 0\le\Theta\
         \item Если $Q(h)$ незнакоопределена, $a$ --- не экстремум
         \item Если $Q(h)$ положительно определена, но вырождена, недостаточно информации.
     \end{itemize}
+    %</достаточноеусловиеэкстремума>
 \end{theorem}
+%<*достаточноеусловиеэкстремумаproof>
 \begin{proof}
     \begin{align*}
         f(a+h) & = f(a)                                                                                                                                                                                                                                                                                                   \\
@@ -296,6 +313,7 @@ $$f(a+h) = f(a) + df(a, h) + \frac{1}{2} d^2f(a + \Theta h, h) \quad 0\le\Theta\
 
     Итого $f$ не имеет экстремума в $a$, но для $\overline f$ $a$ --- локальный минимум.
 \end{proof}
+%</достаточноеусловиеэкстремумаproof>
 
 \begin{remark}
     Если $f$ подходит под условие теоремы и $d^2 f(a, h)$ --- положительно определенный вырожденный $\Rightarrow a$ --- не точка максимума.

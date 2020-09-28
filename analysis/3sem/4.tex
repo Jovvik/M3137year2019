@@ -49,9 +49,29 @@ $$F' = \begin{pmatrix}
                           F'_x & F'_y
                       \end{array}\right)$$
 
-              Очевидно $\det \tilde F'\not=0$ в $(a, b)$, значит $\exists U(a, b) : \tilde F\Big|_{U}$ --- диффеоморфизм:
+              Очевидно $\det \tilde F'\not=0$ в $(a, b)$, значит $\exists U(a, b) : \tilde F\Big|_{U}$ --- диффеоморфизм
+
+              \begin{tikzpicture}
+                  \draw[-{>[length=2mm,width=3mm]}] (-1, 0) -- (5, 0) node[anchor=north west] {$x$};
+                  \draw[-{>[length=2mm,width=3mm]}] (0, -1) -- (0, 5) node[anchor=south east] {$y$};
+                  \draw[green, thick] (0, 3) -- (0, 2) node[anchor=south east] {$P_2$};
+                  \draw[green, thick] (3, 0) -- (2, 0) node[anchor=north west] {$P_1$};
+                  \filldraw[black] (2.5, 0) circle (1pt) node[anchor=south] {$a$};
+                  \filldraw[black] (0, 2.5) circle (1pt) node[anchor=west] {$b$};
+                  \draw[dashed] (2, 3) rectangle (3, 2) node[anchor=north west] {$U$};
+
+                  \draw[-{>[length=2mm,width=3mm]}] (7, 0) -- (13, 0) node[anchor=north west] {$\R^m$};
+                  \draw[-{>[length=2mm,width=3mm]}] (8, -1) -- (8, 5) node[anchor=south east] {$\R^n$};
+                  \draw[green, thick] (11, 0) -- (10, 0) node[anchor=north east] {$P_1$};
+                  \filldraw[black] (10.5, 0) circle (1pt) node[anchor=south] {$a$};
+                  \draw[] (10.5, 0) \irregularcircle{0.5cm}{1mm} node[anchor=south west] {$P$};
+
+                  \draw[->] (4.5, 4) -- (6.5, 4) node[midway, above] {$\tilde F$};
+                  \draw[->] (10, 0.5) -- (3.5, 2.5) node[midway, above] {$\psi$};
+              \end{tikzpicture}
+
               \begin{enumerate}
-                  \item $U = P_1 \times Q$
+                  \item $U = P_1 \times Q$ --- можно так считать
                   \item $V = \tilde F(U)$
                   \item $\tilde F$ --- диффеоморфизм на $U \Rightarrow \exists \Psi = \tilde F^{-1} : V\to U$
                   \item $\tilde F$ не меняет первые $m$ координат $\Rightarrow \Psi(u, v) = (u, H(u, v)),  H : V\to\R^n$.
@@ -76,9 +96,13 @@ $$F' = \begin{pmatrix}
 \end{definition}
 
 \begin{definition}
-    $M\subset\R^m$ --- \textbf{простое $k$-мерное $C^r$-гладкое многообразие} в $\R^m$, если
-
-    $$\exists \Phi : O\subset\R^k \to\R^m, \Phi(O) = M, \Phi\in C^r \ \ \forall x\in O \ \ \rg \Phi'(x)=k$$
+    $M\subset\R^m$ --- \textbf{простое $k$-мерное $C^r$-гладкое многообразие} в $\R^m$, если:
+    \begin{itemize}
+        \item $\exists \Phi : O\subset\R^k \to\R^m$
+        \item $\Phi(O) = M$
+        \item $\Phi\in C^r$
+        \item $\forall x\in O \ \ \rg \Phi'(x)=k$
+    \end{itemize}
 \end{definition}
 
 \begin{example}\itemfix
@@ -107,16 +131,122 @@ $$F' = \begin{pmatrix}
 
               Если мы допускаем дырку в $O$, то $(x, y)\mapsto \left(\frac{rx}{\sqrt{x^2+y^2}}, \frac{ry}{\sqrt{x^2+y^2}}, \sqrt{x^2+y^2} - 1\right)$ --- параметризация.
         \item Сфера в $\R^3$ без точки
-        
-        $\Phi : (0, 2\pi)\times\left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \to R^{3}$
 
-        $(\varphi, \psi) \mapsto \begin{pmatrix}
-            R\cos \varphi \cos \psi \\
-            R\sin \varphi \cos \psi \\
-            R\sin \psi
-        \end{pmatrix}$
-        
+              $\Phi : (0, 2\pi)\times\left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \to R^{3}$
+
+              $(\varphi, \psi) \mapsto \begin{pmatrix}
+                      R\cos \varphi \cos \psi \\
+                      R\sin \varphi \cos \psi \\
+                      R\sin \psi
+                  \end{pmatrix}$
     \end{enumerate}
 \end{example}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item $M\subset \R^m$
+        \item $1\le k\le m$
+        \item $1\le r\le\infty$
+        \item $p\in M$
+    \end{itemize}
+
+    Тогда эквивалентны следующие утверждения:
+    \begin{enumerate}
+        \item $\exists U(p) \subset\R^m$ --- окрестность $p$ в $\R^m : M\cap U$ --- $k$-мерное $C^r$-гладкое многообразие.
+        \item $\exists \tilde U(p)\subset \R^m$ и функции $f_1, f_2\ldots f_{m-k} : \tilde U\to\R$, все $f_i\in C^r$
+
+              $x\in M \cap \tilde U \Leftrightarrow f_1(x)=f_2(x)=\ldots=0$, при этом $\grad f_1(p)\ldots \grad f_{m-k}(p)$ --- ЛНЗ.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{itemize}
+        \item [$1 \Rightarrow 2$:] $\Phi$ --- параметризация $O\subset\R^k\to\R^m, \Phi\in C^r, p=\Phi(t^0)$
+
+              $\rg \Phi'(t^0) = k$
+
+              Пусть $\det \left(\cfrac{\partial \Phi_i}{\partial t_j}(t^0)\right)_{i,j = 1\ldots k} \not=0$
+
+              Пусть $L : \R^m\to\R^k$ --- проекция на первые $k$ координат: $(x_1\ldots x_m)\mapsto (x_1\ldots x_k)$
+
+              Тогда $(L \circ \Phi)'$ --- невырожденный оператор $\Rightarrow$ локальный диффеоморфизм. Тогда если $W(t^0)$ --- окрестность точки $t^0$, то $L\circ \Phi : W \to V\subset\R^k$ --- диффеоморфизм.
+
+              Множество $\Phi(W)$ --- график некоторого отображения $H : V\to\R^{m-k}$
+
+              Пусть $\Psi = (L \circ \Phi)^{-1}$
+
+              Берем $x' \subset V$, тогда $(x', U(x')) = \Phi(\Psi(x'))$, т.е. $H\in C^2$
+
+              Множество $\Phi(W)$ открыто в $M \Rightarrow \Phi(W) = M \cap \tilde U$, где $\tilde U$ открыто в $\R^m$
+
+              \? $\tilde U\subset V\times \R^{m-k}$
+
+              Пусть $f_j : \tilde U \to\R, x\mapsto H_j(L(x)) - x_{k+j}$. Тогда $x\in M\cap \tilde U (=\Phi(W)) \Leftrightarrow f_j(x)=0$
+
+              $\begin{pmatrix}
+                      \grad f_1(p) \\
+                      \vdots       \\
+                      \grad f_{m-k}(p)
+                  \end{pmatrix} = \begin{pmatrix}
+                      \frac{\partial H_1}{\partial x_1}     & \ldots & \frac{\partial H_1}{\partial x_k}     & -1 & 0  & \ldots & 0      \\
+                      \vdots                                & \ddots & \vdots                                & 0  & -1 & \ldots & \vdots \\
+                      \frac{\partial H_{m-k}}{\partial x_1} & \ldots & \frac{\partial H_{m-k}}{\partial x_k} & 0  & 0  & \ldots & -1     \\
+                  \end{pmatrix}$
+
+
+              %   $(x_1\ldots x_k, H_1(x) \ldots H_{m-k}(x))$ --- параметризация.
+        \item [$2 \Rightarrow 1$:] $F := (f_1\ldots f_{m-k})$
+
+              $I := \begin{pmatrix}
+                      \frac{\partial f_1}{\partial x_1}(p)     & \ldots & \frac{\partial f_1}{\partial x_k}(p)     \\
+                      \vdots                                   & \ddots & \vdots                                   \\
+                      \frac{\partial f_{m-k}}{\partial x_1}(p) & \ldots & \frac{\partial f_{m-k}}{\partial x_k}(p) \\
+                  \end{pmatrix}$
+
+              Градиенты ЛНЗ $\Rightarrow \rg I = m-k$.
+
+              Пусть ранг реализуется на последних $m-k$ столбцах, т.е. $\det\left(\frac{\partial f_i}{\partial x_{k+j}} (p)\right)_{i, j = 1\ldots m-k} \not = 0$
+
+              $F(x_1\ldots x_k, x_{k+1}\ldots x_m) = 0$ при $x\in U$
+
+              По т. о неявном отображении:
+
+              $\exists P$ --- окр. $(x_1\ldots x_k)$ в $\R^m$
+
+              $\exists Q$ --- окр. $(x_{k+1}\ldots x_m)$ в $\R^{m-k}$
+
+              $\exists H\in C^2 : P\to Q : F(x', H(x)) = 0$ для $x\in P$
+
+              Тогда $\Phi : P\to\R^m : (x_1\ldots x_k)\mapsto(x_1\ldots x_k, H_1(x_1\ldots x_k), H_2(x_1\ldots x_k) \ldots H_{m-k}(x_1\ldots x_k)$
+
+              $\Phi$ --- гомеоморфизм $P$ и $M \cap \tilde U, \Phi$ --- фактически проекция.
+
+    \end{itemize}
+\end{proof}
+
+\begin{corollary}[о двух параметризациях]\itemfix
+    \begin{itemize}
+        \item $M\subset\R^m$ --- $k$-мерное $C^r$-гладкое многообразие
+        \item $p\in M$
+        \item $\exists$ две параметризации:
+
+              $\Phi_1 : O_1\subset\R^k \to U(p)\cap M\subset\R^m, \Phi_1(t^0) = \?$
+
+              $\Phi_2 : O_2\subset\R^k \to U(p)\cap M\subset\R^m, \Phi_2(s^0) = \?$
+    \end{itemize}
+
+    Тогда $\exists$ диффеоморфизм $\Psi : O_1\to O_2$, такой что $\Phi_1 = \Phi_2 \circ \Psi$
+\end{corollary}
+\begin{proof}\itemfix
+    \begin{itemize}[align=left]
+        \item [Частный случай:] Пусть $\rg \Phi'_1(t^0), \rg \Phi'_2(s^0)$ достигается на первых $k$ столбцах.
+
+              Тогда $\Phi_1 = \Phi_2 \circ \underbrace{(L \circ \Phi_2)^{-1} \circ (L \circ \Phi_1)}_{\Theta \text{ --- искомый диффеоморфизм}}$
+        \item [Общий случай:] $\Phi_1 = \Phi_2 \circ (\? \circ L_2)^{-1} \circ (L_2 \circ L_1^{-1}) \circ (L\circ \Phi_1)$
+
+              Гладкость очевидна в силу гладкости всех элементов.
+
+              Почему-то мы проиграли, это не диффеоморфизм.
+    \end{itemize}
+\end{proof}
 
 \end{document}

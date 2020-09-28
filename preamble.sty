@@ -27,6 +27,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{calc}
 \newcommand\irregularcircle[2]{% radius, irregularity
   \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
   +(0:\len pt)

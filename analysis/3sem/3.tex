@@ -43,12 +43,14 @@
 \end{definition}
 
 \begin{definition}
+    %<*диффеоморфизм>
     $F : \underbrace{O}_{\text{область}}\subset \R^m\to \R^m$ --- \textbf{диффеоморфизм}, если:
     \begin{itemize}
         \item $F$ обратимо
         \item $F$ дифференцируемо
         \item $F^{-1}$ дифференцируемо
     \end{itemize}
+    %</диффеоморфизм>
 \end{definition}
 \begin{remark}
     $Id = F\circ F^{-1} = F^{-1}\circ F$
@@ -57,18 +59,22 @@
 \end{remark}
 
 \begin{lemma}[о почти локальной иньективности]\itemfix
+    %<*опочтилокальнойиньективности>
     \begin{itemize}
         \item $F : O\subset\R^m\to\R^m$
         \item $F$ дифф. в $x_0\in O$
         \item $\det F'(x_0)\not=0$
     \end{itemize}
     Тогда $\exists c>0, \delta>0 \ \ \forall h < \delta \ \ |F(x_0+h)-F(x_0)| > C|h|$
+    %</опочтилокальнойиньективности>
 \end{lemma}
+%<*опочтилокальнойиньективностиproof>
 \begin{proof}
     Если $F$ --- линейное отображение:
     $$|F(x_0+h) - F(x_0)| = |F(h)| = |F'(x_0)h| \ge ||F'(x_0)||\cdot |h| \ge \frac{1}{||(F'(x_0))^{-1}||}|h|$$
     $$|F(x_0+h) - F(x_0)| = |F'(x_0)h + \alpha(h)|h|| \ge c|h| - \frac{c}{2}|h| \ge \frac{c}{2}|h|$$
 \end{proof}
+%</опочтилокальнойиньективностиproof>
 
 \begin{theorem}[о сохранении области]\itemfix
     \begin{itemize}
@@ -205,14 +211,17 @@
 \end{proof}
 
 \begin{theorem}[о локальной обратимости]\itemfix
+    %<*олокальнойобратимости>
     \begin{itemize}
         \item $T\in C^r(O, \R^m)$
         \item $x_0\in O$
         \item $\det T'(x_0)\not=0$
     \end{itemize}
     Тогда $\exists U(x_0) : T\Big|_{U}$ --- диффеоморфизм, т.е. $\exists T^{-1}$
+    %</олокальнойобратимости>
 
     Формулировака в терминах системы уравнений:
+    %<*олокальнойобратимостисистема>
     $$\begin{cases}
             f_1(x_1\ldots x_m) = y_1 \\
             f_2(x_1\ldots x_m) = y_2 \\
@@ -222,6 +231,7 @@
     Пусть $(x^0, y^0)$ --- решение этой системы, $F = (f_1\ldots f_m)$
 
     $\det F'(x^0) \not=0$. Тогда $\exists U(y^0) : \forall y\in U(y^0)$ система имеет решение, $C^r$ гладко зависящее от $y$.
+    %</олокальнойобратимостисистема>
 \end{theorem}
 
 \begin{theorem}[о неявном отображении]\itemfix

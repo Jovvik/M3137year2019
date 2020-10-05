@@ -77,18 +77,21 @@
 %</опочтилокальнойиньективностиproof>
 
 \begin{theorem}[о сохранении области]\itemfix
+    %<*осохраненииобласти>
     \begin{itemize}
         \item $F : O\subset\R^m \to\R^m$
         \item $F$ дифф.
         \item $\forall x\in O \ \ \det F'(x)\not=0$
     \end{itemize}
     Тогда $F(O)$ --- открыто.
+    %</осохраненииобласти>
 \end{theorem}
 
 \begin{remark}
     $O$ --- связно, $F$ --- непр. $\Rightarrow F(O)$ связно.
 \end{remark}
 
+%<*осохраненииобластиproof>
 \begin{proof}
     $x_0 \in O \Rightarrow F(x_0)\in F(O)$ --- внутренняя? в $F(O)$
 
@@ -122,8 +125,10 @@
     $$F'_x 2(F(x) - y) = 0$$
     $$\forall x \ \ \det F'\not=0 \Rightarrow F(x) - y = 0$$
 \end{proof}
+%</осохраненииобластиproof>
 
 \begin{corollary}\itemfix
+    %<*следствиеосохраненииобласти>
     \begin{itemize}
         \item $F : O\subset\R^m \to\R^l$
         \item $F \in C^1(O)$
@@ -131,7 +136,9 @@
         \item $\rg F'(x) = l \ \ \forall x\in O$
     \end{itemize}
     Тогда $F(O)$ открыто.
+    %</следствиеосохраненииобласти>
 \end{corollary}
+%<*следствиеосохраненииобластиproof>
 \begin{proof}
     Зафискируем точку $x_0$. Пусть ранг реализуется на столбцах $1\ldots l$, т.е. определитель матрицы из столбцов $1\ldots l \not=0$, т.е.:
     $$\det\underbrace{\left(\frac{\partial F_i}{\partial x_j}\right)_{i, j = 1\ldots l}(x_0)}_{A(x_0)} \not = 0$$
@@ -156,8 +163,10 @@
 
     $F(U(x_0)) = \tilde F(U(x_0)) \cap \R^l$
 \end{proof}
+%</следствиеосохраненииобластиproof>
 
 \begin{theorem}[о гладкости обратного отображения]\itemfix
+    %<*огладкостиобратногоотображения>
     \begin{itemize}
         \item $T \in C^r(O, \R^m)$
         \item $O\subset\R^m$
@@ -166,7 +175,9 @@
         \item $\det T'(x) \not=0 \ \ \forall x\in O$
     \end{itemize}
     Тогда $T^{-1} \in C^r(0, \R^m)$ и $(T^{-1})'_{y_0} = (T'(x_0))^{-1}$, где $y_0 = T(x_0)$
+    %</огладкостиобратногоотображения>
 \end{theorem}
+%<*огладкостиобратногоотображенияproof>
 \begin{proof}
     Докажем по индукции по $r$.
 
@@ -209,6 +220,7 @@
     $$T \in C^{r+1} \quad T' : O\to\mathcal L(\R^n, \R^n) \quad T'\in C^{r} \quad ? S\in C^{r+1}$$
     $$y \stackrel{\in C^r \text{ по инд.}}{\mapsto} S(y) \stackrel{\in C^r}{\mapsto} T'(x) \stackrel{\in C^\infty}{\mapsto} (S^{-1})'$$
 \end{proof}
+%</огладкостиобратногоотображенияproof>
 
 \begin{theorem}[о локальной обратимости]\itemfix
     %<*олокальнойобратимости>

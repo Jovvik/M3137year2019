@@ -21,6 +21,7 @@ $$F' = \begin{pmatrix}
     \end{pmatrix}$$
 
 \begin{theorem}[о неявном отображении]\itemfix
+    %<*онеявномотображении>
     \begin{itemize}
         \item $F: O\subset\R^{m+n}\to\R^n$
         \item $O$ откр.
@@ -38,7 +39,9 @@ $$F' = \begin{pmatrix}
               $\exists!\ \Phi : P\to Q\in C^r : \forall x \in P \ \ F(x, \Phi(x)) = 0$
         \item $\Phi'(x) = -\left(F'_y(x, \Phi(x))\right)^{-1}\cdot F'_x(x, \Phi(x))$
     \end{enumerate}
+    %</онеявномотображении>
 \end{theorem}
+%<*онеявномотображенииproof>
 \begin{proof}\itemfix
     \begin{itemize}
         \item [$1 \Rightarrow 2$:] $F(x, \Phi(x)) = 0 \Rightarrow F'_x(x, \Phi(x)) + F'_y(x, \Phi(x))\Phi'(x) = 0$
@@ -84,6 +87,7 @@ $$F' = \begin{pmatrix}
               \end{enumerate}
     \end{itemize}
 \end{proof}
+%</онеявномотображенииproof>
 
 \begin{definition}\itemfix
     \begin{itemize}
@@ -96,6 +100,7 @@ $$F' = \begin{pmatrix}
 \end{definition}
 
 \begin{definition}
+    %<*простоеkмерноегладкоемногообразие>
     $M\subset\R^m$ --- \textbf{простое $k$-мерное $C^r$-гладкое многообразие} в $\R^m$, если:
     \begin{itemize}
         \item $\exists \Phi : O\subset\R^k \to\R^m$
@@ -103,6 +108,7 @@ $$F' = \begin{pmatrix}
         \item $\Phi\in C^r$
         \item $\forall x\in O \ \ \rg \Phi'(x)=k$
     \end{itemize}
+    %</простоеkмерноегладкоемногообразие>
 \end{definition}
 
 \begin{example}\itemfix
@@ -143,6 +149,7 @@ $$F' = \begin{pmatrix}
 \end{example}
 
 \begin{theorem}\itemfix
+    %<*озаданиигладкогомногообразиясистемойуравнений>
     \begin{itemize}
         \item $M\subset \R^m$
         \item $1\le k\le m$
@@ -157,7 +164,9 @@ $$F' = \begin{pmatrix}
 
               $x\in M \cap \tilde U \Leftrightarrow f_1(x)=f_2(x)=\ldots=0$, при этом $\grad f_1(p)\ldots \grad f_{m-k}(p)$ --- ЛНЗ.
     \end{enumerate}
+    %</озаданиигладкогомногообразиясистемойуравнений>
 \end{theorem}
+%<*озаданиигладкогомногообразиясистемойуравненийproof>
 \begin{proof}\itemfix
     \begin{itemize}
         \item [$1 \Rightarrow 2$:] $\Phi$ --- параметризация $O\subset\R^k\to\R^m, \Phi\in C^r, p=\Phi(t^0)$
@@ -257,8 +266,10 @@ $$F' = \begin{pmatrix}
 
     \end{itemize}
 \end{proof}
+%</озаданиигладкогомногообразиясистемойуравненийproof>
 
 \begin{corollary}[о двух параметризациях]\itemfix
+    %<*одвухпараметризациях>
     \begin{itemize}
         \item $M\subset\R^m$ --- $k$-мерное $C^r$-гладкое многообразие
         \item $p\in M$
@@ -270,7 +281,9 @@ $$F' = \begin{pmatrix}
     \end{itemize}
 
     Тогда $\exists$ диффеоморфизм $\Psi : O_1\to O_2$, такой что $\Phi_1 = \Phi_2 \circ \Psi$
+    %</одвухпараметризациях>
 \end{corollary}
+%<*одвухпараметризацияхproof>
 \begin{proof}\itemfix
     \begin{itemize}[align=left]
         \item [Частный случай:] Пусть $\rg \Phi'_1(t^0), \rg \Phi'_2(s^0)$ достигается на первых $k$ столбцах.
@@ -283,5 +296,6 @@ $$F' = \begin{pmatrix}
               Почему-то мы проиграли, это не диффеоморфизм.
     \end{itemize}
 \end{proof}
+%</одвухпараметризацияхproof>
 
 \end{document}

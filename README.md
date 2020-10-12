@@ -11,6 +11,7 @@
 - [2 лекция](analysis/3sem/2.pdf)
 - [3 лекция](analysis/3sem/3.pdf)
 - [4 лекция](analysis/3sem/4.pdf)
+- [5 лекция](analysis/3sem/5.pdf) - только начало, позже допишу
 - [Конспект к экзамену](analysis/3sem/final.pdf)
 
 ### Диффуры

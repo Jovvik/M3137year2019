@@ -1,0 +1,158 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{12.10.2020}
+
+\begin{document}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item $\Phi : O\subset\R^k \to\R^m$
+        \item $\Phi\in C^r$
+        \item $\Phi$ --- параметризация многообразия $U(p)\cap M$, где $p\in M$, $M$ --- гладкое $k$-мерное многообразие $\Rightarrow U(p)\cap M$ --- простое многообразие
+    \end{itemize}
+    Тогда образ $\Phi'(t^0) : \R^k \to \R^m$ есть $k$-мерное линейное подпространство в $\R^m$. Оно не зависит от $\Phi$.
+\end{lemma}
+\begin{proof}
+    $\rg \Phi'(t^0) = k$ по определению параметризации $\Rightarrow$ искомое очевидно. Если взять другую параметризацию $\Phi_1$, то $$\Phi = \Phi_1 \circ \Psi$$
+    $$\Phi' = \Phi'_1 \Psi'$$
+    $\Psi'(t^0)$ --- невырожденный оператор $\Rightarrow$ образ $\Phi'$ = образ $\Phi_1'$
+\end{proof}
+
+\begin{definition}
+    $k$-мерное пространство из леммы --- касательное пространство к $M$ в точке $p$, обозначается $T_pM$.
+\end{definition}
+
+\begin{example}
+    $M$ --- окружность в $\R^2$, задается параметризацией $\Phi : t\mapsto \begin{pmatrix}
+            \cos t \\
+            \sin t
+        \end{pmatrix}, t^0 := \frac{\pi}{4}$
+    $$\Phi'(t^0) = \begin{pmatrix}
+            -\frac{\sqrt{2}}{2} \\
+            \frac{\sqrt{2}}{2}
+        \end{pmatrix}$$
+    Тогда $h \mapsto \begin{pmatrix}
+            -\frac{\sqrt{2}}{2} \\
+            \frac{\sqrt{2}}{2}
+        \end{pmatrix} h$
+    % \begin{tikzpicture}
+    %     \draw[-{>[length=2mm,width=3mm]}] (-3, 0) -- (3, 0) node[anchor=north west] {$x$};
+    %     \draw[-{>[length=2mm,width=3mm]}] (0, -3) -- (0, 3) node[anchor=north west] {$y$};
+    % \end{tikzpicture}
+\end{example}
+
+\begin{example}
+    Афинное подпространство $\{p + v, v\in T_pM\}$ --- называется афинным касательным подпространством.
+\end{example}
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item $v\in T_pM$. Тогда $\exists$ путь $\gamma_V : [-\varepsilon, \varepsilon] \to M$, такой что $\gamma(0)=p, \gamma'(0)=v$
+        \item Пусть $\gamma : [-\varepsilon, \varepsilon]\to M, \gamma(0) = p$ --- гладкий путь. Тогда $\gamma'(0) \in T_pM$
+        \item $f : O\subset\R^m \to\R, y=f(x)$ --- поверхность в $\R^{m+1}$, задается точками $(x, y)$.
+
+              Тогда (аффинная) касательная плоскость в точке $(a, b)$ задается уравнением
+              $$y-b = f'_{x_1}(a)(x_1-a_1) + f'_{x_2}(a)(x_2-a_2) + \ldots + f'_{x_m}(a)(x_m-a_m)$$
+        \item $\Phi(x_1\ldots x_m) = 0$
+
+              $\Phi : O\subset\R^m \to\R$
+
+              $\Phi(a) = 0$
+
+              Уравнение касательной к плоскости $\Phi'_{x_1}(a)(x_1-a_1) + \ldots + \Phi'_{x_m}(a)(x_m-a_m) = 0$
+
+              %   $\gamma$ --- путь в $M$ : $\Phi(\gamma(s)) = 0, \Phi'(\gamma(s))\gamma'(s) = 0, \?\gamma'(s)$
+
+              По определению дифференцируемости $\Phi$ в точке $a$:
+              $$\Phi(x) = \Phi(a) + \Phi'_{x_1}(x_1-a_1) + \ldots + \Phi'_{x_m}(x_m-a_m) + \xcancel{O()}$$
+
+              \?
+    \end{enumerate}
+\end{remark}
+\begin{proof}
+    % \begin{tikzpicture}
+    %     \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (5, 0) node[anchor=north west] {$x$};
+    %     \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (0, 5) node[anchor=north west] {$y$};
+    %     \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (-2, -2) node[anchor=north west] {$z$};
+    %     \draw (0.5, 3) .. controls (2, 2.5) .. (3, 1);
+    %     \draw (0.5, 3) .. controls (2.5, 3.5) .. (4, 3);
+    %     \draw (3, 1) -- (4, 3);
+    %     \node at (2, -2) {$\R^m$};
+    % \end{tikzpicture}
+    \begin{enumerate}
+        \item $h:=\left(\Phi'(t_0)\right)^{-1}(v)$
+
+              $$\tilde \gamma_v(s) := t_0 + su, s\in[-\varepsilon, \varepsilon]$$
+              $$\gamma_v(s) := \Phi(\tilde \gamma_v(s))$$
+              $$\gamma_v'(0) = \Phi'(\tilde \gamma_v(0))\tilde \gamma_v(0)' = \Phi'(\tilde \gamma_v(0))u = v$$
+        \item $$\gamma(s) = \Phi \Psi L \gamma(\delta)$$
+              $$\gamma' = \Phi' \Psi' L' \gamma'(\delta) \in T_{\?} M \text{ при } s=0$$
+        \item $\Phi : O\subset\R^m \to\R^{m+1}$
+
+              $\Phi(x) = (x, f(x))$
+
+              $$\Phi' = \begin{bmatrix}
+                      1        & 0        & \ldots & 0        \\
+                      0        & 1        & \ldots & 0        \\
+                      \vdots   & \vdots   & \ddots & \vdots   \\
+                      0        & 0        & \ldots & 1        \\
+                      f'_{x_1} & f'_{x_2} & \ldots & f'_{x_m}
+                  \end{bmatrix}$$
+              Рассмотрим произвольный вектор $\begin{pmatrix}
+                      \alpha_1 \\
+                      \vdots   \\
+                      \alpha_m \\
+                      \beta
+                  \end{pmatrix}$. В каких случаях он принадлежит образу $\Phi'$?
+
+              $$\Phi' \vec x = \begin{bmatrix}
+                      1        & 0        & \ldots & 0        \\
+                      0        & 1        & \ldots & 0        \\
+                      \vdots   & \vdots   & \ddots & \vdots   \\
+                      0        & 0        & \ldots & 1        \\
+                      f'_{x_1} & f'_{x_2} & \ldots & f'_{x_m}
+                  \end{bmatrix} \begin{pmatrix}
+                      \alpha_1 \\
+                      \vdots   \\
+                      \alpha_m \\
+                      \beta
+                  \end{pmatrix} = \?$$
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    $y(x) = f(a) + f'_{x_1}(a)(x_1-a_1)+\ldots + f'_{x_m}(a)(x_m-a_m)$
+
+    % TODO
+    % \begin{tikzpicture}
+    %     \draw[-{>[length=2mm,width=3mm]}] (-3, 0) -- (3, 0) node[anchor=north west] {$x$};
+    %     \draw[-{>[length=2mm,width=3mm]}] (0, -4) -- (0, 2) node[anchor=north west] {$y$};
+    %     \node at (2, 0.3) {$y(x)$};
+    % \end{tikzpicture}
+\end{remark}
+
+\section{Относительный экстремум}
+
+\begin{example}
+    Найти наибольшее/наименьшее значение выражения $f(x, y) = x + y$ при условии $x^2+y^2=1$.
+
+    Рассмотрим линии уровня, т.е. $f(x, y) = C$:
+
+    % \begin{tikzpicture}
+    %     \draw[-{>[length=2mm,width=3mm]}] (-3, 0) -- (3, 0) node[anchor=north west] {$x$};
+    %     \draw[-{>[length=2mm,width=3mm]}] (0, -3) -- (0, 3) node[anchor=north west] {$y$};
+    %     \draw (0, 0) circle (30pt);
+    %     \node at (1.2, 0.2) {$1$};
+    %     \draw[pattern=north east lines] (-3, -3) rectangle (3, 3);
+    % \end{tikzpicture}
+\end{example}
+
+\textcolor{red}{Не дописано}
+
+% \begin{definition}
+%     $f: O\subset\R^{m+n} \to\R$
+% \end{definition}
+
+\end{document}

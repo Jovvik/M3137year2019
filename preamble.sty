@@ -16,6 +16,8 @@
 
 % Miscellaneous
 \usepackage{calc}
+\usepackage{caption}
+\captionsetup{justification=centering,margin=2cm}
 \usepackage{catchfilebetweentags}
 \usepackage{enumitem}
 \usepackage{etoolbox}
@@ -30,6 +32,8 @@
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{calc}
 \usetikzlibrary{patterns}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
 \newcommand\irregularcircle[2]{% radius, irregularity
   \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
   +(0:\len pt)
@@ -44,7 +48,7 @@
 
 \pagestyle{fancy}
 \lfoot{M3137y2019}
-\rhead{\thepage\ из \pageref{LastPage}}
+\rhead{стр. \thepage\ из \pageref{LastPage}}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -120,3 +124,29 @@
 \newcommand{\defeq}{\stackrel{\text{def}}{=}}
 \newcommand{\itemfix}{\leavevmode\makeatletter\makeatother}
 \newcommand{\?}{\textcolor{red}{???}}
+
+% xrightrightarrows
+\makeatletter
+\newcommand*{\relrelbarsep}{.386ex}
+\newcommand*{\relrelbar}{%
+  \mathrel{%
+    \mathpalette\@relrelbar\relrelbarsep
+  }%
+}
+\newcommand*{\@relrelbar}[2]{%
+  \raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
+  \lower#2\hbox{$\m@th#1\relbar$}%
+}
+\providecommand*{\rightrightarrowsfill@}{%
+  \arrowfill@\relrelbar\relrelbar\rightrightarrows
+}
+\providecommand*{\leftleftarrowsfill@}{%
+  \arrowfill@\leftleftarrows\relrelbar\relrelbar
+}
+\providecommand*{\xrightrightarrows}[2][]{%
+  \ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xleftleftarrows}[2][]{%
+  \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
+}
+\makeatother

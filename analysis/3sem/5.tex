@@ -21,7 +21,7 @@
 \end{proof}
 
 \begin{definition}
-    $k$-мерное пространство из леммы --- касательное пространство к $M$ в точке $p$, обозначается $T_pM$.
+    $k$-мерное пространство из леммы --- \textbf{касательное пространство} к $M$ в точке $p$, обозначается $T_pM$.
 \end{definition}
 
 \begin{example}
@@ -29,23 +29,37 @@
             \cos t \\
             \sin t
         \end{pmatrix}, t^0 := \frac{\pi}{4}$
+    \begin{figure}[h]
+        \begin{tikzpicture}
+            \draw[-{>[length=2mm,width=3mm]}] (-3, 0) -- (3, 0) node[anchor=north west] {$x$};
+            \draw[-{>[length=2mm,width=3mm]}] (0, -3) -- (0, 3) node[anchor=north west] {$y$};
+            \draw (0, 0) circle (2);
+            \filldraw[black] (1.41, 1.41) circle (1pt) node[anchor=south] {$a$};
+            \draw[dashed] (0, 0) -- (1.41, 1.41);
+            \draw (0.5, 0) arc (0:45:0.5);
+            \node (b) at (0.7, 0.3) {$\frac{\pi}{4}$};
+            \draw[blue, dashed, thick] (-3, 3) -- (3, -3);
+            \draw[green, dashed, thick] (-1.59, 4.41) -- (4.41, -1.59);
+            % \node (1) at (1, 0)
+        \end{tikzpicture}
+        \centering
+        \caption{Синим --- касательное пространство к окружности в $a$.\\ Зеленым --- афинное (``сдвинутое'') линеное подпространство.}
+        \centering
+    \end{figure}
     $$\Phi'(t^0) = \begin{pmatrix}
             -\frac{\sqrt{2}}{2} \\
             \frac{\sqrt{2}}{2}
         \end{pmatrix}$$
+
     Тогда $h \mapsto \begin{pmatrix}
             -\frac{\sqrt{2}}{2} \\
             \frac{\sqrt{2}}{2}
         \end{pmatrix} h$
-    % \begin{tikzpicture}
-    %     \draw[-{>[length=2mm,width=3mm]}] (-3, 0) -- (3, 0) node[anchor=north west] {$x$};
-    %     \draw[-{>[length=2mm,width=3mm]}] (0, -3) -- (0, 3) node[anchor=north west] {$y$};
-    % \end{tikzpicture}
 \end{example}
 
-\begin{example}
-    Афинное подпространство $\{p + v, v\in T_pM\}$ --- называется афинным касательным подпространством.
-\end{example}
+\begin{definition}
+    Афинное подпространство $\{p + v, v\in T_pM\}$ называется \textbf{афинным касательным подпространством}.
+\end{definition}
 
 \begin{remark}\itemfix
     \begin{enumerate}
@@ -61,34 +75,41 @@
 
               $\Phi(a) = 0$
 
-              Уравнение касательной к плоскости $\Phi'_{x_1}(a)(x_1-a_1) + \ldots + \Phi'_{x_m}(a)(x_m-a_m) = 0$
-
-              %   $\gamma$ --- путь в $M$ : $\Phi(\gamma(s)) = 0, \Phi'(\gamma(s))\gamma'(s) = 0, \?\gamma'(s)$
-
-              По определению дифференцируемости $\Phi$ в точке $a$:
-              $$\Phi(x) = \Phi(a) + \Phi'_{x_1}(x_1-a_1) + \ldots + \Phi'_{x_m}(x_m-a_m) + \xcancel{O()}$$
-
-              \?
+              Тогда уравнение касательной к плоскости $\Phi'_{x_1}(a)(x_1-a_1) + \ldots + \Phi'_{x_m}(a)(x_m-a_m) = 0$
     \end{enumerate}
 \end{remark}
 \begin{proof}
-    % \begin{tikzpicture}
-    %     \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (5, 0) node[anchor=north west] {$x$};
-    %     \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (0, 5) node[anchor=north west] {$y$};
-    %     \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (-2, -2) node[anchor=north west] {$z$};
-    %     \draw (0.5, 3) .. controls (2, 2.5) .. (3, 1);
-    %     \draw (0.5, 3) .. controls (2.5, 3.5) .. (4, 3);
-    %     \draw (3, 1) -- (4, 3);
-    %     \node at (2, -2) {$\R^m$};
-    % \end{tikzpicture}
     \begin{enumerate}
-        \item $h:=\left(\Phi'(t_0)\right)^{-1}(v)$
+        \item $u:=\left(\Phi'(t_0)\right)^{-1}(v)$
 
+              \begin{tikzpicture}
+                  \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (5, 0) node[anchor=north west] {$x$};
+                  \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (0, 5) node[anchor=north west] {$y$};
+                  \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (-2, -2) node[anchor=north west] {$z$};
+                  \draw (0.5, 3) .. controls (2, 2.5) .. (3, 1);
+                  \draw (0.5, 3) .. controls (2.5, 3.5) .. (4, 3);
+                  \draw (3, 1) -- (4, 3);
+                  \node at (2, -2) {$\R^m$};
+
+                  \draw (-5, 0) ellipse (2 and 1);
+                  \node (a) at (-5, -1.5) {$\R^k$};
+                  \filldraw[black] (-5, 0) circle (1pt) node[anchor=south] {$t_0$};
+                  \draw[->] (-5, 0) -- (-4, 0.5) node[anchor=north] {$\vec u$};
+
+                  \draw[->] (-4, 1) .. controls (-3, 2) and (-2, 2.5) .. (-0.5, 2.5) node[midway, above] {$\Phi$};
+
+                  \draw[thick, rotate around={-30:(2, 3)}] (2, 2.5) rectangle (3.5, 3.5);
+                  \filldraw[black] (2.5, 2.5) circle (1pt);
+                  \draw[->] (2.5, 2.5) -- (3, 2.7) node[anchor=west] {$\vec v$};
+              \end{tikzpicture}
+
+              Определим путь в $\R^k$:
               $$\tilde \gamma_v(s) := t_0 + su, s\in[-\varepsilon, \varepsilon]$$
+              Отобразим этот путь в $M$ и проверим, что такой путь подходит под условие:
               $$\gamma_v(s) := \Phi(\tilde \gamma_v(s))$$
-              $$\gamma_v'(0) = \Phi'(\tilde \gamma_v(0))\tilde \gamma_v(0)' = \Phi'(\tilde \gamma_v(0))u = v$$
+              $$\gamma_v'(0) = \Phi'(\tilde \gamma_v(0))\cdot \tilde \gamma'_v(0) = \Phi'(\tilde \gamma_v(0))\cdot u = \Phi'(\tilde \gamma_v(0)) \left(\Phi'(t_0)\right)^{-1}(v) = v$$
         \item $$\gamma(s) = \Phi \Psi L \gamma(\delta)$$
-              $$\gamma' = \Phi' \Psi' L' \gamma'(\delta) \in T_{\?} M \text{ при } s=0$$
+              $$\gamma' = \Phi' \Psi' L' \gamma'(\delta) \in T_{p} M \text{ при } s=0$$
         \item $\Phi : O\subset\R^m \to\R^{m+1}$
 
               $\Phi(x) = (x, f(x))$
@@ -114,45 +135,372 @@
                       0        & 0        & \ldots & 1        \\
                       f'_{x_1} & f'_{x_2} & \ldots & f'_{x_m}
                   \end{bmatrix} \begin{pmatrix}
-                      \alpha_1 \\
-                      \vdots   \\
-                      \alpha_m \\
-                      \beta
-                  \end{pmatrix} = \?$$
+                      x_1    \\
+                      \vdots \\
+                      x_m
+                  \end{pmatrix} = \begin{pmatrix}
+                      x_1    \\
+                      \vdots \\
+                      x_m    \\
+                      x_1 f'_{x_1} + \ldots + x_m f'_{x_m}
+                  \end{pmatrix}$$
+              Таким образом, вектор принадлежит образу, если $\beta = \alpha_1 f'_{x_1} + \ldots + \alpha_m f'_{x_m}$
+        \item $\gamma$ --- путь в $M$ : $\Phi(\gamma(s)) = 0, \Phi'(\gamma(s))\gamma'(s) = 0$. По предыдущим утверждениям такой путь есть, кроме того, любому вектору $x$ в касательном пространстве можно сопоставить $\gamma : \gamma'(s) = x$. Поэтому любой касательный вектор от точки $a$, он должен быть подчинём искомоу отношению.
+
+              Альтернативное доказательство:
+
+              По определению дифференцируемости $\Phi$ в точке $a$:
+              $$\Phi(x) = \Phi(a) + \Phi'_{x_1}(x_1-a_1) + \ldots + \Phi'_{x_m}(x_m-a_m) + \xcancel{o()}$$
+              Мы игнорируем $o$, потому что оно скомпенсируется тем, что мы берем не с поверхности $\Phi$, а с касательной плоскости. Это нестрогое утверждение.
     \end{enumerate}
 \end{proof}
 
 \begin{remark}
-    $y(x) = f(a) + f'_{x_1}(a)(x_1-a_1)+\ldots + f'_{x_m}(a)(x_m-a_m)$
+    $y(x) = f(a) + f'_{x_1}(a)(x_1-a_1)+\ldots + f'_{x_m}(a)(x_m-a_m)\Leftrightarrow$ дифференцирование, но без $o$.
+
+    Таким образом, $f(x) - y(x) = o(x-a)$
 
     % TODO
     % \begin{tikzpicture}
-    %     \draw[-{>[length=2mm,width=3mm]}] (-3, 0) -- (3, 0) node[anchor=north west] {$x$};
-    %     \draw[-{>[length=2mm,width=3mm]}] (0, -4) -- (0, 2) node[anchor=north west] {$y$};
-    %     \node at (2, 0.3) {$y(x)$};
+    %     \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (5, 0);
+    %     \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (0, 5) node[anchor=north west] {$y$};
+    %     \draw[-{>[length=2mm,width=3mm]}] (0, 0) -- (-2, -2);
     % \end{tikzpicture}
 \end{remark}
 
-\section{Относительный экстремум}
+\subsection*{Относительный экстремум}
 
 \begin{example}
     Найти наибольшее/наименьшее значение выражения $f(x, y) = x + y$ при условии $x^2+y^2=1$.
 
     Рассмотрим линии уровня, т.е. $f(x, y) = C$:
 
-    % \begin{tikzpicture}
-    %     \draw[-{>[length=2mm,width=3mm]}] (-3, 0) -- (3, 0) node[anchor=north west] {$x$};
-    %     \draw[-{>[length=2mm,width=3mm]}] (0, -3) -- (0, 3) node[anchor=north west] {$y$};
-    %     \draw (0, 0) circle (30pt);
-    %     \node at (1.2, 0.2) {$1$};
-    %     \draw[pattern=north east lines] (-3, -3) rectangle (3, 3);
-    % \end{tikzpicture}
+    \begin{figure}[h]
+        \begin{tikzpicture}
+            \draw[-{>[length=2mm,width=3mm]}] (-3, 0) -- (3, 0) node[anchor=north west] {$x$};
+            \draw[-{>[length=2mm,width=3mm]}] (0, -3) -- (0, 3) node[anchor=north west] {$y$};
+            \draw (0, 0) circle (30pt);
+            \node at (1.2, 0.2) {$1$};
+            \draw[gray, thin] (-3, 3) -- (3, -3);
+            \draw[gray, thin] (-2.75, 3) -- (3, -2.75);
+            \draw[gray, thin] (-2.50, 3) -- (3, -2.50);
+            \draw[gray, thin] (-2.25, 3) -- (3, -2.25);
+            \draw[gray, thin] (-2, 3) -- (3, -2);
+            \draw[gray, thin] (-1.75, 3) -- (3, -1.75);
+            \draw[gray, thin] (-1.50, 3) -- (3, -1.50);
+            \draw[gray, thin] (-1.25, 3) -- (3, -1.25);
+            \draw[gray, thin] (-1, 3) -- (3, -1);
+            \draw[gray, thin] (-0.75, 3) -- (3, -0.75);
+            \draw[gray, thin] (-0.50, 3) -- (3, -0.50);
+            \draw[gray, thin] (-0.25, 3) -- (3, -0.25);
+            \draw[gray, thin] (0, 3) -- (3, 0);
+            \draw[gray, thin] (0.25, 3) -- (3, 0.25);
+            \draw[gray, thin] (0.50, 3) -- (3, 0.50);
+            \draw[gray, thin] (0.75, 3) -- (3, 0.75);
+            \draw[gray, thin] (1, 3) -- (3, 1);
+            \draw[gray, thin] (1.25, 3) -- (3, 1.25);
+            \draw[gray, thin] (1.50, 3) -- (3, 1.50);
+            \draw[gray, thin] (1.75, 3) -- (3, 1.75);
+            \draw[gray, thin] (2, 3) -- (3, 2);
+            \draw[gray, thin] (2.25, 3) -- (3, 2.25);
+            \draw[gray, thin] (2.50, 3) -- (3, 2.50);
+            \draw[gray, thin] (2.75, 3) -- (3, 2.75);
+
+            \draw[gray, thin] (-3, 2.75) -- (2.75, -3);
+            \draw[gray, thin] (-3, 2.50) -- (2.50, -3);
+            \draw[gray, thin] (-3, 2.25) -- (2.25, -3);
+            \draw[gray, thin] (-3, 2) -- (2, -3);
+            \draw[gray, thin] (-3, 1.75) -- (1.75, -3);
+            \draw[gray, thin] (-3, 1.50) -- (1.50, -3);
+            \draw[gray, thin] (-3, 1.25) -- (1.25, -3);
+            \draw[gray, thin] (-3, 1) -- (1, -3);
+            \draw[gray, thin] (-3, 0.75) -- (0.75, -3);
+            \draw[gray, thin] (-3, 0.50) -- (0.50, -3);
+            \draw[gray, thin] (-3, 0.25) -- (0.25, -3);
+            \draw[gray, thin] (-3, 0) -- (0, -3);
+            \draw[gray, thin] (-3, -0.25) -- (-0.25, -3);
+            \draw[gray, thin] (-3, -0.50) -- (-0.50, -3);
+            \draw[gray, thin] (-3, -0.75) -- (-0.75, -3);
+            \draw[gray, thin] (-3, -1) -- (-1, -3);
+            \draw[gray, thin] (-3, -1.25) -- (-1.25, -3);
+            \draw[gray, thin] (-3, -1.50) -- (-1.50, -3);
+            \draw[gray, thin] (-3, -1.75) -- (-1.75, -3);
+            \draw[gray, thin] (-3, -2) -- (-2, -3);
+            \draw[gray, thin] (-3, -2.25) -- (-2.25, -3);
+            \draw[gray, thin] (-3, -2.50) -- (-2.50, -3);
+            \draw[gray, thin] (-3, -2.75) -- (-2.75, -3);
+
+            \filldraw[black] (0.75, 0.75) circle (1pt) node[anchor=south] {$M$};
+            \filldraw[black] (-0.75, -0.75) circle (1pt) node[anchor=north] {$m$};
+        \end{tikzpicture}\centering
+    \end{figure}
+
+    $M$ и $m$ --- точки минимума и максимума, т.к. $M$ --- точка, в которой $f=\max$ и линия уровня касаются. Если они пересекаются, но не касаются, то есть точка больше. Аналогичное верно для минимума.
+
+    В более формальных терминах: пусть условие $\Phi(x, y) = 0$.
+
+    $\Phi'_x(x-a) + \Phi'_y(y-b) = 0$
+
+    $(\Phi'_x, \Phi'_y)$ --- вектор нормали к касательной прямой. Тогда $(f'_x, f'_y)$ и $(\Phi'_x, \Phi'_y)$ --- параллельны.
 \end{example}
 
-\textcolor{red}{Не дописано}
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item $f: O\subset\R^{m+n} \to\R$
+        \item $M_\Phi \subset O := \{ x : \Phi(x) = 0 \}$
+        \item $x_0\in M_\Phi$
+    \end{itemize}
+    $x_0$ --- точка \textbf{локального относительного} $\max, \min$, строгий $\max$, строгий $\min$, экстремума, если $\exists U(x_0)\subset\R^{m+n} : \forall x\in U(x_0)\cap M_\Phi \ \ f(x_0) \ge f(x)$, остальные --- аналогично.
 
-% \begin{definition}
-%     $f: O\subset\R^{m+n} \to\R$
-% \end{definition}
+    Уравнения $\Phi(x) = 0$ называются \textbf{уравнениями связи}.
+\end{definition}
+
+Как решать задачу нахождения локального относительного чего-то?
+
+Если $\rg \Phi'(x_0) = n$, \textit{то есть $\rg$ максимален}, то выполнено условие теоремы о неявном отображении.
+
+\begin{theorem}[необходимое условие относительного экстремума]\itemfix
+    \begin{itemize}
+        \item $f: O\subset\R^{m+n} \to\R$ --- гладкое в $O$
+        \item $M_\Phi \subset O := \{ x : \Phi(x) = 0 \}$ --- гладкое в $O$
+        \item $a\in O$ --- точка относительного локального экстремума
+        \item $\Phi(a) = 0$
+        \item $\rg \Phi'(a) = n$
+    \end{itemize}
+    Тогда $\exists \lambda = (\lambda_1 \ldots \lambda_n)\in\R^n$ : $\begin{cases}
+            f'(a) - \lambda\Phi'(a) = 0 \\
+            \Phi(a) = 0
+        \end{cases}$
+
+    Второе условие дописано для удобства, оно не содержательно, т.к. оно уже дано.
+
+    В координатах: $\begin{cases}
+            f'_{x_1} - \lambda_1 (\Phi_1)_{x_1}' - \lambda_2 (\Phi_2)_{x_1}' - \ldots - \lambda_m (\Phi_m)_{x_1}' = 0                 \\
+            \vdots                                                                                                                    \\
+            f'_{x_{m+n}} - \lambda_1 (\Phi_1)_{x_{m+n}}' - \lambda_2 (\Phi_2)_{x_{m+n}}' - \ldots - \lambda_m (\Phi_m)_{x_{m+n}}' = 0 \\
+            \Phi_1(a) = 0                                                                                                             \\
+            \vdots                                                                                                                    \\
+            \Phi_n(a) = 0                                                                                                             \\
+        \end{cases}$
+
+    Здесь неизвестны $a_1\ldots a_{m+n}, \lambda_1\ldots \lambda_n$, поэтому, если уравнения не вырождены, то решение есть.
+\end{theorem}
+
+\begin{proof}
+    $\rg \Phi'(a) = n$. Пусть ранг реализуется на столбцах $x_{m+1}\ldots x_{m+n}$.
+
+    Обозначим $y_1 = x_{m+1} \ldots y_n = x_{m+n}$.
+
+    $(x_1\ldots x_{m+n})\leftrightarrow (x, y), a \leftrightarrow (a_x, a_y)$.
+
+    $\det \cfrac{\partial \Phi}{\partial y}(a) \not=0$. Тогда по теореме о неявном отображении $\exists U(a_x)\ \exists V(a_y)\ \exists \varphi : U(a_x) \to V(a_y) : \Phi(x, \varphi(x)) \equiv 0$ и отображение $x\mapsto (x, \varphi(x))$ есть параметризация простого гладкого многообразия $M_\varphi \cap (U(a_x) \times V(a_y))$.
+
+    $a$ --- точка относительного локального экстремума $\Rightarrow a_x$ --- точка локального экстремума функции $g(x) = f(x, \varphi(x))$, потому что $(x, \varphi(x))\in U(a)$.
+
+    Необходимое свойство экстремума для $a_x$:
+    \begin{equation}
+        (f'_x + f'_y \cdot \varphi')(a_x) = 0
+    \end{equation}
+
+    % TODO
+    \begin{remark}
+        Здесь и далее в этом доказательстве в функции и производные операторы подставляется $a$ и $a_x$, но не записывается ради краткости и запутанности.
+    \end{remark}
+    \begin{align*}
+        \Phi(x, \varphi(x))              & \equiv 0 \\
+        \Phi'_x + \Phi'_y \cdot \varphi' & = 0      \\
+    \end{align*}
+    Тогда $\forall \lambda \in\R^n$:
+    \begin{equation}
+        \lambda \Phi'_x + \lambda \Phi'_y \cdot \varphi' = 0
+    \end{equation}
+
+    \begin{equation}
+        f'_x + \lambda \Phi'_x + (f'_y + \lambda \Phi'_y)\varphi' = 0 \tag{1 + 2}
+    \end{equation}
+
+    Пусть $\lambda = - f'_y \cdot (\Phi'_y(a))^{-1}$.
+
+    Тогда $f'_y + \lambda \Phi'_y = f'_y - f'_y (\Phi'_y(a))^{-1}\Phi'_y(a) = 0$ и $f'_x + \lambda \Phi'_y = 0$ в силу (1 + 2).
+\end{proof}
+
+\begin{definition}
+    $G := f - \lambda_1 \Phi_1 - \lambda_2 \Phi_2 - \ldots - \lambda_n \Phi_n$ --- \textbf{функция Лагранжа}.
+\end{definition}
+
+$$f'(a) - \lambda\Phi'(a) = 0 \Leftrightarrow G'(a) = 0$$
+
+\begin{remark}
+    В определении выше можно писать ``$+$'' вместо ``$-$''.
+\end{remark}
+
+\begin{example}
+    $A=(a_{ij})$ --- матрица $m \times n$, симметричная и вещественная.
+
+    $f(x) := \langle Ax, x\rangle, x\in \R^m$ --- квадратичная форма.
+
+    Найдём $\max f(x)$, когда $x\in S^{m-1}$ \textit{(единичной сфере в $\R^m$)}.
+
+    Такой $\max \exists$ по теореме Вейерштрасса.
+
+    $$G(x) = \sum_{i}^m \sum_{j}^n a_{ij} x_i x_j - \lambda \left(\sum_{i=1}^m x_i^2 - 1\right)$$
+    $\Phi' = \begin{pmatrix}
+            2x_1   \\
+            2x_2   \\
+            \vdots \\
+            2x_m
+        \end{pmatrix}$. На сфере $\rg \Phi'=1$.
+
+    $$G'_{x_k} = 2\sum_{j=1}^m a_{kj} x_j - 2\lambda x_k \quad \forall k = 1\ldots m = 0$$
+
+    То есть $Ax = \lambda x \Rightarrow \lambda$ --- собственное число $A, x$ --- собственный единичный вектор.
+
+    $f(x) = \langle Ax, x\rangle = \langle \lambda x, x\rangle = \lambda x^2 = \lambda$
+\end{example}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item $A \in \text{Lin}(\R^m, \R^n)$
+    \end{itemize}
+    Тогда $||A|| = \max\{\sqrt{\lambda} : \lambda \text{ --- собственное число } A^TA\}$
+
+    Такое число существует, т.к. $\langle Ax, y\rangle = \langle x, Ay\rangle \Rightarrow \langle A^T Ax, x\rangle = \langle Ax, Ax\rangle \ge 0 \Rightarrow \lambda \ge 0$.
+\end{theorem}
+\begin{proof}
+    $\sphericalangle x\in S^{m-1}$.
+
+    $$|Ax|^2 = \langle Ax, Ax\rangle = \langle \underbrace{A^TA}_{\text{симм.}}x, x\rangle$$
+    $$\max |Ax|^2 = \max \langle A^TAx, x\rangle = \lambda_{\max}$$
+\end{proof}
+
+\section*{Функциональные последовательности и ряды}
+
+\subsection*{Равномерная сходимость последовательностей и функций}
+
+\begin{definition}
+    \textbf{Последовательность функций} : $\N \to \mathcal F$ --- пространство функций, $n\mapsto f_n$
+\end{definition}
+\begin{definition}
+    $\mathcal F = \{f : \underbrace{X}_{\substack{\text{метрическое} \\ \text{пространство}}}\to\R\}$
+\end{definition}
+
+\begin{definition}
+    Пусть $E\subset X$. Последовательность $f_n$ \textbf{сходится поточечно} к $f$ на множестве $E$, если $\forall x\in E \quad f_n(x) \to f(x)$, т.е.:
+    $$\forall x\in E \ \ \forall \varepsilon > 0 \ \ \exists N \ \ \forall n > N \quad |f_n(x) - f(x)| < \varepsilon$$
+\end{definition}
+
+\begin{example}
+    $f_n : \R_+ \to \R, f_n(x) = \frac{x^n}{n}$
+
+    Если $E = [0, 1] \Rightarrow f_n(x) \to 0$ --- тождественный ноль, не ноль.
+
+    Если $E \cap(1, +\infty) \not=\text{\O}$, то нет поточечной сходимости ни к какой функции.
+\end{example}
+
+\begin{example}
+    $f_n = \frac{n^\alpha x}{1 + n^2x^2}, x\in[0, 1], 0 < \alpha < 2$.
+
+    Ясно, что $f_n(x)\to0 \ \ \forall \alpha$, поточечно сходится на $[0, 1]$.
+
+    $$\max_{x\in[0, 1]}\frac{n^\alpha x}{1 + n^2x^2} = n^\alpha \max\frac{x}{1+n^2x^2} = n^\alpha \frac{1}{2n} = \frac{1}{2}n^{\alpha - 1}$$
+
+    При $\alpha > 1 \ \ \frac{1}{2}n^{\alpha-1}\to+\infty$. Это странно.
+
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{minipage}{0.3\linewidth}
+            Теперь мы видим, что функции стремятся к тождественному нулю, хотя $\exists x : f(x)\to+\infty$. Придумаем определение, которое это запрещает.
+        \end{minipage}
+        \hspace{0.05\linewidth}
+        \begin{minipage}{0.6\linewidth}
+            \begin{tikzpicture}
+                \begin{axis}[
+                        axis lines = left,
+                        xlabel = $x$,
+                        ylabel = {$f(x)$}
+                    ]
+                    \addplot [
+                        domain=0:10,
+                        samples=100,
+                        color=blue
+                    ]
+                    {1^1.5 * x / (1 + 1^2 * x^2)};
+                    \addlegendentry{$n=1, \alpha=1.5$}
+                    \addplot [
+                        domain=0:10,
+                        samples=100,
+                        color=green
+                    ]
+                    {3^1.5 * x / (1 + 3^2 * x^2)};
+                    \addlegendentry{$n=3, \alpha=1.5$}
+                    \addplot [
+                        domain=0:10,
+                        samples=100,
+                        color=red
+                    ]
+                    {10^1.5 * x / (1 + 10^2 * x^2)};
+                    \addlegendentry{$n=10, \alpha=1.5$}
+                \end{axis}
+            \end{tikzpicture}
+        \end{minipage}
+    \end{minipage}
+\end{example}
+
+\begin{definition}
+    $f_n$ \textbf{равномерно сходится} к $f$ на $E\subset X$, если $M_n := \sup\limits_{x\in E} |f_n(x)-f(x)|\xrightarrow{n\to+\infty}0$.
+    $$\forall \varepsilon \ \ \exists N \ \ \forall n > N \ \ 0\le M_n < \varepsilon \text{ т.е. } \forall x\in E \ \ |f_n(x) - f(x)| < \varepsilon$$
+    Обозначается $f_n\xrightrightarrows[E]{} f$
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item $x_0\in E$
+        \item $f_n \xrightrightarrows[E]{} f$
+    \end{itemize}
+    Тогда $f_n(x_0)\to f(x_0)$. То есть равномерная сходимость $\Rightarrow$ поточечная сходимость и предел.
+\end{remark}
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item $E_0\subset E$
+        \item $f_n \xrightrightarrows[E]{} f$
+    \end{itemize}
+    Тогда $f_n \xrightrightarrows[E_0]{} f$
+\end{remark}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item $\mathcal F = \{f : X \to \R \text{ --- огр. функции}\}$
+    \end{itemize}
+    Тогда $\rho(f_1, f_2) := \sup\limits_{x\in X}|f_1(x) - f_2(x)|$ --- метрика в $\mathcal F$. Называется Чебышевское расстояние.
+\end{remark}
+\begin{proof}
+    \begin{enumerate}
+        \item $\rho(f_1, f_2) \ge 0$, $\rho(f_1, f_2) = 0 \Leftrightarrow f_1\not= f_2$ --- очевидно
+        \item $\rho(f_1, f_2) = \rho(f_2, f_1)$ --- очевидно
+        \item $\rho(f_1, f_2) \ge \rho(f_1, f_3) + \rho(f_2, f_3)$
+
+              $\sphericalangle \varepsilon > 0 \ \ \exists x$
+              \begin{align*}
+                  \rho(f_1, f_2) - \varepsilon & = \sup|f_1 - f_2| - \varepsilon           \\
+                                               & < |f_1(x) - f_2(x)|                       \\
+                                               & \le |f_1(x) - f_3(x)| + |f_2(x) - f_3(x)| \\
+                                               & \le \rho(f_1, f_3) + \rho(f_2, f_3)
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+
+$f_n \xrightrightarrows[E]{} f \Leftrightarrow f_n \to f$ по метрике $\rho_E$.
+
+Можем заметить, что в $\mathcal F$ при различных метриках происходит различная сходимость или расходимость, в отличие от $\R^m$.
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item $E = E_1 \cup E_2$
+    \end{itemize}
+    $$\begin{rcases*}
+            f_n \xrightrightarrows[E_1]{} f \\
+            f_n \xrightrightarrows[E_2]{} f
+        \end{rcases*} \Rightarrow f_n \xrightrightarrows[E]{} f$$
+\end{remark}
 
 \end{document}

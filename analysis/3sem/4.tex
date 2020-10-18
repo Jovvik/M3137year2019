@@ -275,9 +275,9 @@ $$F' = \begin{pmatrix}
         \item $p\in M$
         \item $\exists$ две параметризации:
 
-              $\Phi_1 : O_1\subset\R^k \to U(p)\cap M\subset\R^m, \Phi_1(t^0) = \?$
+              $\Phi_1 : O_1\subset\R^k \to U(p)\cap M\subset\R^m, \Phi_1(t^0) = p$
 
-              $\Phi_2 : O_2\subset\R^k \to U(p)\cap M\subset\R^m, \Phi_2(s^0) = \?$
+              $\Phi_2 : O_2\subset\R^k \to U(p)\cap M\subset\R^m, \Phi_2(s^0) = p$
     \end{itemize}
 
     Тогда $\exists$ диффеоморфизм $\Psi : O_1\to O_2$, такой что $\Phi_1 = \Phi_2 \circ \Psi$
@@ -289,11 +289,13 @@ $$F' = \begin{pmatrix}
         \item [Частный случай:] Пусть $\rg \Phi'_1(t^0), \rg \Phi'_2(s^0)$ достигается на первых $k$ столбцах.
 
               Тогда $\Phi_1 = \Phi_2 \circ \underbrace{(L \circ \Phi_2)^{-1} \circ (L \circ \Phi_1)}_{\Theta \text{ --- искомый диффеоморфизм}}$
-        \item [Общий случай:] $\Phi_1 = \Phi_2 \circ (\? \circ L_2)^{-1} \circ (L_2 \circ L_1^{-1}) \circ (L\circ \Phi_1)$
+        \item [Общий случай:] $\Phi_1 = \Phi_2 \circ (\Phi_2 \circ L_2)^{-1} \circ (L_2 \circ L_1^{-1}) \circ (L_1\circ \Phi_1)$
+
+              $$L_2 \circ L_1^{-1} = L_2 \circ \Phi_1 \circ (L \circ \Phi_1)^{-1} \in C^r$$
 
               Гладкость очевидна в силу гладкости всех элементов.
 
-              Почему-то мы проиграли, это не диффеоморфизм.
+              Невырожденность мы не доказали, поэтому то, что это диффеоморфизм --- ещё не доказано. Возможно, это будет на следующей лекции.
     \end{itemize}
 \end{proof}
 %</одвухпараметризацияхproof>

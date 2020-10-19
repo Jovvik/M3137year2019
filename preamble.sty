@@ -28,6 +28,7 @@
 
 % tikz
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{calc}
@@ -85,6 +86,12 @@
 \newtheorem{theorem}{Теорема}[section]
 \newtheorem*{definition}{Определение}
 \newtheorem*{obozn}{Обозначение}
+
+\newtheorem{manualtheoreminner}{Теорема}
+\newenvironment{manualtheorem}[1]{%
+  \renewcommand\themanualtheoreminner{#1}%
+  \manualtheoreminner
+}{\endmanualtheoreminner}
 
 \newcommand{\dbltilde}[1]{\accentset{\approx}{#1}}
 \newcommand{\intt}{\int\!}
@@ -149,4 +156,3 @@
 \providecommand*{\xleftleftarrows}[2][]{%
   \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
 }
-\makeatother

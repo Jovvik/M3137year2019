@@ -7,8 +7,14 @@
 \begin{document}
 
 \begin{theorem}[достаточное условие экстремума]\itemfix
+    %<*достаточноеусловиеэкстремума>
+    Выполняется условие теоремы о необходимом условии экстремума, то есть:
     \begin{itemize}
-        \item Выполняется условие теоремы о необходимом условии экстремума
+        \item $f: O\subset\R^{m+n} \to\R$ --- гладкое в $O$
+        \item $M_\Phi \subset O := \{ x : \Phi(x) = 0 \}$ --- гладкое в $O$
+        \item $a\in O$ --- точка относительного локального экстремума
+        \item $\Phi(a) = 0$
+        \item $\rg \Phi'(a) = n$
     \end{itemize}
     $\forall h=(h_x, h_y)\in\R^{m+n}$: если $\Phi'(a)h=0$, то можно выразить $h_y = \Psi(h_x)$.
 
@@ -21,6 +27,7 @@
         \item Если $Q(h)$ незнакоопределена, $a$ --- не экстремум
         \item Если $Q(h)$ положительно определена, но вырождена, недостаточно информации
     \end{enumerate}
+    %</достаточноеусловиеэкстремума>
 \end{theorem}
 \begin{proof}
     \begin{align}
@@ -77,7 +84,8 @@
 
 \section*{Функциональные последовательности и ряды}
 
-\begin{manualtheorem}{1}[Стокс, Зайдля]\itemfix
+\begin{manualtheorem}{1}[Стокса, Зайдля]\itemfix
+    %<*стоксазайдля>
     \begin{itemize}
         \item $f_n, f : X\to\R$
         \item $X$ --- метрическое пространство
@@ -86,7 +94,9 @@
         \item $f_n\xrightrightarrows[X]{} f$
     \end{itemize}
     Тогда $f$ непрерывна в $x_0$
+    %</стоксазайдля>
 \end{manualtheorem}
+%<*стоксазайдляproof>
 \begin{proof}
     $|f(x) - f(x_0)| \le \underline{|f(x) - f_n(x)|} + |f_n(x) - f_n(x_0)| + \underline{|f_n(x_0) - f(x_0)|}$ --- верно $\forall x, \forall n$
 
@@ -96,6 +106,7 @@
 
     $$|f(x) - f(x_0)| \le \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon$$
 \end{proof}
+%</стоксазайдляproof>
 
 \begin{remark}
     То же верно, если $f_n, f : X \to Y$, где $Y$ --- метрическое пространство.
@@ -127,12 +138,15 @@
 \end{example}
 
 \begin{theorem}\itemfix
+    %<*метрикавcx>
     \begin{itemize}
         \item $X$ компакт
         \item $\rho(f_1, f_2)=\sup\limits_{x\in X}|f_1(x) - f_2(x)|$, где $f_1, f_2 \in C(X)$
     \end{itemize}
     Тогда пространство $C(X)$ --- полное метрическое пространство с метрикой $\rho$.
+    %</метрикавcx>
 \end{theorem}
+%<*метрикавcxproof>
 \begin{proof}
     $f_n$ --- фундаментальная в $C(X) \xLeftrightarrow{\text{def}}$:
     $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n, m > N \ \ \forall x\in X \ \ |f_n(x) - f_m(x)| < \varepsilon \ \ (*)$$
@@ -141,12 +155,13 @@
     В $(*)$ перейдем к пределу при $m\to+\infty$:
     $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n \ \ \forall x\in X \ \ |f_n(x) - f(x)| \le \varepsilon \Rightarrow f_n\xrightrightarrows[X]{}f \xRightarrow{\text{сл. из Стокс}} f\in C(X)$$
 \end{proof}
+%</метрикавcxproof>
 
 $(x_n)$ --- последовательность в полном метрическом пространстве $X$, $x_n$ сходится $\Leftrightarrow x_n$ фундаментальная.
 
 $f : \underbrace{X}_{\text{м.п.}}\to \underbrace{Y}_{\substack{\text{м.п.} \\ \text{полное}}}, f(x) \xrightarrow{x\to a} L \xLeftrightarrow[\text{Больцано-Коши}]{\text{критерий}} \forall \varepsilon > 0 \ \ \exists U(a) \ \ \forall x_1, x_2 \in \dot U(a) \quad \rho(f(x_1), f(x_2)) < \varepsilon$
 
-$B\subset X, f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментальность:
+В $C(X)$ $f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментальность:
 \begin{equation}
     \forall \varepsilon > 0 \ \ \exists N \ \ \forall n, m > N \ \ \forall x \ \ |f_n(x) - f_m(x)| < \varepsilon \label{fund}
 \end{equation}
@@ -154,7 +169,10 @@ $B\subset X, f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментал
     \sup_{x\in X} |f_n - f| < \varepsilon \label{sup_fund}
 \end{equation}
 
-\textcolor{red}{Не дописано}
+\begin{itemize}
+    \item \ref{sup_fund} $\Rightarrow$ \ref{fund}
+    \item \ref{fund} $\Rightarrow \sup\limits_{x\in X}|f_n - f| \le \varepsilon$, но по двойной бухгалтерии это $\Leftrightarrow$ \ref{sup_fund}
+\end{itemize}
 
 \subsection*{Предельный переход под знаком интеграла}
 
@@ -170,23 +188,30 @@ $B\subset X, f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментал
 \end{example}
 
 \begin{manualtheorem}{2}\itemfix
+    %<*предельныйпереходподинтегралом>
     \begin{itemize}
         \item $f, f_n \in C[a, b]$
-        \item $f_n\xrightrightarrows[[a, b]]{} f$
+        \item $f_n\rightrightarrows f$ на $[a, b]$
     \end{itemize}
     Тогда $\int_a^b f_n \to \int_a^b f$
+    %</предельныйпереходподинтегралом>
 \end{manualtheorem}
+%<*предельныйпереходподинтеграломproof>
 \begin{proof}
     $$\left|\int_a^b f_n - \int_a^b f\right| \le \int_a^b |f_n - f| \le \sup_{[a, b]} |f_n - f|(b-a) = \rho(f_n, f)(b-a) \to0$$
 \end{proof}
+%</предельныйпереходподинтеграломproof>
 \begin{corollary}[Правило Лейбница]\itemfix
+    %<*правилолейбница>
     \begin{itemize}
         \item $f : [a,b]\times[c, d] \to\R$
         \item $f, f'_y$ --- непр. на $[a, b]\times [c, d]$
         \item $\Phi(y) = \int_a^b f(x, y) dx$
     \end{itemize}
     Тогда $\Phi$ дифференцируема на $[c, d]$ и $\Phi'(y) = \int_a^b f'_y(x, y) dx$
+    %</правилолейбница>
 \end{corollary}
+%<*правилолейбницаproof>
 \begin{proof}
     \begin{align}
         \frac{\Phi\left(y + \frac{1}{n}\right) - \Phi(y)}{\frac{1}{n}} & = \int_a^b \frac{f\left(y + \frac{1}{n}\right) - f(x, y)}{\frac{1}{n}}dx \\
@@ -200,8 +225,10 @@ $B\subset X, f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментал
 
     Таким образом, $\Phi'(y)\leftarrow\cfrac{\Phi\left(y + \frac{1}{n}\right) - \Phi(y)}{\frac{1}{n}}\rightarrow \int_a^b f'_y(x, y)dx$
 \end{proof}
+%</правилолейбницаproof>
 
 \begin{manualtheorem}{3}[о предельном переходе под знаком производной]\itemfix
+    %<*предельныйпереходподпроизводной>
     \begin{itemize}
         \item $f_n\in C^1\langle a, b\rangle$
         \item $f_n\to f$ поточечно на $\langle a, b\rangle$
@@ -210,17 +237,30 @@ $B\subset X, f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментал
     Тогда $f\in C^1\langle a, b\rangle$
 
     То есть пунктирное преобразование верно:
-    $$\begin{tikzcd}
-            f_n \arrow{r}{n\to+\infty} \arrow[swap]{d}{D} & f \arrow[dashed]{d}{} \\
-            f_n' \arrow[r, yshift=0.7ex]\arrow[r, yshift=-0.7ex] & \varphi
+    $$\begin{tikzcd}[ampersand replacement=\&]
+            f_n \arrow{r}{n\to+\infty} \arrow[swap]{d}{D} \& f \arrow[dashed]{d}{} \\
+            f_n' \arrow[r, yshift=0.7ex]\arrow[r, yshift=-0.7ex] \& \varphi
         \end{tikzcd}$$
+    %</предельныйпереходподпроизводной>
 \end{manualtheorem}
 
+%<*предельныйпереходподпроизводнойproof>
 \begin{proof}
-    $x_0, x_1\in \langle a,b\rangle$
+    $\forall x_0, x_1\in \langle a,b\rangle$:
 
-    $f'_n\xrightrightarrows{[x_0, x_1]} \?$
+    $$f'_n\xrightrightarrows{[x_0, x_1]} \varphi \xRightarrow{\text{теорема } 2} \int_{x_0}^{x_1} f'_n \xrightarrow{n\to+\infty} \int_{x_0}^{x_1} \varphi$$
+    \begin{align*}
+        \int_{x_0}^{x_1} f'_n                                        & \xrightarrow{n\to+\infty} \int_{x_0}^{x_1} \varphi \\
+        f(x_1) - f(x_0) \xleftarrow{n\to+\infty} f_n(x_1) - f_n(x_0) & \xrightarrow{n\to+\infty} \int_{x_0}^{x_1} \varphi \\
+        f(x_1) - f(x_0)                                              & \to \int_{x_0}^{x_1} \varphi                       \\
+    \end{align*}
+
+    Тогда $\begin{cases}
+            f \text{ --- первообразная } \varphi \\
+            \varphi \text{ --- непр.}
+        \end{cases} \Rightarrow f' = \varphi$
 \end{proof}
+%</предельныйпереходподпроизводнойproof>
 
 \subsection*{Равномерная сходимость функциональных рядов}
 
@@ -231,8 +271,14 @@ $B\subset X, f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментал
     \end{itemize}
     $\sum u_n(x)$ \textbf{сходится поточечно} (к сумме $S(x)$) на $X$, если $S_N(x) := \sum_{n=0}^N u_n(x), S_N(x) \to S(x)$ поточечно на $X$.
 \end{definition}
-\begin{definition}
+\begin{definition}\itemfix
+    %<*равномернаясходимостьряда>
+    \begin{itemize}
+        \item $X$ --- произвольное множество
+        \item $u_n : X\to\R (\R^n)$
+    \end{itemize}
     $\sum_{n=0}^{+\infty} u_n(x)$ сходится к $S(x)$ \textbf{равномерно} на $E\subset X : S_N\xrightrightarrows[E]{N\to+\infty} S$
+    %</равномернаясходимостьряда>
 \end{definition}
 
 \begin{remark}
@@ -242,10 +288,13 @@ $B\subset X, f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментал
     $$\sup_{x\in E} |S_N - S|\xrightarrow{N\to+\infty} 0 \Rightarrow \forall x_0 \in E : |S_N(x_0) - S(x_0)| \le \sup_{x\in E}|S_N - S| \to 0$$
 \end{proof}
 \begin{remark}
+    %<*критерийбольцанокоши>
     Остаток ряда: $R_N(x) = \sum_{n=N+1}^{+\infty} u_n(x), S(x) = S_N(x) + R_N(x)$
+
+    Ряд сходится на $E \Leftrightarrow R_N \xrightrightarrows[E]{} 0$
+    %</критерийбольцанокоши>
 \end{remark}
 
-Ряд сходится на $E \Leftrightarrow R_N \xrightrightarrows[E]{} 0$
 
 \begin{remark}
     Необходимое условие равномерной сходимости: $\sum u_n(x)$ --- расходится на $E \Rightarrow u_n(x) \xrightrightarrows[]{n\to+\infty} 0$

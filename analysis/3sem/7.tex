@@ -8,6 +8,110 @@
 
 \subsection*{Функциональные последовательности и ряды}
 
-\
+\begin{example}
+    $\sum x^n, x\in (0, 1)$ --- нет равномерной сходимости
+
+    $\exists \varepsilon = 0.1 \ \ \forall N \ \ \exists n>N$ --- подходит любое $>100$ $\exists p = 1 \ \ \exists x = 1 - \frac{1}{n+1} : |u_{n+1}(x)| \ge \varepsilon$, т.е. $\left(1 - \frac{1}{n+1}\right)^{n+1} \approx \frac{1}{e} > \frac{1}{10}$
+\end{example}
+
+\begin{theorem}[признак Вейерштрасса]\itemfix
+    \begin{itemize}
+        \item $\sum u_n(x)$
+        \item $x\in X$
+    \end{itemize}
+    Пусть $\exists c_n$ --- вещественная:
+    \begin{itemize}
+        \item $|u_n(x)| \le c_n$ при $x\in E$
+        \item $\sum c_n$ --- сходится
+    \end{itemize}
+    Тогда $\sum u_n(x)$ равномерно сходится на $E$
+\end{theorem}
+\begin{proof}
+    $|u_{n+1}(x) + \ldots + u_{n+p}(x)| \le c_{n+1} + \ldots + c_{n+p}$ --- тривиально
+
+    $\sum c_n$ --- сх. $\Rightarrow$ $c_n$ удовлетворяет критерию Больцано-Коши : $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n > N \ \ \forall p\in \N \ \ \forall x\in E \ \ c_{n+1} + \ldots c_{n+p} < \varepsilon$$
+
+    Тогда $\sum u_n(x)$ удовлетворяет критерию Больцано-Коши равномерной сходимости.
+\end{proof}
+
+\begin{example}
+    $\sum\limits_{n=1}^{+\infty} \frac{x}{1+n^2x^2}, x\in\R$. Попытаемся применить признак.
+
+    $c_n := \sup\limits_{x\in \R} \left|\frac{x}{1+n^2x^2}\right|$ --- это минимальное возможное $c_n$, если для него не сработает признак, до ни для какого $c_n$ не сработает.
+
+    $\sup$ достигается в точке $x_0 = \frac{1}{n}$, $\sup = \frac{1}{2n}$. $\sum \frac{1}{2n}$ расходится $\Rightarrow$ признак не сработал.
+
+    Построим отрицание критерия Больцано-Коши:
+    $$\exists \varepsilon = \frac{1}{6} \ \ \forall N \ \ \exists n>N \ \ p=n\in\N \ \ \exists x=\frac{1}{n} \ \ |u_{n+1}(x) + u_{2n}(x)| = \frac{\frac{1}{n}}{1+(n+1)^2\frac{1}{n^2}} + \ldots \frac{\frac{1}{n}}{1+(2n)^2\frac{1}{n^2}} \ge$$
+    $$\ge n \frac{\frac{1}{n}}{1+(2n)^2\frac{1}{n^2}} = \frac{1}{5} > \frac{1}{6} = \varepsilon$$
+\end{example}
+
+\begin{example}
+    $\sum \frac{x}{1+x^2n^2}, x\in\left(\frac{1}{2020}, 2020\right)$
+
+    $$c_n := \sup \frac{x}{1+x^2n^2} \le \frac{2020}{1+\frac{1}{2020^2}n^2} \equ_{n\to+\infty} \frac{\?}{n^2}$$
+
+    $\sum c_n$ сходится $\Rightarrow$ есть равномерная сходимость.
+\end{example}
+
+\subsection*{Приложения равномерной сходимости для рядов}
+
+\begin{manualtheorem}{1'}[Стокса-Зайдля для рядов]\itemfix
+    \begin{itemize}
+        \item $u_n : X\to Y$
+        \item $X$ --- метрическое пространство
+        \item $Y$ --- нормированное пространство
+        \item $x_0\in X$
+        \item $u_n$ --- непрерывно в $x_0$
+        \item $\sum u_n(x)$ \textbf{равномерно} сходится на $X$
+        \item $S(x) := \sum u_n(x)$
+    \end{itemize}
+    Тогда $S(x)$ --- непрерывно в $x_0$.
+\end{manualtheorem}
+\begin{proof}
+    По теореме 1 $S_n(x) \rightrightarrows S(x), S_n(x)$ --- непр. в $x_0 \xRightarrow{\text{т. 1}} S(x)$ непр. в $x_0$
+\end{proof}
+
+\begin{remark}
+    Достаточно равномерной сходимости $u_n(x)$ на некоторой окрестности $x_0$
+\end{remark}
+\begin{remark}
+    $u_n \in C(x), \sum u_n$ --- равномерно сходится на $X \Rightarrow S(x) \in C(x)$
+\end{remark}
+
+\begin{manualtheorem}{2'}{О почленном интегрировании ряда}\itemfix
+    \begin{itemize}
+        \item $u_n : [a, b] \to\R$
+        \item $u_n$ --- непр. на $[a, b]$
+        \item $\sum\limits_{n=0}^{+\infty} u_n(x)$ \textbf{равномерно} сходится на $[a, b]$
+        \item $S(x) = \sum u_n(x)$
+    \end{itemize}
+    Тогда $\int_a^b S(x)dx = \sum_{n=0}^{+\infty} \int_a^b u_n(x)dx$
+
+    Можно интегрировать, т.к. $S(x)$ --- непр. на $[a, b]$ по теореме 1'
+\end{manualtheorem}
+\begin{proof}
+    По теореме 2
+
+    $S_n\xrightrightarrows{[a, b]} S$
+
+    По теореме 2 $\int_a^b S_n(x) dx \to \int_a^b S(x)dx$
+
+    $\int_a^b \sum\limits_{k=0}^{n} u_k(x) dx = \sum\limits_{k=0}^{n} \int_a^b u_k(x) dx \to \sum\limits_{k=0}^{n} \?$
+\end{proof}
+
+\begin{example}
+    $\sum\limits_{n=0}^{+\infty} (-1)^n x^n$ --- равномерно сходится при $|x| \le q < 1$ по Вейерштрассу: $|(-1)^n x^n|\le q^n, \sum q^n$ сходится.
+
+    Проинтегрируем от $0$ до $t$ ($|t|\le q$)
+
+    $$\sum_{n=0}^{+\infty} (-1)^n x^n = \frac{1}{1+x}$$
+    $$\ln(1+t) = \sum_{n=0}^{+\infty} (-1)^n \frac{t^{n+1}}{n+1} = \sum_{k=1}^{+\infty} (-1)^{k+1} \frac{t^k}{k}$$
+    Это верно при $t\in[-q, q]\ \ \forall q : 0<q<1$, т.е. верно при $t\in(-1, 1)$
+
+    При $t=-1$ $\sum -\frac{1}{k}$ расходится
+
+    При $t\to 1$ ряд $\sum (-1)^{k+1} \frac{t^k}{k}$ равномерно сходится на $[0, 1]$, слагаемые непрерывны в $t_0=1 \xRightarrow{\text{т. 1}}$ сумма ряда непрерывна в точке $t_0=1 \Rightarrow \ln 2 = \sum\limits_{k=1}^{+\infty} \frac{(-1)^{k+1}}{k}$
+\end{example}
 
 \end{document}

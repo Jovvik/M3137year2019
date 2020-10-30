@@ -9,109 +9,322 @@
 \subsection*{Функциональные последовательности и ряды}
 
 \begin{example}
-    $\sum x^n, x\in (0, 1)$ --- нет равномерной сходимости
+	$\sum x^n, x\in (0, 1)$ --- нет равномерной сходимости
 
-    $\exists \varepsilon = 0.1 \ \ \forall N \ \ \exists n>N$ --- подходит любое $>100$ $\exists p = 1 \ \ \exists x = 1 - \frac{1}{n+1} : |u_{n+1}(x)| \ge \varepsilon$, т.е. $\left(1 - \frac{1}{n+1}\right)^{n+1} \approx \frac{1}{e} > \frac{1}{10}$
+	$\exists \varepsilon = 0.1 \ \ \forall N \ \ \exists n>N$ --- подходит любое $>100$ $\exists p = 1 \ \ \exists x = 1 - \frac{1}{n+1} : |u_{n+1}(x)| \ge \varepsilon$, т.е. $\left(1 - \frac{1}{n+1}\right)^{n+1} \approx \frac{1}{e} > \frac{1}{10}$
 \end{example}
 
 \begin{theorem}[признак Вейерштрасса]\itemfix
-    \begin{itemize}
-        \item $\sum u_n(x)$
-        \item $x\in X$
-    \end{itemize}
-    Пусть $\exists c_n$ --- вещественная:
-    \begin{itemize}
-        \item $|u_n(x)| \le c_n$ при $x\in E$
-        \item $\sum c_n$ --- сходится
-    \end{itemize}
-    Тогда $\sum u_n(x)$ равномерно сходится на $E$
+	\begin{itemize}
+		\item $\sum u_n(x)$
+		\item $x\in X$
+	\end{itemize}
+	Пусть $\exists c_n$ --- вещественная:
+	\begin{itemize}
+		\item $|u_n(x)| \le c_n$ при $x\in E$
+		\item $\sum c_n$ --- сходится
+	\end{itemize}
+	Тогда $\sum u_n(x)$ равномерно сходится на $E$
 \end{theorem}
 \begin{proof}
-    $|u_{n+1}(x) + \ldots + u_{n+p}(x)| \le c_{n+1} + \ldots + c_{n+p}$ --- тривиально
+	$|u_{n+1}(x) + \ldots + u_{n+p}(x)| \le c_{n+1} + \ldots + c_{n+p}$ --- тривиально
 
-    $\sum c_n$ --- сх. $\Rightarrow$ $c_n$ удовлетворяет критерию Больцано-Коши : $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n > N \ \ \forall p\in \N \ \ \forall x\in E \ \ c_{n+1} + \ldots c_{n+p} < \varepsilon$$
+	$\sum c_n$ --- сх. $\Rightarrow$ $c_n$ удовлетворяет критерию Больцано-Коши : $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n > N \ \ \forall p\in \N \ \ \forall x\in E \ \ c_{n+1} + \ldots c_{n+p} < \varepsilon$$
 
-    Тогда $\sum u_n(x)$ удовлетворяет критерию Больцано-Коши равномерной сходимости.
+	Тогда $\sum u_n(x)$ удовлетворяет критерию Больцано-Коши равномерной сходимости.
 \end{proof}
 
 \begin{example}
-    $\sum\limits_{n=1}^{+\infty} \frac{x}{1+n^2x^2}, x\in\R$. Попытаемся применить признак.
+	$\sum\limits_{n=1}^{+\infty} \frac{x}{1+n^2x^2}, x\in\R$. Попытаемся применить признак.
 
-    $c_n := \sup\limits_{x\in \R} \left|\frac{x}{1+n^2x^2}\right|$ --- это минимальное возможное $c_n$, если для него не сработает признак, до ни для какого $c_n$ не сработает.
+	$c_n := \sup\limits_{x\in \R} \left|\frac{x}{1+n^2x^2}\right|$ --- это минимальное возможное $c_n$, если для него не сработает признак, до ни для какого $c_n$ не сработает.
 
-    $\sup$ достигается в точке $x_0 = \frac{1}{n}$, $\sup = \frac{1}{2n}$. $\sum \frac{1}{2n}$ расходится $\Rightarrow$ признак не сработал.
+	$\sup$ достигается в точке $x_0 = \frac{1}{n}$, $\sup = \frac{1}{2n}$. $\sum \frac{1}{2n}$ расходится $\Rightarrow$ признак не сработал.
 
-    Построим отрицание критерия Больцано-Коши:
-    $$\exists \varepsilon = \frac{1}{6} \ \ \forall N \ \ \exists n>N \ \ p=n\in\N \ \ \exists x=\frac{1}{n} \ \ |u_{n+1}(x) + u_{2n}(x)| = \frac{\frac{1}{n}}{1+(n+1)^2\frac{1}{n^2}} + \ldots \frac{\frac{1}{n}}{1+(2n)^2\frac{1}{n^2}} \ge$$
-    $$\ge n \frac{\frac{1}{n}}{1+(2n)^2\frac{1}{n^2}} = \frac{1}{5} > \frac{1}{6} = \varepsilon$$
+	Построим отрицание критерия Больцано-Коши:
+	$$\exists \varepsilon = \frac{1}{6} \ \ \forall N \ \ \exists n>N \ \ p=n\in\N \ \ \exists x=\frac{1}{n} \ \ |u_{n+1}(x) + u_{2n}(x)| = \frac{\frac{1}{n}}{1+(n+1)^2\frac{1}{n^2}} + \ldots \frac{\frac{1}{n}}{1+(2n)^2\frac{1}{n^2}} \ge$$
+	$$\ge n \frac{\frac{1}{n}}{1+(2n)^2\frac{1}{n^2}} = \frac{1}{5} > \frac{1}{6} = \varepsilon$$
 \end{example}
 
 \begin{example}
-    $\sum \frac{x}{1+x^2n^2}, x\in\left(\frac{1}{2020}, 2020\right)$
+	$\sum \dfrac{x}{1+x^2n^2}, x\in\left(\dfrac{1}{2020}, 2020\right)$
 
-    $$c_n := \sup \frac{x}{1+x^2n^2} \le \frac{2020}{1+\frac{1}{2020^2}n^2} \equ_{n\to+\infty} \frac{\?}{n^2}$$
+	$$c_n := \sup \frac{x}{1+x^2n^2} \le \frac{2020}{1+\frac{1}{2020^2}n^2} \equ_{n\to+\infty} \frac{C}{n^2}$$
 
-    $\sum c_n$ сходится $\Rightarrow$ есть равномерная сходимость.
+	$\sum c_n$ сходится $\Rightarrow$ есть равномерная сходимость.
 \end{example}
 
 \subsection*{Приложения равномерной сходимости для рядов}
 
 \begin{manualtheorem}{1'}[Стокса-Зайдля для рядов]\itemfix
-    \begin{itemize}
-        \item $u_n : X\to Y$
-        \item $X$ --- метрическое пространство
-        \item $Y$ --- нормированное пространство
-        \item $x_0\in X$
-        \item $u_n$ --- непрерывно в $x_0$
-        \item $\sum u_n(x)$ \textbf{равномерно} сходится на $X$
-        \item $S(x) := \sum u_n(x)$
-    \end{itemize}
-    Тогда $S(x)$ --- непрерывно в $x_0$.
+	\begin{itemize}
+		\item $u_n : X\to Y$
+		\item $X$ --- метрическое пространство
+		\item $Y$ --- нормированное пространство
+		\item $x_0\in X$
+		\item $u_n$ --- непрерывно в $x_0$
+		\item $\sum u_n(x)$ \textbf{равномерно} сходится на $X$
+		\item $S(x) := \sum u_n(x)$
+	\end{itemize}
+	Тогда $S(x)$ --- непрерывно в $x_0$.
 \end{manualtheorem}
 \begin{proof}
-    По теореме 1 $S_n(x) \rightrightarrows S(x), S_n(x)$ --- непр. в $x_0 \xRightarrow{\text{т. 1}} S(x)$ непр. в $x_0$
+	По теореме 1 $S_n(x) \rightrightarrows S(x), S_n(x)$ --- непр. в $x_0 \xRightarrow{\text{т. 1}} S(x)$ непр. в $x_0$
 \end{proof}
 
 \begin{remark}
-    Достаточно равномерной сходимости $u_n(x)$ на некоторой окрестности $x_0$
+	Достаточно равномерной сходимости $u_n(x)$ на некоторой окрестности $x_0$
 \end{remark}
 \begin{remark}
-    $u_n \in C(x), \sum u_n$ --- равномерно сходится на $X \Rightarrow S(x) \in C(x)$
+	$u_n \in C(x), \sum u_n$ --- равномерно сходится на $X \Rightarrow S(x) \in C(x)$
 \end{remark}
 
 \begin{manualtheorem}{2'}{О почленном интегрировании ряда}\itemfix
-    \begin{itemize}
-        \item $u_n : [a, b] \to\R$
-        \item $u_n$ --- непр. на $[a, b]$
-        \item $\sum\limits_{n=0}^{+\infty} u_n(x)$ \textbf{равномерно} сходится на $[a, b]$
-        \item $S(x) = \sum u_n(x)$
-    \end{itemize}
-    Тогда $\int_a^b S(x)dx = \sum_{n=0}^{+\infty} \int_a^b u_n(x)dx$
+	\begin{itemize}
+		\item $u_n : [a, b] \to\R$
+		\item $u_n$ --- непр. на $[a, b]$
+		\item $\sum\limits_{n=0}^{+\infty} u_n(x)$ \textbf{равномерно} сходится на $[a, b]$
+		\item $S(x) = \sum u_n(x)$
+	\end{itemize}
+	Тогда $\int_a^b S(x)dx = \sum_{n=0}^{+\infty} \int_a^b u_n(x)dx$
 
-    Можно интегрировать, т.к. $S(x)$ --- непр. на $[a, b]$ по теореме 1'
+	Можно интегрировать, т.к. $S(x)$ --- непр. на $[a, b]$ по теореме 1'
 \end{manualtheorem}
 \begin{proof}
-    По теореме 2
+	По теореме 2
 
-    $S_n\xrightrightarrows{[a, b]} S$
+	$S_n\xrightrightarrows{[a, b]} S$
 
-    По теореме 2 $\int_a^b S_n(x) dx \to \int_a^b S(x)dx$
+	По теореме 2: $$\int_a^b S_n(x) dx \to \int_a^b S(x)dx$$
 
-    $\int_a^b \sum\limits_{k=0}^{n} u_k(x) dx = \sum\limits_{k=0}^{n} \int_a^b u_k(x) dx \to \sum\limits_{k=0}^{n} \?$
+	$$\int_a^b S_n(x) dx = \int_a^b \sum_{k=0}^{n} u_k(x) dx = \sum_{k=0}^{n} \int_a^b u_k(x) dx \xrightarrow{n\to+\infty} \sum_{k=0}^{+\infty} \int_a^b u_k(x)dx$$
 \end{proof}
 
 \begin{example}
-    $\sum\limits_{n=0}^{+\infty} (-1)^n x^n$ --- равномерно сходится при $|x| \le q < 1$ по Вейерштрассу: $|(-1)^n x^n|\le q^n, \sum q^n$ сходится.
+	$\sum\limits_{n=0}^{+\infty} (-1)^n x^n$ --- равномерно сходится при $|x| \le q < 1$ по Вейерштрассу: $|(-1)^n x^n|\le q^n, \sum q^n$ сходится.
 
-    Проинтегрируем от $0$ до $t$ ($|t|\le q$)
+	Проинтегрируем от $0$ до $t$ ($|t|\le q$)
 
-    $$\sum_{n=0}^{+\infty} (-1)^n x^n = \frac{1}{1+x}$$
-    $$\ln(1+t) = \sum_{n=0}^{+\infty} (-1)^n \frac{t^{n+1}}{n+1} = \sum_{k=1}^{+\infty} (-1)^{k+1} \frac{t^k}{k}$$
-    Это верно при $t\in[-q, q]\ \ \forall q : 0<q<1$, т.е. верно при $t\in(-1, 1)$
+	$$\sum_{n=0}^{+\infty} (-1)^n x^n = \frac{1}{1+x}$$
+	$$\ln(1+t) = \sum_{n=0}^{+\infty} (-1)^n \frac{t^{n+1}}{n+1} = \sum_{k=1}^{+\infty} (-1)^{k+1} \frac{t^k}{k}$$
+	Это верно при $t\in[-q, q]\ \ \forall q : 0<q<1$, т.е. верно при $t\in(-1, 1)$
 
-    При $t=-1$ $\sum -\frac{1}{k}$ расходится
+	При $t=-1$ $\sum -\frac{1}{k}$ расходится
 
-    При $t\to 1$ ряд $\sum (-1)^{k+1} \frac{t^k}{k}$ равномерно сходится на $[0, 1]$, слагаемые непрерывны в $t_0=1 \xRightarrow{\text{т. 1}}$ сумма ряда непрерывна в точке $t_0=1 \Rightarrow \ln 2 = \sum\limits_{k=1}^{+\infty} \frac{(-1)^{k+1}}{k}$
+	При $t\to 1$ ряд $\sum (-1)^{k+1} \dfrac{t^k}{k}$ равномерно сходится (*) на $[0, 1]$, слагаемые непрерывны в $t_0=1 \xRightarrow{\text{т. 1}}$ сумма ряда непрерывна в точке $t_0=1 \Rightarrow \ln 2 = \sum\limits_{k=1}^{+\infty} \dfrac{(-1)^{k+1}}{k}$.
+
+	(*): равномерная сходимость есть по секретному приложению к признаку Лейбница:
+
+	$\forall t \ \ \dfrac{t^k}{k}$ --- монотонно убывает по $k$ $\Rightarrow \left|\underbrace{\sum\limits_{k=N}^{+\infty} (-1)^{k+1} \cfrac{t^k}{k}}_{S_{N-1}-S}\right| \le \left|\dfrac{t^N}{N}\right| \le \underbrace{\dfrac{1}{N}}_{\substack{\text{не зависит} \\ \text{от } t}} \to0$, это и есть равномерная сходимость ряда.
 \end{example}
+
+\section*{Криволинейный интеграл}
+
+\subsection*{Интеграл векторного поля по кусочно-гладкому пути}
+
+\begin{definition}
+	\begin{itemize}\itemfix
+		\item Путь --- непрерывное отображение $\gamma : [a, b] \to\R^m$
+		\item $\gamma(a)$ --- начало пути
+		\item $\gamma(b)$ --- конец пути
+		\item $\gamma[a, b]$ --- носитель пути
+		\item Если $\gamma(a) = \gamma(b)$, путь называется замкнутым или петлёй.
+		\item Если $\gamma$ --- гладкое или кусочно-гладкое, то $\gamma'(t)$ --- вектор скорости
+		\item Кусочно-гладкое отображение - отображение, имеющее не более, чем счётное число точек разрыва, все точки разрыва - I рода, то есть $\gamma\Big|_{[t_{k-1}, t_k]}$ --- гладкое $\forall k$, где $t_k$ --- точка разрыва.
+		\item $\gamma(t) = (\gamma_1(t) \ldots \gamma_m(t))$, то $\gamma' = (\gamma'_1 \ldots \gamma'_m)$
+		\item Длина гладкого пути это $l(\varphi) = \int_a^b |\gamma'(t)|dt$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	%<*векторноеполе>
+	\textbf{Векторное поле} --- непрерывное отображение $V : E\subset\R^m \to\R^m$
+
+	$\forall x\in E \ \ V(x)\in\R^m$ --- вектор, ``приложенный к точке $x$''.
+	%</векторноеполе>
+\end{definition}
+
+\begin{definition}
+	%<*интегралвекторногополяпокусочногладкомупути>
+	\textbf{Интеграл векторного поля по кусочно-гладкому пути}
+	\begin{align}
+		I(V, \gamma) & = \int_a^b \langle V(\gamma(t)), \gamma'(t)\rangle dt     \nonumber                             \\
+		             & = \int_a^b \sum_{i=1}^m V_i(\gamma(t)) \cdot \gamma'_i(t) dt \label{int_vector_field_coordwise} \\
+		             & = \int_a^b V_1 d\gamma_1 + \ldots V_m d\gamma_m \nonumber
+	\end{align}
+	Также используется обозначение $I(V, \gamma) = \int_{\gamma} V_1 d\gamma_1 + \ldots V_m d\gamma_m$
+	%</интегралвекторногополяпокусочногладкомупути>
+\end{definition}
+
+Пусть $V$ --- поле силы. Запишем интегральную сумму для интеграла векторного поля:
+\begin{align*}
+	\int_a^b \langle V(\gamma(t)), \gamma'(t)\rangle & = \sum_{k=1}^{n} \langle V(\gamma(\xi_k)), \gamma'(\xi_k)\rangle(t_k-t_{k-1})                                                                                   \\
+	                                                 & = \sum_{k=1}^{n} \overbrace{\underbrace{\left\langle V(\gamma(\xi_k)), \frac{\gamma'(\xi_k)}{|\gamma'(\xi_k)|}\right\rangle}_{\substack{\text{проекция силы на} \\ \text{касательную к направлению}}} \underbrace{|\gamma'(\xi_k)|(t_k-t_{k-1})}_{\approx\text{ пройденный путь}}}^{\text{работа силы}}
+\end{align*}
+
+Свойства:
+\begin{enumerate}
+	\item Линейность интеграла по полю.
+	      $$\forall \alpha, \beta\in\R \ \ \forall U, V \text{ --- векторные поля} \ \ I(\alpha U + \beta V, \gamma) = \alpha I(U, \gamma) + \beta I(V, \gamma)$$
+	      \begin{proof}
+		      Очевидно из формулы \ref{int_vector_field_coordwise} в определении.
+	      \end{proof}
+	\item Аддитивность при дроблении пути
+	      \begin{itemize}
+		      \item $\gamma : [a, b]\to\R^m$
+		      \item $c\in(a, b)$
+		      \item $\gamma^1 = \gamma\Big|_{[a, c]}$
+		      \item $\gamma^2 = \gamma\Big|_{[c, b]}$
+	      \end{itemize}
+
+	      Тогда $I(V, \gamma) = I(V, \gamma^1) + I(V, \gamma^2)$
+
+	      \begin{proof}
+		      Очевидно из линейности интеграла в \ref{int_vector_field_coordwise}.
+	      \end{proof}
+	\item Замена параметра
+	      \begin{itemize}
+		      \item $\varphi : [p, q] \to [a, b]$
+		      \item $\varphi\in C^1$
+		      \item $\varphi(p) = a$
+		      \item $\varphi(q) = b$
+		      \item $\gamma : [a, b]\to\R^m$
+		      \item $\tilde\gamma = \gamma \circ \varphi$
+	      \end{itemize}
+
+	      Тогда $I(V, \varphi) = I(V, \tilde\varphi)$
+
+	      \begin{proof}
+		      Это замена переменной в интеграле.
+
+		      \begin{align*}
+			      I(V, \tilde\gamma) & = \int_p^q \langle V(\gamma(\varphi(s))), \tilde\gamma'(s)\rangle ds                      \\
+			                         & = \int_p^q \langle V(\gamma(\varphi(s))), \tilde\gamma'(\varphi(s))\rangle \varphi'(s) ds \\
+			      t := \varphi(s)                                                                                                \\
+			                         & = \int_a^b \langle V(\gamma(t)), \tilde\gamma'(t)\rangle dt                               \\
+			                         & = I(V, \gamma)
+		      \end{align*}
+	      \end{proof}
+
+	      \begin{remark}
+		      $\varphi : [a, b] \to\R^m$ --- параметризация гладкого одномерного простого многообразия
+
+		      $\tilde \varphi : [p, q] \to\R^m$ --- то же самое
+
+		      По теореме о двух параметризациях: $\exists$ диффеоморфизм $\varphi : [p, q] \to [a, b]$ $\tilde \gamma = \gamma \circ \varphi$
+	      \end{remark}
+	\item Объединение носителей
+	      \begin{itemize}
+		      \item $\gamma^1 : [a, b]\to\R^m$
+		      \item $\gamma^2 : [c, d]\to\R^m$
+		      \item $\gamma^1(b) = \gamma^2(c)$
+	      \end{itemize}
+
+	      Зададим путь $\gamma = \gamma^2 \gamma^1 : [a, b + d - c] \to\R^m, t\mapsto \begin{cases}
+			      \gamma^1(t) ,         & t\in [a, b]      \\
+			      \gamma^2(t + c - b) , & t\in [b + d - c]
+		      \end{cases}$
+
+	      В точке $b$ возможен излом, т.е. нет $\gamma'(b)$, но есть левосторонняя и правосторонняя производные.
+
+	      Если $\gamma^1, \gamma^2$ --- кусочно-гладкие, то $\gamma$ --- кусочно-гладкое.
+
+	      Тогда $I(V, \gamma^2\gamma^1) = I(V, \gamma^1) + I(V, \gamma^2)$
+
+	      \begin{proof}
+		      \begin{align*}
+			      I(V, \gamma) & = \int_a^{b+d-c} \langle V(\gamma(t)), \gamma'(t)\rangle dt                                                                                  \\
+			                   & = \int_a^b \langle V(\gamma(t)), \gamma'(t)\rangle dt + \int_b^{b+d-c} \langle V(\gamma(t)), \gamma'(t)\rangle dt                            \\
+			      \tau := t - b + c                                                                                                                                           \\
+			                   & = \int_a^b \langle V(\gamma^1(t)), \gamma^{1\prime}(t)\rangle dt + \int_c^{d} \langle V(\gamma^2(\tau)), \gamma^{2\prime}(\tau)\rangle d\tau \\
+			                   & = I(V, \gamma^1) + I(V, \gamma^2)                                                                                                            \\
+		      \end{align*}
+	      \end{proof}
+	\item Противоположный путь
+
+	      $\gamma^- : [a, b] \to\R^m, t\mapsto = \gamma(a + b - t)$, т.е. мы идём от $b$ к $a$, а не наоборот.
+
+	      Тогда $I(V, \gamma) = - I(V, \gamma^-)$
+
+	      \begin{proof}
+		      \begin{align*}
+			      I(V, \gamma^-) & = \int_a^b \langle V(\gamma(a + b - \tau)), -\gamma'(a + b - \tau)\rangle d\tau \\
+			      t := a + b - \tau                                                                                \\
+			                     & = \int_b^a \langle V(\gamma(t)), -\gamma'(t)\rangle (-dt)                       \\
+			                     & = - I(V, \gamma)
+		      \end{align*}
+	      \end{proof}
+	\item Оценка интеграла векторного поля пути
+
+	      $$|I(V, \gamma)| \le \max_{x\in L} |V(x)|\cdot l(\gamma)$$
+	      , где $L=\gamma[a, b]$ --- носитель пути.
+
+	      \begin{proof}
+		      \begin{align}
+			      \left|\int_a^b \langle V(\gamma(t)), \gamma'(t)\rangle dt\right| & \le \int_a^b\left|\langle V(\gamma(t)), \gamma'(t)\rangle \right| dt \nonumber \\
+			                                                                       & \le \int_a^b |V(\gamma(t))| |\gamma'(t)| dt  \label{оценка интеграла КБШ}      \\
+			                                                                       & \le \sup_{x\in L}|V(x)| \int_a^b |\gamma'(t)| dt                     \nonumber \\
+			                                                                       & \le \max_{x\in L}|V(x)| \int_a^b |\gamma'(t)| dt  \label{максимум на компакте} \\
+			                                                                       & \le \max_{x\in L}|V(x)| l(\gamma) dt                                 \nonumber
+		      \end{align}
+		      \ref{оценка интеграла КБШ}: Неравенство Коши-Буняковского
+
+		      \ref{максимум на компакте}: $V$ --- непр., $L$ --- компакт $\Rightarrow \sup$ достигается
+	      \end{proof}
+\end{enumerate}
+
+\subsection*{Потенциальные векторные поля}
+
+\begin{definition}
+	$V : \underbrace{O}_{\text{область}} \subset \R^m \to \R^m$ --- векторное поле \textbf{потенциально}, если оно имеет потенциал:
+
+	$$\exists f \in C^1(O), \nabla f = V$$
+\end{definition}
+
+\textbf{Загадка}. $V$ --- потенциально с потенциалом $f_1$, $f_2$ --- тоже потенциал. Тогда $f_1 - f_2 = \const$.
+
+\begin{theorem}[обобщенная формула Ньютона-Лейбница]\itemfix
+	\begin{itemize}
+		\item $V : O\subset\R^m \to\R^m$
+		\item $V$ --- потенциально
+		\item $f$ --- потенциал $V$
+		\item $\gamma[a, b]\to O$
+		\item $\gamma(a) = A$
+		\item $\gamma(b) = B$
+	\end{itemize}
+	Тогда $$\int_\gamma \sum v_k dx_k = f(B) - f(A)$$
+\end{theorem}
+\begin{proof}
+	Рассмотрим случаи:
+	\begin{enumerate}
+		\item $\gamma$ --- гладкий
+
+		      $\Phi(t) = f(\gamma(t))$
+
+		      \begin{align*}
+			      \Phi' & = \frac{\partial f}{\partial x_1} (\gamma(t)) \gamma_1'(t) + \ldots + \frac{\partial f}{\partial x_m} (\gamma(t)) \gamma_m'(t) \\
+			            & = \langle \nabla f (\gamma(t)), \gamma'(t) \rangle                                                                             \\
+			            & = \langle V (\gamma(t)), \gamma'(t) \rangle
+		      \end{align*}
+
+		      \begin{align*}
+			      \int_\gamma \sum v_k dx_k & = \int_a^b \Phi'(t) dt \\
+			                                & = \Phi(b) - \Phi(a)    \\
+			                                & = f(B) - f(A)          \\
+		      \end{align*}
+		\item $\gamma$ --- кусочно-гладкий
+
+		      $\exists$ дробление: $a = t_0 < t_1 < \ldots < t_n = b : \gamma\Big|_{[t_{k-1}, t_k]}$ --- гладкое
+
+		      \begin{align}
+			      \int_\gamma \sum v_k dx_k & = \sum_{k=1}^n \int_{t_{k-1}}^{t_k} \langle V(\gamma(t)), \varphi'(t) \rangle dt \nonumber \\
+			                                & = \sum_{k=1}^n f(\gamma(t_k)) - f(\gamma(t_{k-1}))                 \label{переход к f}     \\
+			                                & = f(\gamma(t_n)) - f(\gamma(t_0))                                                \nonumber \\
+			                                & = f(B) - f(A) \nonumber
+		      \end{align}
+
+		      \ref{переход к f}: по пункту 1.
+	\end{enumerate}
+\end{proof}
 
 \end{document}

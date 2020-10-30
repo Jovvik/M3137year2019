@@ -15,6 +15,7 @@
 \end{example}
 
 \begin{theorem}[признак Вейерштрасса]\itemfix
+	%<*признаквейерштрасса>
 	\begin{itemize}
 		\item $\sum u_n(x)$
 		\item $x\in X$
@@ -25,7 +26,9 @@
 		\item $\sum c_n$ --- сходится
 	\end{itemize}
 	Тогда $\sum u_n(x)$ равномерно сходится на $E$
+	%</признаквейерштрасса>
 \end{theorem}
+%<*признаквейерштрассаproof>
 \begin{proof}
 	$|u_{n+1}(x) + \ldots + u_{n+p}(x)| \le c_{n+1} + \ldots + c_{n+p}$ --- тривиально
 
@@ -33,6 +36,7 @@
 
 	Тогда $\sum u_n(x)$ удовлетворяет критерию Больцано-Коши равномерной сходимости.
 \end{proof}
+%</признаквейерштрассаproof>
 
 \begin{example}
 	$\sum\limits_{n=1}^{+\infty} \frac{x}{1+n^2x^2}, x\in\R$. Попытаемся применить признак.
@@ -124,13 +128,17 @@
 
 \begin{definition}
 	\begin{itemize}\itemfix
-		\item Путь --- непрерывное отображение $\gamma : [a, b] \to\R^m$
+		\item %<*путь>
+		      Путь --- непрерывное отображение $\gamma : [a, b] \to\R^m$
+		      %</путь>
 		\item $\gamma(a)$ --- начало пути
 		\item $\gamma(b)$ --- конец пути
 		\item $\gamma[a, b]$ --- носитель пути
 		\item Если $\gamma(a) = \gamma(b)$, путь называется замкнутым или петлёй.
 		\item Если $\gamma$ --- гладкое или кусочно-гладкое, то $\gamma'(t)$ --- вектор скорости
-		\item Кусочно-гладкое отображение - отображение, имеющее не более, чем счётное число точек разрыва, все точки разрыва - I рода, то есть $\gamma\Big|_{[t_{k-1}, t_k]}$ --- гладкое $\forall k$, где $t_k$ --- точка разрыва.
+		\item %<*кусочногладкоеотображение>
+		      Кусочно-гладкое отображение - отображение, имеющее не более, чем счётное число точек разрыва, все точки разрыва - I рода и $\gamma\Big|_{[t_{k-1}, t_k]}$ --- гладкое $\forall k$, где $t_k$ --- точка разрыва.
+		      %</кусочногладкоеотображение>
 		\item $\gamma(t) = (\gamma_1(t) \ldots \gamma_m(t))$, то $\gamma' = (\gamma'_1 \ldots \gamma'_m)$
 		\item Длина гладкого пути это $l(\varphi) = \int_a^b |\gamma'(t)|dt$
 	\end{itemize}
@@ -163,6 +171,7 @@
 \end{align*}
 
 Свойства:
+%<*свойства>
 \begin{enumerate}
 	\item Линейность интеграла по полю.
 	      $$\forall \alpha, \beta\in\R \ \ \forall U, V \text{ --- векторные поля} \ \ I(\alpha U + \beta V, \gamma) = \alpha I(U, \gamma) + \beta I(V, \gamma)$$
@@ -272,18 +281,22 @@
 		      \ref{максимум на компакте}: $V$ --- непр., $L$ --- компакт $\Rightarrow \sup$ достигается
 	      \end{proof}
 \end{enumerate}
+%</свойства>
 
 \subsection*{Потенциальные векторные поля}
 
 \begin{definition}
+	%<*потенциальноевекторноеполе>
 	$V : \underbrace{O}_{\text{область}} \subset \R^m \to \R^m$ --- векторное поле \textbf{потенциально}, если оно имеет потенциал:
 
 	$$\exists f \in C^1(O), \nabla f = V$$
+	%</потенциальноевекторноеполе>
 \end{definition}
 
 \textbf{Загадка}. $V$ --- потенциально с потенциалом $f_1$, $f_2$ --- тоже потенциал. Тогда $f_1 - f_2 = \const$.
 
 \begin{theorem}[обобщенная формула Ньютона-Лейбница]\itemfix
+	%<*обобщеннаяформуланьютоналейбница>
 	\begin{itemize}
 		\item $V : O\subset\R^m \to\R^m$
 		\item $V$ --- потенциально
@@ -293,7 +306,9 @@
 		\item $\gamma(b) = B$
 	\end{itemize}
 	Тогда $$\int_\gamma \sum v_k dx_k = f(B) - f(A)$$
+	%</обобщеннаяформуланьютоналейбница>
 \end{theorem}
+%<*обобщеннаяформуланьютоналейбницаproof>
 \begin{proof}
 	Рассмотрим случаи:
 	\begin{enumerate}
@@ -326,5 +341,6 @@
 		      \ref{переход к f}: по пункту 1.
 	\end{enumerate}
 \end{proof}
+%</обобщеннаяформуланьютоналейбницаproof>
 
 \end{document}

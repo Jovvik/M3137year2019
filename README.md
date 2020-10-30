@@ -13,6 +13,7 @@
 - [4 лекция](analysis/3sem/4.pdf)
 - [5 лекция](analysis/3sem/5.pdf)
 - [6 лекция](analysis/3sem/6.pdf)
+- [7 лекция](analysis/3sem/7.pdf) - только первый час, остальное будет позже
 - [Конспект к экзамену](analysis/3sem/final.pdf)
 
 ### Диффуры

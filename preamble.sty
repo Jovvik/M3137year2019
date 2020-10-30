@@ -26,6 +26,15 @@
 \usepackage{xcolor}
 \usepackage[makeroom]{cancel}
 
+% References
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor={blue!80!black},
+  citecolor={blue!80!black},
+  urlcolor={blue!80!black},
+}
+
 % tikz
 \usepackage{tikz}
 \usepackage{tikz-cd}
@@ -49,11 +58,11 @@
 
 \pagestyle{fancy}
 \lfoot{M3137y2019}
-\rhead{стр. \thepage\ из \pageref{LastPage}}
+\rhead{стр. \thepage\ из \pageref*{LastPage}}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
-\newcommand{\C}{\mathbb{C}}
+\renewcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\B}{\mathbb{B}}
 \newcommand{\N}{\mathbb{N}}

@@ -3,27 +3,22 @@ name: build
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - uses: xu-cheng/texlive-action/full@v1
-      with:
-        run: |
-            apk add git
-            bash build.sh
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v4
-      with:
-        message: "Built pdfs"
-        add: "*.pdf"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Publish log
-      uses: actions/upload-artifact@v2
-      with:
-        name: log
-        path: latex.log
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - uses: xu-cheng/texlive-action/full@v1
+              with:
+                  run: |
+                      apk add git
+                      bash build.sh
+            - name: Commit changes
+              uses: EndBug/add-and-commit@v4
+              with:
+                  message: 'Built pdfs'
+                  add: '*.pdf'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

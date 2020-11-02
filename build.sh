@@ -3,8 +3,8 @@
 function compile {
     echo "Building" "$1"
     cd "$(dirname "$1")"
-    xelatex "$(basename "$1")" > "$REPOPATH"/latex.log || exit 1
-    xelatex "$(basename "$1")" > "$REPOPATH"/latex.log || exit 1
+    xelatex "$(basename "$1")" > "$REPOPATH"/latex.log || cat "$REPOPATH"/latex.log; exit 1
+    xelatex "$(basename "$1")" > "$REPOPATH"/latex.log || cat "$REPOPATH"/latex.log; exit 1
     cd "$REPOPATH"
 }
 

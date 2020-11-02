@@ -53,17 +53,17 @@
 \textbf{Модуль над кольцом} \textit{(коммутативным, с единицей)} $R$ --- множество $M$ с операциями:
 \begin{enumerate}
     \item $+:M\times M\to M$ \begin{enumerate}
-        \item $a+b=b+a$
-        \item $a+(b+c)=(a+b)+c$
-        \item $\exists 0\in R : \forall x\in R : x + 0 = 0 + x = x$
-        \item $\forall x\in R : \exists (-x)\in R : x + (-x) = (-x) + x = 0$
-    \end{enumerate}
+              \item $a+b=b+a$
+              \item $a+(b+c)=(a+b)+c$
+              \item $\exists 0\in R : \forall x\in R : x + 0 = 0 + x = x$
+              \item $\forall x\in R : \exists (-x)\in R : x + (-x) = (-x) + x = 0$
+          \end{enumerate}
     \item $\cdot : M\times R\to M$ \begin{enumerate}
-        \item $(r_1r_2)m=r_1(r_2m)$
-        \item $1m=m$
-        \item $r(m_1+m_2)=rm_1+rm_2$
-        \item $(r_1+r_2)m=r_1m+r_2m$
-    \end{enumerate}
+              \item $(r_1r_2)m=r_1(r_2m)$
+              \item $1m=m$
+              \item $r(m_1+m_2)=rm_1+rm_2$
+              \item $(r_1+r_2)m=r_1m+r_2m$
+          \end{enumerate}
 \end{enumerate}
 
 Примеры:
@@ -242,15 +242,15 @@ $$\forall x \quad Ax = \mathcal Y^{-1} \overline A \mathcal X x \Leftrightarrow 
 Вычислим СВ и СЗ.
 
 $$x = \sum \xi^i e_i \quad \xi = \begin{pmatrix}
-    \xi^1 & \ldots & \xi^n
-\end{pmatrix}^T \quad \mathcal A \leftrightarrow A = ||a^i_j||$$
+        \xi^1 & \ldots & \xi^n
+    \end{pmatrix}^T \quad \mathcal A \leftrightarrow A = ||a^i_j||$$
 $$\mathcal A x = \lambda x \Leftrightarrow A \xi = \lambda \xi \Leftrightarrow A \xi - \lambda E \xi = 0$$
 Таким образом, задача нахождения СЗ сводится к нахождению $\lambda$, для которых существуют нетривиальные решения СЛАУ $A-\lambda E$, что эквивалентно нахождению корней характеристического полинома $\chi_{\mathcal A}(\lambda) = \det(A - \lambda E)$
 
-Нахождение СВ $\Leftrightarrow$ нахождение нетривиальных решений СЛАУ $A - \lambda E$ для каждого СЗ $\lambda$     
+Нахождение СВ $\Leftrightarrow$ нахождение нетривиальных решений СЛАУ $A - \lambda E$ для каждого СЗ $\lambda$
 
 \begin{lemma}
-    $\sphericalangle \mathcal A : X \to X$, $X$ --- ЛП над $\C$, тогда у $\mathcal A$ существует по крайней мере один собственный вектор и одно собственное значение.    
+    $\sphericalangle \mathcal A : X \to X$, $X$ --- ЛП над $\C$, тогда у $\mathcal A$ существует по крайней мере один собственный вектор и одно собственное значение.
 \end{lemma}
 \begin{proof}
     У любого многочлена есть хотя бы один корень $\in \C$.
@@ -266,7 +266,7 @@ $$\mathcal A x = \lambda x \Leftrightarrow A \xi = \lambda \xi \Leftrightarrow A
 
 \begin{theorem}
     $\sphericalangle \mathcal A : X \to X$ --- ЛОП с простым спектром $\sigma_{\mathcal A} = \{\lambda_i\}_{i=1}^n$, $\{x_i\}_{i=1}^n$ --- СВ.
-    
+
     Тогда $A$ можно привести к диагональной форме $A^d$:
     $$A^d = T^{-1} A T$$
     где $T$ --- матрица перехода от базиса $\{e_i\}$ к $\{x_i\}$
@@ -348,8 +348,8 @@ $$p(\mathcal A) = \sum p(\lambda_i) \mathcal P_{\lambda_i}$$
 \subsection{Разложение линейного пространства в сумму подпространств. 2я теорема о ядре и образе. Теорема о проекторах. }
 \get{8.tex}{44}
 
-\subsection{Минимальный полином и инвариантные подпространства. Спектральная теорема для линейного оператора произвольного 
-вида.}
+\subsection{Минимальный полином и инвариантные подпространства. Спектральная теорема для линейного оператора произвольного
+    вида.}
 Минимальный полином и инвариантные пространства: см. выше.
 \get{8.tex}{спектральнаятеорема}
 

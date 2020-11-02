@@ -1,0 +1,263 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{2.11.2020}
+
+\begin{document}
+
+\subsection*{Потенциальные векторные поля}
+
+\begin{definition}
+    Интеграл векторного поля $V$ \textbf{не зависит от пути} в области $O$:
+
+    $\forall A, B\in O \ \ \forall \gamma_1, \gamma_2$ --- кусочно-гладкие из $A$ в $B$:
+    $$\int_{\gamma_1} \sum v_i dx_i = \int_{\gamma_2} \sum v_i dx_i$$
+\end{definition}
+
+\begin{theorem}[характеризация потенциальных векторных полей в терминах интегралов]
+    %<*характеризацияпотенциальныхвекторныхполейвтерминахинтегралов>
+    $V$ --- векторное поле в области $O$. Тогда эквивалентны следующие:
+    \begin{enumerate}
+        \item $V$ --- потенциально
+        \item $\int_\gamma \sum v_i dx_i$ не зависит от пути в $O$
+        \item $\forall \gamma$ --- кусочно-гладкий, замкнутый в $O$ $\int_\gamma \sum v_i dx_i = 0$
+    \end{enumerate}
+    %</характеризацияпотенциальныхвекторныхполейвтерминахинтегралов>
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{itemize}
+        \item [1$\Rightarrow$2] Обобщенная формула Ньютона-Лейбница
+        \item [2$\Rightarrow$3] $\gamma$ --- петля: $[a, b]\to O$. $\gamma(a) = \gamma(b) = A$
+
+              Рассмотрим постоянный путь $\tilde \gamma : [a, b]\to 0, t\mapsto A$. По свойству 2: $\int_\gamma = \int_{\tilde \gamma} \langle V, \gamma' \rangle dt = 0$
+        \item [3$\Rightarrow$2] $\gamma_1, \gamma_2$ --- пути с общим началом и концом. Тогда $\gamma := \gamma_2^- \gamma_1$ --- петля. $\gamma$ --- кусочно гладкий $\Rightarrow \int_\gamma = 0$
+              % TODO: рисунок
+        \item [2$\Rightarrow$1] Фиксируем $A\in O$.
+
+              $\forall x\in O$ выберем кусочно-гладкий путь $\gamma_x$ из $A$ в $x$. Проверим, что $f(x) := \int_{\gamma_x} \sum v_i dx_i$ --- потенциал.
+
+              Достаточно проверить, что $\cfrac{\partial f}{\partial x_1} = V_1$ в $O$.
+
+              Фиксируем $x\in O$. $\gamma_0(t) = x + th e_1, t\in[0, 1]$, $\gamma_0'(t) = (h, 0 \ldots 0) = he_1$
+
+              \begin{figure}[h]
+                  \centering
+                  \includesvg[scale=0.7]{images/pot_vfield_char.svg}
+              \end{figure}
+
+              \begin{align*}
+                  f(x + he_1) - f(x) & = \int_{\gamma_{x+he_1}} - \int_{\gamma_x}        \\
+                                     & = \int_{\gamma_0\gamma_x} - \int_{\gamma_x}       \\
+                                     & = \int_{\gamma_0} = \int_0^1 V_1(\gamma_0(t)) hdt \\
+                                     & = \?
+              \end{align*}
+    \end{itemize}
+\end{proof}
+
+\subsection*{Локально-потенциальные векторные поля}
+
+\begin{lemma}
+    $V$ --- гладкое, потенциальное в $O$
+
+    Тогда
+    \begin{equation}
+        \forall x\in O \ \ \forall k,j \ \ \frac{\partial V_k}{\partial x_j}(x) = \frac{\partial V_j}{\partial x_k}(x) \label{производные поля}
+    \end{equation}
+\end{lemma}
+\begin{proof}
+    Непрерывные производные не изменяются при порядке дифференцирования:
+    $$\frac{\partial V_k}{\partial x_j}(x) = \frac{\partial^2 f}{\partial x_k \partial x_j}(x) = \frac{\partial^2 f}{\partial x_j \partial x_k}(x) = \frac{\partial V_j}{\partial x_k}(x)$$
+\end{proof}
+
+\begin{exercise}
+    Даны 4 векторных поля в $\R^2$: $(x, y), (x, -y), (y, x), (-y, x)$. Вычеркните лишнее.
+\end{exercise}
+
+\begin{theorem}[лемма Пуанкаре]\itemfix
+    %<*леммапуанкаре>
+    \begin{itemize}
+        \item $O\subset \R^m$ --- выпуклая область
+        \item $V : O\to\R^m$ --- векторное поле
+        \item $V$ удовлетворяет \ref{производные поля}, в т.ч. $V$ --- гладкое.
+    \end{itemize}
+    Тогда $V$ --- потенциальное.
+    %</леммапуанкаре>
+\end{theorem}
+%<*леммапуанкареproof>
+\begin{proof}
+    Фиксируем $A\in O$
+    $$\forall x\in O \ \ \gamma_x(t) := A + t(x-A), t\in[0, 1]$$
+    $$\gamma'_x(t) = x - A$$
+    $$f(x) := \int_{\gamma_x} \sum v_i dx_i = \int_0^1 \sum_{k=1}^m V_k(A+t(x-A))(x_k - A_k)dt$$
+    Проверим, что $f$ --- потенциал.
+    \begin{align}
+        \frac{\partial f}{\partial x_j} (x) & = \text{правило Лейбница}                                                                      \nonumber                         \\
+                                            & = \int_0^1 V_j(A + t(x-A)) + \sum_{k=1}^m \frac{\partial V_k}{\partial x_j}(\ldots) t (x_k - A_k) dt \nonumber                   \\
+                                            & = \int_0^1 V_j(A + t(x-A)) + \sum_{k=1}^m \frac{\partial V_j}{\partial x_k}(\ldots) t (x_k - A_k) dt \label{по производной поля} \\
+                                            & = \int_0^1 (tV_j(A + t(x-A)))'_t dt \nonumber                                                                                    \\
+                                            & = tV_j(A + t(x-A))\Big|_{t=0}^{t=1} \nonumber                                                                                    \\
+                                            & = V_j(x) \nonumber
+    \end{align}
+    \ref{по производной поля}: по \ref{производные поля}.
+\end{proof}
+%</леммапуанкареproof>
+
+\begin{remark}
+    Это же доказательство проходит для ``звёздных'' областей.
+\end{remark}
+
+\begin{definition}
+    $V$ --- \textbf{локально потенциальное} векторное поле в $O$, если $\forall x\in O \ \ \exists U(x) : V$ --- потенциально в $U(x)$
+\end{definition}
+
+\begin{corollary}[лемма Пуанкаре]\itemfix
+    \begin{itemize}
+        \item $O\subset \R^m$ --- любая область
+        \item $V\in C^1(O)$
+        \item $V$ удовлетворяет \ref{производные поля}.
+    \end{itemize}
+    Тогда $V$ --- локально потенциально.
+\end{corollary}
+
+\subsection*{Равномерная сходимость функциональных рядов \textit{(продолжение)}}
+
+\begin{manualtheorem}{3'}[о дифференцировании ряда по параметру]\itemfix
+    \begin{itemize}
+        \item $u_n\in C^1\langle a, b\rangle$
+        \item $\sum u_n(x) = S(x)$ (поточечная сходимость)
+        \item $\sum u_n'(x) = \varphi(x)$ (равномерная сходимость)
+    \end{itemize}
+    Тогда:
+    \begin{enumerate}
+        \item $S(x) \in C^1\langle a, b\rangle$
+        \item $S' = \varphi$ на $\langle a,b \rangle$
+    \end{enumerate}
+    То есть $\left(\sum u_n(x)\right)' = \sum u_n'(x)$
+\end{manualtheorem}
+\begin{proof}
+    Следует из теоремы 3.
+
+    $S_n \to S$ поточечно, $S'_n \rightrightarrows \varphi$
+\end{proof}
+
+\begin{example}
+    Формула Вейерштрасса:
+    $$\frac{1}{\Gamma(x)} = xe^{\gamma x} \prod_{k=1}^\infty \left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}, x > 0$$
+    $\gamma$ --- постоянная Эйлера.
+    $$-\ln \Gamma(x) = \ln x + \gamma x + \sum_{k=1}^\infty\underbrace{\left(\ln\left(1+\frac{x}{k}\right) - \frac{x}{k}\right)}_{u_k(x)}$$
+    Зафиксируем $x_0$.
+    $$u'_k(x) = \frac{1}{1+\frac{x}{k}} \frac{1}{k} - \frac{1}{k} = \frac{1}{x+k} - \frac{1}{k} = \frac{-x}{(x+k)k}$$
+    Пусть $M>x_0$. Тогда
+    $$\left|\frac{-x}{(x+k)k}\right| \le \frac{M}{k^2}$$
+    при $x\in(0, M)$.
+
+    Тогда $\sum\cfrac{-x}{(x+k)k}$ равномерно сходится на $(0, M)$, значит $\ln \Gamma(x) \in C^1(0, M)$, $\cfrac{-x}{(x+k)k}$ --- непр. $\Rightarrow \sum\cfrac{-x}{(x+k)k}$ --- непр. $\Rightarrow \ln \Gamma(x)\in C^1(0, +\infty) \Rightarrow \Gamma(x) \in C^1(0, +\infty)$
+\end{example}
+
+\begin{remark}
+    Фактически, теорема 3' устанавливает, что $\sum u'_n(x)$ --- непр.
+\end{remark}
+
+\begin{remark}
+    \begin{align*}
+        -\frac{\Gamma'(x)}{\Gamma(x)} & = \frac{1}{x} + \gamma - \sum_{k=1}^{+\infty} \frac{x}{(x+k)k}                        \\
+        \Gamma'(x)                    & = -\Gamma(x)\left(\frac{1}{x} + \gamma - \sum_{k=1}^{+\infty} \frac{x}{(x+k)k}\right)
+    \end{align*}
+    Изучив равномерную сходимость $\left(\cfrac{x}{(x+k)k}\right)'$, получаем, что $\Gamma\in C^2(0, +\infty)$ и т.д. $\Rightarrow \Gamma\in C^\infty(0, +\infty)$
+\end{remark}
+
+\begin{manualtheorem}{4'}[о почленном предельном переходе в суммах]\itemfix
+    \begin{itemize}
+        \item $u_n : E\subset X\to\R$
+        \item $X$ --- метрическое пространство
+        \item $x_0$ --- предельная точка $E$
+        \item $\forall n \exists \text{конечный} \lim\limits_{x\to x_0} u_n(x) = a_n$
+        \item $\sum u_n(x)$ равномерно сходится на $E$.
+    \end{itemize}
+    Тогда:
+    \begin{enumerate}
+        \item $\sum a_n$ --- сходится
+        \item $\sum a_n = \lim\limits_{x\to x_0} \sum\limits_{n=1}^{+\infty} u_n(x)$
+    \end{enumerate}
+    $$\lim_{x\to x_0} \sum_{n=0}^{+\infty} u_n(x) = \sum_{n=0}^{+\infty} \lim_{x\to x_0} u_n(x)$$
+\end{manualtheorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item $? \sum a_n$ --- сходится
+
+              $S_n(x) = \sum_{k=0}^n u_k(x), S_n^a = \sum_{k=1}^n a_k$
+
+              Проверим, что $S_n^a$ --- фундаментальная:
+              \begin{equation}
+                  |S^a_{n+p} - S^a_n| \le |S^a_{n+p} - S_{n+p}(x)| + |S_{n+p}(x) - S_n(x)| + |S_n(x) - S_n^a| \label{условие фундаментальности}
+              \end{equation}
+              Из равномерной сходимости $\sum u_n(x)$
+              $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n > N \ \ \forall p\in\N \ \ \forall x\in E \ \ |S_{n+p} - S_n(x)| < \frac{\varepsilon}{3}$$
+              \textit{(Это критерий Больцано-Коши для равномерной сходимости)}
+
+              Зададим $\varepsilon$ по $N$, выберем $n, n+p$ и возьмём $x$ близко к $x_0$ : $|S_{n+p}^a - S_{n+p}(x)| < \cfrac{\varepsilon}{3}$ $|S_{n}^a - S_{n}(x)| < \cfrac{\varepsilon}{3}$
+
+              Тогда выполнено \ref{условие фундаментальности}, т.е. $|S_{n+p} - S_n^a| < \cfrac{\varepsilon}{3} + \cfrac{\varepsilon}{3} + \cfrac{\varepsilon}{3} < \varepsilon$
+
+        \item $\sum a_n \stackrel{?}{=} \lim\limits_{x\to x_0} \sum u_n(x)$
+
+              Сведём к теореме Стокса-Зайдля.
+
+              $\tilde u_n(x) = \begin{cases}
+                      u_n(x), & x\in E\setminus \{x_0\} \\
+                      a_n,    & x=x_0
+                  \end{cases}$ --- задано на $U\cup \{x_0\}$, непрерывно в $x_0$.
+
+              $\sum \tilde u_n(x)$ --- равномерно сходится на $E\cup \{x_0\} \Rightarrow$ сумма ряда непрерывна в $x_0$.
+
+              $$\lim_{x\to x_0} \sum u_n(x) = \lim_{x\to x_0} \sum \tilde u_n(x) = \sum \tilde u_n(x_0) = \sum a_n$$
+              $$\sup_x \left|\sum_{k=n}^{+\infty} \tilde u_k(x)\right| \le \underbrace{\sup_{x\in E\setminus\{x_0\}} \left|\sum_{k=n}^{+\infty} u_k(x)\right|}_{\to 0} + \underbrace{\left|\sum_{k=n}^{+\infty} a_k\right|}_{\to0}$$
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    Теорема 4' верна для случая $u_n : E\subset X \to Y$, где $Y$ --- полное нормированное пространство.
+\end{remark}
+
+\begin{manualtheorem}{4}[о перестановке двух предельных переходов]\itemfix
+    \begin{itemize}
+        \item $f_n : E\subset X\to\R$
+        \item $x_0$ --- предельная точка $E$
+        \item $f_n \xrightrightarrows[n\to+\infty]{E} S(x)$
+        \item $f_n(x) \xrightarrow[x\to x_0]{} A_n$
+    \end{itemize}
+    Тогда:
+    \begin{enumerate}
+        \item $\exists \lim\limits_{n\to+\infty} A_n = A\in \R$
+        \item $S(x) \xrightarrow[x\to x_0]{} A$
+    \end{enumerate}
+    То есть пунктирное преобразование верно:
+    $$\begin{tikzcd}[ampersand replacement=\&]
+            f_n \arrow[r, yshift=0.7ex]\arrow[r, yshift=-0.7ex] \arrow[swap]{d}{x\to x_0} \& S(x) \arrow[dashed]{d}{x\to x_0} \\
+            f_n' \arrow[dashed, swap]{r}{n\to+\infty} \& \varphi
+        \end{tikzcd}$$
+\end{manualtheorem}
+\begin{proof}
+    $u_1 = f_1, \ldots u_k = f_k - f_{k-1}\ldots$
+
+    $a_1 = A_1, \ldots a_k = A_k - A_{k-1}$
+
+    Тогда $f_n = u_1 + u_2 + \ldots + u_n$, $A_n = a_1 + a_2 + \ldots + a_n$
+
+    В эти обозначениях $\sum u_k(x)$ равномерно сходится к сумме $S(x)$.
+
+    $u_k(x)\xrightarrow[x\to x_0]{} a_k$
+
+    Тогда по т. 4' $\sum_{k=1}^n a_k = A_n$ имеет конечный предел при $n\to+\infty$.
+
+    $$\lim_{x\to x_0} \sum u_k(x) = \lim_{x\to x_0} S(x) = \sum a_k = A$$
+\end{proof}
+
+\begin{remark}
+    Здесь можно было бы вместо $n$ рассматривать ``непрерывный параметр'' $t$.
+
+    $f_n(x) \leftrightarrow \?$
+\end{remark}
+
+\end{document}

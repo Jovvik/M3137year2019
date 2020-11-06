@@ -48,11 +48,15 @@
               \end{figure}
 
               \begin{align*}
-                  f(x + he_1) - f(x) & = \int_{\gamma_{x+he_1}} - \int_{\gamma_x}        \\
-                                     & = \int_{\gamma_0\gamma_x} - \int_{\gamma_x}       \\
-                                     & = \int_{\gamma_0} = \int_0^1 V_1(\gamma_0(t)) hdt \\
-                                     & = \?
+                  f(x + he_1) - f(x) & = \int_{\gamma_{x+he_1}} - \int_{\gamma_x}  \\
+                                     & = \int_{\gamma_0\gamma_x} - \int_{\gamma_x} \\
+                                     & = \int_{\gamma_0}                           \\
+                                     & = \int_0^1 V_1(\gamma_0(t)) hdt             \\
+                                     & = h V_1(x_1 + ch_1, x_2 \ldots x_n)
               \end{align*}
+
+              Таким образом:
+              $$\frac{f(x + he_1) - f(x)}{h} \xrightarrow{h\to0} V_1(x_1 + ch_1, x_2 \ldots x_n) \xrightarrow{h\to0} V_1(x)$$
     \end{itemize}
 \end{proof}
 %</характеризацияпотенциальныхвекторныхполейвтерминахинтеграловproof>
@@ -275,7 +279,12 @@
 \begin{remark}
     Здесь можно было бы вместо $n$ рассматривать ``непрерывный параметр'' $t$.
 
-    $f_n(x) \leftrightarrow \?$
+    $$f_n(x) \leftrightarrow f(x, t)$$
+
+    $$n\to+\infty \leftrightarrow t\to t_0$$
+
+    $$f_n\xrightrightarrows[E]{} S \leftrightarrow f(x, t)\xrightrightarrows[E]{t\to t_0} S(x)$$
+    $$\forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall t : 0<|t - t_0|<\delta \ \ \forall x\in E \ \ |f(x, t) - S(x)| < \varepsilon$$
 \end{remark}
 
 \end{document}

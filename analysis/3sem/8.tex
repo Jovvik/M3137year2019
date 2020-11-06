@@ -25,6 +25,7 @@
     \end{enumerate}
     %</характеризацияпотенциальныхвекторныхполейвтерминахинтегралов>
 \end{theorem}
+%<*характеризацияпотенциальныхвекторныхполейвтерминахинтеграловproof>
 \begin{proof}\itemfix
     \begin{itemize}
         \item [1$\Rightarrow$2] Обобщенная формула Ньютона-Лейбница
@@ -54,21 +55,26 @@
               \end{align*}
     \end{itemize}
 \end{proof}
+%</характеризацияпотенциальныхвекторныхполейвтерминахинтеграловproof>
 
 \subsection*{Локально-потенциальные векторные поля}
 
 \begin{lemma}
+    %<*необходимоеусловиепотенциальности>
     $V$ --- гладкое, потенциальное в $O$
 
     Тогда
     \begin{equation}
         \forall x\in O \ \ \forall k,j \ \ \frac{\partial V_k}{\partial x_j}(x) = \frac{\partial V_j}{\partial x_k}(x) \label{производные поля}
     \end{equation}
+    %</необходимоеусловиепотенциальности>
 \end{lemma}
+%<*необходимоеусловиепотенциальностиproof>
 \begin{proof}
     Непрерывные производные не изменяются при порядке дифференцирования:
     $$\frac{\partial V_k}{\partial x_j}(x) = \frac{\partial^2 f}{\partial x_k \partial x_j}(x) = \frac{\partial^2 f}{\partial x_j \partial x_k}(x) = \frac{\partial V_j}{\partial x_k}(x)$$
 \end{proof}
+%</необходимоеусловиепотенциальностиproof>
 
 \begin{exercise}
     Даны 4 векторных поля в $\R^2$: $(x, y), (x, -y), (y, x), (-y, x)$. Вычеркните лишнее.
@@ -108,7 +114,9 @@
 \end{remark}
 
 \begin{definition}
+    %<*локальнопотенциальноеполе>
     $V$ --- \textbf{локально потенциальное} векторное поле в $O$, если $\forall x\in O \ \ \exists U(x) : V$ --- потенциально в $U(x)$
+    %</локальнопотенциальноеполе>
 \end{definition}
 
 \begin{corollary}[лемма Пуанкаре]\itemfix
@@ -160,19 +168,22 @@
 \end{remark}
 
 \begin{remark}
+    %<*дифференцируемостьгаммафункции>
     \begin{align*}
         -\frac{\Gamma'(x)}{\Gamma(x)} & = \frac{1}{x} + \gamma - \sum_{k=1}^{+\infty} \frac{x}{(x+k)k}                        \\
         \Gamma'(x)                    & = -\Gamma(x)\left(\frac{1}{x} + \gamma - \sum_{k=1}^{+\infty} \frac{x}{(x+k)k}\right)
     \end{align*}
     Изучив равномерную сходимость $\left(\cfrac{x}{(x+k)k}\right)'$, получаем, что $\Gamma\in C^2(0, +\infty)$ и т.д. $\Rightarrow \Gamma\in C^\infty(0, +\infty)$
+    %</дифференцируемостьгаммафункции>
 \end{remark}
 
 \begin{manualtheorem}{4'}[о почленном предельном переходе в суммах]\itemfix
+    %<*определьномпереходевсуммах>
     \begin{itemize}
         \item $u_n : E\subset X\to\R$
         \item $X$ --- метрическое пространство
         \item $x_0$ --- предельная точка $E$
-        \item $\forall n \exists \text{конечный} \lim\limits_{x\to x_0} u_n(x) = a_n$
+        \item $\forall n \ \ \exists \text{конечный} \lim\limits_{x\to x_0} u_n(x) = a_n$
         \item $\sum u_n(x)$ равномерно сходится на $E$.
     \end{itemize}
     Тогда:
@@ -181,7 +192,9 @@
         \item $\sum a_n = \lim\limits_{x\to x_0} \sum\limits_{n=1}^{+\infty} u_n(x)$
     \end{enumerate}
     $$\lim_{x\to x_0} \sum_{n=0}^{+\infty} u_n(x) = \sum_{n=0}^{+\infty} \lim_{x\to x_0} u_n(x)$$
+    %</определьномпереходевсуммах>
 \end{manualtheorem}
+%<*определьномпереходевсуммахproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item $? \sum a_n$ --- сходится
@@ -215,12 +228,14 @@
               $$\sup_x \left|\sum_{k=n}^{+\infty} \tilde u_k(x)\right| \le \underbrace{\sup_{x\in E\setminus\{x_0\}} \left|\sum_{k=n}^{+\infty} u_k(x)\right|}_{\to 0} + \underbrace{\left|\sum_{k=n}^{+\infty} a_k\right|}_{\to0}$$
     \end{enumerate}
 \end{proof}
+%</определьномпереходевсуммахproof>
 
 \begin{remark}
     Теорема 4' верна для случая $u_n : E\subset X \to Y$, где $Y$ --- полное нормированное пространство.
 \end{remark}
 
 \begin{manualtheorem}{4}[о перестановке двух предельных переходов]\itemfix
+    %<*оперестановкедвухпредельныхпереходов>
     \begin{itemize}
         \item $f_n : E\subset X\to\R$
         \item $x_0$ --- предельная точка $E$
@@ -237,7 +252,9 @@
             f_n \arrow[r, yshift=0.7ex]\arrow[r, yshift=-0.7ex] \arrow[swap]{d}{x\to x_0} \& S(x) \arrow[dashed]{d}{x\to x_0} \\
             f_n' \arrow[dashed, swap]{r}{n\to+\infty} \& \varphi
         \end{tikzcd}$$
+    %</оперестановкедвухпредельныхпереходов>
 \end{manualtheorem}
+%<*оперестановкедвухпредельныхпереходовproof>
 \begin{proof}
     $u_1 = f_1, \ldots u_k = f_k - f_{k-1}\ldots$
 
@@ -254,6 +271,7 @@
     $$\lim_{x\to x_0} \sum u_k(x) = \lim_{x\to x_0} S(x) = \sum a_k = A$$
 \end{proof}
 
+%</оперестановкедвухпредельныхпереходовproof>
 \begin{remark}
     Здесь можно было бы вместо $n$ рассматривать ``непрерывный параметр'' $t$.
 

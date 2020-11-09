@@ -1,0 +1,162 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{9.11.2020}
+
+\begin{document}
+
+\subsection*{Интеграл локального потенциального векторного поля по непрерывному пути}
+
+\begin{lemma}[о гусенице]\itemfix
+    %<*огусенице>
+    \begin{itemize}
+        \item \(\gamma : [a, b] \to O \subset \R^m\) --- непр.
+    \end{itemize}
+    Тогда \(\exists \) дробление \(a = t_0 < t_1 < \dots < t_n = b\) и \(\exists \) шары \(B_1 \dots B_n \subset O : \gamma[t_{k - 1}, t_k] \subset B_k\).
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=0.7]{images/огусенице.svg}
+        \caption{``Гусеница'' --- покрытие пути шарами}
+    \end{figure}
+    %</огусенице>
+\end{lemma}
+%<*огусеницеproof>
+\begin{proof}
+    \(\forall c\in[a, b]\) возьмём \(B_c := B(\gamma(c), \underbrace{r_c}_{\text{произвольн.}}) \subset O\).
+
+    \(\overline{\alpha_c} : = \inf\{ \alpha \in [a, b] : \gamma[\alpha, c] \subset B_c\}\)
+
+    \(\overline{\beta_c} : = \inf\{ \alpha \in [a, b] : \gamma[c, \beta] \subset B_c\}\) --- момент первого выхода после посещения точки $\gamma(c)$
+
+    Возьмём \((\alpha_c, \beta_c) : \overline \alpha_c < \alpha_c < c < \beta_c < \overline \beta_c\)
+
+    Таким образом \(c \mapsto (\alpha_c, \beta_c)\) --- открытое покрытие $[a, b]$, если для \(c = a\) или \(c = b\) вместо \(\alpha_c, \beta_c\) брать \([a, \beta_a), (\alpha_b, b]\)
+
+    \([a, b]\) --- компактно \( \implies [a, b] \subset \bigcup_{\text{кон.}} (\alpha_c, \beta_c)\)
+
+    \? ни один интервал не накрывается целиком остальными \( \Leftrightarrow \forall (\alpha_c, \beta_c)\: \exists d_c\), принадлежащая ``только этому'' интервалу.
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=0.7]{images/t_choice.svg}
+        \caption{Выбор точек $t_k$}
+    \end{figure}
+
+    Точка \(t_k\) выбирается на \(d_k, d_{k + 1}\) и \(t_k \in (\alpha_k, \beta_k) \cap (\alpha_{k + 1}, \alpha_{k + 1})\).
+
+    \(\gamma([t_{k - 1}, t_k]) = \gamma(\alpha_k, \beta_k) \subset B_k\)
+\end{proof}
+%</огусеницеproof>
+
+\begin{remark}
+    \(\forall \delta > 0 \) мы можем требовать, чтобы все \(r_k < \delta\)
+\end{remark}
+\begin{remark}
+    В силу произвольности \(r_c\) можно требовать, чтобы шары \(B_c\) удовлетворяют некоторому локальному условию.
+
+    Например пусть \(V\) --- локально потенциальное поле в \(O\). Мы можем требовать, чтобы во всех шарах существовал потенциал \(V\). Тогда будем называть \(\{B_k\}\) \(V\)-гусеницей.
+\end{remark}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(V\) --- локально потенциальное поле в \(O\subset\R^m\)
+    \end{itemize}
+    \(\gamma, \tilde \gamma : [a, b] \to O\) называются похожими \textit{(\(V\)-похожими)}, если у них есть общая \(V\)-гусеница:
+
+    \(\exists t_0 = a < t_1 < t_2 < \dots < t_n = b\ \ \exists \) шары \( B_k \subset O :\)
+    \[
+        \gamma[t_{k - 1}, t_k] \subset B_k, \tilde \gamma [t_{k - 1}, t_k] \subset B_k
+    \]
+\end{definition}
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(V\) --- локально потенциальное поле в \(O\subset\R^m\)
+    \end{itemize}
+
+    Тогда любой путь \(V\)-похож на ломаную:
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=0.7]{images/ломаная.svg}
+        \caption{Построение ломаной \textit{(розовая)} по пути \textit{(чёрный)} с помощью \(V\)-гусеницы \textit{(круги)}}.
+    \end{figure}
+\end{corollary}
+
+\begin{lemma}[о равенстве интегралов локально-потенциальных векторных путей по похожим путям]\itemfix
+    \label{о равенстве интегралов}
+    \begin{itemize}
+        \item \(V\) --- локально-потенциальное векторное поле в \(O\subset \R^m\)
+        \item \(\gamma, \tilde \gamma : [a, b] \to O\) --- \(V\)-похожие, кусочно гладкие
+        \item \(\gamma(a) = \tilde \gamma(a), \gamma(b) = \tilde \gamma(b)\)
+    \end{itemize}
+    Тогда \(\int_\gamma \sum V_i dx_i = \int_{\tilde \gamma} \sum V_i dx_i\)
+\end{lemma}
+\begin{proof}
+    Рассмотрим общую \(V\)-гусеницу. Пусть \(f_k\) --- потенциал \(V\) в шаре \(B_k\), \(a = t_0 < t_1 < \dots < t_n = b\)
+
+    Сдвинем потенциалы прибавлением константы, так что \(f_k(\gamma(t_k)) = f_{k + 1}(\gamma(t_k))\) при \(k = 1 \dots n\)
+
+    Тогда
+    \begin{align}
+        \int_\gamma \sum_i V_i dx_i & = \sum \int_{[t_{k - 1}, t_k]} \dots   \nonumber                   \\
+                                    & = \sum f_k(\gamma(t_k)) - f_k(\gamma(t_{k - 1})) \label{обобщ. НЛ} \\
+                                    & = f_n(\gamma(b)) - f_1(\gamma(a))\nonumber
+    \end{align}
+
+    \ref{обобщ. НЛ}: По обобщенной формуле Ньютона-Лейбница.
+
+    Для \(\tilde \gamma\) воспользуемся свойством: \(f_k\Big|_{B_k \cap B_{k + 1}} = f_{k + 1}\Big|_{B_k \cap B_{k + 1}}\) и тогда аналогично
+    \[\int_{\tilde \gamma} \sum v_i dx_i = f_n(\tilde \gamma(b)) - f_1(\tilde \gamma(a))\]
+\end{proof}
+
+\begin{remark}
+    Вместо условия ``\(\gamma(a) = \tilde \gamma(a), \gamma(b) = \tilde \gamma(b)\)'' можно взять условие: \(\gamma, \tilde \gamma\) --- петли. Тогда утверждение леммы тоже верно.
+\end{remark}
+
+\begin{lemma}\itemfix
+    \label{лемма 3, лекция 9}
+    \begin{itemize}
+        \item \(\gamma : [a, b] \to O\) --- непр.
+        \item \(V\) --- локально-потенциальное векторное поле в \(O\subset \R^m\)
+    \end{itemize}
+    Тогда \(\exists \delta > 0 :\) если \(\tilde \gamma, \dbltilde \gamma : [a, b] \to O\) таковы, что:
+    \[
+        \forall t \in [a, b] \ \ |\gamma(t) - \tilde\gamma(t)| < \delta, |\gamma(t) - \dbltilde\gamma(t)| < \delta
+    \]
+    Тогда \(\gamma, \tilde\gamma, \dbltilde\gamma\) \(V\)-похожи.
+\end{lemma}
+\begin{proof}
+    Берём \(V\)-гусеницу для \(\gamma\).
+
+    \(\delta_k\)-окрестность множества \(A\) \( : = \{x : \exists a\in A \ \ \rho(a, x) < \delta\} = \bigcap\limits_{a\in A} B(a, \delta)\)
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=0.7]{images/deltakокрестность.svg}
+        \caption{\(\delta_k\)-окрестность множества \(\gamma[t_{k - 1}, t_k]\)}
+    \end{figure}
+
+    \[
+        \forall k \ \ \exists \delta_k > 0 : \left( \delta_k\text{-окрестность } \gamma[t_{k_1}, t_k] \right) \subset B_k
+    \]
+
+    Это следует из компактности:
+
+    Пусть \(B_k = B(w, r)\), функция \(t \in [\gamma_{k - 1}m\, \gamma_k] \mapsto \rho(\gamma(t), w)\) непрерывна \( \Rightarrow \) достигается \(\max \), \(\rho(\gamma(t), w) \le r_0 < r\)
+
+    \(\delta_k : = \frac{r - r_0}{2}, \delta : = \min(\delta_1 \dots \delta_k) \)
+\end{proof}
+
+\begin{definition}[Интеграл локального потенциального векторного поля \(V\) по непрерывному пути \(\gamma\)]
+    Возьмём \(\delta > 0\) из леммы \ref{лемма 3, лекция 9}.
+
+    Пусть \(\tilde \gamma\) --- \(\delta\)-близкий кусочно-гладкий путь, т.е. \(\forall t \ \ | \gamma(t) - \tilde \gamma(t) | < \delta \).
+
+    Полагаем \(I(V, \gamma) : = I(V, \tilde \gamma)\).
+
+    Корректность \textit{(нет произвольности)} следует из лемм \ref{лемма 3, лекция 9} и \ref{о равенстве интегралов}
+\end{definition}
+
+\end{document}

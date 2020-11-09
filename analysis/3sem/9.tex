@@ -159,4 +159,127 @@
     Корректность \textit{(нет произвольности)} следует из лемм \ref{лемма 3, лекция 9} и \ref{о равенстве интегралов}
 \end{definition}
 
+\subsection*{Равномерная сходимость функциональных рядов \textit{(продолжение)}}
+
+\begin{theorem}[признак Дирихле]\itemfix
+    %<*признакдирихле>
+    \begin{itemize}
+        \item \(\sum a_n(x) b_n(x)\) --- вещественный ряд.
+        \item \(x\in X\)
+        \item Частичные суммы ряда \(\sum a_n\) равномерно ограничены :
+              \[
+                  \exists C_a \ \ \forall N \ \ \forall x\in X \ \ \left|\sum_{k = 1}^n a_k(x)\right| \le C_a
+              \]
+        \item \(\forall x\) последовательность \(b_n(x)\) --- монотонна по \(n\) и \(b_n(x)\xrightrightarrows[n\to +\infty]{X} 0\)
+    \end{itemize}
+    Тогда ряд \(\sum a_n(x)b_n(x)\) равномерно сходится на \(X\)
+    %</признакдирихле>
+\end{theorem}
+%<*признакдирихлеproof>
+\begin{proof}
+    Преобразование Абеля \textit{(суммирование по частям)}
+    \[\sum_{M \le k \le N} a_kb_k = A_N b_N - A_{M - 1} b_{M - 1} + \sum_{M \le k \le N - 1} A_k(b_k - b_{k+1})\]
+    \begin{align}
+        \left|\sum_{k = m}^N a_k(x)b_k(x)\right| & \le C_A |b_N| + C_A |b_{M - 1}| + \sum_{M \le k \le N - 1} C_A|b_k - b_{k + 1}|  \nonumber                       \\
+                                                 & \le C_A\left( |b_N(x)| + |b_{M - 1}(x)| + \sum_{k = M}^{N - 1} |b_k - b_{k+1}| \right) \label{телескоп по знаку} \\
+                                                 & \le C_A\left( 2|b_N(x)| + |b_{M - 1}(x)| + |b_M(x)| \right) \nonumber
+    \end{align}
+
+    \ref{телескоп по знаку} : Все разности одного знака \(\Rightarrow\) телескопически \( = \pm (b_M - b_N)\)
+
+    \[
+        \forall \varepsilon > 0 \ \ \exists K : \forall l > K \ \ \forall x\in X \ \ |b_l(x)| < \frac{\varepsilon}{4C_A}
+    \]
+
+    Значит, при \(M, N > K \ \ \forall x\in X\):
+    \[\left|\sum_{k = m}^N a_k(x)b_k(x)\right| < \varepsilon\]
+
+    Это критерий Больцано-Коши равномерной сходимости ряда.
+\end{proof}
+%</признакдирихлеproof>
+
+\begin{example}
+    \(f(x) = \sum\limits_{n = 1}^\infty \cfrac{\sin nx}{n^2} , x\in \R\)
+
+    \begin{enumerate}
+        \item \(f(x)\) --- непр. на \(\R\)
+
+              \(\left|\cfrac{\sin nx}{n^2}\right| \le \cfrac{1}{n^2}, \sum \cfrac{1}{n^2}\) сходится. По признаку Вейерштрасса ряд равномерно сходится на \(\R\) \(\Rightarrow\) ряд \(f\) --- непр. на \(\R\)
+        \item \(f\) --- дифф.?
+
+              По теореме 3' \(\sum f'_n(x)\) --- ? равномерно сходится в окрестности \(x_0\). Если да, то $f\in C^1(V(x_0))$.
+
+              $f' = \sum \cfrac{\cos nx}{n}$, но при $x=2\pi k$ $\sum$ расходится.
+
+              Применим признак Дирихле для \(a_n = \cos nx, b_n = \frac{1}{n}, x\in[\varepsilon, 2\pi - \varepsilon]\)
+
+              \begin{align*}
+                  |\cos x + \cos 2n + \dots + \cos nx| & = |\Re(e^{ix} + e^{2ix} + .. + e^{nix})                \\
+                                                       & \le \left|e^{ix} \frac{e^{nix} - 1}{e^{ix} - 1}\right| \\
+                                                       & = |e^{ix}| \frac{|e^{nix} - 1|}{|e^{ix} - 1|}          \\
+                                                       & \le \frac{2}{|e^{ix} - 1|}                             \\
+                                                       & \le \frac{2}{e^{i\varepsilon} - 1}                     \\
+                                                       & = : C_A
+              \end{align*}
+
+              \(b_n\) --- монотонно, \(\to 0\), не зависит от \(x\), поэтому \(\rightrightarrows 0\)
+
+              Таким образом, призак Дирихле сработал и \(f'(x) = \sum \frac{\cos nx}{n} \) при \(x \in (0, 2\pi)\)
+    \end{enumerate}
+\end{example}
+
+\begin{exercise}
+    \begin{enumerate}
+        \item При \(x = 2\pi k\) \(f(x)\) не дифференцируемая.
+        \item Существует ли \(f''(x)\) при \(x\in(0, 2\pi)\)?
+        \item Если $q(x) = \sum\frac{\sin nx}{\sqrt n}, x\in(0, 2\pi)$: \begin{enumerate}
+                  \item Непрерывна?
+                  \item Дифференцируема?
+              \end{enumerate}
+    \end{enumerate}
+\end{exercise}
+
+\section*{Степенные ряды}
+
+\(B(r_0, r)\subset \C\) --- открытый круг
+
+Степенной ряд: \(\sum\limits_{n = 0}^{ +\infty } a_n(z - z_0)^n\), где \(z_0\in \C, a_n\in C, z\) --- переменная \(\in C\)
+
+\begin{theorem}[о круге сходимости степенных рядов]\itemfix
+    \begin{itemize}
+        \item \(\sum a_n(z - z_0)^n\) --- степенной ряд
+    \end{itemize}
+    Тогда выполняется ровно один из трех случаев:
+    \begin{enumerate}
+        \item Ряд сходится при всех \(z\in C\)
+        \item Ряд сходится только при \(z = z_0\)
+        \item \(\exists R\in(0, +\infty)\) :
+              \begin{enumerate}
+                  \item при \(|z - z_0|< R\) ряд абсолютно сходится
+                  \item при \(|z - z_0|> R\) ряд расходится
+              \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+    Ряд не может никогда не сходиться, т.к. при \(z = z_0\) ряд\( = a_0 + 0 + 0 + \dots = a_0\).
+\end{remark}
+
+\begin{proof}
+    Применим признак Коши: \(\overline{\lim}\sqrt[n]{|a_n|} = r\), если \(r < 1\), ряд сходится, если \(r > 1\), ряд расходится.
+
+    \[
+        \overline{\lim} \sqrt[n]{ |a_n| \cdot |z - z_0|^n } = \overline{\lim} \sqrt[n]{|a_n|}|z - z_0| = |z - z_0|\overline{\lim} \sqrt[n]{|a_n|}
+    \]
+    \begin{enumerate}
+        \item \(\overline{\lim} = 0\). Тогда \(r = 0\), есть абсолютная сходимость при всех \(z\).
+        \item \(\overline{\lim} = +\infty\). Тогда \(r = +\infty\) при \(z\neq z_0\). При \(z = z_0\) сходимость очевидна.
+        \item \(\overline{\lim} \neq 0, +\infty\). Тогда \(|z - z_0|\overline{\lim} \sqrt[n]{|a_n|} < 1 \Leftrightarrow |z - z_0| < \frac{1}{\overline \lim \sqrt[n]{|a_n|}} \defeq R\)
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    \(\sum a_n(z - z_0)^n\), тогда число \(R = \frac{1}{\overline \lim} \sqrt[n]{|a_n|}\) \?
+\end{definition}
+
 \end{document}

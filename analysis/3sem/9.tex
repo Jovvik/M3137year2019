@@ -85,6 +85,7 @@
 \end{corollary}
 
 \begin{lemma}[о равенстве интегралов локально-потенциальных векторных путей по похожим путям]\itemfix
+    %<*оравенствеинтегралов>
     \label{о равенстве интегралов}
     \begin{itemize}
         \item \(V\) --- локально-потенциальное векторное поле в \(O\subset \R^m\)
@@ -92,7 +93,9 @@
         \item \(\gamma(a) = \tilde \gamma(a), \gamma(b) = \tilde \gamma(b)\)
     \end{itemize}
     Тогда \(\int_\gamma \sum V_i dx_i = \int_{\tilde \gamma} \sum V_i dx_i\)
+    %</оравенствеинтегралов>
 \end{lemma}
+%<*оравенствеинтеграловproof>
 \begin{proof}
     Рассмотрим общую \(V\)-гусеницу. Пусть \(f_k\) --- потенциал \(V\) в шаре \(B_k\), \(a = t_0 < t_1 < \dots < t_n = b\)
 
@@ -110,12 +113,14 @@
     Для \(\tilde \gamma\) воспользуемся свойством: \(f_k\Big|_{B_k \cap B_{k + 1}} = f_{k + 1}\Big|_{B_k \cap B_{k + 1}}\) и тогда аналогично
     \[\int_{\tilde \gamma} \sum v_i dx_i = f_n(\tilde \gamma(b)) - f_1(\tilde \gamma(a))\]
 \end{proof}
+%</оравенствеинтеграловproof>
 
 \begin{remark}
     Вместо условия ``\(\gamma(a) = \tilde \gamma(a), \gamma(b) = \tilde \gamma(b)\)'' можно взять условие: \(\gamma, \tilde \gamma\) --- петли. Тогда утверждение леммы тоже верно.
 \end{remark}
 
 \begin{lemma}\itemfix
+    %<*опохожестиблизкихпутей>
     \label{лемма 3, лекция 9}
     \begin{itemize}
         \item \(\gamma : [a, b] \to O\) --- непр.
@@ -126,7 +131,9 @@
         \forall t \in [a, b] \ \ |\gamma(t) - \tilde\gamma(t)| < \delta, |\gamma(t) - \dbltilde\gamma(t)| < \delta
     \]
     Тогда \(\gamma, \tilde\gamma, \dbltilde\gamma\) \(V\)-похожи.
+    %</опохожестиблизкихпутей>
 \end{lemma}
+%<*опохожестиблизкихпутейproof>
 \begin{proof}
     Берём \(V\)-гусеницу для \(\gamma\).
 
@@ -148,8 +155,10 @@
 
     \(\delta_k : = \frac{r - r_0}{2}, \delta : = \min(\delta_1 \dots \delta_k) \)
 \end{proof}
+%</опохожестиблизкихпутейproof>
 
 \begin{definition}[Интеграл локального потенциального векторного поля \(V\) по непрерывному пути \(\gamma\)]
+    %<*интеграллокальнопотенциальноговекторногопляпонепрерывномупути>
     Возьмём \(\delta > 0\) из леммы \ref{лемма 3, лекция 9}.
 
     Пусть \(\tilde \gamma\) --- \(\delta\)-близкий кусочно-гладкий путь, т.е. \(\forall t \ \ | \gamma(t) - \tilde \gamma(t) | < \delta \).
@@ -157,6 +166,7 @@
     Полагаем \(I(V, \gamma) : = I(V, \tilde \gamma)\).
 
     Корректность \textit{(нет произвольности)} следует из лемм \ref{лемма 3, лекция 9} и \ref{о равенстве интегралов}
+    %</интеграллокальнопотенциальноговекторногопляпонепрерывномупути>
 \end{definition}
 
 \subsection*{Равномерная сходимость функциональных рядов \textit{(продолжение)}}
@@ -243,9 +253,14 @@
 
 \(B(r_0, r)\subset \C\) --- открытый круг
 
-Степенной ряд: \(\sum\limits_{n = 0}^{ +\infty } a_n(z - z_0)^n\), где \(z_0\in \C, a_n\in C, z\) --- переменная \(\in C\)
+\begin{definition}
+    %<*степеннойряд>
+    Степенной ряд: \(\sum\limits_{n = 0}^{ +\infty } a_n(z - z_0)^n\), где \(z_0\in \C, a_n\in C, z\) --- переменная \(\in C\)
+    %</степеннойряд>
+\end{definition}
 
 \begin{theorem}[о круге сходимости степенных рядов]\itemfix
+    %<*кругстепенногоряда>
     \begin{itemize}
         \item \(\sum a_n(z - z_0)^n\) --- степенной ряд
     \end{itemize}
@@ -259,12 +274,14 @@
                   \item при \(|z - z_0|> R\) ряд расходится
               \end{enumerate}
     \end{enumerate}
+    %</кругстепенногоряда>
 \end{theorem}
 
 \begin{remark}
     Ряд не может никогда не сходиться, т.к. при \(z = z_0\) ряд\( = a_0 + 0 + 0 + \dots = a_0\).
 \end{remark}
 
+%<*кругстепенногорядаproof>
 \begin{proof}
     Применим признак Коши: \(\overline{\lim}\sqrt[n]{|a_n|} = r\), если \(r < 1\), ряд сходится, если \(r > 1\), ряд расходится.
 
@@ -277,9 +294,12 @@
         \item \(\overline{\lim} \neq 0, +\infty\). Тогда \(|z - z_0|\overline{\lim} \sqrt[n]{|a_n|} < 1 \Leftrightarrow |z - z_0| < \frac{1}{\overline \lim \sqrt[n]{|a_n|}} \defeq R\)
     \end{enumerate}
 \end{proof}
+%</кругстепенногорядаproof>
 
 \begin{definition}
-    \(\sum a_n(z - z_0)^n\), тогда число \(R = \frac{1}{\overline \lim} \sqrt[n]{|a_n|}\) \?
+    %<*формулаадамара>
+    \(\sum a_n(z - z_0)^n\), тогда число \(R = \frac{1}{\overline \lim_n} \sqrt[n]{|a_n|}\). Это \textbf{формула Адамара}.
+    %</формулаадамара>
 \end{definition}
 
 \end{document}

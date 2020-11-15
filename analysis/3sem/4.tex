@@ -7,17 +7,17 @@
 \begin{document}
 
 $\sphericalangle \R^{m+n}, (x, y) \in\R^{m+n}, x=\begin{pmatrix}
-        x_1 & \ldots & x_m
+        x_1 & \cdots & x_m
     \end{pmatrix}, y = \begin{pmatrix}
-        y_1 & \ldots & y_n
+        y_1 & \cdots & y_n
     \end{pmatrix}$
 
 $F : O\subset\R^{m+n} \to\R^m$
 
 $$F' = \begin{pmatrix}
-        \frac{\partial F_1}{\partial x_1} & \ldots & \frac{\partial F_1}{\partial x_m} & \frac{\partial F_1}{\partial y_1} & \ldots & \frac{\partial F_1}{\partial y_n} \\
+        \frac{\partial F_1}{\partial x_1} & \cdots & \frac{\partial F_1}{\partial x_m} & \frac{\partial F_1}{\partial y_1} & \cdots & \frac{\partial F_1}{\partial y_n} \\
         \vdots                            & \ddots & \vdots                            & \vdots                            & \ddots & \vdots                            \\
-        \frac{\partial F_n}{\partial x_1} & \ldots & \frac{\partial F_n}{\partial x_m} & \frac{\partial F_n}{\partial y_1} & \ldots & \frac{\partial F_n}{\partial y_n} \\
+        \frac{\partial F_n}{\partial x_1} & \cdots & \frac{\partial F_n}{\partial x_m} & \frac{\partial F_n}{\partial y_1} & \cdots & \frac{\partial F_n}{\partial y_n} \\
     \end{pmatrix}$$
 
 \begin{theorem}[о неявном отображении]\itemfix
@@ -51,9 +51,9 @@ $$F' = \begin{pmatrix}
             f_n(x_1 \dots x_m, y_1 \dots y_n) = 0
         \end{cases}\]
     \[\frac{\partial F}{\partial y} = \begin{pmatrix}
-            \frac{\partial F_1}{\partial y_1} & \ldots & \frac{\partial F_1}{\partial y_n} \\
+            \frac{\partial F_1}{\partial y_1} & \cdots & \frac{\partial F_1}{\partial y_n} \\
             \vdots                            & \ddots & \vdots                            \\
-            \frac{\partial F_n}{\partial y_1} & \ldots & \frac{\partial F_n}{\partial y_n} \\
+            \frac{\partial F_n}{\partial y_1} & \cdots & \frac{\partial F_n}{\partial y_n} \\
         \end{pmatrix}\]
     Пусть \((a, b) = (a_1 \dots a_m, b_1 \dots b_n)\) --- решение системы и \(\det \left(\frac{\partial F}{\partial y} (a, b)\right) \neq 0\). Тогда \(\exists U(a) \subset \R^m\) и \(\exists ! \ \Phi : P\to Q\in C^r : \forall x \in P \ \ F(x, \Phi(x)) = 0\) такие, что \(\forall x\in U(a)\) \(x, \Phi(x)\) --- тоже решение системы.
     %</онеявномотображениивтерминахсистемы>
@@ -155,7 +155,7 @@ $$F' = \begin{pmatrix}
               Если мы допускаем дырку в $O$, то $(x, y)\mapsto \left(\frac{rx}{\sqrt{x^2+y^2}}, \frac{ry}{\sqrt{x^2+y^2}}, \sqrt{x^2+y^2} - 1\right)$ --- параметризация.
         \item Сфера в $\R^3$ без точки
 
-              $\Phi : (0, 2\pi)\times\left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \to R^{3}$
+              $\Phi : (0, 2\pi)\times\left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \to \R^{3}$
 
               $(\varphi, \psi) \mapsto \begin{pmatrix}
                       R\cos \varphi \cos \psi \\

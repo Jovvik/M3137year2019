@@ -1,0 +1,139 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{16.11.2020}
+
+\begin{document}
+
+\subsection*{Гомотопия}
+
+Неформально гомотопия --- непрерывная деформация объектов. У нас рассматриваемые объекты --- пути.
+
+\begin{definition}
+    \textbf{Гопотопия} двух (\textit{непрерывных}) путей \(\gamma_0, \gamma_1 : [a, b] \to O\subset \R^m\) это непрерывное отображение \(\Gamma : \underbrace{[a, b]}_{t} \times \underbrace{[0, 1]}_{u} \to O\), такое что:
+    \begin{itemize}
+        \item \(\Gamma(\circ , 0) = \gamma_0\)
+        \item \(\Gamma(\circ , 1) = \gamma_1\)
+    \end{itemize}
+
+    Гопотопия \textbf{связанная} (\textit{не связная}), если:
+    \begin{itemize}
+        \item \(\gamma_0(a) = \gamma_1(a)\)
+        \item \(\gamma_0(b) = \gamma_1(b)\)
+        \item \(\forall u\in[0, 1]\ \Gamma(a, u) = \gamma_0(a), \Gamma(b, u) = \gamma_1(b)\)
+    \end{itemize}
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=1]{images/гомотопия_связанная.svg}
+        \caption{Связанная гопотопия.\\ Пунктиром --- \(\Gamma(\circ, u)\) для различных \(u\)}
+    \end{figure}
+
+    Гопотопия \textbf{петельная}, если:
+    \begin{itemize}
+        \item \(\gamma_0(a) = \gamma_0(b)\)
+        \item \(\gamma_1(a) = \gamma_1(b)\)
+        \item \(\forall u\in[0, 1]\ \Gamma(a, u) = \Gamma(b, u)\)
+    \end{itemize}
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=1]{images/гомотопия_петельная.svg}
+        \caption{Петельная гопотопия.\\ Пунктиром --- \(\Gamma(\circ, u)\) для различных \(u\)}
+    \end{figure}
+
+    \pagebreak
+\end{definition}
+
+\begin{theorem}\itemfix
+    %<*интегралпосвязанногомотопнымпутям>
+    \begin{itemize}
+        \item \(V\) --- локально потенциальное векторное поле в \(O\subset\R^m\)
+        \item \(\gamma_0, \gamma_1\) --- связанно гомотопные пути
+    \end{itemize}
+    Тогда \(\int_{\gamma_0} \sum V_i dx_i = \int_{\gamma_1} \sum V_idx_i\)
+    %</интегралпосвязанногомотопнымпутям>
+\end{theorem}
+
+\begin{remark}
+    То же самое верно для петельных гомотопий.
+\end{remark}
+
+%<*интегралпосвязанногомотопнымпутямproof>
+\begin{proof}
+    \(\gamma_u(t) : = \Gamma(t, u), t\in[a, b], u\in[0, 1]\)
+
+    \[\Phi(u) = \int_{\gamma_u} \sum V_i dx_i\]
+
+    Мы хотим доказать, что \(\Phi(u) = \const\). Докажем более простой факт, что \(\Phi\) --- локально постоянна, тогда в силу компактности отрезка \(\Phi\) будет постоянна.
+
+    Определение локально постоянной функции:
+    \[\forall u_0\in[0, 1]\ \ \exists W(u_0) : \forall u\in W(u_0)\cap [0, 1]\quad \Phi(u) = \Phi(u_0)\]
+
+    \(\Gamma\) --- непр. на \([a, b] \times [0, 1]\) --- комп. \( \Rightarrow \Gamma\) равномерно непрерывна:
+    \[\forall \delta > 0\ \exists \sigma > 0\ \forall t, t' : |t - t'| < \sigma\ \forall u,u': |u - u'|< \sigma\quad |\Gamma(t, u) - \Gamma(t', u')| < \frac{\delta}{2} \]
+
+    Возьмём \(\delta\) из леммы о похожести близких путей (\ref{лемма 3, лекция 9}) для пути \(\gamma_{u_0}\).
+
+    Если \(|u - u_0| < \delta \ \ |\Gamma(t, u) - \Gamma(t, u_0)|< \frac{\delta}{2}\) при \(t\in[a, b]\), т.е. \(\gamma_u\) и \(\gamma_{u_0}\) похожи по лемме о похожести близких путей. Хочется сказать, что интегралы по \(\gamma_u\) и \(\gamma_{u_0}\) таким образом равны, однако это не обосновано, для этого необходимо, чтобы пути были кусочно-гладкими.
+
+    Построим кусочно-гладкий путь \(\tilde \gamma_{u_0}\), \(\frac{\delta}{4}\)-близкий к \(\gamma_{u_0}\), т.е.
+    \[\forall t\in[a, b] \ \ |\gamma_{u_0}(t) - \tilde \gamma_{u_0}(t)| < \frac{\delta}{4}\]
+    и кусочно-гладкий путь \(\tilde \gamma_u\), \(\frac{\delta}{4}\)-близкий к \(\gamma_{u}\). Тогда \(\tilde \gamma_{u_0}\) и \(\tilde \gamma_u\) - \(\delta\)-близкие к \(\gamma_{u_0}\) \( \Rightarrow \) они \(V\)-похожи \( \Rightarrow \) \[\int_{\gamma_u} \sum V_i dx_i\defeq \int_{\tilde \gamma_u} \dots = \int_{\tilde \gamma_{u_0}} \dots \defeq \int_{\gamma_{u_0}} \dots \]
+    Таким образом, \(\Phi(u) = \Phi(u_0)\) при \(|u - u_0|< \delta\), т.е. \(\Phi\) --- локально постоянна.
+\end{proof}
+%</интегралпосвязанногомотопнымпутямproof>
+
+\begin{definition}
+    Область \(O\subset \R^m\) --- \textbf{односвязная}, если любой замкнутый путь в ней гомотопен постоянному пути.
+
+    Простыми словами --- в \(O\) нет дырок, иначе путь вокруг дырки нельзя было бы стянуть.
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=1]{images/односвязно.svg}
+        \caption{Стягивание замкнутого пути (сплошной линией) к постоянному пути (точке)}
+    \end{figure}
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item Выпуклая область --- односвязная.
+
+              \begin{figure}[h]
+                  \centering
+                  \includesvg[scale=0.9]{images/гомотетия.svg}
+                  \caption{Применение гомотетии с центром \(A\)}
+              \end{figure}
+
+              Это доказывается тем, что для любого пути можно применить гомотетию в качестве гомотопии: \(\Gamma(t, u) = F_{1 - u}(\gamma(t))\), где \(F_{\alpha}\) --- гомотетия с центром \(A\) (лежит внутри области, огр. путём \(\gamma\)) и коэффициентом \(\alpha\)
+        \item Гомеоморфный образ односвязного множества --- односвязен.
+
+              \(\Phi : O \to O'\) --- гомеоморфизм, \(\gamma\) --- петля в \(O'\), \(\Phi^{ - 1}(\gamma)\) --- петля в \(O\).
+
+              \(\Gamma : [a, b] \times [0, 1] \to O\) --- гомотопия \(\Phi^{ - 1}(\gamma)\) и постоянного пути \(\tilde \gamma\equiv A\)
+
+              \(\Phi \circ \Gamma\) --- гомотопия \(\gamma\) с постоянным путём \(\dbltilde \gamma \equiv \Phi(A)\)
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(O\subset \R^m\) --- односвязная область
+        \item \(V\) --- локально потенциальное векторное поле в \(O\)
+    \end{itemize}
+    Тогда \(V\) --- потенциальное в \(O\)
+\end{theorem}
+
+\begin{proof}
+    \(V\) --- локально потенциально, \(\gamma_0\) --- кусочно-гладкая петля, тогда \(\gamma_0\) гомотопна постоянному пути \(\gamma_1\) \( \Rightarrow \)
+    \[\int_{\gamma_0} = \int_{\gamma_1} = \int_a^b \langle V(\gamma_1(t)), \underbrace{\gamma'_1(t)}_{\equiv0} \rangle dt = 0\]
+    Тогда по теореме о характеризации потенциальных векторных полей в терминах интегралов \(V\) потенциально.
+\end{proof}
+
+\begin{corollary}
+    Теорема Пуанкаре верна в односвязной области.
+\end{corollary}
+
+\end{document}

@@ -136,4 +136,137 @@
     Теорема Пуанкаре верна в односвязной области.
 \end{corollary}
 
+Пусть даны две плоскости, соединенные гвоздём, между плоскостями есть зазор. На гвоздь надета веревочка в виде петли. Можно ли снять веревочку с гвоздя?
+
+\begin{theorem}[о веревочке]\itemfix
+    \begin{itemize}
+        \item \(O = \R^2\{(0, 0)\}\)
+        \item \(\gamma : [0, 2\pi] \to O, t\mapsto (\cos t, \sin t)\)
+    \end{itemize}
+    Тогда эта петля нестягиваема.
+\end{theorem}
+
+\begin{proof}
+    \(V(x, y) = \left( \cfrac{ -y}{x^2 + y^2}, \cfrac{x}{x^2 + y^2}\right)\) --- векторное поле в \(\R^2\)
+    \[\frac{\partial V_1}{\partial y} = \frac{\partial V_2}{\partial x} \quad \frac{\partial V_1}{\partial y} = \frac{ -(x^2 + y^2) + 2 y^2}{(x^2 + y^2)^2} \quad \frac{\partial V_2}{\partial x} = \frac{(x^2 + y^2) - 2x^2}{(x^2 + y^2)^2} \]
+    Тогда \(V\) --- локально потенциально.
+
+    При этом
+    \begin{align*}
+        \int_{\gamma}\sum V_idx_i & = \int_0^{2\pi} \frac{ -\sin t}{\cos^2 t + \sin^2 t} ( - \sin t) + \frac{\cos t}{1} \cos t dt \\
+                                  & = \int_0^{2\pi} 1dt = 2\pi
+    \end{align*}
+
+    Таким образом, если бы существовал постоянный путь \(\tilde \gamma\), которому \(\gamma\) гомотопен, то \(\int_\gamma = \int_{\tilde \gamma} = 0\), но это не так.
+\end{proof}
+
+\subsection*{Степенные ряды}
+
+\begin{example}
+    \begin{enumerate}
+        \item \(\sum_{n = 0}^{+\infty} z^n, R = \cfrac{1}{\overline \lim \sqrt[n]{1}} = 1 , |z| < 1\) --- сходится, \(|z|> 1\) --- расходится, \(|z|= 1\) --- расходится, т.к. слагаемые \(\not\to 0\)
+        \item \(\sum \cfrac{z^n}{n}, R = \cfrac{1}{\overline \lim \sqrt[n]{\frac{1}{n}}} = 1\)
+              \begin{enumerate}
+                  \item \(z = 1, \sum \frac{1}{n}\) --- расходится
+                  \item \(z = - 1, \sum \frac{( - 1)^n}{n} \) --- сходится
+                  \item \(z = e^{i\varphi}, \varphi \neq 0, 2\pi \ \ \sum \cfrac{e^{in\varphi}}{n} = \sum \cfrac{\cos n\varphi + i \sin n\varphi}{n} \) --- сходится по признаку Дирихле.
+              \end{enumerate}
+        \item \(\sum \frac{z^n}{n^2}, R = 1, |z|= 1 \Rightarrow \left|\frac{z^n}{n^2}\right| \leq \frac{1}{n^2}\) сходится.
+        \item \(\sum n!z^n, R = \cfrac{1}{\overline \lim \sqrt[n]{n!}} \approx \cfrac{1}{\overline \lim \sqrt[n]{n^ne^{ - n}\sqrt{2\pi n}}} = \cfrac{1}{\overline \lim \frac{n}{e}} = 0\), в \(0\) сходится, в остальных точках расходится.
+        \item \(\sum \cfrac{z^n}{n!}, R = +\infty\) --- везде сходится.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}[о равномерной сходимости и непрерывности степенного ряда]\itemfix
+    \begin{itemize}
+        \item \(\sum a_n(z - z_0)^n\)
+        \item \(0 < R \leq +\infty\)
+    \end{itemize}
+    Тогда:
+    \begin{enumerate}
+        \item \(\forall r : 0 < r < R\) ряд сходится равномерно на \(\overline{B(z_0, r)}\)
+        \item \(f(z) = \sum a_n(z - z_0)^n\) --- непрерывна в \(B(z_0, r)\)
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item Если \(0 < r < R\), то при \(z = r\) ряд абсолютно сходится, т.е. \(\sum |a_n| r^n < +\infty\)
+
+              Признак Вейерштрасса:
+              \begin{enumerate}
+                  \item При \(|z - z_0|\leq r\) \(|a_n(z - z_0)^n| \leq |a_n|r^n\)
+                  \item \(\sum |a_n|r^n < +\infty\)
+              \end{enumerate}
+              \( \Rightarrow \) есть сходимость на \(\overline{B(z_0, r)}\)
+        \item Следствие из пункта 1 и теоремы Стокса-Зайдля.
+
+              Если \(z\) удовлетворяет \(|z - z_0| < R\), то \(\exists r_0 < R : z\in B(z_0, r_0)\)
+
+              На \(B(z_0, r_0)\) есть равномерная сходимость \( \Rightarrow \) \(f\) непр. в точке \(z\).
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    \(f : \C \to \C\). Тогда производная \(f\) это:
+    \[f'(z_0) = \lim_{z\to z_0} \frac{f(z) - f(z_0)}{z - z_0}\]
+\end{definition}
+
+\begin{remark}
+    \(f(z_0 + h) = f(z_0) + f'(z_0)h + o(|h|), h\in\C\)
+\end{remark}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(w, w_0\in\C\)
+        \item \(|w|< r\)
+        \item \(|w_0|< r\)
+    \end{itemize}
+    Тогда \(|w^n - w^n_0|\le n r^n |w - w_0|, n\in\N\).
+\end{lemma}
+\begin{proof}
+    \[w^n - w^n_0 = (w - w_0)(w^{n - 1} + \underbrace{w^{n - 2}w_0}_{\text{по модулю} \le r^{n-1}} + \dots + w^{n - 1}_0)\]
+\end{proof}
+
+\begin{lemma}[о дифференцируемости степенного ряда]\itemfix
+    \begin{itemize}
+        \item [(A)] \(\sum_{n = 0}^{\infty} a_n(z - z_0)^n, 0 < R < +\infty\)
+        \item [(A')] \(\sum_{n = 1}^{\infty} na_n (z - z_0)^{n - 1}\)
+    \end{itemize}
+    Тогда:
+    \begin{enumerate}
+        \item Радиус сходимости (A') равен \(R\)
+        \item \(\forall r\in B(z_0,R) \ \ \exists f'(z)\) и \(f'(z) = \sum n a_n(z - z_0)^n\)
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item По формуле Адамара.
+
+              Ряд (A') сходится при каком-то \(z\) \( \Leftrightarrow \sum n a_n(z - z_0)^n\) --- сходится.
+
+              \[\frac{1}{\overline \lim \sqrt[n]{n|a_n|}} = \frac{1}{1\cdot \overline \lim \sqrt[n]{|a_n|}} = R\]
+        \item \(\sphericalangle a\in B(z_0, R) , \exists r < R : a\in B(z_0, r)\)
+
+              \(a = z_0 + w_0, |w_0|< r\)
+
+              \(z = z_0 + w\)
+
+              \begin{figure}[h]
+                  \centering
+                  \includesvg[scale=0.7]{images/штука.svg}
+              \end{figure}
+
+              \begin{equation}
+                  \frac{f(z) - f(a)}{z - a} = \sum_{n = 0}^{ +\infty} a_n\frac{(z - z_0)^n - (a - z_0)^n}{z - a} = \sum_{n = 1}^{ +\infty} \underbrace{a_n \frac{w^n - w^n_0}{w - w_0}}_{\substack{\text{модуль по лемме} \\ n r^{n-1}|a_n|}} \label{комплексная производная для a'}
+              \end{equation}
+              \(\sum nr^{n - 1}|a_n|\) сходится по пункту 1.
+
+              То есть ряд \ref{комплексная производная для a'} в круге \(z\in B(z_0, r)\)
+
+              \[\lim \frac{f(z) - f(a)}{z - a} = \sum_{n = 1}^{ +\infty} a_n\lim \frac{(z - z_0)^n - (a - z_0)^n}{z - a} = \sum n a_n(a - z_0)^{n - 1}\]
+    \end{enumerate}
+\end{proof}
+
 \end{document}

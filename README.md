@@ -1,4 +1,4 @@
-# Конспекты М3137
+# Конспекты М3237
 
 <!-- Если вы хотите помочь, всё, чего не хватает в конспектах - [тут](https://github.com/Jovvik/M3137year2019/issues/2) -->
 
@@ -16,6 +16,7 @@
 - [7 лекция](analysis/3sem/7.pdf)
 - [8 лекция](analysis/3sem/8.pdf)
 - [9 лекция](analysis/3sem/9.pdf)
+- [10 лекция](analysis/3sem/10.pdf)
 - [Конспект к экзамену](analysis/3sem/final.pdf)
 
 ### Диффуры

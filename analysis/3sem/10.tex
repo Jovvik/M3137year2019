@@ -190,6 +190,7 @@
 \end{example}
 
 \begin{theorem}[о равномерной сходимости и непрерывности степенного ряда]\itemfix
+    %<*оравномернойсходимостиинепрерывностистепенногоряда>
     \begin{itemize}
         \item \(\sum a_n(z - z_0)^n\)
         \item \(0 < R \leq +\infty\)
@@ -199,8 +200,10 @@
         \item \(\forall r : 0 < r < R\) ряд сходится равномерно на \(\overline{B(z_0, r)}\)
         \item \(f(z) = \sum a_n(z - z_0)^n\) --- непрерывна в \(B(z_0, r)\)
     \end{enumerate}
+    %</оравномернойсходимостиинепрерывностистепенногоряда>
 \end{theorem}
 
+%<*оравномернойсходимостиинепрерывностистепенногорядаproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item Если \(0 < r < R\), то при \(z = r\) ряд абсолютно сходится, т.е. \(\sum |a_n| r^n < +\infty\)
@@ -218,6 +221,7 @@
               На \(B(z_0, r_0)\) есть равномерная сходимость \( \Rightarrow \) \(f\) непр. в точке \(z\).
     \end{enumerate}
 \end{proof}
+%</оравномернойсходимостиинепрерывностистепенногорядаproof>
 
 \begin{definition}
     \(f : \C \to \C\). Тогда производная \(f\) это:
@@ -241,6 +245,7 @@
 \end{proof}
 
 \begin{lemma}[о дифференцируемости степенного ряда]\itemfix
+    %<*одифференцируемостистепенногоряда>
     \begin{itemize}
         \item [(A)] \(\sum_{n = 0}^{\infty} a_n(z - z_0)^n, 0 < R < +\infty\)
         \item [(A')] \(\sum_{n = 1}^{\infty} na_n (z - z_0)^{n - 1}\)
@@ -250,8 +255,10 @@
         \item Радиус сходимости (A') равен \(R\)
         \item \(\forall r\in B(z_0,R) \ \ \exists f'(z)\) и \(f'(z) = \sum n a_n(z - z_0)^n\)
     \end{enumerate}
+    %</одифференцируемостистепенногоряда>
 \end{lemma}
 
+%<*одифференцируемостистепенногорядаproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item По формуле Адамара.
@@ -280,5 +287,6 @@
               \[\lim \frac{f(z) - f(a)}{z - a} = \sum_{n = 1}^{ +\infty} a_n\lim \frac{(z - z_0)^n - (a - z_0)^n}{z - a} = \sum n a_n(a - z_0)^{n - 1}\]
     \end{enumerate}
 \end{proof}
+%</одифференцируемостистепенногорядаproof>
 
 \end{document}

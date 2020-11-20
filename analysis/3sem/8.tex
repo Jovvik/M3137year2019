@@ -82,12 +82,14 @@
 
 \begin{exercise}
     Даны 4 векторных поля в $\R^2$: $(x, y), (x, -y), (y, x), (-y, x)$. Вычеркните лишнее.
+
+    Ответ: \( (- y, x)\), т.к. \(\frac{\partial V_1}{\partial y} = - 1 \neq \frac{\partial V_2}{\partial x} = 1\)
 \end{exercise}
 
 \begin{theorem}[лемма Пуанкаре]\itemfix
     %<*леммапуанкаре>
     \begin{itemize}
-        \item $O\subset \R^m$ --- выпуклая область
+        \item $O\subset \R^m$ --- \textbf{выпуклая} область
         \item $V : O\to\R^m$ --- векторное поле
         \item $V$ удовлетворяет \ref{производные поля}, в т.ч. $V$ --- гладкое.
     \end{itemize}
@@ -114,7 +116,7 @@
 %</леммапуанкареproof>
 
 \begin{remark}
-    Это же доказательство проходит для ``звёздных'' областей.
+    Это же доказательство проходит для ``звёздных'' областей --- областей \(O\), таких что \(\exists A\in O : \) любая точка \(O\) видна из \(A\).
 \end{remark}
 
 \begin{definition}
@@ -124,12 +126,14 @@
 \end{definition}
 
 \begin{corollary}[лемма Пуанкаре]\itemfix
+    %<*леммапуанкаре2>
     \begin{itemize}
-        \item $O\subset \R^m$ --- любая область
-        \item $V\in C^1(O)$
+        \item $O\subset \R^m$ --- \textbf{любая} область
+        \item $V : O\to\R^m$ --- векторное поле
         \item $V$ удовлетворяет \ref{производные поля}.
     \end{itemize}
     Тогда $V$ --- локально потенциально.
+    %</леммапуанкаре2>
 \end{corollary}
 
 \subsection*{Равномерная сходимость функциональных рядов \textit{(продолжение)}}

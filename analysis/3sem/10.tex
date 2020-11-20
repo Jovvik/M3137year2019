@@ -12,13 +12,13 @@
 
 \begin{definition}
     %<*гомотопия>
-    \textbf{Гопотопия} двух (\textit{непрерывных}) путей \(\gamma_0, \gamma_1 : [a, b] \to O\subset \R^m\) это непрерывное отображение \(\Gamma : \underbrace{[a, b]}_{t} \times \underbrace{[0, 1]}_{u} \to O\), такое что:
+    \textbf{Гомотопия} двух (\textit{непрерывных}) путей \(\gamma_0, \gamma_1 : [a, b] \to O\subset \R^m\) это непрерывное отображение \(\Gamma : \underbrace{[a, b]}_{t} \times \underbrace{[0, 1]}_{u} \to O\), такое что:
     \begin{itemize}
         \item \(\Gamma(\circ , 0) = \gamma_0\)
         \item \(\Gamma(\circ , 1) = \gamma_1\)
     \end{itemize}
 
-    Гопотопия \textbf{связанная} (\textit{не связная}), если:
+    Гомотопия \textbf{связанная} (\textit{не связная}), если:
     \begin{itemize}
         \item \(\gamma_0(a) = \gamma_1(a)\)
         \item \(\gamma_0(b) = \gamma_1(b)\)
@@ -28,10 +28,10 @@
     \begin{figure}[h]
         \centering
         \includesvg[scale=1]{images/гомотопия_связанная.svg}
-        \caption{Связанная гопотопия.\\ Пунктиром --- \(\Gamma(\circ, u)\) для различных \(u\)}
+        \caption{Связанная гомотопия.\\ Пунктиром --- \(\Gamma(\circ, u)\) для различных \(u\)}
     \end{figure}
 
-    Гопотопия \textbf{петельная}, если:
+    Гомотопия \textbf{петельная}, если:
     \begin{itemize}
         \item \(\gamma_0(a) = \gamma_0(b)\)
         \item \(\gamma_1(a) = \gamma_1(b)\)
@@ -41,7 +41,7 @@
     \begin{figure}[h]
         \centering
         \includesvg[scale=1]{images/гомотопия_петельная.svg}
-        \caption{Петельная гопотопия.\\ Пунктиром --- \(\Gamma(\circ, u)\) для различных \(u\)}
+        \caption{Петельная гомотопия.\\ Пунктиром --- \(\Gamma(\circ, u)\) для различных \(u\)}
     \end{figure}
 
     \pagebreak
@@ -64,6 +64,8 @@
 
 %<*интегралпосвязанногомотопнымпутямproof>
 \begin{proof}
+    Пусть \(\Gamma\) --- гомотопия \(\gamma_0\) и \(\gamma_1\).
+
     \(\gamma_u(t) : = \Gamma(t, u), t\in[a, b], u\in[0, 1]\)
 
     \[\Phi(u) = \int_{\gamma_u} \sum V_i dx_i\]
@@ -138,7 +140,7 @@
 
 %<*леммапуанкареводносвязнойобластиproof>
 \begin{proof}
-    \(V\) --- локально потенциально, \(\gamma_0\) --- кусочно-гладкая петля, тогда \(\gamma_0\) гомотопна постоянному пути \(\gamma_1\) \( \Rightarrow \)
+    \(V\) --- локально потенциально, \(\sphericalangle \gamma_0\) --- кусочно-гладкая петля, тогда \(\gamma_0\) гомотопна постоянному пути \(\gamma_1\) \( \Rightarrow \)
     \[\int_{\gamma_0} = \int_{\gamma_1} = \int_a^b \langle V(\gamma_1(t)), \underbrace{\gamma'_1(t)}_{\equiv0} \rangle dt = 0\]
     Тогда по теореме о характеризации потенциальных векторных полей в терминах интегралов \(V\) потенциально.
 \end{proof}
@@ -171,12 +173,13 @@
 %<*оверевочкеproof>
 \begin{proof}
     \(V(x, y) = \left( \cfrac{ -y}{x^2 + y^2}, \cfrac{x}{x^2 + y^2}\right)\) --- векторное поле в \(\R^2\)
-    \[\frac{\partial V_1}{\partial y} = \frac{\partial V_2}{\partial x} \quad \frac{\partial V_1}{\partial y} = \frac{ -(x^2 + y^2) + 2 y^2}{(x^2 + y^2)^2} \quad \frac{\partial V_2}{\partial x} = \frac{(x^2 + y^2) - 2x^2}{(x^2 + y^2)^2} \]
-    Тогда \(V\) --- локально потенциально.
+    \[\frac{\partial V_1}{\partial y} = \frac{ -(x^2 + y^2) + 2 y^2}{(x^2 + y^2)^2} = \frac{y^2 - x^2}{(x^2 + y^2)^2} \]
+    \[\frac{\partial V_2}{\partial x} = \frac{(x^2 + y^2) - 2x^2}{(x^2 + y^2)^2} = \frac{y^2 - x^2}{(x^2 + y^2)^2}\]
+    Таким образом, \(\cfrac{\partial V_1}{\partial y} = \cfrac{\partial V_2}{\partial x}\) в области \(O\). Тогда по лемме Пуанкаре \(V\) --- локально потенциально.
 
     При этом
     \begin{align*}
-        \int_{\gamma}\sum V_idx_i & = \int_0^{2\pi} \frac{ -\sin t}{\cos^2 t + \sin^2 t} ( - \sin t) + \frac{\cos t}{1} \cos t dt \\
+        \int_{\gamma}\sum V_idx_i & = \int_0^{2\pi} \frac{ -\sin t}{\cos^2 t + \sin^2 t} ( - \sin t)dt + \frac{\cos t}{\cos^2 t + \sin^2 t} \cos t dt \\
                                   & = \int_0^{2\pi} 1dt = 2\pi
     \end{align*}
 

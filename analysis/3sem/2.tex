@@ -19,6 +19,7 @@
     $$|F(b)-F(a)|\le||F'(c)|||b-a|$$
     %</лагранжадляотображений>
 \end{theorem}
+%<*лагранжадляотображенийproof>
 \begin{proof}
     $f(t) := F(a + t(b-a)), t\in\R$
 
@@ -28,6 +29,7 @@
     $$|f(1)-f(0)| \le |f'(c)||1-0|$$
     $$|F(b)-F(a)| \le |F'(a+c(b-a))(b-a)| \le ||F'(a+c(b-a))|||b-a|$$
 \end{proof}
+%</лагранжадляотображенийproof>
 
 \begin{remark}
     Особенно удобная оценка происходит, когда $E$ выпукло, тогда
@@ -186,12 +188,12 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
 \end{proof}
 %</ролляproof>
 
+%<*формы>
 \begin{definition}
     \textbf{Квадратичная форма} $Q : \R^m \to\R$
     $$Q(h) = \sum_{1 \le i, j\le m} a_{ij}h_ih_j$$
 \end{definition}
 
-%<*формы>
 \begin{definition}
     \textbf{Положительно определенная кв. форма}: $\forall h\not=0 \ \ Q(h) > 0$
 \end{definition}
@@ -199,7 +201,7 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
     \textbf{Отрицательно определенная кв. форма}: $\forall h\not=0 \ \ Q(h) < 0$
 \end{definition}
 \begin{definition}
-    \textbf{Неопределенная кв. форма}: $\exists \overline h : Q(h) < 0, \exists \tilde h : Q(h) > 0$
+    \textbf{Незнакоопределенная кв. форма}: $\exists \overline h : Q(h) < 0, \exists \tilde h : Q(h) > 0$
 \end{definition}
 \begin{definition}
     \textbf{Полуопределенная (\textit{положительно определенная вырожденная}) кв. форма}: $Q(h) \ge 0 \ \ \exists \overline h\not=0 : Q(\overline h) = 0$

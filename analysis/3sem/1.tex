@@ -46,10 +46,28 @@ $$(a_1+a_2+\ldots+a_n)^r=\sum_{i_1=1}^n\sum_{i_2=1}^n\ldots \sum_{i_r=1}^n a_{i_
 
 %<*леммаодиффсдвигаproof>
 \begin{proof}
+    Как на лекции:
     $$\varphi'(t)=\sum_{i=1}^m \frac{\partial f}{\partial x_i}(a+th)h_i$$
     $$\varphi''(t)=\sum_{i=1}^m \left(\frac{\partial f}{\partial x_i}(a+th)\right)'h_i=\sum_{i=1}^m \sum_{i_2=1}^m \frac{\partial^2 f}{\partial x_i\partial x_{i_2}}(a+th)h_ih_{i_2}$$
     $$\varphi''(0)=\frac{\partial^2 f}{\partial x_1^2}h_1^2 + \frac{\partial^2 f}{\partial x_2^2}h_2^2 + \ldots + \frac{\partial^2 f}{\partial x_m^2}h_m^2 + 2\left( \frac{\partial^2 f}{\partial x_1\partial x_2}h_1h_2 + \frac{\partial^2 f}{\partial x_1\partial x_3}h_1h_3 + \ldots \right)$$
     $$\varphi^{(k)}(0)=\sum_{i_1=1}^m\sum_{i_2=1}^m\ldots \sum_{i_k=1}^m \frac{\partial^k f(a)}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}} h_{i_1}h_{i_2}\ldots h_{i_k}$$
+
+    Формальное доказательство по индукции:
+
+    Индукционное предположение:
+    \[\varphi^{k} (t) = \sum_{i_1=1}^m\sum_{i_2=1}^m\ldots \sum_{i_k=1}^m \frac{\partial^k f(a + th)}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}} h_{i_1}h_{i_2}\ldots h_{i_k}\]
+
+    \textbf{База}:
+    \[\varphi'(t)=\sum_{i_1=1}^m \frac{\partial f}{\partial x_{i_1}}(a+th)h_{i_1}\]
+
+    \textbf{Переход}:
+    \begin{align*}
+        \varphi^{(k + 1)}(t)
+         & = \left(\varphi^k (t)\right)'                                                                                                                                                                                                    \\
+         & = \left(\sum_{i_1=1}^m\sum_{i_2=1}^m\ldots \sum_{i_k=1}^m \frac{\partial^k f(a + th)}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}} h_{i_1}h_{i_2}\ldots h_{i_k}\right)'\,                                            \\
+         & = \sum_{i_1=1}^m\sum_{i_2=1}^m\ldots \sum_{i_k=1}^m \left(\frac{\partial^k f(a + th)}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k}}\right)' h_{i_1}h_{i_2}\ldots h_{i_k}                                              \\
+         & = \sum_{i_1=1}^m\sum_{i_2=1}^m\ldots \sum_{i_k=1}^m \sum_{i_{k+1} = 1}^m\frac{\partial^{k + 1} f(a + th)}{\partial x_{i_1}\partial x_{i_2}\ldots \partial x_{i_k} \partial x_{i_{k+1}}} h_{i_{k+1}} h_{i_1}h_{i_2}\ldots h_{i_k} \\
+    \end{align*}
 \end{proof}
 %</леммаодиффсдвигаproof>
 
@@ -97,7 +115,8 @@ $$f(a+h)=\sum_{k=0}^r\sum\ldots \frac{1}{\alpha_1!\alpha_2!\ldots\alpha_m!} \fra
 Перепишем $f(x)$ через дифференциал:
 
 %<*формулатейлорадифференциал>
-$$f(x)=\sum_{k=0}^r\frac{d^k f(a, h)}{k!} + \frac{1}{(k+1)!} d^{k+1} f(a+\Theta h, h)$$
+$$f(a+h)=\sum_{k=0}^r\frac{d^k f(a, h)}{k!} + \frac{1}{(r+1)!} d^{r+1} f(a+\Theta h, h)$$
+\[f(a+h)=\sum_{k=0}^r\frac{d^k f(a, h)}{k!} + o(|h|^r)\]
 %</формулатейлорадифференциал>
 
 $f(a)$ это $d^k f(a, h)$ при $k=0$, поэтому он зашел под сумму.
@@ -173,12 +192,13 @@ $$= (f'_{x_1})'h_1 + (f'_{x_2})'h_2 + \ldots = d(df)$$
     \itemfix
     \begin{enumerate}
         \item $\sup \Leftrightarrow \max$ в силу компактности сферы
-        \item $A = (a_{ij})$ \textit{(оператор задается матрицей)}, тогда $||A||\le \sqrt{\sum\limits_{i, j} a_{ij}^2}$ по лемме об оценке нормы линейного отображения.
+        \item $A = (a_{ij})$ \textit{(оператор задается матрицей)}, тогда $||A||\le \sqrt{\sum\limits_{i, j} a_{ij}^2}$ по лемме об оценке нормы линейного отображения ( \(||Ax|| \le C||x||\))
         \item $\forall x \in \R^m \quad |Ax| \le ||A||\cdot |x|$
-              \begin{proof}
+              \begin{proof}\itemfix
                   \begin{enumerate}
                       \item $x=0$ --- тривиально, $0\le 0$
-                      \item $x\not=0\ $ $\ \tilde x = \frac{x}{|x|} \quad |Ax| = |A(|x|\tilde x)| = ||x| A\tilde x| = |x|\cdot |A\tilde x| \le ||A||\cdot |x|$
+                      \item $x\not=0\ $ \(\ \tilde x = \frac{x}{|x|} \Rightarrow |\tilde{x}| = 1 \Rightarrow |Ax|\le ||A||\)
+                            \[|Ax| = |A(|x|\tilde x)| = ||x| A\tilde x| = |x|\cdot |A\tilde x| \le ||A||\cdot |x|\]
                   \end{enumerate}
               \end{proof}
         \item Если $\exists c > 0 : \forall x\in\R^m \ \ |Ax|\le C|x|$, то $||A||\le C$
@@ -227,7 +247,8 @@ $$= (f'_{x_1})'h_1 + (f'_{x_2})'h_2 + \ldots = d(df)$$
               $\sphericalangle \varepsilon = 1, |x|=1 : |Ax| = \left|A\frac{1}{\delta}\delta x\right| = \frac{1}{\delta} |A \delta x| \le \frac{1}{\delta}$
         \item 1 $\Rightarrow$ 4
 
-              $$\forall \varepsilon > 0 \ \ \exists \delta := \frac{\varepsilon}{||A||} \ \ \forall x_1, x_0 \ \ |x_1-x_0| < \delta$$
+              $$\forall \varepsilon > 0 \ \ \exists \delta := \frac{\varepsilon}{||A||} \ \ \forall x_1, x_0 : |x_1-x_0| < \delta$$
+              \[|Ax_1 - Ax_0| = |A(x_1-x_0)| \le ||A|| \cdot |x_1 - x_0| < \varepsilon\]
     \end{enumerate}
 \end{proof}
 %</эквивалентностьнепрерывностиproof>

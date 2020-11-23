@@ -1,0 +1,210 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{23.11.2020}
+
+\begin{document}
+
+\textcolor{red}{Первые 40 минут пропущены}
+
+\subsection*{Степенные ряды}
+
+% \begin{theorem}\itemfix
+%     \begin{itemize}
+%         \item \(\sum\limits_{n = 0}^{ +\infty} c_n\) --- сходится
+%         \item \(c_n\in \C\)
+%         \item \(f(x) =\sum c_nx^n\)
+%         \item \(R\ge 1\)
+%         \item \( - 1 < x < 1\)
+%     \end{itemize}
+%     Тогда \(\lim\limits_{x\to 1-0} f(x) = \)
+% \end{theorem}
+
+\begin{example}
+    \[\sum_{n = 1}^{ +\infty} \frac{1}{n(n + 1)} = \sum \frac{1}{n} - \frac{1}{n + 1} = 1 - \lim_{N\to +\infty} \frac{1}{N + 1} = 1\]
+    \[f(x) = \sum_{n = 1}^{ +\infty} \frac{x^{n + 1}}{n(n + 1)}\]
+    \[f'(x) = \sum_{n = 1}^{ +\infty} \frac{x^{n}}{n}\]
+    \[f''(x) = \sum_{n = 1}^{ +\infty} x^{n - 1} = 1 + x + x^2 + \dots = \frac{1}{1 - x}\]
+    Интегрируем:
+    \[f'(x) = \sum \frac{x^n}{n} = -\ln(1 - x) + C\]
+    При \(x = 0\) \(C = 0\)
+
+    Ещё раз интегрируем:
+    \[\sum \frac{x^{n + 1}}{n(n + 1)} = -\int \ln(1 - x) dx = (1 - x)\ln{(1 - x)} + x + C\]
+    При \(x = 0\) \(C = 0\)
+    \[\sum \frac{1}{n(n + 1)} = \lim_{x\to 1 - 0} (1 - x)\ln(1 - x) + x = 1\]
+\end{example}
+
+\begin{corollary}[т. Абеля]\itemfix
+    \begin{itemize}
+        \item \(\sum a_n = A\)
+        \item \(\sum b_n = B\)
+        \item \(c_n = a_0b_n + a_1 b_{n - 1} + \dots + a_n b_0\)
+        \item \(\sum c_n = C\)
+    \end{itemize}
+    Тогда \(C = AB\)
+\end{corollary}
+\begin{proof}
+    \(f(x) = \sum a_n x^n, g(x) = \sum b_n x^n, h(x) = \sum c_nx^n, x\in[0, 1]\)
+
+    При \(x = 1\) есть абсолютная сходимость \(f(x)\) и \(g(x)\). Можно перемножать: \(f(x)g(x) = h(x)\), при \(x\to 1 - 0\) \(A\cdot B = C\)
+\end{proof}
+
+\subsection*{Экспонента (комплексной переменной)}
+
+\begin{definition}
+    \[\exp(z) : = \sum_{n = 0}^{ +\infty} \frac{z^n}{n!} \]
+\end{definition}
+
+Свойства:
+\begin{enumerate}
+    \item \(\exp(0) = 1\)
+    \item \(\exp(z)' = \sum\limits_{n = 1}^{ +\infty} \frac{z^{n - 1}}{(n - 1)!} = \sum\limits_{k = 0}^{ +\infty} \frac{z^{k}}{k!} = \exp z\)
+\end{enumerate}
+
+Возвращаем кредит: в первом семестре говорилось, что \(\exists f_0\) --- показательная функция, такая что \(f(x + y) = f(x)\cdot f(y)\) и \(\lim\limits_{x\to 0} \frac{f_0(x) - 1}{x} = 1\)
+
+\(f_0(x) : = \exp(x)\)
+\[\lim_{x\to 0} \frac{\exp(x) - 1}{x} = \exp'(0) = 1\]
+
+\begin{theorem}
+    \[\forall z, w\in \C \ \ \exp(z + w) = \exp z \cdot \exp w\]
+\end{theorem}
+\begin{exercise}
+    Доказать к следующей лекции
+\end{exercise}
+
+\section*{Теория меры}
+
+\subsection*{Системы множеств}
+
+Здесь и далее система \(\iff \) множество, так говорится, чтобы избежать ``множество множеств''
+
+\begin{obozn}
+    \(A_i\) --- множества. Тогда \(\bigsqcup\limits_i A_i\) --- дизъюнктное объединение.
+
+    \(A_i\) --- попарно не пересекаются \( \iff \) ``\(A_i\) --- дизъюнктно''
+\end{obozn}
+
+\begin{definition}
+    \(X\) --- множество, тогда \(2^X\) --- система всех подмножеств \(X\).
+
+    \(\mathcal P \subset 2^X\) --- \textbf{полукольцо}, если:
+    \begin{itemize}
+        \item \(\text{\O}\subset \mathcal P\)
+        \item \(\forall A,B \in \mathcal P \ \ A\cap B\in \mathcal{P}\)
+        \item \(\forall A, A' \in \mathcal{P} \ \ \exists \text{ кон. и дизъюнктные } B_1\dots B_n\in \mathcal{P} : A\setminus A' = \bigsqcup\limits_i B_i\)
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item \(2^X\) --- полукольцо
+        \item \(X = \R^2, \mathcal{P} =\) ограниченные подмножества, в том числе \O
+        \item \begin{definition}
+                  Ячейка в \(\R^m\) \([a, b) = \{x\in\R^m : \forall i \ \ x_i\in[a_i, b_i)\} \)
+              \end{definition}
+
+              \(\mathcal{P}\) --- множество ячеек в \(\R^m\) --- полукольцо.
+
+              \begin{proof}
+                  \(\sphericalangle m = 2\)
+                  \begin{enumerate}
+                      \item Очевидно
+                      \item \(A\cap B = [a, a') \cap [b, b') = \{(x_1, x_2) \in\R^2 : \forall i = 1, 2 \ \ \max(a_i, b_i) \leq x_i < \min(a_i', b_i')\} \)
+                      \item \(A\setminus A' = \bigsqcup\limits_{i = 1}^8 B_i \)
+                  \end{enumerate}
+              \end{proof}
+
+              \begin{figure}[h]
+                  \centering
+                  \includesvg[scale=1]{images/вырезаниеячейки.svg}
+              \end{figure}
+        \item \(A = \{1, 2, 3,4,5,6\} \)
+
+              \[\forall i \ \ A_i : = A\]
+
+              \[X = \bigotimes\limits_{i = 1}^{ +\infty} A_i = \{(a_1, a_2, a_3, \dots) , \forall i\ \ a_i\in A_i\} \]
+
+              \[\sigma = \begin{pmatrix} i_1 & i_2 & \dots & i_k \\ \alpha_1 & \alpha_2 & \dots & \alpha_k \end{pmatrix}, k\in\N\cup \{0\} , \forall l \ \ \alpha_l\in A_{i_l} \]
+
+              \[\mathcal{P} = \{X_\sigma\}_\sigma \]
+
+              \[X_\sigma = \{a\in X : a_{i_1} = \alpha_1, \dots, a_{i_k} = \alpha_k\} \]
+
+              \(\mathcal{P}\) --- полукольцо
+
+              \begin{enumerate}
+                  \item \(\text{\O} = X_\sigma, \sigma = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix} \)
+                  \item \(X_\sigma\cap X_{\sigma'} = X_{\sigma\cup \sigma'}\)
+                  \item \(X_\sigma \setminus X_{\sigma'}\)
+
+                        \(\sigma = \begin{pmatrix} 1 \\ 6 \end{pmatrix} , \sigma' = \begin{pmatrix} 2 \end{pmatrix} 1\)
+
+                        \(X_\sigma \setminus X_{\sigma'}\) = на первой координате 6, на второй --- не 1 = \(X_{\sigma_2} \cap X_{\sigma_3} \cap \dots \cap X_{\sigma_6}, \sigma_k = \begin{pmatrix} 1 & 2 \\ 6 & k \end{pmatrix} \).
+              \end{enumerate}
+        \item Ячейки с рациональными координатами.
+    \end{enumerate}
+\end{example}
+
+Свойства:
+\begin{enumerate}
+    \item Как показывают примеры:
+          \begin{enumerate}
+              \item \(A\in \mathcal{P} \not \Rightarrow A^c = X\setminus A\in \mathcal{P}\)
+              \item \(A, B\in \mathcal{P}\), нельзя утверждать, что:
+                    \begin{itemize}
+                        \item \(A\cap B\not\in \mathcal{P}\)
+                        \item \(A\setminus  B\not\in \mathcal{P}\)
+                        \item \(A\triangle  B = (A\setminus B)\cup (B\setminus A)\not\in \mathcal{P}\)
+                    \end{itemize}
+          \end{enumerate}
+    \item Модернизируем утверждение 3:
+
+          \(A, A_1 \dots A_n \in \mathcal{P}\). Тогда \(A\setminus (A_1\cup A_2 \cup \dots \cup A_n)\) --- представимо в виде дизъюнктного объединения элементом \(\mathcal{P}\)
+
+          \begin{proof}
+              Докажем по индукции по \(n\).
+
+              База ( \(n = 1\)) --- аксиома 3.
+
+              Переход:
+
+              \begin{align*}
+                  A\setminus (A_1\cup \dots \cup A_n) & = (A\setminus (A_1\cup \dots \cup A_{n - 1}))\setminus A_n \\
+                                                      & = \left( \bigsqcup_{i = 1}^k B_i \right)\setminus A_n      \\
+                                                      & = \bigsqcup_{i = 1}^k (B_i \setminus A_n)                  \\
+                                                      & = \bigsqcup_{i = 1}^k \bigsqcup_{j = 1}^{l_i} D_{ij}       \\
+              \end{align*}
+          \end{proof}
+\end{enumerate}
+
+\begin{definition}
+    \(\vartheta \subset 2^X\) --- алгебра подмножеств в \(X\):
+    \begin{enumerate}
+        \item \(\forall A,B\in \vartheta \ \ A\setminus B\in\vartheta\)
+        \item \(X\in\vartheta\)
+    \end{enumerate}
+\end{definition}
+
+Свойства:
+\begin{enumerate}
+    \item \(\text{\O} = X\setminus X\in \vartheta\)
+    \item \(A\cap B = A\setminus (A\setminus B)\in \vartheta\)
+    \item \(A^c = X\setminus A\vartheta\)
+    \item \(A\cup B\in\vartheta\), потому что \((A\cup B)^c = A^c \cap B^c\)
+    \item \(A_1\dots A_n \in \vartheta \Rightarrow \bigcup\limits_{i = 1}^n A_i, \bigcap\limits_{i = 1}^n A_i\in \vartheta\) --- по индукции
+    \item Всякая алгебра есть полукольцо
+
+          Обратное неверно, см. пример 2.
+\end{enumerate}
+
+\begin{example}
+    \begin{enumerate}
+        \item \(2^X\)
+        \item \(X = \R^2, \vartheta\) --- ограниченные подмножества или их дополнения.
+    \end{enumerate}
+\end{example}
+
+\end{document}

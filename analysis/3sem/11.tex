@@ -6,20 +6,79 @@
 
 \begin{document}
 
-\textcolor{red}{Первые 40 минут пропущены}
-
 \subsection*{Степенные ряды}
 
-% \begin{theorem}\itemfix
-%     \begin{itemize}
-%         \item \(\sum\limits_{n = 0}^{ +\infty} c_n\) --- сходится
-%         \item \(c_n\in \C\)
-%         \item \(f(x) =\sum c_nx^n\)
-%         \item \(R\ge 1\)
-%         \item \( - 1 < x < 1\)
-%     \end{itemize}
-%     Тогда \(\lim\limits_{x\to 1-0} f(x) = \)
-% \end{theorem}
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f(z) = \sum_n a_n(z - z_0)^n\)
+        \item \(|z - z_0| < R\)
+        \item \(0 < R\le +\infty\)
+    \end{itemize}
+    Тогда: \(f\in C^{\infty}(B(z_0, R))\) и все производные можно найти почленным дифференцированием.
+\end{corollary}
+\begin{proof}
+    Это очевидно из леммы о дифференцируемости степенного ряда. Если в некоторой точке \(a\) нет гладкости, то она не лежит в \(B(z_0, R)\)
+\end{proof}
+
+\begin{theorem}[из ТФКП]\itemfix
+    \begin{itemize}
+        \item \(f\) комплексно дифференцируема в \(z_0\) \textit{(на самом деле, в некоторой области, но нас не волнует формальность в этой теореме)}.
+    \end{itemize}
+    Тогда \(f =\sum a_n(z - z_0)^n\) и \(R =\) расстояние от \(z_0\) до ближайшей особой точки.
+\end{theorem}
+
+\begin{example}
+    \(f = \cfrac{1}{1 + x^2}, z_0 = 0\)
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=1]{images/примерразложениефункции.svg}
+        \caption{Пунктиром --- круг сходимости степенного ряда}
+    \end{figure}
+\end{example}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f(x) = \sum a_n(x - x_0)^n\)
+        \item \(a_n, x_0, x\in\R\)
+    \end{itemize}
+    Тогда:
+    \begin{enumerate}
+        \item \(\sum \frac{a_n}{n + 1}(x - x_0)^{n + 1}\) имеет тот же радиус сходимости, что и \(f\)
+        \item \(\int_{x_0}^x f(t)dt = \sum \frac{a_n}{n + 1}(x - x_0)^{n + 1}\)
+    \end{enumerate}
+\end{corollary}
+
+\begin{remark}
+    \[\int f(x) dx = \sum \frac{a_n}{n + 1}(x - x_0)^{n + 1} + C\]
+    \[f(x) : = \arcctg x\]
+    \[f' = \frac{ -1}{1 + x^2} = - 1 + x^2 - x^4 + \dots \]
+    Проинтегрируем:
+    \begin{align*}
+        \arcctg x & = C - x + \frac{x^3}{3} - \frac{x^5}{5} + \dots             \\
+        \arcctg x & = \arcctg 0 - x + \frac{x^3}{3} - \frac{x^5}{5} + \dots     \\
+        \arcctg x & = \frac{\pi}{2} - x + \frac{x^3}{3} - \frac{x^5}{5} + \dots
+    \end{align*}
+    То же самое можно получить, взяв определенный интеграл.
+\end{remark}
+
+\subsection*{Метод Абеля суммирования числовых рядов}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(\sum\limits_{n = 0}^{ +\infty} c_n\) --- сходится
+        \item \(c_n\in \C\)
+        \item \(f(x) =\sum c_nx^n\)
+        \item \(R\ge 1\)
+        \item \( - 1 < x < 1\)
+    \end{itemize}
+    Тогда \(\lim\limits_{x\to 1-0} f(x) = \sum c_n\)
+\end{theorem}
+\begin{proof}
+    Ряд \(\sum c_nx^n\) равномерно сходится на \([0, 1]\) по признаку Абеля при \(a_n(x) = c_n, b_n(x) = x^n\).
+
+    Функции \(c_nx^n\) непрерывны на \([0, 1] \xRightarrow{\text{Стокса-Зайдля}} \sum c_n x^n\) --- непр. на \([0, 1]\)
+\end{proof}
 
 \begin{example}
     \[\sum_{n = 1}^{ +\infty} \frac{1}{n(n + 1)} = \sum \frac{1}{n} - \frac{1}{n + 1} = 1 - \lim_{N\to +\infty} \frac{1}{N + 1} = 1\]

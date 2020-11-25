@@ -17,7 +17,7 @@
 - [8 лекция](analysis/3sem/8.pdf)
 - [9 лекция](analysis/3sem/9.pdf)
 - [10 лекция](analysis/3sem/10.pdf)
-- [11 лекция](analysis/3sem/11.pdf) (кроме первых 40 минут, они будут позже)
+- [11 лекция](analysis/3sem/11.pdf)
 - [Конспект к экзамену](analysis/3sem/final.pdf)
 
 ### Диффуры

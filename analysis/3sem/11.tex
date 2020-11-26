@@ -65,6 +65,7 @@
 \subsection*{Метод Абеля суммирования числовых рядов}
 
 \begin{theorem}\itemfix
+    %<*методабеля>
     \begin{itemize}
         \item \(\sum\limits_{n = 0}^{ +\infty} c_n\) --- сходится
         \item \(c_n\in \C\)
@@ -73,12 +74,15 @@
         \item \( - 1 < x < 1\)
     \end{itemize}
     Тогда \(\lim\limits_{x\to 1-0} f(x) = \sum c_n\)
+    %</методабеля>
 \end{theorem}
+%<*методабеляproof>
 \begin{proof}
     Ряд \(\sum c_nx^n\) равномерно сходится на \([0, 1]\) по признаку Абеля при \(a_n(x) = c_n, b_n(x) = x^n\).
 
     Функции \(c_nx^n\) непрерывны на \([0, 1] \xRightarrow{\text{Стокса-Зайдля}} \sum c_n x^n\) --- непр. на \([0, 1]\)
 \end{proof}
+%</методабеляproof>
 
 \begin{example}
     \[\sum_{n = 1}^{ +\infty} \frac{1}{n(n + 1)} = \sum \frac{1}{n} - \frac{1}{n + 1} = 1 - \lim_{N\to +\infty} \frac{1}{N + 1} = 1\]
@@ -96,6 +100,7 @@
 \end{example}
 
 \begin{corollary}[т. Абеля]\itemfix
+    %<*теоремаабеля>
     \begin{itemize}
         \item \(\sum a_n = A\)
         \item \(\sum b_n = B\)
@@ -103,12 +108,15 @@
         \item \(\sum c_n = C\)
     \end{itemize}
     Тогда \(C = AB\)
+    %</теоремаабеля>
 \end{corollary}
+%<*теоремаабеляproof>
 \begin{proof}
     \(f(x) = \sum a_n x^n, g(x) = \sum b_n x^n, h(x) = \sum c_nx^n, x\in[0, 1]\)
 
     При \(x = 1\) есть абсолютная сходимость \(f(x)\) и \(g(x)\). Можно перемножать: \(f(x)g(x) = h(x)\), при \(x\to 1 - 0\) \(A\cdot B = C\)
 \end{proof}
+%</теоремаабеляproof>
 
 \subsection*{Экспонента (комплексной переменной)}
 
@@ -117,10 +125,12 @@
 \end{definition}
 
 Свойства:
+%<*свойстваэкспоненты>
 \begin{enumerate}
     \item \(\exp(0) = 1\)
     \item \(\exp(z)' = \sum\limits_{n = 1}^{ +\infty} \frac{z^{n - 1}}{(n - 1)!} = \sum\limits_{k = 0}^{ +\infty} \frac{z^{k}}{k!} = \exp z\)
 \end{enumerate}
+%</свойстваэкспоненты>
 
 Возвращаем кредит: в первом семестре говорилось, что \(\exists f_0\) --- показательная функция, такая что \(f(x + y) = f(x)\cdot f(y)\) и \(\lim\limits_{x\to 0} \frac{f_0(x) - 1}{x} = 1\)
 
@@ -149,12 +159,14 @@
 \begin{definition}
     \(X\) --- множество, тогда \(2^X\) --- система всех подмножеств \(X\).
 
+    %<*полукольцо>
     \(\mathcal P \subset 2^X\) --- \textbf{полукольцо}, если:
     \begin{itemize}
         \item \(\text{\O}\subset \mathcal P\)
         \item \(\forall A,B \in \mathcal P \ \ A\cap B\in \mathcal{P}\)
         \item \(\forall A, A' \in \mathcal{P} \ \ \exists \text{ кон. и дизъюнктные } B_1\dots B_n\in \mathcal{P} : A\setminus A' = \bigsqcup\limits_i B_i\)
     \end{itemize}
+    %</полукольцо>
 \end{definition}
 
 \begin{example}
@@ -240,20 +252,22 @@
 \end{enumerate}
 
 \begin{definition}
-    \(\vartheta \subset 2^X\) --- алгебра подмножеств в \(X\):
+    %<*алгебраподмножеств>
+    \(\mathfrak A \subset 2^X\) --- \textbf{алгебра подмножеств} в \(X\), если:
     \begin{enumerate}
-        \item \(\forall A,B\in \vartheta \ \ A\setminus B\in\vartheta\)
-        \item \(X\in\vartheta\)
+        \item \(\forall A,B\in \mathfrak A \ \ A\setminus B\in\mathfrak A\)
+        \item \(X\in\mathfrak A\)
     \end{enumerate}
+    %</алгебраподмножеств>
 \end{definition}
 
 Свойства:
 \begin{enumerate}
-    \item \(\text{\O} = X\setminus X\in \vartheta\)
-    \item \(A\cap B = A\setminus (A\setminus B)\in \vartheta\)
-    \item \(A^c = X\setminus A\vartheta\)
-    \item \(A\cup B\in\vartheta\), потому что \((A\cup B)^c = A^c \cap B^c\)
-    \item \(A_1\dots A_n \in \vartheta \Rightarrow \bigcup\limits_{i = 1}^n A_i, \bigcap\limits_{i = 1}^n A_i\in \vartheta\) --- по индукции
+    \item \(\text{\O} = X\setminus X\in \mathfrak A\)
+    \item \(A\cap B = A\setminus (A\setminus B)\in \mathfrak A\)
+    \item \(A^c = X\setminus A\mathfrak A\)
+    \item \(A\cup B\in\mathfrak A\), потому что \((A\cup B)^c = A^c \cap B^c\)
+    \item \(A_1\dots A_n \in \mathfrak A \Rightarrow \bigcup\limits_{i = 1}^n A_i, \bigcap\limits_{i = 1}^n A_i\in \mathfrak A\) --- по индукции
     \item Всякая алгебра есть полукольцо
 
           Обратное неверно, см. пример 2.
@@ -262,7 +276,7 @@
 \begin{example}
     \begin{enumerate}
         \item \(2^X\)
-        \item \(X = \R^2, \vartheta\) --- ограниченные подмножества или их дополнения.
+        \item \(X = \R^2, \mathfrak A\) --- ограниченные подмножества или их дополнения.
     \end{enumerate}
 \end{example}
 

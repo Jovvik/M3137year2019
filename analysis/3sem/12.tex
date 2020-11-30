@@ -1,0 +1,259 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{30.11.2020}
+
+\begin{document}
+
+\begin{theorem}
+    \[\forall z, w\in \C \ \ \exp(z + w) = \exp z \cdot \exp w\]
+\end{theorem}
+\begin{proof}
+    \[\exp z \cdot \exp w = \sum_{n = 0}^{ +\infty} \frac{z^n}{n!} \cdot \sum_{n = 0}^{ +\infty} \frac{w^n}{n!} = \sum C_n\]
+    \begin{align*}
+        C_n & = \frac{1}{n!}\sum_{k = 0}^n \frac{z^k}{k!} \frac{w^{n - k}}{(n - k)!} n! \\
+            & = \frac{1}{n!} \sum_{k = 0}^n z^k w^{n - k} C_n^k                         \\
+            & = \frac{(z + w)^n}{n!}
+    \end{align*}
+    \[\sum_{n = 0}^{ +\infty} \frac{z^n}{n!} \cdot \sum_{n = 0}^{ +\infty} \frac{w^n}{n!} = \sum \frac{(z + w)^n}{n!} = \exp(z + w)\]
+\end{proof}
+
+\begin{corollary}
+    \(\forall z\in \C\ \ \exp z \neq 0\)
+\end{corollary}
+
+\(\overline{\exp(z)} = \exp(\overline z)\), потому что коэффициенты вещественные и
+\[\overline{\sum_{n = 0}^N \frac{z^n}{n!}} = \sum_{n = 0}^N \frac{(\overline z)^n}{n!}\]
+
+\begin{remark}[о тригонометрических функциях]
+    Пусть \(\exp(ix) = \text{Cos}(x) + i\text{Sin}(x), x\in\R\)
+
+    Тогда \(\exp( - ix) = \text{Cos}(x) - i\text{Sin}(x)\)
+
+    \[\text{Cos}(x) = \frac{\exp(ix) + \exp( - ix)}{2} \quad \text{Sin}(x) = \frac{\exp(ix) - \exp(-ix)}{2i}\]
+
+    Следовательно:
+
+    \[\text{Cos}(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} + \dots \quad \text{Sin}(x) = x - \frac{x^3}{3!} + \dots \]
+
+    Пусть \(T(x) = \exp(ix)\). Тогда \(T(x + y) = T(x) T(y)\).
+
+    \[\text{Cos}(x + y) + i\text{Sin}(x + y) = (\text{Cos}(x) + i\text{Sin}(x))(\text{Cos}(y) + i\text{Sin}(y))\]
+    \[\text{Cos}(x + y) = \text{Cos} x \text{Cos} y - \text{Sin} x \text{Sin} y\]
+    \[\text{Sin}(x + y) = \text{Cos} x \text{Sin} y + \text{Sin} x \text{Cos} y\]
+    \[|T(x)|^2 = T(x) \overline{T(x)} = \exp(ix) \exp( - ix) = \exp(0) = 1\]
+    То есть \((\text{Cos} x, \text{Sin} x)\) --- точка на единичной окружности.
+    \(T' = iT\), то есть \(x \mapsto T(x)\) --- движение по единичной окружности с единичным вектором скорости, перпендикулярным радиус-вектору.
+
+    Мы неформально показали, что \(\text{Cos} = \cos, \text{Sin} = \sin\). Для более строго доказательства см. Рудин ``Основы математического анализа''.
+\end{remark}
+
+\section*{Ряды Тейлора}
+
+В этом параграфе все вещественно.
+
+\begin{definition}
+    \(f\) --- \textbf{разлагается в степенной ряд} в окрестности \(x_0\), если:
+    \begin{equation}
+        \exists \varepsilon > 0\ \ \exists C_n \text{ --- вещ. посл.}\ \ \forall x\in(x_0 - \varepsilon, x_0 + \varepsilon)\ \ f(x) = \sum_{n=0}^{+\infty} C_n(x - x_0)^n \label{степеннойряд}
+    \end{equation}
+\end{definition}
+\begin{remark}
+    Тогда \(f\in C^{\infty}(x_0 - \varepsilon, x_0 + \varepsilon)\)
+\end{remark}
+
+\begin{theorem}[о единственности]
+    \(f\) разлагается в степенной ряд в окрестности \(x_0\). Тогда разложение единственно.
+\end{theorem}
+\begin{proof}
+    Выполняется \ref{степеннойряд}.
+
+    База:
+    \[C_0 = f(x_0) \quad f'(x) = \sum_{n = 1}^{ +\infty} n C_n(x - x_0)^{n - 1}\]
+
+    Переход:
+
+    \[f^{(k)} = \sum_{n = k}^{ +\infty} n(n - 1)\dots (n - k + 1)C_n (x - x_0)^{n - k} \Rightarrow C_k = \frac{f^{(k)}(x_0)}{k!}\]
+\end{proof}
+\begin{definition}
+    Ряд Тейлора функции \(f\) в точке \(x_0\) --- формальный ряд \(\sum \frac{f^{(n)}(x_0)}{n!} (x - x_0)^n\)
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item Ряд Тейлора может оказаться сходящимся только при \(x = x_0\)
+        \item Ряд Тейлора может сходиться \textbf{не туда}.
+    \end{enumerate}
+\end{remark}
+
+\begin{example}[2]
+    \[f(x) = \begin{cases}
+            e^{-1/x^2} & , x\neq 0 \\
+            0          & , x = 0   \\
+        \end{cases}, f\in C^{\infty}(\R)\]
+
+    При \(x = 0\ \ \forall n \ \ f^{(n)}(0) = 0\) --- мы это доказывали в прошлом семестре.
+
+    Ряд Тейлора в \(x_0 = 0\) тождественно равен нулю. Очевидно в других точках ряд не сходится к \(f\).
+\end{example}
+
+\begin{example}[1, Кошмарный сон КПК]
+    \[f(t) = \int_0^{ +\infty} \frac{e^{ - x}}{1 + t^2x} dx, t\in\R\]
+    \begin{align*}
+        f(t) & = \int_0^{ +\infty} \sum_{n = 0}^{ +\infty} e^{ - x}( - 1)^n t^{2n} x^n dx  \\
+             & = \sum_{n = 0}^{ +\infty} \int_0^{ +\infty} ( - 1)^n t^{2n} x^n e^{ - x} dx \\
+             & = \sum_{n = 0}^{ +\infty} ( - 1)^n t^{2n} \int_0^{ +\infty} x^n e^{ - x} dx \\
+             & = \sum_{n = 0}^{ +\infty} ( - 1)^n t^{2n} \Gamma(n + 1)                     \\
+             & = \sum_{n = 0}^{ +\infty} ( - 1)^n t^{2n} n!                                \\
+    \end{align*}
+
+    Этот ряд расходится при \(t\neq 0\), поэтому все равенства неверные.
+
+    \(f(t)\in C^{\infty}(\R)\) по обобщенному правилу Лейбница, \(s = \frac{t^2}{t^2x + 1}, f(t) = \dots \int^{t^2} \frac{1}{s} e^{ - 1 / s} ds\)
+
+    \[\frac{1}{1 + t^2x} = 1 - t^2x + \dots + ( - 1)^n (t^2x)^n + \frac{( - 1)^{n + 1} (t^2x)^{n + 1}}{1 + t^2x}\]
+    \begin{align*}
+        f(t)
+         & = \int_0^{ +\infty} \sum_{k = 0}^n e^{ - x}( - 1)^k t^{2k} x^k dx + \int_0^{ +\infty} ( - 1)^{n + 1} \frac{(t^2x)^{n + 1} e^{ - x}}{1 + t^2 x} dx                                                                                \\
+         & = \sum_{k = 0}^n \int_0^{ +\infty} e^{ - x}( - 1)^k t^{2k} x^k dx + ( - 1)^{n + 1} t^{2n + 2} \underbrace{\int_0^{ +\infty} \frac{x^{n + 1} e^{ - x}}{1 + t^2 x} dx}_{\text{огр.}, \le \int_0^{+\infty} e^{-x} x^{n+1} = (n+1)!} \\
+         & = \sum_{k = 0}^n ( - 1)^k k! t^{2n} + O(t^{2n + 2})                                                                                                                                                                              \\
+    \end{align*}
+
+    Это формула Тейлора для \(f\) в точке \(t_0 = 0.1\), т.е. \(f^{(2n)}(0) = ( - 1)^n n!2n!\)
+\end{example}
+
+\begin{definition}
+    %<*сигмаалгебра>
+    \(\sigma\)-алгебра \(\mathfrak A \subset 2^X\):
+    \begin{enumerate}
+        \item \(\mathfrak A\) --- алгебра
+        \item \(A_1, A_2, \dots \in \mathfrak A \Rightarrow \bigcup\limits_{i = 1}^{\infty} A_i \in \mathfrak A\)
+    \end{enumerate}
+    %</сигмаалгебра>
+\end{definition}
+
+\begin{remark}
+    \(A_1, A_2, \dots \in \mathfrak A\). Тогда \(\bigcap\limits_{i = 1}^{ +\infty} A_i\in \mathfrak A\)
+\end{remark}
+\begin{proof}
+    \[X\setminus \bigcap\limits_{i = 1}^{ +\infty} A_i = \bigcup\limits_{i = 1}^{ +\infty} X\setminus A_i \in \mathfrak A\]
+\end{proof}
+
+\begin{remark}
+    \(E\in \mathfrak A\), \(\mathfrak A\) --- \(\sigma\)-алгебра
+
+    Тогда \(\mathfrak A_E : = \{A\in \mathfrak A : A\subset E\} \) --- \(\sigma\)-алгебра подмножеств \(E\)
+\end{remark}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item \(2^X\)
+        \item \(X\) --- бесконечное множество. \(\mathfrak A\) --- не более чем счётные множества и их дополнения
+        \item \(X =\R^2, \mathfrak A\) --- ограниченные множества и их дополнения --- не \(\sigma\)-алгебра
+    \end{enumerate}
+\end{example}
+
+\begin{exercise}
+    \begin{enumerate}
+        \item \(A_1, A_2, \dots \subset X\)
+
+              \(B_1 = A_1, B_2 = A_2\setminus A_1 \dots B_k = A_k \setminus \bigcup\limits_{i = 1}^{k - 1}A_i\), тогда \(B_k\) --- дизъюнктны. \(\bigsqcup B_k \stackrel{?}{ = } \bigcup A_i\)
+
+        \item \(\mathcal{P}\) --- полукольцо. \(\mathfrak A_0 : =\) конечные объединения множеств в \(\mathcal{P}\) и их дополнений. Доказать: \(\mathfrak A_0\) --- алгебра.
+        \item \(\mathcal{P}\) --- полукольцо. \(\mathfrak A \supset \mathcal{P}\) --- алгебра. Доказать: \(\mathfrak A\supset \mathfrak A_0\)
+    \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+    %<*мера>
+    \(\mu : \underbrace{\mathcal{P}}_{\text{полукольцо}} \to \overline \R\) --- \textbf{аддитивная функция множества}, если:
+    \begin{enumerate}
+        \item \(\mu\) не должна принимать значения \(\pm \infty\) одновременно
+        \item \(\mu(\text{\O}) = 0\)
+        \item \(\forall A_1 \dots A_n \in \mathcal{P}\), дизъюнктны. Если \(A = \bigsqcup A_i \in \mathcal{P}\), то \(\mu A = \sum\limits_{i = 1}^n \mu A_i\)
+    \end{enumerate}
+    %</мера>
+\end{definition}
+
+\begin{definition}
+    %<*объем>
+    \(\mu : \mathcal{P} \to \overline \R\) --- \textbf{объем}, если \(\mu \ge 0\) и \(\mu\) --- аддитивная.
+    %</объем>
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item Если \(X\in \mathcal{P}, \mu X < +\infty\), то \(\mu\)-конечный %TODO : кто?
+        \item \(\mu\) --- задано на \(\mathfrak{A}\) : 3 \(\leftrightarrow\) 3':
+        \item [3'] \(\forall A, B\in \mathfrak{A}, A\cap B =\text{\O} \ \ \mu(A\cup B) = \mu A + \mu B\)
+    \end{enumerate}
+\end{remark}
+
+\begin{example}
+    \begin{enumerate}
+        \item \(\mathcal{P}^1\) --- ячейки в \(\R^1\). \(\mu[a, b) = b - a, b\ge a\)
+
+              % TODO
+
+        \item \(g : \R \to \R\) --- возрастает, непрерывно
+
+              \(\forall [\alpha, \beta) \ \ \vartheta : \mathcal{P}^1 \to \R, \vartheta [\alpha, \beta) = g(\beta) - g(\alpha)\) --- тоже объем.
+
+        \item Классический объем в \(\R^m\) \(\mu : \mathcal{P}^m \to \R\)
+
+              \(\mu [a, b) = \prod\limits_{i = 1}^m (b_i - a_i)\)
+
+              Этот объем не конечный.
+        \item Наглый пример. \(\sphericalangle \R^2\)
+
+              \(\mathfrak{A}\) --- алгебра ограниченных множеств и их дополнений.
+
+              \[\mu A = \begin{cases}
+                      0 & , A \text{ --- огр.}                  \\
+                      1 & , A \text{ --- имеет огр. дополнение}
+                  \end{cases}\]
+
+              Наглость заключается в том, что \(\mu\) принимает значение 1, аддитивно, но не принимает значение 2. Это происходит, потому что нет двух дизъюнктных множеств, которые имеют ограниченное дополнение.
+
+              Этот объем конечный.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Свойство \(A\subset B \Rightarrow \mu A \le \mu B\) называется \textbf{монотонностью объема}.
+\end{definition}
+
+\begin{theorem}
+    \(\mu : \mathcal{P} \to \overline \R\) --- объем. Тогда \(\mu\) имеет свойства:
+    \begin{enumerate}
+        \item Усиленная монотонность
+              \[\forall A, \underbrace{A_1, A_2, \dots A_n}_{\text{дизъюнктны}} \in \mathcal{P} \ \ \bigsqcup_{i = 1}^n A_i \subset A \ \ \sum_{i = 1}^n \mu A_i \le \mu A\]
+        \item Конечная полуаддитивность
+              \[\forall A, A_1, A_2, \dots A_n \in \mathcal{P} \ \ A\subset \bigcup_{i = 1}^n A_i \ \ \mu A \le \sum_{i = 1}^n \mu A_i\]
+        \item \(\forall A, B \in \mathcal{P}\) пусть ещё известно \(A\setminus B \in \mathcal{P}, \mu(B)\) --- конечно. Тогда \(\mu(A\setminus B) \ge \mu A - \mu B\)
+    \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+    \begin{enumerate}
+        \item В пунтах 1 и 2 не предполагается, что \(\bigcup A_i \in \mathcal{P}\)
+        \item В пункте 3 если \(\mathcal{P}\) --- алгебра, условие \(A\setminus B\in \mathcal{P}\) можно убрать.
+    \end{enumerate}
+\end{remark}
+
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item Усиление аксиомы 3 из определения полукольца:
+              \[A\setminus \left( \bigcup_{i = 1}^n A_i \right) = \bigsqcup_{l = 1}^S B_l\]
+              Это было доказано ранее.
+              Теорема \? \(A = \left( \bigsqcup A_i \right) \cup \left( \bigsqcup A_l \right)\) --- дизъюнктное объединение конечного числа множеств.
+              \[\mu A = \sum \mu A_i + \sum \mu B_l \ge \sum \mu A_i\]
+        \item [3] \begin{enumerate}
+                  \item \(B \subset A \quad A = B \cup (A\setminus B) \quad \mu A = \mu B + \mu(A\setminus B)\)
+                  \item \(B \not\subset A \quad A\setminus B = A\setminus (A\cap B) \quad \mu(A\setminus B) = \mu A - \mu(A\cap B) \ge \mu A - \mu B\)
+              \end{enumerate}
+    \end{enumerate}
+\end{proof}
+
+\end{document}

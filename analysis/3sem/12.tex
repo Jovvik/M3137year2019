@@ -54,18 +54,23 @@
 В этом параграфе все вещественно.
 
 \begin{definition}
+    %<*разлагаетсявстепеннойряд>
     \(f\) --- \textbf{разлагается в степенной ряд} в окрестности \(x_0\), если:
     \begin{equation}
         \exists \varepsilon > 0\ \ \exists C_n \text{ --- вещ. посл.}\ \ \forall x\in(x_0 - \varepsilon, x_0 + \varepsilon)\ \ f(x) = \sum_{n=0}^{+\infty} C_n(x - x_0)^n \label{степеннойряд}
     \end{equation}
+    %</разлагаетсявстепеннойряд>
 \end{definition}
 \begin{remark}
     Тогда \(f\in C^{\infty}(x_0 - \varepsilon, x_0 + \varepsilon)\)
 \end{remark}
 
 \begin{theorem}[о единственности]
+    %<*оединственности>
     \(f\) разлагается в степенной ряд в окрестности \(x_0\). Тогда разложение единственно.
+    %</оединственности>
 \end{theorem}
+%<*оединственностиproof>
 \begin{proof}
     Выполняется \ref{степеннойряд}.
 
@@ -76,6 +81,7 @@
 
     \[f^{(k)} = \sum_{n = k}^{ +\infty} n(n - 1)\dots (n - k + 1)C_n (x - x_0)^{n - k} \Rightarrow C_k = \frac{f^{(k)}(x_0)}{k!}\]
 \end{proof}
+%</оединственностиproof>
 \begin{definition}
     Ряд Тейлора функции \(f\) в точке \(x_0\) --- формальный ряд \(\sum \frac{f^{(n)}(x_0)}{n!} (x - x_0)^n\)
 \end{definition}
@@ -200,11 +206,13 @@
 
               \(\forall [\alpha, \beta) \ \ \vartheta : \mathcal{P}^1 \to \R, \vartheta [\alpha, \beta) = g(\beta) - g(\alpha)\) --- тоже объем.
 
-        \item Классический объем в \(\R^m\) \(\mu : \mathcal{P}^m \to \R\)
+        \item %<*классическийобъем>
+              Классический объем в \(\R^m\) \(\mu : \mathcal{P}^m \to \R\)
 
               \(\mu [a, b) = \prod\limits_{i = 1}^m (b_i - a_i)\)
 
               Этот объем не конечный.
+              %</классическийобъем>
         \item Наглый пример. \(\sphericalangle \R^2\)
 
               \(\mathfrak{A}\) --- алгебра ограниченных множеств и их дополнений.
@@ -225,6 +233,7 @@
 \end{definition}
 
 \begin{theorem}
+    %<*свойстваобъема>
     \(\mu : \mathcal{P} \to \overline \R\) --- объем. Тогда \(\mu\) имеет свойства:
     \begin{enumerate}
         \item Усиленная монотонность
@@ -233,15 +242,19 @@
               \[\forall A, A_1, A_2, \dots A_n \in \mathcal{P} \ \ A\subset \bigcup_{i = 1}^n A_i \ \ \mu A \le \sum_{i = 1}^n \mu A_i\]
         \item \(\forall A, B \in \mathcal{P}\) пусть ещё известно \(A\setminus B \in \mathcal{P}, \mu(B)\) --- конечно. Тогда \(\mu(A\setminus B) \ge \mu A - \mu B\)
     \end{enumerate}
+    %</свойстваобъема>
 \end{theorem}
 
+%<*свойстваобъемаremark>
 \begin{remark}
     \begin{enumerate}
         \item В пунтах 1 и 2 не предполагается, что \(\bigcup A_i \in \mathcal{P}\)
         \item В пункте 3 если \(\mathcal{P}\) --- алгебра, условие \(A\setminus B\in \mathcal{P}\) можно убрать.
     \end{enumerate}
 \end{remark}
+%</свойстваобъемаremark>
 
+%<*свойстваобъемаproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item Усиление аксиомы 3 из определения полукольца:
@@ -255,5 +268,6 @@
               \end{enumerate}
     \end{enumerate}
 \end{proof}
+%</свойстваобъемаproof>
 
 \end{document}

@@ -65,17 +65,17 @@
     Тогда \(f\in C^{\infty}(x_0 - \varepsilon, x_0 + \varepsilon)\)
 \end{remark}
 
+%<*оединственности>
 \begin{theorem}[о единственности]
-    %<*оединственности>
     \(f\) разлагается в степенной ряд в окрестности \(x_0\). Тогда разложение единственно.
-    %</оединственности>
 \end{theorem}
+%</оединственности>
 %<*оединственностиproof>
 \begin{proof}
     Выполняется \ref{степеннойряд}.
 
     База:
-    \[C_0 = f(x_0) \quad f'(x) = \sum_{n = 1}^{ +\infty} n C_n(x - x_0)^{n - 1}\]
+    \[C_0 = f(x_0) \quad f'(x) = \sum_{n = 1}^{ +\infty} n C_n(x - x_0)^{n - 1} \]
 
     Переход:
 
@@ -190,7 +190,7 @@
 
 \begin{remark}
     \begin{enumerate}
-        \item Если \(X\in \mathcal{P}, \mu X < +\infty\), то \(\mu\)-конечный %TODO : кто?
+        \item Если \(X\in \mathcal{P}, \mu X < +\infty\), то говорят, что \(\mu\) --- конечный объем
         \item \(\mu\) --- задано на \(\mathfrak{A}\) : 3 \(\leftrightarrow\) 3':
         \item [3'] \(\forall A, B\in \mathfrak{A}, A\cap B =\text{\O} \ \ \mu(A\cup B) = \mu A + \mu B\)
     \end{enumerate}
@@ -209,7 +209,7 @@
         \item %<*классическийобъем>
               Классический объем в \(\R^m\) \(\mu : \mathcal{P}^m \to \R\)
 
-              \(\mu [a, b) = \prod\limits_{i = 1}^m (b_i - a_i)\)
+              \[\mu [a, b) = \prod\limits_{i = 1}^m (b_i - a_i)\]
 
               Этот объем не конечный.
               %</классическийобъем>

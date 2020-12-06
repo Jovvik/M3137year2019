@@ -196,11 +196,13 @@
     \end{enumerate}
 \end{remark}
 
-\begin{example}
+\begin{example}\itemfix
     \begin{enumerate}
         \item \(\mathcal{P}^1\) --- ячейки в \(\R^1\). \(\mu[a, b) = b - a, b\ge a\)
 
-              % TODO
+              \[\sphericalangle x_0 = a < x_1 < x_2 < \dots < x_n = b\]
+              \[[a, b) = \bigcup_{k = 1}^n [x_{k - 1}, x_k)\]
+              \[\mu[a, b) = b - a = x_n - x_0 = \sum_k (x_k - x_{k - 1}) = \sum_k \mu[x_{k - 1}, x_k)\]
 
         \item \(g : \R \to \R\) --- возрастает, непрерывно
 
@@ -260,7 +262,7 @@
         \item Усиление аксиомы 3 из определения полукольца:
               \[A\setminus \left( \bigcup_{i = 1}^n A_i \right) = \bigsqcup_{l = 1}^S B_l\]
               Это было доказано ранее.
-              Теорема \? \(A = \left( \bigsqcup A_i \right) \cup \left( \bigsqcup A_l \right)\) --- дизъюнктное объединение конечного числа множеств.
+              Теорема \? \(A = \left( \bigsqcup A_i \right) \cup \left( \bigsqcup B_l \right)\) --- дизъюнктное объединение конечного числа множеств.
               \[\mu A = \sum \mu A_i + \sum \mu B_l \ge \sum \mu A_i\]
         \item [3] \begin{enumerate}
                   \item \(B \subset A \quad A = B \cup (A\setminus B) \quad \mu A = \mu B + \mu(A\setminus B)\)

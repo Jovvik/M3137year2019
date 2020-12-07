@@ -18,6 +18,7 @@
 - [9 лекция](analysis/3sem/9.pdf)
 - [10 лекция](analysis/3sem/10.pdf)
 - [11 лекция](analysis/3sem/11.pdf)
+- [12 лекция](analysis/3sem/12.pdf)
 - [Конспект к экзамену](analysis/3sem/final.pdf)
 
 ### Диффуры

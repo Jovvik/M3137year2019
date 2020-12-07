@@ -1,0 +1,108 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{7.12.2020}
+
+\begin{document}
+
+\section*{Ряды Тейлора}
+
+\begin{example}
+    \begin{align*}
+        e^x             & = \sum_{n = 0}^{ +\infty},\ x\in\R                                             \\
+        \sin x          & = \sum_{n = 1}^{ +\infty} ( - 1)^{n - 1} \frac{x^{2n - 1}}{(2n - 1)!},\ x\in\R \\
+        \cos x          & = \sum ( - 1)^n \frac{x^{2n}}{(2n)!},\ x\in\R                                  \\
+        \frac{1}{1 + x} & = \sum_{n = 0}^{ +\infty} ( -1)^nx^n,\ x\in( - 1, 1)                           \\
+        \ln(1 + x)      & = \sum_{n = 0}^{ +\infty} ( - 1)^{n - 1}\frac{x^n}{n},\ x\in( - 1, 1)          \\
+    \end{align*}
+\end{example}
+
+\begin{theorem}
+    \(\forall \sigma\in\R \ \ \forall x\in( - 1, 1)\)
+    \[(1 + x)^{\sigma} = 1 + \sigma x + \frac{\sigma(\sigma - 1)}{2} x^2 + \dots \]
+\end{theorem}
+\begin{proof}
+    При \(|x|< 1\) ряд сходится по признаку Даламбера.
+
+    \[\left|\frac{a_{n+1}}{a_n}\right|=\left|\frac{(\sigma - n)x}{n + 1} \right| \xrightarrow{n\to +\infty}|x|< 1\]
+
+    Обозначим сумму ряда через \(S(x)\).
+
+    Наблюдение: \(S'(x)(1 + x) = \sigma S(x)\)
+    \[S'(x) = \dots + \frac{\sigma(\sigma - 1)\dots (\sigma - n)}{n!} x^n + \dots \]
+    \[S(x) = \dots + \frac{\sigma(\sigma - 1)\dots (\sigma - n + 1)}{n!} x^n + \dots \]
+    \begin{align*}
+        (1 + x)S' & = \dots + \left( \frac{\sigma(\sigma - 1)\dots (\sigma - n)}{n!} + \frac{\sigma(\sigma - 1)\dots (\sigma - n + 1)}{n!}n \right)x^n + \dots \\
+                  & = \dots + \frac{\sigma(\sigma - 1)\dots (\sigma - n + 1)}{n!}\sigma x^n + \dots
+    \end{align*}
+
+    \[f(x) = \frac{S(x)}{(1 + x)^\sigma} \quad f'(x) = \frac{S'(1 + x)^\sigma - \sigma(1 + x)^{\sigma - 1}S}{(1 + x)^{2\sigma}} = 0\]
+    \(\Rightarrow f = \const, f(0) = 1\Rightarrow f\equiv 1\)
+\end{proof}
+
+\begin{corollary}
+    \[\arcsin x = \sum {}^{\textcolor{red}{**}} \frac{(2n - 1)!!}{(2n)!!} \frac{x^{2n + 1}}{2n + 1},\ x\in( - 1, 1)\]
+    \[(\arcsin x)' = \frac{1}{\sqrt{1 - x^2}} = \sum_{n = 0}^{ +\infty} \binom{\sigma}{n} ( - x^2)^n\Big|_{\sigma =- \frac{1}{2}} = \sum {}^{\textcolor{red}{*}} \frac{(2n - 1)!!}{(2n)!!}x^{2n}\]
+    При \(n = 0\) \textcolor{red}{*} это \(1\), и тогда \textcolor{red}{**}: \(\arcsin x = x + \dots \)
+\end{corollary}
+
+\begin{corollary}
+    \[\sum_{n = m}^{ +\infty} n(n - 1)\dots (n - m + 1)t^{n - m} = \frac{m!}{(1 - t)^{m + 1}},\ |t|< 1\]
+\end{corollary}
+\begin{proof}
+    \[\sum_{n = 0}^{ +\infty} t^n = \frac{1}{1 - t}\]
+    Дифференцируем \(m\) раз, получим искомое. Слагаемые с \(n < m\) пропадут, т.к. они \( = 0\)
+\end{proof}
+
+\begin{theorem}
+    \(f\in C^{\infty} (x_0 - h, x_0 + h)\)
+
+    Тогда \(f\) --- раскладывается в ряд Тейлора в окрестности \(x_0\) \(\iff\)
+    \[\exists \delta, C, A > 0 \ \ \forall n \ \ \forall x : |x - x_0| < \delta \ \ |f^{(n)}(x)| < C A^n n!\]
+\end{theorem}
+
+\begin{remark}
+    В ``Кошмарном сне'' \textit{(см. лекцию 12)} \(f^{(n)} \approx n! 2n! \Rightarrow f\) не раскладывается.
+\end{remark}
+
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item [ \( \Leftarrow \) ] формула Тейлора в \(x_0\) : \(f(x) = \sum\limits_{k = 0}^{n - 1} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n)}(c)}{n!} (x - x_0)^n\)
+
+              \[\left|\frac{f^{(n)}(c)}{n!} (x - x_0)^n\right| \leq C|A(x - x_0)^n| \xrightarrow{n\to +\infty} 0\]
+
+              Разложение имеет место при \(|x - x_0|<\min(\delta, \frac{1}{A})\)
+        \item [ \( \Rightarrow \) ] \(f(x) = \sum \frac{f^{(n)}(x_0)}{n!}\)
+
+              Возьмём \(x_1\neq x_0\), для которого это верно
+
+              \begin{enumerate}
+                  \item при \(x = x_1\), ряд сходится \(\Rightarrow\) слагаемые \(\to 0\) \(\Rightarrow\) огр.
+
+                        \[\left|\frac{f^{(n)}(x_0)}{n!}(x_1 - x_0)^n \right| \leq C_1 \Leftrightarrow |f^{(n)}(x_0)| \leq C_1 n! B^n\]
+                        , где \(B = \frac{1}{|x_1 - x_0|}\)
+                  \item \begin{align*}
+                            f^{(m)}(x_1) & = \sum \frac{f^{(n)}(x_0)}{n!}n(n - 1)\dots (n - m + 1)x^{n - m}          \\
+                                         & = \sum_{n = m}^{ +\infty} \frac{f^{(n)}(x_0)}{(n - m)!} (x - x_0)^{n - m}
+                        \end{align*}
+
+                        Пусть \(|x - x_0|< \frac{1}{2B}\)
+
+                        \begin{align}
+                            |f^{(m)}(x)| & \leq \sum \left|\frac{f^{(n)}(x_0)}{(n - m)!} |x - x_0|^{n - m}\right|  \nonumber                 \\
+                                         & \leq \sum \frac{C_1 n! B^n}{(n - m)!} |x - x_0|^{n - m}       \nonumber                           \\
+                                         & = C_1 B^m \sum \frac{n!}{(n - m)!} (\underbrace{B|x - x_0|}_{\leq \frac{1}{2}})^{n - m} \nonumber \\
+                                         & = \frac{C_1B^m m!}{(\underbrace{1 - B|x - x_0|}_{ > \frac{1}{2}})^{m + 1}}  \label{по сл2}        \\
+                                         & < C_1 2^{m + 1} B^m m!           \nonumber                                                        \\
+                                         & = \underbrace{(2C_1)}_{C}(\underbrace{2B}_{A})^m m!                        \nonumber
+                        \end{align}
+
+                        \ref{по сл2}: по следствию 2.
+
+                        Эта оценка выполняется при \(|x - x_0|< \delta = \frac{1}{2B}\)
+              \end{enumerate}
+    \end{enumerate}
+\end{proof}
+
+\end{document}

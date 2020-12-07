@@ -105,4 +105,187 @@
     \end{enumerate}
 \end{proof}
 
+\section*{Теория меры}
+
+Продолжим доказательство с прошлой лекции.
+
+\begin{proof}
+    \begin{enumerate}
+        %<*второесвойствообъемаproof>
+        \item [2.]
+              \[B_k : = A\cap A_k \in \mathcal{P}\ \ A = \bigcup_{\text{кон.}} B_k\]
+
+              Сделаем это множество дизъюнктным.
+
+              \[C_1 : = B_1, \dots , C_k : = B_k \setminus \left(\bigcup_{i = 1}^{k - 1} B_i\right)\ \ A = \bigsqcup_{\text{кон.}} C_k\]
+
+              Но эти \(C_k\) вообще говоря \(\not\in \mathcal{P}\)
+
+              \[C_k = B_k \setminus \left(\bigcup_{i = 1}^{k - 1} B_i\right) = \bigsqcup_j D_{k_j}\in \mathcal{P}\]
+
+              Тогда \(A = \bigsqcup\limits_{k, j} D_{k_j}\ \ \mu A = \sum \mu D_{k_j}\)
+
+              При этом \(\forall k \ \ \sum\limits_j \mu D_{k_j} = \mu C_k \stackrel{\text{монот.} \mu}{\le} \mu A_k\)
+
+              Итого \(\mu A = \sum\limits_k \sum\limits_k \mu D_{k_j} = \sum \mu C_k \le \sum \mu A_k\)
+              %</второесвойствообъемаproof>
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}\itemfix
+    \begin{enumerate}
+        \item \(X = \{1,2,3\}, \mathcal{P} = 2^X\). Задайте объем \(\mu\) на \(\mathcal{P}\): \(\mu \{1\} = 10, \mu \{1,2,3\} = 2021\)
+        \item \(\mu\) --- объем на алгебре \(\mathfrak{A}\), \(\mu X < +\infty \ \ \forall X\).
+
+              Доказать: \(\forall A, B, C \in \mathfrak{A} : \mu(A\cup B\cup C) = \mu A + \mu B + \mu C - \mu(A\cap B) - \mu(B\cap C) - \mu(A\cap C) + \mu(A\cap B\cap C)\)
+    \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+    %<*мера>
+    \(\mu : \underbrace{\mathcal{P}}_{\text{полукольцо}} \to \overline \R\) --- \textbf{мера}, если \(\mu\) --- объем и \(\mu\) счётно-аддитивна:
+    \[A, A_1, A_2, \dots \in \mathcal{P} : A = \bigsqcup_{i = 1}^{ +\infty} A_i \quad \mu A = \sum_i \mu A_i\]
+    %</мера>
+\end{definition}
+
+\begin{remark}
+    \((a_\omega)_{\omega\in\Omega}\) --- счётное семейство чисел \textit{( \(\Omega\) --- счётно)}, \(\forall \omega \ \ a_\omega \geq 0\)
+
+    Тогда определена \(\sum\limits_{\omega\in\Omega} a_\omega = \sup \sum\limits_{\text{кон.}} a_\omega\)
+
+    Значит, можно счётную аддитивность понимать обобщенно:
+    \[A = \bigsqcup_{\text{кон.}} A_\omega \Rightarrow \mu A = \sum \mu A_\omega\]
+\end{remark}
+
+\begin{remark}
+    Счётная аддитивность не следует из конечной аддитивности.
+    \begin{example}[не меры]
+        \(X =\R^2, \mathcal{P} =\) ограниченные множества и их дополнения.
+
+        \[\mu A = \begin{cases}
+                0 & , A \text{ --- огр.}                  \\
+                1 & , A \text{ --- имеет огр. дополнение}
+            \end{cases}\]
+        Пусть \(\R^2 = \bigcup\limits_{\text{счётное}} \text{клеток} = \bigsqcup\limits_{\text{счётное}} \text{ячеек} = \bigsqcup A_i\)
+
+        \(\mu(\R^2) = 1, \sum \mu A_i = 0 \Rightarrow \mu\) --- не счётно аддитивная и не мера.
+    \end{example}
+\end{remark}
+
+\begin{example}[меры]
+    \(X\) --- (бесконечное) множество.
+
+    \(a_1, a_2, a_3 \dots \) --- набор попарно различных точек.
+
+    \(h_1, h_2, h_3 \dots \) --- положительные числа.
+
+    Для \(A\subset X\) \(\mu A : = \sum\limits_{k : a_k\in A} h_k\).
+
+    Физический смысл \(\mu\): каждой точке \(a_i\) сопоставляется ``масса'' \(h_i\). Объем множества точек есть сумма ``масс'' точек.
+
+    Счётная аддитивность \(\mu \Leftrightarrow\) теореме о группировке слагаемых (в ряду можно ставить скобки).
+
+    Эта мера называется дискретной.
+\end{example}
+
+\begin{theorem}
+    \(\mu : \underbrace{\mathcal{P}}_{\text{полукольцо}} \to \overline \R\) --- объем.
+
+    Тогда эквивалентно:
+    \begin{enumerate}
+        \item \(\mu\) --- мера, т.е. \(\mu\) --- счётно-аддитивна.
+        \item \(\mu\) --- счётно-полуаддитивна:
+              \[A, A_1, A_2, \dots \in \mathcal{P} \ \ A\subset \bigcup A_i \Rightarrow \mu A\le \sum \mu A_i\]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item [1 \(\Rightarrow\) 2] как в предыдущей теореме.
+        \item [2 \(\Rightarrow\) 1] \(A = \bigsqcup A_i \xRightarrow{?} \mu A = \sum \mu A_i\)
+
+              \[\forall N \ \ A\supset \bigsqcup_{i = 1}^N A_i \ \ \mu A \ge \sum_{i = 1}^N \mu A_i\]
+
+              \(A\subset \bigcup A_i\) (на самом деле \(A =\bigsqcup A_i\)) \(\Rightarrow \mu A \le \sum \mu A_i\)
+
+              \(\Rightarrow \mu A = \sum \mu A_i\)
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    \(A\in \mathcal{P}, A_n\in \mathcal{P} : A \subset \bigcup A_n, \mu A_n = 0, \mu\) --- мера. Тогда \(\mu A = 0\)
+
+    Это очевидно, т.к. \(\mu A \le \sum \mu A_i = 0\)
+\end{corollary}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(\mathfrak{A}\) --- алгебра
+        \item \(\mu : \mathfrak{A} \to \overline \R\) --- объем.
+    \end{itemize}
+    Тогда эквивалентно:
+    \begin{enumerate}
+        \item \(\mu\) --- мера
+        \item \(\mu\) --- непрерывна снизу:
+              \[A, A_1, A_2\dots \in \mathfrak{A} \ \ A_1 \subset A_2 \subset \dots , A = \bigcup_{i = 1}^{ +\infty} A_i \Rightarrow \mu A = \lim_{i\to +\infty} \mu A_i\]
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(\mathfrak{A}\) --- алгебра
+        \item \(\mu : \mathfrak{A} \to \R\) --- объем.
+        \item \(\mu\) --- конечный объем.
+    \end{itemize}
+
+    Тогда эквивалентно:
+    \begin{enumerate}
+        \item \(\mu\) --- мера, т.е. \(\mu\) счётно-аддитивная.
+        \item \(\mu\) --- непрерывна сверху:
+              \[A, A_1, A_2\dots \in \mathfrak{A} \ \ A_1 \supset A_2 \supset \dots , A = \bigcup_{i = 1}^{ +\infty} A_i \Rightarrow \mu A = \lim_{i\to +\infty} \mu A_i\]
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item [1 \(\Rightarrow\) 2] \(B_k = A_k \setminus A_{k + 1}, A_1 = \bigsqcup B_k \cup A\)
+
+              \(\mu A_1 = \sum \mu B_k + \mu A\)
+
+              \[A_n = \bigsqcup\limits_{k \ge n} B_k \cup A \quad \mu A_n = \sum_{k\ge n} \mu B_k + \mu A \xrightarrow{n\to +\infty} \mu A\]
+        \item [2 \(\Rightarrow\) 1] Проверим, что \(C = \bigsqcup C_i \xRightarrow{?} \mu C = \sum \mu C_i\), если \(A_k : = \bigsqcup_{i = k + 1}^{ +\infty} C_i\)
+
+              Тогда \(A_k \in \mathfrak{A}\), т.к. \(A_k = C \setminus \bigsqcup\limits_{i = 1}^k C_i\).
+
+              \[A_1\supset A_2\supset \dots , \? A_k = \text{\O} \Rightarrow \mu A_k \xrightarrow{k\to+\infty} 0\]
+
+              \[C = \bigsqcup_{i = 1}^k C_i \sqcup A_k \ \ \mu C = \sum_{i = 1}^k \mu C_i + \mu A_k \xrightarrow{k\to +\infty} \sum \mu C_i\]
+    \end{enumerate}
+\end{proof}
+
+\subsection*{Теорема о продолжении меры}
+
+\begin{definition}
+    \(\mu : \mathcal{P} \to \overline \R\) --- мера, \(\mathcal{P} \subset 2^X\)
+
+    \(\mu\) --- \textbf{ \(\sigma\)-конечна}, если \(\exists A_1, A_2 \dots \in \mathcal{P} : X = \bigcup A_i, \mu A_i < +\infty\)
+\end{definition}
+
+\begin{example}
+    \(X =\R^m, \mathcal{P} = \mathcal{P}^m\) --- полукольцо ячеек, \(\mu\) --- классический объем, \(\mu\) --- \(\sigma\)-конечный объем.
+    \begin{align*}
+        \R^m & = \bigcup \text{Куб}(0, 2R)          \\
+             & = \bigcup \text{целочисл. ед. ячеек}
+    \end{align*}
+\end{example}
+
+\begin{definition}
+    \(\mu: \mathcal{P} \to \overline \R\) --- мера.
+
+    \(\mu\) --- \textbf{полная} в \(\mathcal{P}\), если \(\forall A\in \mathcal{P} \ \ \mu A = 0 \ \ \forall B\subset A\) выполняется: \(B\in \mathcal{P}\) и \textit{(тогда автоматически)} \(\mu B = 0\) \textit{(по монотонности)}
+
+    Это совместное свойство \(\mu\) и \(\mathcal{P}\).
+\end{definition}
+
+Должок. Пространство с мерой --- тройка \((\underbrace{X}_{\text{множество}}, \underbrace{\mathfrak{A}}_{\sigma\text{-алгебра}}, \underbrace{\mu}_{\text{мера на \mathfrak A} })\)
+
 \end{document}

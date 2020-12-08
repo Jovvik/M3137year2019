@@ -19,9 +19,12 @@
 \end{example}
 
 \begin{theorem}
+    %<*разложениебинома>
     \(\forall \sigma\in\R \ \ \forall x\in( - 1, 1)\)
     \[(1 + x)^{\sigma} = 1 + \sigma x + \frac{\sigma(\sigma - 1)}{2} x^2 + \dots \]
+    %</разложениебинома>
 \end{theorem}
+%<*разложениебиномаproof>
 \begin{proof}
     При \(|x|< 1\) ряд сходится по признаку Даламбера.
 
@@ -40,6 +43,7 @@
     \[f(x) = \frac{S(x)}{(1 + x)^\sigma} \quad f'(x) = \frac{S'(1 + x)^\sigma - \sigma(1 + x)^{\sigma - 1}S}{(1 + x)^{2\sigma}} = 0\]
     \(\Rightarrow f = \const, f(0) = 1\Rightarrow f\equiv 1\)
 \end{proof}
+%</разложениебиномаproof>
 
 \begin{corollary}
     \[\arcsin x = \sum {}^{\textcolor{red}{**}} \frac{(2n - 1)!!}{(2n)!!} \frac{x^{2n + 1}}{2n + 1},\ x\in( - 1, 1)\]
@@ -56,16 +60,19 @@
 \end{proof}
 
 \begin{theorem}
+    %<*оразложимости>
     \(f\in C^{\infty} (x_0 - h, x_0 + h)\)
 
     Тогда \(f\) --- раскладывается в ряд Тейлора в окрестности \(x_0\) \(\iff\)
     \[\exists \delta, C, A > 0 \ \ \forall n \ \ \forall x : |x - x_0| < \delta \ \ |f^{(n)}(x)| < C A^n n!\]
+    %</оразложимости>
 \end{theorem}
 
 \begin{remark}
     В ``Кошмарном сне'' \textit{(см. лекцию 12)} \(f^{(n)} \approx n! 2n! \Rightarrow f\) не раскладывается.
 \end{remark}
 
+%<*оразложимостиproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item [ \( \Leftarrow \) ] формула Тейлора в \(x_0\) : \(f(x) = \sum\limits_{k = 0}^{n - 1} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n)}(c)}{n!} (x - x_0)^n\)
@@ -104,6 +111,7 @@
               \end{enumerate}
     \end{enumerate}
 \end{proof}
+%</оразложимостиproof>
 
 \section*{Теория меры}
 
@@ -173,6 +181,7 @@
 \end{remark}
 
 \begin{example}[меры]
+    %<*дискретнаямера>
     \(X\) --- (бесконечное) множество.
 
     \(a_1, a_2, a_3 \dots \) --- набор попарно различных точек.
@@ -186,9 +195,11 @@
     Счётная аддитивность \(\mu \Leftrightarrow\) теореме о группировке слагаемых (в ряду можно ставить скобки).
 
     Эта мера называется дискретной.
+    %</дискретнаямера>
 \end{example}
 
 \begin{theorem}
+    %<*обэквивалентностисчетнойаддитивностиисчетнойполуаддитивности>
     \(\mu : \underbrace{\mathcal{P}}_{\text{полукольцо}} \to \overline \R\) --- объем.
 
     Тогда эквивалентно:
@@ -197,7 +208,9 @@
         \item \(\mu\) --- счётно-полуаддитивна:
               \[A, A_1, A_2, \dots \in \mathcal{P} \ \ A\subset \bigcup A_i \Rightarrow \mu A\le \sum \mu A_i\]
     \end{enumerate}
+    %</обэквивалентностисчетнойаддитивностиисчетнойполуаддитивности>
 \end{theorem}
+%<*обэквивалентностисчетнойаддитивностиисчетнойполуаддитивностиproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item [1 \(\Rightarrow\) 2] как в предыдущей теореме.
@@ -210,6 +223,7 @@
               \(\Rightarrow \mu A = \sum \mu A_i\)
     \end{enumerate}
 \end{proof}
+%</обэквивалентностисчетнойаддитивностиисчетнойполуаддитивностиproof>
 
 \begin{corollary}
     \(A\in \mathcal{P}, A_n\in \mathcal{P} : A \subset \bigcup A_n, \mu A_n = 0, \mu\) --- мера. Тогда \(\mu A = 0\)
@@ -218,6 +232,7 @@
 \end{corollary}
 
 \begin{theorem}\itemfix
+    %<*онепрерывностиснизу>
     \begin{itemize}
         \item \(\mathfrak{A}\) --- алгебра
         \item \(\mu : \mathfrak{A} \to \overline \R\) --- объем.
@@ -228,9 +243,11 @@
         \item \(\mu\) --- непрерывна снизу:
               \[A, A_1, A_2\dots \in \mathfrak{A} \ \ A_1 \subset A_2 \subset \dots , A = \bigcup_{i = 1}^{ +\infty} A_i \Rightarrow \mu A = \lim_{i\to +\infty} \mu A_i\]
     \end{enumerate}
+    %</онепрерывностиснизу>
 \end{theorem}
 
 \begin{theorem}\itemfix
+    %<*онепрерывностисверху>
     \begin{itemize}
         \item \(\mathfrak{A}\) --- алгебра
         \item \(\mu : \mathfrak{A} \to \R\) --- объем.
@@ -243,8 +260,10 @@
         \item \(\mu\) --- непрерывна сверху:
               \[A, A_1, A_2\dots \in \mathfrak{A} \ \ A_1 \supset A_2 \supset \dots , A = \bigcup_{i = 1}^{ +\infty} A_i \Rightarrow \mu A = \lim_{i\to +\infty} \mu A_i\]
     \end{enumerate}
+    %</онепрерывностисверху>
 \end{theorem}
 
+%<*онепрерывностисверхуproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item [1 \(\Rightarrow\) 2] \(B_k = A_k \setminus A_{k + 1}, A_1 = \bigsqcup B_k \cup A\)
@@ -261,13 +280,16 @@
               \[C = \bigsqcup_{i = 1}^k C_i \sqcup A_k \ \ \mu C = \sum_{i = 1}^k \mu C_i + \mu A_k \xrightarrow{k\to +\infty} \sum \mu C_i\]
     \end{enumerate}
 \end{proof}
+%</онепрерывностисверхуproof>
 
 \subsection*{Теорема о продолжении меры}
 
 \begin{definition}
+    %<*сигмаконечнаямера>
     \(\mu : \mathcal{P} \to \overline \R\) --- мера, \(\mathcal{P} \subset 2^X\)
 
     \(\mu\) --- \textbf{ \(\sigma\)-конечна}, если \(\exists A_1, A_2 \dots \in \mathcal{P} : X = \bigcup A_i, \mu A_i < +\infty\)
+    %</сигмаконечнаямера>
 \end{definition}
 
 \begin{example}
@@ -279,13 +301,18 @@
 \end{example}
 
 \begin{definition}
+    %<*полнаямера>
     \(\mu: \mathcal{P} \to \overline \R\) --- мера.
 
     \(\mu\) --- \textbf{полная} в \(\mathcal{P}\), если \(\forall A\in \mathcal{P} \ \ \mu A = 0 \ \ \forall B\subset A\) выполняется: \(B\in \mathcal{P}\) и \textit{(тогда автоматически)} \(\mu B = 0\) \textit{(по монотонности)}
 
     Это совместное свойство \(\mu\) и \(\mathcal{P}\).
+    %</полнаямера>
 \end{definition}
 
-Должок. Пространство с мерой --- тройка \((\underbrace{X}_{\text{множество}}, \underbrace{\mathfrak{A}}_{\sigma\text{-алгебра}}, \underbrace{\mu}_{\text{мера на \(\mathfrak A\)} })\)
+Должок.
+%<*пространствосмерой>
+\textbf{Пространство с мерой} --- тройка \((\underbrace{X}_{\text{множество}}, \underbrace{\mathfrak{A}}_{\sigma\text{-алгебра}}, \underbrace{\mu}_{\text{мера на \(\mathfrak A\)} })\)
+%</пространствосмерой>
 
 \end{document}

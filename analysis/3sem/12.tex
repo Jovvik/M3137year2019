@@ -172,14 +172,14 @@
 \end{exercise}
 
 \begin{definition}
-    %<*мера>
+    %<*аддитивнаяфункция>
     \(\mu : \underbrace{\mathcal{P}}_{\text{полукольцо}} \to \overline \R\) --- \textbf{аддитивная функция множества}, если:
     \begin{enumerate}
         \item \(\mu\) не должна принимать значения \(\pm \infty\) одновременно
         \item \(\mu(\text{\O}) = 0\)
         \item \(\forall A_1 \dots A_n \in \mathcal{P}\), дизъюнктны. Если \(A = \bigsqcup A_i \in \mathcal{P}\), то \(\mu A = \sum\limits_{i = 1}^n \mu A_i\)
     \end{enumerate}
-    %</мера>
+    %</аддитивнаяфункция>
 \end{definition}
 
 \begin{definition}
@@ -264,7 +264,9 @@
               Это было доказано ранее.
               Теорема \? \(A = \left( \bigsqcup A_i \right) \cup \left( \bigsqcup B_l \right)\) --- дизъюнктное объединение конечного числа множеств.
               \[\mu A = \sum \mu A_i + \sum \mu B_l \ge \sum \mu A_i\]
-        \item [3] \begin{enumerate}
+
+              \get{13.tex}{второесвойствообъемаproof}
+        \item [3.] \begin{enumerate}
                   \item \(B \subset A \quad A = B \cup (A\setminus B) \quad \mu A = \mu B + \mu(A\setminus B)\)
                   \item \(B \not\subset A \quad A\setminus B = A\setminus (A\cap B) \quad \mu(A\setminus B) = \mu A - \mu(A\cap B) \ge \mu A - \mu B\)
               \end{enumerate}

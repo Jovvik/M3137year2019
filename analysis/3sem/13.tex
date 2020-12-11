@@ -21,14 +21,14 @@
 \begin{theorem}
     %<*разложениебинома>
     \(\forall \sigma\in\R \ \ \forall x\in( - 1, 1)\)
-    \[(1 + x)^{\sigma} = 1 + \sigma x + \frac{\sigma(\sigma - 1)}{2} x^2 + \dots \]
+    \[(1 + x)^{\sigma} = 1 + \sigma x + \frac{\sigma(\sigma - 1)}{2} x^2 + \dots + \binom{\sigma}{n} x^n + \dots\]
     %</разложениебинома>
 \end{theorem}
 %<*разложениебиномаproof>
 \begin{proof}
-    При \(|x|< 1\) ряд сходится по признаку Даламбера.
+    При \(|x|< 1\) ряд сходится по признаку Даламбера:
 
-    \[\left|\frac{a_{n+1}}{a_n}\right|=\left|\frac{(\sigma - n)x}{n + 1} \right| \xrightarrow{n\to +\infty}|x|< 1\]
+    \[\left|\frac{a_{n+1}}{a_n}\right| = \left|\frac{\frac{\sigma!}{(n + 1)!(n + 1 - \sigma)!}x^{n + 1}}{\frac{\sigma!}{n!(n - \sigma)!}x^n} \right| = \left|\frac{(\sigma - n)x}{n + 1} \right| \xrightarrow{n\to +\infty}|x|< 1\]
 
     Обозначим сумму ряда через \(S(x)\).
 
@@ -41,7 +41,7 @@
     \end{align*}
 
     \[f(x) = \frac{S(x)}{(1 + x)^\sigma} \quad f'(x) = \frac{S'(1 + x)^\sigma - \sigma(1 + x)^{\sigma - 1}S}{(1 + x)^{2\sigma}} = 0\]
-    \(\Rightarrow f = \const, f(0) = 1\Rightarrow f\equiv 1\)
+    \(\Rightarrow f = \const, f(0) = 1\Rightarrow f\equiv 1 \Rightarrow S(x) = (1 + x)^\sigma\)
 \end{proof}
 %</разложениебиномаproof>
 
@@ -77,31 +77,37 @@
     \begin{enumerate}
         \item [ \( \Leftarrow \) ] формула Тейлора в \(x_0\) : \(f(x) = \sum\limits_{k = 0}^{n - 1} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n)}(c)}{n!} (x - x_0)^n\)
 
-              \[\left|\frac{f^{(n)}(c)}{n!} (x - x_0)^n\right| \leq C|A(x - x_0)^n| \xrightarrow{n\to +\infty} 0\]
+              Если
+              \[\left|\frac{f^{(n)}(c)}{n!} (x - x_0)^n\right| \xrightarrow{n\to +\infty} 0\]
+              , то \(f\) раскладывается в ряд Тейлора. Из условия мы знаем:
+              \[\left|\frac{f^{(n)}(c)}{n!} (x - x_0)^n\right| \leq C|A(x - x_0)|^n\]
+              Тогда при \(C|A(x - x_0)|^n \to 0\) \(f\) раскладывается в ряд Тейлора.
+              \[C|A(x - x_0)|^n \to 0 \Leftrightarrow |x - x_0|<\min(\delta, \frac{1}{A})\]
+              Таким образом, \(f\) раскладывается в ряд Тейлора в области \((x_0 - \min(\delta, \frac{1}{A}), x_0 + \min(\delta, \frac{1}{A}))\)
+        \item [ \( \Rightarrow \) ] \(f(x) = \sum \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n\)
 
-              Разложение имеет место при \(|x - x_0|<\min(\delta, \frac{1}{A})\)
-        \item [ \( \Rightarrow \) ] \(f(x) = \sum \frac{f^{(n)}(x_0)}{n!}\)
-
-              Возьмём \(x_1\neq x_0\), для которого это верно
+              Возьмём \(x_1\neq x_0\), для которого разложение верно.
 
               \begin{enumerate}
-                  \item при \(x = x_1\), ряд сходится \(\Rightarrow\) слагаемые \(\to 0\) \(\Rightarrow\) огр.
+                  \item при \(x = x_1\), ряд сходится \(\Rightarrow\) слагаемые \(\to 0\) \(\Rightarrow\) слагаемые ограничены:
 
                         \[\left|\frac{f^{(n)}(x_0)}{n!}(x_1 - x_0)^n \right| \leq C_1 \Leftrightarrow |f^{(n)}(x_0)| \leq C_1 n! B^n\]
                         , где \(B = \frac{1}{|x_1 - x_0|}\)
+
+                        Таким образом, мы оценили производную в \(x_0\), но нужно уметь оценивать и производную в окрестности \(x_0\).
                   \item \begin{align*}
-                            f^{(m)}(x_1) & = \sum \frac{f^{(n)}(x_0)}{n!}n(n - 1)\dots (n - m + 1)x^{n - m}          \\
-                                         & = \sum_{n = m}^{ +\infty} \frac{f^{(n)}(x_0)}{(n - m)!} (x - x_0)^{n - m}
+                            f^{(m)}(x) & = \sum \frac{f^{(n)}(x_0)}{n!}n(n - 1)\dots (n - m + 1)(x - x_0)^{n - m}  \\
+                                       & = \sum_{n = m}^{ +\infty} \frac{f^{(n)}(x_0)}{(n - m)!} (x - x_0)^{n - m}
                         \end{align*}
 
                         Пусть \(|x - x_0|< \frac{1}{2B}\)
 
                         \begin{align}
-                            |f^{(m)}(x)| & \leq \sum \left|\frac{f^{(n)}(x_0)}{(n - m)!} |x - x_0|^{n - m}\right|  \nonumber                 \\
-                                         & \leq \sum \frac{C_1 n! B^n}{(n - m)!} |x - x_0|^{n - m}       \nonumber                           \\
-                                         & = C_1 B^m \sum \frac{n!}{(n - m)!} (\underbrace{B|x - x_0|}_{\leq \frac{1}{2}})^{n - m} \nonumber \\
-                                         & = \frac{C_1B^m m!}{(\underbrace{1 - B|x - x_0|}_{ > \frac{1}{2}})^{m + 1}}  \label{по сл2}        \\
-                                         & < C_1 2^{m + 1} B^m m!           \nonumber                                                        \\
+                            |f^{(m)}(x)| & \leq \sum \left|\frac{f^{(n)}(x_0)}{(n - m)!} |x - x_0|^{n - m}\right|  \nonumber               \\
+                                         & \leq \sum \frac{C_1 n! B^n}{(n - m)!} |x - x_0|^{n - m}       \nonumber                         \\
+                                         & = C_1 B^m \sum \frac{n!}{(n - m)!} (\underbrace{B|x - x_0|}_{ < \frac{1}{2}})^{n - m} \nonumber \\
+                                         & = \frac{C_1B^m m!}{(\underbrace{1 - B|x - x_0|}_{ > \frac{1}{2}})^{m + 1}}  \label{по сл2}      \\
+                                         & < C_1 2^{m + 1} B^m m!           \nonumber                                                      \\
                                          & = \underbrace{(2C_1)}_{C}(\underbrace{2B}_{A})^m m!                        \nonumber
                         \end{align}
 

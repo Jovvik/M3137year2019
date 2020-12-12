@@ -2,3 +2,5 @@
 *.html
 *.log
 *.aux
+*.out
+**/svg-inkscape/**

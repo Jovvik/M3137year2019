@@ -60,21 +60,25 @@
 
 \subsection*{Приложения равномерной сходимости для рядов}
 
+%<*стоксазайдлярядов>
 \begin{manualtheorem}{1'}[Стокса-Зайдля для рядов]\itemfix
 	\begin{itemize}
 		\item $u_n : X\to Y$
 		\item $X$ --- метрическое пространство
 		\item $Y$ --- нормированное пространство
 		\item $x_0\in X$
-		\item $u_n$ --- непрерывно в $x_0$
+		\item $u_n$ непрерывно в $x_0$
 		\item $\sum u_n(x)$ \textbf{равномерно} сходится на $X$
 		\item $S(x) := \sum u_n(x)$
 	\end{itemize}
-	Тогда $S(x)$ --- непрерывно в $x_0$.
+	Тогда $S(x)$ непрерывно в $x_0$.
 \end{manualtheorem}
+%</стоксазайдлярядов>
+%<*стоксазайдлярядовproof>
 \begin{proof}
 	По теореме 1 $S_n(x) \rightrightarrows S(x), S_n(x)$ --- непр. в $x_0 \xRightarrow{\text{т. 1}} S(x)$ непр. в $x_0$
 \end{proof}
+%</стоксазайдлярядовproof>
 
 \begin{remark}
 	Достаточно равномерной сходимости $u_n(x)$ на некоторой окрестности $x_0$

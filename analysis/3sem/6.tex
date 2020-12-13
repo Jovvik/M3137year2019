@@ -149,10 +149,12 @@
 %<*метрикавcxproof>
 \begin{proof}
     $f_n$ --- фундаментальная в $C(X) \xLeftrightarrow{\text{def}}$:
-    $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n, m > N \ \ \forall x\in X \ \ |f_n(x) - f_m(x)| < \varepsilon \ \ (*)$$
+    \begin{equation}
+        \forall \varepsilon > 0 \ \ \exists N \ \ \forall n, m > N \ \ \forall x\in X \ \ |f_n(x) - f_m(x)| < \varepsilon \label{фундпоследовательность}
+    \end{equation}
     $\Rightarrow \forall x_0\in X$ вещественная последовательность $(f_n(x_0))$ фундаментальная $\Rightarrow \exists\lim\limits_{n\to+\infty} f_n(x_0) =: f(x_0)$, тогда $f$ --- поточечный предел $f_n$. Проверим это.
 
-    В $(*)$ перейдем к пределу при $m\to+\infty$:
+    В \eqref{фундпоследовательность} перейдем к пределу при $m\to+\infty$:
     $$\forall \varepsilon > 0 \ \ \exists N \ \ \forall n \ \ \forall x\in X \ \ |f_n(x) - f(x)| \le \varepsilon \Rightarrow f_n\xrightrightarrows[X]{}f \xRightarrow{\text{сл. из Стокс}} f\in C(X)$$
 \end{proof}
 %</метрикавcxproof>
@@ -170,8 +172,8 @@ $f : \underbrace{X}_{\text{м.п.}}\to \underbrace{Y}_{\substack{\text{м.п.} \
 \end{equation}
 
 \begin{itemize}
-    \item \ref{sup_fund} $\Rightarrow$ \ref{fund}
-    \item \ref{fund} $\Rightarrow \sup\limits_{x\in X}|f_n - f| \le \varepsilon$, но по двойной бухгалтерии это $\Leftrightarrow$ \ref{sup_fund}
+    \item \eqref{sup_fund} $\Rightarrow$ \eqref{fund}
+    \item \eqref{fund} $\Rightarrow \sup\limits_{x\in X}|f_n - f| \le \varepsilon$, но по двойной бухгалтерии это $\Leftrightarrow$ \eqref{sup_fund}
 \end{itemize}
 
 \subsection*{Предельный переход под знаком интеграла}
@@ -214,12 +216,12 @@ $f : \underbrace{X}_{\text{м.п.}}\to \underbrace{Y}_{\substack{\text{м.п.} \
 %<*правилолейбницаproof>
 \begin{proof}
     \begin{align}
-        \frac{\Phi\left(y + \frac{1}{n}\right) - \Phi(y)}{\frac{1}{n}} & = \int_a^b \frac{f\left(y + \frac{1}{n}\right) - f(x, y)}{\frac{1}{n}}dx \\
-                                                                       & = \int_a^b f'_y\left(x, y + \frac{\Theta}{n}\right) dx \label{лагранж}   \\
+        \frac{\Phi\left(y + \frac{1}{n}\right) - \Phi(y)}{\frac{1}{n}} & = \int_a^b \frac{f\left(x, y + \frac{1}{n}\right) - f(x, y)}{\frac{1}{n}}dx \\
+                                                                       & = \int_a^b f'_y\left(x, y + \frac{\Theta}{n}\right) dx \label{лагранж}      \\
                                                                        & = \int_a^b g_n(x, y) dx
     \end{align}
 
-    \ref{лагранж}: по т. Лагранжа.
+    \eqref{лагранж}: по т. Лагранжа.
 
     $g_n(x, y) \xrightrightarrows[]{n\to+\infty} f'_y(x, y)$ на $x\in[a, b]$ по теореме Кантора о равномерной непрерывности, и мы считаем $y$ фиксированным.
 

@@ -108,14 +108,14 @@
     $$f(x) := \int_{\gamma_x} \sum v_i dx_i = \int_0^1 \sum_{k=1}^m V_k(A+t(x-A))(x_k - A_k)dt$$
     Проверим, что $f$ --- потенциал.
     \begin{align}
-        \frac{\partial f}{\partial x_j} (x) & = \text{правило Лейбница}                                                                      \nonumber                         \\
-                                            & = \int_0^1 V_j(A + t(x-A)) + \sum_{k=1}^m \frac{\partial V_k}{\partial x_j}(\ldots) t (x_k - A_k) dt \nonumber                   \\
+        \frac{\partial f}{\partial x_j} (x) & = \text{правило Лейбница}                                                                                                        \\
+                                            & = \int_0^1 V_j(A + t(x-A)) + \sum_{k=1}^m \frac{\partial V_k}{\partial x_j}(\ldots) t (x_k - A_k) dt                             \\
                                             & = \int_0^1 V_j(A + t(x-A)) + \sum_{k=1}^m \frac{\partial V_j}{\partial x_k}(\ldots) t (x_k - A_k) dt \label{по производной поля} \\
-                                            & = \int_0^1 (tV_j(A + t(x-A)))'_t dt \nonumber                                                                                    \\
-                                            & = tV_j(A + t(x-A))\Big|_{t=0}^{t=1} \nonumber                                                                                    \\
-                                            & = V_j(x) \nonumber
+                                            & = \int_0^1 (tV_j(A + t(x-A)))'_t dt                                                                                              \\
+                                            & = tV_j(A + t(x-A))\Big|_{t=0}^{t=1}                                                                                              \\
+                                            & = V_j(x)
     \end{align}
-    \ref{по производной поля}: по \ref{производные поля}.
+    \eqref{по производной поля}: по \eqref{производные поля}.
 \end{proof}
 %</леммапуанкареproof>
 
@@ -142,6 +142,7 @@
 
 \subsection*{Равномерная сходимость функциональных рядов \textit{(продолжение)}}
 
+%<*дифференцированиеряда>
 \begin{manualtheorem}{3'}[о дифференцировании ряда по параметру]\itemfix
     \begin{itemize}
         \item $u_n\in C^1\langle a, b\rangle$
@@ -155,11 +156,14 @@
     \end{enumerate}
     То есть $\left(\sum u_n(x)\right)' = \sum u_n'(x)$
 \end{manualtheorem}
+%</дифференцированиеряда>
+%<*дифференцированиерядаproof>
 \begin{proof}
     Следует из теоремы 3.
 
     $S_n \to S$ поточечно, $S'_n \rightrightarrows \varphi$
 \end{proof}
+%</дифференцированиерядаproof>
 
 \begin{example}
     Формула Вейерштрасса:
@@ -259,9 +263,9 @@
         \item $\exists \lim\limits_{n\to+\infty} A_n = A\in \R$
         \item $S(x) \xrightarrow[x\to x_0]{} A$
     \end{enumerate}
-    То есть пунктирное преобразование верно:
+    То есть пунктирные преобразования верны:
     $$\begin{tikzcd}[ampersand replacement=\&]
-            f_n \arrow[r, yshift=0.7ex]\arrow[r, yshift=-0.7ex] \arrow[swap]{d}{x\to x_0} \& S(x) \arrow[dashed]{d}{x\to x_0} \\
+            f_n \arrow[r, yshift=0.7ex]{u}{n\to+\infty}\arrow[r, yshift=-0.7ex] \arrow[swap]{d}{x\to x_0} \& S(x) \arrow[dashed]{d}{x\to x_0} \\
             A_n \arrow[dashed, swap]{r}{n\to+\infty} \& A
         \end{tikzcd}$$
     %</оперестановкедвухпредельныхпереходов>

@@ -103,15 +103,15 @@
                         Пусть \(|x - x_0|< \frac{1}{2B}\)
 
                         \begin{align}
-                            |f^{(m)}(x)| & \leq \sum \left|\frac{f^{(n)}(x_0)}{(n - m)!} |x - x_0|^{n - m}\right|  \nonumber               \\
-                                         & \leq \sum \frac{C_1 n! B^n}{(n - m)!} |x - x_0|^{n - m}       \nonumber                         \\
-                                         & = C_1 B^m \sum \frac{n!}{(n - m)!} (\underbrace{B|x - x_0|}_{ < \frac{1}{2}})^{n - m} \nonumber \\
-                                         & = \frac{C_1B^m m!}{(\underbrace{1 - B|x - x_0|}_{ > \frac{1}{2}})^{m + 1}}  \label{по сл2}      \\
-                                         & < C_1 2^{m + 1} B^m m!           \nonumber                                                      \\
-                                         & = \underbrace{(2C_1)}_{C}(\underbrace{2B}_{A})^m m!                        \nonumber
+                            |f^{(m)}(x)| & \leq \sum \left|\frac{f^{(n)}(x_0)}{(n - m)!} |x - x_0|^{n - m}\right|                     \\
+                                         & \leq \sum \frac{C_1 n! B^n}{(n - m)!} |x - x_0|^{n - m}                                    \\
+                                         & = C_1 B^m \sum \frac{n!}{(n - m)!} (\underbrace{B|x - x_0|}_{ < \frac{1}{2}})^{n - m}      \\
+                                         & = \frac{C_1B^m m!}{(\underbrace{1 - B|x - x_0|}_{ > \frac{1}{2}})^{m + 1}}  \label{по сл2} \\
+                                         & < C_1 2^{m + 1} B^m m!                                                                     \\
+                                         & = \underbrace{(2C_1)}_{C}(\underbrace{2B}_{A})^m m!
                         \end{align}
 
-                        \ref{по сл2}: по следствию 2.
+                        \eqref{по сл2}: по следствию 2.
 
                         Эта оценка выполняется при \(|x - x_0|< \delta = \frac{1}{2B}\)
               \end{enumerate}

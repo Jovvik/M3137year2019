@@ -37,6 +37,7 @@
     \end{figure}
 \end{example}
 
+%<*следствиеобинтегрировании>
 \begin{corollary}\itemfix
     \begin{itemize}
         \item \(f(x) = \sum a_n(x - x_0)^n\)
@@ -48,8 +49,10 @@
         \item \(\int_{x_0}^x f(t)dt = \sum \frac{a_n}{n + 1}(x - x_0)^{n + 1}\)
     \end{enumerate}
 \end{corollary}
+%</следствиеобинтегрировании>
 
-\begin{remark}
+%<*следствиеобинтегрированииexample>
+\begin{example}
     \[\int f(x) dx = \sum \frac{a_n}{n + 1}(x - x_0)^{n + 1} + C\]
     \[f(x) : = \arcctg x\]
     \[f' = \frac{ -1}{1 + x^2} = - 1 + x^2 - x^4 + \dots \]
@@ -60,7 +63,8 @@
         \arcctg x & = \frac{\pi}{2} - x + \frac{x^3}{3} - \frac{x^5}{5} + \dots
     \end{align*}
     То же самое можно получить, взяв определенный интеграл.
-\end{remark}
+\end{example}
+%</следствиеобинтегрированииexample>
 
 \subsection*{Метод Абеля суммирования числовых рядов}
 
@@ -99,8 +103,8 @@
     \[\sum \frac{1}{n(n + 1)} = \lim_{x\to 1 - 0} (1 - x)\ln(1 - x) + x = 1\]
 \end{example}
 
+%<*теоремаабеля>
 \begin{corollary}[т. Абеля]\itemfix
-    %<*теоремаабеля>
     \begin{itemize}
         \item \(\sum a_n = A\)
         \item \(\sum b_n = B\)
@@ -108,8 +112,8 @@
         \item \(\sum c_n = C\)
     \end{itemize}
     Тогда \(C = AB\)
-    %</теоремаабеля>
 \end{corollary}
+%</теоремаабеля>
 %<*теоремаабеляproof>
 \begin{proof}
     \(f(x) = \sum a_n x^n, g(x) = \sum b_n x^n, h(x) = \sum c_nx^n, x\in[0, 1]\)

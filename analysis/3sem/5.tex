@@ -370,12 +370,14 @@
     \end{equation}
 
     \begin{equation}
-        f'_x + \lambda \Phi'_x + (f'_y + \lambda \Phi'_y)\varphi' = 0 \tag{\ref{extr_prop} + \ref{bruh}}
+        f'_x + \lambda \Phi'_x + (f'_y + \lambda \Phi'_y)\varphi' = 0 \label{total}
     \end{equation}
+
+    \eqref{total} это \eqref{bruh} + \eqref{extr_prop}
 
     Пусть $\lambda = - f'_y \cdot (\Phi'_y(a))^{-1}$.
 
-    Тогда $f'_y + \lambda \Phi'_y = f'_y - f'_y (\Phi'_y(a))^{-1}\Phi'_y(a) = 0$ и $f'_x + \lambda \Phi'_y = 0$ в силу (\ref{extr_prop} + \ref{bruh}).
+    Тогда $f'_y + \lambda \Phi'_y = f'_y - f'_y (\Phi'_y(a))^{-1}\Phi'_y(a) = 0$ и $f'_x + \lambda \Phi'_y = 0$ в силу \eqref{total}.
 \end{proof}
 
 %</необходимоеусловиеотносительногоэкстремумаproof>

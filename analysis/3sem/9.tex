@@ -103,12 +103,12 @@
 
     Тогда
     \begin{align}
-        \int_\gamma \sum_i V_i dx_i & = \sum \int_{[t_{k - 1}, t_k]} \dots   \nonumber                   \\
+        \int_\gamma \sum_i V_i dx_i & = \sum \int_{[t_{k - 1}, t_k]} \dots                               \\
                                     & = \sum f_k(\gamma(t_k)) - f_k(\gamma(t_{k - 1})) \label{обобщ. НЛ} \\
-                                    & = f_n(\gamma(b)) - f_1(\gamma(a))\nonumber
+                                    & = f_n(\gamma(b)) - f_1(\gamma(a))
     \end{align}
 
-    \ref{обобщ. НЛ}: По обобщенной формуле Ньютона-Лейбница.
+    \eqref{обобщ. НЛ}: По обобщенной формуле Ньютона-Лейбница.
 
     Для \(\tilde \gamma\) воспользуемся свойством: \(f_k\Big|_{B_k \cap B_{k + 1}} = f_{k + 1}\Big|_{B_k \cap B_{k + 1}}\) и тогда аналогично
     \[\int_{\tilde \gamma} \sum v_i dx_i = f_n(\tilde \gamma(b)) - f_1(\tilde \gamma(a))\]
@@ -190,12 +190,12 @@
     Преобразование Абеля \textit{(суммирование по частям)}
     \[\sum_{M \le k \le N} a_kb_k = A_N b_N - A_{M - 1} b_{M - 1} + \sum_{M \le k \le N - 1} A_k(b_k - b_{k+1})\]
     \begin{align}
-        \left|\sum_{k = m}^N a_k(x)b_k(x)\right| & \le C_A |b_N| + C_A |b_{M - 1}| + \sum_{M \le k \le N - 1} C_A|b_k - b_{k + 1}|  \nonumber                       \\
+        \left|\sum_{k = m}^N a_k(x)b_k(x)\right| & \le C_A |b_N| + C_A |b_{M - 1}| + \sum_{M \le k \le N - 1} C_A|b_k - b_{k + 1}|                                  \\
                                                  & \le C_A\left( |b_N(x)| + |b_{M - 1}(x)| + \sum_{k = M}^{N - 1} |b_k - b_{k+1}| \right) \label{телескоп по знаку} \\
-                                                 & \le C_A\left( 2|b_N(x)| + |b_{M - 1}(x)| + |b_M(x)| \right) \nonumber
+                                                 & \le C_A\left( 2|b_N(x)| + |b_{M - 1}(x)| + |b_M(x)| \right)
     \end{align}
 
-    \ref{телескоп по знаку} : Все разности одного знака \(\Rightarrow\) телескопически \( = \pm (b_M - b_N)\)
+    \eqref{телескоп по знаку} : Все разности одного знака \(\Rightarrow\) телескопически \( = \pm (b_M - b_N)\)
 
     \[
         \forall \varepsilon > 0 \ \ \exists K : \forall l > K \ \ \forall x\in X \ \ |b_l(x)| < \frac{\varepsilon}{4C_A}

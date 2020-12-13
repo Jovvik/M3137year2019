@@ -4,3 +4,6 @@
 *.aux
 *.out
 **/svg-inkscape/**
+*.xdv
+*.fls
+*.fdb_latexmk

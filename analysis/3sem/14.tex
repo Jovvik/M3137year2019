@@ -1,0 +1,225 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{14.12.2020}
+
+\begin{document}
+
+\section*{Теория меры}
+
+\begin{definition}
+    \(\mu : \mathcal{P}\to\R\) --- \textbf{продолжает} \(\mu_0 : \mathcal{P}_0 \to \overline \R, \mathcal{P}_0\subset \mathcal{P}\), если \(\mu\big|_{\mathcal{P}_0} = \mu_0\)
+\end{definition}
+
+\begin{theorem}[о Лебеговском продолжении меры]\itemfix
+    \begin{itemize}
+        \item \(\mathcal{P}_0 \subset X\) --- полукольцо
+        \item \(\mu_0 : \mathcal{P}_0\to\R\) --- \(\sigma\)-конечная мера
+    \end{itemize}
+    Тогда \(\exists \sigma\)-алгебра \(\mathfrak{A}\supset \mathcal{P}_0\), \(\exists \mu\) --- мера на \(\mathfrak{A}\):
+    \begin{enumerate}
+        \item \(\mu\) --- продолжение \(\mu_0\) на \(\mathfrak{A}\)
+        \item \(\mu\) --- полная мера
+        \item Если \(\tilde \mu\) --- полная мера на \(\sigma\)-алгебре \(\tilde{\mathfrak{A}}\) и \(\tilde{\mu}\) --- продолжение \(\mu_0\), то \(\tilde{\mathfrak{A}}\supset \mathfrak{A}\) и при этом \(\tilde \mu\) продолжает \(\mu : \tilde \mu\big|_{\mathfrak{A}} = \mu\)
+        \item Если \(\mathcal{P}\) --- полукольцо, такое что \(\mathcal{P}_0 \subset \mathcal{P} \subset \mathfrak{A}\) и мера \(\upsilon\) --- продолжение \(\mu_0\) на \(\mathcal{P}\), то \(\forall A\in \mathcal{P}\ \ \upsilon(A) = \mu(A)\)
+        \item \(\forall A\in \mathfrak{A}\ \ \mu A = \inf \{\sum \mu P_k : P_k \in \mathcal{P} : A \subset \bigcup\limits_{k = 1}^{ +\infty} P_k\} \)
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Не будет, это слишком сложно.
+
+    Общая идея следующая: \(\forall A\subset X\) положим \(\mu^*(A) = \inf \{\dots \} \) --- не аддитивна. \(A\subset \bigcup A_k \ \ \mu^*A = \sum \mu^* A_k\)
+    %TODO
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(A\in \mathfrak{A}\)
+        \item \(\mu A < +\infty\)
+        \item \(\varepsilon > 0\)
+    \end{itemize}
+    %TODO
+    Тогда \(\exists P_k \in \mathcal{P}_0 : A\subset \bigcup P_k \ \ \mu A < \sum \mu P_k < \mu A + \varepsilon\)
+\end{corollary}
+
+\subsection*{Мера Лебега}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(\mu : \mathcal{P}^m \to \R\) --- классический объем в \(\R^m\)
+    \end{itemize}
+    Тогда \(\sigma\) --- конечная мера
+\end{theorem}
+\begin{proof}
+    \(\sigma\)-конечность очевидна.
+
+    Докажем счётную аддитивность \(\mu\).
+
+    Для этого достаточно проверить счётную полуаддитивность:
+    \[P = [a, b), P_n = [a_n, b_n) \ \ P\subset \bigcup P_n \ \ \mu P \stackrel{?}{\le} \sum \mu P_n\]
+
+    Если \(P = \text{\O}\), то утверждение тривиально. Пусть \(P\) непустое.
+
+    Фиксируем \(\varepsilon > 0\). Чуть уменьшим координаты вектора \(b\), так что \([a, b'] \subset [a, b)\) и \(\mu(P\setminus [a, b')) < \varepsilon\). Последняя формула некорректна, т.к. \(P\setminus [a, b')\) не обязательно ячейка. Но оно представимо в виде \(\bigsqcup D_j\), поэтому под \(\mu(P\setminus [a, b'))\) подразумевается \(\sum \mu D_j\). Также можно было записать \(\mu P - \mu[a, b') < \varepsilon\) вместо этих трюков.
+
+    Уменьшим слегка координаты векторов \(a_n\), так что \((a'_n, b_n) \supset [a_n, b_n)\), \(\mu([a'_n, b_n) \setminus [a_n, b_n)) < \frac{\varepsilon}{2^n}\). Эта запись также некорректна, поэтому напишем \(\mu[a_n', b_n) - \mu[a_n, b_n) < \frac{\varepsilon}{2^n}\)
+
+    \(\underbrace{[a, b']}_{\text{комп.}} \subset \bigcup (a_n', b_n) \Rightarrow \exists \) конечное подпокрытие: \([a, b'] \subset \bigcup\limits_{n = 1}^N (a_n', b_n) \Rightarrow [a, b') \subset \bigcup\limits_{n = 1}^{N} [a_n', b_n)\)
+
+    Тогда \(\mu[a, b') \le \sum\limits_{n = 1}^{N} \mu[a_n', b_n)\)
+
+    \begin{align}
+        \mu P - \varepsilon & \leq \sum_{n = 1}^N \left( \mu P_n + \frac{\varepsilon}{2^n} \right) \\
+        \mu P - \varepsilon & \leq \sum_{n = 1}^{ +\infty} \mu P_n + \varepsilon
+    \end{align}
+\end{proof}
+
+\begin{definition}
+    \textbf{Мера Лебега} в \(\R^m\) --- лебеговское продолжение классического объема.
+
+    \(\mathfrak{M}^m\) --- \(\sigma\)-алгебра, на которой задана мера Лебега. Тогда множество называется \textbf{измеримым по Лебегу}
+
+    %TODO \lambda
+\end{definition}
+
+Свойства меры Лебега:
+\begin{enumerate}
+    \item \begin{enumerate}
+              \item \(A_1, A_2 \dots \) --- измеримы \( \Rightarrow A_1\cap A_2, A_1\cup A_2, A_1\cap A_2\cap A_3 \dots , A_1\cup A_2\cup A_3 \dots\) --- измеримы.
+              \item \(\forall n \ \ \lambda A_n = 0 \Rightarrow \lambda(\bigcup A_n) = 0\)
+              \item \(\lambda A_n = 0, B\subset A \Rightarrow B\) --- измеримо, \(\lambda B = 0\)
+          \end{enumerate}
+
+          \begin{example}
+              \(\Q \subset \R\) --- измеримо, \(\lambda_1 \Q = 0\)
+          \end{example}
+          \begin{proof}
+              \(\forall x\in \R \ \ \{x\} = \bigcap_n[x, x + \frac{1}{n})\)
+              \[0 \leq \lambda \{x\} \leq \lambda[x, x + \frac{1}{n}) = \frac{1}{n} \Rightarrow \lambda \{x\} = 0\]
+              \(\Q\) --- объединение одноточечных множеств.
+          \end{proof}
+    \item \(\mathfrak{M}^m\) содержит все открытые и замкнутые множества.
+          \begin{lemma}\itemfix
+              \begin{enumerate}
+                  \item \(O\subset \R^m\) --- открытое. Тогда \(O = \bigsqcup Q_i\), где \(Q_i\) --- ячейки с рациональными координатами. Можно считать, что ячейки кубические.
+                  \item Можно считать, что \(\overline Q_i \subset O\)
+                  \item \(E\) --- измеримо, \(\lambda E = 0\). Тогда \(\forall \varepsilon > 0 \ \ E\subset \bigcup Q_i : Q_i\) --- кубические ячейки и \(\sum \lambda Q_i < \varepsilon\)
+              \end{enumerate}
+          \end{lemma}
+          \begin{remark}
+              \(\forall \varepsilon > 0\ \ \exists (B_i)\) --- шары: \(E\subset \bigcup B_i, \sum \lambda B_i < \varepsilon\)
+
+              \[Q\left(x, \frac{R}{\sqrt{m}}\right) \subset B(x, R) \subset Q(x, R)\]
+              \[\left( \frac{2R}{\sqrt{m}} \right)^m \leq \lambda B \leq \lambda Q(x, R) = (2R)^m\]
+              %TODO: pic
+          \end{remark}
+          \begin{proof}\itemfix
+              \begin{enumerate}
+                  \item [(a, b)] \(\forall x\in O\) пусть \(Q(x)\) --- какая угодно ячейка с рациональными координатами, \(Q(x)\subset O\) \textit{(можно потребовать \(\overline{Q(x)}\subset O, Q\) --- куб, координаты двоично-рациональны для второго пункта)}.
+
+                        \(O = \bigcup\limits_{x\in O} Q(x)\) --- здесь не более чем счётное множество различных ячеек.
+
+                        \(\Rightarrow O = \bigcap_{i = 1}^{\infty} Q(x_i)\). Сделаем ячейки дизъюнктными: \(Q_1 : = Q(x_1), Q(x_2)\setminus Q(x_1) = \bigcup D_j\). Переобозначим \(D_j\) как \(Q_2, Q_3 \dots Q_k\). Аналогично для всех \(Q(x_i)\).
+
+                        Можно считать, что координаты всех ячеек двоично рациональны.
+
+                        Ячейки можно подразбить, чтобы они стали кубическими: пусть \(2^l\) --- самый крупный знаменатель. Тогда \([a_i, b_i]\) --- конечное объединение кубических ячеек со стороной \(\frac{1}{2^l}\)
+                  \item [(c)] Следует из пункта 5 теоремы о продолжении Лебега:
+
+                        \[\forall \varepsilon > 0 \ \ \exists \text{ ячейки } P_k \ \ E\subset \bigcup P_k \ \ 0 = \lambda E \le \sum \lambda P_k \leq \varepsilon\]
+                        \(\exists \tilde P_k\) --- двоично-рациональные ячейки:
+                        \[P_k \subset \tilde P_k \ \ 0 = \lambda E \le \sum \lambda_k \tilde P_k \le 2 \varepsilon\]
+                        Можно разбить \(\tilde P_k\) на конечное число кубов.
+              \end{enumerate}
+          \end{proof}
+
+          \begin{definition}
+              \(\mathfrak{B}\) --- \textbf{борелевская \(\sigma\)-алгебра} (в \(\R^m\) или в метрическом пространстве) --- минимальная \(\sigma\)-алгебра, которая содержит все открытые множества.
+
+              \(\mathfrak{M}^m\supset \mathfrak{B}\)
+          \end{definition}
+
+          \begin{example}
+              Канторово множество в \(\R\):
+              \begin{align}
+                  K_0 & = [0, 1]                                                                                                                                             \\
+                  K_1 & = \left[0, \frac{1}{3}\right] \cup \left[\frac{2}{3}, 1\right]                                                                                       \\
+                  K_2 & = \left[0, \frac{1}{9}\right] \cup \left[\frac{2}{9}, \frac{1}{3}\right] \cup \left[\frac{2}{3}, \frac{7}{9}\right] \cup \left[\frac{8}{9}, 1\right] \\
+                  \vdots
+              \end{align}
+
+              \begin{figure}[h]
+                  \centering
+                  \includesvg{images/множество_кантора.svg}
+                  \caption{Множество Кантора}
+              \end{figure}
+
+              \(\mathcal{K} = \bigcup K_i\) --- измеримо, \(\lambda \mathcal{K} = 0, \lambda(K_i) = \left( \frac{2}{3} \right)^i\)
+
+              Также можно задать множество Кантора следующим образом:
+              \[\mathcal{K} = \{x\in[0, 1] : \text{ троичная запись \(x\) содержит только цифр \(0\) и \(2\)}\} \]
+          \end{example}
+
+    \item \(\exists \) неизмеримые по Лебегу множества, т.е. не принадлежащие \(\mathfrak{M}\)
+
+          Зададим отношение \(\sim\) на \(\R\): \(x\sim y \Leftrightarrow x - y\in \Q\)
+
+          \(\R / \Q = A\) --- из каждого класса эквивалентности взяли по одной точке. Можно считать, что \(A\subset [0, 1]\)
+
+          Очевидно, что \(\bigsqcup\limits_{q\in\Q} (A + q) = \R\)
+
+          \[[0, 1] \stackrel{(1)}{\subset} \bigsqcup_{q\in \Q\cap [ - 1, 1]}(A + q) \stackrel{(2)}{\subset} [ - 1, 2]\]
+
+          Измеримо ли \(A\)? Предпололжим, что да.
+
+          Очевидно \(\forall q \ \ \lambda A = \lambda(A + q)\) по пункту 5 теоремы о продолжении меры.
+
+          Из (1):
+          \[\lambda[0, 1] = 1 \le \sum_q \lambda(A + q) = \sum_q \lambda(A) \Rightarrow \lambda A > 0\]
+          Из (2):
+          \[\lambda\left( \bigcup(A + q) \right) = \sum_q \lambda A \leq \lambda[ - 1, 2] = 3 \Rightarrow \lambda A = 0\]
+
+          Противоречие \( \Rightarrow \) \(A\) неизмеримо.
+    \item \(A \in \mathfrak{M}\) % TODO: ^m?
+
+          \begin{itemize}
+              \item \(A\) --- ограничено \( \Rightarrow \lambda A < +\infty\)
+              \item \(A\) --- открыто \( \Rightarrow \lambda A > 0\) --- из леммы. % TODO: какой
+              \item \(\lambda A = 0 \Rightarrow A\) не имеет внутренних точек.
+          \end{itemize}
+
+    \item \(A\in \mathfrak{M}^m\). Тогда \(\forall \varepsilon > 0\)
+
+          \begin{itemize}
+              \item \(\exists \) открытое \(G_\varepsilon\supset A : \lambda(G_\varepsilon \setminus A) < \varepsilon\)
+              \item \(\exists \) замкнутое \(F_\varepsilon\subset A : \lambda(A \setminus F_\varepsilon) < \varepsilon\)
+          \end{itemize}
+
+          \begin{proof}\itemfix
+              \begin{enumerate}
+                  \item \(\lambda A\) --- кон.
+                        \[\lambda A = \inf \left\{\sum_i \lambda P_i : A\subset \bigcup P_i, P_i \in \mathcal{P}\right\} \]
+                        Чуть ``раздуем'' эти \(P_i = [a_i, b_i) \rightsquigarrow (a'_i, b_i) \subset [a'_i, b_i)\)
+                        \[\lambda[a'_i, b_i) \leq \lambda P_i + \frac{\varepsilon}{2^i}\]
+                        \[A\subset \underbrace{\bigcup(a'_i, b_i)}_{G_{2\varepsilon}} \subset [a'_i, b_i]\]
+                        \[\lambda A \leq \lambda G_{2\varepsilon} \leq \sum \lambda [a'_i, b_i) \leq \sum \left( \lambda P_i + \frac{\varepsilon}{2^i} \right) \leq \lambda A + 2 \varepsilon\]
+                  \item \(\lambda A = +\infty\). Используем \(\sigma\)-конечность: \(\R^m =\bigsqcup\limits_{j = 1}^{ +\infty} Q_j\)
+                        \[\exists G_{\varepsilon, j} \text{ --- откр. } \ \ (A\cap Q)j\subset G_{\varepsilon, j} \ \ \lambda(G_{\varepsilon, j} \setminus (A\cap Q_j)) < \frac{\varepsilon}{2^j} \]
+                        \[A = \bigsqcup (A\cap Q_j) \subset \bigcup G_{\varepsilon, j} = : G_\varepsilon\]
+                        \[\lambda(G_\varepsilon \setminus A) \leq \sum \lambda(G_{\varepsilon, j} \setminus (A\cap Q_j)) \leq \varepsilon\]
+                        Очевидно: \(G_\varepsilon \setminus A \subset \bigcup\limits_j (G_{\varepsilon, j} \setminus (A\cap Q_j))\)
+                \item Для \(F_\varepsilon\) --- переходим к дополнению:
+                
+                    Для \(A^c\) подбираем \(G_\varepsilon\), \(A^c\subset G_\varepsilon\)
+
+                    \[A\supset (G_\varepsilon)^c = : F_\varepsilon\]
+
+                    \[G_\varepsilon \setminus  A^C = A\setminus (G_\varepsilon)^c\]
+                    
+                    \[\lambda(G_\varepsilon\setminus A^c) < \varepsilon \Rightarrow \lambda(A\setminus F) < \varepsilon\]
+              \end{enumerate}
+          \end{proof}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,492 @@
+\input{../../preamble.sty}
+
+\lhead{Домашние задания}
+\cfoot{}
+\rfoot{}
+
+\begin{document}
+
+\section*{ДЗ 8}
+
+\begin{exercise}[2750]
+    \[f_n(x) = \frac{nx}{1 + n + x} \quad 0 \leq x \leq 1\]
+
+    \begin{enumerate}
+        \item Кандидат
+              \[\lim_{n\to +\infty} f_n(x) = x\]
+        \item \(\rho\)
+              \[\rho(f, f_n) = \sup |x - \frac{nx}{1 + n + x}| = \sup \left|\frac{x + x^2}{1 + n + x}\right| \leq \frac{2}{1 + n} \to 0\]
+    \end{enumerate}
+
+    \textbf{Ответ}: сходится равномерно.
+\end{exercise}
+
+\begin{exercise}[2751]
+    \[f_n(x) = \frac{x^n}{1 + x^n}\]
+
+    \begin{itemize}
+        \item [(a)] \(0 \leq x \leq 1 - \varepsilon\)
+
+              \begin{enumerate}
+                  \item Кандидат
+                        \[\lim_{n\to +\infty} f_n(x) = 0\]
+                  \item \(\rho\)
+                        \[\rho(f, f_n) = \sup_{x} \left|\frac{x^n}{1 + x^n}\right| \leq \sup x^n \to 0\]
+              \end{enumerate}
+
+              \textbf{Ответ}: сходится равномерно.
+
+        \item [(b)] \(1 - \varepsilon \leq x \leq 1 + \varepsilon\)
+
+              \begin{enumerate}
+                  \item Кандидат
+                        \[\lim_{n\to +\infty} f_n(x) = \begin{cases}
+                                0,           & x < 1 \\
+                                \frac{1}{2}, & x = 1 \\
+                                1,           & x > 1 \\
+                            \end{cases}\]
+                  \item \(\rho\)
+                        \[\rho(f, f_n) = \sup_x \left|f(x) - \frac{x^n}{1 + x^n}\right|\]
+                        \[x: = 2^{ - \frac{1}{n}}\]
+                        \[\sup_x \left|f(x) - \frac{x^n}{1 + x^n}\right| \leq \frac{\frac{1}{2}}{1 + \frac{1}{2}} \not\to 0\]
+              \end{enumerate}
+
+              \textbf{Ответ}: не сходится равномерно.
+
+        \item [(c)] \(1 + \varepsilon \leq x < +\infty\)
+
+              \begin{enumerate}
+                  \item Кандидат
+                        \[\lim_{n\to +\infty} f_n(x) = 1\]
+                  \item \(\rho\)
+                        \[\rho(f, f_n) = \sup_{x} \left|1 - \frac{x^n}{1 + x^n}\right| = \sup_{x} \frac{1}{1 + x^n} = \frac{1}{1 + (1 + \varepsilon)^n} \to 0\]
+              \end{enumerate}
+
+              \textbf{Ответ}: сходится равномерно.
+    \end{itemize}
+\end{exercise}
+
+\begin{exercise}[2752]
+    \[f_n(x) = \frac{2nx}{1 + n^2x^2}\]
+
+    \begin{itemize}
+        \item [(a)] \(0 \leq x \leq 1\)
+
+              \begin{enumerate}
+                  \item Кандидат
+                        \[\lim_{n\to +\infty} f_n(x) = 0\]
+                  \item \(\rho\)
+                        \[\rho(f, f_n) = \sup_{x} \left|\frac{2nx}{1 + n^2x^2}\right|\]
+                        При \(x = \frac{1}{n}\) \(\sup\not\to 0\)
+              \end{enumerate}
+
+              \textbf{Ответ}: не сходится равномерно.
+
+        \item [(b)] \(1 < x < +\infty\)
+
+              \begin{enumerate}
+                  \item Кандидат
+                        \[\lim_{n\to +\infty} f_n(x) = 0\]
+                  \item \(\rho\)
+                        \[\rho(f, f_n) = \sup_{x} \left|\frac{2nx}{1 + n^2x^2}\right| \leq \sup_{x} \frac{2nx^2}{1 + n^2x^2} = \sup_{x} \frac{2n}{\frac{1}{x^2} + n^2} \leq \frac{2n}{1 + n^2} \to 0\]
+              \end{enumerate}
+
+              \textbf{Ответ}: сходится равномерно.
+    \end{itemize}
+\end{exercise}
+
+\begin{exercise}[2753]
+    \[f_n(x) = \sqrt{x^2 + \frac{1}{n^2}} \quad E = \R\]
+
+    \begin{enumerate}
+        \item Кандидат
+              \[\lim_{n\to +\infty} f_n(x) = |x|\]
+        \item \(\rho\)
+              \[\rho(f, f_n) = \sup_{x} \left||x| - \sqrt{x^2 + \frac{1}{n^2}}\right| = \sup_x \frac{x^2 - x^2 + \frac{1}{n^2}}{|x| + \sqrt{x^2 + \frac{1}{n^2}}} < \frac{\frac{1}{n^2}}{\frac{1}{n}} \to 0\]
+    \end{enumerate}
+
+    \textbf{Ответ}: сходится равномерно.
+\end{exercise}
+
+\begin{exercise}[2754]
+    \[f_n(x) = n\left( \sqrt{x + \frac{1}{n}} - \sqrt{x} \right) \quad 0 < x < +\infty\]
+
+    \begin{enumerate}
+        \item Кандидат
+              \[\lim_{n\to +\infty} f_n(x) = \lim_{n\to +\infty} n\left( \sqrt{x + \frac{1}{n}} - \sqrt{x} \right) = \lim_{n\to +\infty} \frac{n\left(\ \sqrt{x + \frac{1}{n}} - \sqrt{x} \right)\left( \sqrt{x} + \sqrt{x + \frac{1}{n}} \right)}{\sqrt{x} + \sqrt{x + \frac{1}{n}}} \]
+              \[ = \lim \frac{1}{\sqrt{x} + \sqrt{x + \frac{1}{n}}} = \frac{1}{2 \sqrt{x}}\]
+        \item \(\rho\)
+              \[\rho(f, f_n) = \sup_{x} \left|\frac{1}{2 \sqrt{x}} - \frac{1}{\sqrt{x} + \sqrt{x + \frac{1}{n}}}\right| = \sup_{x} \frac{\sqrt{x} + \sqrt{x + \frac{1}{n}} - 2 \sqrt{x}}{2 \sqrt{x}\left(\sqrt{x} + \sqrt{x + \frac{1}{n}}\right)}\]
+              \[x: = \frac{1}{n}\]
+              \[\sup \leq \frac{\sqrt{\frac{2}{n}} - \frac{1}{\sqrt{n}}}{2 \frac{1}{\sqrt{n}} (\frac{1}{\sqrt{n}} + \sqrt{\frac{2}{n}})} = \frac{\sqrt{2} - 1}{\frac{2}{\sqrt{n}}(1 + \sqrt{2})}\not\to 0\]
+    \end{enumerate}
+
+    \textbf{Ответ}: не сходится равномерно.
+\end{exercise}
+
+\begin{exercise}[2755]
+    \begin{itemize}
+        \item [(a)] \[f_n(x) = \frac{\sin(nx)}{n} \quad E = \R\]
+
+              \begin{enumerate}
+                  \item Кандидат
+                        \[\lim_{n\to +\infty} f_n(x) = 0\]
+                  \item \(\rho\)
+                        \[\rho(f, f_n) = \sup_{x} \left|\frac{\sin(nx)}{n}\right| \leq \frac{1}{n}\to 0\]
+              \end{enumerate}
+
+              \textbf{Ответ}: сходится равномерно.
+
+        \item [(b)] \[f_n(x) = \sin\left( \frac{x}{n} \right) \quad E = \R\]
+
+              \begin{enumerate}
+                  \item Кандидат
+                        \[\lim_{n\to +\infty} f_n(x) = 0\]
+                  \item \(\rho\)
+                        \[\rho(f, f_n) = \sup_{x} \left|\sin\left( \frac{x}{n} \right)\right| \stackrel{x: = n}{ \ge } \sin(1) \not\to 0\]
+              \end{enumerate}
+
+              \textbf{Ответ}: не сходится равномерно.
+    \end{itemize}
+\end{exercise}
+
+\begin{exercise}[2756]
+    \begin{itemize}
+        \item [(a)] \[f_n(x) = \arctg nx \quad E = (0, +\infty)\]
+
+              \begin{enumerate}
+                  \item Кандидат
+                        \[\lim_{n\to +\infty} f_n(x) = \frac{\pi}{2}\]
+                  \item \(\rho\)
+                        \[\rho(f, f_n) = \sup_{x} \left|\frac{\pi}{2} - \arctg nx\right| \stackrel{x: = n}{\ge } |\frac{\pi}{2} - \arctg 1| \not\to 0\]
+              \end{enumerate}
+
+              \textbf{Ответ}: не сходится равномерно.
+
+        \item [(b)] \[f_n(x) = x\arctg nx \quad E = (0, +\infty)\]
+
+              \begin{enumerate}
+                  \item Кандидат
+                        \[\lim_{n\to +\infty} f_n(x) = \frac{\pi}{2}x\]
+                  \item \(\rho\)
+                        \[\rho(f, f_n) = \sup_{x} \left|\frac{x\pi}{2} - x\arctg nx\right| = x|-\arctg \frac{1}{nx}| \leq \frac{x}{nx} = \frac{1}{n} \to 0\]
+              \end{enumerate}
+
+              \textbf{Ответ}: сходится равномерно.
+    \end{itemize}
+\end{exercise}
+
+\section*{ДЗ 9}
+
+% 2767, 2772, 2765, 2774, 2774 но пункты г, л и з домножены на n, в з x\in(0, \pi) 
+
+\begin{exercise}[2767]
+    \[\sum_{n = 0}^{\infty} x^n\]
+    \begin{itemize}
+        \item [(а)] \(|x|< q, q < 1\)
+              \[|x^n| \leq q^n\]
+              \[q^n \text{ сходится}\]
+              \textbf{Ответ}: сходится равномерно.
+        \item [(б)] \(|x|< 1\)
+              \[S_N = \frac{1 - x^{N + 1}}{1 - x}\]
+              \[\lim S_N = \frac{1}{1 - x}\]
+              \[\rho = \sup \frac{x^{N + 1}}{1 - x} = \infty\]
+
+              Можно было брать \(x = 2^{ - \frac{1}{n}}\).
+              \textbf{Ответ}: не сходится равномерно.
+    \end{itemize}
+\end{exercise}
+
+\begin{exercise}[2772]
+    \[\sum_{n = 1}^{\infty} \frac{1}{(x + n)(x + n + 1)} \quad E = (0, +\infty)\]
+    \[\frac{1}{(x + n)(x + n + 1)} < \frac{1}{n^2}, \sum \frac{1}{n^2} \text{ сходится}\]
+\end{exercise}
+
+\begin{exercise}[2765]
+    Пусть функция \(f(x)\) имеет непрерывную производную \(f'(x)\) в интервале \((a, b)\) и
+    \[f_n(x) = n\left( f\left( x + \frac{1}{n} \right) - f(x) \right)\]
+    Доказать, что \(f_n(x) \rightrightarrows f'(x)\) на сегменте \(\alpha \leq x \leq \beta\), где \(a < \alpha < \beta < b\)
+
+    \begin{enumerate}
+        \item Кандидат
+              \[\lim_{n\to +\infty} f_n(x) = \lim_{n\to +\infty} n\left( f\left( x + \frac{1}{n} \right) - f(x) \right) = \lim_{t\to 0} \frac{f\left( x + t \right) - f(x)}{t} \stackrel{\text{def}}{=} f'(x)\]
+        \item \(\rho\)
+              \[\sup_{x\in [\alpha, \beta]} \left|f'(x) - n\left( f\left( x + \frac{1}{n} \right) - f(x) \right)\right| \to 0\]
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[2774]\itemfix
+    \begin{enumerate}
+        \item [(а)] \[\sum_{n = 1}^{ +\infty} \frac{1}{x^2 + n^2} \quad E = \R\]
+              \[\frac{1}{x^2 + n^2} \leq \frac{1}{n^2} \text{ сходится}\]
+        \item [(б)] \[\sum_{n = 1}^{ +\infty} \frac{( - 1)^n}{x + 2^n} \quad E = ( - 2, +\infty)\]
+              \[\left|\frac{( - 1)^n}{x + 2^n}\right| \leq \frac{1}{2^n - 2} \leq \frac{1}{2^{n - 1}} \text{ сходится}\]
+        \item [(в)] \[\sum_{n = 1}^{ +\infty} \frac{x}{1 + n^4x^2} \quad E = [0, +\infty)\]
+              \begin{align*}
+                  (1 - n^2x)^2       & \geq 0     \\
+                  1 - 2n^2x + n^4x^2 & \geq 0     \\
+                  1 + n^4x^2         & \geq 2n^2x \\
+              \end{align*}
+              \[\left|\frac{x}{1 + n^4x^2}\right| \leq \frac{x}{2n^2x} = \frac{1}{2n^2} \text{ сходится}\]
+        \item [(г)] \[\sum_{n = 1}^{\infty} \frac{nx}{1 + n^5x^2} \quad E = \R\]
+              \begin{align*}
+                  (1 - n^{2.5}x)^2       & \geq 0         \\
+                  1 - 2n^{2.5}x + n^5x^2 & \geq 0         \\
+                  1 + n^5x^2             & \geq 2n^{2.5}x \\
+              \end{align*}
+              \[\frac{nx}{1 + n^5x^2} \leq \frac{nx}{2n^{2.5}x} = \frac{1}{2n^{1.5}} \text{ сходится}\]
+        \item [(д)] \[\sum_{n = 1}^{\infty} \frac{n^2}{\sqrt{n!}}(x^n + x^{ - n}) \quad \frac{1}{2} \leq |x| \leq 2\]
+              \[\frac{n^2}{\sqrt{n!}}(x^n + x^{ - n}) \leq \frac{n^2}{\sqrt{n!}} 2^{n + 1}\]
+              Сходится ли \(\cfrac{n^2}{\sqrt{n!}} 2^{n + 1}\)? По признаку ``корня'':
+              \[\sqrt[n]{\frac{n^2}{\sqrt{n!}} 2^{n + 1}} = 2 \sqrt[n]{\underbrace{\frac{n^2}{\sqrt{n!}} 2}_{\to 0}} \to 0\]
+              Итого сходится.
+        \item [(е)] \[\sum_{n = 1}^{\infty} \frac{x^n}{\left( \frac{n}{2} \right)!} \quad |x| < a, a\in \R^{ +}\]
+              \[\left|\frac{x^n}{\left( \frac{n}{2} \right)!}\right| \leq \frac{a^n}{\left( \frac{n}{2} \right)!}\]
+              Этот ряд сходится по признаку Даламбера ( \(\frac{a_{n+1}}{a_n} \to 0\))
+        \item [(ж)] \[\sum_{n = 1}^{ +\infty} \frac{\sin nx}{\sqrt[3]{n^4 + x^4}} \quad E = \R \]
+              \[\left|\frac{\sin nx}{\sqrt[n]{n^4 + x^4}}\right| \leq \frac{1}{\sqrt[3]{n^4}} \text{ сходится}\]
+        \item [(з)] \[\sum_{n = 1}^{ +\infty} \frac{\cos nx}{n^2} \quad E = \R\]
+              \[\left|\frac{\cos nx}{n^2} \right| \leq \frac{1}{n^2} \text{ сходится}\]
+        \item [(и)] \[\sum_{n = 1}^{ +\infty} \frac{\sin nx}{n \sqrt{n}} \quad E = \R\]
+              \[\left|\frac{\sin nx}{n^{1.5}} \right| \leq \frac{1}{n^{1.5}} \text{ сходится}\]
+        \item [(к)] \[\sum_{n = 2}^{ +\infty} \ln\left( 1 + \frac{x^2}{n \ln^2 n} \right) \quad |x| < a, a\in\R^{ +} \]
+              \[\left| \ln\left( 1 + \frac{x^2}{n \ln^2 n} \right) \right| < \left| \ln\left( 1 + \frac{a^2}{n \ln^2 n} \right) \right| \equ\limits_{n\to +\infty} \frac{a^2}{n \ln^2 n} \text{ сходится}\]
+        \item [(л)] \[\sum_{n = 1}^{ +\infty} x^2 e^{ - nx} \quad E = [0, +\infty)\]
+              \[e^{nx} \stackrel{\text{Тейлор}}{ =} 1 + nx + \frac{n^2x^2}{2} + \dots  \Rightarrow e^{nx} > 1 + nx + \frac{n^2x^2}{2}\]
+              \[x^2 e^{ - nx} < x^2 \frac{2}{n^2x^2} = \frac{2}{n^2} \text{ сходится}\]
+        \item [(м)] \[\sum_{n = 1}^{\infty} \arctg \frac{2x}{x^2 + n^3} \quad E =\R\]
+              \[\left|\arctg \frac{2x}{x^2 + n^3}\right| = \left|\frac{2x}{x^2 + n^3} + o\left( \frac{2x}{x^2 + n^3} \right)\right| \leq \frac{1}{n^{\frac{3}{2}}} + o(\frac{1}{n^{\frac{3}{2}}}) \text{ сходится}\]
+        \item [(г')] \[\sum_{n = 1}^{\infty} \frac{n^2x}{1 + n^5x^2} \quad E = \R\]
+              \[\exists \varepsilon > 0 \ \ \forall N \ \ \exists n > N, \exists m = n, \exists x = n^{ -2.5} \quad \left|\frac{\sqrt{n + 1}}{2} + \dots + \frac{\sqrt{2n}}{2} \right| \geq \frac{1}{2}n \sqrt{n + 1} > \frac{1}{2}n^{1.5} > \varepsilon\]
+              \textbf{Ответ}: расходится
+        \item [(з')] \[\sum_{n = 1}^{ +\infty} \frac{n\cos nx}{n^2} \quad x\in(0, \pi)\]
+              \[\exists \varepsilon > = \frac{1}{100} \ \ \forall N \ \ \exists n > N, \exists m = \frac{n}{2}, \exists x = \frac{1}{n} \quad \left|\frac{\cos \frac{n + 1}{n} }{n + 1} + \dots + \frac{\cos \frac{1.5 n}{n} }{2n}\right| > \frac{n}{2}\frac{\cos \frac{1.5 n}{n}}{2n} \]
+              \[ = \frac{\cos 1.5}{4} > \frac{1}{100}\]
+              Для того, чтобы все работало, надо брать чётный \(n\).
+
+              \textbf{Ответ}: расходится
+        \item [(л')] \[\sum_{n = 1}^{ +\infty} nx^2 e^{ - nx} \quad E = [0, +\infty)\]
+              Аналогично исходному, но берем четвёртый элемент ряда Тейлора.
+    \end{enumerate}
+\end{exercise}
+
+\section*{ДЗ 10}
+
+% 2776-2781, 2785
+
+\begin{exercise}[2776]
+    \[\sum_{n = 1}^{+\infty} 2^n \sin \frac{1}{3^nx} \quad E = (0, +\infty)\]
+    Докажем не равн. сходимость \(u_n\) по определению:
+    \[\lim_{n\to +\infty} u_n = 0\]
+    \[\rho(0, u_n) = \sup_x \left|2^n \sin \frac{1}{3^nx}\right| \stackrel{x: = 3^{ -n}}{ \geq } 2^n \not \to 0\]
+    \textbf{Ответ}: не сходится равномерно.
+\end{exercise}
+
+\begin{exercise}[2777]
+    \[\sum_{n = 1}^{+\infty} \frac{( - 1)^n}{x + n} \quad E = (0, +\infty)\]
+    Докажем равн. сходимость по Дирихле:
+    \[a_n = ( - 1)^n, |\sum a_n| \leq 2\]
+    \[b_n = \frac{1}{x + n}\]
+    \(b_n\) очевидно монотонно, сходимость доказана в дз до этого.
+\end{exercise}
+
+\begin{exercise}[2778]
+    \[\sum_{n = 2}^{+\infty} \frac{( - 1)^n}{n + \sin x} \quad 0 \leq x \leq 2\pi\]
+    Докажем равн. сходимость по Дирихле:
+    \[a_n =( - 1)^n\]
+    \[b_n = \frac{1}{n + \sin x}\]
+    Все очевидно.
+\end{exercise}
+
+\begin{exercise}[2779]
+    \[\sum_{n = 1}^{+\infty} \frac{( - 1)^{\frac{n(n - 1)}{2} }}{\sqrt[3]{n^2 + e^x}} \quad E = [ - 10, 10] \]
+    Было сделано на практике по Дирихле, \(a_n =( - 1)^{\dots }\)
+\end{exercise}
+
+\begin{exercise}[2780]
+    \[\sum_{n = 1}^{+\infty} \frac{\cos \frac{2n \pi}{3} }{\sqrt{n^2 + x^2}} \quad E = \R\]
+    \[a_n = \cos \frac{2n \pi}{3} \quad \sum \left|a_n\right| \leq 6\]
+    \[b_n = \frac{1}{\sqrt{n^2 + x^2}}\]
+    \[\lim_{n\to +\infty} b_n = 0\]
+    \[\rho(0, b_n) = \sup_x \left|\frac{1}{\sqrt{n^2 + x^2}}\right| = \frac{1}{n}\to 0\]
+    \textbf{Ответ}: сходится по Дирихле
+\end{exercise}
+
+\begin{exercise}[2781]
+    \[\sum_{n = 1}^{+\infty} \frac{\sin x \sin nx}{\sqrt{n + x}} \quad E = [0, +\infty)\]
+    Сначала докажем вспомогательный факт:
+    \[\sum_{n = 1}^N \sin (nx) := S_N\]
+    \[\sin nx \cdot \sin \frac{x}{2} = \frac{1}{2}(\cos \left(\left( n - \frac{1}{2} \right)x\right) - \cos \left(\left( n + \frac{1}{2} \right)x\right)\]
+    \[A_N \cdot \sin \frac{x}{2} \stackrel{\text{телескоп}}{=} \sin \frac{nx}{2} \sin \frac{(n + 1)x}{2} \]
+    \[|A_n| = |\sin \frac{nx}{2} \sin \frac{(n + 1)x}{2} \frac{1}{\sin \frac{x}{2}}|\]
+    Докажем по Дирихле:
+
+    \[a_n(x) : = \sin x \sin nx\]
+    \[\sum a_n(x) = |\sin x| \left|A_n\right| \leq \left|\frac{\sin x}{\sin \frac{x}{2}} \right|  = |2\cos \frac{x}{2}| \leq 2\]
+
+    \[b_n(x) = \frac{1}{\sqrt{n + x}}\]
+    \[\lim_{n\to +\infty} b_n(x) = 0\]
+    \[\rho(0, b_n) = \sup_x \frac{1}{\sqrt{n + x}} = \frac{1}{\sqrt{n}} \to 0\]
+    \textbf{Ответ}: сходится по Дирихле
+\end{exercise}
+
+\begin{exercise}[2785]
+    Если ряд \(\sum\limits_{n = 1}^{+\infty} f_n(x)\) сходится абсолютно и равномерно на \([a, b]\), то обязательно ли ряд \(\sum\limits_{n = 1}^{+\infty} |f_n(x)|\) сходится равномерно на \([a, b]\)?
+    Рассмотреть пример \(\sum\limits_{n = 0}^{+\infty}( - 1)^n(1 - x)x^n, x\in[0, 1]\)
+
+    Абсолютная сходимость ряда: при \(x = 0\) или \(x = 1\) очевидно сходится, т.к. \(0\), при \(x\in(0, 1)\) тоже сходится.
+
+    Равномерная сходимость: по Дирихле
+    \[a_n = ( - 1)^n \quad \left|\sum a_n\right| \leq 2\]
+    \[b_n = (1 - x)x^n\]
+    Монотонно по \(n\), сходится, т.к. \(x = \frac{n}{n + 1}, \frac{1}{n + 1}\left( 1 - \frac{1}{n + 1} \right)^n \approx \frac{1}{e} \frac{1}{n} \to 0\)
+
+    Равномерная абсолютная сходимость: по Коши члены суммы при \(x = \frac{n}{n + 1}\) \(\approx \frac{1}{n}\), тогда при \(m = n\) сумма \( > \varepsilon\). Таким образом расходится.
+\end{exercise}
+
+\section*{ДЗ 11}
+
+% 2795-2799, 2806-08
+
+\begin{exercise}[2795]
+    Определить области существования функций \(f(x)\) и исследовать их на непрерывность, если:
+    \begin{enumerate}
+        \item [(а)] \[f(x) = \sum_{n = 1}^{+\infty} \left( x + \frac{1}{n} \right)^n\]
+              Рассмотрим \textbf{обычную} сходимость ряда.
+
+              При \(x = 1\) ряд расходится, т.к. \((1 + \frac{1}{n})^n \to 1 \neq 0\)
+
+              При \(x > 1\) ряд расходится по признаку сравнения.
+
+              При \(x \in (- 1, 1)\) ряд сходится по признаку Абеля (корень).
+
+              При \(x = - 1\) \(\not \exists \lim ( - 1 + \frac{1}{n})^n \Rightarrow \) ряд расходится.
+
+              При \(x < - 1\) ряд очевидно расходится.
+
+              Итого \(f : ( - 1, 1) \to \R\).
+
+              Рассмотрим равномерную сходимость, чтобы найти, где \(f\) непрерывна.
+
+              Пусть \(x\in U(x_0) = (\alpha, \beta)\)
+              \[\left|\left( x + \frac{1}{n} \right)^n\right| \leq \left| \beta + \frac{1}{n}\right|^n \text{ сходится}\]
+
+              Таким образом, \(f\) непр. на \(( - 1, 1)\)
+        \item [(б)] \[f(x) = \sum_{n = 1}^{+\infty} \frac{x + ( - 1)^n n}{x^2 + n^2} \]
+              \[\frac{x + ( - 1)^n n}{x^2 + n^2} = \frac{x}{x^2 + n^2} + \frac{( - 1)^n n}{x^2 + n^2} \]
+              Первый ряд сходится:
+              \[x\in ( - \alpha, \alpha) \quad \left|\frac{x}{x^2 + n^2}\right| \leq \frac{\alpha}{n^2}\]
+              Второй ряд сходится по Дирихле ( \(a_n(x) = ( - 1)^n, b_n(x) = \frac{1}{x^2 + x^2}\))
+
+              Итого \(f : \R \to \R\)
+
+              Заметим, что из приведенные соображения также доказывают равномерную сходимость, поэтому ответ --- везде.
+        \item [(в)] \[f(x) = \sum_{n = 1}^{+\infty} \frac{x}{(1 + x^2)^n} \]
+              По признаку Абеля (корня) ряд сходится при \(x \neq 0\), т.к.:
+              \[\sqrt[n]{\frac{x}{(1 + x^2)^n}} = \frac{\sqrt[n]{x}}{1 + x^2} \to \frac{1}{1 + x^2} < 1\]
+              При \(x = 0\) члены ряда 0 и \(f\) тоже \(0\).
+
+              Итого \(f : \R\to \R\)
+
+              Докажем, что \(\forall x_0\) ряд равномерно сходится в \(U(x_0) = (a, b)\) и пусть наименьшее по модулю из этих чисел --- \(\alpha\), наибольшее --- \(\beta\).
+              \[\left|\frac{x}{(1 + x^2)^n}\right| \leq \frac{\beta}{(1 + \alpha^2)^n}\]
+              \(\sum \frac{\beta}{(1 + \alpha^2)^n}\) сходится, если \(\alpha \neq 0\). Если \(\alpha = 0\), то не сходится.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[2796]
+    Пусть \(r_k (k = 1,2 \dots )\) --- рациональные числа сегмента \([0,1]\). Показать, что функция
+    \[f(x) = \sum_{k = 1}^{+\infty} \frac{|x - r_k|}{3^k} \quad x\in[0, 1]\]
+    обладает следующими свойствами: 1) непрерывна; 2) дифференцируема в иррациональных точках и недифференцируема в рациональных.
+
+    \begin{enumerate}
+        \item Непрерывность
+
+              \(u_n(x)\) непрерывны в \(x_0\) \(\forall x_0\in[0, 1]\).
+
+              Покажем равномерную сходимость ряда по Вейерштрассу.
+
+              \[\frac{|x - r_k|}{3^k} \leq \frac{1}{3^k} \text{ сходится}\]
+
+        \item Дифференцируемость
+
+              \[u_n'(x) = \frac{\sign (x - r_k)}{3^k}\]
+
+              В рациональных точках \(u_n'(x)\) разрывны, т.к. для каждого \(x_0 \in \Q\cap[0, 1]\) есть \(r_k\).
+
+              Покажем равномерную сходимость в окрестности иррациональных точек. Она очевидна, т.к. \(\frac{\sign (x - r_k)}{3^k} \leq \frac{1}{3^k} \) и по Вейерштрассу равн. сходимость есть.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[2797]
+    Было на практике
+\end{exercise}
+
+\begin{exercise}[2798]
+    Доказать, что тэта функция
+    \[\Theta(x) = \sum_{n = -\infty}^{+\infty} e^{ -\pi n^2 x}\]
+    определена и бесконечно дифференцируема при \(x > 0\).
+
+    \[\Theta(x) = 1 + 2\sum_{n = 1}^{ +\infty} e^{ -\pi n^2 x}\]
+
+    Покажем равномерную сходимость ряда при \(x \in (\alpha, +\infty), \alpha > 1\).
+    \[e^{ -\pi n^2 x} \leq e^{ -\pi n^2 \alpha} \text{ сходится}\]
+    При дифференцировании \(k\) раз мы получим \(e^{ -\pi n^2 x} ( -\pi n^2)^k\), но степенная функция растет асимптотически медленнее, чем показательная \( \Rightarrow \) все ряды из производных равномерно сходятся по Вейерштрассу.
+\end{exercise}
+
+\begin{exercise}[2799]
+    Определить области существования функций \(f(x)\) и исследовать их на дифференцируемость, если:
+    \begin{enumerate}
+        \item [(a)] \[f(x) = \sum_{n = 1}^{+\infty} \frac{( - 1)^n x}{n + x} \]
+
+              \[\left( \frac{( - 1)^n x}{n + x} \right)' = ( - 1)^n \frac{n + x - x}{(n + x)^2} = ( - 1)^n \frac{n}{(n + x)^2} \]
+              Члены суммы разрывны при \(x \in \Z^{ -}\), в остальных точках непрерывны.
+
+              Докажем равномерную сходимость по Дирихле \(a_n(x) : = ( - 1)^n, b_n(x) = \frac{n}{(n + x)^2}\)
+
+              Нет, не докажем, потому что \(b_n\) не монотонно по \(n\).
+
+              \textbf{Я не знаю, как решить.}
+
+              \textbf{Ответ}: определена и дифференцируема в \(x\in \R\setminus \Z^{ -}\)
+        \item [(б)] \[f(x) = \sum_{n = 1}^{+\infty} \frac{|x|}{n^2 + x^2}\]
+
+              \[\left( \frac{|x|}{n^2 + x^2} \right)' = \frac{\sign x (n^2 + x^2) - 2x|x|}{(n^2 + x^2)^2} = \frac{\sign x}{n^2 + x^2} - \frac{2x|x|}{(n^2 + x^2)^2} \]
+              Члены суммы непрерывны во всех точках, кроме \(x = 0\).
+
+              Равномерная сходимость первого очевидна. Равномерная сходимость второго очевидна по Дирихле:
+              \[|\frac{2x|x|}{(n^2 + x^2)^2}| \leq \frac{2a^2}{n^4}\]
+
+              \textbf{Ответ}: везде, кроме 0.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[2806]
+    \[\lim_{x\to 1 - 0} \sum_{n = 1}^{+\infty} \frac{( - 1)^{n + 1}}{n} \frac{x^n}{x^n + 1} \]
+    Если есть равномерная сходимость ряда в \((\alpha, 1)\), то \(\sum u_n(x) \xrightarrow{x\to 1 - 0} \sum u_n(1) = \frac{-\ln 2}{2}\).
+
+    Равномерная сходимость выполняется по Дирихле \(a_n =( - 1)^n, b_n = \frac{x^n}{n(x^n + 1)}\).
+\end{exercise}
+
+\begin{exercise}[2807]
+    \[\lim_{x \to 1 - 0} \sum_{n = 1}^{+\infty} (x^n - x^{n + 1})\]
+    Если есть равномерная сходимость ряда в \((\alpha, \beta)\), то \(\sum u_n(x) \xrightarrow{x\to 1 - 0} \sum u_n(1) = 0\).
+
+    Докажем по определению:
+    \[S_N = \sum_{n = 1}^{N} (x^n - x^{n + 1}) \stackrel{\text{телескоп}}{=} x - x^{N + 1}\]
+    \[\lim S_N = x\]
+    \[\rho(S_N, x) = \sup_x |x^{N + 1}| = \beta^{N + 1} \to 0\]
+\end{exercise}
+
+\begin{exercise}[2808]
+    \[\lim_{x \to +0} \sum_{n = 1}^{+\infty} \frac{1}{2^n n^x}\]
+    \[\left|\frac{1}{2^n n^x}\right| \leq \frac{1}{2^n}\]
+    Сходится равномерно по Вейерштрассу.
+    \[\lim = \sum \frac{1}{2^n} = 1\]
+\end{exercise}
+
+\section*{ДЗ 12}
+
+% 2873 г-з, 2871, 2855, 57, 61, 2816-18, 23, 24
+
+\end{document}

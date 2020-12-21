@@ -1,0 +1,146 @@
+\input{../../preamble.sty}
+
+\lhead{Краткий конспект практик}
+\cfoot{}
+\rfoot{}
+
+\begin{document}
+
+\section{Равномерная сходимость последовательности}
+
+Практически все задачи решаются следующим образом:
+\begin{enumerate}
+    \item Находим кандидата на роль \(f\) по формуле \(f = \lim\limits_{n\to +\infty} f_n(x)\). Предел берется при фиксированном \(x\). \(f\) может зависеть от \(x\) и может быть разрывным \textit{(например, 2751.б)}
+    \item Проверяем, что \(\rho(f, f_n) \xrightarrow{n\to +\infty} 0\), где \(\rho(f, f_n) = \sup\limits_{x\in E} |f(x) - f_n(x)|\)
+
+          Методы нахождения супремума:
+          \begin{enumerate}
+              \item \textbf{Прямой}: \(\sup\limits_{x\in(0, +\infty)} \cfrac{1}{x + n} = \cfrac{1}{n} \to 0\)
+              \item \textbf{Оценка сверху} \textit{(доказывает равн. сходимость)}: \( \sup\limits_{x\in[0, 1]} \left|\cfrac{x + x^2}{1 + n + x}\right| \leq \cfrac{2}{1 + n}\to 0\)
+              \item \textbf{Оценка снизу} \textit{(доказывает отсутствие равн. сходимости)} --- обычно подстановка конкретного \(x\) \textit{(он может зависеть от \(n\))}:
+                    \[\sup_{x} \left|\sin\left( \frac{x}{n} \right)\right| \stackrel{x: = n}{ \ge } \sin(1) \not\to 0\]
+              \item \textbf{Оценка снизу пределом}: \(\sup\limits_{g\in E} g(x) \geq \lim\limits_{x\to A} g(x)\), где \(A\) --- предельная точка \(E\).
+          \end{enumerate}
+\end{enumerate}
+
+Есть более простой признак \textbf{отсутствия} равн. сходимости:
+\[f_n(x) \rightrightarrows f \implies \forall x\in E \ \ f_n(x) \to f(x)\]
+
+\section{Равномерная сходимость рядов}
+
+\[\sum_{n = 1}^{ +\infty} u_n(x) = S(x) \quad S_N \rightrightarrows S \text{ на } E\]
+
+Методы доказательства:
+\begin{enumerate}
+    \item \textbf{По определению} \textit{(см. равн. сходимость последовательностей)} --- самый простой вариант, для него нужен способ посчитать частную сумму. Это либо телескоп, либо прогрессия. Иногда из дроби можно получить телескоп разложением на простые дроби.
+    \item \textbf{По абсурдности} если \(u_n(x)\not\rightrightarrows 0\), то сумма не сходится.
+    \item \textbf{Признак Вейерштрасса}
+
+          \(\sum u_n(x), x\in E\):
+          \begin{enumerate}
+              \item \(\forall x\in E : |u_n(x)| \leq C_n\)
+              \item \(\sum C_n\) --- сходится
+          \end{enumerate}
+          Тогда ряд равномерно сходится.
+
+          Обычно берут \(C_n = \frac{1}{n^\alpha}, \alpha > 1\), но иногда нужно думать про сходимость ряда \(C_n\), т.к. она не очевидна. Вольфрам в помощь.
+
+          При придумывании \(C_n\) можно найти точку экстремума максимума \(|u_n(x)|\) (\(x = \dots\)) через \(u_n(x)'_x\) и подставить такой \(x\).
+    \item \textbf{Критерий Больцано-Коши} обычно доказывает \textbf{отсутствие} равномерной сходимости, хотя его можно использовать и для обратного.
+          \[\exists \varepsilon > 0 \ \ \forall N \ \ \exists n > N, \exists m\in \N, \exists x \quad  |u_{n + 1}(x) + \dots + u_{n + m}(x)| > \varepsilon\]
+          Тогда равномерной сходимости нет.
+
+          Идея в том, чтобы иметь большие ( \( \geq \frac{C}{n}\) ) слагаемые, для этого надо придумать соответствующий \(x\). Часто используется оценка суммы \(|\sum_{i = n + 1}^{n + m} u_i(x)| \geq \min u_i(x) \cdot m\).
+
+          Для обратного нужно построить отрицание критерия.
+    \item \textbf{Признак Дирихле} для \(\sum a_n(x)b_n(x)\):
+          \begin{enumerate}
+              \item Частичные суммы \(\sum a_n\) равномерно ограничены:
+                    \[\exists C_a \ \ \forall N \ \ \forall x\in E \ \ \left|\sum_{k = 1}^N a_k(x)\right| \leq C_a\]
+              \item \begin{enumerate}
+                        \item При фиксированном \(x\) функция \(b_n(x)\) монотонна по \(n\)
+                        \item \(b_n(x) \rightrightarrows 0\) на \(E\) при \(n\to +\infty\)
+                    \end{enumerate}
+          \end{enumerate}
+    \item \textbf{Признак Абеля} для \(\sum a_n(x)b_n(x)\):
+          \begin{enumerate}
+              \item \(\sum a_n(x)\) равномерно сходится на \(E\)
+              \item \begin{enumerate}
+                        \item \(b_n(x)\) монотонно по \(n\)
+                        \item \(b_n(x)\) равномерно ограничено:
+                              \[\exists C_b \ \ \forall N \ \ \forall x\in E \ \ |b_n(x)| \leq C_b\]
+                    \end{enumerate}
+          \end{enumerate}
+\end{enumerate}
+
+\section{Свойства через ряды}
+
+\begin{enumerate}
+    \item \begin{itemize}
+              \item \(\sum u_n(x) = f(x)\)
+              \item \(u_n(x)\) непр. в \(x_0\)
+              \item Ряд равномерно сходится в \(U(x_0)\)
+          \end{itemize}
+          Тогда \(f\) \textbf{непр}. в \(x_0\)
+    \item \begin{itemize}
+              \item \(\sum u_n'(x) = \varphi(x)\)
+              \item \(\sum u_n'(x)\) равномерно сходится в \(U(x_0)\)
+          \end{itemize}
+          Тогда \(f\) --- \textbf{дифф}. в \(x_0, f'(x) = \varphi(x)\)
+    \item \begin{itemize}
+              \item \(\sum u_n(x) \) равномерно сходится на \([a, b]\)
+              \item \(u_n\) непр. на \([a, b]\)
+          \end{itemize}
+          Тогда \(\int_a^b f(x)dx = \sum \int_a^b u_n(x) dx\)
+\end{enumerate}
+
+Когда требуют равномерную сходимость в \(U(x_0) \ \ \forall x_0\in E\), можно пытаться доказать равномерную сходимость в \(E\). Это проще сделать, но не всегда возможно.
+
+\section{Степенные ряды}
+
+Степенной ряд --- ряд вида \(\sum a_n(x - x_0)^n\). Он сходится при \(\left|x - x_0\right|< R, R = \frac{1}{\overline \lim\sqrt[n]{|a_n|}}\)
+
+Верхний предел --- наибольший предел из пределов всех подпоследовательностей.
+
+Иногда ответ выдает \(R = \lim \left|\frac{a_n}{a_{n + 1}}\right|\), но не всегда.
+
+И ещё возможно сходится при \(x = x_0 \pm R\). Сходимость при таком \(x\) находится путём подстановки соответствующего \(x\) в ряд. Но этот ряд не простой, в нем не будет работать признак Даламбера и Коши.
+
+Можно решать заменой на эквивалентное (возможно по модулю), если это не помогает, то применяется Лейбниц или Дирихле.
+
+\section{Разложение фукнций}
+
+Мы знаем, что если \(f(x) = \sum a_n(x - x_0)^n\), то это ряд Тейлора, т.е. \(a_n = \frac{f^{(n)} (x_0)}{n!} \).
+
+У нас есть пять основных разложений:
+\begin{align*}
+    e^z        & = 1 + z + \frac{z^2}{2} + \dots + \frac{x^n}{n!} + \dots                                                    \\
+    \sin x     & = x - \frac{x^3}{3!} + \dots + ( - 1)^{n - 1} \frac{x^{2n - 1}}{(2n - 1)!} + \dots                          \\
+    \cos x     & = 1 - \frac{x^2}{2!} + \dots + ( - 1)^n \frac{x^{2n}}{(2n)!} + \dots                                        \\
+    (1 + x)^m  & = 1 + mx + \frac{m(m - 1)}{2!}x^2 + \dots + \frac{m(m - 1)\dots(m - n + 1)}{n!} + \dots \quad x\in( - 1, 1) \\
+    \ln(1 + x) & = x - \frac{x^2}{2} + \frac{x^3}{3} - \dots + ( - 1)^{n - 1}\frac{x^n}{n} + \dots \quad x\in( - 1, 1]
+\end{align*}
+
+Функции вида \(f(x) = (x - x_0)^\alpha \cdot g(x)\), где \(g = \sum a_n(x - x_0)^n\), раскладываются по формуле \(f = \sum a_n(x - x_0)^{n + \alpha}\), то есть разложение можно домножить на \((x - x_0)^\alpha\).
+
+Композиция сохраняется разложением.
+
+Можно найти разложение производной (\(f'(x)\)), потом проинтегрировать и найти искомое. Константа находится подстановкой \(x = x_0\), при ней ряд после интеграции \( = 0\), \(f(x_0)\) может не быть \(0\).
+
+\section*{Трюки}
+
+\begin{enumerate}
+    \item \[\frac{t}{1 + t^2} \leq \frac{1}{2}\]
+    \item \[\left|xe^{ - x^2n}\right| \leq \frac{C}{\sqrt{n}}\]
+    \item \[a + b \geq 2\sqrt{ab}\]
+    \item \(\sum \frac{( - 1)^n}{n^p} \) сходится при \(p > 0\) и расходится при \(p \leq 0\)
+    \item \[\sum \frac{( - 1)^n}{n} = -\ln 2\]
+    \item \[\sum_{n = 1}^N \sin (nx) = \sin \frac{nx}{2} \sin \frac{(n + 1)x}{2} \frac{1}{\sin \frac{x}{2}}\]
+    \item \[\frac{\sin x}{\sin \frac{x}{2}} = 2\cos \frac{x}{2}\]
+    \item \[\left|\sum_{n = 1}^N \sin (nx)\right| \leq \frac{1}{|e^{ix} - 1|}\]
+    \item Если \(u_n(x)\) монотонно по \(n\), то:
+          \[\left|\sum_{n \geq N} ( - 1)^n u_n(x) \right| \leq u_N(x)\]
+    \item Если есть равномерная сходимость ряда в \(U(0)\), то \(\sum u_n(x) \xrightarrow{x\to 0} \sum u_n(0)\).
+\end{enumerate}
+
+\end{document}

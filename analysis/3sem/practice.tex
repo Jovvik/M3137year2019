@@ -1,0 +1,453 @@
+\input{../../preamble.sty}
+
+\lhead{Практика}
+\cfoot{}
+\rfoot{}
+
+\begin{document}
+
+\section*{Практика 8}
+
+\subsection*{Равномерная сходимость последовательности функций}
+
+\begin{definition}
+    \(f_n \rightrightarrows f\) на \(E\), если \(\rho(f_n, f) \to 0\), где \(\rho(f_n, f) := \sup\limits_{x\in E} |f_n(x) - f(x)|\)
+\end{definition}
+
+\begin{remark}
+    Есть более простой признак: \(f_n(x) \rightrightarrows f(x) \implies \forall x\in E \ \ f_n(x) \to f(x)\)
+\end{remark}
+
+\begin{exercise}[Демидович, 2749]
+    \(f_n(x) = \frac{1}{x + n}, E = (0, +\infty)\). Есть ли равномерная сходимость?
+
+    \begin{enumerate}
+        \item Ищем кандидата на роль \(f\).
+
+              При фиксированном \(x\) посчитаем \(\lim\limits_{n\to + \infty} f_n(x)\):
+              \[\lim\limits_{n\to + \infty} f_n(x) = \lim\limits_{n\to +\infty} \frac{1}{x + n} = 0\]
+
+              Таким образом, \(f(x)\equiv 0\)
+        \item Проверяем равномерную сходимость.
+              \[\rho(f_n, f) = \sup_{x\in(0, +\infty)} \left|\frac{1}{x + n} - 0\right| = \sup_{x\in(0, +\infty)} \frac{1}{x + n} = \frac{1}{n} \to 0\]
+    \end{enumerate}
+
+    \textbf{Ответ}: равномерная сходимость есть.
+\end{exercise}
+
+\begin{exercise}
+    \[f_n(x) = \frac{n^2x + x^2n + 20}{n + nx + n^2x^2 + 1} \quad x\in(0, +\infty) \]
+    \begin{enumerate}
+        \item Ищем \(f\).
+              \[f(x) = \lim_{n\to +\infty} f_n(x) = \frac{1}{x}\]
+              Этот предел нашелся заменой на эквивалентную в числителе и знаменателе
+        \item \(\rho(f_n, f)\)
+              \[f_n - f = \frac{n^2x^2 + x^3n + 20x - n - nx - n^2x^2 - 1}{x(n + nx + n^2x^2 + 1)}\]
+              \[\sup_{x\in(0, +\infty)} \frac{|x^3n + 20x - n - nx - 1|}{x(n + nx + n^2x^2 + 1)} = ?\]
+              Такой супремум сложно берется, если вообще берется. Но можно попробовать его оценить сверху. Заметим, что у нас \(n\) фиксировано, а \(x\) мы двигаем. Если двигать \(x\to 0\), то числитель ненулевая константа, а знаменатель произвольно мал. Таким образом, \(\sup = +\infty\) и равномерной сходимости нет.
+
+              Что произойдет, если в условии \(x\in[1, +\infty)\)? Подставим \(x = 1\), тогда получается \(\cfrac{1}{n^2}\). Если \(x = n\), то дробь \(\cfrac{\approx n^4}{n\cdot n^4} \approx \cfrac{1}{n}\). Пока что никакие \(x\) не дают большие значения. Если взять \(x = n^2\), получается \(\frac{n^7}{n^8}\).
+
+              Пусть \(n > 20\). Тогда
+              \[\sup \dots \le \frac{5x^3 n}{x^3 n^2} \le \frac{5}{n} \to 0\]
+    \end{enumerate}
+\end{exercise}
+
+\section*{Практика 9}
+
+Когда оцениваем \(\sup\), можно говорить, что \(\sup \geq \lim_{x\to A}\), где \(A\) --- произвольная константа \textit{(к которой можно стремиться в \(E\) (предельная точка))}.
+
+\[\ctg x \stackrel{x\to 0}\approx \frac{1}{x}\]
+\[\arctg x \stackrel{x\to +\infty}{\approx} \frac{\pi}{2} - \frac{1}{x}\]
+Таким образом, \(\arctg x \equ_{x\to +\infty} \frac{\pi}{2} - x\), это проверяется вычислением предела \(\lim\limits_{x\to +\infty} \cfrac{\frac{\pi}{2} -\arctg x}{\frac{1}{x}}\) по правилу Лопиталя.
+
+\subsection*{Равномерная сходимость рядов}
+
+\[\sum_{n = 1}^{ +\infty} u_n(x) = S(x) \quad S_N \rightrightarrows S \text{ на } E\]
+
+Рассмотрим простой случай, где сходимость доказывается по определению.
+
+\begin{exercise}[2769]
+    \[\sum_{n = 0}^{ +\infty} x^n(1 - x) \quad x\in[0, 1]\]
+    \[S_N = \sum_{n = 0}^N x^n - x^{n + 1} \stackrel{\text{телескоп}}{=} 1-x^{N + 1} \xrightarrow{N\to +\infty} \begin{cases}
+            1, & x < 1 \\
+            0, & x = 1
+        \end{cases}\]
+    \[\sup_{x\in[0, 1]} |S_N - S| = \sup_{x\in[0, 1)} x^{N + 1} = 1 \not\to 0 \]
+    Мы игнорируем \(x = 1\), т.к. там \(\sup = 0\)
+\end{exercise}
+
+\begin{exercise}[2771]
+    \[\sum_{n = 1}^{\infty} \frac{x}{((n - 1)x + 1)(nx + 1)} \quad x\in (0, +\infty)\]
+    \[S_N = \sum_{n = 1}^{N} \frac{x}{((n - 1)x + 1)(nx + 1)} = \sum_{n = 1}^N - \frac{1}{nx + 1} + \frac{1}{(n - 1)x + 1} \stackrel{\text{телескоп}}{ =} 1 - \frac{1}{Nx + 1} \]
+    \[\lim S_N = 1\]
+    \[\sup_x|S_N - S| = \sup_x \frac{1}{Nx + 1} \geq 1 \not\to 0\]
+\end{exercise}
+
+\textbf{Критерий Больцано-Коши} обычно доказывает отсутствие равномерной сходимости, хотя его можно использовать и для обратного.
+\[\exists \varepsilon > 0 \ \ \forall N \ \ \exists n > N, \exists m\in \N, \exists x \quad  |u_{n + 1}(x) + \dots + u_{n + m}(x)| > \varepsilon\]
+Тогда равномерной сходимости нет.
+
+Докажем предыдущий номер по критерию Больцано-Коши.
+
+\[\exists \varepsilon = \frac{1}{100}  \ \ \forall N \ \ \exists n > N, \exists m = n, \exists x = \frac{1}{n} \quad \sum_{k = n + 1}^{2n} \frac{1}{n} \frac{1}{(\frac{k}{n} + 1)(\frac{k + 1}{n} + 1)} \geq \frac{n}{n} \frac{1}{3\cdot 4} > \frac{1}{100}\]
+
+\textbf{Признак Вейерштрасса}
+
+\(\sum u_n(x), x\in E\):
+\begin{enumerate}
+    \item \(\forall x\in E : |u_n(x)| \leq C_n\)
+    \item \(\sum C_n\) --- сходится
+\end{enumerate}
+Тогда ряд равномерно сходится.
+
+\begin{example}
+    \(x\in [0, \frac{1}{2}], \sum x^n(1 - x)\)
+    \[|x^n(1 - x)| \leq \frac{1}{2^n}, \sum \frac{1}{2^n} \text{ сходится}\]
+\end{example}
+
+\begin{exercise}[2774]\itemfix
+    \begin{itemize}
+        \item [(a)] \[f_n(x) = \frac{1}{x^2 + n^2} \quad E = \R\]
+              \[\left|\frac{1}{x^2 + n^2}\right| \leq \frac{1}{n^2}, \sum \frac{1}{n^2} \text{ сходится}\]
+              \textbf{Ответ}: сходится равномерно
+        \item [(a')] \[f_n(x) = \frac{x}{x^2 + n^2} \quad E = \R\]
+              \[\left(\frac{x}{x^2 + n^2}\right)' = \frac{x^2 + n^2 - 2x^2}{(x^2 + n^2)^2} \]
+              Таким образом, максимум достигается при \(x = n\).
+              \[C_n: = \max f_n = \frac{n}{n^2 + n^2} = \frac{1}{2n} \quad \sum \frac{1}{n} \text{ расходится}\]
+              Применим критерий Коши.
+              \[\exists \varepsilon = \frac{1}{100}  \ \ \forall N \ \ \exists n > N, \exists m = n, \exists x = n\]
+              \[\frac{n}{n^2 + (n + 1)^2} + \frac{n}{n^2 + (n + 2)^2} + \dots + \frac{n}{n^2 + (2n)^2} \ge \frac{n}{5n} = \frac{1}{5} > \varepsilon\]
+
+
+        \item [(в)] \[\sum \frac{x}{1 + n^4x^2} \quad x\in (0, +\infty)\]
+              \[C_n: = \sup_{x\in E} \frac{x}{1 + n^4x^2} \stackrel{\frac{1}{n^2}}= \frac{\frac{1}{n}}{1 + n^4 \frac{1}{n^4}} = \frac{1}{2n^2}\]
+    \end{itemize}
+\end{exercise}
+
+\section*{Практика 10}
+
+\textbf{Признак Дирихле} для \(\sum a_n(x)b_n(x)\):
+\begin{enumerate}
+    \item Частичные суммы \(\sum a_n\) равномерно ограничены:
+          \[\exists C_a \ \ \forall N \ \ \forall x\in E \ \ \left|\sum_{k = 1}^N a_k(x)\right| \leq C_a\]
+    \item \begin{enumerate}
+              \item При фиксированном \(x\) функция \(b_n(x)\) монотонна по \(n\)
+              \item \(b_n(x) \rightrightarrows 0\) на \(E\) при \(n\to +\infty\)
+          \end{enumerate}
+\end{enumerate}
+
+\textbf{Признак Абеля} для \(\sum a_n(x)b_n(x)\):
+\begin{enumerate}
+    \item \(\sum a_n(x)\) равномерно сходится на \(E\)
+    \item \begin{enumerate}
+              \item \(b_n(x)\) монотонно по \(n\)
+              \item \(b_n(x)\) равномерно ограничено:
+                    \[\exists C_b \ \ \forall N \ \ \forall x\in E \ \ |b_n(x)| \leq C_b\]
+          \end{enumerate}
+\end{enumerate}
+
+\begin{exercise}
+    \[\sum \frac{\sin \frac{\pi n}{6} }{n + \sin x} \quad x\in \R \]
+    \[a_n(x) : = \sin \frac{\pi n}{6} \quad b_n(x) : = \frac{1}{n + \sin x}\]
+    \(a_n(x)\) ограничена, т.к. за 12 шагов мы обходим всю окружность и приходим назад в \(0\). Таким образом, \(\left|\sum_{n = 1}^N a_n\right| \leq 11\)
+
+    Монотонность \(b_n\) тривиальна, равномерная сходимость к нулю тоже.
+\end{exercise}
+
+\begin{exercise}
+    \[\sum \frac{( - 1)^{\frac{n(n - 1)}{2} }}{\sqrt[3]{n^2 + e^x}} \quad |x| \leq 10 \]
+    \[a_n = ( - 1)^{\frac{n(n - 1)}{2} } \quad b_n = \frac{1}{\sqrt[3]{n^2 + e^x}}\]
+    \(a_n\) имеет вид \(1, - 1, - 1, 1, 1, - 1, - 1, 1 \dots \). Тогда \(\left|\sum a_n\right| \leq 4\)
+
+    \(b_n\) очевидно.
+\end{exercise}
+
+\begin{exercise}
+    \[\sum \frac{\sin nx}{\sqrt{n} + \cos nx} \quad x\in\R\]
+    \begin{enumerate}
+        \item \(x\in[1, 2]\)
+
+              Заметим, что \(\sum \frac{\sin nx}{\sqrt{n}} \) --- равномерно сходится по Дирихле, при \(a_n = \sin nx\). Рассмотрим разность исходного ряда и этого ряда:
+
+              \[\frac{1}{2}\sum \frac{\sin 2nx}{\sqrt{n}(\sqrt{n} + \cos nx)} \]
+              Аналогично рассмотрим \(\sum \frac{\sin 2nx}{n} \). Так можно продолжить несколько итераций и мы получим сходимость или расходимость.
+        \item \(x\in\R\)
+
+              Равномерной сходимости нет по критерию Коши:
+              \[\exists \varepsilon > 0 \ \ \forall N \ \ \exists n > N, \exists m = n, \exists x = \frac{1}{n} \quad  \left|\frac{\sin \frac{n + 1}{n} }{\sqrt{n + 1} + \cos \frac{n + 1}{n}} + \dots + \frac{\sin 2}{\sqrt{2n} + \cos 2}  \right| > \frac{C}{\sqrt{n}} \cdot n > \varepsilon\]
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Кудрявцев, том 2, параграф 18, задача 13]\itemfix
+    \begin{enumerate}
+        \item \[\sum \frac{x^2 \sin(n \sqrt{x})}{1 + n^3x^4} \quad E = [0, +\infty)\]
+              Найдём экстремум члена суммы:
+              \[\left(\frac{x^2 \sin(n \sqrt{x})}{1 + n^3x^4}\right)'_x = \frac{(1 + n^3x^4)(2x \sin(n \sqrt{x}) + x^2 \cos (n \sqrt{x}) \frac{1}{2 \sqrt{x}}) - x^2 \sin(n \sqrt{x})\cdot 4n^3x^3}{(1 + n^3x^4)^2} \]
+              Не находится.
+
+              Найдём экстремум следующего:
+              \[\left|\frac{x^2 \sin(n \sqrt{x})}{1 + n^3x^4}\right| \leq \frac{x^2}{1 + n^3x^4}\]
+              \[\left( \frac{x^2}{1 + n^3x^4} \right)' = \frac{2x (1 + n^3x^4) - x^2n^3\cdot 4x}{\dots }\]
+              \[2x (1 + n^3x^4) - x^2n^3\cdot 4x = 0\]
+              \[x = \frac{1}{n^{\frac{3}{4}}}\]
+              Таким образом:
+              \[\left|\frac{x^2 \sin(n \sqrt{x})}{1 + n^3x^4}\right| \leq \frac{1}{2n^{\frac{3}{2}}} \text{ сходится}\]
+              \textbf{Ответ}: равномерно сходится по Вейерштрассу
+        \item \[\sum \frac{n^2x}{(n^2 + 1)(1 + n^4x^2)\arctg(1 + x)} \quad E = (0, +\infty)\]
+              Вспомним волшебное школьное неравенство:
+              \[\frac{t}{1 + t^2} \leq \frac{1}{2}\]
+              Пусть \(t = n^2x\)
+              \[\left|\frac{n^2x}{(n^2 + 1)(1 + n^4x^2)\arctg(1 + x)}\right| \leq \frac{1}{2(n^2 + 1)\arctg 1} \sim \frac{C}{n^2}\]
+              \textbf{Ответ}: равномерно сходится по Вейерштрассу
+        \item \[\sum \frac{x\sin(x + n)}{n^2x^2 + n + 1} \quad E = [0, +\infty)\]
+              \[\left|\frac{x\sin(x + n)}{n^2x^2 + n + 1}\right| \leq \frac{x}{n^2x^2 + n + 1}\]
+              Экстремум \(x =\sqrt{\frac{n + 1}{2n^2}} \)
+              \[\frac{x}{n^2x^2 + n + 1} \leq \frac{\sqrt{\frac{n + 1}{2n^2}}}{1.5(n + 1)} \leq \frac{\frac{10}{\sqrt{n}}}{n + 1} \text{ сходится}  \]
+              \textbf{Ответ}: равномерно сходится по Вейерштрассу
+        \item \[\sum \frac{xe^{ - x^2n}}{\sqrt{n\ln^3(n + 1)}} \quad E = \R\]
+              \[\left|xe^{ - x^2n}\right| \leq \frac{C}{\sqrt{n}}\]
+              \[\left|\frac{xe^{ - x^2n}}{\sqrt{n\ln^3(n + 1)}}\right| \leq \frac{C}{n\ln^{\frac{3}{2}}(n + 1)} \text{ сходится}\]
+              \textbf{Ответ}: равномерно сходится по Вейерштрассу
+        \item \[\sum \left( \frac{x^2}{1 + nx^3} \right)^3 \quad E = [0, +\infty)\]
+              Экстремум: \(x = \frac{2}{n^{\frac{1}{3}}}\)
+
+              Аналогично решается.
+        \item \[\sum \frac{\sin \frac{n}{x}\sin \frac{x}{n}}{1 + nx^2} \quad E = [0, +\infty)\]
+              \[\left|\frac{\sin \frac{n}{x}\sin \frac{x}{n}}{1 + nx^2}\right| \leq \frac{1 \frac{x}{n}}{1 + nx^2} = \frac{x}{n + n^2x^2} \stackrel{a + b \geq 2\sqrt{ab}}{\leq} \frac{C}{n^{\frac{3}{2}}}\]
+        \item \[\sum e^{ - nx} \quad E = (0, +\infty)\]
+              По признаку Коши при \(x = \frac{1}{n}\) члены суммы \(\approx \frac{1}{e} \Rightarrow \) расходится.
+
+              Также можно было сказать, что \(\sup e^{ - nx} = 1 \Rightarrow\) члены суммы не \(\rightrightarrows 0 \Rightarrow\) расходится.
+        \item \[\sum \frac{e^{ - \frac{x}{n}} \cos nx}{x^2 + n^2x} \]
+              \begin{enumerate}
+                  \item \(E = [\frac{1}{10}, +\infty)\) --- очевиден, т.к. \(|u_n(x)| \leq \frac{1\cdot 1}{\frac{1}{10}n^2} = \frac{C}{n^2}\) сходится.
+                  \item \(E = (0, +\infty)\) --- не сходится, т.к. \(\sup \left|u_n(x)\right| = +\infty,  u_n(x) \not\rightrightarrows 0\)
+              \end{enumerate}
+        \item \[\sum \frac{\sin(nx)}{(1 + nx)\sqrt{nx}} \]
+              \begin{enumerate}
+                  \item \((2, 3)\)
+                  \item \((0, \pi)\)
+              \end{enumerate}
+
+              Аналогично.
+        \item \[\sum \frac{( - 1)^n}{\sqrt{n}} \arctg x^n \quad E = [1, +\infty)\]
+              \(a_n = \frac{( - 1)^n}{\sqrt{n}}\) --- сходится и называется ряд Лейбница
+              \[b_n = \arctg x^n \quad \left|b_n(x)\right| \leq \frac{\pi}{2} \text{ и монотонно}\]
+
+        \item \[\sum \frac{( - 1)^n}{n} \frac{x^n}{x^n + 1} \quad E = [1, +\infty)\]
+              \[a_n = \frac{( - 1)^n}{n} \]
+              \[b_n = \frac{x^n}{x^n + 1} < 1 \text{ и монотонно}\]
+    \end{enumerate}
+\end{exercise}
+
+\section*{Практика 11}
+
+\textbf{Важные правила}
+\begin{enumerate}
+    \item \begin{itemize}
+              \item \(\sum u_n(x) = f(x)\)
+              \item \(u_n(x)\) непр. в \(x_0\)
+              \item Ряд равномерно сходится в \(U(x_0)\)
+          \end{itemize}
+          Тогда \(f\) \textbf{непр}. в \(x_0\)
+    \item \begin{itemize}
+              \item \(\sum u_n'(x) = \varphi(x)\)
+              \item \(\sum u_n'(x)\) равномерно сходится в \(U(x_0)\)
+          \end{itemize}
+          Тогда \(f\) --- \textbf{дифф}. в \(x_0, f'(x) = \varphi(x)\)
+    \item \begin{itemize}
+              \item \(\sum u_n(x) \) равномерно сходится на \([a, b]\)
+              \item \(u_n\) непр. на \([a, b]\)
+          \end{itemize}
+          Тогда \(\int_a^b f(x)dx = \sum \int_a^b u_n(x) dx\)
+\end{enumerate}
+
+\begin{exercise}\itemfix
+    \begin{enumerate}
+        \item \[\sum \frac{\arctg nx}{\sqrt[3]{n^4 + x^2}} \text{ непр. при } x\in\R\]
+              Непрерывность слагаемых \(\forall x_0\) очевидна.
+
+              \[\left|\frac{\arctg nx}{\sqrt[3]{n^4 + x^2}}\right| \leq \frac{\frac{\pi}{2}}{n^{\frac{4}{3}}} \text{ равномерно сходится по Вейерштрассу } \Rightarrow \text{ ряд сходится равномерно на }\R \quad \square\]
+        \item \[\sum \frac{( - 1)^n}{x^2 +\sqrt{n }} \text{ непр. при } x\in[2, 5] \]
+              \[\left|\sum_{n \geq N} \frac{( - 1)^n}{x^2 +\sqrt{n}} \right| \leq \frac{1}{x^2 + \sqrt{N}} \leq \frac{1}{\sqrt{n}}\]
+              Тогда ряд равномерно сходится по определению (остатки ряда \(\rightrightarrows S = 0\)).
+        \item \[\int_{\ln 2}^{\ln 5} \left( \sum ne^{ - nx} \right)dx = ?\]
+              Докажем равномерную сходимость \(\sum ne^{ - nx}, x\in[\ln 2, \ln 5]\)
+              \[|ne^{ - nx}| \leq ne^{ - n\ln 3} \leq \frac{n}{2^n} \text{ сходится}\]
+              Таким образом ряд равномерно сходится, поэтому:
+              \[\int_{\ln 2}^{\ln 5} \left( \sum ne^{ - nx} \right)dx = \sum \int_{\ln 2}^{\ln 5} ne^{ - nx} dx = \sum - e^{ -nx} \Big|_{\ln 2}^{\ln 5}\]
+        \item \[\sum \frac{\sin nx}{n^2 \ln^2(n + 1)} \text{ дифф. при } x\in\R\]
+              \[\sum \left(\frac{\sin nx}{n^2 \ln^2(n + 1)}\right)' = \sum \frac{\cos nx}{n \ln^2(n + 1)} \]
+              Надо доказать равномерную сходимость этого ряда:
+              \begin{enumerate}
+                  \item Либо на \(\R\)
+                  \item Либо \(\forall x_0\) в \(U(x_0)\)
+              \end{enumerate}
+              Ряд очевидно равн. сходится на \(\R\) по признаку Вейерштрасса.
+        \item \(\sum \frac{\cos nx}{n^2}\) имеет непрерывную производную на \((0, 2\pi)\)
+              Докажем равномерную сходимость \( -\sum \frac{\sin nx}{n}\) в \(\R\) или в любой окрестности.
+
+              По критерию Коши в \(\R\) её нет ( \(x = \frac{1}{n}, m = n\)), поэтому докажем в любой окрестности. Пусть эта окрестность \((\alpha, \beta)\):
+              \[a_n: = \sin nx\]
+              Частичные суммы \(a_n\) равномерно ограничены, это записано в трюках.
+
+              \[b_n = \frac{1}{n} \rightrightarrows 0\]
+        \item \(\zeta(x) = \sum \frac{1}{n^x}, x\in(1, +\infty)\). Доказать: \(\zeta \in C^{+\infty} (1, +\infty)\)
+              Равномерной сходимости на \((1, +\infty)\) нет, потому что по критерию Коши при \(x = 1 + \frac{1}{n}\). Докажем для окрестности \((\alpha, \beta)\).
+
+              По Вейерштрассу сходится:
+              \[\left|\frac{1}{n^x}\right| \leq \frac{1}{n^\alpha} \text{ сходится}\]
+        \item Где \(f(x) = \sum e^{ - n^2x^2} \cos nx\) непрерывна?
+              При \(x \neq 0\) равномерная сходимость доказывается аналогично предыдущему пункту. При \(x = 0\) ряд расходится, т.к. это ряд \(\sum 1\).
+        \item \[\lim_{x \to 0} \sum \frac{x^2}{1 + n^2x^2} = ?\]
+              Если есть равномерная сходимость ряда в \(U(0)\), то \(\sum u_n(x) \xrightarrow{x\to 0} \sum u_n(0)\). Докажем равн. сходимость по Вейерштрассу:
+              \[\left|\frac{x^2}{1 + n^2x^2}\right| \leq \left|\frac{1}{\frac{1}{x^2} + n^2}\right| \leq \frac{1}{n^2}\]
+    \end{enumerate}
+\end{exercise}
+
+\section*{Практика 12}
+
+\subsection*{Степенные ряды}
+
+Степенной ряд --- ряд вида \(\sum a_n(x - x_0)^n\). Он сходится при \(\left|x - x_0\right|< R, R = \frac{1}{\overline \lim\sqrt[n]{|a_n|}}\)
+
+Иногда ответ выдает \(R = \lim \left|\frac{a_n}{a_{n + 1}}\right|\), но не всегда.
+
+И ещё возможно сходится при \(x = x_0 \pm R\). Сходимость при таком \(x\) находится путём подстановки соответствующего \(x\) в ряд. Но этот ряд не простой, в нем не будет работать признак Даламбера и Коши.
+
+Можно решать заменой на эквивалентное (возможно по модулю), если это не помогает, то применяется Лейбниц или Дирихле.
+
+\begin{exercise}[2812-\dots]\itemfix
+    \begin{enumerate}
+        \item \[\sum \frac{x^n}{n^e}\]
+              \[R = \frac{1}{\overline \lim\sqrt[n]{\frac{1}{n^p}}} = \overline \lim\sqrt[n]{n^p} = \lim e^{\frac{1}{n} p\ln n} = 1\]
+              Таким образом, ряд сходится при \(x \in ( - 1, 1)\). Проверим \(x = \pm 1\)
+              При \(x = 1\) \(\sum \frac{1}{n^p}\) сходится при \(p > 1\) и расходится при \(p \leq 1\).
+
+              При \(x = - 1\) \(\sum \frac{( - 1)^n}{n^p} \) сходится при \(p > 0\) и расходится при \(p \leq 0\).
+        \item \[\sum \frac{3^n + ( - 2)^n}{n}(x + 1)^n\]
+              Несложно угадать, что \(R = \frac{1}{3}\). Проверим это вычислением:
+              \[\frac{1}{\lim\sqrt[n]{\frac{3^n +( - 2)^n}{n} }} = \frac{1}{3}\]
+              Таким образом, ряд сходится при \(x \in ( - \frac{1}{3}, \frac{1}{3})\). Проверим \(x = \pm \frac{1}{3}\)
+              \[\sphericalangle x = \frac{1}{3} \quad \frac{3^{n} + ( - 2)^n}{3^n \cdot n} \sim \frac{1}{n} \text{ расходится} \]
+              \[\sphericalangle x = - \frac{1}{3} \quad ( - 1)^n\frac{3^{n} + ( - 2)^n}{3^n \cdot n} = \sum \frac{( - 3)^n}{3^n \cdot n} + \frac{2^n}{3^n \cdot} \text{ сходится}\]
+        \item \[\sum \frac{(n!)^2}{(2n)!} x^n\]
+              \[\lim \left|\frac{a_n}{a_{n + 1}} \right| = \lim \frac{n!^2 (2n + 2)!}{(n + 1)!^2 (2n)!} = \lim \frac{(2n + 2)(2n + 1)}{(n + 1)^2} = 4\]
+              Таким образом, ряд сходится при \(x \in ( - 4, 4)\). Проверим \(x = \pm 4\)
+              \[\sphericalangle x = 4 \quad \frac{(n!)^2}{(2n)!} 4^n \sim \frac{n^{2n} e^{ - 2n} (2\pi n)}{(2n)^{2n} e^{ - 2n}\sqrt{4\pi n}} 4^n = \sqrt{\pi n} \text{ расходится}\]
+              \[\sphericalangle x = - 4 \quad \sum \frac{(n!)^2}{(2n)!} 4^n ( - 1)^n\]
+              \[\frac{a_{n+1}}{a_n} = \frac{4n^2 + 8n + 4}{4n^2 + 6n + 2} > 1\]
+              Итого при \(x = \pm 4\) расходится, при \(x\in ( - 4, 4)\) сходится.
+        \item \[\sum \alpha^{n^2} x^n \quad \alpha\in(0,1)\]
+              \[R = \frac{1}{\lim\sqrt[n]{\alpha^{n^2}}} = \frac{1}{\lim \alpha^{n}} = +\infty\]
+    \end{enumerate}
+\end{exercise}
+
+\subsection*{Разложение функции в ряд \textit{(Тейлора)}}
+
+Мы знаем, что если \(f(x) = \sum a_n(x - x_0)^n\), то это ряд Тейлора, т.е. \(a_n = \frac{f^{(n)} (x_0)}{n!} \).
+
+У нас есть пять основных разложений:
+\begin{align*}
+    e^z        & = 1 + z + \frac{z^2}{2} + \dots + \frac{x^n}{n!} + \dots                                                    \\
+    \sin x     & = x - \frac{x^3}{3!} + \dots + ( - 1)^{n - 1} \frac{x^{2n - 1}}{(2n - 1)!} + \dots                          \\
+    \cos x     & = 1 - \frac{x^2}{2!} + \dots + ( - 1)^n \frac{x^{2n}}{(2n)!} + \dots                                        \\
+    (1 + x)^m  & = 1 + mx + \frac{m(m - 1)}{2!}x^2 + \dots + \frac{m(m - 1)\dots(m - n + 1)}{n!} + \dots \quad x\in( - 1, 1) \\
+    \ln(1 + x) & = x - \frac{x^2}{2} + \frac{x^3}{3} - \dots + ( - 1)^{n - 1}\frac{x^n}{n} + \dots \quad x\in( - 1, 1]
+\end{align*}
+
+\begin{exercise}[2851-\dots]
+    Разложить в степенной ряд функцию:
+    \begin{itemize}
+        \item \(e^{ - x^2}\)
+              \[e^{ - x^2} = 1 - x^2 + \frac{x^4}{2!} - \frac{x^6}{3!} + \dots \quad x\in\R\]
+        \item \(\cos^2 x\)
+              \[\cos^2x = \frac{1}{2} + \frac{1}{2}\cos 2x = \frac{1}{2} + \frac{1}{2}\left( 1 - \frac{4x^2}{2!} + \dots + ( - 1)^n \frac{(2x)^{2n}}{(2n)!} + \dots \right) \quad x\in\R\]
+        \item \(\cfrac{x^{10}}{1 - x}\)
+              \[\frac{x^{10}}{1 - x} = x^{10} \frac{1}{1 - x} = x^{10} + x^{11} + \dots \quad x\in ( - 1, 1)\]
+        \item \(\cfrac{x}{\sqrt{1 - 2x}}\)
+              \[\frac{x}{\sqrt{1 - 2x}} = x(1 - 2x)^{ - \frac{1}{2}} = x\left( 1 + \left( - \frac{1}{2} \right)( - 2x) + \frac{\frac{ - 1}{2} \frac{ - 3}{2} }{2} ( - 2x)^2 + \dots + \underbrace{\frac{\frac{ -1}{2} \frac{ - 3}{2} \frac{ - 2n - 1}{2}}{n!}( - 2)^n}_{\frac{(2n - 1)!!}{n!!}x^n } \right)\]
+        \item \(\cfrac{x}{1 + x - 2x^2}\)
+              \[\frac{x}{1 + x - 2x^2} = x(1 - (x - 2x)^2 + (x - 2x^2)^2 + \dots) \quad x - 2x^2\in( - 1, 1)\]
+              Из такого вида неудобно получать коэффициенты при \(x^n\).
+              \[\frac{x}{(1 - x)(1 + 2x)} = - \frac{\frac{1}{3}}{1 + 2x} + \frac{\frac{1}{3}}{1 - x} = - \frac{1}{3}\left( 1 - 2x + (2x)^2 - (2x)^3  + \dots - (1 + x + x^2 \dots )\right)\]
+              \(|2x|< 1\)
+        \item \(f(x) = \arcsin x\)
+              \[f'(x) = \frac{1}{\sqrt{1 - x^2}} = (1 - x^2)^{ -\frac{1}{2}} = 1 + x^2 - \frac{3}{8} x^4 + \dots \]
+              Дальше интегрируем и получаем ответ.
+    \end{itemize}
+\end{exercise}
+
+\begin{exercise}
+    Проверить, что \(\cos^2 x + \sin^2 x = 1\) через ряды, ``в лоб''
+\end{exercise}
+
+\begin{exercise}[2873]
+    \(f(x) = (1 + x)\ln(1 + x)\)
+    Можно не думать и действовать так:
+    \[f' = \ln(1 + x) + 1 = 1 + x - \frac{x^2}{2} + \frac{x^3}{3} - \dots \]
+    \[f = x + \frac{x^2}{2} - \frac{x^3}{6} + \frac{x^4}{12} - \dots + x^n \frac{( - 1)^n}{(n - 1)n} + \dots \]
+    Но у нас ещё есть несовпадение на константу. Это очевидно проверяется подстановкой \(x = 0 : f(0) = 0\), ряд тоже \(0\), поэтому этой константы нет.
+
+    Можно подумать и сказать следующее:
+    \[f = x - \frac{x^2}{2} + \frac{x^3}{3} - \dots + x^2 - x^3 + \frac{x^4}{3} + \dots \]
+\end{exercise}
+
+\begin{exercise}
+    \[f(x) = \frac{1}{4}\ln \frac{1 + x}{1 - x} + \frac{1}{2}\arctg x = \frac{1}{4}\ln(1 + x) - \frac{1}{4}\ln(1 - x) + \frac{1}{2}\arctg x\]
+    Разложение \(\arctg x\) получается дифференцированием и потом интегрированием.
+    \[\arctg x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots , \const = 0\]
+\end{exercise}
+
+\begin{exercise}
+    \[f(x) = \arctg \frac{2 - 2x}{1 + 4x} \]
+    \[f'(x) = \frac{1}{1 + \left( \frac{2 - 2x}{1 + 4x}  \right)^2} \frac{ - 2(1 + 4x) - 4(2 - 2x)}{(1 + 4x)^2} = \frac{1}{(1 + 4x)^2 + (2 - 2x)^2} \cdot ( - 10)\]
+    \[ = \frac{ -10}{5 + 20x} =- \frac{2}{1 + 4x^2} = - 2(1 - 4x^2 + 16x^4 - \dots + ( - 1)^n (4x^2)^n + \dots )\]
+    \[f(x) = \arctg 2 + \sum_{n = 0}^{+\infty} \frac{( - 1)^{n - 1} 2^{2n + 1} x^{2n + 1}}{2n + 1} \]
+    Таким образом:
+    \[\arctg \frac{2 - 2x}{1 + 4x} = \arctg 2 - \arctg 2x\]
+\end{exercise}
+
+На контрольной работе будут вопросы, похожие на:
+\begin{itemize}
+    \item Сходится ли равномерно последовательность функций?
+    \item Сходится ли равномерно функциональный ряд?
+    \item Задает ли ряд непрерывную функцию на множестве?
+    \item Задает ли ряд дифференцируемую функцию на множестве?
+    \item Разложить функцию в ряд
+    \item Найти множество сходимости ряда
+    \item Найти сумму числового/степенного ряда
+\end{itemize}
+
+\section*{Практика 13}
+
+% \begin{exercise}[2906]
+%     \[x - \frac{x^3}{3} + \frac{x^5}{5} + \dots = ?\]
+% \end{exercise}
+
+% \subsection*{Вычисление сумм рядов}
+
+% Нам уже известны:
+% \begin{enumerate}
+%     \item \(\sum_{n = 0}^{ +\infty} q^n = \frac{1}{1 - q}\)
+%     \item \(e = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \dots \)
+%     \item \(\sum \frac{1}{n^2} = \frac{\pi^2}{6}\), \(\sum \frac{( - 1)^{n + 1}}{n} = \ln 2\), \(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots = \frac{\pi}{4}\)
+%     \item Телескопические \(\sum\limits_{n = 1}^{ +\infty} (a_k - a_{k + 1}) = a_1 - \lim\limits_{n\to +\infty} a_n\)
+% \end{enumerate}
+
+% \begin{exercise}[2968]
+%     \[\frac{1}{1\cdot 3} + \frac{1}{3\cdot 5} + \frac{1}{5\cdot 7} + \dots = \frac{1}{2}\left( 1 - \frac{1}{3} + \frac{1}{3} - \frac{1}{5} + \frac{1}{5} - \frac{1}{7} + \dots \right) = \frac{1}{2}\left(1 - \lim \frac{1}{2n + 1}\right) = \frac{1}{2}\]
+%     Решим по-другому:
+%     \[f(x) : = \sum \frac{1}{(2n - 1)(2n + 1)}x^{2n + 1}\]
+%     \[\left(\frac{f'}{x}\right)' =\sum_{n = 1}^{ +\infty} x^{2n - 2} = \frac{1}{1 - x^2} = \frac{1}{2}\left( \frac{1}{1 - x} + \frac{1}{1 + x} \right)\]
+%     \[f' = \frac{x}{2}\left( \ln(1 + x) - \ln(1 - x) \right)\]
+%     \[f =\int \frac{x}{2}(\ln(1 + x) -\ln(1 - x))dx = \frac{x^2}{4}\ln \frac{1 + x}{1 - x} -\int \frac{x^2}{} \textcolor{red}{\dots}\]
+% \end{exercise}
+
+% \begin{exercise}[2993]
+%     \[\sum \frac{2n - 1}{n^2(n + 1)^2} \]
+% \end{exercise}
+
+
+\end{document}

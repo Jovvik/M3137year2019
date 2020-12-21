@@ -7,6 +7,9 @@
 ## 3 семестр
 
 ### Матанализ
+
+#### Лекции
+
 - [1 лекция](analysis/3sem/1.pdf)
 - [2 лекция](analysis/3sem/2.pdf)
 - [3 лекция](analysis/3sem/3.pdf)
@@ -23,6 +26,11 @@
 - [14 лекция](analysis/3sem/14.pdf)
 - [15 лекция](analysis/3sem/15.pdf)
 - [Конспект к экзамену](analysis/3sem/final.pdf)
+
+#### Практики 8-12
+- [Конспект](analysis/3sem/practice.pdf)
+- [Решения ДЗ](analysis/3sem/hw.pdf)
+- [Краткий конспект](analysis/3sem/practice_short.pdf)
 
 ### Диффуры
 - [1 лекция](diffeq/3sem/1.pdf)

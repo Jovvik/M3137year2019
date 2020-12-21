@@ -1,0 +1,115 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{21.12.2020}
+
+\begin{document}
+
+\begin{corollary}[из 5 свойства меры Лебега]
+    \(\forall A\in \mathfrak{M}^m\ \ \exists B,C\) --- борелевские:
+    \[B\subset A\subset C \quad \lambda(C\setminus A) = 0, \lambda(A\setminus B) = 0\]
+\end{corollary}
+\begin{proof}
+    \[C: = \bigcap_{n = 1}^{+\infty} G_{\frac{1}{n}} \quad B \subset \bigcup_{n = 1}^{+\infty} F_{\frac{1}{n}}\]
+\end{proof}
+\begin{corollary}
+    \(\forall A\in \mathfrak{M}^m \ \ \exists B, \mathcal{N} : B\) --- борелевское, \(\mathcal{N}\in \mathfrak{M}^m, \lambda \mathcal{N} = 0\).
+
+    Тогда \(A = B \cup \mathcal{N}\)
+\end{corollary}
+\begin{proof}
+    \(\exists B\) из следствия 1, \(\mathcal{N} : = A\setminus B\)
+\end{proof}
+
+\begin{remark}
+    Обозначим \(|X|\) --- мощность множества \(X\).
+
+    \[\forall X \ \ |2^X| > |X|\]
+    \[|2^{\R^m}| > \text{континуум}\]
+    \[\mathcal{B} \subset 2^{\R^m} \text{ --- борелевская \(\sigma\)-алгебра} \ \ |\mathcal{B}| = \text{континуум}\]
+    \[\mathfrak{M}^m > \text{континуум}\]
+    \(\mathcal{K}\) --- Канторово множество, тогда \(|\mathcal{K}|=\) континуум, \(\lambda \mathcal{K} = 0\)
+    \[\forall D\subset \mathcal{K}\ \ D\in \mathfrak{M}^m, \lambda D = 0 \ \ 2^{\mathcal{K}} \subset \mathfrak{M}^m\]
+\end{remark}
+
+\begin{corollary}
+    \(\forall A\in \mathfrak{M}^m\)
+    \[\lambda A = \inf_{\substack{G:A\subset G\\ G \text{ --- откр.}}} \lambda(G) = \sup_{\substack{F:F\subset A\\ F \text{ --- замкн.}}} \lambda(F) \stackrel{(*)}{=} \sup_{\substack{K:K\subset A\\ K \text{ --- комп.}}} \lambda(K)\]
+\end{corollary}
+\begin{proof}
+    \((*)\) следует из \(\sigma\)-конечности \(\R^m = \bigcup\limits_{n = 1}^{+\infty} Q(0, n)\), где \(Q(a, R) = \times_{i = 1}^n [a_i - R, a_i + R]\) --- куб с центром в \(a\) и ребром \(R\).
+
+    \(\lambda(A\cap Q(0, n)) \to \lambda A\) по непрерывности снизу, т.к. \(A\cap Q(0, n)\) хорошо аппроксимируется замкнутым множеством.
+\end{proof}
+
+\begin{definition}
+    Свойства из следствия 3 называются \textbf{регулярностью} меры Лебега.
+\end{definition}
+
+\section*{Преобразование меры Лебега при сдвигах и линейных отображениях}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \((X', \mathfrak{A}', \mu')\) --- пространство с мерой.
+        \item \((X, \mathfrak{A}, \_)\) --- ``заготовка'' пространства с мерой
+        \item \(\exists T : X \to X'\) --- биекция; \(\forall A\in \mathfrak{A}\ \ TA\in \mathfrak{A}'\) и \(T\text{\O} = \text{\O}\)
+    \end{itemize}
+
+    Положим \(\mu A = \mu'(TA)\). Тогда \(\mu\) --- мера.
+\end{lemma}
+\begin{proof}
+    Проверим счётную аддитивность \(\mu\) : \(A = \bigsqcup A_i\)
+    \[\mu A = \mu'(TA) = \mu'\left(\bigsqcup TA_i\right) = \sum \mu'(TA_i) = \sum \mu A_i\]
+\end{proof}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(T : \R^m \to \R^n\) --- непр.
+        \item \(\forall E\in \mathfrak{M}^m : \lambda E = 0\) выполняется \(\lambda TE = 0\)
+    \end{itemize}
+    Тогда \(\forall A\in \mathfrak{M}^m \ \ TA\in \mathfrak{M}^m\)
+\end{lemma}
+\begin{proof}
+    \[A = \bigcup_{j = 1}^{+\infty} K_j\cup \mathcal{N}\]
+    , где \(K_j\) --- компакт, \(\lambda \mathcal{N} = 0\)
+    \[TA = \bigcup_{j = 1}^{+\infty} TK_j \cup T\mathcal{N}\]
+    \(TK_j\) компакт как образ компакта при непрерывном отображении. \(\Rightarrow TA\) измеримо.
+\end{proof}
+
+\begin{example}[Канторова лестница]
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.5]{images/cantor_ladder.png}
+    \end{figure}
+    \[\Delta = [0, 1]\]
+    \[\Delta_0 = \left[0, \frac{1}{3}\right] \quad \Delta_1 = \left[\frac{2}{3}, 1\right]\]
+    \[\Delta_{00} = \left[0, \frac{1}{9}\right] \quad \Delta_{01} = \left[\frac{2}{9}, \frac{1}{3}\right], \Delta_{10} = \dots, \Delta_{11} = \dots \]
+    \begin{align*}
+        \mathcal{K}_0 & = \Delta                                                                                               \\
+        \mathcal{K}_1 & = \Delta_0\cup \Delta_1                                                                                \\
+        \mathcal{K}_2 & = \Delta_{00}\cup \Delta_{01}\cup \Delta_{10}\cup \Delta_{11}                                          \\
+                      & \vdots                                                                                                 \\
+        \mathcal{K}_n & = \bigcup_{\varepsilon_1 \dots \varepsilon_n \in \{0, 1\} } \Delta_{\varepsilon_1 \dots \varepsilon_n}
+    \end{align*}
+    \[\mathcal{K} : = \bigcap \mathcal{K}_n\]
+    \[f(x) = \begin{cases}
+            \frac{1}{2} & , x\in \Delta\setminus \mathcal{K}_1   \\
+            \frac{1}{4} & , x\in \Delta_0\setminus \mathcal{K}_2 \\
+            \frac{3}{4} & , x\in \Delta_1\setminus \mathcal{K}_2 \\
+            \vdots                                               \\
+            \sup f(t)   & , t \leq x, t\not\in \mathcal{K}
+        \end{cases}\]
+
+    \(f([0, 1]\setminus \mathcal{K}\) --- счётное = множество двоично-рациональных чисел из \([0, 1]\)
+
+    \(\lambda f([0, 1]\setminus \mathcal{K}) = 0\)
+
+    \(\lambda f(\mathcal{K}) = 1\), т.к. \(\forall y\in [0, 1] \ \ \exists x : f(x) = y\), при этом \(f\) непрерывна, т.к. она --- сюръекция.
+
+    Тогда пусть \(E\subset [0, 1]\not\in \mathfrak{M}^m\) : \(f^{ - 1}(E)\) --- подмножество \(\mathcal{K}\) и промежутки --- прообразы двоично рациональных точек \(\in E\), при этом это множество измеримо, т.к. \(\lambda \mathcal{K} = 0\)
+
+    Ещё наблюдение: \(x\not\in \mathcal{K} \Rightarrow f\) --- дифференцируема в \(x\) и \(f' = 0\)
+\end{example}
+
+\end{document}

@@ -112,4 +112,128 @@
     Ещё наблюдение: \(x\not\in \mathcal{K} \Rightarrow f\) --- дифференцируема в \(x\) и \(f' = 0\)
 \end{example}
 
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(O\subset \R^m\) открыто
+        \item \(\Phi: O \to \R^n\)
+        \item \(\Phi\in C^1(O)\)
+    \end{itemize}
+    Тогда \(\forall A\in O : A \in \mathfrak{M}^m \ \ \Phi(A)\in \mathfrak{M}^m\), т.е. образ измеримого множества измерим.
+\end{theorem}
+\begin{proof}
+    Достаточно проверить свойства \(\lambda E = 0 \Rightarrow \lambda \Phi(E) = 0\)
+    \[\lambda E = 0 \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \text{ шары } B_i : E \subset \bigcup_{i=1}^{+\infty} B_i \quad \lambda B_i < \varepsilon\]
+    \( \Rightarrow \) из теоремы о Лебеговском продолжении меры.
+
+    \( \Leftarrow \) по полноте меры Лебега.
+
+    \begin{enumerate}
+        \item \(E\subset P \subset \overline P \subset O, \lambda E = 0\)
+              \[L : = \max_{x\in \overline P} | |\Phi'(x)| |\]
+              Тогда
+              \[\forall x, y\in P \ \ |\Phi(x) - \Phi(y)| \leq L|x - y|\]
+              --- неравенство Лагранжа.
+              \[\Phi(B(x_0, r)) \subset B(\Phi(x_0), Lr) \subset Q(\Phi(x_0), Lr)\]
+              \[B_i := B(x_i, r_i), y_i := \Phi(x_i)\]
+              \[E\subset \bigcup B_i \ \ \sum \lambda B_i < \varepsilon \Rightarrow\]
+              \[\Phi(E) \subset \bigcup \Phi(B_i) \subset \bigcup B(y_i, Lr) \subset \bigcup Q(y_i, Lr)\]
+              \[\sum \lambda \Phi(B_i) < \sum \lambda Q(y_i, Lr_i)  = \sum (2Lr_i)^m = (2L)^m \sum r_i^m\]
+              Было \(\sum (2r_i)^m < \varepsilon (\sqrt{m})^m\), стало \(\sum \lambda \Phi(B_i) < L^m \sum (2r_i)^m < \varepsilon (\sqrt{m} L)^m\)
+        \item Рассмотрим произвольный случай, то есть \(E\subset O\)
+
+              \(O = \bigsqcup Q_i\), где \(Q_i\) --- кубические ячейки, \(Q_i \subset \overline Q_i \subset O\)
+
+              \(E = \bigsqcup (E\cap Q_i)\), \(\lambda(E\cap Q_i) = 0\). Тогда по пункту 1 \(\lambda(\Phi(E\cap Q_i)) = 0\)
+              \[\Phi(E) = \bigcup \Phi(E\cap Q_i) \Rightarrow \lambda \Phi(E) = 0\]
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    \(\lambda\) --- инвариантно относительно сдвигов в \(\R^m\) (и \(\mathfrak{M}^m\) тоже инвариантно), т.е. \(\forall a\in\R^m\):
+    \begin{align}
+        \forall A\in \mathfrak{M}^m & \quad A + a\in \mathfrak{M}^m \label{сдивг измерим}              \\
+                                    & \quad \text{ и } \lambda A = \lambda (A + a) \label{мера сдвига}
+    \end{align}
+\end{corollary}
+\begin{proof}
+    \[\Phi : x \mapsto x + a, \Phi\in C^1(\R^m)\]
+    Отсюда следует \eqref{сдивг измерим}.
+
+    \eqref{мера сдвига} следует из пункта 5 теоремы о лебеговском продолжении.
+
+    \[A \subset \bigcup P_k \Leftrightarrow A + a \subset \bigcup (P_k + a)\]
+    Для ячеек \(\lambda P_k = \lambda(P_k + a)\)
+
+    Таким образом:
+    \[\lambda A = \inf \left( \sum \lambda P_k \right) = \inf \left( \sum \lambda (P_k + a) \right) = \lambda (A + a)\]
+\end{proof}
+
+\begin{theorem}
+    \(\mu\) --- мера на \(\mathfrak{M}^m\):
+    \begin{enumerate}
+        \item \(\mu\) --- инвариантно относительно сдвигов:
+              \[\forall a\in\R^m \ \ \forall E\in \mathfrak{M}^m \ \ \mu(E + a) = \mu E\]
+        \item Для любого ограниченного \(E\in \mathfrak{M}^m \ \ \mu(E) < +\infty\)
+    \end{enumerate}
+    Тогда \(\exists k\in [0, +\infty) : \mu = k\cdot \lambda\), т.е.:
+    \[\forall E \ \ \mu E = k \cdot \lambda E\]
+    и пусть \(0\cdot \infty = 0\) в данном контексте.
+\end{theorem}
+\begin{proof}
+    Нет и не будет.
+
+    Общая идея: Как мера \(\mu\) задается на рациональных ячейках?
+
+    В \(\R^2\) \(Q_1\) --- единичная квадратная ячейка, \(\mu Q_1 = v\)
+
+    \(Q_2\) --- ячейка \(2 \times 2\), \(\mu Q_2 = 4v\). Аналогично \(\mu Q_n = n^2 v, \mu Q_{\frac{1}{n}} = \frac{1}{n^2}v\)
+
+    Тогда \(k = v\) и \(\mu\) пропорционально \(\lambda\).
+\end{proof}
+
+\begin{remark}
+    \(\mu A = \lambda_1 A\), если \(\exists y_0 : A\subset \{(x, y_0), x\in \R\} \) --- афинное одномерное подпространство, пересекающее ось \(y\) в точке \(y_0\).
+
+    Эта мера --- 1-Хаусдорфа в \(\R^2\).
+\end{remark}
+
+\begin{theorem}[инвариантность меры лебега относительно линейного ортогонального преобразования]\itemfix
+    \begin{itemize}
+        \item \(T: \R^m \to \R^m\) ортогонально.
+    \end{itemize}
+    Тогда \(\forall A\in \mathfrak{M}^m\):
+    \begin{enumerate}
+        \item \(TA\in \mathfrak{M}^m\)
+        \item \(\lambda(TA) = \lambda A\)
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \(T\in C^1\), поэтому измеримость сохраняется.
+        \item \(\mu A: = \lambda(TA)\)
+
+              \(\mu \) --- мера на \(\mathfrak{M}^m\) по лемме 1, при этом \(\mu\) инвариантно относительно сдвигов:
+              \[\mu(A + a) = \lambda(T(A + a)) = \lambda(TA + Ta) = \lambda(TA) = \mu A\]
+              \(A\) ограничено \( \Rightarrow TA\) ограничено \( \Rightarrow \mu A < +\infty\)
+
+              По предыдущей теореме \(\lambda(TA) = k\cdot \lambda (A)\). Какое у нас \(k\)?
+
+              Возьмём шар \(B\). \(TB\) --- шар того же радиуса, т.е. \(TB\) --- сдвинутый \(B\), т.е. \(TB = B + x_0\).
+              \[\mu B = \lambda(TB) = \lambda(B + x_0) = \lambda B \Rightarrow k = 1\]
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    \(\lambda(\text{прямоугольный параллелепипед})\) = произведение сторон.
+\end{corollary}
+\begin{corollary}
+    Любое собств. линейное подпространство в \(\R^m\) имеет меру \(0\)
+\end{corollary}
+\begin{proof}
+    Достаточно доказать, что \(\lambda \{x : x_m = 0\} = 0\)
+    \[L = \{x : x_m = 0\} \simeq \R^{m - 1} = \bigsqcup \underbrace{Q_i}_{\text{единичные кубы}}\]
+    \[L\subset \bigsqcup Q_i \times \left[ -\frac{\varepsilon}{2^i}, \frac{\varepsilon}{2^i} \right)\]
+    \[\lambda\left(Q_i \times \left[ -\frac{\varepsilon}{2^i}, \frac{\varepsilon}{2^i} \right)\right) = \frac{2\varepsilon}{2^i} \]
+\end{proof}
+
 \end{document}

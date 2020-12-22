@@ -489,4 +489,178 @@
 
 % 2873 г-з, 2871, 2855, 57, 61, 2816-18, 23, 24
 
+\begin{exercise}[2873]
+    Найти разложения в ряд следующих фукнций:
+    \begin{itemize}
+        \item [(г)] \(f(x) = \arctg \frac{2x}{2 - x^2}\)
+              \begin{align*}
+                  f'(x) & = \frac{1}{1 + \left( \frac{2x}{2 - x^2} \right)^2} \frac{4 - 2x^2 + 4x^2}{(2 - x^2)^2}                                                  \\
+                        & = \frac{4 + 2x^2}{(2 - x^2)^2 + (2x)^2}                                                                                                  \\
+                        & = \frac{4 + 2x^2}{4 + x^4}                                                                                                               \\
+                        & = \frac{1 + \frac{1}{2}x^2}{1 + \frac{x^4}{4}}                                                                                           \\
+                        & = \left( 1 + \frac{1}{2}x^2 \right)\left( 1 - \frac{x^4}{4} + \frac{x^8}{16} - \dots + ( - 1)^{n + 1} \frac{x^{4n}}{4^n} + \dots \right) \\
+                        & = \sum_{n = 0}^{+\infty} \frac{\tau(n)}{2^n} x^{2n}                                                                                      \\
+              \end{align*}
+              , где \(\tau(n) = \begin{cases}
+                  1  & , n \equiv 0 \mod 4 \\
+                  1  & , n \equiv 1 \mod 4 \\
+                  -1 & , n \equiv 2 \mod 4 \\
+                  -1 & , n \equiv 3 \mod 4
+              \end{cases}\). \(\tau\) можно выразить как адекватную функцию, делать я этого конечно же не буду.
+
+              Проинтегрируем:
+
+              \begin{align}
+                  f(x) & = C + \sum_{n = 0}^{+\infty} \frac{\tau(n)}{2^n(2n + 1)} x^{2n + 1}
+              \end{align}
+
+              Найдём константу. \(f(0) = \arctg 0 = 0\), поэтому \(C = 0\).
+
+              Это выполняется при \(\frac{x^4}{4}\in( - 1, 1)\), т.е. \(x\in [0,\sqrt{2})\)
+        \item [(д)] \(f(x) = x \arctg x - \ln\sqrt{1 + x^2}\)
+              \[\arctg x = \sum_{n = 0}^{+\infty} \frac{x^{2n + 1}}{2n + 1}\]
+              \[x\arctg x = \sum_{n = 0}^{+\infty} \frac{x^{2n + 2}}{2n + 1}\]
+              \begin{align*}
+                  \left(\ln\sqrt{1 + x^2}\right)' & = \frac{1}{\sqrt{1 + x^2}} \frac{1}{2\sqrt{1 + x^2}} 2x         \\
+                                                  & = \frac{x}{1 + x^2}                                             \\
+                                                  & = x\left( 1 - x^2 + x^4 - \dots + ( - 1)^{n + 1} x^{2n} \right) \\
+                                                  & = \sum_{n = 0}^{+\infty} ( - 1)^{n + 1} x^{2n + 1}
+              \end{align*}
+
+              Проинтегрируем:
+              \begin{align*}
+                  \ln\sqrt{1 + x^2} & = \sum_{n = 0}^{+\infty} ( - 1)^{n + 1} \frac{x^{2n + 2}}{2n + 2}
+              \end{align*}
+
+              \[f(x) = \sum_{n = 0}^{+\infty} x^{2n + 2} \left( \frac{1}{2n + 1} - \frac{( - 1)^{n + 1}}{2n + 2} \right)\]
+
+              Это выполняется при \(x^2\in ( - 1, 1)\), т.е. \(x\in [0, 1)\)
+        \item [(е)] \(f(x) = \arccos (1 - 2x^2)\)
+              \begin{align*}
+                  f'(x) & = \frac{4x}{\sqrt{1 - (1 - 2x^2)^2}}                                                                                                                                               \\
+                        & = \frac{4x}{\sqrt{4x^2 - 4x^4}}                                                                                                                                                    \\
+                        & = \frac{2\sign x}{\sqrt{1 - x^2}}                                                                                                                                                  \\
+                        & = 2\sign x \left( 1 + \frac{1}{2}x^2 + \frac{\frac{1}{2} \frac{3}{2}}{2}x^2 - \dots + \frac{\frac{ - 1}{2} \frac{ - 3}{2} \dots \frac{1 - 2n}{2}}{n!} ( - x^2)^{n} + \dots \right) \\
+                        & = 2\sign x \sum_{n = 0}^{+\infty} \frac{\frac{ - 1}{2} \frac{ - 3}{2} \dots \frac{1 - 2n}{2}}{n!} ( - x^2)^{n}                                                                     \\
+              \end{align*}
+              Это выполняется при \( - x^2 \in ( - 1, 1)\), т.е. \(x\in ( - 1, 1)\).
+
+              Проинтегрируем:
+              \begin{align*}
+                  f(x) & = 2\sign x \sum_{n = 0}^{+\infty} \int \frac{\frac{ - 1}{2} \frac{ - 3}{2} \dots \frac{1 - 2n}{2}}{n!} ( - x^2)^{n} dx                \\
+                       & = C + 2\sign x \sum_{n = 0}^{+\infty} \frac{\frac{ - 1}{2} \frac{ - 3}{2} \dots \frac{1 - 2n}{2}}{n!} \frac{x( - x^2)^{n}}{2n + 1} dx \\
+                       & = C + 2|x| \sum_{n = 0}^{+\infty} \frac{\frac{ - 1}{2} \frac{ - 3}{2} \dots \frac{1 - 2n}{2}}{n!} \frac{( - x^2)^{n}}{2n + 1} dx      \\
+              \end{align*}
+
+              \(f(0) = \arccos 1 = 0\), поэтому \(C = 0\)
+
+              \[f(x) = 2|x| \sum_{n = 0}^{+\infty} \frac{\frac{ - 1}{2} \frac{ - 3}{2} \dots \frac{1 - 2n}{2}}{n!} \frac{( - x^2)^{n}}{2n + 1} dx\]
+        \item [(ж)] \(f(x) = x\arcsin x + \sqrt{1 - x^2}\)
+              \[\sqrt{1 - x^2} = 1 - \frac{x^2}{2} + \frac{\frac{1}{2}\frac{ - 1}{2}}{2!} ( - x)^2 + \dots + \frac{\frac{1}{2}\frac{ -1}{2}\dots \frac{3 - 2n}{2}}{n!} ( -x^2)^n + \dots \]
+              Разложим \(g(x) = \arcsin x\)
+
+              \[g'(x) = \frac{1}{\sqrt{1 - x^2}} = (1 - x^2)^{ -\frac{1}{2}} = 1 + x^2 - \frac{3}{8} x^4 + \dots + \frac{\frac{ -1}{2}\frac{ - 3}{2}\dots \frac{1 - 2n}{2}}{n!} ( -x^2)^n + \dots \]
+              Проинтегрируем:
+              \[g(x) = C + \sum_{n = 0}^{+\infty} \frac{\frac{ -1}{2}\frac{ - 3}{2}\dots \frac{1 - 2n}{2}}{n!} \frac{x( - x^2)^n}{2n + 1} \]
+              \(g(0) =\frac{\pi}{2}\), поэтому \(C =\frac{\pi}{2}\).
+              Соберем всё вместе:
+              \[f(x) = x \sum_{n = 0}^{+\infty} \frac{\frac{1}{2}\frac{ -1}{2}\dots \frac{3 - 2n}{2}}{n!} ( -x^2)^n + \frac{\pi}{2} + \sum_{n = 0}^{+\infty} \frac{\frac{ -1}{2}\frac{ - 3}{2}\dots \frac{1 - 2n}{2}}{n!} \frac{x( - x^2)^n}{2n + 1}\]
+        \item [(з)] \(f(x) = x \ln (x +\sqrt{1 + x^2}) - \sqrt{1 + x^2}\)
+              \[\sqrt{1 + x^2} = 1 + \frac{x^2}{2} + \frac{\frac{1}{2}\frac{ - 1}{2}}{2!} x^2 + \dots + \frac{\frac{1}{2}\frac{ -1}{2}\dots \frac{3 - 2n}{2}}{n!} x^{2n} + \dots \]
+              \[g(x) : = \ln(x + \sqrt{1 + x^2})\]
+              \[g'(x) = \frac{1 + \frac{2x}{2\sqrt{1 + x^2}}}{x + \sqrt{1 + x^2}} = \frac{1}{\sqrt{1 + x^2}} = \sum_{n = 0}^{+\infty} \frac{\frac{ -1}{2}\frac{ -3}{2}\dots \frac{1 - 2n}{2}}{n!} x^{2n}\]
+              Проинтегрируем:
+              \[g(x) = C + \sum_{n = 0}^{+\infty} \frac{\frac{ -1}{2}\frac{ -3}{2}\dots \frac{1 - 2n}{2}}{n!} \frac{x^{2n + 1}}{2n + 1}\]
+              \[g(0) \Rightarrow C = 0\]
+              Соберем всё вместе:
+              \[f(x) = x \sum_{n = 0}^{+\infty} \frac{\frac{ -1}{2}\frac{ -3}{2}\dots \frac{1 - 2n}{2}}{n!} \frac{x^{2n + 1}}{2n + 1} - \sum_{n = 0}^{+\infty} \frac{\frac{1}{2}\frac{ -1}{2}\dots \frac{3 - 2n}{2}}{n!} x^{2n}\]
+    \end{itemize}
+\end{exercise}
+
+\begin{exercise}[2871]
+    \(f(x) = \ln(x + \sqrt{1 + x^2})\) --- уже сделано в 2873.з
+\end{exercise}
+
+\begin{exercise}[2855]
+    \(f(x) = \frac{1}{(1 - x)^2}\)
+    \[(1 - x)^{ - 2} = \sum_{n = 0}^{+\infty} \frac{ - 2( - 2 - 1)\dots ( - 2 - n + 1)}{n!} ( -x)^n = \sum_{n = 0}^{+\infty} (n + 1)(x)^n\]
+    Это выполняется при \( - x\in ( - 1, 1)\), т.е. \(x\in ( - 1, 1)\).
+\end{exercise}
+
+\begin{exercise}[2857]
+    \(\ln \sqrt{\frac{1 + x}{1 - x}}\)
+    \[\ln \sqrt{\frac{1 + x}{1 - x}} = \ln \sqrt{1 + x} - \ln \sqrt{1 - x}\]
+    \[\left(\ln \sqrt{1 + x}\right)' = \frac{1}{2(1 + x)} = \frac{1}{2} \sum_{n = 0}^{+\infty} \frac{ - 1\cdot ( - 2) \dots (- n)}{n!} x^n = \frac{1}{2} \sum_{n = 0}^{+\infty} ( - 1)^n x^n\]
+    Проинтегрируем:
+    \[\ln \sqrt{1 + x} = C + \frac{1}{2} \sum_{n = 0}^{+\infty} ( - 1)^n \frac{x^{n + 1}}{n + 1}\]
+    \(\ln \sqrt{1} = 0 \Rightarrow C = 0\)
+    \[\left(\ln \sqrt{1 - x}\right)' = \frac{1}{2(1 - x)} = \frac{1}{2} \sum_{n = 0}^{+\infty} x^n \]
+    Проинтегрируем:
+    \[\ln \sqrt{1 - x} = C + \frac{1}{2} \sum_{n = 0}^{+\infty} \frac{x^{n + 1}}{n + 1}\]
+    \(\ln \sqrt{1} = 0 \Rightarrow C = 0\)
+    Соберем всё вместе:
+    \[\ln \sqrt{1 + x} - \ln \sqrt{1 - x} = \frac{1}{2} \sum_{n = 0}^{+\infty} ( - 1)^n \frac{x^{n + 1}}{n + 1} - \frac{1}{2} \sum_{n = 0}^{+\infty} \frac{x^{n + 1}}{n + 1}\]
+    \[\ln \sqrt{1 + x} - \ln \sqrt{1 - x} = -\sum_{n = 0}^{+\infty} \frac{x^{2n + 1}}{2n + 1}\]
+    Это выполняется при \(x\in ( - 1, 1)\) и \(x\in ( - 1, 1)\), т.е. при \(x\in ( - 1, 1)\).
+\end{exercise}
+
+\begin{exercise}[2861]
+    \(f(x) = \frac{1}{1 - x - x^2}\)
+    \[\frac{1}{1 - x - x^2} = \frac{4}{(2x + \sqrt{5} + 1)( - 2x + \sqrt{5} - 1)}\]
+    Разложим на простейшие:
+    \[\frac{A}{2x + \sqrt{5} + 1} + \frac{B}{ - 2x + \sqrt{5} - 1} = \frac{B(2x + \sqrt{5} + 1) + A( - 2x + \sqrt{5} - 1)}{\dots}\]
+    \[\begin{cases}
+            B = A \\
+            2A \sqrt{5} = 4
+        \end{cases}\]
+    \[A = B = \frac{2}{\sqrt{5}}\]
+    \begin{align*}
+        \frac{1}{1 - x - x^2} & = \frac{2}{\sqrt{5}(2x + \sqrt{5} + 1)} + \frac{2}{\sqrt{5}( -2x + \sqrt{5} - 1)}                                                                                                                                                             \\
+                              & = \frac{2}{\sqrt{5}} \left( \frac{1}{\sqrt{5} + 1} \frac{1}{\frac{2x}{\sqrt{5} + 1} + 1} + \frac{1}{\sqrt{5} - 1} \frac{1}{1 - \frac{2x}{\sqrt{5} - 1}} \right)                                                                               \\
+                              & = \frac{2}{\sqrt{5}} \left( \frac{1}{\sqrt{5} + 1} \sum_{n = 0}^{+\infty} ( - 1)^n n! \left( \frac{2x}{\sqrt{5} + 1} \right)^n + \frac{1}{\sqrt{5} - 1} \sum_{n = 0}^{+\infty} ( - 1)^n n! \left( \frac{ -2x}{\sqrt{5} - 1} \right)^n \right) \\
+                              & = \frac{2}{\sqrt{5}} \left(\sum_{n = 0}^{+\infty} \left(\frac{( - 1)^n 2^n n!}{(\sqrt{5} + 1)^{n + 1}} + \frac{2^n n!}{(\sqrt{5} - 1)^{n + 1}} \right) x^n\right)                                                                             \\
+    \end{align*}
+\end{exercise}
+
+Определить радиус и интервал сходимости и исследовать поведение в граничных точках интервала сходимости следующих степенных рядов:
+\begin{exercise}[2816]
+    \[\sum_{n = 1}^{+\infty} \left( 1 + \frac{1}{n} \right)^{n^2} x^n\]
+    \[R = \frac{1}{\lim \sqrt[n]{\left( 1 + \frac{1}{n} \right)^{n^2}}} = \frac{1}{\lim \left( 1 + \frac{1}{n} \right)^n} = \frac{1}{e}\]
+    \(\sphericalangle x = \frac{1}{e}\)
+    \[\sum_{n = 1}^{+\infty} \left( 1 + \frac{1}{n} \right)^{n^2} \frac{1}{e^n} \to 1\]
+    Таким образом, интервал сходимости \(( - \frac{1}{e}, \frac{1}{e})\)
+\end{exercise}
+
+\begin{exercise}[2817]
+    \[\sum_{n = 1}^{+\infty} \frac{n!}{a^{n^2}} x^n \quad a > 1 \]
+    \[R = \frac{1}{\lim \sqrt[n]{\frac{n!}{a^{n^2}}}} = \frac{1}{\lim \frac{\sqrt[n]{n!}}{a^n} } = +\infty\]
+    Найти такой предел нетривиально, можно было проще через \(\frac{a_n}{a_{n+1}}\)
+\end{exercise}
+
+\begin{exercise}[2818]
+    \[\sum_{n = 1}^{+\infty} \left(\frac{(2n - 1)!!}{(2n)!!}\right)^p \left( \frac{x - 1}{2} \right)^n \]
+    \[R = \lim \left|\frac{a_n}{a_{n+1}}\right| = \lim \left|\frac{\frac{(2n - 1)!!}{(2n)!!}\frac{1}{2^n}}{\frac{(2n + 1)!!}{(2n + 2)!!}\frac{1}{2^{n + 1}}} \right|^p = \lim 2\left|\frac{2n + 2}{2n + 1}\right|^p = 2\]
+    Тогда интервал сходимости \(( - 1, 3)\), и возможно ещё точки \( - 1\) и \(3\).
+
+    \(\sphericalangle x = - 1\). При \(p \leq 0\) ряд расходится, т.к. \(\left(\frac{(2n - 1)!!}{(2n)!!}\right)^p \geq 1\). При \(p > 0\) ряд сходится по признаку Лейбница.
+
+    \(\sphericalangle x = 3\). При \(p \leq 2\) ряд расходится, при \(p > 2\) сходится.
+\end{exercise}
+
+\begin{exercise}[2823]
+    \[\sum_{n = 1}^{+\infty} \frac{x^n}{a^{\sqrt{n}}} \quad a > 0\]
+
+    \[R = \lim \left|\frac{a_n}{a_{n+1}}\right| = \lim \frac{a^{\sqrt{n + 1}}}{a^{\sqrt{n}}} = 1\]
+
+    Если \(x = 1\), то при \(a > 1\) сходится, при \(a \leq 1\) расходится. Аналогично для \(x =- 1\)
+\end{exercise}
+
+\begin{exercise}[2824]
+    \[\sum_{n = 1}^{+\infty} \frac{3^{ - \sqrt{n}} x^n}{\sqrt{n^2 + 1}} \]
+    \[R = \lim \left|\frac{a_n}{a_{n+1}}\right| = \frac{3^{ - \sqrt{n}} \sqrt{n^2 + 2n + 2}}{3^{ - \sqrt{n + 1}} \sqrt{n^2 + 1}} = 1\]
+    При \(x = 1\) ряд сходится по признаку Дирихле, где \(a_n = \frac{1}{\sqrt{n^2 + 1}}\), \(b_n = 3^{ - \sqrt{n}}\). Также он сходится, потому что \(\frac{3^{ - \sqrt{n}}}{\sqrt{n^2 + 1}} < 3^{ - \sqrt{n}}\).
+
+    При \(x =- 1\) ряд очевидно сходится по признаку сравнения (с рядом, полученным при \(x = 1\)).
+\end{exercise}
+
 \end{document}

@@ -13,6 +13,7 @@
 \end{definition}
 
 \begin{theorem}[о Лебеговском продолжении меры]\itemfix
+    %<*олебеговскомпродолжениимеры>
     \begin{itemize}
         \item \(\mathcal{P}_0 \subset X\) --- полукольцо
         \item \(\mu_0 : \mathcal{P}_0\to\R\) --- \(\sigma\)-конечная мера
@@ -25,13 +26,16 @@
         \item Если \(\mathcal{P}\) --- полукольцо, такое что \(\mathcal{P}_0 \subset \mathcal{P} \subset \mathfrak{A}\) и мера \(\upsilon\) --- продолжение \(\mu_0\) на \(\mathcal{P}\), то \(\forall A\in \mathcal{P}\ \ \upsilon(A) = \mu(A)\)
         \item \(\forall A\in \mathfrak{A}\ \ \mu A = \inf \{\sum \mu P_k : P_k \in \mathcal{P} : A \subset \bigcup\limits_{k = 1}^{ +\infty} P_k\} \)
     \end{enumerate}
+    %</олебеговскомпродолжениимеры>
 \end{theorem}
+%<*олебеговскомпродолжениимерыproof>
 \begin{proof}
     Не будет, это слишком сложно.
 
     Общая идея следующая: \(\forall A\subset X\) положим \(\mu^*(A) = \inf \{\dots \} \) --- не аддитивна. \(A\subset \bigcup A_k \ \ \mu^*A = \sum \mu^* A_k\)
     %TODO
 \end{proof}
+%</олебеговскомпродолжениимерыproof>
 
 \begin{corollary}\itemfix
     \begin{itemize}
@@ -46,11 +50,14 @@
 \subsection*{Мера Лебега}
 
 \begin{theorem}\itemfix
+    %<*классическийобъемаддитивность>
     \begin{itemize}
         \item \(\mu : \mathcal{P}^m \to \R\) --- классический объем в \(\R^m\)
     \end{itemize}
     Тогда \(\sigma\) --- конечная мера
+    %</классическийобъемаддитивность>
 \end{theorem}
+%<*классическийобъемаддитивностьproof>
 \begin{proof}
     \(\sigma\)-конечность очевидна.
 
@@ -74,11 +81,14 @@
         \mu P - \varepsilon & \leq \sum_{n = 1}^{ +\infty} \mu P_n + \varepsilon
     \end{align}
 \end{proof}
+%</классическийобъемаддитивностьproof>
 
 \begin{definition}
+    %<*мералебега>
     \textbf{Мера Лебега} в \(\R^m\) --- лебеговское продолжение классического объема.
 
     \(\mathfrak{M}^m\) --- \(\sigma\)-алгебра, на которой задана мера Лебега. Тогда множество называется \textbf{измеримым по Лебегу}
+    %</мералебега>
 
     %TODO \lambda
 \end{definition}
@@ -101,11 +111,13 @@
           \end{proof}
     \item \(\mathfrak{M}^m\) содержит все открытые и замкнутые множества.
           \begin{lemma}\itemfix
+              %<*леммаоструктуреоткрытыхимеры0>
               \begin{enumerate}
                   \item \(O\subset \R^m\) --- открытое. Тогда \(O = \bigsqcup Q_i\), где \(Q_i\) --- ячейки с рациональными координатами. Можно считать, что ячейки кубические.
                   \item Можно считать, что \(\overline Q_i \subset O\)
                   \item \(E\) --- измеримо, \(\lambda E = 0\). Тогда \(\forall \varepsilon > 0 \ \ E\subset \bigcup Q_i : Q_i\) --- кубические ячейки и \(\sum \lambda Q_i < \varepsilon\)
               \end{enumerate}
+              %</леммаоструктуреоткрытыхимеры0>
           \end{lemma}
           \begin{remark}
               \(\forall \varepsilon > 0\ \ \exists (B_i)\) --- шары: \(E\subset \bigcup B_i, \sum \lambda B_i < \varepsilon\)
@@ -114,6 +126,7 @@
               \[\left( \frac{2R}{\sqrt{m}} \right)^m \leq \lambda B \leq \lambda Q(x, R) = (2R)^m\]
               %TODO: pic
           \end{remark}
+          %<*леммаоструктуреоткрытыхимеры0proof>
           \begin{proof}\itemfix
               \begin{enumerate}
                   \item [(a, b)] \(\forall x\in O\) пусть \(Q(x)\) --- какая угодно ячейка с рациональными координатами, \(Q(x)\subset O\) \textit{(можно потребовать \(\overline{Q(x)}\subset O, Q\) --- куб, координаты двоично-рациональны для второго пункта)}.
@@ -133,11 +146,14 @@
                         Можно разбить \(\tilde P_k\) на конечное число кубов.
               \end{enumerate}
           \end{proof}
+          %</леммаоструктуреоткрытыхимеры0proof>
 
           \begin{definition}
+              %<*борелевскаясигмаалгебра>
               \(\mathfrak{B}\) --- \textbf{борелевская \(\sigma\)-алгебра} (в \(\R^m\) или в метрическом пространстве) --- минимальная \(\sigma\)-алгебра, которая содержит все открытые множества.
 
               \(\mathfrak{M}^m\supset \mathfrak{B}\)
+              %</борелевскаясигмаалгебра>
           \end{definition}
 
           \begin{example}
@@ -163,6 +179,7 @@
 
     \item \(\exists \) неизмеримые по Лебегу множества, т.е. не принадлежащие \(\mathfrak{M}\)
 
+          %<*неизмеримоемножество>
           Зададим отношение \(\sim\) на \(\R\): \(x\sim y \Leftrightarrow x - y\in \Q\)
 
           \(\R / \Q = A\) --- из каждого класса эквивалентности взяли по одной точке. Можно считать, что \(A\subset [0, 1]\)
@@ -181,6 +198,7 @@
           \[\lambda\left( \bigcup(A + q) \right) = \sum_q \lambda A \leq \lambda[ - 1, 2] = 3 \Rightarrow \lambda A = 0\]
 
           Противоречие \( \Rightarrow \) \(A\) неизмеримо.
+          %</неизмеримоемножество>
     \item \(A \in \mathfrak{M}\) % TODO: ^m?
 
           \begin{itemize}
@@ -209,15 +227,15 @@
                         \[A = \bigsqcup (A\cap Q_j) \subset \bigcup G_{\varepsilon, j} = : G_\varepsilon\]
                         \[\lambda(G_\varepsilon \setminus A) \leq \sum \lambda(G_{\varepsilon, j} \setminus (A\cap Q_j)) \leq \varepsilon\]
                         Очевидно: \(G_\varepsilon \setminus A \subset \bigcup\limits_j (G_{\varepsilon, j} \setminus (A\cap Q_j))\)
-                \item Для \(F_\varepsilon\) --- переходим к дополнению:
-                
-                    Для \(A^c\) подбираем \(G_\varepsilon\), \(A^c\subset G_\varepsilon\)
+                  \item Для \(F_\varepsilon\) --- переходим к дополнению:
 
-                    \[A\supset (G_\varepsilon)^c = : F_\varepsilon\]
+                        Для \(A^c\) подбираем \(G_\varepsilon\), \(A^c\subset G_\varepsilon\)
 
-                    \[G_\varepsilon \setminus  A^C = A\setminus (G_\varepsilon)^c\]
-                    
-                    \[\lambda(G_\varepsilon\setminus A^c) < \varepsilon \Rightarrow \lambda(A\setminus F) < \varepsilon\]
+                        \[A\supset (G_\varepsilon)^c = : F_\varepsilon\]
+
+                        \[G_\varepsilon \setminus  A^C = A\setminus (G_\varepsilon)^c\]
+
+                        \[\lambda(G_\varepsilon\setminus A^c) < \varepsilon \Rightarrow \lambda(A\setminus F) < \varepsilon\]
               \end{enumerate}
           \end{proof}
 \end{enumerate}

@@ -34,14 +34,18 @@
 \end{remark}
 
 \begin{corollary}
+    %<*регулярностьмерылебега>
     \(\forall A\in \mathfrak{M}^m\)
     \[\lambda A = \inf_{\substack{G:A\subset G\\ G \text{ --- откр.}}} \lambda(G) = \sup_{\substack{F:F\subset A\\ F \text{ --- замкн.}}} \lambda(F) \stackrel{(*)}{=} \sup_{\substack{K:K\subset A\\ K \text{ --- комп.}}} \lambda(K)\]
+    %</регулярностьмерылебега>
 \end{corollary}
+%<*регулярностьмерылебегаproof>
 \begin{proof}
     \((*)\) следует из \(\sigma\)-конечности \(\R^m = \bigcup\limits_{n = 1}^{+\infty} Q(0, n)\), где \(Q(a, R) = \times_{i = 1}^n [a_i - R, a_i + R]\) --- куб с центром в \(a\) и ребром \(R\).
 
     \(\lambda(A\cap Q(0, n)) \to \lambda A\) по непрерывности снизу, т.к. \(A\cap Q(0, n)\) хорошо аппроксимируется замкнутым множеством.
 \end{proof}
+%</регулярностьмерылебегаproof>
 
 \begin{definition}
     Свойства из следствия 3 называются \textbf{регулярностью} меры Лебега.
@@ -64,18 +68,22 @@
 \end{proof}
 
 \begin{lemma}\itemfix
+    %<*непрерывноеотображениеизмеримость>
     \begin{itemize}
         \item \(T : \R^m \to \R^n\) --- непр.
         \item \(\forall E\in \mathfrak{M}^m : \lambda E = 0\) выполняется \(\lambda TE = 0\)
     \end{itemize}
     Тогда \(\forall A\in \mathfrak{M}^m \ \ TA\in \mathfrak{M}^m\)
+    %</непрерывноеотображениеизмеримость>
 \end{lemma}
+%<*непрерывноеотображениеизмеримостьproof>
 \begin{proof}
     \[A = \bigcup_{j = 1}^{+\infty} K_j\cup \mathcal{N}\]
     , где \(K_j\) --- компакт, \(\lambda \mathcal{N} = 0\)
     \[TA = \bigcup_{j = 1}^{+\infty} TK_j \cup T\mathcal{N}\]
     \(TK_j\) компакт как образ компакта при непрерывном отображении. \(\Rightarrow TA\) измеримо.
 \end{proof}
+%</непрерывноеотображениеизмеримостьproof>
 
 \begin{example}[Канторова лестница]
     \begin{figure}[h]
@@ -113,13 +121,16 @@
 \end{example}
 
 \begin{theorem}\itemfix
+    %<*гладкоеотображениеизмеримость>
     \begin{itemize}
         \item \(O\subset \R^m\) открыто
         \item \(\Phi: O \to \R^n\)
         \item \(\Phi\in C^1(O)\)
     \end{itemize}
     Тогда \(\forall A\in O : A \in \mathfrak{M}^m \ \ \Phi(A)\in \mathfrak{M}^m\), т.е. образ измеримого множества измерим.
+    %</гладкоеотображениеизмеримость>
 \end{theorem}
+%<*гладкоеотображениеизмеримостьproof>
 \begin{proof}
     Достаточно проверить свойства \(\lambda E = 0 \Rightarrow \lambda \Phi(E) = 0\)
     \[\lambda E = 0 \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \text{ шары } B_i : E \subset \bigcup_{i=1}^{+\infty} B_i \quad \lambda B_i < \varepsilon\]
@@ -147,6 +158,7 @@
               \[\Phi(E) = \bigcup \Phi(E\cap Q_i) \Rightarrow \lambda \Phi(E) = 0\]
     \end{enumerate}
 \end{proof}
+%</гладкоеотображениеизмеримостьproof>
 
 \begin{corollary}
     \(\lambda\) --- инвариантно относительно сдвигов в \(\R^m\) (и \(\mathfrak{M}^m\) тоже инвариантно), т.е. \(\forall a\in\R^m\):
@@ -169,6 +181,7 @@
 \end{proof}
 
 \begin{theorem}
+    %<*инвариантныемеры>
     \(\mu\) --- мера на \(\mathfrak{M}^m\):
     \begin{enumerate}
         \item \(\mu\) --- инвариантно относительно сдвигов:
@@ -178,7 +191,9 @@
     Тогда \(\exists k\in [0, +\infty) : \mu = k\cdot \lambda\), т.е.:
     \[\forall E \ \ \mu E = k \cdot \lambda E\]
     и пусть \(0\cdot \infty = 0\) в данном контексте.
+    %</инвариантныемеры>
 \end{theorem}
+%<*инвариантныемерыproof>
 \begin{proof}
     Нет и не будет.
 
@@ -190,6 +205,7 @@
 
     Тогда \(k = v\) и \(\mu\) пропорционально \(\lambda\).
 \end{proof}
+%</инвариантныемерыproof>
 
 \begin{remark}
     \(\mu A = \lambda_1 A\), если \(\exists y_0 : A\subset \{(x, y_0), x\in \R\} \) --- афинное одномерное подпространство, пересекающее ось \(y\) в точке \(y_0\).
@@ -198,6 +214,7 @@
 \end{remark}
 
 \begin{theorem}[инвариантность меры лебега относительно линейного ортогонального преобразования]\itemfix
+    %<*инвариантностьмерылебегаотносительнолинейногоортогональногопреобразования>
     \begin{itemize}
         \item \(T: \R^m \to \R^m\) ортогонально.
     \end{itemize}
@@ -206,7 +223,9 @@
         \item \(TA\in \mathfrak{M}^m\)
         \item \(\lambda(TA) = \lambda A\)
     \end{enumerate}
+    %</инвариантностьмерылебегаотносительнолинейногоортогональногопреобразования>
 \end{theorem}
+%<*инвариантностьмерылебегаотносительнолинейногоортогональногопреобразованияproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item \(T\in C^1\), поэтому измеримость сохраняется.
@@ -222,6 +241,7 @@
               \[\mu B = \lambda(TB) = \lambda(B + x_0) = \lambda B \Rightarrow k = 1\]
     \end{enumerate}
 \end{proof}
+%</инвариантностьмерылебегаотносительнолинейногоортогональногопреобразованияproof>
 
 \begin{corollary}
     \(\lambda(\text{прямоугольный параллелепипед})\) = произведение сторон.

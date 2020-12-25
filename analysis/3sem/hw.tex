@@ -663,4 +663,44 @@
     При \(x =- 1\) ряд очевидно сходится по признаку сравнения (с рядом, полученным при \(x = 1\)).
 \end{exercise}
 
+\section*{ДЗ 13}
+
+\begin{exercise}[2991]
+    \[\sum_{n = 1}^{+\infty} \frac{1}{(2n - 1) 2n(2n + 1)} = ?\]
+    \begin{align*}
+        \sum_{n = 1}^{+\infty} \frac{1}{(2n - 1) 2n(2n + 1)}
+         & = \sum_{n = 1}^{+\infty} \frac{1}{2}\left( \frac{1}{2n(2n - 1)} - \frac{1}{2n(2n + 1)} \right) \\
+    \end{align*}
+    \[\frac{1}{2n(2n - 1)} = \frac{1}{2n - 1} - \frac{1}{2n}\]
+    \[\frac{1}{2n(2n + 1)} = \frac{1}{2n} - \frac{1}{2n + 1}\]
+    \begin{align*}
+        \sum_{n = 1}^{+\infty} \frac{1}{2}\left( \frac{1}{2n(2n - 1)} - \frac{1}{2n(2n + 1)} \right)
+         & = \frac{1}{2}\left(1 + \sum_{n = 2}^{+\infty} ( - 1)^{n + 1} \frac{2}{n}\right)  \\
+         & = \frac{1}{2}\left(1 + 2\sum_{n = 2}^{+\infty} ( - 1)^{n + 1} \frac{1}{n}\right) \\
+         & = \frac{1}{2}\left( - 1 + 2\sum_{n = 1}^{+\infty} ( - 1)^{n} \frac{1}{n}\right)  \\
+         & = - \frac{1}{2} - \sum_{n = 1}^{+\infty} ( - 1)^{n} \frac{1}{n}                  \\
+         & = \ln 2 - \frac{1}{2}                                                            \\
+    \end{align*}
+\end{exercise}
+
+\begin{exercise}[2998]
+
+\end{exercise}
+
+\begin{exercise}[3003]
+
+\end{exercise}
+
+\begin{exercise}[3007]
+
+\end{exercise}
+
+\begin{exercise}[3013]
+
+\end{exercise}
+
+\begin{exercise}[3015]
+
+\end{exercise}
+
 \end{document}

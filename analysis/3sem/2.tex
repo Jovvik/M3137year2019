@@ -87,7 +87,7 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
              & \ge \frac{1}{||L||^{-1}}|x| - ||M-L||\cdot|x| \\
              & \ge \left(||L^{-1}||^{-1} - ||M-L||\right)|x|
     \end{align*}
-    Это доказало пункты 1 и 2, докажем 3:
+    Это доказало пункты 1 \textit{(\(M\) --- биекция, т.к. \(\ker M = \{0\} \))} и 2, докажем 3:
 
     Аналогично равенству $\frac{1}{a} + \frac{1}{b} = \frac{a+b}{ab}$ в $\R$ выполняется следующее равенство в $\Omega_m$:
     $$M^{-1} - L^{-1} = M^{-1}(L-M)L^{-1}$$
@@ -208,12 +208,15 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
 \end{definition}
 %</формы>
 
-\begin{lemma}\itemfix
+%<*обоценкеформы>
+\begin{lemma}[об оценке формы]\itemfix
     \begin{itemize}
         \item $Q$ --- положительно определенная
     \end{itemize}
-    Тогда $\exists \gamma_Q > 0 \ \ \forall h \quad Q(h) \ge \gamma_Q |h|^2$
+    Тогда $\exists \gamma_Q > 0 \ \ \forall h \ \ Q(h) \ge \gamma_Q |h|^2$
 \end{lemma}
+%</обоценкеформы>
+%<*обоценкеформыproof>
 \begin{proof}
     $S^{m-1} := \{x\in\R^m : |x| = 1\}$ --- компакт в $\R^m$, поэтому $\min$ и $\max$ достигается по т. Вейерштрасса.
     $$\gamma_Q := \min\limits_{h\in S^{m-1}} Q(h) > 0$$
@@ -224,15 +227,16 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
     Переход $(*)$ работает, т.к. $Q$ - квадратичная форма, поэтому:
     $$\sum_{i, j} a_{ij}h_ih_j = \sum_{i, j} a_{ij} |h|\frac{h_i}{|h|} |h|\frac{h_j}{|h|} = |h|^2 \sum_{i, j} a_{ij} \frac{h_i}{|h|}\frac{h_j}{|h|}$$
 \end{proof}
-\begin{lemma}\itemfix
-    %<*леммаобоценкенормы>
+%</обоценкеформыproof>
+%<*обэквивалентныхнормах>
+\begin{lemma}[об эквивалентных нормах]\itemfix
     \begin{itemize}
         \item $p : \R^m \to \R$ --- норма
     \end{itemize}
     Тогда $\exists C_1,C_2 > 0 \ \ \forall x \ \ C_2|x| \le p(x) \le C_1|x|$
-    %</леммаобоценкенормы>
 \end{lemma}
-%<*леммаобоценкенормыproof>
+%</обэквивалентныхнормах>
+%<*обэквивалентныхнормахproof>
 \begin{proof}
     $$C_1 := \max_{x\in S^{m-1}} p(x) \quad C_2 := \min_{x\in S^{m-1}} p(x)$$
     $$p(x) = p\left(|x|\frac{x}{|x|}\right) = |x|p\left(\frac{x}{|x|}\right)\begin{cases}
@@ -252,7 +256,7 @@ $\Omega_m := \{L\in \mathcal L_{m, m} : \exists L^{-1}\}$
                & \le |x-y|M                           \\
     \end{align*}
 \end{proof}
-%</леммаобоценкенормыproof>
+%</обэквивалентныхнормахproof>
 
 \subsection*{Напоминание}
 

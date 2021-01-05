@@ -99,8 +99,8 @@ $$f(a+h)=\sum_{k=0}^r\sum\ldots \frac{1}{\alpha_1!\alpha_2!\ldots\alpha_m!} \fra
 
     $\varphi(t) = а(a+th)$, где $h=x-a$. Тогда $\varphi(0)=f(a)$
 
-    $$\varphi(t) = \varphi(0) + \frac{\varphi'(0)}{1!}+\ldots+\frac{\varphi^{(r)}(0)}{r!}t^r+\frac{\varphi^{(r+1)}(\overline t)}{(r+1)!}t^{r+1}$$
-    $$f(x) = \underbrace{\sum_{\alpha : 0\le |\alpha|\le r} \frac{f^{(\alpha)}(a)}{\alpha!}(x-a)^\alpha}_{\text{Многочлен Тейлора}} + \underbrace{\sum_{\alpha : |\alpha| = r+1} \frac{f^{(\alpha)}(a+\Theta(x-a))}{\alpha!}(x-a)^\alpha}_{\mathcal O (|x-1|^r)}$$
+    $$\varphi(t) = \varphi(0) + \frac{\varphi'(0)}{1!}t+\ldots+\frac{\varphi^{(r)}(0)}{r!}t^r+\frac{\varphi^{(r+1)}(\overline t)}{(r+1)!}t^{r+1}$$
+    $$f(x) = \underbrace{\sum_{\alpha : 0\le |\alpha|\le r} \frac{f^{(\alpha)}(a)}{\alpha!}(x-a)^\alpha}_{\text{Многочлен Тейлора}} + \underbrace{\sum_{\alpha : |\alpha| = r+1} \frac{f^{(\alpha)}(a+\Theta(x-a))}{\alpha!}(x-a)^\alpha}_{o(|x-a|^r)}$$
     По лемме:
     $$f(x)=f(a) + \sum_{k=1}^r\sum_{\alpha : |\alpha|=k}\frac{f^{(\alpha)}}{\alpha!}h^\alpha + \sum_{\alpha : |\alpha| = r+1} \frac{f^{(\alpha)}(a+\Theta(x-a))}{\alpha!}h^\alpha$$
 \end{proof}

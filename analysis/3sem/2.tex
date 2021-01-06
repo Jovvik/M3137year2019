@@ -286,6 +286,7 @@ $$f(a+h) = f(a) + df(a, h) + \frac{1}{2} d^2f(a + \Theta h, h) \quad 0\le\Theta\
 \end{theorem}
 %<*достаточноеусловиеэкстремумаproof>
 \begin{proof}
+    Для положительно определенной формы:
     \begin{align*}
         f(a+h) - f(a)
         = \frac{1}{2} d^2f(a+\Theta h, h)                                                                                                                                                                                                                                                                        \\
@@ -293,6 +294,9 @@ $$f(a+h) = f(a) + df(a, h) + \frac{1}{2} d^2f(a + \Theta h, h) \quad 0\le\Theta\
     \end{align*}
     $$f(a+h) - f(a) \ge \frac{1}{2}\left(\gamma_Q |h|^2 - \frac{\gamma_Q}{2}|h|^2\right) \ge \frac{1}{4}\gamma_Q|h|^2 > 0$$
 
+    Аналогично для отрицательно определенной формы.
+
+    Для незнакоопределеной формы:
     \begin{align*}
         \sphericalangle \overline h : Q(\overline h) > 0 \Rightarrow f(a+t\overline h) - f(a)
          & = \frac{1}{2}d^2 f(a+\Theta t\overline h, \overline h)t^2                                                                                                                                                                  \\

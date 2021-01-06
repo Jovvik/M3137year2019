@@ -94,23 +94,22 @@
 
 %<*осохраненииобластиproof>
 \begin{proof}
-    $x_0 \in O \Rightarrow F(x_0)\in F(O)$ --- внутренняя? в $F(O)$
+    $x_0 \in O \Rightarrow y_0 = F(x_0)\in F(O)$ --- внутренняя? в $F(O)$
 
     По лемме $\exists c, \delta : \forall h \in \overline{B(0, \delta)} \ \ |F(x_0+h) - F(x_0)| > C|h|$
 
     В частности $F(x_0 + h)\not=F(x_0)$ при $|h| = \delta$
 
     $$r := \frac{1}{2}\rho(y_0, F(S(x_0, \delta))$$
+    При этом \(\rho\) между множествами определено следующим образом:
     $$\rho(A, B) \defeq \inf_{a\in A, b\in B} \rho(a, b)$$
     Т.к. $S$ --- компакт, $\exists \min$.
 
     Если $y\in B(y_0, r)$, то $\rho(y, F(S(x_0, \delta))) > r$:
     \begin{figure}[h] %TODO: redraw
-        \includegraphics{images/осохраненииобласти.pdf}
+        \includesvg{images/о_сохранении_области.svg}
         \centering
     \end{figure}
-
-    \pagebreak
 
     Проверим, что $B(y_0, r) \subset F(O)$, т.е. $\forall y\in B(y_0, r) \ \ \exists x\in B(x_0, \delta) \ \ F(x) = y$
 

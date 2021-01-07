@@ -63,7 +63,7 @@ $$F' = \begin{pmatrix}
     \begin{itemize}
         \item [$1 \Rightarrow 2$:] $F(x, \Phi(x)) = 0 \Rightarrow F'_x(x, \Phi(x)) + F'_y(x, \Phi(x))\Phi'(x) = 0$
         \item [$1$:] $\tilde F: O\to\R^{m+n} : (x, y)\mapsto(x, F(x, y)), \tilde F(a, b) = (a, 0)$
-              $$F' = \left(\begin{array}{c|c}
+              $$\tilde F' = \left(\begin{array}{c|c}
                           E_m  & 0    \\
                           \hline
                           F'_x & F'_y
@@ -74,7 +74,7 @@ $$F' = \begin{pmatrix}
               \begin{tikzpicture}
                   \draw[-{>[length=2mm,width=3mm]}] (-1, 0) -- (5, 0) node[anchor=north west] {$x$};
                   \draw[-{>[length=2mm,width=3mm]}] (0, -1) -- (0, 5) node[anchor=south east] {$y$};
-                  \draw[green, thick] (0, 3) -- (0, 2) node[anchor=south east] {$P_2$};
+                  \draw[green, thick] (0, 3) -- (0, 2) node[anchor=south east] {$Q$};
                   \draw[green, thick] (3, 0) -- (2, 0) node[anchor=north west] {$P_1$};
                   \filldraw[black] (2.5, 0) circle (1pt) node[anchor=south] {$a$};
                   \filldraw[black] (0, 2.5) circle (1pt) node[anchor=west] {$b$};
@@ -82,12 +82,12 @@ $$F' = \begin{pmatrix}
 
                   \draw[-{>[length=2mm,width=3mm]}] (7, 0) -- (13, 0) node[anchor=north west] {$\R^m$};
                   \draw[-{>[length=2mm,width=3mm]}] (8, -1) -- (8, 5) node[anchor=south east] {$\R^n$};
-                  \draw[green, thick] (11, 0) -- (10, 0) node[anchor=north east] {$P_1$};
+                  \draw[green, thick] (11, 0) -- (10, 0) node[anchor=north east] {$V$};
                   \filldraw[black] (10.5, 0) circle (1pt) node[anchor=south] {$a$};
                   \draw[] (10.5, 0) \irregularcircle{0.5cm}{1mm} node[anchor=south west] {$P$};
 
                   \draw[->] (4.5, 4) -- (6.5, 4) node[midway, above] {$\tilde F$};
-                  \draw[->] (10, 0.5) -- (3.5, 2.5) node[midway, above] {$\psi$};
+                  \draw[->] (10, 0.5) -- (3.5, 2.5) node[midway, above] {$\Psi$};
               \end{tikzpicture}
 
               \begin{enumerate}
@@ -95,7 +95,7 @@ $$F' = \begin{pmatrix}
                   \item $V = \tilde F(U)$
                   \item $\tilde F$ --- диффеоморфизм на $U \Rightarrow \exists \Psi = \tilde F^{-1} : V\to U$
                   \item $\tilde F$ не меняет первые $m$ координат $\Rightarrow \Psi(u, v) = (u, H(u, v)),  H : V\to\R^n$.
-                  \item ``Ось $x$'' $\Leftrightarrow$ ``ось $y$'', $P:=``\text{ось } u'' = \R^m\times{a}\cap V$, $P$ --- откр. в $\R^m$, $P=P_1$
+                  \item ``Ось $x$'' $\Leftrightarrow$ ``ось $u$'', $P:=``\text{ось } u\text{''} = \R^m\times{a}\cap V$, $P$ --- откр. в $\R^m$, $P=P_1$
                   \item $\Phi(x) := H(x, 0)$
 
                         $F\in C^r \Rightarrow \tilde F\in C^r \Rightarrow \Psi\in C^r \Rightarrow H\in C^r \Rightarrow \Phi\in C^r$

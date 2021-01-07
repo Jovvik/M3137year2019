@@ -82,9 +82,9 @@ $$F' = \begin{pmatrix}
 
                   \draw[-{>[length=2mm,width=3mm]}] (7, 0) -- (13, 0) node[anchor=north west] {$\R^m$};
                   \draw[-{>[length=2mm,width=3mm]}] (8, -1) -- (8, 5) node[anchor=south east] {$\R^n$};
-                  \draw[green, thick] (11, 0) -- (10, 0) node[anchor=north east] {$V$};
+                  \draw[green, thick] (11, 0) -- (10, 0) node[anchor=north east] {$P$};
                   \filldraw[black] (10.5, 0) circle (1pt) node[anchor=south] {$a$};
-                  \draw[] (10.5, 0) \irregularcircle{0.5cm}{1mm} node[anchor=south west] {$P$};
+                  \draw[] (10.5, 0) \irregularcircle{0.5cm}{1mm} node[anchor=south west] {$V$};
 
                   \draw[->] (4.5, 4) -- (6.5, 4) node[midway, above] {$\tilde F$};
                   \draw[->] (10, 0.5) -- (3.5, 2.5) node[midway, above] {$\Psi$};
@@ -235,11 +235,11 @@ $$F' = \begin{pmatrix}
 
               Пусть $\Psi = (L \circ \Phi)^{-1}$
 
-              Берем $x' \in V$, тогда $(x', U(x')) = \Phi(\Psi(x'))$, т.е. $H\in C^r$
+              Берем $x' \in V$, тогда $(x', H(x')) = \Phi(\Psi(x'))$, т.е. $H\in C^r$
 
-              Множество $\Phi(W)$ открыто в $M \Rightarrow \Phi(W) = M \cap \tilde U$, где $\tilde U$ открыто в $\R^m$
+              Множество $\Phi(W)$ открыто в $M$ по топологическому определению непрерывности $\Rightarrow \Phi(W) = M \cap \tilde U$, где $\tilde U$ открыто в $\R^m$
 
-              $\tilde U\subset V\times \R^{m-k}$
+              Можно считать, что $\tilde U\subset V\times \R^{m-k}$, т.к. \(\R^{m - k}\) открыто.
 
               Пусть $f_j : \tilde U \to\R, x\mapsto H_j(L(x)) - x_{k+j}$. Тогда $x\in M\cap \tilde U (=\Phi(W)) \Leftrightarrow f_j(x)=0$
 
@@ -249,7 +249,7 @@ $$F' = \begin{pmatrix}
                       \grad f_{m-k}(p)
                   \end{pmatrix} = \begin{pmatrix}
                       \frac{\partial H_1}{\partial x_1}     & \ldots & \frac{\partial H_1}{\partial x_k}     & -1 & 0  & \ldots & 0      \\
-                      \vdots                                & \ddots & \vdots                                & 0  & -1 & \ldots & \vdots \\
+                      \vdots                                & \ddots & \vdots                                & 0  & -1 & \ddots & \vdots \\
                       \frac{\partial H_{m-k}}{\partial x_1} & \ldots & \frac{\partial H_{m-k}}{\partial x_k} & 0  & 0  & \ldots & -1     \\
                   \end{pmatrix}$
 
@@ -267,7 +267,7 @@ $$F' = \begin{pmatrix}
 
               Пусть ранг реализуется на последних $m-k$ столбцах, т.е. $$\det\left(\frac{\partial f_i}{\partial x_{k+j}} (p)\right)_{i, j = 1\ldots m-k} \not = 0$$
 
-              $F(x_1\ldots x_k, x_{k+1}\ldots x_m) = 0$ при $x\in U$
+              $F(x_1\ldots x_k, x_{k+1}\ldots x_m) = 0$ при $x\in \tilde U$
 
               По т. о неявном отображении:
 
@@ -275,11 +275,11 @@ $$F' = \begin{pmatrix}
 
               $\exists Q$ --- окр. $(x_{k+1}\ldots x_m)$ в $\R^{m-k}$
 
-              $\exists H\in C^r : P\to Q : F(x', H(x')) = 0$ для $x'\in P$
+              $\exists H\in C^r : P\to Q : F(x', H(x')) \equiv 0$ для $x'\in P$
 
-              Тогда $\Phi : P\to\R^m : (x_1\ldots x_k)\mapsto(x_1\ldots x_k, H_1(x_1\ldots x_k), H_2(x_1\ldots x_k) \ldots H_{m-k}(x_1\ldots x_k)$
+              Тогда $\Phi : P\to\R^m : (x_1\ldots x_k)\mapsto(x_1\ldots x_k, H_1(x_1\ldots x_k), H_2(x_1\ldots x_k) \ldots H_{m-k}(x_1\ldots x_k))$
 
-              $\Phi$ --- гомеоморфизм $P$ и $M \cap \tilde U, \Phi$ --- фактически проекция.
+              $\Phi$ --- гомеоморфизм $P$ и $M \cap \tilde U$, потому что $\Phi^{-1}$ --- фактически проекция.
 
     \end{itemize}
 \end{proof}
@@ -303,12 +303,25 @@ $$F' = \begin{pmatrix}
 %<*одвухпараметризацияхproof>
 \begin{proof}\itemfix
     \begin{itemize}[align=left]
-        \item [Частный случай:] Пусть $\rg \Phi'_1(t^0), \rg \Phi'_2(s^0)$ достигается на первых $k$ столбцах.
+        \item [\textbf{Частный случай}:] Пусть $\rg \Phi'_1(t^0), \rg \Phi'_2(s^0)$ достигается на первых $k$ столбцах.
 
               Тогда $\Phi_1 = \Phi_2 \circ \underbrace{(L \circ \Phi_2)^{-1} \circ (L \circ \Phi_1)}_{\Theta \text{ --- искомый диффеоморфизм}}$
-        \item [Общий случай:] $\Phi_1 = \Phi_2 \circ (\Phi_2 \circ L_2)^{-1} \circ (L_2 \circ L_1^{-1}) \circ (L_1\circ \Phi_1)$
 
-              $$L_2 \circ L_1^{-1} = L_2 \circ \Phi_1 \circ (L \circ \Phi_1)^{-1} \in C^r$$
+              \begin{figure}[h]
+                  \centering
+                  \includesvg[scale=0.8]{images/о_двух_параметризациях.svg}
+              \end{figure}
+
+        \item [\textbf{Общий случай}:] $\Phi_1 = \Phi_2 \circ (\Phi_2 \circ L_2)^{-1} \circ (L_2 \circ L_1^{-1}) \circ (L_1\circ \Phi_1)$
+
+              Кажется, в формуле ошибка --- см. иллюстрацию.
+
+              %   \begin{figure}[h]
+              %   \centering
+              \includesvg[scale=0.8]{images/о_двух_параметризациях_2.svg}
+              %   \end{figure}
+
+              $$L_2 \circ L_1^{-1} = L_2 \circ \Phi_1 \circ (L_1 \circ \Phi_1)^{-1} \in C^r$$
 
               Гладкость очевидна в силу гладкости всех элементов.
 

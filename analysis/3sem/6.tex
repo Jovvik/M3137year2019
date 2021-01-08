@@ -193,15 +193,15 @@ $f : \underbrace{X}_{\text{м.п.}}\to \underbrace{Y}_{\substack{\text{м.п.} \
     $$\int_a^b f_n = \int_0^1 nx^{n-1}(1-x^n) dx \stackrel{y:=x^n}{=} \int_0^1 (1-y)dy = \frac{1}{2} \not= \int_0^1 f(x) = 0$$
 \end{example}
 
+%<*предельныйпереходподинтегралом>
 \begin{manualtheorem}{2}\itemfix
-    %<*предельныйпереходподинтегралом>
     \begin{itemize}
         \item $f, f_n \in C[a, b]$
         \item $f_n\rightrightarrows f$ на $[a, b]$
     \end{itemize}
     Тогда $\int_a^b f_n \to \int_a^b f$
-    %</предельныйпереходподинтегралом>
 \end{manualtheorem}
+%</предельныйпереходподинтегралом>
 %<*предельныйпереходподинтеграломproof>
 \begin{proof}
     $$\left|\int_a^b f_n - \int_a^b f\right| \le \int_a^b |f_n - f| \le \sup_{[a, b]} |f_n - f|(b-a) = \rho(f_n, f)(b-a) \to0$$

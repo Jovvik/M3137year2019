@@ -87,6 +87,7 @@
     $u_n \in C(x), \sum u_n$ --- равномерно сходится на $X \Rightarrow S(x) \in C(x)$
 \end{remark}
 
+%<*предельныйпереходподинтегралом2>
 \begin{manualtheorem}{2'}{О почленном интегрировании ряда}\itemfix
     \begin{itemize}
         \item $u_n : [a, b] \to\R$
@@ -98,6 +99,8 @@
 
     Можно интегрировать, т.к. $S(x)$ --- непр. на $[a, b]$ по теореме 1'
 \end{manualtheorem}
+%</предельныйпереходподинтегралом2>
+%<*предельныйпереходподинтегралом2proof>
 \begin{proof}
     По теореме 2
 
@@ -107,6 +110,7 @@
 
     $$\int_a^b S_n(x) dx = \int_a^b \sum_{k=0}^{n} u_k(x) dx = \sum_{k=0}^{n} \int_a^b u_k(x) dx \xrightarrow{n\to+\infty} \sum_{k=0}^{+\infty} \int_a^b u_k(x)dx$$
 \end{proof}
+%</предельныйпереходподинтегралом2proof>
 
 \begin{example}
     $\sum\limits_{n=0}^{+\infty} (-1)^n x^n$ --- равномерно сходится при $|x| \le q < 1$ по Вейерштрассу: $|(-1)^n x^n|\le q^n, \sum q^n$ сходится.

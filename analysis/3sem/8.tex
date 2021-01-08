@@ -166,6 +166,7 @@
 %</дифференцированиерядаproof>
 
 \begin{example}
+    %<*дифференцируемостьгаммафункции>
     Формула Вейерштрасса:
     $$\frac{1}{\Gamma(x)} = xe^{\gamma x} \prod_{k=1}^\infty \left(1+\frac{x}{k}\right)e^{-\frac{x}{k}}, x > 0$$
     $\gamma$ --- постоянная Эйлера.
@@ -177,6 +178,7 @@
     при $x\in(0, M)$.
 
     Тогда $\sum\cfrac{-x}{(x+k)k}$ равномерно сходится на $(0, M)$, значит $\ln \Gamma(x) \in C^1(0, M)$, $\cfrac{-x}{(x+k)k}$ --- непр. $\Rightarrow \sum\cfrac{-x}{(x+k)k}$ --- непр. $\Rightarrow \ln \Gamma(x)\in C^1(0, +\infty) \Rightarrow \Gamma(x) \in C^1(0, +\infty)$
+    %</дифференцируемостьгаммафункции>
 \end{example}
 
 \begin{remark}
@@ -184,13 +186,13 @@
 \end{remark}
 
 \begin{remark}
-    %<*дифференцируемостьгаммафункции>
+    %<*дифференцируемостьгаммафункции2>
     \begin{align*}
         -\frac{\Gamma'(x)}{\Gamma(x)} & = \frac{1}{x} + \gamma - \sum_{k=1}^{+\infty} \frac{x}{(x+k)k}                        \\
         \Gamma'(x)                    & = -\Gamma(x)\left(\frac{1}{x} + \gamma - \sum_{k=1}^{+\infty} \frac{x}{(x+k)k}\right)
     \end{align*}
     Изучив равномерную сходимость $\left(\cfrac{x}{(x+k)k}\right)'$, получаем, что $\Gamma\in C^2(0, +\infty)$ и т.д. $\Rightarrow \Gamma\in C^\infty(0, +\infty)$
-    %</дифференцируемостьгаммафункции>
+    %</дифференцируемостьгаммафункции2>
 \end{remark}
 
 \begin{manualtheorem}{4'}[о почленном предельном переходе в суммах]\itemfix
@@ -236,7 +238,7 @@
               $\tilde u_n(x) = \begin{cases}
                       u_n(x), & x\in E\setminus \{x_0\} \\
                       a_n,    & x=x_0
-                  \end{cases}$ --- задано на $U\cup \{x_0\}$, непрерывно в $x_0$.
+                  \end{cases}$ --- задано на $E\cup \{x_0\}$, непрерывно в $x_0$.
 
               $\sum \tilde u_n(x)$ --- равномерно сходится на $E\cup \{x_0\} \Rightarrow$ сумма ряда непрерывна в $x_0$.
 

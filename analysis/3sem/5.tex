@@ -323,14 +323,14 @@
         \item $\rg \Phi'(a) = n$
     \end{itemize}
     Тогда $\exists \lambda = (\lambda_1 \ldots \lambda_n)\in\R^n$ : $\begin{cases}
-            f'(a) - \lambda\Phi'(a) = 0 \\
+            f'(a) + \lambda\Phi'(a) = 0 \\
             \Phi(a) = 0
         \end{cases}$
 
     Второе условие дописано для удобства, оно не содержательно, т.к. оно уже дано.
 
     В координатах: $\begin{cases}
-            f'_{x_1} - \lambda_1 (\Phi_1)_{x_1}' - \lambda_2 (\Phi_2)_{x_1}' - \ldots - \lambda_m (\Phi_m)_{x_1}' = 0                 \\
+            f'_{x_1} + \lambda_1 (\Phi_1)_{x_1}' + \lambda_2 (\Phi_2)_{x_1}' + \ldots + \lambda_m (\Phi_m)_{x_1}' = 0                 \\
             \vdots                                                                                                                    \\
             f'_{x_{m+n}} - \lambda_1 (\Phi_1)_{x_{m+n}}' - \lambda_2 (\Phi_2)_{x_{m+n}}' - \ldots - \lambda_m (\Phi_m)_{x_{m+n}}' = 0 \\
             \Phi_1(a) = 0                                                                                                             \\
@@ -380,7 +380,7 @@
 
     Пусть $\lambda = - f'_y \cdot (\Phi'_y(a))^{-1}$.
 
-    Тогда $f'_y + \lambda \Phi'_y = f'_y - f'_y (\Phi'_y(a))^{-1}\Phi'_y(a) = 0$ и $f'_x + \lambda \Phi'_y = 0$ в силу \eqref{extr_prop}. Итого \eqref{total} выполнено, мы предъявили \(\lambda\), подходящее под искомое.
+    Тогда $f'_y + \lambda \Phi'_y = f'_y - f'_y (\Phi'_y(a))^{-1}\Phi'_y(a) = 0$ и $f'_x + \lambda \Phi'_y = 0$ в силу \eqref{total}. Итого \eqref{total} выполнено, мы предъявили \(\lambda\), подходящее под искомое.
 \end{proof}
 
 %</необходимоеусловиеотносительногоэкстремумаproof>

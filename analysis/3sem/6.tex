@@ -18,7 +18,9 @@
     \end{itemize}
     $\forall h=(h_x, h_y)\in\R^{m+n}$: если $\Phi'(a)h=0$, то можно выразить $h_y = \Psi(h_x)$.
 
-    Рассмотрим квадратную форму $Q(h_x) = d^2 G(a, (h_x, \Psi(h_x)))$.
+    Пусть \(G(x) = f(x) - \langle \lambda, \Phi(x)\rangle\), где \(\lambda\) берется из необходимого условия экстремума.
+
+    Рассмотрим квадратичную форму $Q(h_x) = d^2 G(a, (h_x, \Psi(h_x)))$.
 
     Тогда:
     \begin{enumerate}
@@ -29,6 +31,7 @@
     \end{enumerate}
     %</достаточноеусловиеэкстремума>
 \end{theorem}
+%<*достаточноеусловиеэкстремумаproof>
 \begin{proof}
     \begin{align}
         f(a+h) - f(a) & = G(a+h) - G(a)                                \\
@@ -45,6 +48,7 @@
     Это нестрогое доказательство, но этого нам достаточно.
 \end{proof}
 
+%</достаточноеусловиеэкстремумаproof>
 \begin{example}\itemfix
     \begin{itemize}
         \item $f = x^2z^2 + y^3$
@@ -277,7 +281,8 @@ $f : \underbrace{X}_{\text{м.п.}}\to \underbrace{Y}_{\substack{\text{м.п.} \
     %<*равномернаясходимостьряда>
     \begin{itemize}
         \item $X$ --- произвольное множество
-        \item $u_n : X\to Y$ --- нормированное пространство
+        \item \(Y\) --- нормированное пространство
+        \item $u_n : X\to Y$
     \end{itemize}
     $\sum_{n=0}^{+\infty} u_n(x)$ сходится к $S(x)$ \textbf{равномерно} на $E\subset X : S_N\xrightrightarrows[E]{N\to+\infty} S$
     %</равномернаясходимостьряда>

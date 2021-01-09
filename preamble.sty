@@ -22,6 +22,7 @@
 \usepackage{catchfilebetweentags}
 \usepackage{enumitem}
 \usepackage{etoolbox}
+\usepackage{float}
 \usepackage{lastpage}
 \usepackage{svg}
 \usepackage{wrapfig}
@@ -50,9 +51,9 @@
   \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
   +(0:\len pt)
   \foreach \a in {10,20,...,350}{
-    \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
-    -- +(\a:\len pt)
-  } -- cycle
+      \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
+      -- +(\a:\len pt)
+    } -- cycle
 }
 
 \providetoggle{useproofs}
@@ -110,29 +111,29 @@
 % magical thing that fixes paragraphs
 \makeatletter
 \patchcmd{\CatchFBT@Fin@l}{\endlinechar\m@ne}{}
-  {}{\typeout{Unsuccessful patch!}}
+{}{\typeout{Unsuccessful patch!}}
 \makeatother
 
 \newcommand{\get}[2]{
-    \ExecuteMetaData[#1]{#2}
+  \ExecuteMetaData[#1]{#2}
 }
 
 \newcommand{\getproof}[2]{
-    \iftoggle{useproofs}{\ExecuteMetaData[#1]{#2proof}}{}
+  \iftoggle{useproofs}{\ExecuteMetaData[#1]{#2proof}}{}
 }
 
 \newcommand{\getwithproof}[2]{
-    \get{#1}{#2}
-    \getproof{#1}{#2}
+  \get{#1}{#2}
+  \getproof{#1}{#2}
 }
 
 \newcommand{\import}[3]{
-    \subsection{#1}
-    \getwithproof{#2}{#3}
+  \subsection{#1}
+  \getwithproof{#2}{#3}
 }
 
 \newcommand{\given}[1]{
-    Дано выше. (\ref{#1}, стр. \pageref{#1})
+  Дано выше. (\ref{#1}, стр. \pageref{#1})
 }
 
 \renewcommand{\ker}{\text{Ker }}

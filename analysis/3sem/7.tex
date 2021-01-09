@@ -216,10 +216,10 @@
               Это замена переменной в интеграле.
 
               \begin{align*}
-                  I(V, \tilde\gamma) & = \int_p^q \langle V(\gamma(\varphi(s))), \tilde\gamma'(s)\rangle ds                      \\
-                                     & = \int_p^q \langle V(\gamma(\varphi(s))), \tilde\gamma'(\varphi(s))\rangle \varphi'(s) ds \\
-                  t := \varphi(s)                                                                                                \\
-                                     & = \int_a^b \langle V(\gamma(t)), \tilde\gamma'(t)\rangle dt                               \\
+                  I(V, \tilde\gamma) & = \int_p^q \langle V(\gamma(\varphi(s))), \tilde\gamma'(s)\rangle ds                \\
+                                     & = \int_p^q \langle V(\gamma(\varphi(s))), \gamma'(\varphi(s))\rangle \varphi'(s) ds \\
+                  t := \varphi(s)                                                                                          \\
+                                     & = \int_a^b \langle V(\gamma(t)), \gamma'(t)\rangle dt                               \\
                                      & = I(V, \gamma)
               \end{align*}
           \end{proof}

@@ -133,20 +133,37 @@
 \begin{enumerate}
     \item \(\exp(0) = 1\)
     \item \(\exp(z)' = \sum\limits_{n = 1}^{ +\infty} \frac{z^{n - 1}}{(n - 1)!} = \sum\limits_{k = 0}^{ +\infty} \frac{z^{k}}{k!} = \exp z\)
+    \item \(\forall z, w\in \C \ \ \exp(z + w) = \exp z \cdot \exp w\)
 \end{enumerate}
 %</свойстваэкспоненты>
+%<*свойстваэкспонентыproof>
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \[\exp(0) = \sum_{n = 0}^{ +\infty} \frac{0^n}{n!} = 1\]
+        \item \[\exp(z)' = \sum_{n = 1}^{+\infty} \frac{z^{n - 1}}{(n - 1)!} = \sum_{n = 0}^{ +\infty} \frac{z^n}{n!} = \exp(z)\]
+        \item
+              \begin{align*}
+                  \exp(z + w) & = \sum_{n = 0}^{+\infty} \frac{(z + w)^n}{n!}                                                               \\
+                              & = \sum_{n = 0}^{ +\infty} \sum_{k = 0}^{n} \binom{n}{k}\frac{z^k w^{n - k}}{n!}                             \\
+                              & = \sum_{n = 0}^{ +\infty} \sum_{k = 0}^{n} \frac{z^k w^{n - k}}{k!(n - k)!}                                 \\
+                              & = \left( \sum_{n = 0}^{+\infty} \frac{z^n}{n!} \right) \left( \sum_{n = 0}^{+\infty} \frac{w^n}{n!} \right) \\
+                              & = \exp(z)\exp(w)
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+%</свойстваэкспонентыproof>
 
 Возвращаем кредит: в первом семестре говорилось, что \(\exists f_0\) --- показательная функция, такая что \(f(x + y) = f(x)\cdot f(y)\) и \(\lim\limits_{x\to 0} \frac{f_0(x) - 1}{x} = 1\)
 
 \(f_0(x) : = \exp(x)\)
 \[\lim_{x\to 0} \frac{\exp(x) - 1}{x} = \exp'(0) = 1\]
 
-\begin{theorem}
-    \[\forall z, w\in \C \ \ \exp(z + w) = \exp z \cdot \exp w\]
-\end{theorem}
-\begin{exercise}
-    Доказать к следующей лекции
-\end{exercise}
+% \begin{theorem}
+%     \[\forall z, w\in \C \ \ \exp(z + w) = \exp z \cdot \exp w\]
+% \end{theorem}
+% \begin{exercise}
+%     Доказать к следующей лекции
+% \end{exercise}
 
 \section*{Теория меры}
 

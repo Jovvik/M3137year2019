@@ -146,7 +146,7 @@
     \end{figure}
 
     \[
-        \forall k \ \ \exists \delta_k > 0 : \left( \delta_k\text{-окрестность } \gamma[t_{k_1}, t_k] \right) \subset B_k
+        \forall k \ \ \exists \delta_k > 0 : \left( \delta_k\text{-окрестность } \gamma[t_{k-1}, t_k] \right) \subset B_k
     \]
 
     Это следует из компактности:
@@ -154,6 +154,8 @@
     Пусть \(B_k = B(w, r)\), функция \(t \in [\gamma_{k - 1}, \gamma_k] \mapsto \rho(\gamma(t), w)\) непрерывна \( \Rightarrow \) достигается \(\max \), \(\rho(\gamma(t), w) \le r_0 < r\)
 
     \(\delta_k : = \frac{r - r_0}{2}, \delta : = \min(\delta_1 \dots \delta_k) \)
+
+    При таком \(\delta\) все три пути лежат в одной гусенице.
 \end{proof}
 %</опохожестиблизкихпутейproof>
 

@@ -163,22 +163,24 @@
 \end{proof}
 %</метрикавcxproof>
 
-$(x_n)$ --- последовательность в полном метрическом пространстве $X$, $x_n$ сходится $\Leftrightarrow x_n$ фундаментальная.
+\begin{corollary}
+    $(x_n)$ --- последовательность в полном метрическом пространстве $X$, $x_n$ сходится $\Leftrightarrow x_n$ фундаментальная.
 
-$f : \underbrace{X}_{\text{м.п.}}\to \underbrace{Y}_{\substack{\text{м.п.} \\ \text{полное}}}, f(x) \xrightarrow{x\to a} L \xLeftrightarrow[\text{Больцано-Коши}]{\text{критерий}} \forall \varepsilon > 0 \ \ \exists U(a) \ \ \forall x_1, x_2 \in \dot U(a) \quad \rho(f(x_1), f(x_2)) < \varepsilon$
+    $f : \underbrace{X}_{\text{м.п.}}\to \underbrace{Y}_{\substack{\text{м.п.} \\ \text{полное}}}, f(x) \xrightarrow{x\to a} L \xLeftrightarrow[\text{Больцано-Коши}]{\text{критерий}} \forall \varepsilon > 0 \ \ \exists U(a) \ \ \forall x_1, x_2 \in \dot U(a) \quad \rho(f(x_1), f(x_2)) < \varepsilon$
 
-В $C(X)$ $f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментальность:
-\begin{equation}
-    \forall \varepsilon > 0 \ \ \exists N \ \ \forall n, m > N \ \ \forall x \ \ |f_n(x) - f_m(x)| < \varepsilon \label{fund}
-\end{equation}
-\begin{equation}
-    \sup_{x\in X} |f_n - f| < \varepsilon \label{sup_fund}
-\end{equation}
+    В $C(X)$ $f_n\xrightrightarrows[X]{}f \Leftrightarrow$ фундаментальность:
+    \begin{equation}
+        \forall \varepsilon > 0 \ \ \exists N \ \ \forall n, m > N \ \ \forall x \ \ |f_n(x) - f_m(x)| < \varepsilon \label{fund}
+    \end{equation}
+    \begin{equation}
+        \sup_{x\in X} |f_n - f| < \varepsilon \label{sup_fund}
+    \end{equation}
 
-\begin{itemize}
-    \item \eqref{sup_fund} $\Rightarrow$ \eqref{fund}
-    \item \eqref{fund} $\Rightarrow \sup\limits_{x\in X}|f_n - f| \le \varepsilon$, но по двойной бухгалтерии это $\Leftrightarrow$ \eqref{sup_fund}
-\end{itemize}
+    \begin{itemize}
+        \item \eqref{sup_fund} $\Rightarrow$ \eqref{fund}
+        \item \eqref{fund} $\Rightarrow \sup\limits_{x\in X}|f_n - f| \le \varepsilon$, но по двойной бухгалтерии это $\Leftrightarrow$ \eqref{sup_fund}
+    \end{itemize}
+\end{corollary}
 
 \subsection*{Предельный переход под знаком интеграла}
 

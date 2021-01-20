@@ -2,7 +2,7 @@ name: views
 on:
   push:
     branches:
-      - main
+      - master
   schedule:
     - cron: '1 0 * * *' #UTC
 

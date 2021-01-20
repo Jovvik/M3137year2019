@@ -1,0 +1,32 @@
+name: views
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '1 0 * * *' #UTC
+
+jobs:
+  run:
+    name: Make GitHub Traffic to Badge
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2.3.4
+
+      - name: Set Traffic
+        id: traffic
+        uses: yi-Xu-0100/traffic-to-badge@v1.3.0
+        with:
+          my_token: ${{ secrets.TRAFFIC_TOKEN }}
+          year: 2021
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: ${{ steps.traffic.outputs.traffic_branch }}
+          publish_dir: ${{ steps.traffic.outputs.traffic_path }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          full_commit_message: ${{ steps.message.outputs.result }}

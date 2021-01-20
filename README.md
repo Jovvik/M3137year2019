@@ -1,6 +1,6 @@
 # Конспекты М3237
 
-![просмотры](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views.svg)
+![views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views_per_week.svg)
 
 <!-- Если вы хотите помочь, всё, чего не хватает в конспектах - [тут](https://github.com/Jovvik/M3137year2019/issues/2) -->
 

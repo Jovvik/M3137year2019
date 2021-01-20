@@ -1,5 +1,7 @@
 # Конспекты М3237
 
+![просмотры](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views.svg)
+
 <!-- Если вы хотите помочь, всё, чего не хватает в конспектах - [тут](https://github.com/Jovvik/M3137year2019/issues/2) -->
 
 Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм @aeriu.

@@ -330,9 +330,9 @@
     Второе условие дописано для удобства, оно не содержательно, т.к. оно уже дано.
 
     В координатах: $\begin{cases}
-            f'_{x_1} + \lambda_1 (\Phi_1)_{x_1}' + \lambda_2 (\Phi_2)_{x_1}' + \ldots + \lambda_m (\Phi_m)_{x_1}' = 0                 \\
+            f'_{x_1} + \lambda_1 (\Phi_1)_{x_1}' + \lambda_2 (\Phi_2)_{x_1}' + \ldots + \lambda_n (\Phi_n)_{x_1}' = 0                 \\
             \vdots                                                                                                                    \\
-            f'_{x_{m+n}} - \lambda_1 (\Phi_1)_{x_{m+n}}' - \lambda_2 (\Phi_2)_{x_{m+n}}' - \ldots - \lambda_m (\Phi_m)_{x_{m+n}}' = 0 \\
+            f'_{x_{m+n}} + \lambda_1 (\Phi_1)_{x_{m+n}}' + \lambda_2 (\Phi_2)_{x_{m+n}}' + \ldots + \lambda_n (\Phi_n)_{x_{m+n}}' = 0 \\
             \Phi_1(a) = 0                                                                                                             \\
             \vdots                                                                                                                    \\
             \Phi_n(a) = 0                                                                                                             \\
@@ -425,7 +425,7 @@ $$f'(a) - \lambda\Phi'(a) = 0 \Leftrightarrow G'(a) = 0$$
     \end{itemize}
     Тогда $||A|| = \max\{\sqrt{\lambda} : \lambda \text{ --- собственное число } A^TA\}$
 
-     Такое число существует, т.к. $\langle Ax, y\rangle = \langle x, A^Ty\rangle \Rightarrow \langle A^T Ax, x\rangle = \langle Ax, Ax\rangle \ge 0 \Rightarrow \lambda \ge 0$.
+    Такое число существует, т.к. $\langle Ax, y\rangle = \langle x, A^Ty\rangle \Rightarrow \langle A^T Ax, x\rangle = \langle Ax, Ax\rangle \ge 0 \Rightarrow \lambda \ge 0$.
     %</нормалоп>
 \end{theorem}
 %<*нормалопproof>

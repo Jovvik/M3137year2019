@@ -69,6 +69,7 @@
 
 \begin{lemma}\itemfix
     %<*непрерывноеотображениеизмеримость>
+    \label{непр изм}
     \begin{itemize}
         \item \(T : \R^m \to \R^n\) --- непр.
         \item \(\forall E\in \mathfrak{M}^m : \lambda E = 0\) выполняется \(\lambda TE = 0\)
@@ -132,7 +133,7 @@
 \end{theorem}
 %<*гладкоеотображениеизмеримостьproof>
 \begin{proof}
-    Достаточно проверить свойства \(\lambda E = 0 \Rightarrow \lambda \Phi(E) = 0\)
+    Достаточно проверить свойства \(\lambda E = 0 \Rightarrow \lambda \Phi(E) = 0\), т.к. если оно выполняется, то работает предыдущая лемма \ref{непр изм}
     \[\lambda E = 0 \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \text{ шары } B_i : E \subset \bigcup_{i=1}^{+\infty} B_i \quad \lambda B_i < \varepsilon\]
     \( \Rightarrow \) из теоремы о Лебеговском продолжении меры.
 

@@ -219,7 +219,7 @@
 %<*обэквивалентностисчетнойаддитивностиисчетнойполуаддитивностиproof>
 \begin{proof}\itemfix
     \begin{enumerate}
-        \item [1 \(\Rightarrow\) 2] как в предыдущей теореме.
+        \item [1 \(\Rightarrow\) 2] как в предыдущей теореме, пункт 2, но вместо конечного объединения по \(k\) используется счётное.
         \item [2 \(\Rightarrow\) 1] \(A = \bigsqcup A_i \xRightarrow{?} \mu A = \sum \mu A_i\)
 
               \[\forall N \ \ A\supset \bigsqcup_{i = 1}^N A_i \ \ \mu A \ge \sum_{i = 1}^N \mu A_i\]
@@ -272,7 +272,7 @@
 %<*онепрерывностисверхуproof>
 \begin{proof}\itemfix
     \begin{enumerate}
-        \item [1 \(\Rightarrow\) 2] \(B_k = A_k \setminus A_{k + 1}, A_1 = \bigsqcup B_k \cup A\)
+        \item [1 \(\Rightarrow\) 2] \(B_k = A_k \setminus A_{k + 1}, A_1 = \bigsqcup B_k \cap A\)
 
               \(\mu A_1 = \sum \mu B_k + \mu A\)
 

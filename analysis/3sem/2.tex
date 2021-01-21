@@ -290,6 +290,7 @@ $$f(a+h) = f(a) + df(a, h) + \frac{1}{2} d^2f(a + \Theta h, h) \quad 0\le\Theta\
     \begin{align*}
         f(a+h) - f(a)
         = \frac{1}{2} d^2f(a+\Theta h, h)                                                                                                                                                                                                                                                                        \\
+        = \frac{1}{2} \left(Q(h) + (d^2f(a+\Theta h, h) - Q(h))\right)                                                                                                                                                                                                                                           \\
         = \frac{1}{2} \left( Q(h) + \overbrace{\sum_{i=1}^n \underbrace{\left( f''_{x_ix_i} (a+\Theta h) - f''_{x_ix_i} (a)\right)}_{\to0} \underbrace{h_i^2}_{\le |h|^2} + 2 \sum_{i < j} \underbrace{\left(f_{x_ix_i}''(a+\Theta h) - f''_{x_ix_i} (a)\right)}_{\to0} \underbrace{h_ih_j}_{\substack{\le |h|^2 \\ \text{по модулю}}}}^{o(|h|^2) \Leftrightarrow < \frac{\gamma_Q}{2}|h|^2}  \right) \\
     \end{align*}
     $$f(a+h) - f(a) \ge \frac{1}{2}\left(\gamma_Q |h|^2 - \frac{\gamma_Q}{2}|h|^2\right) \ge \frac{1}{4}\gamma_Q|h|^2 > 0$$

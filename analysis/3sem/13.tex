@@ -264,7 +264,7 @@
     \begin{enumerate}
         \item \(\mu\) --- мера, т.е. \(\mu\) счётно-аддитивная.
         \item \(\mu\) --- непрерывна сверху:
-              \[A, A_1, A_2\dots \in \mathfrak{A} \ \ A_1 \supset A_2 \supset \dots , A = \bigcup_{i = 1}^{ +\infty} A_i \Rightarrow \mu A = \lim_{i\to +\infty} \mu A_i\]
+              \[A, A_1, A_2\dots \in \mathfrak{A} \ \ A_1 \supset A_2 \supset \dots , A = \bigcap_{i = 1}^{ +\infty} A_i \Rightarrow \mu A = \lim_{i\to +\infty} \mu A_i\]
     \end{enumerate}
     %</онепрерывностисверху>
 \end{theorem}
@@ -272,7 +272,7 @@
 %<*онепрерывностисверхуproof>
 \begin{proof}\itemfix
     \begin{enumerate}
-        \item [1 \(\Rightarrow\) 2] \(B_k = A_k \setminus A_{k + 1}, A_1 = \bigsqcup B_k \cap A\)
+        \item [1 \(\Rightarrow\) 2] \(B_k = A_k \setminus A_{k + 1}, A_1 = \bigsqcup B_k \cup A\)
 
               \(\mu A_1 = \sum \mu B_k + \mu A\)
 

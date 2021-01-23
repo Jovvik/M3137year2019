@@ -10,23 +10,6 @@
 
 ### Матанализ
 
-#### Лекции
-
-- [1 лекция](analysis/3sem/1.pdf)
-- [2 лекция](analysis/3sem/2.pdf)
-- [3 лекция](analysis/3sem/3.pdf)
-- [4 лекция](analysis/3sem/4.pdf)
-- [5 лекция](analysis/3sem/5.pdf)
-- [6 лекция](analysis/3sem/6.pdf)
-- [7 лекция](analysis/3sem/7.pdf)
-- [8 лекция](analysis/3sem/8.pdf)
-- [9 лекция](analysis/3sem/9.pdf)
-- [10 лекция](analysis/3sem/10.pdf)
-- [11 лекция](analysis/3sem/11.pdf)
-- [12 лекция](analysis/3sem/12.pdf)
-- [13 лекция](analysis/3sem/13.pdf)
-- [14 лекция](analysis/3sem/14.pdf)
-- [15 лекция](analysis/3sem/15.pdf)
 - [Конспект к экзамену](analysis/3sem/final.pdf)
 
 #### Практики 8-12
@@ -38,7 +21,6 @@
 - [1 лекция](diffeq/3sem/1.pdf)
 - [2 лекция](diffeq/3sem/2.pdf)
 - [3 лекция](diffeq/3sem/3.pdf)
-
 - [Конспект к экзамену](diffeq/3sem/final.pdf)
 
 ## 2 семестр
@@ -58,7 +40,6 @@
 - [Опрос #1](analysis/1sem/opros.pdf)
 - [Опрос #2](analysis/1sem/opros2.pdf)
 - [Конспект к экзамену](analysis/1sem/final.pdf)
-
 
 ## Как компилировать самому
 

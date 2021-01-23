@@ -2,37 +2,37 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 660,
-    "uniques": 100
+    "count": 642,
+    "uniques": 99
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/analysis/3sem/final.pdf",
     "title": "M3137year2019/final.pdf at master · Jovvik/M3137year2019 · GitHub",
-    "count": 433,
-    "uniques": 69
+    "count": 422,
+    "uniques": 67
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/analysis/3sem",
     "title": "M3137year2019/analysis/3sem at master · Jovvik/M3137year2019 · GitHub",
-    "count": 148,
-    "uniques": 33
+    "count": 144,
+    "uniques": 32
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/analysis/3sem/1.pdf",
     "title": "M3137year2019/1.pdf at master · Jovvik/M3137year2019 · GitHub",
-    "count": 96,
-    "uniques": 32
+    "count": 90,
+    "uniques": 31
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/analysis/3sem/2.pdf",
     "title": "M3137year2019/2.pdf at master · Jovvik/M3137year2019 · GitHub",
-    "count": 82,
+    "count": 76,
     "uniques": 23
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/analysis/3sem/3.pdf",
     "title": "M3137year2019/3.pdf at master · Jovvik/M3137year2019 · GitHub",
-    "count": 80,
+    "count": 75,
     "uniques": 19
   },
   {
@@ -42,15 +42,9 @@
     "uniques": 21
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/analysis/3sem/4.pdf",
-    "title": "M3137year2019/4.pdf at master · Jovvik/M3137year2019 · GitHub",
-    "count": 63,
-    "uniques": 18
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/master/analysis/3sem/8.pdf",
     "title": "M3137year2019/8.pdf at master · Jovvik/M3137year2019 · GitHub",
-    "count": 63,
+    "count": 61,
     "uniques": 16
   },
   {
@@ -58,5 +52,11 @@
     "title": "M3137year2019/12.pdf at master · Jovvik/M3137year2019 · GitHub",
     "count": 58,
     "uniques": 17
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/analysis",
+    "title": "M3137year2019/analysis at master · Jovvik/M3137year2019 · GitHub",
+    "count": 57,
+    "uniques": 26
   }
 ]

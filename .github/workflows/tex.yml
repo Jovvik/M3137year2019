@@ -22,7 +22,7 @@ jobs:
                       apk add inkscape
                       time bash build.sh
             - name: Commit changes
-              uses: EndBug/add-and-commit@v4
+              uses: EndBug/add-and-commit@v7
               with:
                   message: 'Built pdfs'
                   add: '*.pdf'

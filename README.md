@@ -4,9 +4,39 @@
 
 **Example usage repository: [yi-Xu-0100/traffic2badge](https://github.com/yi-Xu-0100/traffic2badge).**
 
+## 📚 [total-traffic-data-badge](https://github.com/Jovvik/M3137year2019/tree/traffic#readme)
+
+### 📷 Badges without link of [total-traffic-data-badge](https://github.com/Jovvik/M3137year2019/tree/traffic#readme)
+
+![total views](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_views.svg)
+![total views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_views_per_week.svg)
+![total clones](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_clones.svg)
+![total clones per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_clones_per_week.svg)
+
+```markdown
+![total views](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_views.svg)
+![total views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_views_per_week.svg)
+![total clones](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_clones.svg)
+![total clones per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_clones_per_week.svg)
+```
+
+### 🔗 Badges with link of [total-traffic-data-badge](https://github.com/Jovvik/M3137year2019/tree/traffic#readme)
+
+[![total views](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_views.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-total-traffic-data-badge)
+[![total views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_views_per_week.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-total-traffic-data-badge)
+[![total clones](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_clones.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-total-traffic-data-badge)
+[![total clones per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_clones_per_week.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-total-traffic-data-badge)
+
+```markdown
+[![total views](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_views.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-total-traffic-data-badge)
+[![total views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_views_per_week.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-total-traffic-data-badge)
+[![total clones](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_clones.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-total-traffic-data-badge)
+[![total clones per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/total_clones_per_week.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-total-traffic-data-badge)
+```
+
 ## 📚 [M3137year2019](https://github.com/Jovvik/M3137year2019/tree/traffic/traffic-M3137year2019)
 
-### 📷 Badge of M3137year2019 without link
+### 📷 Badges without link of [M3137year2019](https://github.com/Jovvik/M3137year2019/tree/traffic/traffic-M3137year2019)
 
 ![views](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views.svg)
 ![views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views_per_week.svg)
@@ -20,7 +50,7 @@
 ![clones per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/clones_per_week.svg)
 ```
 
-### 🔗 Badge of M3137year2019 with link
+### 🔗 Badges with link of [M3137year2019](https://github.com/Jovvik/M3137year2019/tree/traffic/traffic-M3137year2019)
 
 [![views](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-M3137year2019)
 [![views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views_per_week.svg)](https://github.com/Jovvik/M3137year2019/tree/traffic#-M3137year2019)

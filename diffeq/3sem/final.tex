@@ -597,52 +597,814 @@
 
 \noindent \textbf{Определение.} \textbf{Фундаментальная матрица системы} $\dot{r} = P(t)r$ --- матрица, столбцы которой образуют фундаментальную систему решений.
 
-\noindent \textbf{Лемма (о множестве фундаментальных матриц).} Пусть $\Phi$ --- фундаментальная матрица системы $\dot{r} = P(t)r$. Тогда $\left\{\Phi A \, | \, A \in M_n(\mathbb{R}), \, detA \neq 0 \right\}$ --- множество всех фундаментальных матриц этой системы.\\
+\noindent \textbf{Лемма (о множестве фундаментальных матриц).} Пусть $\Phi$ --- фундаментальная матрица системы $\dot{r} = P(t)r$. Тогда $\left\{\Phi A \, | \, A \in M_n(\mathbb{R}), \, \det A \neq 0 \right\}$ --- множество всех фундаментальных матриц этой системы.
 
-\noindent \textbf{Доказательство.} Пусть $\Psi$ --- фундаментальная матрица системы $\dot{r} = P(t)r$. Тогда каждый ее столбец, будучи решением этой системы, является линейной комбинацией столбцов матрицы $\Phi$. Записывая коэффициенты разложения в столбцы матрицы $A$, имеем $\Psi = \Phi A$. А так как $det \Psi \neq 0$ и $\det \Phi \neq 0$, то и $det A \neq 0$.
+\begin{proof}
+    Пусть $\Psi$ --- фундаментальная матрица системы $\dot{r} = P(t)r$. Тогда каждый ее столбец, будучи решением этой системы, является линейной комбинацией столбцов матрицы $\Phi$. Записывая коэффициенты разложения в столбцы матрицы $A$, имеем $\Psi = \Phi A$. А так как $det \Psi \neq 0$ и $\det \Phi \neq 0$, то и $\det A \neq 0$.
 
-Обратно, пусть $A \in M_n(\mathbb{R})$ --- произвольная невырожденная матрица. Тогда матрица $\Phi A$ состоит из решений, а ее определитель не обращается в ноль. Следовательно, эти решения линейно независимы, поэтому $\Phi A$ --- фундаментальная матрица.\\
+    Обратно, пусть $A \in M_n(\mathbb{R})$ --- произвольная невырожденная матрица. Тогда матрица $\Phi A$ состоит из решений, а ее определитель не обращается в ноль. Следовательно, эти решения линейно независимы, поэтому $\Phi A$ --- фундаментальная матрица.
+\end{proof}
 
 \noindent \textbf{Лемма (Об овеществлении).} Пусть $n \in \mathbb{N}$, $\Phi = (r_1,r_2,r_3,\ldots,r_n)$ --- фундаментальная матрица системы $\dot{r} = P(t)r$, при этом $r_1 = \overline{r}_2$. Тогда
 \begin{equation*}
-    \Psi = (Re\,r_1, Im\,r_1, r_3, \ldots, r_n)
+    \Psi = (\Re r_1, \Im r_1, r_3, \ldots, r_n)
 \end{equation*}
---- фундаментальная матрица той же системы.\\
+--- фундаментальная матрица той же системы.
 
-\noindent \textbf{Доказательство.} Так как
-\begin{equation*}
-    \begin{aligned}
-         & \Re\, r_1 = \frac{1}{2}(r_1 + \overline{r}_1) = \frac{1}{2}r_1 + \frac{1}{2}r_2   \\
-         & \Im\,r_1 = \frac{1}{2i}(r_1 - \overline{r}_1) = \frac{1}{2i}r_1 - \frac{1}{2i}r_2
-    \end{aligned}
-\end{equation*}
-то
-\begin{equation*}
-    \Psi = \Phi \begin{pmatrix}
-        \begin{matrix}
-            \frac{1}{2} & \frac{1}{2i}  \\
-            \frac{1}{2} & -\frac{1}{2i}
-        \end{matrix} & 0       \\
-        0                          & E_{n-2}
-    \end{pmatrix}
-\end{equation*}
-где $E_{n-2}$ --- единичная матрица порядка $n - 2$. По лемме о множестве фундаментальных матриц матрица $\Psi$ является фундаментальной.
+\begin{proof}
+    Так как
+    \begin{equation*}
+        \begin{aligned}
+             & \Re\, r_1 = \frac{1}{2}(r_1 + \overline{r}_1) = \frac{1}{2}r_1 + \frac{1}{2}r_2   \\
+             & \Im\,r_1 = \frac{1}{2i}(r_1 - \overline{r}_1) = \frac{1}{2i}r_1 - \frac{1}{2i}r_2
+        \end{aligned}
+    \end{equation*}
+    то
+    \begin{equation*}
+        \Psi = \Phi \begin{pmatrix}
+            \begin{matrix}
+                \frac{1}{2} & \frac{1}{2i}  \\
+                \frac{1}{2} & -\frac{1}{2i}
+            \end{matrix} & 0       \\
+            0                          & E_{n-2}
+        \end{pmatrix}
+    \end{equation*}
+    где $E_{n-2}$ --- единичная матрица порядка $n - 2$. По лемме о множестве фундаментальных матриц матрица $\Psi$ является фундаментальной.
+\end{proof}
 
 \subsection*{17. Теорема о фундаментальной системе решений ЛОС с постоянными коэффициентами (случай жорданова базиса общего вида). Определение и свойства матричной экспоненты (без доказательств). Решение задачи Коши при помощи матричной экспоненты.}
 
+\textbf{Определение.} \textbf{Линейной системой дифференциальных уравнений с постоянными коэффициентами} называют линейную систему вида
+\begin{equation}
+    \dot{r} = Ar = q(t) \label{linpost}
+\end{equation}
+где $A \in M_n(\mathbb{C})$, $q \in C((a,b) \to \mathbb{C}^n)$.\\
+
+\noindent \textbf{Лемма.} Пусть $n, k \in \mathbb{N}$, $A \in M_n(\mathbb{C})$, $h_1, h_2, \ldots, h_k$ --- жорданова цепочка, соответствующая $\lambda \in spec\, A$. Тогда функции
+\begin{equation*}
+    \begin{aligned}
+         & \varphi_1(t) = e^{\lambda t}h_1                                                                         \\
+         & \varphi_2(t) = e^{\lambda t}\left(\frac{t}{1!}h_1 + h_2\right)                                          \\
+         & \ldots                                                                                                  \\
+         & \varphi_k(t) = e^{\lambda t}\left(\frac{t^{k-1}}{(k-1)!}h_1 + \ldots + \frac{t}{1!}h_{k-1} + h_k\right)
+    \end{aligned}
+\end{equation*}
+являются решениями системы $\dot{r} = Ar$.\\
+
+\noindent \textbf{Доказательство.} Принимая во внимание определение жордановой цепочки, при $j \in [1 : k]$ имеем
+\begin{equation*}
+    \begin{aligned}
+         & A\varphi_j = e^{\lambda t}\sum_{m=1}^j \frac{t^{j-m}}{(j-m)!}Ah_m = e^{\lambda t} \left(\frac{t^{j-1}}{(j-1)!}\lambda h_1 + \sum_{m=2}^j \frac{t^{j-m}}{(j-m)!}(\lambda h_m + h_{m - 1}) \right) = \\
+         & = e^{\lambda t}\left(\lambda \sum_{m=1}^j \frac{t^{j - m}}{(j - m)!}h_m + \sum_{m = 2}^j \frac{t^{j-m}}{(j - m)!}h_{m-1} \right)
+    \end{aligned}
+\end{equation*}
+
+Это же выражение получается при дифференцировании вектор-функции $\varphi_j$. Значит, $\dot{\varphi}_j = A\varphi_j$, что и требовалось доказать.\\
+
+\noindent \textbf{Теорема (Случай жорданова базиса общего вида).} Пусть $A \in M_n(\mathbb{C})$, базис пространства $\mathbb{C}^n$ состоит из жордановых цепочек
+\begin{equation*}
+    \begin{aligned}
+         & \lambda_1 \sim h_1, h_2, \ldots, h_k \\
+         & \ldots                               \\
+         & \lambda_d \sim u_1, u_2, \ldots, u_m
+    \end{aligned}
+\end{equation*}
+соответствующих $\lambda_1, \ldots, \lambda_d \in spec\, A$. Тогда вектор-функции
+\begin{equation*}
+    \begin{aligned}
+         & \varphi_1(t) = e^{\lambda_1 t}h_1, \quad \ldots, \quad \varphi_k(t) = e^{\lambda_1 t}\left(\frac{t^{k-1}}{(k-1)!}h_1 + \ldots + \frac{t}{1!}h_{k-1} + h_k \right) \\
+         & \ldots                                                                                                                                                            \\
+         & \psi_1(t) = e^{\lambda_d t}u_1, \quad \ldots, \quad \psi_m(t) = e^{\lambda_d t}\left(\frac{t^{m-1}}{(m-1)!}u_1 + \ldots + \frac{t}{1!}u_{m-1} + u_m \right)
+    \end{aligned}
+\end{equation*}
+образуют фундаментальную систему решений системы $\dot{r} = Ar$.\\
+
+\noindent \textbf{Доказательство.} По вышедоказанной лемме каждая из вектор-функций
+\begin{equation*}
+    \varphi_1, \ldots, \varphi_k, \ldots, \psi_1, \ldots, \psi_m
+\end{equation*}
+является решением. Их вронскиан
+\begin{equation*}
+    W(0) = det(h_1, \ldots, h_k, \ldots, u_1, \ldots, u_m) \neq 0
+\end{equation*}
+Тогда вектор-функции $\{\varphi_1, \ldots, \varphi_k, \ldots, \psi_1, \ldots, \psi_m\}$ линейно независимы, а значит, образуют фундаментальную систему решений.\\
+
+\noindent \textbf{Определение.} \textbf{Матричной экспонентой} называется сумма ряда
+\begin{equation*}
+    e^{A} = \sum_{k = 0}^{\infty} \frac{A^k}{k!}
+\end{equation*}
+\\
+\noindent \textbf{Свойства матричной экспоненты.} Пусть $A$, $B$, $J$, $T \in M_n(\mathbb{C})$, $det\, T \neq 0$, $t \in \mathbb{R}$. Тогда
+\begin{enumerate}
+    \item ряд, определяющий $e^A$, сходится
+    \item если $AB = BA$, то $e^{A+B} = e^{A}e^{B}$
+    \item $\frac{d}{dt}e^{At} = Ae^{At}$
+    \item если $A = TJT^{-1}$, то $e^A = Te^JT^{-1}$
+    \item если $A = diag(A_1, A_2, \ldots, A_d)$, то $e^A = diag(e^{A_1}, e^{A_2}, \ldots, e^{A_d})$
+    \item если $J_s(\lambda)$ --- жорданова клетка размера $s$:
+          \begin{equation*}
+              J_s(\lambda) = \begin{pmatrix}
+                  \lambda & 1       & 0       & \ldots & 0       \\
+                  0       & \lambda & 1       & \ldots & 0       \\
+                  0       & 0       & \lambda & \ldots & 0       \\
+                  \ldots                                         \\
+                  0       & 0       & 0       & \ldots & \lambda
+              \end{pmatrix}
+          \end{equation*}
+          то
+          \begin{equation*}
+              e^{J_s(\lambda)t} = \begin{pmatrix}
+                  1 & t & \frac{t^2}{2!} & \ldots & \frac{t^{s-1}}{(s-1)!} \\
+                  0 & 1 & t              & \ldots & \frac{t^{s-2}}{(s-2)!} \\
+                  0 & 0 & 1              & \ldots & \frac{t^{s-3}}{(s-3)!} \\
+                  \ldots                                                   \\
+                  0 & 0 & 0              & \ldots & 1
+              \end{pmatrix}
+          \end{equation*}
+\end{enumerate}
+
+\noindent \textbf{Теорема.} Пусть $A \in M_n(\mathbb{C})$. Тогда матрица $e^{At}$ является фундаментальной матрицей системы $\dot{r} = Ar$.
+
+\noindent \textbf{Доказательство.} По свойствам матричной экспоненты будет $\frac{d}{dt}e^{At} = Ae^{At}$. Следовательно, каждый столбец матрицы $e^{At}$ --- решение системы $\dot{r} = Ar$. Соответствующий вронскиан
+\begin{equation*}
+    W(0) = \det\, e^{A\cdot 0} = \det E_n = 1
+\end{equation*}
+где $E_n$ --- единичная матрица порядка $n$. Отсюда следует, что $e^{At}$ --- фундаментальная матрица.\\
+
+\noindent \textbf{Следствие.} Пусть $A \in M_n(\mathbb{C})$, $t_0 \in \mathbb{R}$, $r_0 \in \mathbb{C}^n$. Тогда решением задачи
+\begin{equation*}
+    \dot{r} = Ar, \quad r(t_0) = r_0
+\end{equation*}
+является вектор-функция $\varphi(t) = e^{A(t - t_0)}r_0$
+
 \subsection*{18. Общее решение ЛНС и метод вариации постоянных.}
+
+\textbf{Теорема (Общее решение ЛНС).} Пусть $P \in M_n(C(a,b))$, $q \in C((a,b) \to \mathbb{R}^n)$, $\varphi$ --- решение системы
+\begin{equation}
+    \dot{r} = P(t)r + q(t) \label{lnusyst2}
+\end{equation}
+$\Phi$ --- фундаментальная матрица системы
+\begin{equation*}
+    \dot{r} = P(t)r
+\end{equation*}
+Тогда общее решение неоднородной системы \eqref{lnusyst2} имеет вид
+\begin{equation*}
+    r = \Phi C + \varphi, \quad C \in \mathbb{R}^n
+\end{equation*}
+\textbf{Доказательство.} Пусть $r$ --- произвольное решение \eqref{lnusyst2}. Тогда
+\begin{equation*}
+    \dot{r} = Pr + q
+\end{equation*}
+Функция $\varphi$ удовлетворяет такому же соотношению:
+\begin{equation*}
+    \dot{\varphi} = P\varphi + q
+\end{equation*}
+Вычитая эти равенства, находим
+\begin{equation*}
+    (r - \varphi)' = P(r - \varphi)
+\end{equation*}
+Значит, найдется вектор-столбец $C \in \mathbb{R}^n$, такой что
+\begin{equation*}
+    r - \varphi = \Phi C
+\end{equation*}
+
+Верно и обратное: любая функция вида $\Phi C + \varphi$ являются решением \eqref{lnusyst2}, что проверяется непосредственной подстановкой.\\
+
+\noindent \textbf{Теорема (метод вариации постоянных для ЛНС).} Пусть $\Phi$ --- фундаментальная матрица системы $\dot{r} = P(t)r$, $P \in M_n(C(a,b))$, $q \in C((a,b) \to \mathbb{R}^n)$. Тогда если вектор-функция $C$ пробегает все решения системы
+\begin{equation*}
+    \Phi\dot{C} = q
+\end{equation*}
+то $r = \Phi C$ пробегает все решения системы \eqref{lnusyst2}\\
+
+\noindent \textbf{Доказательство.} Опираясь на формулу для обратной матрицы, использующей алгебраические дополнения, заключаем, что $\Phi^{-1} \in M_n(C(a,b))$. Поэтому
+\begin{equation*}
+    C(t) = \int \Phi^{-1}q + A
+\end{equation*}
+где $A$ --- вектор произвольных постоянных. Тогда требуется доказать, что общее решение системы \eqref{lnusyst2} имеет вид
+\begin{equation*}
+    r = \Phi A + \Phi \int \Phi^{-1}q
+\end{equation*}
+По теореме об общем решении ЛНС достаточно показать, что второе слагаемое в правой части --- частное решение системы \eqref{lnusyst2}. Убедимся в этом подстановкой:
+\begin{equation*}
+    \dot{\Phi}\int \Phi^{-1}q + \Phi\Phi^{-1}q = P(t)\Phi \int \Phi^{-1}q + q
+\end{equation*}
+Это верное тождество, поскольку $P(t)\Phi = \dot{\Phi}$.
 
 \subsection*{19. Теорема об изоморфизме решений ЛОС и ЛОУ, формула Остроградского–Лиувилля для решений ЛОУ. Метод вариации постоянных для ЛНУ.}
 
+\textbf{Определение.} \textbf{Линейным дифференциальным уравнением} порядка $n$ называется уравнение вида
+\begin{equation}
+    y^{(n)} + p_{n-1}(t)y^{(n - 1)} + \ldots + p_1(t)\dot{y} + p_0(t)y = q(t) \label{lndu}
+\end{equation}
+где $p_0, p_1, \ldots, p_{n-1}, q \in C(a,b)$.\\
+
+\noindent \textbf{Определение.} Если $q \equiv 0$ на $(a,b)$, то уравнение \eqref{lndu}, то есть
+\begin{equation}
+    y^{(n)} + p_{n-1}(t)y^{(n - 1)} + \ldots + p_1(t)\dot{y} + p_0(t)y = 0 \label{lnou}
+\end{equation}
+называется \textbf{однородным}, в противном случае --- \textbf{неоднородным}.\\
+
+\noindent \textbf{Лемма (О равносильной ЛС).} Если функция $y$ --- решение уравнения \eqref{lndu} на $(a,b)$, то вектор-функция $\Lambda_n y = (y, \dot{y}, \ldots, y^{(n-1)})$ --- решение системы
+\begin{equation}
+    \dot{r} = P(t)r + Q(t) \label{ravn}
+\end{equation}
+где
+\begin{equation*}
+    P = \begin{pmatrix}
+        0    & 1    & 0    & \ldots & 0          \\
+        0    & 0    & 1    & \ldots & 0          \\
+        \ldots                                   \\
+        0    & 0    & 0    & \ldots & 1          \\
+        -p_0 & -p_1 & -p_2 & \ldots & -p_{n - 1}
+    \end{pmatrix}, \quad Q = \begin{pmatrix}
+        0      \\
+        0      \\
+        \ldots \\
+        0      \\
+        q
+    \end{pmatrix}
+\end{equation*}
+
+И наоборот, если $r = (y_1, y_2, \ldots, y_n)$ --- решение системы \eqref{ravn}, то $y_1$ --- решение \eqref{lndu} на $(a,b)$ и $r = \Lambda_n y_1$.\\
+
+\noindent \textbf{Теорема (Об изоморфизме).} Пусть $p_0, p_1, \ldots, p_{n-1} \in C(a,b)$. Тогда множество решений однородного уравнения \eqref{lnou} является линейным пространством, изоморфным пространству решений системы
+\begin{equation}
+    \dot{y} = P(t)y \label{izomorf}
+\end{equation}
+где матрица $P$ та же, что и в лемме о равносильной ЛС. При этом изоморфизм устанавливается отображением $\Lambda_n$.\\
+
+\noindent \textbf{Доказательство.} Любое решение уравнения \eqref{lnou} по теореме о существовании и единственности максимального решения ЛУ является элементом линейного пространства $C^n(a,b)$. Кроме того, сумма двух решений, а также решение, умноженное на произвольное число, также являются решениями. Поэтому множество всех решений само образует линейное пространство.
+
+Лемма о равносильной ЛС устанавливает биекцию между решениями уравнения и равносильной системы. Отображение $\Lambda_n$ линейно. Таким образом, $\Lambda_n$ --- изоморфизм.\\
+
+\noindent \textbf{Определение.} \textbf{Определителем Вронского} (или \textbf{вронскианом}) функций $y_1, y_2, \ldots, y_n \in C^{n-1}(a,b)$ называют
+\begin{equation*}
+    W(t) = \begin{vmatrix}
+        y_1(t)         & y_2(t)         & \ldots & y_n(t)         \\
+        \dot{y}_1(t)   & \dot{y}_2(t)   & \ldots & \dot{y}_n(t)   \\
+        \ldots                                                    \\
+        y_1^{(n-1)}(t) & y_2^{(n-1)}(t) & \ldots & y_n^{(n-1)}(t)
+    \end{vmatrix}
+\end{equation*}
+
+\noindent \textbf{Теорема (Формула Остроградского-Лиувилля для решений ЛОУ).} Пусть $t, t_0 \in (a,b)$, $p_0, p_1, \ldots, p_{n-1} \in C(a,b)$, $\{y_k\}_{k=1}^n$ --- решения линейного однородного уравнения \eqref{lnou}. Тогда вронскиан этих решений
+\begin{equation*}
+    W(t) = W(t_0)\exp \int_{t_0}^t (-p_{n-1}(\tau))d\tau
+\end{equation*}
+\textbf{Доказательство.} Принимая во внимание формулу Остроградского-Лиувилля для решений ЛОС и лемму о равносильной ЛС, находим
+\begin{equation*}
+    \begin{aligned}
+         & W(y_1,\ldots, y_n) = W(\Lambda y_1,\ldots, \Lambda y_n) =                                  \\
+         & = W(t_0)\exp \int_{t_0}^t tr\,P(\tau)d\tau = W(t_0)\exp \int_{t_0}^t (-p_{n-1}(\tau))d\tau
+    \end{aligned}
+\end{equation*}
+
+\noindent \textbf{Теорема (метод вариации постоянных для ЛНУ).} Пусть $\{y_k\}_{k=1}^n$ --- фундаментальная система решений однородного уравнения \eqref{lnou}. Тогда если функции $\{C_k\}$ пробегают все решения системы
+\begin{equation*}
+    \begin{pmatrix}
+        y_1         & y_2         & \ldots & y_n          \\
+        \dot{y}_1   & \dot{y}_2   & \ldots & \dot{y}_n    \\
+        \ldots                                            \\
+        y_1^{(n-2)} & y_2^{(n-2)} & \ldots & y_n^{(n -2)} \\
+        y_1^{(n-1)} & y_2^{(n-1)} & \ldots & y_n^{(n-1)}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \dot{C}_{1}   \\
+        \dot{C}_{2}   \\
+        \ldots        \\
+        \dot{C}_{n-1} \\
+        \dot{C}_{n}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0      \\
+        0      \\
+        \ldots \\
+        0      \\
+        q
+    \end{pmatrix}
+\end{equation*}
+то $y = \displaystyle\sum_{k = 1}^n C_ky_k$ пробегает все решения уравнения \eqref{lndu}.\\
+
+\noindent \textbf{Доказательство.} По теореме о методе вариации постоянных для ЛС общее решение системы, равносильной уравнению \eqref{lndu}, имеет вид
+\begin{equation*}
+    r = \sum_{k=1}^n C_k \Lambda y_k
+\end{equation*}
+где функции $C_1, \ldots, C_n$ удовлетворяют системе
+\begin{equation*}
+    (\Lambda y_1, \ldots, \Lambda y_n)
+    \begin{pmatrix}
+        \dot{C}_{1}   \\
+        \ldots        \\
+        \dot{C}_{n-1} \\
+        \dot{C}_{n}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0      \\
+        \ldots \\
+        0      \\
+        q
+    \end{pmatrix}
+\end{equation*}
+
+По лемме о равносильной ЛС первая строка вектора $r$ --- общее решение уравнения \eqref{lndu}.
+
 \subsection*{20. Общее решение ЛОУ с постоянными коэффициентами.}
 
-% \subsection*{21. Теорема об устойчивости ЛОС с постоянными коэффициентами.}
+\textbf{Определение.} \textbf{Линейным дифференциальным уравнением с постоянными коэффициентами} называют уравнение вида
+\begin{equation}
+    y^{(n)} + a_{n - 1}y^{(n-1)} + \ldots + a_1\dot{y} + a_0y = f(t) \label{lupost}
+\end{equation}
+где $a_0, a_1, \ldots, a_{n-1} \in \mathbb{C}$, $f \in C(a,b)$.\\
 
-% \subsection*{22. Классификация точек покоя ЛОС 2-го порядка (случай вещественных корней).}
+В дальнейшем для краткости используется обозначение
+\begin{equation*}
+    Ly = \frac{d^n}{dt^n}y + a_{n-1}\frac{d^{n-1}}{dt^{n-1}}y + \ldots + a_1\frac{d}{dt}y + a_0y = \left(\sum_{k = 0}^n a_k\frac{d^k}{dt^k} \right)y
+\end{equation*}
+где $a_n = 1$. При помощи оператора $L$ уравнение \eqref{lupost} записывается в виде
+\begin{equation*}
+    Ly = f(t)
+\end{equation*}
 
-% \subsection*{23. Классификация точек покоя ЛОС 2-го порядка (случай комплексных корней).}
+Рассмотрим линейное однородное уравнение
+\begin{equation}
+    Ly = 0 \label{lodnpost}
+\end{equation}
+Применяя оператор $L$ к функции $e^{\lambda t}$, находим
+\begin{equation*}
+    L(e^{\lambda t}) = \sum_{k = 0}^n a_k\frac{d^k}{dt^k}e^{\lambda t} = \left(\sum_{k = 0}^n a_k\lambda^k \right)e^{\lambda t}
+\end{equation*}
 
-% \subsection*{24. Теорема Ляпунова об устойчивости.}
+\noindent \textbf{Определение.} Многочлен
+\begin{equation*}
+    p(\lambda) = \lambda^n + a_{n-1}\lambda^{n-1} + \ldots + a_1\lambda + a_0
+\end{equation*}
+называется \textbf{характеристическим многочленом} уравнения \eqref{lupost}, а его корни --- \textbf{характеристическими числами} уравнения \eqref{lupost}.\\
+
+Если $\lambda$ --- корень характеристического многочлена, то получаем $L(e^{\lambda t}) \equiv 0$. Верно и обратное: если $e^{\lambda t}$ --- решение однородного уравнения \eqref{lodnpost}, то $\lambda$ --- корень многочлена $p$. Докажем более общее утверждение.\\
+
+\noindent \textbf{Лемма.} Пусть $\lambda \in \mathbb{C}$ --- корни кратности $m \in \mathbb{N}$ характеристического многочлена уравнения \eqref{lodnpost}. Тогда функции
+\begin{equation*}
+    e^{\lambda t}, te^{\lambda t}, \ldots, t^{m-1}e^{\lambda t}
+\end{equation*}
+являются решениями \eqref{lodnpost}.\\
+
+\noindent \textbf{Доказательство.} Убедимся подстановкой в уравнение \eqref{lodnpost}, что указанные функции являются решениями.
+
+Пусть $k \in [0 : m-1]$. Считая $\lambda$ переменной, в силу бесконечной дифференцируемости функции $e^{\lambda t}$ при любом $j \in \mathbb{Z}_{+}$ будет
+\begin{equation*}
+    \frac{\partial^j}{\partial t^j}\frac{\partial^k}{\partial \lambda^k}e^{\lambda t} = \frac{\partial^k}{\partial\lambda^k}\frac{\partial^j}{\partial t^j}e^{\lambda t}
+\end{equation*}
+Тогда
+\begin{equation*}
+    L(t^ke^{\lambda t}) = L\left(\frac{\partial^k}{\partial\lambda^k}e^{\lambda t} \right) = \frac{\partial^k}{\partial\lambda^k}L(e^{\lambda t})
+\end{equation*}
+Применяя формулу Лейбница, имеем
+\begin{equation*}
+    \frac{\partial^k}{\partial\lambda^k}L(e^{\lambda t}) = \frac{\partial^k}{\partial\lambda^k} (p(\lambda)e^{\lambda t}) = \sum_{j = 0}^k C_k^j p^{(j)}(\lambda)\frac{\partial^{k - j}}{\partial\lambda^{k - j}} e^{\lambda t}
+\end{equation*}
+Подставляя вместо $\lambda$ корень кратности $m$ многочлена $p$, получаем ноль, поскольку при $j \in [0 : k]$ обнуляются значения $p^{(j)}(\lambda)$.\\
+
+\noindent \textbf{Лемма (Линейная независимость квазиодночленов).} Пусть $k_j \in \mathbb{Z}_{+}$, $\lambda_j \in \mathbb{C}$ при $j \in [1 : n]$, $\{(k_j,\lambda_j)\}_{j=1}^n$ --- различные пары чисел. Тогда функции $\{t^{k_j}e^{\lambda_jt}\}_{j=1}^n$ линейно независимы на любом промежутке из $\mathbb{R}$.\\
+
+\noindent \textbf{Доказательство.} Разобьем множество пар $(k_1, \lambda_1), \ldots, (k_n, \lambda_n)$ на группы с одинаковым вторым элементом. Если такая группа одна, то линейная независимость следует из линейной независимости одночленов.
+
+Допустим, что линейная независимость доказана, если количество групп равно $m$. Предположим, что в случае $m + 1$ группы некоторая нетривиальная линейная комбинация этих функций тождественно равна нулю. Объединяя слагаемые с одинаковыми экспонентами и изменяя нумерацию чисел $\lambda_i$, имеем
+\begin{equation*}
+    p_1(t)e^{\lambda_1 t} + p_2(t)e^{\lambda_2 t} + \ldots + p_{m+1}(t)e^{\lambda_{m+1}t} \equiv 0
+\end{equation*}
+где $p_i$ --- многочлены, а числа $\lambda_i$ различны. Деля обе части на $e^{\lambda_{m+1}t}$, получаем
+\begin{equation*}
+    p_1(t)e^{(\lambda_1 - \lambda_{m+1}) t} + p_2(t)e^{(\lambda_2 - \lambda_{m+1}) t} + \ldots + p_m(t)e^{(\lambda_m - \lambda_{m+1}) t} + p_{m+1}(t) \equiv 0
+\end{equation*}
+
+Дифференцируя это тождество $deg\, p_{m+1} + 1$ раз, находим
+\begin{equation}
+    q_1(t)e^{(\lambda_1 - \lambda_{m+1}) t} + q_2(t)e^{(\lambda_2 - \lambda_{m+1}) t} + \ldots + q_m(t)e^{(\lambda_m - \lambda_{m+1}) t} \equiv 0 \label{diffeq}
+\end{equation}
+где при всех $i \in [1:m]$ многочлен $q_i$ имеет ту же степень, что и $p_i$.
+
+Значит, если для некоторого $i$ будет $p_i \not\equiv 0$, то и $q_i \not\equiv 0$. Следовательно, в левой части тождества \eqref{diffeq} находится нетривиальная линейная комбинация квазиодночленов. Это противоречит индукционному предположению.\\
+
+\noindent \textbf{Теорема (Общее решение ЛОУ с постоянными коэффициентами).} Пусть $\lambda_1, \lambda_2, \ldots, \lambda_s \in \mathbb{C}$ --- характеристические числа уравнения \eqref{lodnpost} кратностей $m_1, m_2, \ldots, m_s \in \mathbb{N}$. Тогда функции
+\begin{equation}
+    \begin{aligned}
+         & e^{\lambda_1 t}, te^{\lambda_1 t}, \ldots, t^{m_1 - 1}e^{\lambda_1 t} \\
+         & \ldots                                                                \\
+         & e^{\lambda_s t}, te^{\lambda_s t}, \ldots, t^{m_s - 1}e^{\lambda_s t}
+    \end{aligned} \label{fundsyst}
+\end{equation}
+образуют фундаментальную систему решений уравнения \eqref{lodnpost}.\\
+
+\noindent \textbf{Доказательство.} Указанные функции являются решениями \eqref{lodnpost}, а по лемме о линейной независимости квазиодночленов они линейно независимы. Так как сумма всех кратностей равна порядку уравнения, то эти функции образуют фундаментальную систему решений.
+
+\subsection*{21. Теорема об устойчивости ЛОС с постоянными коэффициентами.}
+\textbf{Определение.} \textbf{Точкой покоя}, или \textbf{положением равновесия}, или \textbf{стационарным состоянием} системы $\dot{r} = f(r)$ называют точку $r_0$, такую что $f(r_0) = 0$.\\
+
+\noindent \textbf{Определение.} Положение равновесия $r = 0$ автономной системы $\dot{r} = f(r)$ называется \textbf{усточивым (по Ляпунову)}, если для любой $\varepsilon$-окрестности нуля найдется такая $\delta$-окрестность нуля, что любое решение, выходящее из этой $\delta$-окрестности, во все будущие моменты времени отличается от нуля менее, чем на $\varepsilon$. То есть
+\begin{equation*}
+    \forall \varepsilon > 0 \, \exists \delta > 0:\, |r_0| < \delta \implies \forall t \ge 0 \, |r(t,0,r_0)| < \varepsilon
+\end{equation*}
+В противном случае положение равновесия называется \textbf{неустойчивым}.\\
+
+\noindent \textbf{Определение.} Положение равновесия $r = 0$ автономной системы $\dot{r} = f(r)$ называется \textbf{асимптотически устойчивым}, если
+\begin{itemize}
+    \item $r = 0$ устойчиво
+    \item все решения, начинающиеся в некоторой окрестности нуля, в будущем стремятся к нулю, то есть
+          \begin{equation*}
+              \exists \delta > 0:\, |r_0| < \delta \implies r(t,0,r_0) \to 0\, \text{при } t \to +\infty
+          \end{equation*}
+\end{itemize}
+
+\noindent \textbf{Лемма} Пусть $\varphi$ --- решение системы $\dot{r} = f(t,r)$. Тогда $\varphi$ устойчиво (асимптотически устойчиво), если и только если устойчиво (асимптотически устойчиво) решение $s = 0$ системы
+\begin{equation*}
+    \dot{s} = f(t, s + \varphi) - f(t, \varphi)
+\end{equation*}
+\noindent \textbf{Доказательство.} Положим $s = r - \varphi$. Пусть $\dot{r} = f(t,r)$, тогда
+\begin{equation*}
+    \dot{s} = \dot{r} - \dot{\varphi} = f(t,r) - f(t,\varphi) = f(t, s + \varphi) - f(t,\varphi)
+\end{equation*}
+Получаем, что $s = 0$ --- решение системы $\dot{s} = f(t, s + \varphi) - f(t,\varphi)$. Остается сопоставить определение устойчивости (асимптотической устойчивости) для решения $\varphi$ исходной и решения $s = 0$ новой системы.\\
+
+Из вышедоказанной леммы следует, что решение $\varphi$ линейной системы
+\begin{equation*}
+    \dot{r} = P(t)r + q(t)
+\end{equation*}
+устойчиво (асимптотически устойчиво), если и только если устойчиво (асимптотически устойчиво) решение $r = 0$ соответствующей линейной однородной системы
+\begin{equation*}
+    \dot{r} = P(t)r
+\end{equation*}
+Отсюда, в частности, вытекает, что все решения линейной системы имеют одинаковый характер устойчивости, поэтому можно говорить об устойчивости линейной системы.\\
+
+\noindent \textbf{Теорема (Устойчивость ЛОС с постоянными коэффициентами).} Пусть $A \in M_n(\mathbb{R})$. Тогда система
+\begin{equation}
+    \dot{r} = Ar \label{lodnpost2}
+\end{equation}
+\begin{enumerate}
+    \item асимптотически устойчива, если $Re \lambda < 0$ для всех $\lambda \in spec\, A$
+    \item устойчива, если для каждого $\lambda \in spec\, A$ либо $Re\lambda < 0$, либо $Re \lambda = 0$ и алгебраическая кратность числа $\lambda$ совпадает с геометрической
+    \item неустойчива, если найдется $\lambda \in spec\, A$, такое что либо $Re \lambda > 0$, либо $Re\lambda = 0$ и алгебраическая кратность числа $\lambda$ больше геометрической
+\end{enumerate}
+\noindent \textbf{Доказательство.} Через $T$ обозначим матрицу перехода к жорданову базису матрицы $A$, $J$ --- жорданова форма матрицы $A$.
+
+Любое решение системы \eqref{lodnpost2} имеет вид
+\begin{equation*}
+    r(t) = e^{At}r(0) = Te^{Jt}T^{-1}r(0)
+\end{equation*}
+Принимая во внимание лемму о норме матрицы, получаем
+\begin{equation}
+    |r(t)| \le n^3 |T||e^{Jt}||T^{-1}||r(0)| = K |e^{Jt}||r(0)| \label{norm}
+\end{equation}
+где $K > 0$ не зависит от $t$. Обозначим через $a_{ij}(t)$ элементы матрицы $e^{Jt}$.
+\begin{enumerate}
+    \item Каждая функция $a_{ij}(t)$ имеет вид $Ce^{\lambda t}t^k$, где $\lambda$ --- одно из собственных чисел. Поскольку $Re \lambda < 0$, то для всех $i, j$ будет $a_{ij}(t) \to 0$ при $t \to +\infty$, следовательно,
+          \begin{equation*}
+              |e^{Jt}| \to 0 \quad \text{при } t \to +\infty
+          \end{equation*}
+          Тогда из оценки \eqref{norm} следует устойчивость и асимптотическая устойчивость нулевого решения.
+    \item Каждая функция $a_{ij}(t)$ имеет вид $Ce^{\lambda t}t^k$, но теперь $k = 0$, если $Re \lambda = 0$. Следовательно, существует такое число $M$, что при всех $t \le 0$
+          \begin{equation*}
+              |e^{Jt}| < M
+          \end{equation*}
+          Поэтому из оценки \eqref{norm} следует устойчивость нулевого решения.
+    \item Пусть существует собственное число $\lambda = \alpha + i\beta$, где $\alpha > 0$. Обозначим через $h$ соответствующий собственный вектор. Тогда вектор-функция
+          \begin{equation*}
+              \varphi(t) = e^{\lambda t}h
+          \end{equation*}
+          является комплексным решением \eqref{lodnpost2}.
+
+          Если же имеется собственное число $\lambda = i\beta$, $\beta \neq 0$, алгебраическая кратность которого больше геометрической, то система \eqref{lodnpost2} имеет комплексное решение
+          \begin{equation*}
+              \varphi(t) = e^{i\beta t}(th_1 + h_2)
+          \end{equation*}
+          где $h_1, h_2$ --- собственный и присоединенный вектор, соответствующие число $\lambda$.
+
+          Заметим, что в обоих случаях $|\varphi(t)| \to +\infty$ при $t \to +\infty$. Следовательно, хотя бы одна из вектор-функций, $Re\varphi(t)$ или $Im\varphi(t)$, является неограниченным вещественным решением \eqref{lodnpost2}. Пусть таковой является $Re\varphi(t)$. Тогда выбирая в качестве начального условия
+          \begin{equation*}
+              r(0) = \mu Re\varphi(0)
+          \end{equation*}
+          при достаточно малом $\mu$, получаем неограниченное решение с начальным значением в сколь угодно малой окрестности нуля. Отсюда следует, что нулевое решение неустойчиво.
+\end{enumerate}
+
+\subsection*{22. Классификация точек покоя ЛОС 2-го порядка (случай вещественных корней).}
+
+Исследуем подробно поведение траекторий в окрестности точки покоя линейной системы
+\begin{equation*}
+    \dot{r} = Ar
+\end{equation*}
+если $A \in M_2(\mathbb{R})$. Пусть $\det A \neq 0$, тогда имеется единственное положение равновесия $r = 0$ и собственные числа $\lambda_1, \lambda_2$ матрицы $A$ отличны от нуля.\\
+
+\noindent \textbf{Случай $\lambda_1 \neq \lambda_2$}
+
+Перейдем в систему координат $u, v$, связанную с собственным базисом $h_1, h_2$. Подставляя в уравнение $r = Ts$, где $s = (u, v)^T$, $T = (h_1, h_2)$, получаем
+\begin{equation*}
+    T\dot{s} = ATs
+\end{equation*}
+Умножая слева на $T^{-1}$, находим
+\begin{equation*}
+    \dot{s} = T^{-1}ATs
+\end{equation*}
+Так как $T^{-1}AT = diag(\lambda_1, \lambda_2)$, то в новых координатах система имеет вид
+\begin{equation*}
+    \begin{cases}
+        \dot{u} = \lambda_1 u \\
+        \dot{v} = \lambda_2 v
+    \end{cases}
+\end{equation*}
+Ее решение $u = C_1e^{\lambda_1 t}$, $v = C_2e^{\lambda_2 t}$.
+
+Если одна, и только одна из констант $C_1$ и $C_2$ равна нулю, то получаем параметрическое задание одной из полуосей. Заметим еще, что изменение знака одной из констант преобразует фазовую траекторию в симметричную ей относительно координатной оси. Таким образом, достаточно изучить фазовый портрет только в первой четверти.
+
+Пусть $C_1 > 0$, $C_2 > 0$. Выражая $t$ через $u$ и подставляя в выражение для $v$, находим
+\begin{equation*}
+    v = C_2\left(\frac{u}{C_1} \right)^{\frac{\lambda_2}{\lambda_1}} = Cu^{\frac{\lambda_2}{\lambda_1}}
+\end{equation*}
+
+При $0 < \lambda_1 < \lambda_2$ получается семейство парабол. Функции $u$ и $v$ возрастают, следовательно, фазовые траектории расходятся от начала координат. Отражая траектории относительно координатных осей, получаем фазовый портрет во всей плоскости (см. \hyperref[neustuzel]{рисунок}). Такая точка покоя называется \textbf{неустойчивый узел}.
+
+\begin{figure}[H]\label{neustuzel}
+    \center{\includegraphics[scale=0.5]{images/neust_uzel.png}}
+    \caption{Неустойчивый узел в старой и новой системе координат}
+\end{figure}
+
+При возвращении к прежней системе координат фазовый портрет исказится, но качественное поведение траекторий не изменится. Это замечание относится и ко всем последующим случаям.
+
+Если $\lambda_2 < \lambda_1 < 0$, то уравнение фазовых траекторий не меняется, но изменяется направление движения. Теперь фазовые точки стремятся к началу координат. Соответствующее положение равновесия --- \textbf{устойчивый узел} (см. \hyperref[ustuzel]{рисунок}).
+
+\begin{figure}[H]\label{ustuzel}
+    \center{\includegraphics[scale=0.5]{images/ust_uzel.png}}
+    \caption{Устойчивый узел}
+\end{figure}
+
+Если $\lambda_1 < 0 < \lambda_2$, то $v = Cu^{\frac{\lambda_2}{\lambda_1}}$ --- уравнение гиперболы. Соотношения $u = C_1e^{\lambda_1 t} \to 0$, $v = C_2e^{\lambda_2 t} \to \infty$ при $t \to +\infty$ дают представление о направлении движения вдоль фазовых траекторий. Точка покоя называется \textbf{седло} (см. \hyperref[sedlo]{рисунок}), она неустойчива. Асимптоты фазовых траекторий называют \textbf{сепаратрисами седла}. В старой системе координат сепаратрисы проходят вдоль собственных векторов матрицы коэффициентов.
+
+\begin{figure}[H]\label{sedlo}
+    \center{\includegraphics[scale=0.5]{images/sedlo.png}}
+    \caption{Седло}
+\end{figure}
+
+\noindent \textbf{Случай $\lambda_1 = \lambda_2$}
+
+Если геометрическая кратность собственного числа $\lambda = \lambda_{1,2}$ равна двум, то $A = diag(\lambda, \lambda)$. Тогда решения системы $x = C_1e^{\lambda t}$, $y = C_2e^{\lambda t}$. Исключая отсюда параметр $t$ получаем, что фазовые траектории --- лучи, входящие в начало координат при $\lambda < 0$, и выходящие из него, если $\lambda > 0$. Соответствующая точка покоя --- устойчивый или неустойчивый \textbf{дикритический узел} (см. \hyperref[dikrit]{рисунок}).
+
+\begin{figure}[H]\label{dikrit}
+    \center{\includegraphics[scale=0.5]{images/dikrit.png}}
+    \caption{Устойчивый и неустойчивый дикритический узел}
+\end{figure}
+
+Пусть собственное число $\lambda$ имеет геометрическую кратность $1$. Подставляя в систему $r = Ts$, где $T$ --- матрица перехода к жорданову базису, получаем
+\begin{equation*}
+    \dot{s} =
+    \begin{pmatrix}
+        \lambda & 1       \\
+        0       & \lambda
+    \end{pmatrix}
+    s
+\end{equation*}
+Тогда
+\begin{equation*}
+    s = C_1e^{\lambda t}
+    \begin{pmatrix}
+        1 \\
+        0
+    \end{pmatrix}
+    + C_2e^{\lambda t} (t
+    \begin{pmatrix}
+        1 \\
+        0
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+        0 \\
+        1
+    \end{pmatrix}
+    )
+\end{equation*}
+Следовательно, $u = C_1e^{\lambda t} + C_2te^{\lambda t}$, $v = C_2e^{\lambda t}$.
+
+Заметим, что одновременная замена знака у постоянных $C_1$ и $C_2$ переводит фазовую траекторию в симметричную ей относительно начала координат. При $C_1 \neq 0$, $C_2 = 0$ функции $u$ и $v$ определяют полуоси координатной оси $u$. Таким образом, достаточно изучить фазовый портрет при $v > 0$.
+
+Выражая параметр $t$ через $v$ и подставляя его в выражение для $u$, находим уравнение траекторий
+\begin{equation*}
+    u = Cv + \frac{\ln{v}}{\lambda}v
+\end{equation*}
+где $C = \frac{C_1}{C_2}$. Производная $u'_v$ указывает на то, что все фазовые траектории касаются оси $u$ при $v \to 0$ (см. \hyperref[virozhd]{рисунок}). Соответствующая точка покоя --- \textbf{вырожденный узел} (устойчивый при $\lambda < 0$ и неустойчивый при $\lambda > 0$).
+
+\begin{figure}[H]\label{virozhd}
+    \center{\includegraphics[scale=0.5]{images/virozhd.png}}
+    \caption{Устойчивый и неустойчивый вырожденный узел}
+\end{figure}
+
+\subsection*{23. Классификация точек покоя ЛОС 2-го порядка (случай комплексных корней).}
+
+Исследуем подробно поведение траекторий в окрестности точки покоя линейной системы
+\begin{equation*}
+    \dot{r} = Ar
+\end{equation*}
+если $A \in M_2(\mathbb{R})$. Пусть $\det A \neq 0$, тогда имеется единственное положение равновесия $r = 0$ и собственные числа $\lambda_1, \lambda_2$ матрицы $A$ отличны от нуля.\\
+
+\noindent \textbf{Случай $\lambda_1, \lambda_2 \in \mathbb{C}$, $Im\, \lambda_{1,2} \neq 0$}
+
+Поскольку матрица $A$ вещественная, то $\lambda_1 = \overline{\lambda_2}$. Пусть $\lambda = \lambda_1$, $h$ --- соответствующий собственный вектор. Тогда $Re\, h$, $Im\, h$ --- базис в $\mathbb{R}^2$. Поскольку
+\begin{equation*}
+    Re\, h = \frac{h + \overline{h}}{2}, \quad Im\, h = \frac{h - \overline{h}}{2i} = \frac{-ih + i\overline{h}}{2}
+\end{equation*}
+то матрица перехода $T$ к базису $Re\, h$, $Im\, h$ представима в виде
+\begin{equation*}
+    T = (Re\, h, Im\, h) = \frac{1}{2}(h,\overline{h})
+    \begin{pmatrix}
+        1 & -i \\
+        1 & i
+    \end{pmatrix}
+\end{equation*}
+
+Пусть $H = (h, \overline{h})$ --- матрица перехода к собственному базису. Подставляя $r = Ts$ в уравнение $\dot{r} = Ar$, находим
+\begin{equation*}
+    \frac{1}{2}H
+    \begin{pmatrix}
+        1 & -1 \\
+        1 & i
+    \end{pmatrix}
+    \dot{s} = A\frac{1}{2}H
+    \begin{pmatrix}
+        1 & -1 \\
+        1 & i
+    \end{pmatrix}
+    s
+\end{equation*}
+Сокращая на множитель $\frac{1}{2}$ и умножая слева на $H^{-1}$, получаем
+\begin{equation}
+    \begin{pmatrix}
+        1 & -1 \\
+        1 & i
+    \end{pmatrix}
+    \dot{s} = H^{-1}AH
+    \begin{pmatrix}
+        1 & -1 \\
+        1 & i
+    \end{pmatrix}
+    s \label{newsyst2}
+\end{equation}
+Поскольку $H^{-1}AH = diag(\lambda, \overline{\lambda})$, то система \eqref{newsyst2} имеет вид
+\begin{equation*}
+    \begin{cases}
+        \dot{u} - i\dot{v} = \lambda(u - iv) \\
+        \dot{u} + i\dot{v} = \overline{\lambda}(u + iv)
+    \end{cases}
+\end{equation*}
+
+Уравнения этой системы равносильны: одно получается из другого при комплексном сопряжении. Поэтому достаточно рассмотреть только одно из них. Положим $z = u + iv$. Тогда второе уравнение принимает вид
+\begin{equation*}
+    \dot{z} = \overline{\lambda}z
+\end{equation*}
+Его решения $z = Ce^{\overline{\lambda}t}$
+
+Пусть $\lambda = \alpha + i\beta$, $C = ae^{i\varphi}$. Тогда
+\begin{equation*}
+    z = ae^{\alpha t}e^{i(\varphi - \beta t)}
+\end{equation*}
+
+При $\alpha = 0$ получаем окружности радиуса $a$. Соответствующая устойчивая, но не асимптотически устойчивая точка покоя называется \textbf{центр}. Направление обхода окружностей зависит от знака $\beta$.
+
+При $\alpha > 0$ получаем логарифмическую спираль. Модуль $z$ возрастает, значит, точка удаляется от начала координат, при этом совершая вокруг него обороты. Данное положение равновесия называется \textbf{неустойчивый фокус}.
+
+При $\alpha < 0$ спираль закручивается. Точка покоя --- \textbf{устойчивый фокус}. Направление закручивания или раскручивания траекторий в случае фокуса зависит от знака $\beta$ (см. \hyperref[focus]{рисунок}).
+
+\begin{figure}[H]\label{focus}
+    \center{\includegraphics[scale=0.5]{images/focus.png}}
+    \caption{Центр, устойчивый и неустойчивый фокус}
+\end{figure}
+
+\subsection*{24. Теорема Ляпунова об устойчивости.}
+
+Рассмотрим нелинейную автономную систему $\dot{r} = f(r)$. Допустим, вектор-функция $f$ дифференцируема. Тогда по формуле Тейлора
+\begin{equation*}
+    f(r) = f(0) + f'(0)r + o(r)
+\end{equation*}
+
+\noindent \textbf{Определение.} Пусть $f(0) = 0$. Тогда система
+\begin{equation*}
+    \dot{r} = f'(0)r
+\end{equation*}
+называется \textbf{системой первого приближения} или \textbf{линеаризацией} системы $\dot{r} = f(r)$\\
+
+\noindent \textbf{Теорема (Ляпунов, устойчивость по первому приближению).} Пусть $f \in C^2(\Omega)$, где $\Omega \subset \mathbb{R}^n$ --- окрестность нуля, $f(0) = 0$. Тогда нулевое решение системы $\dot{r} = f(r)$
+\begin{enumerate}
+    \item асимптотически устойчиво, если $Re\, \lambda < 0$ для любого $\lambda \in spec\, f'(0)$
+    \item неустойчиво, если найдется $\lambda \in spec\, f'(0)$, для которого $Re\, \lambda > 0$
+\end{enumerate}
+
+\noindent \textbf{Доказательство.} В окрестности $r = 0$ систему $\dot{r} = f(r)$ можно записать в виде
+\begin{equation*}
+    \dot{r} = Ar + q(r)
+\end{equation*}
+где $q(r) = o(|r|)$ при $|r| \to 0$. Решение задачи Коши $\dot{r} = f(r),\, r(0) = r_0$ в силу предположения в некоторой окрестности $r_0$ определено для всех $t > 0$. Его можно записать в виде
+\begin{equation*}
+    r(t) = e^{At}\cdot r_0 + \int_0^t e^{A(t-\tau)}\cdot q(r(\tau))d\tau
+\end{equation*}
+
+Если $Re\, \lambda < 0$ для любого $\lambda \in spec\, f'(0)$, то найдется $\mu > 0$ такое, что $Re\, \lambda < -2\mu < 0$. Решение задачи Коши для $\dot{r} = Ar,\, r(0) = r_0$ имеет вид
+\begin{equation*}
+    r = e^{At}\cdot r_0
+\end{equation*}
+
+Покажем, что найдется такое $M > 0$, что норма матричной экспоненты
+\begin{equation*}
+    |e^{At}| \le Me^{-\mu t}, \quad \forall t \ge 0
+\end{equation*}
+Каждый элемент $a_{ij}(t)$ матрицы $e^{At}$ является конечной суммой квазимногочленов
+\begin{equation*}
+    a_{ij}(t) = \sum_{k=1}^m P_k^{(i,j)}(t) e^{\lambda_kt}
+\end{equation*}
+где $P_k^{(i,j)}(t)$ --- многочлены, $m$ --- количество собственных чисел. Всегда найдется такое число $c_{ij} > 0$, что для всех $k \in [1:m]$
+\begin{equation*}
+    |P_k^{(i,j)}(t)e^{\lambda_kt}| \le c_{ij}e^{-\mu t}, \quad \forall t > 0
+\end{equation*}
+Тогда
+\begin{equation*}
+    \begin{aligned}
+         & |r(t)| \le |e^{At}| |r_0| = |r_0| \sqrt{\sum_{i,j=1}^n |a_{ij}(t)|^2} \le  \\
+         & \le |r_0| e^{-\mu t}m \sqrt{\sum_{i,j=1}^n |c_{ij}|^2} = Me^{-\mu t} |r_0|
+    \end{aligned}
+\end{equation*}
+
+Так как $q(r) = o(|r|)$ при $|r| \to 0$, то для любого $\varepsilon > 0$ найдется $\delta = \delta(\varepsilon) > 0$ такое, что из $|r| < \delta$ следует $|q(r)| \le \varepsilon|r|$. Тогда при всех $t > 0$
+\begin{equation*}
+    \begin{aligned}
+        |r(t)| & \le |e^{At} r_0| + \int_0^t |e^{A(t - \tau)} q(r(\tau))|d\tau \le               \\
+               & \le |e^{At}| |r_0| + \int_0^t |e^{A(t - \tau)}| |q(r(\tau))|d\tau \le           \\
+               & \le Me^{-\mu t} |r_0| + \varepsilon M\int_0^t e^{-\mu (t - \tau)}|r(\tau)|d\tau
+    \end{aligned}
+\end{equation*}
+
+Если положить $u(t) = e^{\mu t}|r(t)|$, то отсюда находим, что
+\begin{equation*}
+    u(t) \le M |r_0| + \varepsilon M\int_0^t u(\tau)d\tau
+\end{equation*}
+Функция $u(t)$ удовлетворяет условиям леммы Гронуолла. Значит, что при всех $t > 0$
+\begin{equation*}
+    u(t) \le M |r_0|e^{\varepsilon Mt}
+\end{equation*}
+Заменяя $u(t)$ на $e^{\mu t} |r(t)|$, получаем оценку
+\begin{equation*}
+    |r(t)| \le M |r_0|e^{-(\mu - \varepsilon M)t}
+\end{equation*}
+Из полученной оценки следует, что при достаточно малых $\varepsilon > 0$
+\begin{equation*}
+    r(t) \to 0, \quad t \to +\infty
+\end{equation*}
+если фиксировать $\varepsilon > 0$, положив, например, $\varepsilon = \frac{\mu}{2M}$. Кроме того, взяв $\delta = \delta(\varepsilon) = \frac{\varepsilon}{M}$, из оценки получаем, что $|r(t)| < \varepsilon$ при $|r_0| < \delta$ для всех $t > 0$.
+
+Второй пункт теоремы следует непосредственно из доказательства теоремы об устойчивости ЛОС с постоянными коэффициентами (мб кукарек, хз как доказать).\\
+
+\noindent \textbf{Определение.} Пусть $\Omega \subset \mathbb{R}^n$ --- окрестность нуля. Функция $V \in C^1(\Omega)$ называется \textbf{функцией Ляпунова} системы $\dot{r} = f(r)$, если
+\begin{itemize}
+    \item $V(r) > 0$ при всех $r \in \Omega \setminus \{0\}$, $V(0) = 0$
+    \item $V' \cdot f \le 0$ при всех $r \in \Omega$
+\end{itemize}
+
+\noindent \textbf{Теорема (Ляпунов, об устойчивости).} Пусть $f \in Lip_{loc}(\Omega)$, $\Omega \subset \mathbb{R}^n$ --- окрестность нуля, $f(0) = 0$. Если в области $\Omega$ существует функция Ляпунова системы $\dot{r} = f(r)$, то $r = 0$ --- устойчивое решение.\\
+
+\noindent \textbf{Доказательство.} Будем доказывать от противного. Пусть нулевое положение равновесия неустойчиво. Тогда найдется такое $\varepsilon > 0$, что при любом сколь угодно малом $\delta > 0$ можно выбрать такое начальное положение $r_0$ из $\delta$-окрестности нуля, что будет ложным утверждение
+\begin{equation}
+    \forall t \ge 0 \quad |r(t, 0, r_0)| < \varepsilon \label{lyap}
+\end{equation}
+Все числа, меньшие $\varepsilon$, обладают тем же свойством, что и $\varepsilon$. Поэтому можно считать, что $\varepsilon$-окрестность содержится вместе с границей в области $\Omega$.
+
+Ложность утверждения \eqref{lyap} означает одно из двух:
+\begin{enumerate}
+    \item решение $r(t, 0, r_0)$ определено не при всех $t \ge 0$
+    \item найдется $t_{\varepsilon} > 0$, такое что $|r(t_{\varepsilon}, 0, r_0)| \ge \varepsilon$
+\end{enumerate}
+
+Допустим, выполнено (1), то есть максимальное решение $r(t, 0, r_0)$ (которое существует и единственно) определено на интервале $(a,b) \ni 0$, где $b < +\infty$. Построим параллелепипед $[0,b] \times \overline{B}_{\varepsilon}(0)$, где $\overline{B}_{\varepsilon}(0)$ --- замыкание $\varepsilon$-окрестности нуля. Интегральная кривая решения $r(t, 0, r_0)$ выйдет на его границу при некотором $t_{\varepsilon} < b$. Значит, верно утверждение (2).
+
+Итак, достаточно получить противоречие, если верно (2). Будем считать, что $t_{\varepsilon}$ --- это точка, в которой $r(t_{\varepsilon}, 0, r_0) \in \partial B_{\varepsilon}(0)$, где $\partial B_{\varepsilon}(0)$ --- граница $\varepsilon$-окрестности нуля.
+
+Пусть $V_M = \displaystyle\min_{r \in \partial B_{\varepsilon}(0)}V(r)$. Поскольку $V(r) \to 0$ при $r \to 0$, то можно выбрать $\delta$ так, чтобы $V(r) < \frac{V_M}{2}$ при $|r| < \delta$. Положим
+\begin{equation*}
+    v(t) = V(r(t, 0, r_0))
+\end{equation*}
+где $r_0$ выбрано из $\delta$-окрестности нуля так, чтобы выполнялось (2).
+
+Функция $v$ дифференцируема
+\begin{equation*}
+    \begin{aligned}
+         & v(0) = V(r_0) < \frac{V_M}{2}                              \\
+         & v(t_{\varepsilon}) = V(r(t_{\varepsilon}, 0, r_0)) \ge V_M
+    \end{aligned}
+\end{equation*}
+Поэтому найдется точка $t_1 \in (0, t_{\varepsilon})$, в которой $\dot{v}(t_1) > 0$.
+
+Однако, исходя из второго свойства функции Ляпунова, имеем
+\begin{equation*}
+    \dot{v}(t_1) = V'(r(t_1, 0, r_0))\cdot r'_t(t_1, 0, r_0) = V'(r(t_1, 0, r_0)) \cdot f(r(t_1, 0, r_0)) \le 0
+\end{equation*}
+Полученное противоречие завершает доказательство теоремы.\\
+
+\noindent \textbf{Теорема (Ляпунов, об асимптотической устойчивости).} Если в условиях предыдущей теоремы выполнено $V' \cdot f < 0$ в области $\Omega \setminus \{0\}$, то нулевое решение системы $\dot{r} = f(r)$ асимптотически устойчиво.
+
 
 \section*{Дополнительные вопросы}
 
@@ -902,25 +1664,124 @@
 Вронскиан множества вектор-фукнций \(\{r_k\}_{k = 1}^n\), где \(r_k = (x_{k1}, x_{k2}, \dots, x_{kn})^T\):
 \[W(t) = \det (r_1(t), \dots , r_n(t)) = \begin{vmatrix} x_{11}(t) & x_{21}(t) & \dots & x_{n1}(t) \\ x_{12}(t) & x_{22}(t) & \dots & x_{n2}(t) \\ \vdots & \vdots & \ddots & \vdots \\ x_{1n}(t) & x_{2n}(t) & \dots & x_{nn}(t) \end{vmatrix} \]
 
+\noindent \textbf{Определение.} \textbf{Определителем Вронского} (или \textbf{вронскианом}) функций $y_1, y_2, \ldots, y_n \in C^{n-1}(a,b)$ называют
+\begin{equation*}
+    W(t) = \begin{vmatrix}
+        y_1(t)         & y_2(t)         & \ldots & y_n(t)         \\
+        \dot{y}_1(t)   & \dot{y}_2(t)   & \ldots & \dot{y}_n(t)   \\
+        \ldots                                                    \\
+        y_1^{(n-1)}(t) & y_2^{(n-1)}(t) & \ldots & y_n^{(n-1)}(t)
+    \end{vmatrix}
+\end{equation*}
+
 \subsection*{Фундаментальная система решений.}
+
+\noindent \textbf{Определение.} \textbf{Фундаментальной системой решений} системы уравнений $\dot{r} = P(t)r$ называется совокупность ее $n$ линейно независимых решений.
 
 \subsection*{Фундаментальная матрица.}
 
+\noindent \textbf{Определение.} \textbf{Фундаментальная матрица системы} $\dot{r} = P(t)r$ --- матрица, столбцы которой образуют фундаментальную систему решений.
+
 \subsection*{Метод неопределённых коэффициентов для ЛС.}
 
-% \subsection*{Характеристический многочлен ЛУ.}
+\(A\in M_n(\C), k\in \Z_{+}, a_j\in\C^n\) при \(j\in[0,k]\cap \Z, \gamma\in\C\), \(p_k(t)\) --- многочлен от \(t\) степени \(k\), при этом коэфы \(a_j\).
 
-% \subsection*{Метод неопределённых коэффициентов для ЛУ.}
+Тогда \(e^{\gamma t} q_{k + s}(t)\) есть решение системы \(\dot{r} = Ar + e^{\gamma t} p_k(t)\), где \(q_{k + s}(t)\) --- вектор-многочлен степени \( \leq k + s\), и \(s\):
+\begin{enumerate}
+    \item \( = 0\), если \(\lambda\) не СЗ \(A\)
+    \item \( =\) максимальный размер жордановых клеток, соответствующих \(\gamma\)
+\end{enumerate}
 
-% \subsection*{Автономная система.}
+\subsection*{Характеристический многочлен ЛУ.}
 
-% \subsection*{Фазовое пространство автономной системы. Фазовая траектория, фазовый портрет, фазовая скорость, точка покоя.}
+В дальнейшем для краткости используется обозначение
+\begin{equation*}
+    Ly = \frac{d^n}{dt^n}y + a_{n-1}\frac{d^{n-1}}{dt^{n-1}}y + \ldots + a_1\frac{d}{dt}y + a_0y = \left(\sum_{k = 0}^n a_k\frac{d^k}{dt^k} \right)y
+\end{equation*}
+где $a_n = 1$. При помощи оператора $L$ уравнение \eqref{lupost} записывается в виде
+\begin{equation*}
+    Ly = f(t)
+\end{equation*}
 
-% \subsection*{Устойчивость по Ляпунову и асимптотическая устойчивость.}
+Рассмотрим линейное однородное уравнение
+\begin{equation}
+    Ly = 0 \label{lodnpost}
+\end{equation}
+Применяя оператор $L$ к функции $e^{\lambda t}$, находим
+\begin{equation*}
+    L(e^{\lambda t}) = \sum_{k = 0}^n a_k\frac{d^k}{dt^k}e^{\lambda t} = \left(\sum_{k = 0}^n a_k\lambda^k \right)e^{\lambda t}
+\end{equation*}
 
-% \subsection*{Функция Ляпунова.}
+\noindent \textbf{Определение.} Многочлен
+\begin{equation*}
+    p(\lambda) = \lambda^n + a_{n-1}\lambda^{n-1} + \ldots + a_1\lambda + a_0
+\end{equation*}
+называется \textbf{характеристическим многочленом} уравнения \eqref{lupost}, а его корни --- \textbf{характеристическими числами} уравнения \eqref{lupost}.
 
-% \subsection*{Теорема об устойчивости по первому приближению.}
+\subsection*{Метод неопределённых коэффициентов для ЛУ.}
+
+Пусть в уравнении
+\[y^{(n)} + a_{n - 1}y^{(n - 1)} + \dots + a_1 \dot{y} + a_0 y = f(t)\]
+\(f(t) = p_k (t) e^{\gamma t}\), где \(p_k(t)\) --- многочлен \textit{(\(f\) --- квазимногочлен)}. Тогда у этого уравнения есть единственное частное решение вида
+\[\varphi(t) = t^m q_k(t) e^{\gamma t}\]
+, где \(q_k\) --- многочлен степени \(k\), при этом \(m\):
+\begin{enumerate}
+    \item \( = 0\), если \(\gamma\) --- не характеристическое число
+    \item \( = \) кратность \(\gamma\) как хар. числа.
+\end{enumerate}
+
+\subsection*{Автономная система.}
+
+Это система вида
+\[\dot{r} = f(r)\]
+
+\subsection*{Фазовое пространство автономной системы. Фазовая траектория, фазовый портрет, фазовая скорость, точка покоя.}
+
+\begin{itemize}
+    \item Фазовое пространство --- \(\text{dom} f\)
+    \item Расширенное фазовое пространство --- \(\R \times \text{dom} f\)
+    \item Фазовая траектория --- проекция интегральной кривой на фазовое пространство параллельно оси времени
+    \item Фазовый портрет --- совокупность фазовых траекторий
+    \item Фазовая сокрость в точке \(r\) --- \(f(r)\)
+\end{itemize}
+
+\subsection*{Устойчивость по Ляпунову и ассимптотическая устойчивость.}
+
+\noindent \textbf{Определение.} Положение равновесия $r = 0$ автономной системы $\dot{r} = f(r)$ называется \textbf{усточивым (по Ляпунову)}, если для любой $\varepsilon$-окрестности нуля найдется такая $\delta$-окрестность нуля, что любое решение, выходящее из этой $\delta$-окрестности, во все будущие моменты времени отличается от нуля менее, чем на $\varepsilon$. То есть
+\begin{equation*}
+    \forall \varepsilon > 0 \, \exists \delta > 0:\, |r_0| < \delta \implies \forall t \ge 0 \, |r(t,0,r_0)| < \varepsilon
+\end{equation*}
+В противном случае положение равновесия называется \textbf{неустойчивым}.\\
+
+\noindent \textbf{Определение.} Положение равновесия $r = 0$ автономной системы $\dot{r} = f(r)$ называется \textbf{асимптотически устойчивым}, если
+\begin{itemize}
+    \item $r = 0$ устойчиво
+    \item все решения, начинающиеся в некоторой окрестности нуля, в будущем стремятся к нулю, то есть
+          \begin{equation*}
+              \exists \delta > 0:\, |r_0| < \delta \implies r(t,0,r_0) \to 0\, \text{при } t \to +\infty
+          \end{equation*}
+\end{itemize}
+
+\subsection*{Функция Ляпунова.}
+
+\noindent \textbf{Определение.} Пусть $\Omega \subset \mathbb{R}^n$ --- окрестность нуля. Функция $V \in C^1(\Omega)$ называется \textbf{функцией Ляпунова} системы $\dot{r} = f(r)$, если
+\begin{itemize}
+    \item $V(r) > 0$ при всех $r \in \Omega \setminus \{0\}$, $V(0) = 0$
+    \item $V' \cdot f \le 0$ при всех $r \in \Omega$
+\end{itemize}
+
+\subsection*{Теорема об устойчивости по первому приближению.}
+
+Есть система \(\dot{r} = f(r)\). Пусть \(f\) --- дифф. Тогда \(f(r) = f(0) + f'(0)r + o(r)\). Пусть \(f(0) = 0\) \textit{(если не так, пошафлим координаты)}. Тогда \(f(r) = f'(0)r\) есть сист��ма первого приближения.
+
+\begin{theorem}
+    \(f\in C^2(\Omega), \Omega\subset \R^n\) --- окретсность нуля, \(f(0) = 0\). Тогда нулевое решение системы \(\dot{r} = f(r)\):
+    \begin{enumerate}
+        \item Асимптотически устойчиво, если \(\Re \lambda < 0 \ \ \forall \lambda \in \text{spec} f'(0)\)
+        \item Неустойчиво, если \(\exists \lambda\in \text{spec} f'(0) : \Re \lambda > 0\)
+    \end{enumerate}
+\end{theorem}
 
 
 \end{document}
+ 

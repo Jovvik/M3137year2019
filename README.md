@@ -10,36 +10,36 @@
 
 ### Матанализ
 
-- [Конспект к экзамену](analysis/3sem/final.pdf)
+- [Конспект к экзамену](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf)
 
 #### Практики 8-12
-- [Конспект](analysis/3sem/practice.pdf)
-- [Решения ДЗ](analysis/3sem/hw.pdf)
-- [Краткий конспект](analysis/3sem/practice_short.pdf)
+- [Конспект](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/practice.pdf)
+- [Решения ДЗ](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/hw.pdf)
+- [Краткий конспект](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/practice_short.pdf)
 
 ### Диффуры
-- [1 лекция](diffeq/3sem/1.pdf)
-- [2 лекция](diffeq/3sem/2.pdf)
-- [3 лекция](diffeq/3sem/3.pdf)
-- [Конспект к экзамену](diffeq/3sem/final.pdf)
+- [1 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/1.pdf)
+- [2 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/2.pdf)
+- [3 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/3.pdf)
+- [Конспект к экзамену](https://github.com/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/final.pdf)
 
 ## 2 семестр
 
 ### Матанализ
-- [Итоговый конспект](analysis/2sem/final.pdf)
+- [Итоговый конспект](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf)
 
 ### Линейная алгебра
-- [Итоговый конспект](linear%20algebra/2sem/final.pdf)
+- [Итоговый конспект](https://github.com/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/2sem/final.pdf)
 
 ## 1 семестр
 
 ### Линейная алгебра
-- [Конспект к экзамену](linear%20algebra/1sem/main.pdf) _(рендер pdf с векторами в github'e не работает, поэтому надо pdf скачивать)_
+- [Конспект к экзамену](https://github.com/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf) _(рендер pdf с векторами в github'e не работает, поэтому надо pdf скачивать)_
 
 ### Матанализ
-- [Опрос #1](analysis/1sem/opros.pdf)
-- [Опрос #2](analysis/1sem/opros2.pdf)
-- [Конспект к экзамену](analysis/1sem/final.pdf)
+- [Опрос #1](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/opros.pdf)
+- [Опрос #2](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/opros2.pdf)
+- [Конспект к экзамену](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf)
 
 ## Как компилировать самому
 

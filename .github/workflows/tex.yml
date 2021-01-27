@@ -28,8 +28,8 @@ jobs:
           shopt -s globstar
           shopt -s extglob
           rm **/*.!(pdf)
-          rm **/svg-inkscape/*
-          rm **/images/*
+          rm -rf `find -type d -name svg-inkscape`
+          rm -rf `find -type d -name images`
       - name: Commit changes
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:

@@ -21,9 +21,8 @@ jobs:
               apk add git
               apk add inkscape
               time bash build.sh
-      - uses: allenevans/set-env@v2.0.0
-        with:
-          COMMIT_MSG: "Built pdfs $(git rev-parse --short $GITHUB_SHA)"
+      - name: Set env
+        run: echo "COMMIT_MSG=Built pdfs $(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:

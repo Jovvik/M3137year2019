@@ -23,13 +23,13 @@ jobs:
               time bash build.sh
       - name: Set env
         run: echo "COMMIT_MSG=Built pdfs $(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
-      - name: Copy pdfs
+      - name: Remove anything but pdfs
         run: |
           shopt -s globstar
           shopt -s extglob
-          rm **/*.!(pdf)
-          rm -rf `find -type d -name svg-inkscape`
-          rm -rf `find -type d -name images`
+          rm **/*.!(pdf) || true
+          rm -rf `find -type d -name svg-inkscape` || true
+          rm -rf `find -type d -name images` || true
       - name: Commit changes
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:

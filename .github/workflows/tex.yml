@@ -24,11 +24,11 @@ jobs:
       - name: Set env
         run: echo "COMMIT_MSG=Built pdfs $(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
       - name: Commit changes
-        uses: EndBug/add-and-commit@v7
+        uses: peaceiris/actions-gh-pages@v3.7.3
         with:
-          message: ${{ env.COMMIT_MSG }}
-          add: '*.pdf'
-          author_name: 'github-actions[bot]'
-          author_email: 'github-actions[bot]@users.noreply.github.com'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: pdfs
+          publish_dir: .
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          full_commit_message: ${{ env.COMMIT_MSG }}

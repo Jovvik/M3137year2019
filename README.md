@@ -26,10 +26,10 @@
 ## 2 семестр
 
 ### Матанализ
-- [Итоговый конспект](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf)
+- [Конспект к экзамену](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf)
 
 ### Линейная алгебра
-- [Итоговый конспект](https://github.com/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/2sem/final.pdf)
+- [Конспект к экзамену](https://github.com/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/2sem/final.pdf)
 
 ## 1 семестр
 

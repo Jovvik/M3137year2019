@@ -137,7 +137,7 @@
 
 \begin{remark}
     \[E(f \geq a) = E(f < a)^c \quad E(f < a) = E(f \geq a)^c\]
-    \[E(f \leq a) = \bigcap_{b < a} E(f < b) = \bigcap_{n\in\N} E\left(f < a + \frac{1}{n}\right)\]
+    \[E(f \leq a) = \bigcap_{b > a} E(f < b) = \bigcap_{n\in\N} E\left(f < a + \frac{1}{n}\right)\]
 \end{remark}
 
 \begin{definition}\itemfix
@@ -199,7 +199,7 @@
                   \end{cases}\)
               \end{proof}
         \item \(f\) --- измеримо на \(E_1, E_2, \dots \Rightarrow f\) измеримо на \(E = \bigcup E_k\)
-        \item \(f\) --- измеримо на \(E, \text{E}_{\text{изм.}}'\subset E \Rightarrow f\) измеримо на \(E'\)
+        \item \(f\) --- измеримо на \(E, E_{\text{изм.}}'\subset E \Rightarrow f\) измеримо на \(E'\)
               \begin{proof}
                   \(E'(f < a) = E(f < a)\cap E'\)
               \end{proof}

@@ -32,10 +32,10 @@
 % References
 \usepackage{hyperref}
 \hypersetup{
-  colorlinks,
-  linkcolor={blue!80!black},
-  citecolor={blue!80!black},
-  urlcolor={blue!80!black},
+    colorlinks,
+    linkcolor={blue!80!black},
+    citecolor={blue!80!black},
+    urlcolor={blue!80!black},
 }
 
 % tikz
@@ -48,12 +48,12 @@
 \usepackage{pgfplots}
 \pgfplotsset{width=10cm,compat=1.9}
 \newcommand\irregularcircle[2]{% radius, irregularity
-  \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
-  +(0:\len pt)
-  \foreach \a in {10,20,...,350}{
-      \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
-      -- +(\a:\len pt)
-    } -- cycle
+    \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
+    +(0:\len pt)
+    \foreach \a in {10,20,...,350}{
+            \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
+            -- +(\a:\len pt)
+        } -- cycle
 }
 
 \providetoggle{useproofs}
@@ -83,9 +83,7 @@
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\abs}{\left\lvert}{\right\rvert}
 
-\theoremstyle{plain}
-\newtheorem{axiom}{Аксиома}
-\newtheorem{lemma}{Лемма}
+% \theoremstyle{plain}
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Примечание}
@@ -98,11 +96,13 @@
 \newtheorem{theorem}{Теорема}
 \newtheorem*{definition}{Определение}
 \newtheorem*{obozn}{Обозначение}
+\newtheorem{axiom}{Аксиома}
+\newtheorem{lemma}{Лемма}
 
 \newtheorem{manualtheoreminner}{Теорема}
 \newenvironment{manualtheorem}[1]{%
-  \renewcommand\themanualtheoreminner{#1}%
-  \manualtheoreminner
+    \renewcommand\themanualtheoreminner{#1}%
+    \manualtheoreminner
 }{\endmanualtheoreminner}
 
 \newcommand{\dbltilde}[1]{\accentset{\approx}{#1}}
@@ -115,25 +115,25 @@
 \makeatother
 
 \newcommand{\get}[2]{
-  \ExecuteMetaData[#1]{#2}
+    \ExecuteMetaData[#1]{#2}
 }
 
 \newcommand{\getproof}[2]{
-  \iftoggle{useproofs}{\ExecuteMetaData[#1]{#2proof}}{}
+    \iftoggle{useproofs}{\ExecuteMetaData[#1]{#2proof}}{}
 }
 
 \newcommand{\getwithproof}[2]{
-  \get{#1}{#2}
-  \getproof{#1}{#2}
+    \get{#1}{#2}
+    \getproof{#1}{#2}
 }
 
 \newcommand{\import}[3]{
-  \subsection{#1}
-  \getwithproof{#2}{#3}
+    \subsection{#1}
+    \getwithproof{#2}{#3}
 }
 
 \newcommand{\given}[1]{
-  Дано выше. (\ref{#1}, стр. \pageref{#1})
+    Дано выше. (\ref{#1}, стр. \pageref{#1})
 }
 
 \renewcommand{\ker}{\text{Ker }}
@@ -143,30 +143,31 @@
 \newcommand{\defeq}{\stackrel{\text{def}}{=}}
 \newcommand{\itemfix}{\leavevmode\makeatletter\makeatother}
 \newcommand{\?}{\textcolor{red}{???}}
+\DeclarePairedDelimiter\ev{\langle}{\rangle}%
 
 % xrightrightarrows
 \makeatletter
 \newcommand*{\relrelbarsep}{.386ex}
 \newcommand*{\relrelbar}{%
-  \mathrel{%
-    \mathpalette\@relrelbar\relrelbarsep
-  }%
+    \mathrel{%
+        \mathpalette\@relrelbar\relrelbarsep
+    }%
 }
 \newcommand*{\@relrelbar}[2]{%
-  \raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
-  \lower#2\hbox{$\m@th#1\relbar$}%
+    \raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
+    \lower#2\hbox{$\m@th#1\relbar$}%
 }
 \providecommand*{\rightrightarrowsfill@}{%
-  \arrowfill@\relrelbar\relrelbar\rightrightarrows
+    \arrowfill@\relrelbar\relrelbar\rightrightarrows
 }
 \providecommand*{\leftleftarrowsfill@}{%
-  \arrowfill@\leftleftarrows\relrelbar\relrelbar
+    \arrowfill@\leftleftarrows\relrelbar\relrelbar
 }
 \providecommand*{\xrightrightarrows}[2][]{%
-  \ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
+    \ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
 }
 \providecommand*{\xleftleftarrows}[2][]{%
-  \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
+    \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
 }
 
 \allowdisplaybreaks

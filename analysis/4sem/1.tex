@@ -1,0 +1,243 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{3.2.2021}
+
+\begin{document}
+
+\begin{lemma}[о структуре компактного оператора]\itemfix
+    \begin{itemize}
+        \item \(V : \R^m \to \R^m\)
+        \item \(\det V \neq 0\)
+        \item \(\exists \) ортонормированные базисы \(g_1 \dots g_m\) и \(h_1 \dots h_m\), а также \(\exists s_1 \dots s_m > 0\)
+        \item \[\forall x\in\R^m \quad V(x) = \sum_{i = 1}^m s_i\langle x, g_i\rangle h_i\]
+    \end{itemize}
+
+    Тогда \(|\det V| = s_1s_2 \dots s_m\)
+\end{lemma}
+
+\begin{remark}
+    Эта лемма из функционального анализа, что такое компактный оператор --- мы не знаем.
+\end{remark}
+
+\begin{proof}
+    \(W : = V^* V\) --- самосопряженный оператор \textit{(матрица симметрична относительна сдвига)}.
+
+    Такой оператор имеет:
+    \begin{itemize}
+        \item Собственные числа: \(c_1 \dots c_m\) --- вещественные
+        \item Собственные вектора: \(g_1 \dots g_m\)
+    \end{itemize}
+
+    \begin{remark}
+        Пока мы в \(\R^m\) \textit{(а не в \(\C^m\))}, \({}^*\) есть транспонирование. В комплексном случае ещё берется сопряжение.
+    \end{remark}
+
+    \[c_i \ev{g_i, g_i} = \ev{W g_i, g_j} = \ev{V g_i, V g_i} > 0\]
+
+    Таким образом, \(c_i > 0\)
+
+    \[s_i : = \sqrt{c_i}\]
+    \[h_i : = \frac{1}{s_i} V g_i\]
+
+    \[\ev{h_i, h_j} = \frac{1}{s_i s_j}\ev{V g_i, V g_j} = \frac{1}{s_i s_j}\ev{W g_i, g_j} = \frac{c_i}{s_i s_j}\ev{g_i, g_j} = \delta_{ij}\]
+
+    \begin{remark}
+        \(\delta_{ij} = \begin{cases}
+            1, & i = j    \\
+            0, & i \neq j
+        \end{cases}\) --- символ Кронекера.
+    \end{remark}
+
+    Таким образом, \(\{h_i\}\) ортонормирован.
+
+    \[V(x) = V\left( \sum_{i = 1}^m \ev{x, g_i} g_i \right) = \sum_{i = 1}^m \ev{x, g_i} V(g_i) = \sum s_i \ev{x, g_i} h_i\]
+
+    \[(\det V)^2 = \det(V^* V) = \det W = c_1 \dots c_m\]
+    \[|\det V| = \sqrt{c_1} \dots \sqrt{c_m} = s_1 \dots s_m\]
+\end{proof}
+
+\begin{theorem}[о преобразовании меры лебега под действием линейного отображения]\itemfix
+    \begin{itemize}
+        \item \(V : \R^m \to \R^m\) --- линейное отображение
+    \end{itemize}
+    Тогда \(\forall E \in \mathfrak{M}^m \ \ V(E) \in \mathfrak{M}^m\) и \(\lambda(V(E)) = |\det V| \cdot \lambda E\)
+\end{theorem}
+
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item Если \(\det V = 0 \quad \text{Im}(V)\) --- подпространство в \(\R^m\) \( \Rightarrow \) мера \( = 0\)
+              % TODO
+              % в силу полноты меры Лебега.
+        \item Если \(\det V \neq 0 \quad \mu E : = \lambda(V(E))\) --- мера, инвариантная относительно сдвигов. Это было доказано в конце прошлого семестра:
+              \[\mu(E + a) = \lambda(V(E + a)) = \lambda(V(E) + V(a)) = \lambda(V(E)) = \mu E\]
+
+              \( \Rightarrow \exists k : \mu = k \lambda\) по недоказанной теореме из прошлого семестра.
+
+              Мы хотим найти \(k\), для этого нужно что-нибудь померять. Померяем что-то очень простое, например \(Q = \{\sum \alpha_i g_i\ |\ \alpha_i \in [0, 1]\} \) --- единичный куб на векторах \(g_i\).
+
+              \(V(g_i) = s_i h_i\). Таким образом, \(V(Q) = \{\sum \alpha_i s_i h_i \ |\ \alpha_i \in [0, 1]\} \).
+
+              \[\mu Q = \lambda(V(Q)) = s_1 \dots s_m = |\det V| = |\det V| \lambda Q\]
+
+              Таким образом, \(k = |\det V|\)
+    \end{enumerate}
+\end{proof}
+
+\section*{Интеграл}
+
+\subsection*{Измеримые функции}
+
+\begin{definition}
+    \begin{enumerate}
+        \item \(E\) --- множество, \(E = \bigsqcup\limits_{\text{кон.}} e_i\) --- разбиение множества.
+        \item \(f : X \to \R\) --- ступенчатая, если:
+              \[\exists\ \text{разбиение} \ X = \bigsqcup\limits_{\text{кон.}} e_i : \forall i \ \ f\Big|_{e_i} = \const_i = c_i\]
+    \end{enumerate}
+\end{definition}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item Характеристическая функция множества \(E\subset X\) : \(\chi_E(x) = \begin{cases}
+                  1, & x\in E            \\
+                  0, & x\in X\setminus E
+              \end{cases}\)
+        \item \(f = \sum\limits_{\text{кон.}} c_i \chi_{e_i}\), где \(X = \bigsqcup e_i\)
+    \end{enumerate}
+\end{example}
+
+\begin{figure}[h]
+    \centering
+    \includesvg{images/ступенчатая_функция.svg}
+    \caption{Ступенчатая функция}
+\end{figure}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\forall f, g\) --- ступенчатые:
+
+              \(\exists \) разбиение \(X\), допустимое и для \(f\), и для \(g\)
+
+              \[f = \sum\limits_{\text{кон.}} c_i \chi_{e_i} \quad g = \sum\limits_{\text{кон.}} b_k \chi_{a_k}\]
+              \[f = \sum\limits_{i, k} c_i \chi_{e_i \cap a_k} \quad g = \sum\limits_{i, k} b_k \chi_{e_i \cap a_k}\]
+        \item \(f, g\) --- ступенчатые, \(\alpha\in\R\)
+
+              Тогда \(f + g, \alpha f, fg, \max(f, g), \min(f, g), |f|\) --- ступенчатые.
+    \end{enumerate}
+\end{prop}
+
+\begin{definition}
+    \(f : E\subset X \to \overline \R, a\in\R\)
+
+    \(E(f < a) = \{x\in E : f(x) < a\} \) --- лебегово множество функции \(f\)
+
+    Аналогично можно использовать \(E(f \leq a), E(f > a), E(f \geq a)\)
+\end{definition}
+
+\begin{remark}
+    \[E(f \geq a) = E(f < a)^c \quad E(f < a) = E(f \geq a)^c\]
+    \[E(f \leq a) = \bigcap_{b < a} E(f < b) = \bigcap_{n\in\N} E\left(f < a + \frac{1}{n}\right)\]
+\end{remark}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \(f : X \to \overline \R\)
+        \item \(E\in \mathfrak{A}\)
+    \end{itemize}
+
+    \(f\) \textbf{измерима} на множестве \(E\), если \(\forall a\in\R \ \ E(f < a)\) измеримо, т.е. \(\in \mathfrak{A}\)
+\end{definition}
+
+Вместо ``\(f\) измерима на \(X\)'' говорят просто ``измерима''.
+
+Если \(X = \R^m\), мера --- мера Лебега, тогда \(f\) --- измеримо по Лебегу.
+
+\begin{remark}
+    Эквивалентны:
+    \begin{enumerate}
+        \item \(\forall a \ \ E(f < a)\) --- измеримо
+        \item \(\forall a \ \ E(f \leq a)\) --- измеримо
+        \item \(\forall a \ \ E(f > a)\) --- измеримо
+        \item \(\forall a \ \ E(f \geq a)\) --- измеримо
+    \end{enumerate}
+\end{remark}
+
+\begin{proof}
+    Тривиально по соображениям выше.
+\end{proof}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item \(E\subset X, E\) --- измеримо \( \Rightarrow \chi_E\) --- измеримо.
+              \[E(\chi_E < a) = \begin{cases}
+                      \text{\O}, a < 0
+                      \?
+                  \end{cases}\]
+        \item \(f:\R^m \to \R\) --- непрерывно. Тогда \(f\) --- измеримо по Лебегу.
+              \begin{proof}
+                  \(f^{ - 1}(( -\infty, a))\) открыто по топологическому определению открытости, а любое открытое множество измеримо по Лебегу.
+              \end{proof}
+    \end{enumerate}
+\end{example}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(f\) измеримо на \(E\) \( \Rightarrow \forall a\in\R \ \ E(f = a)\) измеримо.
+
+              В обратную сторону неверно, пример --- \(f(x) = x + \chi_\text{неизм.}\)
+
+        \item \(f\) --- измеримо \( \Rightarrow \forall \alpha\in\R \ \ \alpha f\) --- измеримо.
+
+              \begin{proof}
+                  \(E(\alpha f < a) = \begin{cases}
+                      E(f < \frac{a}{\alpha}), & \alpha > 0        \\
+                      E(f > \frac{a}{\alpha}), & \alpha < 0        \\
+                      E,                       & \alpha = 0, a > 0 \\
+                      \text{\O},               & \alpha = 0, a < 0 \\
+                  \end{cases}\)
+              \end{proof}
+        \item \(f\) --- измеримо на \(E_1, E_2, \dots \Rightarrow f\) измеримо на \(E = \bigcup E_k\)
+        \item \(f\) --- измеримо на \(E, \text{E}_{\text{изм.}}'\subset E \Rightarrow f\) измеримо на \(E'\)
+              \begin{proof}
+                  \(E'(f < a) = E(f < a)\cap E'\)
+              \end{proof}
+        \item \(f \neq 0\), измеримо на \(E \Rightarrow \frac{1}{f}\) измеримо на \(E\).
+        \item \(f \geq 0\), измеримо на \(E, \alpha\in\R \Rightarrow f^\alpha\) измеримо на \(E\).
+    \end{enumerate}
+\end{prop}
+
+\begin{theorem}
+    \(f_n\) --- измеримо на \(X\). Тогда:
+    \begin{enumerate}
+        \item \(\sup f_n, \inf f_n\) измеримо.
+        \item \(\overline \lim f_n, \underline \lim f_n\) измеримо.
+        \item Если \(\forall x \ \ \exists \lim\limits_{n \to +\infty} f_n(x) = h(x)\), то \(h(x)\) измеримо.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \(g = \sup f_n \quad X(g > a) = \bigcup_n X(f_n > a)\)
+        \item \((\overline \lim f_n)(x) = \inf_n (s_n = \sup (f_n(x), f_{n+1}(x), \dots )) \)
+        \item Очевидно
+    \end{enumerate}
+\end{proof}
+
+\subsection*{Меры Лебега-Стилтьеса}
+
+\(\R, \mathcal{P}^1, g : \R \to \R\) возрастает, непрерывно.
+
+\(\mu[a, b) : = g(b) - g(a)\) --- \(\sigma\)-конечный объем \textit{(и даже \(\sigma\)-конечная мера на \(\mathcal{P}^1\))}
+
+%TODO
+
+Применим теорему о лебеговском продолжении меры. Получим меру \(\mu_g\) на некоторой \(\sigma\)---алгебре. Это мера Лебега-Стилтьеса
+
+\begin{example}
+    \(g(x) = [x]\), тогда мера ячейки --- количество целых точек в этой ячейке.
+\end{example}
+
+Если \(\mu_g\) определена на Борелевской \(\sigma\)-алгебре, то она называется мерой Бореля-Стилтьеса.
+
+\end{document}

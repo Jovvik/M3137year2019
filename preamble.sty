@@ -91,6 +91,7 @@
 \newtheorem{corollary}{Следствие}
 \newtheorem*{example}{Пример}
 \newtheorem*{observation}{Наблюдение}
+\newtheorem*{prop}{Свойства}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Теорема}
@@ -98,7 +99,6 @@
 \newtheorem*{obozn}{Обозначение}
 \newtheorem{axiom}{Аксиома}
 \newtheorem{lemma}{Лемма}
-\newtheorem*{prop}{Свойства}
 
 \newtheorem{manualtheoreminner}{Теорема}
 \newenvironment{manualtheorem}[1]{%
@@ -142,9 +142,17 @@
 \newcommand{\grad}{\text{grad}}
 \newcommand{\rg}{\text{rg}}
 \newcommand{\defeq}{\stackrel{\text{def}}{=}}
+\newcommand{\defeqfor}[1]{\stackrel{\text{def } #1}{=}}
 \newcommand{\itemfix}{\leavevmode\makeatletter\makeatother}
 \newcommand{\?}{\textcolor{red}{???}}
 \DeclarePairedDelimiter\ev{\langle}{\rangle}%
+
+\makeatletter
+\newcommand{\oplabel}[1]{\refstepcounter{equation}(\theequation\ltx@label{#1})}
+\makeatother
+
+\newcommand{\symref}[2]{\stackrel{\oplabel{#1}}{#2}}
+\newcommand{\symrefeq}[1]{\symref{#1}{=}}
 
 % xrightrightarrows
 \makeatletter

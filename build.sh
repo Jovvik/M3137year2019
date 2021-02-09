@@ -15,7 +15,7 @@ REPOPATH=$(pwd)
 while IFS= read -r -d '' file
 do
     compile "$file"
-done <   <(find . -regex ".*\.tex" -type f -print0)
+done <   <(find . -wholename "*/4sem/*.tex" -type f -print0)
 
 # while IFS= read -r -d '' file
 # do

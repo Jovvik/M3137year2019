@@ -2,19 +2,19 @@
 
 \lhead{Математический анализ}
 \cfoot{}
-\rfoot{3.2.2021}
+\rfoot{8.2.2021}
 
 \begin{document}
 
 \begin{lemma}[о структуре компактного оператора]\itemfix
     \begin{itemize}
-        \item \(V : \R^m \to \R^m\)
+        \item \(V : \R^m \to \R^m\) --- линейный оператор
         \item \(\det V \neq 0\)
-        \item \(\exists \) ортонормированные базисы \(g_1 \dots g_m\) и \(h_1 \dots h_m\), а также \(\exists s_1 \dots s_m > 0\)
-        \item \[\forall x\in\R^m \quad V(x) = \sum_{i = 1}^m s_i\langle x, g_i\rangle h_i\]
     \end{itemize}
+    Тогда \(\exists \) ортонормированные базисы \(g_1 \dots g_m\) и \(h_1 \dots h_m\), а также \(\exists s_1 \dots s_m > 0\), такие что:
+    \[\forall x\in\R^m \quad V(x) = \sum_{i = 1}^m s_i\langle x, g_i\rangle h_i\]
 
-    Тогда \(|\det V| = s_1s_2 \dots s_m\)
+    И \(|\det V| = s_1s_2 \dots s_m\).
 \end{lemma}
 
 \begin{remark}
@@ -22,26 +22,39 @@
 \end{remark}
 
 \begin{proof}
-    \(W : = V^* V\) --- самосопряженный оператор \textit{(матрица симметрична относительна сдвига)}.
+    \(W : = V^* V\) --- самосопряженный оператор \textit{(матрица симметрична относительно диагонали)}.
 
-    Такой оператор имеет:
+    Из линейной алгебры мы знаем, что такой оператор имеет:
     \begin{itemize}
-        \item Собственные числа: \(c_1 \dots c_m\) --- вещественные
-        \item Собственные вектора: \(g_1 \dots g_m\)
+        \item Собственные числа: \(c_1 \dots c_m\) --- вещественные \textit{(возможно с повторениями)}
+        \item Собственные векторы: \(g_1 \dots g_m\) --- ортонормированные
     \end{itemize}
 
     \begin{remark}
         Пока мы в \(\R^m\) \textit{(а не в \(\C^m\))}, \({}^*\) есть транспонирование. В комплексном случае ещё берется сопряжение.
     \end{remark}
 
-    \[c_i \ev{g_i, g_i} = \ev{W g_i, g_j} = \ev{V g_i, V g_i} > 0\]
+    \[c_i \ev{g_i, g_i} \symrefeq{собственный вектор} \ev{W g_i, g_i} \symrefeq{из линала} \ev{V g_i, V g_i} > 0\]
 
-    Таким образом, \(c_i > 0\)
+    \begin{itemize}
+        \item \ref{собственный вектор}: т.к. \(g_i\) --- собственный вектор для \(W\) с собственным значением \(c_i\).
+        \item \ref{из линала}: из линейной алгебры:
+              \[W_{kl} = \sum_{i = 1}^m V_{ik}V_{il}\]
+              \[\ev{W g_i, g_i} = \sum_{k, l, j} V_{jk} V_{jl} g_k^{(i)} g_l^{(i)} = \ev{V g_i, V g_i}\]
+    \end{itemize}
+
+    Таким образом, \(c_i > 0\).
 
     \[s_i : = \sqrt{c_i}\]
     \[h_i : = \frac{1}{s_i} V g_i\]
 
-    \[\ev{h_i, h_j} = \frac{1}{s_i s_j}\ev{V g_i, V g_j} = \frac{1}{s_i s_j}\ev{W g_i, g_j} = \frac{c_i}{s_i s_j}\ev{g_i, g_j} = \delta_{ij}\]
+    \[\ev{h_i, h_j} \defeqfor{h_i} \frac{1}{s_i s_j}\ev{V g_i, V g_j} \symrefeq{из линала 2} \frac{1}{s_i s_j}\ev{W g_i, g_j} \symrefeq{собственный вектор 2} \frac{c_i}{s_i s_j}\ev{g_i, g_j} \symrefeq{кронекер} \delta_{ij}\]
+
+    \begin{itemize}
+        \item \ref{из линала 2}: из линейной алгебры, аналогично предыдущему.
+        \item \ref{собственный вектор 2}: т.к. \(g_i\) --- собственный вектор для \(W\) с собственным значением \(c_i\).
+        \item \ref{кронекер}: при \(i \neq j\) \(\ev{g_i, g_j} = 0\) в силу ортогональности, а при \(i = j\) \(\ev{g_i, g_j} = 1\) в силу ортонормированности и \(\frac{c_i}{s_i s_j} = \frac{c_i}{\sqrt{c_i}\sqrt{c_i}} = 1\)
+    \end{itemize}
 
     \begin{remark}
         \(\delta_{ij} = \begin{cases}
@@ -52,9 +65,19 @@
 
     Таким образом, \(\{h_i\}\) ортонормирован.
 
-    \[V(x) = V\left( \sum_{i = 1}^m \ev{x, g_i} g_i \right) = \sum_{i = 1}^m \ev{x, g_i} V(g_i) = \sum s_i \ev{x, g_i} h_i\]
+    \[V(x) \defeqfor{x} V\left( \sum_{i = 1}^m \ev{x, g_i} g_i \right) \symrefeq{линейность V} \sum_{i = 1}^m \ev{x, g_i} V(g_i) \defeqfor{h_i} \sum s_i \ev{x, g_i} h_i\]
 
-    \[(\det V)^2 = \det(V^* V) = \det W = c_1 \dots c_m\]
+    \begin{itemize}
+        \item \ref{линейность V}: в силу линейности \(V\)
+    \end{itemize}
+
+    \[(\det V)^2 \symrefeq{мультипликативность det} \det(V^* V) \defeqfor{W} \det W \symrefeq{определитель базис} c_1 \dots c_m\]
+
+    \begin{itemize}
+        \item \ref{мультипликативность det}: в силу мультипликативности \(\det\) и инвариантности относительно транспонирования.
+        \item \ref{определитель базис}: т.к. \(\det\) инвариантен по базису и в базисе собственных векторов \(\det W = c_1 \dots c_m\).
+    \end{itemize}
+
     \[|\det V| = \sqrt{c_1} \dots \sqrt{c_m} = s_1 \dots s_m\]
 \end{proof}
 
@@ -67,9 +90,7 @@
 
 \begin{proof}\itemfix
     \begin{enumerate}
-        \item Если \(\det V = 0 \quad \text{Im}(V)\) --- подпространство в \(\R^m\) \( \Rightarrow \) мера \( = 0\)
-              % TODO
-              % в силу полноты меры Лебега.
+        \item Если \(\det V = 0 \quad \text{Im}(V)\) --- подпространство в \(\R^m\) \( \Rightarrow \lambda(\text{Im}(V)) = 0\) по следствию 6 лекции 15 третьего семестра. Тогда \(\forall E \ \ V(E)\subset \text{Im}(V) \Rightarrow \lambda(V(E)) = 0\)
         \item Если \(\det V \neq 0 \quad \mu E : = \lambda(V(E))\) --- мера, инвариантная относительно сдвигов. Это было доказано в конце прошлого семестра:
               \[\mu(E + a) = \lambda(V(E + a)) = \lambda(V(E) + V(a)) = \lambda(V(E)) = \mu E\]
 
@@ -79,7 +100,7 @@
 
               \(V(g_i) = s_i h_i\). Таким образом, \(V(Q) = \{\sum \alpha_i s_i h_i \ |\ \alpha_i \in [0, 1]\} \).
 
-              \[\mu Q = \lambda(V(Q)) = s_1 \dots s_m = |\det V| = |\det V| \lambda Q\]
+              \[\mu Q = \lambda(V(Q)) = s_1 \dots s_m = |\det V| = |\det V| \underbrace{\lambda Q}_{= 1}\]
 
               Таким образом, \(k = |\det V|\)
     \end{enumerate}
@@ -89,7 +110,7 @@
 
 \subsection*{Измеримые функции}
 
-\begin{definition}
+\begin{definition}\itemfix
     \begin{enumerate}
         \item \(E\) --- множество, \(E = \bigsqcup\limits_{\text{кон.}} e_i\) --- разбиение множества.
         \item \(f : X \to \R\) --- ступенчатая, если:
@@ -117,7 +138,7 @@
     \begin{enumerate}
         \item \(\forall f, g\) --- ступенчатые:
 
-              \(\exists \) разбиение \(X\), допустимое и для \(f\), и для \(g\)
+              \(\exists \) разбиение \(X\), допустимое и для \(f\), и для \(g\):
 
               \[f = \sum\limits_{\text{кон.}} c_i \chi_{e_i} \quad g = \sum\limits_{\text{кон.}} b_k \chi_{a_k}\]
               \[f = \sum\limits_{i, k} c_i \chi_{e_i \cap a_k} \quad g = \sum\limits_{i, k} b_k \chi_{e_i \cap a_k}\]
@@ -172,8 +193,9 @@
     \begin{enumerate}
         \item \(E\subset X, E\) --- измеримо \( \Rightarrow \chi_E\) --- измеримо.
               \[E(\chi_E < a) = \begin{cases}
-                      \text{\O}, a < 0
-                      \?
+                      \text{\O},     & a < 0           \\
+                      X \setminus E, & 0 \leq a \leq 1 \\
+                      X ,            & a > 1
                   \end{cases}\]
         \item \(f:\R^m \to \R\) --- непрерывно. Тогда \(f\) --- измеримо по Лебегу.
               \begin{proof}
@@ -192,10 +214,10 @@
 
               \begin{proof}
                   \(E(\alpha f < a) = \begin{cases}
-                      E(f < \frac{a}{\alpha}), & \alpha > 0        \\
-                      E(f > \frac{a}{\alpha}), & \alpha < 0        \\
-                      E,                       & \alpha = 0, a > 0 \\
-                      \text{\O},               & \alpha = 0, a < 0 \\
+                      E(f < \frac{a}{\alpha}), & \alpha > 0           \\
+                      E(f > \frac{a}{\alpha}), & \alpha < 0           \\
+                      E,                       & \alpha = 0, a \geq 0 \\
+                      \text{\O},               & \alpha = 0, a < 0    \\
                   \end{cases}\)
               \end{proof}
         \item \(f\) --- измеримо на \(E_1, E_2, \dots \Rightarrow f\) измеримо на \(E = \bigcup E_k\)
@@ -205,6 +227,8 @@
               \end{proof}
         \item \(f \neq 0\), измеримо на \(E \Rightarrow \frac{1}{f}\) измеримо на \(E\).
         \item \(f \geq 0\), измеримо на \(E, \alpha\in\R \Rightarrow f^\alpha\) измеримо на \(E\).
+
+              \textcolor{red}{Это неверно}, т.к. при \(f \equiv 0, \alpha = - 1\) \(\ \not\exists f^\alpha\)
     \end{enumerate}
 \end{prop}
 
@@ -218,9 +242,16 @@
 \end{theorem}
 \begin{proof}\itemfix
     \begin{enumerate}
-        \item \(g = \sup f_n \quad X(g > a) = \bigcup_n X(f_n > a)\)
-        \item \((\overline \lim f_n)(x) = \inf_n (s_n = \sup (f_n(x), f_{n+1}(x), \dots )) \)
-        \item Очевидно
+        \item \(g = \sup f_n \quad X(g > a) \symrefeq{два шага} \bigcup_n X(f_n > a)\) и счётное объединение измеримых множеств измеримо.
+
+              \ref{два шага}: \begin{itemize}
+                  \item \(X(g > a) \subset \bigcup_n X(f_n > a)\), т.к. если \(x\in X(g > a)\), то \(g(x) > a\).
+                        \[\sup_n f_n(x) = g(x) \neq a \Rightarrow \exists n : f_n(x) > a\]
+                  \item \(X(g > a) \supset \bigcup_n X(f_n > a)\), т.к. если \(x\in X(f_n > a)\), то \(f_n(x) > a\), следовательно \(g(x) > a\).
+              \end{itemize}
+
+        \item \((\overline \lim f_n)(x) = \inf_n (s_n = \sup (f_n(x), f_{n+1}(x), \dots )) \). Т.к. \(\sup\) и \(\inf\) измерим, \(\overline \lim f_n\) тоже измерим.
+        \item Очевидно, т.к. если \(\exists \lim\), то \(\lim = \overline \lim = \underline \lim\)
     \end{enumerate}
 \end{proof}
 
@@ -230,9 +261,9 @@
 
 \(\mu[a, b) : = g(b) - g(a)\) --- \(\sigma\)-конечный объем \textit{(и даже \(\sigma\)-конечная мера на \(\mathcal{P}^1\))}
 
-%TODO
+Также можно определить для монотонной, но непрерывной \(g\). Тогда в точках разрыва \(\exists g(a + 0), g(a - 0)\). Пусть \(\mu[a, b) = g(b - 0) - g(a - 0)\). Такое изменение нужно, потому что исходное \(\mu\) не является объемом для разрывных функций.
 
-Применим теорему о лебеговском продолжении меры. Получим меру \(\mu_g\) на некоторой \(\sigma\)---алгебре. Это мера Лебега-Стилтьеса
+Применим теорему о лебеговском продолжении меры. Получим меру \(\mu_g\) на некоторой \(\sigma\)---алгебре. Это мера Лебега-Стилтьеса.
 
 \begin{example}
     \(g(x) = [x]\), тогда мера ячейки --- количество целых точек в этой ячейке.

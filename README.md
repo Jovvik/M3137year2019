@@ -6,6 +6,16 @@
 
 Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм @aeriu.
 
+## 4 семестр
+
+### Матанализ
+
+- [1 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/1.pdf)
+
+### Теория вероятности
+
+- [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/practice/1.pdf)
+
 ## 3 семестр
 
 ### Матанализ

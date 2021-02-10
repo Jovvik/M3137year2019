@@ -53,15 +53,15 @@ accept(x)
 
 Применим для автомата слов с суффиксом $010$ и слова $01010$:
 $$\begin{array}{c|cccc}
-    & 1 & 2 & 3 & 4 \\
-    \hline
-    0 & + \\
-    1 & + & + \\
-    2 & + &  & + \\
-    3 & + & + & & + \\
-    4 & + & & + \\
-    5 & + & + & & \oplus
-\end{array}$$
+          & 1 & 2 & 3 & 4      \\
+        \hline
+        0 & +                  \\
+        1 & + & +              \\
+        2 & + &   & +          \\
+        3 & + & + &   & +      \\
+        4 & + &   & +          \\
+        5 & + & + &   & \oplus
+    \end{array}$$
 Заметим, что 2 строка = 4 строка и 3 символ равен 5 символу, поэтому 3 строка = 5 строка.
 
 Построим по этой динамике ДКА с булевыми векторами строк в вершинах.
@@ -94,20 +94,20 @@ for du = 0...2**q-1
 \begin{enumerate}
     \item Построим граф $\varepsilon$-переходов и создадим его транзитивное замыкание. Добавленные замыканием ребра добавим в исходный автомат. Язык автомата от этого не изменился, т.к. переход по новому ребру эквивалентен $n$ переходов по $\varepsilon$-ребрам в исходном графе. Теперь можно не делать два $\varepsilon$-перехода подряд.
     \item Если из обычной вершины есть $\varepsilon$-переход в терминальную вершину, то сделаем эту вершину терминальной. Язык автомата от этого преобразования не изменился. Теперь последний переход происходит не по $\varepsilon$.
-    
-    \pagebreak
-    
-    \item Преобразуем \begin{figure}[h]
-        \includegraphics{graphs/8.3.dot.eps}
-    \end{figure}
-    
-    в
-    
-    \begin{figure}[h]
-        \includegraphics{graphs/8.4.dot.eps}
-    \end{figure}
 
-    Теперь можно не делать $\varepsilon$-переходы.
+          \pagebreak
+
+    \item Преобразуем \begin{figure}[h]
+              \includegraphics{graphs/8.3.dot.eps}
+          \end{figure}
+
+          в
+
+          \begin{figure}[h]
+              \includegraphics{graphs/8.4.dot.eps}
+          \end{figure}
+
+          Теперь можно не делать $\varepsilon$-переходы.
 
     \item Удалим $\varepsilon$-переходы.
 \end{enumerate}
@@ -123,8 +123,8 @@ for du = 0...2**q-1
     \begin{minipage}{.3\textwidth}
         \centering
         \includegraphics[scale=0.7]{graphs/8.5.dot.eps}
-        \caption{Автомат для $\{\text{\O}\}$}
-        \end{minipage}%
+        \caption{Автомат для $\{\emptyset\}$}
+    \end{minipage}%
     \begin{minipage}{.3\textwidth}
         \centering
         \includegraphics[scale=0.7]{graphs/8.6.dot.eps}
@@ -139,7 +139,7 @@ for du = 0...2**q-1
         \centering
         \includegraphics[scale=0.55]{graphs/8.8.dot.eps}
         \caption{Автомат $AB$}
-        \end{minipage}%
+    \end{minipage}%
     \begin{minipage}{.5\textwidth}
         \centering
         \includegraphics[scale=0.55]{graphs/8.9.dot.eps}
@@ -161,7 +161,7 @@ for du = 0...2**q-1
     $\xi_{ijk}$ задает слова, переводящие автомат из состояния $i$ в $j$, используя промежуточные состояния с номерами $\leq k$
 
     $\sphericalangle k=0, i=j, \xi_{ii0}=\varepsilon|c_1|c_2|\ldots$ --- из $i$ в $i$ без промежуточных состояний, т.к. состояний $\leq 0 \not\exists$. $c_i$ --- петли в $i$.
-    
+
     $\xi_{ij0}=c_1|c_2|\ldots$, $c_i$ --- переход $i\to j$
 
     $\xi_{ijk+1}=\xi_{ijk}|\xi_{ik+1k}(\xi_{k+1k+1k})^*\xi_{k+1jk}$ --- можем либо идти по пути с промежуточными $\leq k$, либо дойти $i\to k+1$, после чего $n\geq 0$ раз пройти $k+1\to k+1$ с промежуточными $\leq k$, после чего дойти $k+1\to j$  с промежуточными $k$ ($k$, а не $k+1$, т.к. номера состояний уникальны, а в $k+1$ мы уже не заходим)

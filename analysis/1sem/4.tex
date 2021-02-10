@@ -18,7 +18,7 @@
 \end{enumerate}
 
 \begin{definition}
-    $\overline{x}$ --- \textbf{комплексное сопряжение}, для вещественных чисел $\overline{x} = x$.    
+    $\overline{x}$ --- \textbf{комплексное сопряжение}, для вещественных чисел $\overline{x} = x$.
 \end{definition}
 
 \begin{enumerate}
@@ -29,7 +29,7 @@
 
 \begin{lemma}
     Неравенство КБШ \textit{(Коши-Буняковского-Шварца)}
-    
+
     %<*неравенствокошибуняковского>
     Для $X$ --- линейного пространства \textit{(над $\mathbb{R}, \mathbb{C}$)}
 
@@ -74,7 +74,7 @@
 \begin{lemma}
     %<*нормапорожденнаяскалярнымпроизведением>
     Для лин. пространства $X$, скалярного произведения $\langle \cdot ,\cdot \rangle$
-    
+
     $\rho:X\to\mathbb{R} \quad \rho(x)=\sqrt{\langle x,x\rangle}$ --- норма
     %</нормапорожденнаяскалярнымпроизведением>
 \end{lemma}
@@ -86,15 +86,15 @@
         \item $\rho(x)\geq 0\quad \rho(x)=0\Leftrightarrow \langle x,x\rangle=0\Leftrightarrow x=0$
         \item $\rho(\alpha x) = \sqrt{\alpha\overline\alpha\langle x,x\rangle}=|\alpha|\sqrt{\langle x,x\rangle}=|\alpha|\rho(x)$
         \item $\rho(x+y)\leq \rho(x)+\rho(y)$
-        $$\sqrt{\langle x+y,x+y\rangle} \stackrel{?}{\leq} \sqrt{\langle x,x\rangle} + \sqrt{\langle y,y\rangle}$$
+              $$\sqrt{\langle x+y,x+y\rangle} \stackrel{?}{\leq} \sqrt{\langle x,x\rangle} + \sqrt{\langle y,y\rangle}$$
 
-        $$\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle \stackrel{?}\leq \langle x,x\rangle + \langle y,y\rangle + 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
+              $$\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle y,y\rangle \stackrel{?}\leq \langle x,x\rangle + \langle y,y\rangle + 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
 
-        Пояснение следующего перехода: пусть $\langle x,y\rangle=a$. Тогда $a=\Re a+\Im a, \overline a=\Re a-\Im a$ \textit{(разложение на вещественную и мнимую части)}. $\langle x,y\rangle + \langle y,x\rangle=\langle x,y\rangle + \overline{\langle x,y\rangle}=\Re \langle x,y\rangle+\Im \langle x,y\rangle+\Re \langle x,y\rangle-\Im \langle x,y\rangle=2\Re \langle x,y\rangle$.
+              Пояснение следующего перехода: пусть $\langle x,y\rangle=a$. Тогда $a=\Re a+\Im a, \overline a=\Re a-\Im a$ \textit{(разложение на вещественную и мнимую части)}. $\langle x,y\rangle + \langle y,x\rangle=\langle x,y\rangle + \overline{\langle x,y\rangle}=\Re \langle x,y\rangle+\Im \langle x,y\rangle+\Re \langle x,y\rangle-\Im \langle x,y\rangle=2\Re \langle x,y\rangle$.
 
-        $$2\Re\langle x,y\rangle \stackrel{?}\leq 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
+              $$2\Re\langle x,y\rangle \stackrel{?}\leq 2\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
 
-        $$\Re\langle x,y\rangle \leq |\langle x,y\rangle|\leq\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
+              $$\Re\langle x,y\rangle \leq |\langle x,y\rangle|\leq\sqrt{\langle x,x\rangle\langle y,y\rangle}$$
     \end{enumerate}
 \end{proof}
 %</нормапорожденнаяскалярнымпроизведениемproof>
@@ -128,7 +128,7 @@ $\rho(x,y)=||x-y||$ - метрика в $\mathbb{R}^m$
     О покоординатной сходимости в $\mathbb{R}^m$
 
     $(x^{(n)})$ --- последовательность векторов в $\mathbb{R}^m$
-    
+
     в $\mathbb{R}^m$ задано евклидово скалярное произведение и норма.
 
     Тогда $(x^{(n)})\to x \Leftrightarrow \forall i\in\{1,2,\ldots m\} \ \ x_i^{(n)}\underset{n\to+\infty}\to x_i$
@@ -184,7 +184,7 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 \end{definition}
 
 \begin{definition}
-    $D$ - \textbf{открытое множество} $\forall a\in D : a$ --- внутренняя точка $D$. 
+    $D$ - \textbf{открытое множество} $\forall a\in D : a$ --- внутренняя точка $D$.
 \end{definition}
 
 Пример:
@@ -212,12 +212,12 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 
     \begin{enumerate}
         \item $(G_\alpha)_{\alpha\in A}$ - семейство открытых множеств в $(X,\rho)$
-        
-        Тогда $\bigcup\limits_{\alpha\in A} G_\alpha$ - открыто в $X$.
+
+              Тогда $\bigcup\limits_{\alpha\in A} G_\alpha$ - открыто в $X$.
 
         \item $G_1,G_2,\ldots G_n$ - открыто в $X$.
-        
-        Тогда $\bigcap\limits_{i=1}^{n} G_i$ - открыто в $X$.
+
+              Тогда $\bigcap\limits_{i=1}^{n} G_i$ - открыто в $X$.
     \end{enumerate}
 
 \end{theorem}
@@ -225,14 +225,14 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 \begin{proof}
     \begin{enumerate}
         \item Пусть $x\in \bigcup_{\alpha\in A} G_\alpha$
-        
-        Тогда $\exists \alpha_0 \quad x\in G_{\alpha_0}$ --- откр. $\exists r_0 : B(x,r_0)\subset G_{\alpha_0} \Rightarrow B(x,r_0)\subset\bigcup_{\alpha\in A} G_\alpha$
+
+              Тогда $\exists \alpha_0 \quad x\in G_{\alpha_0}$ --- откр. $\exists r_0 : B(x,r_0)\subset G_{\alpha_0} \Rightarrow B(x,r_0)\subset\bigcup_{\alpha\in A} G_\alpha$
 
         \item $x\in \prod_{i=1}^n G_i \Rightarrow \forall i\in\{1\ldots n\} \quad x\in G_i \Rightarrow \exists r_i>0 : B(x,r_i)\subset G_i$
-        
-        $r:=min(r_1\ldots r_n)$
 
-        $\forall i \quad B(x,r)\subset G_i$, т.е. $B(x,r)\subset\bigcap G_i$
+              $r:=min(r_1\ldots r_n)$
+
+              $\forall i \quad B(x,r)\subset G_i$, т.е. $B(x,r)\subset\bigcap G_i$
     \end{enumerate}
 \end{proof}
 
@@ -258,20 +258,20 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 
 \begin{definition}
     %<*предельнаяточка>
-    $a$ --- {\bf предельная точка} множества $D$, если $$\forall \dot U(a) \ \ \dot U(a)\cap D\not = \text{\O}$$
+    $a$ --- {\bf предельная точка} множества $D$, если $$\forall \dot U(a) \ \ \dot U(a)\cap D\not = \emptyset$$
     %</предельнаяточка>
 \end{definition}
 
 Пример: $D=(0,1), X=\mathbb{R}$
 
 \begin{tabular}{c|c}
-    $a$&Пред. точка? \\
+    $a$           & Пред. точка?                                    \\
     \hline
-    -1& Нет, $B(-1, \frac{1}{2})\cap D=\text{\O}$\\
+    -1            & Нет, $B(-1, \frac{1}{2})\cap D=\emptyset$       \\
     \hline
-    $\frac{1}{2}$ & Да, $B(\frac{1}{2}, \frac{1}{2})\subset D$\\
+    $\frac{1}{2}$ & Да, $B(\frac{1}{2}, \frac{1}{2})\subset D$      \\
     \hline
-    0 & Да, $B(0,\frac{1}{2})\cap D = (0, \frac{1}{2})$
+    0             & Да, $B(0,\frac{1}{2})\cap D = (0, \frac{1}{2})$
 \end{tabular}
 
 \begin{remark}
@@ -297,7 +297,7 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
     %</замкнутоемножество>
 \end{definition}
 
-Пример: $X, \text{\O}, [0,1], \overline{B(a,R)}, \{a\}$ --- замкнутые
+Пример: $X, \emptyset, [0,1], \overline{B(a,R)}, \{a\}$ --- замкнутые
 
 Пример: $(0, 1)$ --- в $\mathbb{R}$ незамкнутое
 
@@ -309,8 +309,8 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 \begin{proof}
     Докажем $\Rightarrow$: $D$ --- замкн. $\Rightarrow^? X\setminus D$
 
-    $x\in X\setminus D \Rightarrow x$ --- не пред. точка $D$, т.к. $D$ содержит все свои пред. точки и $x\not\in D$ 
-    
+    $x\in X\setminus D \Rightarrow x$ --- не пред. точка $D$, т.к. $D$ содержит все свои пред. точки и $x\not\in D$
+
     $\Rightarrow\exists r : B(x,r)\subset X\setminus D$
 
     Докажем $\Leftarrow$: $X\setminus D$ --- откр., $D$ --- замкн.?, т.е. $\forall x\in\{\text{пр.точки D}\} \ \ ?x\in D$
@@ -333,12 +333,12 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
     %<*освойствахзамкнутыхмножеств>
     \begin{enumerate}
         \item $(G_\alpha)_{\alpha\in A}$ - семейство открытых множеств в $(X,\rho)$
-    
-        Тогда $\bigcup\limits_{\alpha\in A} G_\alpha$ - открыто в $X$.
-    
+
+              Тогда $\bigcup\limits_{\alpha\in A} G_\alpha$ - открыто в $X$.
+
         \item $G_1,G_2,\ldots G_n$ - открыто в $X$.
-        
-        Тогда $\bigcap\limits_{i=1}^{n} G_i$ - открыто в $X$.
+
+              Тогда $\bigcap\limits_{i=1}^{n} G_i$ - открыто в $X$.
     \end{enumerate}
     %</освойствахзамкнутыхмножеств>
 \end{theorem}
@@ -347,18 +347,18 @@ $$\overline{B(a,R)}\subset\text{Куб}(a,R)\subset \overline{B(a,\sqrt mR)}$$
 \begin{proof}
     \begin{enumerate}
         \item $x_0\in\bigcup\limits_{\alpha\in A} G_\alpha$
-        
-        $\exists \alpha_0:x_0\in G_{\alpha_0}$
 
-        $G_{\alpha_0}$ --- открыто $\Rightarrow \exists U(x_0)\subset G_{\alpha_0} \subset \bigcup\limits_{\alpha\in A} G_\alpha \Rightarrow x_0$ --- внтуренняя точка $\bigcup\limits_{\alpha\in A} G_\alpha \Rightarrow \bigcup\limits_{\alpha\in A} G_\alpha$ --- открыто, т.к. в нём все точки внутренние.
+              $\exists \alpha_0:x_0\in G_{\alpha_0}$
+
+              $G_{\alpha_0}$ --- открыто $\Rightarrow \exists U(x_0)\subset G_{\alpha_0} \subset \bigcup\limits_{\alpha\in A} G_\alpha \Rightarrow x_0$ --- внтуренняя точка $\bigcup\limits_{\alpha\in A} G_\alpha \Rightarrow \bigcup\limits_{\alpha\in A} G_\alpha$ --- открыто, т.к. в нём все точки внутренние.
 
         \item $x_0\in\bigcap\limits_{\alpha\in A} G_\alpha$
-        
-        $\forall \alpha\in A : x_0\in G_\alpha$
 
-        $\forall \alpha\in A \ \ G_\alpha$ --- открыто $\Rightarrow \exists B_\alpha(x_0, r_\alpha)\subset G_\alpha$
+              $\forall \alpha\in A : x_0\in G_\alpha$
 
-        $\forall x_0 : \exists U(x_0)=B(x_0, \min\limits_\alpha r_\alpha)\subset \bigcap\limits_{\alpha\in A} G_\alpha \Rightarrow x_0$ --- внутренняя точка $\bigcap\limits_{\alpha\in A} G_\alpha \Rightarrow \bigcap\limits_{\alpha\in A} G_\alpha$ --- открыто, т.к. в нём все точки внутренние.
+              $\forall \alpha\in A \ \ G_\alpha$ --- открыто $\Rightarrow \exists B_\alpha(x_0, r_\alpha)\subset G_\alpha$
+
+              $\forall x_0 : \exists U(x_0)=B(x_0, \min\limits_\alpha r_\alpha)\subset \bigcap\limits_{\alpha\in A} G_\alpha \Rightarrow x_0$ --- внутренняя точка $\bigcap\limits_{\alpha\in A} G_\alpha \Rightarrow \bigcap\limits_{\alpha\in A} G_\alpha$ --- открыто, т.к. в нём все точки внутренние.
     \end{enumerate}
 \end{proof}
 %</освойствахзамкнутыхмножествproof>

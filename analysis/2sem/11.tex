@@ -40,24 +40,24 @@
 
 \begin{example}
     $\sum \frac{1}{k^\alpha (\ln k)^\beta}$
-    
+
     Способы:
     \begin{enumerate}
         \item ``Удавить логарифм'' % себя удави
         \item Покажем, что $\frac{1}{k^\alpha (\ln k)^\beta}$ монотонна НСНМ:
-        $$f' = \frac{-\alpha}{x^{\alpha+1}(\ln x)^\beta} - \frac{\beta}{x^{\alpha+1}(\ln x)^\beta \ln x}\equ\limits_{x\to+\infty} \frac{-\alpha}{x^{\alpha+1}(\ln x)^\beta} \Rightarrow f'<0 \text{ НСНМ}$$
+              $$f' = \frac{-\alpha}{x^{\alpha+1}(\ln x)^\beta} - \frac{\beta}{x^{\alpha+1}(\ln x)^\beta \ln x}\equ\limits_{x\to+\infty} \frac{-\alpha}{x^{\alpha+1}(\ln x)^\beta} \Rightarrow f'<0 \text{ НСНМ}$$
 
-        Перейдем к интегралу:
-        $$\int_2^{+\infty} \frac{1}{x^\alpha (\ln x)^\beta} dx$$
-        \begin{itemize}
-            \item $\alpha > 1$ сходится
-            \item $\alpha < 1$ расходится
-            \item $\alpha = 1$: \begin{itemize}
-                \item $\beta > 1$ сходится
-                \item $\beta \le 1$ расходится
-            \end{itemize}
-        \end{itemize}
-        По другим признакам сходимость ряда нельзя выяснить.
+              Перейдем к интегралу:
+              $$\int_2^{+\infty} \frac{1}{x^\alpha (\ln x)^\beta} dx$$
+              \begin{itemize}
+                  \item $\alpha > 1$ сходится
+                  \item $\alpha < 1$ расходится
+                  \item $\alpha = 1$: \begin{itemize}
+                            \item $\beta > 1$ сходится
+                            \item $\beta \le 1$ расходится
+                        \end{itemize}
+              \end{itemize}
+              По другим признакам сходимость ряда нельзя выяснить.
     \end{enumerate}
 \end{example}
 
@@ -86,7 +86,7 @@
     \begin{enumerate}
         \item $\sum a_n$ абс. сх.
         \item $\sum |a_n|$ сх.
-        \item Оба ряда $\sum a_n^+, \sum a_n^-$ сх. 
+        \item Оба ряда $\sum a_n^+, \sum a_n^-$ сх.
     \end{enumerate}
     %</абсолютносходящийсярядтеорема>
 \end{theorem}
@@ -133,78 +133,78 @@
 
 \begin{itemize}
     \item Линейное пространство $x=(x_1\ldots x_m), x_i\in\R$. Строка/столбец --- не важно.
-    
-    %<*характеристикаrm>
-    $$\langle x,y\rangle=\sum_{i=1}^m x_iy_i$$
-    
-    $$|x|=\sqrt{\langle x,x\rangle}=\sqrt{\sum x_i^2}$$
-    
-    $$\rho(x,y):=|x-y|$$
-    %</характеристикаrm>
+
+          %<*характеристикаrm>
+          $$\langle x,y\rangle=\sum_{i=1}^m x_iy_i$$
+
+          $$|x|=\sqrt{\langle x,x\rangle}=\sqrt{\sum x_i^2}$$
+
+          $$\rho(x,y):=|x-y|$$
+          %</характеристикаrm>
 
     \item Окрестности, шар
-    
-    %<*окрестность>
-    $B(a, r)=\{x\in\R^m : |x-a|<r\}$ --- открытый шар, $r$-окрестность точки $a$
 
-    $a$ --- {\bf внутренняя точка} множества $D$, если $\exists U(a) : U(a)\subset D$, т.е. $\exists r>0 : B(a,r)\subset D$
+          %<*окрестность>
+          $B(a, r)=\{x\in\R^m : |x-a|<r\}$ --- открытый шар, $r$-окрестность точки $a$
 
-    $D$ --- \textbf{открытое множество}, если $\forall a \in D : a$ --- внутренняя точка $D$
-    %</окрестность>
+          $a$ --- {\bf внутренняя точка} множества $D$, если $\exists U(a) : U(a)\subset D$, т.е. $\exists r>0 : B(a,r)\subset D$
 
-    %<*замкнутость>
-    $a$ --- {\bf предельная точка} множества $D$, если $\forall \dot U(a) \ \ \dot U(a)\cap D\not = \text{\O}$
+          $D$ --- \textbf{открытое множество}, если $\forall a \in D : a$ --- внутренняя точка $D$
+          %</окрестность>
 
-    $D$ --- {\bf замкнутое множество}, если оно содержит все свои предельные точки.
+          %<*замкнутость>
+          $a$ --- {\bf предельная точка} множества $D$, если $\forall \dot U(a) \ \ \dot U(a)\cap D\not = \emptyset$
 
-    {\bf Замыканием} множества $D$ называется $\overline D=D\cup$(множество предельных точек $D$)
-    %</замкнутость>
+          $D$ --- {\bf замкнутое множество}, если оно содержит все свои предельные точки.
+
+          {\bf Замыканием} множества $D$ называется $\overline D=D\cup$(множество предельных точек $D$)
+          %</замкнутость>
 
     \item Сходимость, предел
-    
-    %<*сходимость>
-    $\sphericalangle x_n$ --- посл. в $\R^m, a\in\R^m$
 
-    $$x_n\to a \Leftrightarrow \forall U(a) \ \ \exists N \ \ \forall n > N \ \ x_n\in U(a)$$
+          %<*сходимость>
+          $\sphericalangle x_n$ --- посл. в $\R^m, a\in\R^m$
 
-    Норма и скалярное произведение сохраняют сходимость:
-    $$x_n\to a, y_n\to b \Rightarrow \langle x_n, y_n\rangle \to \langle a,b\rangle, |x_n|\to |a|$$
-    
-    Сходимость функций:
+          $$x_n\to a \Leftrightarrow \forall U(a) \ \ \exists N \ \ \forall n > N \ \ x_n\in U(a)$$
 
-    $f : O\subset \R^m \to \R^n$
+          Норма и скалярное произведение сохраняют сходимость:
+          $$x_n\to a, y_n\to b \Rightarrow \langle x_n, y_n\rangle \to \langle a,b\rangle, |x_n|\to |a|$$
 
-    $a$ --- предельная точка $O$, $L\in \R^n$
+          Сходимость функций:
 
-    $$\lim_{x\to a} f(x) = L \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall x : 0 < |x - a| < \delta \quad |f(x) - L| < \varepsilon$$
+          $f : O\subset \R^m \to \R^n$
 
-    То же самое, но по Гейне:
-    $$\forall (x_k) : \begin{cases}
-        x_k\in O\subset \R^m \\
-        x_k\to a \\
-        \forall k \ \ x_k\not=a
-    \end{cases} \quad f(x_k)\xRightarrow[k\to+\infty]{}L$$
+          $a$ --- предельная точка $O$, $L\in \R^n$
 
-    \textbf{Покоординатная сходимость}:
-    $$\lim_{x\to a} f(x)=L \Leftrightarrow \forall i : 1\le i\le n : \lim_{x\to a} f(x)_i = L_i$$
-    $$x_k\to a \Leftrightarrow \forall i : 1\le i\le m : x_i^{(k)}\xrightarrow[k\to+\infty]{}a_i$$
-    %</сходимость>
+          $$\lim_{x\to a} f(x) = L \Leftrightarrow \forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall x : 0 < |x - a| < \delta \quad |f(x) - L| < \varepsilon$$
+
+          То же самое, но по Гейне:
+          $$\forall (x_k) : \begin{cases}
+                  x_k\in O\subset \R^m \\
+                  x_k\to a             \\
+                  \forall k \ \ x_k\not=a
+              \end{cases} \quad f(x_k)\xRightarrow[k\to+\infty]{}L$$
+
+          \textbf{Покоординатная сходимость}:
+          $$\lim_{x\to a} f(x)=L \Leftrightarrow \forall i : 1\le i\le n : \lim_{x\to a} f(x)_i = L_i$$
+          $$x_k\to a \Leftrightarrow \forall i : 1\le i\le m : x_i^{(k)}\xrightarrow[k\to+\infty]{}a_i$$
+          %</сходимость>
 
     \item Компактность
 
-    \textbf{Параллелепипед} $[a,b]$ $=\{x : \forall i : 1\le i\le m \quad a_i\le x_i \le b_i\}$
+          \textbf{Параллелепипед} $[a,b]$ $=\{x : \forall i : 1\le i\le m \quad a_i\le x_i \le b_i\}$
 
-    %<*компактность>
-    $K$ \textbf{компактно}, если $K\subset \bigcup\limits_{\alpha\in A} \underbrace{G_\alpha}_{\text{откр.}} \Rightarrow K \subset \bigcup\limits_{i=1}^n G_{\alpha_i}$
+          %<*компактность>
+          $K$ \textbf{компактно}, если $K\subset \bigcup\limits_{\alpha\in A} \underbrace{G_\alpha}_{\text{откр.}} \Rightarrow K \subset \bigcup\limits_{i=1}^n G_{\alpha_i}$
 
-    В $\R^m$ комп. $\Leftrightarrow$ замкн. и огр.
+          В $\R^m$ комп. $\Leftrightarrow$ замкн. и огр.
 
-    Секвенциальная компактность: $\forall (x_n), x_n\in K \Rightarrow \exists n_k, a\in K : x_{n_k}\to a$
+          Секвенциальная компактность: $\forall (x_n), x_n\in K \Rightarrow \exists n_k, a\in K : x_{n_k}\to a$
 
-    Принцип выбора Больцано-Вейерштрасса: если в $\R^m$ $(x_n)$ --- ограниченная последовательность, то у неё существует сходящаяся подпоследовательность.
-    %</компактность>
+          Принцип выбора Больцано-Вейерштрасса: если в $\R^m$ $(x_n)$ --- ограниченная последовательность, то у неё существует сходящаяся подпоследовательность.
+          %</компактность>
 
-    % Применение компактности : принцип выбора Больцано-Вейерштрасса, теорема Вейерштрасса.
+          % Применение компактности : принцип выбора Больцано-Вейерштрасса, теорема Вейерштрасса.
 \end{itemize}
 
 $$\lim_{y\to0, x\to0} \frac{x+y}{x-y}=\lim_{y\to0} \lim_{x\to0} \frac{x+y}{x-y}=\lim_{y\to0} -1$$
@@ -249,7 +249,7 @@ $$\lim_{\substack{x\to a \\ y\to b}} f(x,y)=A \Leftrightarrow \forall W(A) \ \ \
     $D_1, D_2\subset \R$, $a$ --- пр. точка $D_1$, $b$ --- пр. точка $D_2$
 
     $D = (D_1\setminus\{a\})\times(D_2\setminus \{b\}) \quad f:D\to \R$
-    
+
     Пусть:
     \begin{enumerate}
         \item $\exists \lim\limits_{(x,y)\to (a,b)} f(x, y)=A\in\overline\R$

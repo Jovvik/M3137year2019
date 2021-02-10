@@ -20,6 +20,7 @@ jobs:
           run: |
               apk add git
               apk add inkscape
+              apk add ttf-inconsolata
               time bash build.sh
       - name: Set env
         run: echo "COMMIT_MSG=Built pdfs $(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV

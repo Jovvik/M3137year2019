@@ -1,5 +1,6 @@
 \documentclass[12pt, a4paper]{article}
 
+%<*preamble>
 % Math symbols
 \usepackage{amsmath, amsthm, amsfonts, amssymb}
 \usepackage{accents}
@@ -14,6 +15,11 @@
 \usepackage[russian]{babel}
 \usepackage[sb]{libertine}
 \usepackage{xltxtra}
+
+% Listings
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,breaklines=true}
+\setmonofont{Inconsolata}
 
 % Miscellaneous
 \usepackage{calc}
@@ -145,6 +151,7 @@
 \newcommand{\defeqfor}[1]{\stackrel{\text{def } #1}{=}}
 \newcommand{\itemfix}{\leavevmode\makeatletter\makeatother}
 \newcommand{\?}{\textcolor{red}{???}}
+\renewcommand{\emptyset}{\varnothing}
 \DeclarePairedDelimiter\ev{\langle}{\rangle}%
 
 \makeatletter
@@ -186,3 +193,4 @@
 <00112233445566778899aabbccddeeff>
 <00112233445566778899aabbccddeeff>
 ]}
+%</preamble>

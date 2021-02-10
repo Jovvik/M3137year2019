@@ -90,7 +90,7 @@ $\mathbb{R}, \mathbb{Q}$ - архимедовы поля
 
 Для последовательности вложенных отрезков $\{[a_n,b_n]\}_{n=1}^\infty$ ($\forall n\in\N a_n\leq a_{n+1}\leq b_{n+1}\leq b_n$)
 
-$$\bigcap\limits_{n=1}^\infty[a_n, b_n] \not = \text{\O}$$
+$$\bigcap\limits_{n=1}^\infty[a_n, b_n] \not = \emptyset$$
 
 $\Q$ не удволетворяет этой аксиоме, в отличие от $\R$.
 
@@ -208,8 +208,8 @@ $$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
 
 Если $K$ --- поле \textit{($K=\mathbb{R}$ или $\mathbb{C}$)}, $X$ --- множество, то $X$ называется \textbf{линейным пространством} над полем $K$ (и тогда $K$ называется полем скаляр), если определены следующие две операции:
 \begin{enumerate}
-\item $+:X\times X \to X$ --- сложение векторов
-\item $\cdot:K\times X\to X$ --- умножение векторов на скаляры
+    \item $+:X\times X \to X$ --- сложение векторов
+    \item $\cdot:K\times X\to X$ --- умножение векторов на скаляры
 \end{enumerate}
 
 Для этих операций выполняются соответствующие аксиомы \textit{(здесь $A,B,C\in X; a,b\in K$)}:
@@ -234,9 +234,9 @@ $$\forall U(a) \ \ \exists N \ \ \forall n>N \ \ x_n\in U(a)$$
 
 \textbf{Норма} - отображение $X\to\mathbb{R}, x\mapsto ||x||$, если $X$ - линейное пространство (над $\mathbb{R}$ или $\mathbb{C}$) и выполняется следующее:
 \begin{enumerate}
-\item $\forall x \ \ ||x||\geq 0, ||x||=0\Leftrightarrow x=0$
-\item $\forall x\in X \ \ \forall \lambda\in\mathbb R(\mathbb{C}) \ \ ||\lambda x||=|\lambda|\cdot||x||$
-\item Неравенство треугольника: $\forall x,y\in X \ \ ||x+y||\leq||x||+||y||$
+    \item $\forall x \ \ ||x||\geq 0, ||x||=0\Leftrightarrow x=0$
+    \item $\forall x\in X \ \ \forall \lambda\in\mathbb R(\mathbb{C}) \ \ ||\lambda x||=|\lambda|\cdot||x||$
+    \item Неравенство треугольника: $\forall x,y\in X \ \ ||x+y||\leq||x||+||y||$
 \end{enumerate}
 
 \textbf{Нормированное пространство} --- упорядоченная пара $(X, ||\cdot||)$, где $|| ||$ - норма
@@ -256,7 +256,7 @@ $D$ --- {\bf открытое множество}, если $\forall a\in D : a$
 %</внутренность>
 
 \subsection{Предельная точка множества}
-$a$ --- {\bf предельная точка} множества $D$, если $\forall \dot U(a) \ \ \dot U(a)\cap D\not = \text{\O}$
+$a$ --- {\bf предельная точка} множества $D$, если $\forall \dot U(a) \ \ \dot U(a)\cap D\not = \emptyset$
 
 \subsection{Замкнутое множество, замыкание, граница}
 
@@ -297,9 +297,9 @@ $E\subset \mathbb{R}$. $E$ --- огр. сверху, если $\exists M\in\math
 \subsection{Техническое описание супремума}
 
 $$b=\sup E \Leftrightarrow \begin{cases}
-    \forall x\in E \ \ x\leq b \\
-    \forall \varepsilon > 0 \ \ \exists x\in E \ \ b-\varepsilon<x
-\end{cases}$$
+        \forall x\in E \ \ x\leq b \\
+        \forall \varepsilon > 0 \ \ \exists x\in E \ \ b-\varepsilon<x
+    \end{cases}$$
 
 \subsection{Последовательность, стремящаяся к бесконечности}
 
@@ -313,7 +313,7 @@ $K\subset X$ --- {\bf компактное}, если для любого отк
 
 \subsection{Секвенциальная компактность}
 
-\textbf{Секвенциально компактным} называется множество $A\subset X : 
+\textbf{Секвенциально компактным} называется множество $A\subset X :
     \forall \text{ посл. } (x_n) \text{ точек } A \\
     \exists \text{ подпосл. } x_{n_k} \text{, которая сходится к точке из } A
 $
@@ -327,15 +327,15 @@ $
 
 $$\forall \varepsilon>0 \ \ \exists \delta>0 \ \ \forall x\in X \ \ 0<\rho^X(a,x)<\delta \quad \rho^Y(f(x), b) < \varepsilon$$
 \subsubsection{На языке окрестностей}
-    $$\forall U(b) \ \ \exists V(a) \ \ \forall x\in \dot V(a) \ \ f(x)\in U(b)$$
+$$\forall U(b) \ \ \exists V(a) \ \ \forall x\in \dot V(a) \ \ f(x)\in U(b)$$
 \subsubsection{По Гейне}
-    $\forall (x_n)$ --- посл.:
-    \begin{enumerate}
-        \item $x_n\to a$
-        \item $x_n\in X$
-        \item $x_n\not = a$
-    \end{enumerate}
-    $f(x_n)\to b$
+$\forall (x_n)$ --- посл.:
+\begin{enumerate}
+    \item $x_n\to a$
+    \item $x_n\in X$
+    \item $x_n\not = a$
+\end{enumerate}
+$f(x_n)\to b$
 
 \subsection{Определения пределов в $\overline\R$}
 %<*пределывrсчертой>
@@ -404,7 +404,7 @@ $$\forall x,y>0: \exists n\in \N: nx>y$$
 
 \subsubsection{Плотность множества $\Q$ в $\R$}
 
-$$\Q \text{ плотно в } \R\xLeftrightarrow{def} \forall a,b \in \R, a<b \ \ (a,b)\cap\mathbb{Q} \not =\text{\O}$$
+$$\Q \text{ плотно в } \R\xLeftrightarrow{def} \forall a,b \in \R, a<b \ \ (a,b)\cap\mathbb{Q} \not =\emptyset$$
 
 В любом интервале в $\R$ содержится число $\in \Q$.
 %</аксиомаархимедаплотностьqвr>
@@ -436,7 +436,7 @@ $x_n\xrightarrow[n\to +\infty]{} a$, $x_n\xrightarrow[n\to +\infty]{} b$,
 Если $(x_n),(y_n)$ --- вещественные последовательности $x_n\to a, y_n\to b$, $\exists N \ \ \forall n > N \ x_n\leq y_n$, \textbf{тогда} $a\leq b$.
 
 \subsubsection{Для функций}
-Если $f, g:X\to \R$, $a$ --- предельная точка $X$, и $\forall x\in X \ \ f(x)\leq g(x)$. Тогда $\lim\limits_{x\to a}f(x)\leq \lim\limits_{x\to a}g(x)$ 
+Если $f, g:X\to \R$, $a$ --- предельная точка $X$, и $\forall x\in X \ \ f(x)\leq g(x)$. Тогда $\lim\limits_{x\to a}f(x)\leq \lim\limits_{x\to a}g(x)$
 %</теоремаопредельномпереходевнеравенствахдляпоследовательностейидляфункций>
 
 \subsection{Теорема о двух городовых}
@@ -452,15 +452,15 @@ $(x_n)$ --- вещ. посл. называется \textbf{бесконечно 
 Если $(X, ||\cdot||)$ --- норм. пр-во, $(x_n),(y_n)$ --- посл. в $X$, $\lambda_n$ ---
 посл. скаляров, и $x_n\to x_0, y_n\to y_0, \lambda_n\to \lambda_0$, \textbf{тогда}:
 \begin{enumerate}
-\item $x_n\pm y_n\to x_0\pm y_0$
-\item $\lambda_nx_n\to \lambda_0 x_0$
-\item $||x_n||\to||x_0||$
+    \item $x_n\pm y_n\to x_0\pm y_0$
+    \item $\lambda_nx_n\to \lambda_0 x_0$
+    \item $||x_n||\to||x_0||$
 \end{enumerate}
 
-Для $(x_n),(y_n)$ 
+Для $(x_n),(y_n)$
 --- вещ.посл., $\forall n \ \ y_n\not =0, y_0\not = 0$:
 \begin{enumerate}[resume]
-\item $\frac{x_n}{y_n}\to\frac{x_0}{y_0}$
+    \item $\frac{x_n}{y_n}\to\frac{x_0}{y_0}$
 \end{enumerate}
 
 \subsection{Неравенство Коши-Буняковского в линейном пространстве, норма, порожденная скалярным произведением}
@@ -495,12 +495,12 @@ $\forall x \in B(a, r) \ \ x$ --- внутренняя точка $B(a, r)$
 
 \begin{enumerate}
     \item $(G_\alpha)_{\alpha\in A}$ - семейство открытых множеств в $(X,\rho)$
-    
-    Тогда $\bigcup\limits_{\alpha\in A} G_\alpha$ - открыто в $X$.
+
+          Тогда $\bigcup\limits_{\alpha\in A} G_\alpha$ - открыто в $X$.
 
     \item $G_1,G_2,\ldots G_n$ - открыто в $X$.
-    
-    Тогда $\bigcap\limits_{i=1}^{n} G_i$ - открыто в $X$.
+
+          Тогда $\bigcap\limits_{i=1}^{n} G_i$ - открыто в $X$.
 \end{enumerate}
 
 \begin{remark}
@@ -516,12 +516,12 @@ $D$ --- замкнуто $\Leftrightarrow D^c=X\setminus D$ \textit{(допол�
 
 \begin{enumerate}
     \item $(F_\alpha)_{\alpha\in A}$ --- замкн. в $X$
-    
-    Тогда $\bigcap F_\alpha$ --- замкн. в $X$
+
+          Тогда $\bigcap F_\alpha$ --- замкн. в $X$
 
     \item $F_1\ldots F_n$ --- замкн. в $X$
-    
-    Тогда $\bigcup F_i$ --- замкн. в $X$
+
+          Тогда $\bigcup F_i$ --- замкн. в $X$
 \end{enumerate}
 %</освязиоткрытыхизамкнутыхмножеств>
 
@@ -532,7 +532,7 @@ $(x_n),(y_n)$ --- вещ., $x_n\to a, y_n\to b \quad a,b\in\mathbb{\overline R}$
 \begin{enumerate}
     \item $x_n\pm y_n\to a\pm b$
     \item $x_n y_n\to a b$,
-    \textit{если $\forall n \ \ y_n\not=0; b\not=0$}
+          \textit{если $\forall n \ \ y_n\not=0; b\not=0$}
     \item $\frac{x_n}{y_n}\to\frac{a}{b}$
 \end{enumerate}
 При условии, что выражения в правых частях имеют смысл.
@@ -571,10 +571,10 @@ $E\subset \mathbb{R}, E\not=$ \O $, E$ --- огр. сверху.
 \subsection{Лемма о свойствах супремума}
 
 \begin{enumerate}
-    \item $\text{\O}\not =D\subset E\subset \mathbb{R} \quad \sup D\leq \sup E$
+    \item $\emptyset\not =D\subset E\subset \mathbb{R} \quad \sup D\leq \sup E$
     \item $\lambda\in\mathbb{R} \quad (\lambda E=\{\lambda x, x\in E\})$
 
-    Пусть $\lambda>0$, тогда $\sup \lambda E=\lambda\sup E$
+          Пусть $\lambda>0$, тогда $\sup \lambda E=\lambda\sup E$
     \item $\sup(-E)=-\inf E$
 \end{enumerate}
 
@@ -613,7 +613,7 @@ $(X, \rho)$ --- метрическое пространство, $K\subset X$
 
 \begin{enumerate}
     \item $K$ --- комп. $\Rightarrow K$ --- замкн., $K$ --- огр.
-    \item $X$ --- комп, $K$ --- замкн. $\Rightarrow K$ --- комп. 
+    \item $X$ --- комп, $K$ --- замкн. $\Rightarrow K$ --- комп.
 \end{enumerate}
 
 \subsection{Лемма о вложенных параллелепипедах}
@@ -681,11 +681,11 @@ $\lambda: D\to \mathbb{R}, \lim\limits_{x\to a}\lambda (x) = \lambda_0$
     \item $\lim\limits_{x\to a} \lambda(x) f(x) = \lambda_0A$
     \item $\lim\limits_{x\to a} ||f(x)||=||A||$
     \item Для случая $Y=\R$ и для $B\not=0$ $$\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{A}{B}$$
-    $\frac{f}{g}$ задано на множестве $D'=D\setminus \{x:g(x)=0\}$
+          $\frac{f}{g}$ задано на множестве $D'=D\setminus \{x:g(x)=0\}$
 
-    $a$ --- пр. точка $D'$ по теореме о стабилизации знака $\exists V(a) \ \ \forall x\in V(a)\cap D \ \ g(x)$ --- того же знака, что и $B$, т.е. $g(x)\not = 0$
+          $a$ --- пр. точка $D'$ по теореме о стабилизации знака $\exists V(a) \ \ \forall x\in V(a)\cap D \ \ g(x)$ --- того же знака, что и $B$, т.е. $g(x)\not = 0$
 
-    $\dot V(a)\cap D'=\dot V(a)\cap D \Rightarrow a$ --- пред. точка для $D'$
+          $\dot V(a)\cap D'=\dot V(a)\cap D \Rightarrow a$ --- пред. точка для $D'$
 \end{enumerate}
 
 Если $Y=\overline\R$, можно ``разрешить'' случай $A, B=\pm \infty$

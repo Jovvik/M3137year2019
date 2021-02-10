@@ -1,16 +1,52 @@
-\input{../../preamble.sty}
+\documentclass[12pt, a4paper, oneside]{book}
 
-\lhead{Методы оптимизации}
+\usepackage{catchfilebetweentags}
+\ExecuteMetaData[../../preamble.sty]{preamble}
+
+\addto\captionsrussian{\renewcommand{\chaptername}{Лекция}}
+
+\let\MakeUppercase\relax
+
+\lfoot{}
 \cfoot{}
-\rfoot{10.2.2021}
+\rfoot{}
+\lhead{\rightmark}
+
+\usepackage{tocloft}
+\advance\cftsecnumwidth -1em\relax
+\advance\cftsubsecindent -1em\relax
+\advance\cftsubsecnumwidth -1em\relax
+
+\usepackage{titletoc}
+\titlecontents*{chapter}% <section-type>
+  [0pt]% <left>
+  {}% <above-code>
+  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\bfseries\hfill\contentspage}% <filler-page-format>
+
+\let\endtitlepage\relax
+
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\renewcommand{\thesection}{\arabic{section}}
 
 \begin{document}
+
+\title{Методы оптимизации}
+\author{Михайлов Максим}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{}
 
 Этот курс --- о минимизации \textit{(максимизации)} функционалов. Кроме конкретных методов оптимизации, планируется рассмотреть форматы хранения матриц, о методах работы с ними и рассмотреть 1-2 \textit{(может быть 3)} СЛАУ с использованием различных форматов.
 
 Т.к. значения, получаемые компьютерами --- не точные, нам требуется теория погрешности.
 
-\section*{Теория погрешности}
+\section{Теория погрешности}
 
 Все погрешности разделяются на два класса:
 
@@ -150,7 +186,7 @@
 
 Дробные числа нужно сравнивать с помощью \(\varepsilon\), т.е. \(|a - b| \leq \varepsilon\)
 
-\section*{Задачи оптимизации. Вводное.}
+\section{Задачи оптимизации. Вводное.}
 
 Здесь и далее \textbf{целевая функция} --- функция, которую мы минимизируем.
 
@@ -226,11 +262,11 @@
 
 Мы будем рассматривать одномерные задачи оптимизации, т.к. многомерные задачи часто сводятся к одномерным.
 
-\section*{Одномерная минимизация функций. Прямые методы.}
+\section{Одномерная минимизация функций. Прямые методы.}
 
 Прямые методы --- методы, не использующие производные целевой функции.
 
-\subsection*{Метод дихотомии}
+\subsection{Метод дихотомии}
 
 Этот метод --- тернарный поиск.
 

@@ -18,7 +18,7 @@
 
 ### Методы оптимизации
 
-- [1 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/1.pdf)
+- [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/main.pdf)
 
 ## 3 семестр
 

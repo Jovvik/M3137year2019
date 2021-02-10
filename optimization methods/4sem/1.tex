@@ -1,0 +1,112 @@
+\input{../../preamble.sty}
+
+\lhead{Методы оптимизации}
+\cfoot{}
+\rfoot{10.2.2021}
+
+\begin{document}
+
+Этот курс --- о минимизации \textit{(максимизации)} функционалов. Кроме конкретных методов оптимизации, планируется рассмотреть форматы хранения матриц, о методах работы с ними и рассмотреть 1-2 \textit{(может быть 3)} СЛАУ с использованием различных форматов.
+
+Т.к. значения, получаемые компьютерами --- не точные, нам требуется теория погрешности.
+
+\subsection*{Теория погрешности}
+
+Все погрешности разделяются на два класса:
+
+\begin{enumerate}
+    \item Неустранимая --- обусловлена неточностью исходных данных. Например, неточное знание физических констант или других параметров задачи. Тем не менее, необходимо знать эту погрешность, чтобы ставить рамки погрешности для решения.
+    \item Устранимая --- погрешность процесса решения задачи. Эту погрешность можно уменьшить выбором метода решения задачи.
+          \begin{enumerate}
+              \item Погрешность модели
+              \item Остаточная погрешность \textit{(погрешность аппроксимации)}
+
+                    Например, аппроксимация ряда первыми \(n\) его членами или аппроксимация по теореме Вейерштрасса квадратичной функцией.
+
+              \item Погрешность округления \label{округления}
+              \item Накапливаемая погрешность \label{накапливаемая}
+          \end{enumerate}
+
+          \ref{округления} и \ref{накапливаемая} часто объединяют в вычислительную погрешность.
+\end{enumerate}
+
+\begin{definition}
+    Пусть \(X^*\) --- точное решение, а \(X\) --- найденное \textit{(приближенное)} решение. Тогда \(X^* - X\) называется \textbf{погрешностью}, а её модуль \(\Delta X = |X^* - X|\) --- \textbf{абсолютная погрешность}.
+\end{definition}
+
+Разумеется, \(\Delta X\) представляет сугубо теоретический интерес, т.к. \(X^*\) неизвестна и \(\Delta X\) нельзя вычислить.
+
+\begin{definition}
+    В качестве требования к решению часто предоставляется \textbf{предельная абсолютная погрешность} \(\Delta_X \geq |X^* - X|\).
+\end{definition}
+
+\begin{definition}
+    Также существует \textbf{относительная погрешность} \(\delta X = \left|\cfrac{X^* - X}{|X|}\right|\)
+\end{definition}
+
+Относительная погрешность позволяет выражать погрешность относительно значений самой величины. Например, при измерении длины парты погрешность 1 см не очень хорошо, а при измерении расстояния между городами --- приемлемо.
+
+\begin{definition}
+    \textbf{Предельная относительная погрешность} \(\delta_X \geq \left|\cfrac{X^* - X}{|X|}\right|\)
+\end{definition}
+
+\begin{definition}
+    \textbf{Значащие цифры} некоторого числа --- все цифры в его изображении, отличные от нуля, а также нули, если они содержатся между значащими цифрами или расположены в конце числа и указывают на сохранение разряда точности.
+\end{definition}
+
+\begin{definition}
+    Если значащая цифра приближенного значения \(a\), находящаяся в разряде, в котором выполняется условие \(\Delta \leq 0.5 \cdot 10^k\), т.е. абсолютное значение погрешности не превосходит половину единицы этого разряда \textit{(\(k\) --- номер этого разряда)}, то такая цифра называется \textbf{верной в узком смысле}.
+
+    Цифра называется \textbf{верной в широком смысле}, если в определении выше используется \(1\) вместо \(0.5\).
+\end{definition}
+
+\begin{example}
+    \(a = 3.635, \Delta a = 0.003\)
+    \begin{itemize}
+        \item \(k = 0 \quad \frac{1}{2} \cdot 10^0 = \frac{1}{2} \geq \Delta a\)
+        \item \(k = - 1 \quad \frac{1}{2} \cdot 10^{ - 1} = 0.05 \geq \Delta a\)
+        \item \(k = - 2 \quad \frac{1}{2} \cdot 10^{ - 2} = 0.005 \geq \Delta a\)
+        \item \(k = - 3 \quad \frac{1}{2} \cdot 10^{ - 3} = 0.0005 < \Delta a\)
+    \end{itemize}
+
+    Таким образом, цифра \(5\) является сомнительной, остальные --- верные.
+\end{example}
+
+\begin{example}
+    Рассмотрим следующие способы записи одного и того же выражения:
+    \[\left( \frac{\sqrt{2} - 1}{\sqrt{2} + 1}  \right)^3 = (\sqrt{2} - 1)^6 = (3 - 2\sqrt{2})^3 = 99 - 70\sqrt{2}\]
+
+    Посчитаем все выражения с различными приближениями \(\sqrt{2}\):
+
+    \begin{itemize}
+        \item \(\frac{7}{5} = 1.4\)
+        \item \(\frac{17}{12} = 1.41666\)
+        \item \(\frac{707}{500} = 1.414\)
+        \item \(\sqrt{2} = 1.4142135624\)
+    \end{itemize}
+
+    \begin{center}\bgroup\def\arraystretch{1.5}
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \(\sqrt{2}\)        & \(\left( \frac{\sqrt{2} - 1}{\sqrt{2} + 1}  \right)^3\)     & \((\sqrt{2} - 1)^6\)                                                      & \((3 - 2\sqrt{2})^3\)                                    & \(99 - 70\sqrt{2}\)           \\ \hline
+            \(\frac{7}{5}\)     & \(\frac{1}{216}\approx 0.00 \underline 4 6\)                & \(\frac{64}{15625}\approx 0.00\underline 51\)                             & \(\frac{1}{125} = 0.008\)                                & \(1\)                         \\ \hline
+            \(\frac{17}{12}\)   & \(\frac{125}{24389}\approx 0.00\underline{51}3\)            & \(\frac{15625}{2985354}\approx 0.00\underline52\)                         & \(\frac{1}{216}\approx 0.00\underline46\)                & \( - \frac{1}{6} = - 0.6(6)\) \\ \hline
+            \(\frac{707}{500}\) & \(\frac{8869743}{1758416743} \approx 0.00\underline{50}44\) & \(\frac{78672340886049}{15625\cdot 10^{12}} \approx 0.00\underline{50}4\) & \(\frac{636056}{125000000} \approx 0.00\underline{50}9\) & \(0.02\)                      \\ \hline
+        \end{tabular}
+        \egroup
+    \end{center}
+\end{example}
+
+\[\Delta_{(X \pm Y)} = \Delta_X + \Delta_Y\]
+\[\Delta_{(X\cdot Y)} \approx |Y|\Delta_X + |X|\Delta_Y\]
+\[\Delta_{(X / Y)} \approx \left|\frac{1}{Y}\right| \Delta_X + \left|\frac{X}{Y^2}\right| \Delta_Y\]
+\[|\Delta u| = |f(x_1 + \Delta x_1, \dots , x_n + \Delta x_n) - f(x_1 \dots x_n)|\]
+\[|\Delta u| = |df(x_1 \dots x_n)| = \left|\sum_{i = 1}^n \frac{\partial u}{\partial x_i} \Delta x_i\right| \leq \sum_{i = 1}^n \left|\frac{\partial u}{\partial x_i}\right| |\Delta x_i|\]
+\[\Delta_u = \sum_{i = 1}^n \left|\frac{\partial u}{\partial x_i}\right| \Delta x_i\]
+\[|\delta u| = \sum_{i = 1}^n \left|\frac{\partial \ln u}{\partial x_i}\right||\Delta x_i|\]
+\[\delta_u = \sum_{i = 1}^n \left|\frac{\partial \ln u}{\partial x_i}\right||\Delta x_i|\]
+\[\delta_{(X \pm Y)} = \left|\frac{X}{X \pm Y}\right|\delta_X + \left|\frac{Y}{X \pm Y}\right|\delta_Y\]
+\[\delta_{(X\cdot Y)} = \delta_X + \delta_Y\]
+\[\delta_{(X / Y)} = \delta_X + \delta_Y\]
+
+\end{document}

@@ -16,6 +16,10 @@
 
 - [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/practice/1.pdf)
 
+### Методы оптимизации
+
+- [1 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/1.pdf)
+
 ## 3 семестр
 
 ### Матанализ

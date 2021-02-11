@@ -12,6 +12,9 @@
 
 - [1 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/1.pdf)
 
+
+- [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/1.pdf) - неполный конспект
+
 ### Теория вероятности
 
 - [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/practice/1.pdf)

@@ -1,0 +1,215 @@
+\documentclass[12pt, a4paper, oneside]{book}
+
+\usepackage{catchfilebetweentags}
+\ExecuteMetaData[../../preamble.sty]{preamble}
+
+\addto\captionsrussian{\renewcommand{\chaptername}{Лекция}}
+
+\let\MakeUppercase\relax
+
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\lhead{\leftmark}
+
+\usepackage{tocloft}
+\advance\cftsecnumwidth -1em\relax
+\advance\cftsubsecindent -1em\relax
+\advance\cftsubsecnumwidth -1em\relax
+
+\usepackage{titletoc}
+\titlecontents*{chapter}% <section-type>
+  [0pt]% <left>
+  {}% <above-code>
+  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\bfseries\hfill\contentspage}% <filler-page-format>
+
+\let\endtitlepage\relax
+
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+
+\begin{document}
+
+\title{Методы оптимизации}
+\author{Михайлов Максим}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{12 февраля}
+
+\setcounter{section}{-1}
+
+\section{Мотивация}
+
+% Сначала был создан матанализ, в котором есть много парадоксов, однако он применим на практике.
+
+\subsection{Математикам}
+
+\begin{axiom}[Архимеда]
+    Для любого \(k > 0\) найдётся \(n\), такое что \(kn > 1\).
+\end{axiom}
+
+Под эту аксиому не подходят бесконечно малые числа и это является проблемой. Например, \(\lim\limits_{x \to +\infty} \frac{1}{x} = 0 = \lim\limits_{x \to +\infty} \frac{1}{x^2}\), но мы хотим уметь различать эти два числа. Ньютон предложил идею бесконечно малых чисел, откуда пошли последовательности. Возникает вопрос --- что такое последовательность и что такое число?
+
+Общепринятое определение целых чисел \(\N\) происходит из теории множеств. Однако эта теория содержит в себе множество фундаментальных парадоксов, от которых нельзя избавиться.
+
+Возникает вопрос --- а что такое множество? Посмотрим на некоторое множество \(A = \{x\ |\ x\not\in x\}\). Содержит ли оно себя, \(A\in A\)? На этот вопрос нельзя ответить, это называется парадокс Рассела. Есть простой способ его разрешить --- запретить ставить такой вопрос. Нет вопроса --- нет парадокса. Существование такого парадокса ставит под вопрос существование любого множества --- а существует ли \(\N\)? Может быть его существование парадоксально, просто мы не нашли этот парадокс. Пришло чуть более умное решение парадокса --- запретим множества, содержащие себя. Таким образом вывели аксиоматику теории множеств \textit{(Цермело --- Френкеля)}.
+
+\begin{example}
+    Рассмотрим множество всех чисел, которые можно задать в \(\leq 1000\) слов русского языка. Фраза ``наименьшее число, которое нельзя задать в \( \leq 1000\) слов'' содержит \( \leq 1000\) слов, т.е. такое число принадлежит искомому множеству --- парадокс.
+\end{example}
+
+Возникает идея --- человеческий язык порождает парадоксы, поэтому нужно задать новый язык, который их не порождает. Этот язык и является математической логикой.
+
+\subsection{Программистам}
+
+Математическая логика применяется в двух областях \textit{(для программистов)}:
+\begin{enumerate}
+    \item Языки программирования
+    \item Формальные доказательства
+\end{enumerate}
+
+Для языков программирования матлогика применима как теория типов \textit{(переменных)}.
+
+Формальные доказательства нужны например для smart-контрактов, где корректность программы критически важна, т.к. если в нём есть ошибка, у вас злоумышленник заберет все деньги, а вы не сможете этот контракт откатить.
+
+\section{Исчисление высказываний}
+
+\subsection{Язык}
+
+\begin{definition}\itemfix
+    \textbf{Язык} содержит в себе:
+    \begin{enumerate}
+        \item \textbf{Пропозициональные переменные}
+
+              \(A_i'\) --- большая буква начала латинского алфавита, возможно с индексом и/или штрихом.
+
+        \item \textbf{Связки}
+
+              Пусть \(\alpha, \beta\) --- высказывания. Тогда \((\alpha \to \beta), (\alpha \with \beta), (\alpha \lor \beta), (\neg \alpha)\) --- высказывания.
+
+              \(\alpha,\beta\) называются \textbf{метапеременными}.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Математическая логика алгеброподобна \textit{(а не анализоподобна)}, т.к. в ней много определений и мало доказательств.
+\end{remark}
+
+\subsection{Метаязык и предметный язык}
+
+У нас есть два различных языка --- \textbf{предметный язык} и \textbf{метаязык}. Метаязык --- русский, предметный язык мы определили выше.
+
+\begin{example}
+    \(\alpha \to \beta\) --- метавыражение; \(A \to (A \to A)\) --- предметное выражение.
+\end{example}
+
+\begin{obozn}
+    Метапеременные обозначаются различными способами в зависимости от того, что они обозначают:
+    \begin{itemize}
+        \item Буквы греческого алфавита (\(\alpha, \beta, \gamma, \dots, \varphi, \psi\)) --- выражения
+        \item Заглавные буквы конца латинского алфавита (\(X, Y, Z\)) --- произвольные переменные
+    \end{itemize}
+\end{obozn}
+
+\begin{example}
+    \(X \to Y \Rightarrow A \to B\) --- подстановка переменных. Этот синтаксис не формален, мы будем записывать так:
+    \[(X \to Y)[X : = A, Y : = B]\equiv A \to B\]
+\end{example}
+
+\textit{Соглашение}. символы логических операций не пишутся в метаязыке.
+
+\begin{example}
+    \begin{align*}
+        (\alpha \to (A \to X))[\alpha : = A, X : = B]         & \equiv A \to (A \to B)         \\
+        (\alpha \to (A \to X))[\alpha : = (A \to P), X : = B] & \equiv (A \to P) \to (A \to B) \\
+    \end{align*}
+\end{example}
+
+\subsection{Сокращения записи}
+
+\begin{itemize}
+    \item \(\lor, \with, \neg\) --- скобки слева направо \textit{(лево-ассоциативные операции)} \textit{(не коммутативные)}
+    \item \( \to \) --- правоассоциативная.
+\end{itemize}
+
+\begin{remark}
+    Здесь операторы записаны в порядке их приоритета
+\end{remark}
+
+\begin{example}
+    Расставим скобки в следующем выражении:
+    \[A \to B \with C \to D\]
+    \[A \to ((B \with C) \to D)\]
+\end{example}
+
+\subsection{Теория моделей}
+
+\textbf{Модель} состоит из:
+\begin{obozn}\itemfix
+    \begin{itemize}
+        \item \(P\) --- некоторое множество предметных переменных
+        \item \(\tau\) --- множество высказываний предметного языка
+        \item \(V\) --- множество истинных значений. Классическое --- \(\{\text{П}, \text{Л}\}\)
+        \item \(\llbracket\ \rrbracket : \tau \to V\) --- оценка высказывания \textit{(высказывание ставится в скобки)}.
+    \end{itemize}
+\end{obozn}
+
+\begin{enumerate}
+    \item \(\llbracket x \rrbracket : P \to V\) --- задается при оценке. % TODO
+    \item \(\llbracket \alpha \star \beta \rrbracket = \llbracket \alpha \rrbracket \textcolor{blue}{\star} \llbracket \beta \rrbracket\), где \(\star\) есть логическая операция ( \(\lor, \with, \neg, \to\)), а \(\textcolor{blue}{\star}\) определено естественным образом как элемент метаязыка.
+\end{enumerate}
+
+\subsection{Теория доказательств}
+
+\begin{definition}
+    \textbf{Схема высказывания} --- строка, соответствующая определению высказывания + метапеременные.
+\end{definition}
+
+\begin{example}
+    \[(\alpha \to (\beta \to (A \to \alpha)))\]
+\end{example}
+
+10 схем аксиом:
+\begin{enumerate}
+    \item \(\alpha \to \beta \to \alpha\)
+    \item \((\alpha \to \beta) \to (\alpha \to \beta \to \gamma) \to (\alpha \to \gamma)\)
+    \item \(\alpha \to \beta \to \alpha \with \beta\)
+    \item \(\alpha \with \beta \to \alpha\)
+    \item \(\alpha \with \beta \to \beta\)
+    \item \(\alpha \to \alpha \lor \beta\)
+    \item \(\beta \to \alpha \lor \beta\)
+    \item \((\alpha \to \gamma) \to (\beta \to \gamma) \to (\alpha \lor \beta \to \gamma)\)
+    \item \((\alpha \to \beta) \to (\alpha \to \neg \beta) \to \neg \alpha\)
+    \item \(\neg \neg \alpha \to \alpha\)
+\end{enumerate}
+
+\subsection{Правило Modus Ponens и доказательство}
+
+\begin{definition}
+    \textbf{Доказательство \textit{(вывод)}} есть конечная последовательность высказываний \(\alpha_1 \dots \alpha_n\), где \(\alpha_i\) --- либо аксиома, либо \(\exists k, l < i : \alpha_k \equiv \alpha_l \to \alpha_i\) \textit{(правило Modus Ponens)}
+\end{definition}
+
+\begin{example}
+    \(\vdash A \to A\)
+
+    \begin{tabular}{lll}
+        1. & \(A \to A \to A\)                                               & сх. акс. 1 \\
+        2. & \(A \to (A \to A) \to A\)                                       & сх. акс. 1 \\
+        3. & \((A \to (A \to A)) \to (A \to (A \to A) \to A) \to (A \to A)\) & сх. акс. 2 \\
+        4. & \((A \to (A \to A) \to A) \to (A \to A)\)                       & M.P. 1, 3  \\
+        5. & \(A \to A\)                                                     & M.P. 2, 4
+    \end{tabular}
+\end{example}
+
+\begin{definition}
+    Доказательство \(\alpha_1\dots \alpha_n\) доказывает выражение \(\beta\), если \(\alpha_n \equiv \beta\)
+\end{definition}
+
+\end{document}

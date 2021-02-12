@@ -23,6 +23,10 @@
 
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/main.pdf)
 
+### Математическая логика
+
+- [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf)
+- [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/1.pdf)
 ## 3 семестр
 
 ### Матанализ

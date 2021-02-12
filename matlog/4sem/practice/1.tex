@@ -1,0 +1,194 @@
+\input{../../../preamble.sty}
+
+\lhead{Математическая логика \textit{(практика)}}
+\cfoot{}
+\rfoot{12.2.2021}
+
+\begin{document}
+
+Т.к. эта практика проходит до первой лекции, то сначала будет немного теории.
+
+Мы занимаемся исчислением высказываний. В высказываниях есть:
+\begin{itemize}
+    \item Переменные \(A, B, C\) \textit{(пропозициональные)}
+    \item Битовые операции \(\lor, \with, \to, \neg\)
+\end{itemize}
+
+\begin{definition}
+    \textbf{Пропозициональная формула}:
+    \begin{enumerate}
+        \item \(A\) --- переменная \( \Rightarrow A\) --- формула
+        \item \(a, b\) --- переменные \(\Rightarrow a \lor b, a \with b, a \to b, \neg a\)
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    \textbf{Оценка} \?
+\end{definition}
+
+\begin{definition}
+    \textbf{Тавтология} --- формула, для любой оценки истинна.
+\end{definition}
+
+\begin{example}\itemfix
+    \begin{itemize}
+        \item \(A \lor \neg A\)
+        \item \(A \to A\)
+        \item \(A \to (B \to A)\)
+    \end{itemize}
+\end{example}
+
+Схемы аксиом:
+\begin{enumerate}
+    \item \(a \to (b \to a)\)
+    \item \((a \to b) \to (a \to b \to c) \to (a \to c)\)
+    \item \(a \to b \to a \with b\)
+    \item \(a \with b \to a\)
+    \item \(a \with b \to b\)
+    \item \(a \to a \lor b\)
+    \item \(b \to a \lor b\)
+    \item \((a \to b) \to (b \to c) \to (a \lor b \to c)\)
+    \item \((a \to b) \to (a \to \neg b) \to \neg a\)
+    \item \(\neg \neg a \to a\)
+\end{enumerate}
+
+\begin{remark}
+    \(a \to b \to c \Leftrightarrow a \to (b \to c)\)
+\end{remark}
+
+Можно заметить, что все эти аксиомы --- тавтологии. Это так и должно быть. Вместо \(a, b, c\) можно подставлять произвольные формулы.
+
+\begin{definition}
+    \textbf{Вывод} формулы \(\varphi\) есть последовательность формул \(\varphi_1, \dots , \varphi_n = \varphi\), где \(\varphi_i\) --- одна из аксиом или Modus Ponens из \(\varphi_a, \varphi_b\), где \(a, b < i\)
+\end{definition}
+
+\begin{definition}
+    \textbf{Modus Ponens \textit{(правило вывода)}} из формул \(a\) и \(a \to b\) есть формула \(b\).
+\end{definition}
+
+Корректность: можно вывести любую тавтологию.
+\begin{proof}
+    Очевидно по индукции и определению Modus Ponens.
+\end{proof}
+
+Полнота: любую тавтологию можно вывести.
+\begin{proof}
+    Будет на лекции.
+\end{proof}
+
+\begin{example}
+    Выведем \(a \to a\)
+
+    \[a: = x, b: = x \to x, c : = x\]
+    \begin{align*}
+        \varphi_1                   & = (x \to x \to x) \to (x \to (x \to x) \to x) \to (x \to x) \\
+        \varphi_2                   & = x \to x \to x                                             \\
+        \text{M.p.} \quad \varphi_3 & = (x \to (x \to x) \to x) \?                                \\
+    \end{align*}
+\end{example}
+
+Пусть \(\Gamma\) --- какой-то набор формул.
+
+\begin{definition}
+    Вывод в грамматике \(\Gamma\) формулы \(\varphi\) обозначается \(\Gamma \vdash \varphi\), и его шаги могут иметь вид \(\tau\), где \(\tau\in\Gamma\) \textit{(шаги как в нормальном выводе также разрешены)}.
+\end{definition}
+
+\begin{lemma}[о дедукции]
+    \(\Gamma \cup \{a\} \vdash \varphi \Rightarrow \Gamma \vdash a \to \varphi\)
+\end{lemma}
+
+\begin{exercise}
+    Указать про каждое из высказываний, общезначимо, выполнимо, опровержимо или невыполнимо ли оно:
+    \begin{enumerate}
+        \item \(\neg A \lor \neg\neg A\)
+              \begin{align*}
+                  \varphi_1 & = \neg A \lor A           \\
+                  \varphi_2 & = \neg A \lor \neg \neg A \\
+              \end{align*}
+
+              \textbf{Ответ}: общезначимо, выполнимо.
+        \item \((A \to \neg B) \lor (B \to \neg C) \lor (C \to \neg A)\)
+
+              При подстановке \((1, 1, 1)\) не выполнено, при \((0, 0, 0)\) выполнено.
+
+              \textbf{Ответ}: выполнимо, опровержимо.
+
+        \item \(((P \to Q) \to P) \to P\)
+
+              При подстановке \((0, 1)\) не выполнено, при \((1, 1)\) выполнено.
+
+              \textbf{Ответ}: выполнимо, опровержимо.
+
+        \item \(\neg A \with \neg \neg A\)
+
+              \(\neg A \with \neg \neg A = \neg A \with A\)
+
+              \textbf{Ответ}: невыполнимо, опровержимо.
+
+        \item \(\neg (A \with \neg A)\)
+
+              Т.к. \(A\with \neg A\) невыполнимо, \(\neg (A\with \neg A)\) общезначимо.
+
+              \textbf{Ответ}: общезначимо, выполнимо.
+
+        \item \(A\)
+
+              \textbf{Ответ}: выполнимо (\(A = 1\)), опровержимо (\(A = 0\)).
+
+        \item \(A \to A\)
+
+              \textbf{Ответ}: общезначимо, выполнимо \textit{(подстановкой)}.
+
+        \item \(A \to \neg A\)
+
+              \textbf{Ответ}: выполнимо (\(A = 0\)), опровержимо (\(A = 1\)).
+
+        \item \((A \to B) \lor (B \to A)\)
+
+              \textbf{Ответ}: общезначимо, выполнимо.
+    \end{enumerate}
+
+    Доказать:
+    \begin{enumerate}
+        \item \(\vdash A \to A\)
+
+              Было до этого.
+
+        \item \(\vdash (A \to A \to B) \to (A \to B)\)
+
+              \begin{align*}
+                  \varphi_1 & = a \to a                       \\
+                  \varphi_2 & = (a \to a \to b) \to (a \to b)
+              \end{align*}
+
+        \item \(\vdash \neg (A \with \neg A)\)
+
+              \begin{align*}
+                  \varphi_1 & = (\phi \to \psi) \to (\phi \to \neg \psi) \to \neg \phi                           \\
+                  \varphi_2 & = A \with \neg A \to A                                                             \\
+                  \varphi_3 & = A \with \neg A \to \neg A                                                        \\
+                  \varphi_4 & = (A \with \neg A \to A) \to (A \with \neg A \to \neg A) \to \neg (A \with \neg A) \\
+              \end{align*}
+
+              % \item \(\vdash A \with B \to B \with A\)
+
+              %       \begin{align*}
+              %           \varphi_1 & = \\
+              %       \end{align*}
+
+              % \item \(A \to \neg \neg A\)
+
+              %       \begin{align*}
+              %           \varphi_1 & = \\
+              %       \end{align*}
+
+              % \item \(A \with \neg A \vdash B\)
+
+              %       \begin{align*}
+              %           \varphi_1 & = A \with \neg A \\
+              %           \varphi_2 & =
+              %       \end{align*}
+    \end{enumerate}
+\end{exercise}
+
+\end{document}

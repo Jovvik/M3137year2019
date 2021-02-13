@@ -1,0 +1,216 @@
+\documentclass[12pt, a4paper, oneside]{book}
+
+\usepackage{catchfilebetweentags}
+\ExecuteMetaData[../../preamble.sty]{preamble}
+
+\addto\captionsrussian{\renewcommand{\chaptername}{Лекция}}
+
+\let\MakeUppercase\relax
+
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\lhead{\leftmark}
+
+\usepackage{tocloft}
+\advance\cftsecnumwidth -1em\relax
+\advance\cftsubsecindent -1em\relax
+\advance\cftsubsecnumwidth -1em\relax
+
+\usepackage{titletoc}
+\titlecontents*{chapter}% <section-type>
+  [0pt]% <left>
+  {}% <above-code>
+  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\bfseries\hfill\contentspage}% <filler-page-format>
+
+\let\endtitlepage\relax
+
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\begin{document}
+
+\title{Теория вероятности}
+\author{Михайлов Максим}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{13 февраля}
+
+\section{Введение}
+
+\subsection{Статистическое определение вероятности}
+
+\begin{definition}
+    Пусть проводится \(n\) реальных экспериментов, событие \(A\) произошло в \(n_A\) экспериментах. Отношение \(\cfrac{n_A}{n}\) называется \textbf{частотой события} \(A\). Эксперименты показывают, что при увеличении числа \(n\) эта частота ``стабилизируется'' около некоторого числа, под которым понимаем \textbf{статистическую вероятность}.
+    \[P(A)\approx \frac{n_A}{n}\]
+\end{definition}
+
+Очевидно это определение не формально, поэтому мы им пользоваться не будем.
+
+\subsection{Пространство элементарных исходов. Случайные события.}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \textbf{Пространством элементарных исходов} \(\Omega\) называется множество, содержащее все возможные результаты данного эксперимента, из которых при испытании происходит ровно один.
+        \item Элементы данного множества называются \textbf{элементарными исходами} и обозначаются \(w\in \Omega\).
+        \item \textbf{Случайными событиями} называются подмножества \(A\subset \Omega\).
+        \item Событие \(A\) \textbf{наступило}, если в ходе эксперимента произошёл один из элементарных исходов, входящих в \(A\).
+        \item Такие исходы называются \textbf{благоприятными} к \(A\).
+    \end{itemize}
+\end{definition}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item Бросают монетку. \(\Omega = \{\text{Г}, \text{Р}\} \) \textit{(герб, решка)}.
+        \item Бросают кубик. \(\Omega = \{1,2,3,4,5,6\} \). \(A\) --- выпало четное число очков. Тогда \(A = \{2,4,6\} \).
+        \item Монета бросается дважды:
+              \begin{enumerate}
+                  \item Учитываем порядок: \(\Omega = \{\text{ГГ, РР, ГР, РГ}\} \)
+                  \item Не учитываем порядок: \(\Omega = \{\text{ГГ, РР, ГР}\} \)
+              \end{enumerate}
+        \item Бросается дважды кубик, порядок учитывается. \(A\) --- разность очков делится на 3, т.е. \(A = \{(1,4), (4,1), (3,3), (5,2), (2,5), (3, 6), (6, 3), (1, 1), (2, 2), (4, 4), (5, 5), (6, 6)\} \)
+        \item Монета бросается до выпадения герба. \(\Omega = \{\text{Г, РГ, РРГ, \dots}\} \) --- счётное число исходов.
+        \item Монета бросается на плоскость. \(\Omega = \{(x, y) \ | \ x, y\in\R\} \) --- несчётное число исходов.
+    \end{enumerate}
+\end{example}
+
+\subsection{Операции над событиями}
+
+\(\Omega\) --- универсальное \textit{(достоверное)} событие, т.к. содержит все элементарные исходы.
+
+\(\emptyset\) --- невозможное событие.
+
+\begin{definition}
+    \(A + B\) это \(A\cup B\)
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=0.5]{images/intersection.svg}
+    \end{figure}
+\end{definition}
+
+\begin{definition}
+    \(A\cdot B\) это \(A\cap B\)
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=0.5]{images/union.svg}
+    \end{figure}
+\end{definition}
+
+\begin{definition}
+    \textbf{Противоположным} к \(A\) называется событие \(\overline A\), соответствующее тому, что \(A\) не произошло, т.е. \(\Omega\setminus A\)
+\end{definition}
+
+\begin{definition}
+    Дополнение \(A\setminus B\) это \(A\cdot \overline B\)
+\end{definition}
+
+\begin{definition}
+    События \(A\) и \(B\) называются \textbf{несовместными}, если \(A\cdot B = \emptyset\)
+\end{definition}
+
+\begin{definition}
+    Событие \(A\) влечет событие \(B\), если \(A\subset B\).
+\end{definition}
+
+\subsection{Вероятность}
+
+\begin{definition}
+    \(0 \leq P(A) \leq 1\) --- вероятность наступления события \(A\).
+\end{definition}
+
+\subsection{Классическое определение вероятности}
+
+Пусть \(\Omega\) содержит конечное число исходов, причем их можно считать равновозможными. Тогда применимо классическое определение вероятности.
+
+\(P(A) = \cfrac{|A|}{|\Omega|} = \cfrac{m}{n}\), где \(n\) --- число всех возможных элементарных исходов, \(m\) --- число элементарных исходов, благоприятных \(A\).
+
+В частности, если \(|\Omega|= n\), а \(A\) --- элементарный исход, то \(P(A) = \frac{1}{n}\).
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(0 \leq P(A) \leq 1\)
+        \item \(P(\emptyset) = 0\)
+        \item \(P(\Omega) = 1\)
+        \item \? % TODO #65
+    \end{enumerate}
+\end{prop}
+
+Если \(A\) и \(B\) несовместны, то \(P(A + B) = P(A) + P(B)\)
+
+\begin{proof}
+    \(|A| : = m_1, |B| : = m_2, |A\cup B|= m_1 + m_2\)
+
+    \[P(A + B) = \frac{m_1 + m_2}{n} = \frac{m_1}{n} + \frac{m_2}{n} = P(A) + P(B)\]
+\end{proof}
+
+\begin{example}
+    Найти вероятность, что при бросании кости выпадет чётное число очков.
+
+    \[n = 6, m = 3, \frac{m}{n} = \frac{1}{2}\]
+\end{example}
+
+\begin{example}
+    В ящике лежат 3 белых и 2 чёрных шара. Вынули 3 шара. Найти вероятность того, что из них две белых и один чёрный.
+
+    \[n = \binom{5}{3} = 10\]
+    \[m = \binom{3}{2} \binom{2}{1} = 12\]
+    \[P(A) = \frac{6}{10}\]
+\end{example}
+
+Однако, это определение редко применимо.
+
+\subsection{Геометрическое определение вероятности}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(\Omega \subset \R^n\) --- замкнутая ограниченная область.
+        \item \(\mu\) --- конечная мера множества \(\Omega\), например мера Лебега
+    \end{itemize}
+
+    Пусть выбирают точку наугад, т.е. вероятность попадания точки в область \(A\) зависит от меры \(A\), но не от её положения.
+
+    Тогда
+    \(P(A) = \cfrac{\mu(A)}{\mu(\Omega)}\)
+\end{definition}
+
+\begin{remark}
+    По этому определению мера точки равна \(0\) и вероятность попадания в конкретную точку тоже равна \(0\).
+\end{remark}
+
+\begin{example}
+    Монета диаметром 6 сантиметров бросается на пол, вымощенный квадратной плиткой со стороной 20 сантиметров. Найти вероятность того, что монета целиком окажется на одной плитке.
+
+    Без ущерба для общности можно рассматривать, что монета бросается на одну плитку и положение монеты определяется положением её центра.
+
+    Чтобы монета лежала полностью на одной плитке, необходимо, чтобы её центр лежал на расстоянии \( \geq 3\) сантиметра от каждой стороны:
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=0.8]{images/задача-1.svg}
+    \end{figure}
+
+    \[S(\Omega) = 20^2 = 400\]
+    \[S(A) = 14^2 = 196\]
+    \[P(A) = \frac{196}{400} = 0.49\]
+\end{example}
+
+\begin{example}
+    \? % TODO #64
+
+    \[A : X \leq l \sin \varphi\]
+    \[S(\Omega) = \pi l\]
+    \[S(A) = \int_0^\pi l \sin \varphi d\varphi = - l \cos \varphi \Big|_0^\pi = - l(\cos \pi - \cos 0) = 2l\]
+    \[P(A) = \frac{S(A)}{S(\Omega)} = \frac{2}{\pi}\]
+\end{example}
+
+Это определение кажется хорошим --- оно согласовано с классическим. Но и это определение редко применимо на практике, т.к. обычно вероятность зависит от положения в пространстве или множество исходов несчётно.
+
+\end{document}

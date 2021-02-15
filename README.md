@@ -16,6 +16,7 @@
 
 ### Теория вероятности
 
+- [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf)
 - [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/practice/1.pdf)
 
 ### Методы оптимизации

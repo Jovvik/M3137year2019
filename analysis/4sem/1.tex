@@ -7,6 +7,7 @@
 \begin{document}
 
 \begin{lemma}[о структуре компактного оператора]\itemfix
+    %<*оструктурекомпактногооператора>
     \begin{itemize}
         \item \(V : \R^m \to \R^m\) --- линейный оператор
         \item \(\det V \neq 0\)
@@ -15,12 +16,14 @@
     \[\forall x\in\R^m \quad V(x) = \sum_{i = 1}^m s_i\langle x, g_i\rangle h_i\]
 
     И \(|\det V| = s_1s_2 \dots s_m\).
+    %</оструктурекомпактногооператора>
 \end{lemma}
 
 \begin{remark}
     Эта лемма из функционального анализа, что такое компактный оператор --- мы не знаем.
 \end{remark}
 
+%<*оструктурекомпактногооператораproof>
 \begin{proof}
     \(W : = V^* V\) --- самосопряженный оператор \textit{(матрица симметрична относительно диагонали)}.
 
@@ -80,14 +83,18 @@
 
     \[|\det V| = \sqrt{c_1} \dots \sqrt{c_m} = s_1 \dots s_m\]
 \end{proof}
+%</оструктурекомпактногооператораproof>
 
-\begin{theorem}[о преобразовании меры лебега под действием линейного отображения]\itemfix
+\begin{theorem}[о преобразовании меры Лебега под действием линейного отображения]\itemfix
+    %<*опреобразованиимерылебегаподдействиемлинейногоотображения>
     \begin{itemize}
         \item \(V : \R^m \to \R^m\) --- линейное отображение
     \end{itemize}
     Тогда \(\forall E \in \mathfrak{M}^m \ \ V(E) \in \mathfrak{M}^m\) и \(\lambda(V(E)) = |\det V| \cdot \lambda E\)
+    %</опреобразованиимерылебегаподдействиемлинейногоотображения>
 \end{theorem}
 
+%<*опреобразованиимерылебегаподдействиемлинейногоотображенияproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item Если \(\det V = 0 \quad \text{Im}(V)\) --- подпространство в \(\R^m\) \( \Rightarrow \lambda(\text{Im}(V)) = 0\) по следствию 6 лекции 15 третьего семестра. Тогда \(\forall E \ \ V(E)\subset \text{Im}(V) \Rightarrow \lambda(V(E)) = 0\)
@@ -105,6 +112,7 @@
               Таким образом, \(k = |\det V|\)
     \end{enumerate}
 \end{proof}
+%</опреобразованиимерылебегаподдействиемлинейногоотображенияproof>
 
 \section*{Интеграл}
 
@@ -113,8 +121,12 @@
 \begin{definition}\itemfix
     \begin{enumerate}
         \item \(E\) --- множество, \(E = \bigsqcup\limits_{\text{кон.}} e_i\) --- разбиение множества.
-        \item \(f : X \to \R\) --- ступенчатая, если:
+        \item %<*ступенчатаяфункция>
+              \(f : X \to \R\) --- \textbf{ступенчатая}, если:
               \[\exists\ \text{разбиение} \ X = \bigsqcup\limits_{\text{кон.}} e_i : \forall i \ \ f\Big|_{e_i} = \const_i = c_i\]
+
+              При этом разбиение называется \textbf{допустимым} для этой функции.
+              %</ступенчатаяфункция>
     \end{enumerate}
 \end{definition}
 
@@ -162,6 +174,7 @@
 \end{remark}
 
 \begin{definition}\itemfix
+    %<*измеримаяфункция>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
         \item \(f : X \to \overline \R\)
@@ -169,6 +182,7 @@
     \end{itemize}
 
     \(f\) \textbf{измерима} на множестве \(E\), если \(\forall a\in\R \ \ E(f < a)\) измеримо, т.е. \(\in \mathfrak{A}\)
+    %</измеримаяфункция>
 \end{definition}
 
 Вместо ``\(f\) измерима на \(X\)'' говорят просто ``измерима''.
@@ -233,13 +247,16 @@
 \end{prop}
 
 \begin{theorem}
+    %<*обизмеримостипределовисупрмемумов>
     \(f_n\) --- измеримо на \(X\). Тогда:
     \begin{enumerate}
         \item \(\sup f_n, \inf f_n\) измеримо.
         \item \(\overline \lim f_n, \underline \lim f_n\) измеримо.
         \item Если \(\forall x \ \ \exists \lim\limits_{n \to +\infty} f_n(x) = h(x)\), то \(h(x)\) измеримо.
     \end{enumerate}
+    %</обизмеримостипределовисупрмемумов>
 \end{theorem}
+%<*обизмеримостипределовисупрмемумовproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item \(g = \sup f_n \quad X(g > a) \symrefeq{два шага} \bigcup_n X(f_n > a)\) и счётное объединение измеримых множеств измеримо.
@@ -254,6 +271,7 @@
         \item Очевидно, т.к. если \(\exists \lim\), то \(\lim = \overline \lim = \underline \lim\)
     \end{enumerate}
 \end{proof}
+%</обизмеримостипределовисупрмемумовproof>
 
 \subsection*{Меры Лебега-Стилтьеса}
 

@@ -7,6 +7,7 @@
 \begin{document}
 
 \begin{theorem}[характеризация измеримых функций с помощью ступенчатых]\itemfix
+    %<*характеризацияизмеримыхфункцийспомощьюступенчатых>
     \begin{itemize}
         \item \(f: X \to \R\)
         \item \(f \geq 0\)
@@ -17,9 +18,11 @@
         \item \(0 \leq f_1 \leq f_2 \leq f_3 \leq \dots \)
         \item \(\forall x \ \ f(x) = \lim\limits_{n \to +\infty} f_n(x)\)
     \end{enumerate}
+    %</характеризацияизмеримыхфункцийспомощьюступенчатых>
 \end{theorem}
 
 \begin{proof}
+    %<*характеризацияизмеримыхфункцийспомощьюступенчатыхproof>
     \[e^{(n)}_k = X\left( \frac{k - 1}{n} \leq f < \frac{k}{n} \right) \quad k = 1 \dots n^2\]
     \[e^{(n)}_{n^2 + 1} : = X(n \leq f)\]
     \[g_n: = \sum_{k = 1}^{n^2 + 1} \frac{k - 1}{n} \chi_{e_k^{(n)}}\]
@@ -32,7 +35,10 @@
     \[g_n \geq 0\]
     \[\lim\limits_{n \to +\infty} g_n(x) = f(x) : g_n(x) \leq f(x)\]
 
+    \textcolor{red}{Не дописано.}
+
     % TODO: #66 дописать
+    %</характеризацияизмеримыхфункцийспомощьюступенчатыхproof>
 \end{proof}
 
 \begin{corollary}\itemfix
@@ -74,6 +80,7 @@
 \end{proof}
 
 \begin{theorem}[об измеримости функций, непрерывных на множестве полной меры]
+    %<*обизмеримостифункцийнепрерывныхнамножествеполноймеры>
     \begin{remark}
         \(A\subset X\) --- \textbf{полной меры}, если \(\mu(X\setminus A) = 0\).
     \end{remark}
@@ -86,7 +93,9 @@
     \end{itemize}
 
     Тогда \(f\) --- измеримо.
+    %</обизмеримостифункцийнепрерывныхнамножествеполноймеры>
 \end{theorem}
+%<*обизмеримостифункцийнепрерывныхнамножествеполноймерыproof>
 \begin{proof}
     \(f\) --- измеримо на \(E'\), т.к. \(E'(f < a)\) открыто в \(E'\) по топологическому определению непрерывности.
 
@@ -94,6 +103,7 @@
 
     \(E(f < a) = E'(f < a)\cup e(f < a)\), объединение измеримых множеств измеримо.
 \end{proof}
+%</обизмеримостифункцийнепрерывныхнамножествеполноймерыproof>
 
 \begin{example}
     \(E = \R, f = \chi_{\text{Irr}}\), где \(\text{Irr}\) --- множество иррациональных чисел. \(f\) непр. на \(\text{Irr}\) и разрывно на \(\R\).
@@ -153,6 +163,7 @@
 \subsection*{Сходимость почти везде и по мере}
 
 \begin{definition}\itemfix
+    %<*свойствопочтивезде>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
         \item \(E\in \mathfrak{A}\)
@@ -162,6 +173,7 @@
     \(W(x)\) --- верно при почти всех из \(E\) = почти всюду на \(E\) = почти везде на \(E\) = п.в. \(E\), если:
 
     \(\exists e\in E : \mu e = 0 \ \ W(x)\) --- истинно при \(x\in E\setminus e\)
+    %</свойствопочтивезде>
 \end{definition}
 
 \begin{example}
@@ -202,9 +214,11 @@
 \end{prop}
 
 \begin{definition}
+    %<*сходимостьпомере>
     \(f_n, f : X \to \overline \R\) --- почти везде конечны.
 
-    \(f_n\) сходится к \(f\) по мере \(\mu\), обозначается \(f_n \longarrow{\mu} f : \forall \varepsilon > 0 \ \ \mu X(|f_n - f| \geq \varepsilon)\xrightarrow[n\to +\infty]{} 0\)
+    \(f_n\) \textbf{сходится к} \(f\) \textbf{по мере} \(\mu\), обозначается \(f_n \longarrow{\mu} f : \forall \varepsilon > 0 \ \ \mu X(|f_n - f| \geq \varepsilon)\xrightarrow[n\to +\infty]{} 0\)
+    %</сходимостьпомере>
 \end{definition}
 
 \begin{remark}
@@ -245,6 +259,7 @@
 \end{example}
 
 \begin{theorem}[Лебега]\itemfix
+    %<*лебега>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
         \item \(\mu X\) конечно
@@ -253,8 +268,10 @@
     \end{itemize}
 
     Тогда \(f_n \longarrow{\mu} f\)
+    %</лебега>
 \end{theorem}
 
+%<*лебегаproof>
 \begin{proof}
     Переопределим \(f_n, f\) на множестве меры \(0\), чтобы сходимость была всюду.
 
@@ -271,15 +288,19 @@
     \[X(|f_n - f| \geq \varepsilon) \subset X(\varphi_n \geq \varepsilon)\]
     \[\mu X(|f_n - f| \geq \varepsilon) \leq \mu X(\varphi_n \geq \varepsilon) \to 0\]
 \end{proof}
+%</лебегаproof>
 
 \begin{theorem}[Рисс]\itemfix
+    %<*рисса>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
         \item \(f_n \longarrow{\mu} f\).
     \end{itemize}
     Тогда \(\exists n_k : f_{n_k} \to f\) почти везде.
+    %</рисса>
 \end{theorem}
 
+%<*риссаproof>
 \begin{proof}
     \[\forall k \ \ \mu X\left(|f_n - f| \geq \frac{1}{k}\right) \to 0\]
     \[\exists n_k : \text{при } n \geq n_k \ \ \mu X\left( |f_n - f| \geq \frac{1}{k} \right) < \frac{1}{2^k}\]
@@ -302,6 +323,8 @@
 
     Т.к. \(\mu E = 0\), искомое выполнено.
 \end{proof}
+%</риссаproof>
+
 \begin{corollary}
     \(f_n \longarrow{\mu} f \ \ |f_n| \leq g\) почти всюду. Тогда \(|f| \leq g\) почти всюду.
 \end{corollary}
@@ -314,6 +337,7 @@
 \[f_n \rightrightarrows f  \Rightarrow f_n(x) \to f(x) \ \  \forall x \Rightarrow f_n \longarrow{} f\]
 
 \begin{theorem}[Егорова]\itemfix
+    %<*теоремаегорова>
     \begin{itemize}
         \item \(X, \mathfrak{A}, \mu\)
         \item \(\mu X < +\infty\)
@@ -322,6 +346,7 @@
 
     Тогда
     \[\forall \varepsilon > 0 \ \ \exists e\subset X : \mu e < \varepsilon \quad f_n \xrightrightarrows[X\setminus e]{} f\]
+    %</теоремаегорова>
 \end{theorem}
 \begin{proof}
     Упражнение. % TODO: #70 доказать
@@ -332,6 +357,7 @@
 \(\sphericalangle (X, \mathfrak{A}, \mu)\) --- зафиксировали.
 
 \begin{definition}[1]\itemfix
+    %<*интеграл1>
     \begin{itemize}
         \item \(f = \sum \alpha_k \chi_{E_k}\)
         \item \(E_k\) --- допустимое разбиение
@@ -341,6 +367,7 @@
     \[\int_X f d_{\mu(x)} : = \sum \alpha_k \mu E_k\]
 
     И пусть \(0\cdot \infty = 0\)
+    %</интеграл1>
 \end{definition}
 
 \begin{prop}\itemfix
@@ -360,11 +387,13 @@
 \end{prop}
 
 \begin{definition}[2]\itemfix
+    %<*интеграл2>
     \begin{itemize}
         \item \(f \geq 0\)
         \item \(f\) измеримо
     \end{itemize}
     \[\int_X f d\mu : = \sup_{\substack{g \text{ --- ступ.} \\ 0 \leq g \leq f}} \int g d\mu\]
+    %</интеграл2>
 \end{definition}
 
 \begin{prop}\itemfix

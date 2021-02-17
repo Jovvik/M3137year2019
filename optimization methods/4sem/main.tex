@@ -29,6 +29,14 @@
 
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 
+\usepackage{remreset}
+\makeatletter
+  \@removefromreset{section}{chapter}
+\makeatother
+
+\usepackage{chngcntr}
+\counterwithout{equation}{chapter}
+
 \renewcommand{\thesection}{\arabic{section}}
 
 \begin{document}
@@ -289,13 +297,96 @@
     \item [Шаг 4:] \(X^* \approx \overline X = \frac{a + b}{2}\)
 \end{itemize}
 
-\(\delta\) надо выбирать \?
-
 \begin{remark}
     \(\delta\) выбирается на интервале \((0, 2\varepsilon)\). Чем меньше \(\delta\), тем больше относительное уменьшение длины отрезка на каждой итерации. При черезмерно малом \(\delta\) сравнение \(f(x_1)\) и \(f(x_2)\) будет затруднительно, т.к. они близки.
 \end{remark}
 
 Мы можем оценить число необходимых итераций:
 \[n \geq \log_2 \frac{b - a - \delta}{2\varepsilon - \delta}\]
+
+\chapter{17 февраля}
+
+\subsection{Метод золотого сечения}
+
+Рассмотрим отрезок \([0, 1]\). Пусть \(x_2 = \tau\), тогда симметрично расположенная \(x_1 = 1 - \tau\). Пусть дальше был выбран отрезок \([0, \tau]\), тогда пусть \(x_2' = 1 - \tau\). Чтобы новые точки делили отрезок в таком же соотношении, необходимо, чтобы \(\frac{1}{\tau} = \frac{\tau}{1 - \tau} \Rightarrow \tau^2 = 1 - \tau \Rightarrow \tau = \frac{\sqrt{5} - 1}{2} \approx 0.61803\). Таким образом, \(x_1 = 1 - \tau = \frac{3 - \sqrt{5}}{2}, x_2 = \tau = \frac{\sqrt{5} - 1}{2}\)
+
+В общем случае для отрезка \([a, b]\):
+\begin{equation}
+    x_1 = a + \frac{3 - \sqrt{5}}{2}(b - a), x_2 = a + \frac{\sqrt{5} - 1}{2} (b - a) \label{x_1, x_2, метод золотого сечения}
+\end{equation}
+
+Вычислим погрешность:
+\[\Delta_n = \tau^n (b - a) \quad \varepsilon_n = \frac{\Delta_n}{2} = \frac{1}{2}\left( \frac{\sqrt{5} - 1}{2} \right)^n (b - a)\]
+
+Для заданного \(\varepsilon\) условия окончания \(\varepsilon_n \leq \varepsilon\).
+
+Результат метода: 
+\[x^* = \frac{a_{(n)} + b_{(n)}}{2}\]
+
+Оценка числа шагов для достижения искомой точности:
+\[n \geq \ln\left( \frac{\frac{2\varepsilon}{b - a}}{\ln \tau} \right) \approx 2 \cdot 1 \cdot \ln\left( \frac{b - a}{2\varepsilon} \right)\]
+
+\begin{itemize}
+    \item [Шаг 1:] Находим \(x_1\) и \(x_2\) по формуле \eqref{x_1, x_2, метод золотого сечения}, вычисляем \(f(x_1)\) и \(f(x_2)\). \(\varepsilon_n = \frac{b - a}{2}, \tau = \frac{\sqrt{5} - 1}{2} \).
+    \item [Шаг 2:]
+          \begin{itemize}
+              \item Если \(\varepsilon_n > \varepsilon\), переходим к шагу 3.
+              \item Если \(\varepsilon_n \leq \varepsilon\), переходим к шагу 4.
+          \end{itemize}
+    \item [Шаг 3:] Сравниваем \(f(x_1)\) и \(f(x_2)\).
+          \begin{itemize}
+              \item Если \(f(x_1) \leq f(x_2)\), то \(b = x_2, x_2 = x_1, x_1 = b - \tau (b - a)\). Мы запоминаем \(f(x_2)\) для следующего шага, т.к. оно равно \(f(x_1)\) на этом шаге.
+              \item Иначе \(a = x_1, x_1 = x_2, f(x_1) = f(x_2)\). Мы запоминаем \(f(x_1)\) для следующего шага, т.к. оно равно \(f(x_2)\) на этом шаге.
+          \end{itemize}
+    \item [Шаг 4:] \(X^* \approx \overline X = \frac{a_{(n)} + b_{(n)}}{2}\)
+\end{itemize}
+
+\subsection{Метод Фибоначчи}
+
+Мы знаем, что \(F_n = \frac{\left( \frac{1 + \sqrt{5}}{2} \right)^n - \left( \frac{1 - \sqrt{5}}{2} \right)^n}{\sqrt{5}} \), а также при \(n \to +\infty\ \) \(F_n \approx \frac{\left( \frac{1 + \sqrt{5}}{2} \right)^n}{\sqrt{5}}\)
+
+Рассмотрим нулевую итерацию:
+\[x_1 = a + \frac{F_n}{F_{n + 2}} (b - a) \quad x_2 = a + \frac{F_{n+1}}{F_{n + 2}} (b - a)\]
+
+Рассмотрим \(k\)-тую итерацию:
+\[x_1 = a_{(k)} + \frac{F_{n - k + 1}}{F_{n - k + 3}} (b_k - a_k) = a_k + \frac{F_{n - k + 1}}{F_{n + 2}} (b_0 - a_0)\]
+\[x_2 = a_{(k)} + \frac{F_{n - k + 2}}{F_{n - k + 3}} (b_k - a_k) = a_k + \frac{F_{n - k + 2}}{F_{n + 2}} (b_0 - a_0)\]
+
+Пусть \(k = n\), тогда:
+\[x_1 = a_n + \frac{F_1}{F_{n + 2}} (b_0 - a_0) \quad x_2 = a_n + \frac{F_2}{F_{n + 2}} (b_0 - a_0)\]
+
+Условие на погрешность:
+\[\frac{b_n - a_n}{2} = \frac{b_0 - a_0}{F_{n + 2}} < \varepsilon\]
+Какое брать \(n?\) Такое, что \(\frac{b_0 - a_0}{\varepsilon} < F_{n + 2}\)
+
+Есть проблема, при большом \(n\) \(\frac{F_n}{F_{n + 2}}\) есть бесконечная десятичная дробь, вследствие чего образуется погрешность.
+
+\subsection{Метод парабол}
+
+\begin{figure}[h]
+    \centering
+    \includesvg{images/метод_параболы.svg}
+    \caption{Функция \(f(x)\) и её приближение параболой.}
+\end{figure}
+
+Пусть \(\exists x_1, x_2, x_3\in[a, b]\), такие что \(\begin{cases}
+    x_1 < x_2 < x_3 \\
+    f(x_1) \geq f(x_2) \leq f(x_3)
+\end{cases}\)
+
+Тогда приближающая парабола имеет вид \(q(x) = a_0 + a_1(x - x_1) + a_2(x - x_1)(x - x_2)\). Мы имеем условия на коэффициенты этой параболы: \(\begin{cases}
+    q(x_1) = f(x_1) = f_1 \\
+    q(x_2) = f(x_2) = f_2 \\
+    q(x_3) = f(x_3) = f_3
+\end{cases}\)
+
+Коэффициенты можно найти следующим образом:
+\[a_1 = f_1 \quad a_2 = \frac{f_2 - f_1}{x_2 - x_1} \quad a_3 = \frac{1}{x_3 - x_2} \left( \frac{f_3 - f_1}{x_3 - x_1} - \frac{f_2 - f_1}{x_2 - x_1} \right) \]
+
+Тогда результат итерации есть \(\overline x = \frac{1}{2} \left( x_1 + x_2 - \frac{a_1}{a_2} \right)\), на следующей лекции будет рассказан переход к следующей итерации.
+
+\subsection{Комбинированный метод Брента}
+
+Для собственного изучения.
 
 \end{document}

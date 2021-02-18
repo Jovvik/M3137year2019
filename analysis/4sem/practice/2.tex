@@ -1,0 +1,68 @@
+\input{../../../preamble.sty}
+
+\lhead{Математический анализ \textit{(практика)}}
+\cfoot{}
+\rfoot{18.2.2021}
+
+\begin{document}
+
+Вспомним два интеграла для \(\Gamma\):
+\[\int_0^{+\infty} t^{x - 1} e^{ - t} dt = \Gamma(x) \quad x > 0\]
+\[\int_0^1 t^{x - 1} (1 - t)^{y - 1} dt = B(x, y) \symrefeq{надо доказать} \frac{\Gamma(x)\Gamma(y)}{\Gamma(x + y)} \approx \frac{1}{C^x_{x + y}}\]
+\ref{надо доказать} надо будет доказать.
+
+\begin{example}
+    \begin{align*}
+        \int_0^{\frac{\pi}{2}} \sin^{2021} x dx                                             \\
+         & = \begin{bmatrix} t = \sin^2 x \\ dt = 2 \sin x \cos x dx  \\ dx = \frac{dt}{2t^{\frac{1}{2}} (1 - t^{\frac{1}{2}})}\end{bmatrix}                                                      \\
+         & = \int_0^1 t^{1010.5} \frac{1}{2} t^{ - \frac{1}{2}} (1 - t)^{ - \frac{1}{2}} dt \\
+         & = \frac{1}{2}\int_0^1 t^{1010} (1 - t)^{ - \frac{1}{2}}dt                        \\
+         & = \frac{1}{2}B(1011, \frac{1}{2})                                                \\
+         & = \frac{1}{2} \frac{\Gamma(1011)\Gamma(\frac{1}{2})}{\Gamma(1011.5)}
+    \end{align*}
+\end{example}
+
+Для вычисления \(\Gamma\) у нас есть несколько формул:
+\begin{itemize}
+    \item Формула понижения: \(\Gamma(x + 1) = x \cdot \Gamma(x)\)
+    \item Формула дополнения: \(\Gamma(x)\Gamma(1 - x) = \frac{\pi}{\sin \pi x}\)
+    \item \(\Gamma(0.5) = \sqrt{\pi}\)
+\end{itemize}
+
+Таким образом, мы можем вычислить все \(\Gamma\) в ответе.
+
+\[\frac{1}{2} \frac{\Gamma(1011)\Gamma(\frac{1}{2})}{\Gamma(1011.5)} = \frac{1}{2} \frac{1010! \sqrt{\pi}}{\frac{2021}{2}\cdot \frac{2019}{2} \dots } = \frac{1010! 2^{1009}}{} \]
+
+\begin{exercise}[3845]
+    \[\int_0^{+\infty} \frac{\sqrt[4]{x}}{(1 + x)^2} dx\]
+
+    Можно решить через \(t^4 = x\), но это сложно.
+
+    \[t : = \frac{1}{1 + x} \quad x = \frac{1}{t} - 1\]
+
+    \[\int_0^{+\infty} \frac{\sqrt[4]{x}}{(1 + x)^2} dx = \int_0^1 \left( \frac{1}{t} - 1 \right)^{\frac{1}{4}} dt = B\left( \frac{3}{4}, \frac{5}{4} \right) = \frac{\Gamma(\frac{3}{4})\Gamma(\frac{1}{4})}{1} = \frac{\pi}{2 \sqrt{2}} \]
+\end{exercise}
+
+\begin{exercise}[3849]
+    \[\int_0^1 \frac{dx}{\sqrt[n]{1 - x^n}} = \int_0^1 \frac{dx}{(1 - x^n)^{\frac{1}{n}}} = \frac{1}{n} \int_0^1 \frac{dt}{(1 - t)^{\frac{1}{n}}} t^{\frac{1 - n}{n}} = \frac{1}{n} \int_0^1 t^{\frac{1 - n}{n}} (1 - t)^{ - \frac{1}{n}} dt = B\left( \frac{1}{n}, 1 - \frac{1}{n} \right) \frac{1}{n}\]
+    \[ = \frac{\Gamma(\frac{1}{n})\Gamma(1 - \frac{1}{n})}{\Gamma(1)} = \frac{\pi}{\sin\left( \pi \frac{1}{n} \right)} \]
+\end{exercise}
+
+\begin{exercise}[3848]
+    \[\int_0^{\frac{\pi}{2}} \sin^6 x \cos^4 x dx = [\sin^2 x = t] = \int_0^1 t^3 (1 - t)^2 \frac{dt}{2t^{\frac{1}{2}}(1 - t)^{\frac{1}{2}}} = \frac{1}{2}\int_0^1 t^{\frac{5}{2}} (1 - t)^{\frac{3}{2}} dt = \frac{1}{2} B\left( \frac{7}{2}, \frac{5}{2} \right) = \frac{7!!5!!\pi}{2^8 5!} \]
+\end{exercise}
+
+\section*{Кратные интегралы}
+
+\begin{figure}[h]
+    \centering
+    \includesvg{images/штука.svg}
+\end{figure}
+
+\[\int \int f dx dy = \int_a^b \left( \int_{c(x)}^{d(x)} f(x, y) dy \right) dx\]
+
+\begin{exercise}
+    \[\int_{ - 1}^2 dx \int_x^{x^2} f dy\]
+\end{exercise}
+
+\end{document}

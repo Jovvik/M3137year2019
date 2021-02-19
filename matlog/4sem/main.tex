@@ -29,6 +29,11 @@
 
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 
+\usepackage{remreset}
+\makeatletter
+  \@removefromreset{section}{chapter}
+\makeatother
+
 \renewcommand{\thesection}{\arabic{section}.}
 \renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
 
@@ -209,5 +214,179 @@
 \begin{definition}
     Доказательство \(\alpha_1\dots \alpha_n\) доказывает выражение \(\beta\), если \(\alpha_n \equiv \beta\)
 \end{definition}
+
+\chapter{19 февраля}
+
+\begin{obozn}
+    Большая греческая буква середины греческого алфавита ( \(\Gamma, \Delta, \Sigma\)) --- список высказываний.
+\end{obozn}
+
+\begin{definition}[следование]
+    \(\alpha\) следует из \(\Gamma\) \textit{(обозначается \(\Gamma\models\alpha\))}, если \(\Gamma = \gamma_1 \dots \gamma_n\) и всегда, когда все \(\llbracket \gamma_i \rrbracket = \text{ И}\), то \(\llbracket \alpha \rrbracket = \text{ И}\).
+\end{definition}
+
+\begin{example}
+    \(\models \alpha\) --- \(\alpha\) общезначимо.
+\end{example}
+
+\begin{definition}
+    \sout{Теория} Исчисление высказываний \textbf{корректно}, если при любом \(\alpha\) из \(\vdash \alpha\) следует \(\models \alpha\).
+\end{definition}
+
+\begin{definition}
+    Исчисление \textbf{полно}, если при любом \(\alpha\) из \(\models \alpha\) следует \(\vdash \alpha\).
+\end{definition}
+
+\begin{theorem}[о дедукции]
+    \[\Gamma, \alpha \vdash \beta \Leftrightarrow \Gamma \vdash \alpha \to \beta\]
+\end{theorem}
+
+\begin{proof}\itemfix
+    \begin{itemize}
+        \item [ \( \Leftarrow \)] Пусть \(\Gamma \vdash \alpha \to \beta\), т.е. существует доказательство \(\delta_1 \dots \delta_n\), где \(\delta_n \equiv \alpha \to \beta\)
+
+              Построим новое доказательство: \(\delta_1 \dots \delta_n, \alpha \text{ (гипотеза) }, \beta \text{ (M.P.)}\). Эта новая последовательность --- доказательство \(\Gamma, \alpha \vdash \beta\)
+
+        \item [ \( \Rightarrow \)] Рассмотрим \(\delta_1 \dots \delta_n, \Gamma, \alpha \vdash \beta\). Рассмотрим последовательность \(\sigma_1 = \alpha \to \delta_1 \dots \sigma_n = \alpha \to \delta_n\). Это не доказательство.
+
+              Но эту последовательность можно дополнить до доказательства, так что каждый \(\sigma_i\) есть аксиома, гипотеза или получается через M.P. Докажем это.
+
+              \begin{proof}
+                  \textbf{База}: \(n = 0\) --- очевидно.
+
+                  \textbf{Переход}: пусть \(\sigma_0 \dots \sigma_n\) --- доказательство. Покажем, что между \(\sigma_n\) и \(\sigma_{n + 1}\) можно добавить формулы так, что \(\sigma_{n + 1}\) будет доказуемо.
+
+                  У нас есть 3 варианта обоснования \(\delta_{n + 1}\)
+                  \begin{enumerate}
+                      \item \(\delta_{n + 1}\) --- аксиома или гипотеза, \(\not\equiv \alpha\)
+
+                            Будем нумеровать дробными числами, потому что нам ничто это не запрещает, т.к. нам нужна только упорядоченность.
+
+                            \(\textcolor{blue}{n + 0.2} \quad \delta_{n + 1}\) --- верно, т.к. это аксиома или гипотеза
+
+                            \(\textcolor{blue}{n + 0.4} \quad \delta_{n + 1} \to \alpha \to \delta_{n + 1}\) \textcolor{blue}{(аксиома 1)}
+
+                            \(\textcolor{blue}{n + 1} \quad \alpha \to \delta_{n + 1}\) \textcolor{blue}{(M.P. \(n + 0.2, n + 0.4\))}
+
+                      \item \(\delta_{n + 1} \equiv \alpha\)
+
+                            \(\textcolor{blue}{n + 0.2, 0.4, 0.6, 0.8, 1}\) --- доказательство \(\alpha \to \alpha\)
+
+                      \item \(\delta_k \equiv \delta_l \to \delta_{n + 1},\ k, l \leq n\)
+
+                            \(\textcolor{blue}{k} \quad \alpha \to (\delta_l \to \delta_{n + 1})\)
+
+                            \(\textcolor{blue}{l} \quad  \alpha \to \sigma_l\)
+
+                            \(\textcolor{blue}{n + 0.2} \quad (\alpha \to \sigma_l) \to (\alpha \to (\sigma_l \to \sigma_{n + 1})) \to (\alpha \to \sigma_{n + 1})\) \textcolor{blue}{(аксиома 2)}
+
+                            \(\textcolor{blue}{n + 0.4} \quad (\alpha \to \sigma_l \to \sigma_{n + 1}) \to (\sigma \to \sigma_{n + 1})\) \textcolor{blue}{(M.P. \(n + 2, l\))}
+
+                            \(\textcolor{blue}{n + 1} \quad \alpha \to \sigma_{n + 1}\) \textcolor{blue}{(M.P. \(n + 0.4, k\))}
+                  \end{enumerate}
+              \end{proof}
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Пусть \(\vdash \alpha\). Тогда \(\models \alpha\).
+\end{theorem}
+\begin{proof}
+    Индукция по длине доказательства: каждая \(\llbracket \delta_i \rrbracket = \text{ И}\), если \(\delta_1 \dots \delta_n\) --- доказательство \(\alpha\)
+
+    Рассмотрим \(n\) и пусть \(\llbracket \delta_1 \rrbracket = \text{ И}, \dots \llbracket \delta_n \rrbracket = \text{ И}\).
+
+    Тогда осн. \(\delta_{n + 1}\) % TODO: кто?
+    \begin{enumerate}
+        \item \(\delta_{n + 1}\) --- аксиома. Это упражнение.
+    \end{enumerate}
+
+    \begin{example}
+        \(\delta_{n + 1} \equiv \alpha \to \beta \to \alpha\) \?
+
+        % TODO: дописать
+    \end{example}
+\end{proof}
+
+\begin{theorem}[о полноте]
+    Пусть \(\models \alpha\). Тогда \(\vdash \alpha\).
+\end{theorem}
+
+Фиксируем набор переменных из \(\alpha\): \(P_1 \dots P_n\).
+
+Рассмотрим \(\llbracket \alpha \rrbracket^{P_1 : = x_1 \dots P_n: = x_n} = \text{И}\)
+
+\begin{obozn}
+    \({}_{[\beta]} \alpha \equiv \begin{cases}
+        \alpha,      & \llbracket \beta \rrbracket = \text{И} \\
+        \neg \alpha, & \llbracket \beta \rrbracket = \text{Л}
+    \end{cases}\) и \({}_{[x]} \alpha \equiv \begin{cases}
+        \alpha,      & x = \text{И} \\
+        \neg \alpha, & x = \text{Л}
+    \end{cases}\)
+\end{obozn}
+
+Докажем, что \(\underbrace{{}_{[x_1]} P_1, \dots {}_{[x_n]} P_n}_{\Pi} \vdash {}_{[\alpha]} \alpha\)
+
+\begin{proof}
+    По индукции по длине формулы:
+
+    \textbf{База}: \(\alpha = P_i\) \({}_{[P_i]} P_i \vdash {}_{[P_i]} P_i\), значит \(\Pi \vdash {}_{[P_i]} P_i\)
+
+    \textbf{Переход}: пусть \(\eta, \zeta : \Pi \vdash {}_{[\eta]}\eta, \Pi \vdash {}_{[\zeta]}\zeta\) \textit{(по индукционному предположению)}. Покажем, что \(\Pi \vdash {}_{[\eta \star \zeta]} \eta \star \zeta\), где \(\star\) --- все \? % TODO: кто? операции?
+
+    Это упражнение.
+\end{proof}
+
+\begin{lemma}
+    \(\Gamma, \eta \vdash \zeta, \Gamma, \neg \eta \vdash \zeta\). Тогда \(\Gamma \vdash \zeta\).
+\end{lemma}
+\begin{proof}
+    Было в ДЗ.
+\end{proof}
+
+\begin{proof}[Доказательство теоремы о полноте]
+    \(\models \alpha\), т.е. \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash {}_{[\alpha]} \alpha\). Но \(\llbracket \alpha \rrbracket = \text{П}\) при любой оценке. Тогда \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash \alpha\) при все \(x_i\).
+
+    \begin{lemma}[об исключении допущения]
+        Если \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash \alpha\), то \({}_{[x_1]} P_1 \dots {}_{[x_{n - 1}]} P_{n - 1} \vdash \alpha\)
+    \end{lemma}
+
+    \[\begin{rcases*}
+            {}_{[x_1]} P_1 \dots {}_{[x_{n - 1}]} P_{n - 1}, P_n \vdash \alpha \\
+            {}_{[x_1]} P_1 \dots {}_{[x_{n - 1}]} P_{n - 1}, \neg P_n \vdash \alpha
+        \end{rcases*} \xRightarrow{\text{по лемме}} {}_{[x_1]} P_1 \dots {}_{[x_{n - 1}]} P_{n - 1} \vdash \alpha\]
+\end{proof}
+
+% Докажем, что \(\exists a, b \in\R\setminus Q : a^b\in \Q\).
+% \begin{proof}
+%     Пусть \(a = b = \sqrt{2}\). Если \(\sqrt{2}^\sqrt{2} \not\in \R\setminus \Q\)
+% \end{proof}
+
+\section{Интуиционистская логика}
+
+\subsection{ВНК-интерпретация}
+
+Определим выражения:
+\begin{itemize}
+    \item \(\alpha \with \beta\) --- есть \(\alpha\) и \(\beta\)
+    \item \(\alpha \lor \beta\) --- есть \(\alpha\) либо \(\beta\) и мы знаем, какое
+    \item \(\alpha \to \beta\) --- есть способ перестроить \(\alpha\) в \(\beta\)
+    \item \(\perp\) --- конструкция без построения \textit{(bottom)}
+    \item \(\neg \alpha \equiv \alpha \to \perp\)
+\end{itemize}
+
+\textbf{Теория доказательств} есть классическая логика без десятой схемы аксиомы, вместо нее \(\alpha \to \ne \alpha \to \beta\)
+
+\textbf{Теория моделей} --- теория, в которой \(\llbracket \alpha \rrbracket\) --- открытое множество в \(\Omega\) --- топологическом пространстве.
+
+В ней определено следующее:
+\begin{align*}
+    \llbracket \alpha \with \beta \rrbracket & = \llbracket \alpha \rrbracket \cap \llbracket \beta \rrbracket              \\
+    \llbracket \alpha \lor \beta \rrbracket  & = \llbracket \alpha \rrbracket \cup \llbracket \beta \rrbracket              \\
+    \llbracket \alpha \to \beta \rrbracket   & = (\llbracket \alpha \rrbracket \setminus \llbracket \beta \rrbracket)^\circ \\
+    \llbracket \perp \rrbracket              & = \emptyset                                                                  \\
+    \llbracket \neg \alpha \rrbracket & = (X \setminus \llbracket \alpha\rrbracket)^\circ
+\end{align*}
 
 \end{document}

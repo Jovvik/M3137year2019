@@ -296,16 +296,44 @@
 
     Рассмотрим \(n\) и пусть \(\llbracket \delta_1 \rrbracket = \text{ И}, \dots \llbracket \delta_n \rrbracket = \text{ И}\).
 
-    Тогда осн. \(\delta_{n + 1}\) % TODO: кто?
+    Тогда рассмотрим основание \(\delta_{n + 1}\)
     \begin{enumerate}
         \item \(\delta_{n + 1}\) --- аксиома. Это упражнение.
+
+              \begin{example}
+                  \(\delta_{n + 1} \equiv \alpha \to \beta \to \alpha\)
+
+                  \[\sphericalangle \llbracket \alpha \to \beta \to \alpha \rrbracket^{\llbracket \alpha \rrbracket : = a, \llbracket \beta \rrbracket : = b} = \text{И}\]
+
+                  \begin{center}
+                      \begin{tabular}{c|c|c|c}
+                          \(a\) & \(b\) & \(\beta \to \alpha\) & \(\alpha \to \beta \to \alpha\) \\ \hline
+                          Л     & Л     & И                    & И                               \\
+                          Л     & И     & Л                    & И                               \\
+                          И     & Л     & И                    & И                               \\
+                          И     & И     & И                    & И                               \\
+                      \end{tabular}
+                  \end{center}
+              \end{example}
+
+              Аналогично можно доказать для остальных аксиом.
+
+        \item \(\delta_{n + 1}\) --- M.P. \(\delta_k = \delta_l \to \delta_{n + 1}\)
+
+              Фиксируем оценку. Тогда \(\llbracket \delta_k \rrbracket = \llbracket \delta_l \rrbracket =\) И. Тогда:
+
+              \begin{center}
+                  \begin{tabular}{c|c|c}
+                      \(\llbracket \delta_k \rrbracket\) & \(\llbracket \delta_{n + 1} \rrbracket \) & \(\llbracket \delta_k \rrbracket = \llbracket \delta_l \to \delta_{n + 1} \rrbracket\) \\ \hline
+                      Л                                  & Л                                         & И                                                                                      \\
+                      Л                                  & И                                         & И                                                                                      \\
+                      И                                  & Л                                         & Л                                                                                      \\
+                      И                                  & И                                         & И                                                                                      \\
+                  \end{tabular}
+              \end{center}
+
+              Первых трёх вариантов не может быть в силу \(\llbracket \delta_k \rrbracket = \llbracket \delta_l \rrbracket =\) И. Таким образом, \(\llbracket \delta_{n + 1} \rrbracket = \) И.
     \end{enumerate}
-
-    \begin{example}
-        \(\delta_{n + 1} \equiv \alpha \to \beta \to \alpha\) \?
-
-        % TODO: дописать
-    \end{example}
 \end{proof}
 
 \begin{theorem}[о полноте]
@@ -333,7 +361,7 @@
 
     \textbf{База}: \(\alpha = P_i\) \({}_{[P_i]} P_i \vdash {}_{[P_i]} P_i\), значит \(\Pi \vdash {}_{[P_i]} P_i\)
 
-    \textbf{Переход}: пусть \(\eta, \zeta : \Pi \vdash {}_{[\eta]}\eta, \Pi \vdash {}_{[\zeta]}\zeta\) \textit{(по индукционному предположению)}. Покажем, что \(\Pi \vdash {}_{[\eta \star \zeta]} \eta \star \zeta\), где \(\star\) --- все \? % TODO: кто? операции?
+    \textbf{Переход}: пусть \(\eta, \zeta : \Pi \vdash {}_{[\eta]}\eta, \Pi \vdash {}_{[\zeta]}\zeta\) \textit{(по индукционному предположению)}. Покажем, что \(\Pi \vdash {}_{[\eta \star \zeta]} \eta \star \zeta\), где \(\star\) --- все связки
 
     Это упражнение.
 \end{proof}
@@ -386,7 +414,7 @@
     \llbracket \alpha \lor \beta \rrbracket  & = \llbracket \alpha \rrbracket \cup \llbracket \beta \rrbracket              \\
     \llbracket \alpha \to \beta \rrbracket   & = (\llbracket \alpha \rrbracket \setminus \llbracket \beta \rrbracket)^\circ \\
     \llbracket \perp \rrbracket              & = \emptyset                                                                  \\
-    \llbracket \neg \alpha \rrbracket & = (X \setminus \llbracket \alpha\rrbracket)^\circ
+    \llbracket \neg \alpha \rrbracket        & = (X \setminus \llbracket \alpha\rrbracket)^\circ
 \end{align*}
 
 \end{document}

@@ -27,6 +27,11 @@
 
 \let\endtitlepage\relax
 
+\usepackage{remreset}
+\makeatletter
+  \@removefromreset{section}{chapter}
+\makeatother
+
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 
 \renewcommand{\thesection}{\arabic{section}}
@@ -42,7 +47,7 @@
 
 \chapter{13 февраля}
 
-\section{Введение}
+\section{События}
 
 \subsection{Статистическое определение вероятности}
 
@@ -120,7 +125,7 @@
     Событие \(A\) влечет событие \(B\), если \(A\subset B\).
 \end{definition}
 
-\subsection{Вероятность}
+\section{Вероятность}
 
 \begin{definition}
     \(0 \leq P(A) \leq 1\) --- вероятность наступления события \(A\).
@@ -212,5 +217,194 @@
 \end{example}
 
 Это определение кажется хорошим --- оно согласовано с классическим. Но и это определение редко применимо на практике, т.к. обычно вероятность зависит от положения в пространстве или множество исходов несчётно.
+
+\chapter{20 февраля}
+
+\subsection{Аксиоматическое определение вероятности}
+
+Пусть \(\Omega\) --- пространство элементарных исходов.
+
+\begin{definition}
+    Систему \(\mathcal{F}\) подмножеств \(\Omega\) называют \(\sigma\)-алгеброй событий, если:
+    \begin{enumerate}
+        \item \(\Omega\in\mathcal{F}\)
+        \item \(A\in \mathcal{F} \Rightarrow \overline A \in \mathcal{F}\)
+        \item \(A_1 \dots A_n \dots \in \mathcal{F} \Rightarrow \bigcup\limits_{i = 1}^{+\infty} A_i \in \mathcal{F}\)
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Из 2 и 3 следует 1.
+\end{remark}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\emptyset \in \mathcal{F}\), т.к. \(\overline \Omega = \emptyset\)
+        \item \(A_1 \dots \in \mathcal{F} \Rightarrow \bigcup A_i \in \mathcal{F}\)
+
+              \begin{proof}
+                  \(A_1 \dots \in \mathcal{F} \Rightarrow \overline A_1 \dots \in \mathcal{F} \Rightarrow \bigcup \overline A_i \in \mathcal{F} \Rightarrow \overline{\bigcup \overline A_i} = \bigcap A_i \in \mathcal{F}\)
+              \end{proof}
+
+        \item \(A, B \in F \Rightarrow A\setminus B \in \mathcal{F}\)
+    \end{enumerate}
+\end{prop}
+
+\? % TODO
+
+\begin{definition}
+    Пусть \(\Omega\) --- множество элементарных исходов, \(\mathcal{F}\) --- \(\sigma\)-алгебра над ним.
+
+    \textbf{Вероятностью} на \((\Omega, \mathcal{F})\) называется функция \(P(A) : \mathcal{F} \to \R\) со свойствами:
+    \begin{enumerate}
+        \item \(P(A) \geq 0\) --- свойство неотрицательности
+        \item Если события \(A_1 \dots A_n \dots \) --- равновероятные, т.е. \(A_i \cap A_j = \emptyset\), то \(P(\bigcap A) = \sum P(A_i)\) --- свойство счётной аддитивности
+        \item \(P(\Omega) = 1\) --- свойство нормированности
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Вероятность есть нормированная мера.
+\end{remark}
+
+\begin{definition}
+    Тройка \((\Omega, \mathcal{F}, P)\) называется вероятностным пространством.
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(P(\emptyset) = 0\)
+
+              \begin{proof}
+                  \(\underbrace{P(\emptyset + \Omega)}_{1} = P(\emptyset) + \underbrace{P(\Omega)}_1 \Rightarrow P(\emptyset) = 0\)
+              \end{proof}
+
+        \item Формула обратной вероятности: \(P(A) = 1 - P(\overline A)\)
+
+              \begin{proof}
+                  \(A\) и \(\overline A\) --- несовместны, \(A + \overline A = \Omega\).
+
+                  \(P(A + \overline A) = P(A) + P(\overline A) = 1 \Rightarrow P(A) = 1 - P(\overline A)\)
+              \end{proof}
+
+        \item \(0 \leq P(A) \leq 1\)
+
+              \begin{proof}
+                  \begin{enumerate}
+                      \item \(P(A) \geq 0\)
+                      \item \(P(A) = 1 - P(\overline A) \leq 1\)
+                  \end{enumerate}
+              \end{proof}
+    \end{enumerate}
+\end{prop}
+
+\subsection{Аксиома непрерывности}
+
+Пусть имеется убывающая цепочка событий \(A_1 \supset A_2 \supset \dots \) и \(\bigcap A_i = \emptyset\). Тогда \(P(A_n) \xrightarrow{n \to +\infty} 0\)
+
+\? % TODO
+% соответствующая вероятность также должна изменяться непрерывно.
+
+\begin{theorem}
+    Эта аксиома следует из второй аксиомы.
+\end{theorem}
+\begin{proof}
+    \(A_n = \sum_{i = n}^{+\infty} A_i \overline A_{i+1} \cup \bigcap_{i = n}^{+\infty} A_i\)
+
+    \? % TODO
+
+    Т.к. по условию \(P(\bigcap_{i = 1}^{+\infty} A_i) = \emptyset\) и \(\bigcap_{i = n}^{+\infty} A_i = \bigcap_{i = 1}^{+\infty} A_i\), то \(P(\bigcap_{i = n}^{+\infty} A_i) = 0\).
+
+    Таким образом, \(P(A_n) = \sum_{i = n}^{+\infty} P(A_i \overline A_{i + 1})\) --- остаточный член сходящейся последовательности \( \Rightarrow P(A_n) \to 0\)
+\end{proof}
+
+\begin{remark}
+    Аксиома счётной аддитивности следует из аксиомы непрерывности и свойства конечной аддитивности.
+\end{remark}
+
+\subsection{Формула сложения}
+
+Если \(A\) и \(B\) несовместны, то \(P(A + B) = P(A) + P(B)\)
+
+\begin{theorem}
+    \(P(A + B) = P(A) + P(B) - P(A B)\)
+\end{theorem}
+\begin{proof}
+    \[A + B = A\overline B + AB + \overline A B\]
+    \begin{align*}
+        P(A + B) & = P(A\overline B) + P(AB) + P(\overline A B)                     \\
+                 & = (P(A\overline B) + P(AB)) + (P(\overline A B) + P(AB)) - P(AB) \\
+                 & = P(A) + P(B) - P(AB)
+    \end{align*}
+\end{proof}
+
+Аналогично можно доказать формулу включения-исключения:
+\[P\left(\sum A_i\right) = \sum P(A_i) - \sum_{i < j} P(A_i A_j) + \sum P(A_i A_j A_k) + \dots + ( - 1)^{n - 1} P(A_1 A_2 \dots A_n)\]
+
+\begin{example}
+    Опущен.
+\end{example}
+
+\section{Независимые события}
+
+\begin{definition}
+    События \(A\) и \(B\) называются \textbf{независимыми}, если \(P(AB) = P(A)P(B)\)
+\end{definition}
+
+\begin{proof}
+    Если \(A\) и \(B\) независимы, то \(A\) и \(\overline{B}\) --- независимы.
+\end{proof}
+\begin{proof}
+    \[P(A) = P(A(B + \overline B)) = P(AB + A\overline B) = P(AB) + P(A\overline B)\]
+    \[P(A \overline B) = P(A) - P(AB) = P(A) - P(A)P(B) = P(A)(1 - P(B)) = P(AB)\]
+    Таким образом, \(A\) и \(\overline{B}\) --- независимы.
+\end{proof}
+
+\begin{definition}
+    События \(A_1 \dots A_n\) называются \textbf{независимыми в совокупности}, если для любого набора \(1 \leq i_1 \dots i_n \leq n\) \(P(A_{i_1}, A_{i_2}, \dots A_{i_n}) = P(A_{i_1})P(A_{i_2}) \dots P(A_{i_n})\)
+\end{definition}
+
+\begin{example}[Бернштейн]
+    Три грани правильного тетраедра выкрашены в красный, синий, зеленый цвета, а четвертая грань --- во все эти три цвета.
+
+    Бросаем тетраедр и смотрим на грань, на которую он упал. События:
+    \begin{itemize}
+        \item \(A\) --- красный цвет
+        \item \(B\) --- синий цвет
+        \item \(C\) --- зеленый цвет
+    \end{itemize}
+
+    \[P(A) = P(B) = P(C) = \frac{1}{2}\]
+    \[P(AB) = P(AC) = P(BC) = \frac{1}{4}\]
+    Таким образом, все события попарно независимы.
+    \[P(ABС) = \frac{1}{8}\]
+\end{example}
+
+\begin{remark}
+    Если в условии есть ``хотя бы'', т.е. требуется найти вероятность суммы совместных независимых событий, то применима формула обратной вероятности.
+\end{remark}
+
+\begin{example}
+    Найти вероятность того, что при четырёх бросаниях кости хотя бы один раз выпадет шестерка.
+
+    \(A_i\) --- при \(i\)-том броске хотя бы один раз выпала шестерка.
+
+    \[P(\overline A_1) = P(\overline A_2) = P(\overline A_3) = P(\overline 4) = \frac{5}{6}\]
+
+    \[\overline A = \overline A_1 \dots \overline A_4\]
+    \[P(\overline A) = \left( \frac{5}{6} \right)^4\]
+    \[P(A) = 1 - \left( \frac{5}{6} \right)^4\]
+\end{example}
+
+\begin{example}
+    Два стрелка стреляют по мишени. Вероятность попадания первого стрелка \(0.6\), второго --- \(0.8\). Найти вероятность того, что попадет ровно один стрелок.
+
+    \(A_1\) --- первый стрелок попал, \(A_2\) --- второй стрелок попал, \(A\) --- ровно один попал.
+
+    \[P(A_1) = 0.8, P(\overline A_1) = 0.2, P(A_2) = 0.6, P(\overline A_2) = 0.4\]
+
+    \[A = A_1 \overline A_2 + \overline A_1 A_2\]
+    \[P(A) = P(A_1) P(\overline A_2) + P(\overline A_1) P(A_2) = 0.8 \cdot 0.4 + 0.6 \cdot 0.2 = 0.44\]
+\end{example}
 
 \end{document}

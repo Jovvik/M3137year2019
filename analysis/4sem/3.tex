@@ -1,0 +1,309 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{22.2.2021}
+
+\begin{document}
+
+\section*{Интеграл \textit{(продолжение)}}
+
+\begin{definition}
+    Если оказалось, что \(\int_X f^{ +}, \int_X f^{ -}\) оба конечны, то \(f\) называется \textbf{суммируемой}.
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item Если \(f\) измеримо и \( \geq \), то интеграл определения 3 = интегралу определения 2.
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}[4]\itemfix
+    \begin{itemize}
+        \item \(E\subset X\) --- измеримо
+        \item \(f\) измеримо на \(X\)
+    \end{itemize}
+    \[\int_E f d\mu : = \int_X f \cdot \chi_E\]
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item \(f = \sum \alpha_k \chi_{E_k} \Rightarrow \int_E f = \sum \alpha_k \mu (E_k\cap E)\)
+        \item \(\int_E f d\mu = \sup \{\int_E g : 0 \leq g \leq f \text{ на } E, g \text{ --- ступ.}\} \) и мы считаем, что \(g \equiv 0\) вне \(E\).
+        \item \(\int_E f\) не зависит от значений \(f\) вне множества \(E\).
+    \end{itemize}
+\end{remark}
+
+\begin{prop}\itemfix
+    \((X, \mathfrak{A}, \mu)\) --- пространство с мерой, \(E\subset X\) --- измеримо, \(g, f\) --- измеримо.
+    \begin{enumerate}
+        \item Монотонность \(f \leq g : \int_E f \leq \int_E g\)
+
+              \begin{proof}\itemfix
+                  \begin{enumerate}
+                      \item При \(f, g \geq 0\) --- очевидно из определения.
+                      \item При произвольных \(f, g\ \) \(f^{ +} \leq g^{ +}\) и \(f^{ -} \geq g^{ -}\) \textit{(очевидно из определения)}. Из предыдущего случая \(\int_E f^{ +} \leq \int_E g^{ +}, \int_E f^{ -} \geq \int_E g^{ -}\).
+                  \end{enumerate}
+              \end{proof}
+
+        \item \(\int_E 1 d\mu = \mu E, \int_E 0 d\mu = 0\)
+        \item \(\mu E = 0 \Rightarrow \int_E f = 0\)
+
+              \begin{proof}\itemfix
+                  \begin{enumerate}
+                      \item \(f\) --- ступ. Тривиально.
+                      \item \(f\) --- измеримо, \(f \geq 0\). \(\sup 0 = 0\), поэтому искомое выполнено.
+                      \item \(\int f^{ +}, \int f^{ -} = 0 \Rightarrow \int f = 0\)
+                  \end{enumerate}
+              \end{proof}
+
+              \begin{remark}
+                  \(f\) --- измерима. Тогда \(f\) суммируема \(\Leftrightarrow \int |f| < +\infty\)
+              \end{remark}
+              \begin{proof}\itemfix
+                  \begin{itemize}
+                      \item [ \( \Leftarrow \)] следует из \(f^{ +}, f^{ -} \leq |f|\)
+                      \item [ \( \Rightarrow \)] будет доказано позже на этой лекции. \label{доказано позже}
+                  \end{itemize}
+              \end{proof}
+
+        \item \(\int_E ( - f) = - \int_E f, \forall c\in\R \ \ \int_E cf = c\int_E f\)
+
+              \begin{proof}\itemfix
+                  \begin{enumerate}
+                      \item \(( - f)^{ +} = f^{ -}, ( - f)^{ -} = f^{ +}\), тогда искомое очевидно.
+                      \item Можно считать \(c > 0\) без потери общности, тогда для \(f \geq 0\) тривиально.
+                  \end{enumerate}
+              \end{proof}
+
+        \item \(\exists \int_E f d\mu\). Тогда \(|\int_E f d\mu| \leq \int_E |f|d\mu\)
+
+              \begin{proof}
+                  \[ -|f| \leq f \leq |f|\]
+                  \[ -\int |f| \leq \int f \leq \int |f|\]
+                  \[ \left|\int f\right| \leq \int |f| \]
+              \end{proof}
+
+        \item \(\mu E < +\infty, a \leq f \leq b\). Тогда
+              \[a\mu E \leq \int_E f \leq b\mu E\]
+
+              \begin{corollary}
+                  \(f\) --- измеримо на \(E\), \(f\) --- ограничено на \(E\), \(\mu E < +\infty\). Тогда \(f\) суммируемо на \(E\)
+              \end{corollary}
+
+        \item \(f\) суммируема на \(E\). Тогда \(f\) почти везде конечна.
+              \begin{proof}\itemfix
+                  \begin{enumerate}
+                      \item \(f \geq 0\) и \(f = +\infty\) на \(A\subset E\). Тогда \(\int_E f \geq n \mu A \ \ \forall n\in\N\) \( \Rightarrow \mu A = 0\)
+                      \item В произвольном случае аналогично со срезками.
+                  \end{enumerate}
+              \end{proof}
+    \end{enumerate}
+\end{prop}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(A = \bigsqcup\limits_{i = 1}^{+\infty} A_i\) --- измеримо
+        \item \(g\) --- ступенчато
+        \item \(g \geq 0\)
+    \end{itemize}
+    Тогда \[\int_A g d\mu = \sum_{i = 1}^{+\infty} \int_{A_i} g d\mu\]
+\end{lemma}
+\begin{proof}
+    \begin{align*}
+        \int_A g d\mu & = \sum_{\text{кон.}} \alpha_k \mu(E_k\cap A)                     \\
+                      & = \sum_k \sum_i \underbrace{\alpha_k \mu(E_k\cap A_i)}_{ \geq 0} \\
+                      & \symrefeq{переставлять можно} \sum_i \sum_k \dots                \\
+                      & = \sum_i \int_{A_i} g d\mu
+    \end{align*}
+
+    \ref{переставлять можно}: переставлять можно, т.к. члены суммы \( \geq 0\).
+\end{proof}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(A = \bigsqcup A_i\) --- измеримо
+        \item \(f : X \to \overline \R\) --- измеримо на \(A\)
+        \item \(f \geq 0\)
+    \end{itemize}
+
+    Тогда \[\int_A f d\mu = \sum_{i = 1}^{+\infty} \int_{A_i} f d\mu\]
+\end{theorem}
+\begin{proof}\itemfix
+    Докажем, что части равенства \( \leq \) и \( \geq \), тогда равенство выполнено.
+
+    \begin{itemize}
+        \item [ \( \leq \)] \(\sphericalangle g : 0 \leq g \leq f\)
+              \[\int_A g \symrefeq{по лемме об интеграле} \sum\int_{A_i} g \leq \sum \int_{A_i} f\]
+
+        \item [ \( \geq \)]
+              \begin{enumerate}
+                  \item \(A = A_1 \sqcup A_2\)
+
+                        \(\sphericalangle 0 \leq g_1 \leq f \chi_{A_1}, 0 \leq g_2 \leq f \chi_{A_2}\). Пусть \(E_k\) --- совместное разбиение, у \(g_1\) коэффициенты \(\alpha_k\), у \(g_2\) : \(\beta_k\).
+
+                        \begin{align*}
+                            0 \leq g_1 + g_2                                     & \leq f \chi_A \\
+                            \int_{A_1} g_1 + \int_{A_2} g_2 = \int_A (g_1 + g_2) & \leq \int_A f \\
+                            \int_{A_1} f + \int_{A_2} g_2                        & \leq \int_A f \\
+                            \int_{A_1} f + \int_{A_2} f                          & \leq \int_A f \\
+                        \end{align*}
+
+                  \item \(A = \bigsqcup A_i\) тривиально по индукции.
+                  \item \(A = \bigsqcup_{i = 1}^n A_i \cup B_n\), где \(B_n = \bigsqcup_{i > n} A_i\)
+                        \[\int_A f = \sum_{i = 1}^n \int_{A_i} f + \int_{B_n} f \geq \sum_{i = 1}^n \int A_i f\]
+              \end{enumerate}
+    \end{itemize}
+
+    \ref{по лемме об интеграле}: по лемме об интеграле.
+\end{proof}
+
+\begin{corollary}
+    \(f \geq 0\) --- измеримо. Пусть \(\nu : \mathfrak{A} \to \overline \R_{ +}\) и \(\nu E : = \int_E f d\mu\). Тогда \(\nu\) --- мера.
+\end{corollary}
+
+\begin{corollary}[Счётная аддитивность интеграла]
+    \(f\) суммируема на \(A = \bigsqcup A_i\) --- измеримо. Тогда
+    \[\int_A f = \sum \int_{A_i} f\]
+\end{corollary}
+\begin{proof}
+    Очевидно, если рассмотреть срезки.
+\end{proof}
+\begin{corollary}
+    \(A\subset B, f \geq 0 \Rightarrow \int_A f \leq \int_B f\)
+\end{corollary}
+
+\subsection*{Предельный переход под знаком интеграла}
+
+Пусть \(f_n \to f\). Можно ли утверждать, что \(\int_E f_n \to \int_E f\)?
+
+\begin{example}[контр]
+    \[f_n : = \frac{1}{n} \chi_{[0, n]} \quad f \equiv 0 \quad f_n \to f \quad (\text{даже } f_n \rightrightarrows f)\]
+    \[\int_\R f_n = \frac{1}{n}\lambda[0, n] = 1 \not\to 0 = \int_\R f\]
+\end{example}
+
+\begin{theorem}[Леви]\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \(f_n\) измеримо
+        \item \(\forall n \ \ 0 \leq f_n \leq f_{n+1}\) почти везде.
+        \item \(f(x) : = \lim\limits_{n \to +\infty} f_n(x)\) --- эта функция определена почти везде.
+    \end{itemize}
+
+    Тогда \[\lim_{n \to +\infty} \int_X f_n d\mu = \int_X f d\mu\]
+    \begin{remark}
+        \(f\) задано везде, кроме множества \(e\) меры \(0\). Считаем, что \(f = 0\) на \(e\). Тогда \(f\) измеримо на \(X\).
+    \end{remark}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{itemize}
+        \item [ \( \leq \)] очевидно, т.к. \(\int f_n \leq f\) почти везде, таким образом:
+              \[\int_X f_n = \int_{X\setminus e} f_n + \underbrace{\int_e f_n}_0 = \int_{X\setminus e} f_n \leq \int_{X\setminus e} f \leq \int_{X} f\]
+        \item [ \( \geq \)] достаточно проверить, что \(\forall \) ступенчатой \(g : 0 \leq g < f\) выполняется следующее \(\lim \int_X f_n \geq \int_X g\)
+
+              Сильный трюк: то достаточно проверить, что \(\forall c\in(0, 1) \ \ \lim \int_X f_n \geq c \int_X g\)
+
+              \[E_n : = X(f_n \geq cg) \quad E_1 \subset E_2 \subset \dots\]
+              \(\bigcup E_n = X\), т.к. \(c < 1\)
+              \[\int_X f_n \geq \int_{E_n} f_n \geq c \int_{E_n} g\]
+              Тогда \(\lim \int_X f_n \geq c\cdot \lim \int_{E_n}g \symrefeq{непрерывность снизу} c\int_X g\)
+    \end{itemize}
+
+    \ref{непрерывность снизу}: по непрерывности снизу меры \(\nu : E \mapsto \int_E g\)
+\end{proof}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(f, g \geq 0\)
+        \item \(f, g\) измеримо на \(E\)
+    \end{itemize}
+    Тогда \(\int_E f + g = \int_E f + \int_E g\)
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \(f, g\) --- ступенчатые, т.е. \(f = \sum \alpha_k \chi_{E_k}, g = \sum \beta_k \chi_{E_k}\)
+              \[\int_E f + g = \sum (\alpha_k + \beta_k)\mu(E_k\cap E) = \sum \alpha_k \mu (E_k \cap E) + \sum \beta_k \mu (E_k \cap E) = \int_E f + \int_E g\]
+
+        \item \(f \geq 0\), измеримо. \(\exists \text{ступ. } f_n : 0 \leq f_n \leq f_{n+1} \leq \dots \ \ \lim f_n = f\)
+
+              \(g \geq 0\), измеримо. \(\exists \text{ступ. } g_n : 0 \leq g_n \leq g_{n+1} \leq \dots \ \ \lim g_n = g\)
+
+              \begin{align*}
+                  f_n + g_n               & \to f + g                                 \\
+                  \int_E f_n + g_n        & \xrightarrow{\text{т. Леви}} \int_E f + g \\
+                  \int_E f_n + \int_E g_n & \to \int_E f + \int_e g                   \\
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    \(f, g\) суммируемы на \(E\). Тогда \(f + g\) суммируемо и \(\int_{E} f + g = \int_E f + \int_E g\). Таким образом, доказано \ref{доказано позже}.
+\end{corollary}
+
+\begin{proof}[суммируемости]
+    \(|f + g| \leq |f| + |g|\). Пусть \(h = f + g\). Тогда
+    \begin{align*}
+        h^{ +} - h^{ -}                                & = f^{ +} - f^{ -} + g^{ +} - g^{ -}                               \\
+        h^{ +} + f^{ -} + g^{ - }                      & = f^{ + } + g^{ +} + h^{ -}                                       \\
+        \int_E h^{ +} + \int_E f^{ -} + \int_E g^{ - } & = \int_E f^{ +} + \int_E g^{ +} + \int_E h^{ - }                  \\
+        \int_E h^{ +} - \int_E f^{ - }                 & = \int_E f^{ +} + \int_E g^{ +} - \int_E f^{ - } - \int_E g^{ - } \\
+    \end{align*}
+\end{proof}
+\begin{definition}
+    \(\mathcal{L}(X)\) --- множество суммируемых функций на \(X\)
+\end{definition}
+\begin{corollary}[следствия]
+    \(\mathcal{L}(X)\) --- линейное пространство, а отображение \(f \mapsto \int_X f\) это линейный функционал на \(\mathcal{L}(X)\) % TODO: определить функционал
+    , т.е. \(\forall f_1 \dots f_n \in \mathcal{L}(X) \ \ \forall \alpha_1 \dots \alpha_n \in\R\)
+
+    \? % TODO: дописать
+\end{corollary}
+
+\begin{theorem}[об интегрировании положительных рядов]\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \(E\in \mathfrak{A}\)
+        \item \(u_n : X \to \overline\R\)
+        \item \(u_n \geq 0\) почти везде
+        \item \(u_n\) измеримо
+    \end{itemize}
+
+    Тогда
+    \[\int_E \left( \sum_{n = 1}^{+\infty} u_n(x) \right) d\mu = \sum_{n = 1}^{+\infty} \int_E u_n d\mu\]
+\end{theorem}
+\begin{proof}
+    По теореме Леви:
+
+    \[S_n : = \sum_{k = 1}^n u_k \quad 0 \leq S_n \leq S_{n+1} \leq \dots \]
+    Пусть \(S_n \to S\). Тогда \(\int_E S_n \to \int_E S\)
+
+    % TODO: обосновать
+\end{proof}
+
+\begin{corollary}
+    \(u_n\) измеримо и
+    \(\sum\limits_{n = 1}^{+\infty} \int_E |u_n| < +\infty\). Тогда ряд \(\sum u_n(x)\) абсолютно сходится при почти всех \(x\).
+\end{corollary}
+\begin{proof}
+    \[S(x) : = \sum |u_n(x)|\]
+    \[\int_E S(X) = \sum \int_E |u_n|< +\infty \Rightarrow S \text{ суммируемо} \Rightarrow S \text{ почти везде конечно}\]
+\end{proof}
+
+\begin{example}
+    \(x_n\in\R\) --- произвольная последовательность, \(\sum a_n\) абсолютно сходится.
+
+    Тогда \(\sum \cfrac{a_n}{\sqrt{|x - x_n|}}\) абсолютно сходится при почти всех \(x\).
+\end{example}
+\begin{proof}
+    Достаточно проверить абсолютную сходимость на \([ - N, N]\) почти везде.
+
+    \begin{align*}
+        \int_{[ - N, N]} \frac{|a_n| d\lambda}{\sqrt{|x - x_n|}}
+         & = \int_{ - N}^N \frac{|a_n|}{\sqrt{|x - x_n|}} dx        \\
+         & = |a_n|\int_{ - N - x_n}^{N - x_n} \frac{dx}{\sqrt{|x|}} \\
+         & \leq |a_n|\int_{ - N}^{N} \frac{dx}{\sqrt{|x|}}          \\
+         & 4 \sqrt{N} |a_n|
+    \end{align*}
+\end{proof}
+
+\end{document}

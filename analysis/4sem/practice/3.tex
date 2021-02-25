@@ -1,0 +1,54 @@
+\input{../../../preamble.sty}
+
+\lhead{Математический анализ \textit{(практика)}}
+\cfoot{}
+\rfoot{25.2.2021}
+
+\begin{document}
+
+Пусть мы хотим перейти в полярные координаты \(x = r\cos \varphi, y = r \sin \varphi\) в двойном интеграле \(\iint_\Omega f dx dy\). Как расставлять пределы интегрирования? Пусть первая переменная будет \(r\). Тогда:
+\[\iint_\Omega f dx dy = \int_{\varphi_0}^{\varphi_1} d\varphi \int_{r_0(\varphi)}^{r_1(\varphi)} f(r\cos \varphi, r\sin \varphi) \cdot r dr\]
+
+\begin{figure}[h]
+    \centering
+    \includesvg{images/полярный_угол.svg}
+    \caption{Выбор \(\varphi_0\), \(\varphi_1\)}
+\end{figure}
+
+Для первой переменной \(\varphi\):
+\[\iint_\Omega f dx dy = \int_{r_0}^{r_1} dr \int_{\varphi_0(r)}^{\varphi_1(r)} f r d\varphi\]
+
+\begin{exercise}
+    Пусть \(\Omega\) --- единичный круг
+    \[\iint_\Omega f dx dy = \int_0^{2\pi} d\varphi \int_0^1 f r dr\]
+\end{exercise}
+
+\begin{exercise}
+    Пусть \(\Omega\) --- треугольник с вершинами \((0, 0), (1, 0), (1, 1)\)
+    \[\iint_\Omega f dx dy = \int_0^{\pi / 4} d\varphi \int_{0}^{1 / \cos \varphi} dr f r = \int_0^{1} dr \int_{0}^{\pi / 4} f d\varphi + \int_1^{\sqrt{2}} dr \int_{\arccos \frac{1}{r}}^{\pi / 4} f d\varphi\]
+\end{exercise}
+
+\begin{exercise}
+    Пусть \(\Omega\) --- треугольник с вершинами \((1, 0), (0, 1), (1, 1)\)
+    \[\iint_\Omega f dx dy = \int_{0}^{\frac{\pi}{4}} d\varphi \int_{\frac{1}{\cos \varphi + \sin \varphi}}^{\frac{1}{\cos \varphi}} f r dr + \int_{\frac{\pi}{4}}^{\frac{\pi}{2}} d\varphi \int_{\frac{1}{\cos \varphi + \sin \varphi}}^{\frac{1}{\sin \varphi}} f r dr\]
+    \[\iint_\Omega f dx dy = \int_{\sqrt{2} / 2}^1 dr \int_{\arcsin \frac{1}{\sqrt{2}r} -\frac{\pi}{4}}^{{\frac{3\pi}{4} - \arcsin \frac{1}{\sqrt{2}r}}} d\varphi fr + \int_1^{\sqrt{2}} dr \int_{\arccos \frac{1}{r}}^{\arcsin \frac{1}{r}} d\varphi fr\]
+\end{exercise}
+
+\begin{exercise}
+    \[x^2 + y^2 \leq ax\]
+    \[\iint_\Omega f dx dy = \int_{ -\frac{\pi}{2}}^{\frac{\pi}{2}} d \varphi \int_0^{a\cos \varphi} f rdr = \int_0^a  dr \int_{ -\arccos \frac{a}{r} }^{\arccos \frac{a}{r}}\]
+\end{exercise}
+
+\begin{exercise}
+    \[(x^2 + y^2)^2 = a^2(x^2 - y^2)\]
+    \[r^2 = a^2 \cos 2\varphi\]
+    \[\int_0^a dr \int_{ - \frac{1}{2} \arccos \frac{r^2}{a^2} }^{ \frac{1}{2} \arccos \frac{r^2}{a^2} } f r d\varphi\]
+\end{exercise}
+
+\begin{exercise}[3957]
+    \[\int_a^b dx \int_{\alpha x}^{\beta x} f(x, y) dy\]
+    Замена \(u = x, v = \frac{y}{x}\)
+    \[\int_a^b du \int_{\alpha}^{\beta} dv f J\]
+\end{exercise}
+
+\end{document}

@@ -377,7 +377,7 @@
     \(\models \alpha\), т.е. \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash {}_{[\alpha]} \alpha\). Но \(\llbracket \alpha \rrbracket = \text{П}\) при любой оценке. Тогда \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash \alpha\) при все \(x_i\).
 
     \begin{lemma}[об исключении допущения]
-        Если \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash \alpha\), то \({}_{[x_1]} P_1 \dots {}_{[x_{n - 1}]} P_{n - 1} \vdash \alpha\)
+        Если \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash \alpha\) и \({}_{[x_1]} P_1 \dots {}_{[x_n]} \neg P_n \vdash \alpha\), то \({}_{[x_1]} P_1 \dots {}_{[x_{n - 1}]} P_{n - 1} \vdash \alpha\)
     \end{lemma}
 
     \[\begin{rcases*}
@@ -410,10 +410,10 @@
 
 В ней определено следующее:
 \begin{align*}
-    \llbracket \alpha \with \beta \rrbracket & = \llbracket \alpha \rrbracket \cap \llbracket \beta \rrbracket              \\
-    \llbracket \alpha \lor \beta \rrbracket  & = \llbracket \alpha \rrbracket \cup \llbracket \beta \rrbracket              \\
-    \llbracket \alpha \to \beta \rrbracket   & = (\llbracket \alpha \rrbracket \setminus \llbracket \beta \rrbracket)^\circ \\
-    \llbracket \perp \rrbracket              & = \emptyset                                                                  \\
+    \llbracket \alpha \with \beta \rrbracket & = \llbracket \alpha \rrbracket \cap \llbracket \beta \rrbracket                       \\
+    \llbracket \alpha \lor \beta \rrbracket  & = \llbracket \alpha \rrbracket \cup \llbracket \beta \rrbracket                       \\
+    \llbracket \alpha \to \beta \rrbracket   & = ((X \setminus \llbracket \alpha \rrbracket) \cup \llbracket \beta \rrbracket)^\circ \\
+    \llbracket \perp \rrbracket              & = \emptyset                                                                           \\
     \llbracket \neg \alpha \rrbracket        & = (X \setminus \llbracket \alpha\rrbracket)^\circ
 \end{align*}
 

@@ -208,6 +208,18 @@
 
 \begin{exercise}[4.a]
     \(\vdash A \lor \neg A\)
+
+    \begin{align*}
+        1.\quad & A \to A \lor \neg A \tag{aкс. 6}                                                                                      \\
+        2.\quad & \neg A \to A \lor \neg A \tag{aкс. 7}                                                                                 \\
+        3.\quad & \neg \neg (A \lor \neg A) \to \neg A \tag{закон контрапозиции}                                                        \\
+        4.\quad & \neg (A \lor \neg A) \to \neg \neg A \tag{закон контрапозиции}                                                        \\
+        5.\quad & (\neg (A\lor \neg A) \to \neg A) \to (\neg (A \lor \neg A) \to \neg \neg A) \to \neg \neg (A\lor \neg A) \tag{акс. 9} \\
+        6.\quad & (\neg (A \lor \neg A) \to \neg \neg A) \to \neg \neg (A\lor \neg A) \tag{M.P. 4,6}                                    \\
+        7.\quad & \neg \neg (A\lor \neg A) \tag{M.P. 5,7}                                                                               \\
+        8.\quad & \neg \neg (A \lor \neg A) \to A \lor \neg A \tag{акс. 10}                                                             \\
+        9.\quad & A \lor \neg A \tag{M.P. 8,9}                                                                                          \\
+    \end{align*}
 \end{exercise}
 
 \begin{exercise}[4.b]
@@ -258,10 +270,7 @@
 \begin{exercise}[4.e]
     \(\vdash ((A \to B) \to A) \to A\)
 
-    \begin{align*}
-                        & \vdash ((A \to B) \to A) \to A \\
-        (A \to B) \to A & \vdash A                       \\
-    \end{align*}
+    Идея решения --- рассмотрим три случая : \(A \in \Gamma; \neg A, B \in \Gamma; \neg A, \neg B \in \Gamma\)
 \end{exercise}
 
 \begin{exercise}[5]

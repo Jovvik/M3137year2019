@@ -417,4 +417,140 @@
     \llbracket \neg \alpha \rrbracket        & = (X \setminus \llbracket \alpha\rrbracket)^\circ
 \end{align*}
 
+\chapter{26 февраля}
+
+Рассмотрим новый способ записи доказательств --- в виде деревьев.
+
+Тогда язык будет состоять из переменных \(A\dots Z, \lor, \with, \perp, \vdash, \text{---}\)
+
+У нас используются следующие правила вывода: % TODO: переписать
+\begin{enumerate}
+    \item \begin{prooftree}
+              \infer0[аксиома]{\Gamma \vdash \gamma, \gamma\in \Gamma}
+          \end{prooftree}
+
+\end{enumerate}
+
+\begin{example}
+    \begin{prooftree}
+        \infer0[акс.]{A\vdash A}
+        \infer1{\vdash A \to A}
+    \end{prooftree}
+\end{example}
+
+\begin{example}
+    \begin{prooftree}
+        \infer0[акс.]{A\with B\vdash A\with B}
+        \infer1{A\with B \vdash B}
+        \infer0[акс.]{A\with B\vdash A\with B}
+        \infer1{A\with B \vdash A}
+        \infer2{A\with B \perp B\with A}
+        \infer1[введение \( \to \)]{\vdash A\with B \to B\with A}
+    \end{prooftree}
+\end{example}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \textbf{Частичный порядок} --- рефлексивное, транзитивное, антисимметричное отношение.
+        \item \textbf{Линейный порядок} --- сравнимы любые два элемента.
+        \item \textbf{Наименьший элемент} \(S\) --- такой \(k\in S\), что если \(x\in S\), то \(k \leq x\)
+        \item \textbf{Минимальный элемент} \(S\) --- такой \(k\in S\), что нет \(x\in S\), что \(x \leq k\)
+        \item \textbf{Множество верхних граней} \(a\) и \(b\) : \(\{x\ |\ a \leq x \with b \leq x\}\).
+        \item \textbf{Множество нижних граней} \(a\) и \(b\) : \(\{x\ |\ x \leq a \with x \leq b\}\).
+        \item \(a + b\) --- наименьший элемент множества верхних граней \textit{(может не существовать)}.
+        \item \(a \cdot b\) --- наибольший элемент множества верхних граней.
+        \item \textbf{Решетка} --- множество + отношение, где для каждых \(a,b\) есть как \(a + b\), так и \(a \cdot b\).
+        \item \textbf{Дистрибутивная решетка} --- если всегда \(a\cdot(b + c) = a\cdot b + a\cdot c\)
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+    В дистрибутивной решетке \(a + b\cdot c = (a + b)(a + c)\)
+\end{lemma}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \textbf{Импликативная решетка} --- решетка, где \(\forall a, b \ \ \exists a \to b\)
+        \item \(0\) --- наименьший элемент решетки.
+        \item \textbf{Псевдобулева алгебра \textit{(алгебра Гейтинга)}} --- импликативная решетка с нулём.
+        \item \textbf{Булева алгебра} --- псевдобулева алгебра, такая что \(a + (a \to 0) = 1\)
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    $$\begin{tikzcd}[ampersand replacement=\&]
+            1 \arrow{r} \arrow[swap]{d}{} \& b \arrow{d}{} \\
+            a \arrow{r} \& 0
+        \end{tikzcd}$$
+
+    \begin{align*}
+        a\cdot 0 & = 0 \\
+        1\cdot b & = b \\
+        a\cdot b & = 0 \\
+        a + 0    & = 1 \\
+    \end{align*}
+\end{example}
+
+\begin{lemma}
+    В импликативной решетке всегда есть 1.
+\end{lemma}
+\begin{proof}
+    Возьмём \(a \to a = 1\) для некоторого \(a\).
+
+    \[a \to a = \text{н} \{x\ |\ a\cdot x \leq a\} = \text{н}(A)\]
+    Таким образом, \(A\) имеет наибольший элемент и это \(a \to a\)
+\end{proof}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item Любая алгебра Гейтинга --- модель интуиционистского исчисления высказываний.
+        \item Любая булева алгебра --- модель классического исчисления высказываний.
+    \end{itemize}
+\end{theorem}
+
+\begin{definition}[топология]
+    Рассмотрим множество \(X\), называемое ``носитель'' и \(\Omega \subset \mathcal{P}(X)\) --- подмножество подмножеств \(X\), называемое ``топология'', такое что:
+    \begin{enumerate}
+        \item \(\bigcup_\alpha x_\alpha \in \Omega\), где \(x_i\in\Omega\)
+        \item \(\bigcap_{i = 1}^{n} x_i \in \Omega\), где \(x_i\in\Omega\)
+        \item \(\emptyset\in\Omega, X\in \Omega\)
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Пусть \(X\) --- узлы дерева, \(\Omega\) --- все множества узлов, которые содержат узлы вместе со всеми потомками.
+\end{example}
+
+\begin{theorem}
+    Пусть \((X,\Omega)\) --- топологическое пространство, \(a + b = a\cup b, a\cdot b = a \cap b, a \to b = ((X\setminus a)\subset b)^\circ\), тогда \? % TODO: дописать
+\end{theorem}
+
+\begin{example}
+    Дискретная топология --- \(\Omega = \mathcal{P}(X)\). Тогда \((\Omega, \leq )\) --- булева алгебра.
+\end{example}
+
+\begin{enumerate}
+    \item \(X^0 = X\)
+    \item \(a \to 0 = (X\setminus a \cup \emptyset) = X\setminus a\)
+\end{enumerate}
+
+Таким образом, \(a + (a \to 0) = a + X\setminus a = X\)
+
+\begin{definition}
+    Пусть \(X\) --- все формулы логики. Определим отношение порядка \(\alpha \leq \beta\) это \(\alpha \vdash \beta\). Будем говорить, что \(\alpha \approx \beta\), если \(\alpha \vdash \beta\) и \(\beta \vdash \alpha\).
+
+    \((X /_\approx, \leq )\) есть алгебра Гейтинга.
+\end{definition}
+
+\begin{definition}
+    \((X /_\approx, \leq )\) --- \textbf{алгебра Линденбаума}, где \(X, \approx\) из интуиционистской логики.
+\end{definition}
+
+\begin{theorem}
+    Алгебра Гейтинга --- полная модель интуиционистской логики.
+\end{theorem}
+\begin{proof}
+    \(\models \alpha\) --- истинно в любой алгебре Гейтинга, в частности в \((X /_\approx, \leq )\). \(\llbracket \alpha \rrbracket = 1\), т.е. \(\llbracket \alpha \rrbracket = \llbracket A \to A \rrbracket\), т.е. \(\alpha \in [A \to A]_\approx\), т.е. \(A \to A \vdash \alpha\).
+\end{proof}
+
 \end{document}

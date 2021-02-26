@@ -1,0 +1,102 @@
+\input{../../../preamble.sty}
+
+\lhead{Математическая логика \textit{(практика)}}
+\cfoot{}
+\rfoot{18.2.2021}
+
+\mathtoolsset{showonlyrefs=false}
+
+\begin{document}
+
+\begin{enumerate}
+    \item Покажите, что если $\Gamma \vdash \alpha$, то $\Gamma \models \alpha$.
+
+          Вспомним доказательство этой теоремы без \(\Gamma\), которое было на лекции. Мы фиксировали оценку и рассматривали доказательство \(\alpha\). По индукции мы доказывали, что каждый шаг доказательства \(\llbracket \delta_n \rrbracket =\) И, и в частности последний шаг, т.е. \(\alpha\) тоже истиннен в данной подстановке. С добавлением \(\Gamma\) у нас в индукционном переходе добавился случай \(\delta_n \in \Gamma\). Но т.к. мы фиксируем оценку такую, что \(\forall \gamma \in \Gamma \ \ \llbracket \gamma \rrbracket =\) И, индукционный переход работает.
+
+    \item Покажите, что если $\Gamma \models \alpha$, то $\Gamma \vdash \alpha$.
+
+          \begin{enumerate}
+              \item \(\llbracket \gamma_1 \to \gamma_2 \to \dots \gamma_n \to \alpha \rrbracket =\) И.
+              \item \(\models \gamma_1 \to \gamma_2 \to \dots \gamma_n \to \alpha\)
+              \item \(\vdash \gamma_1 \to \gamma_2 \to \dots \gamma_n \to \alpha\) по теореме о полноте
+              \item \(\Gamma \vdash \alpha\) по теореме о дедукции
+          \end{enumerate}
+
+    \item \emph{О законе исключённого третьего.} Покажите, что в интуиционистском исчислении высказываний
+          доказуемо следующее:
+
+          \begin{enumerate}
+              \item $((A\rightarrow B)\rightarrow A)\rightarrow A \vdash \neg\neg A \rightarrow A$
+              \item $A \vee \neg A \vdash \neg\neg A \rightarrow A$
+
+                    Докажем \(A \vee \neg A \neg\neg A \vdash A\):
+                    \begin{align*}
+                        1.\quad  & (A \to A) \to (\neg A \to A) \to (A\lor \neg A \to A) \tag{акс. 8}                          \\
+                        2.\quad  & (A \to A) \tag{было ранее}                                                                  \\
+                        3.\quad  & \neg A \to \neg \neg A \to A \tag{акс. 10}                                                  \\
+                        4.\quad  & \neg \neg A \to (\neg A \to \neg \neg A) \tag{акс. 1}                                       \\
+                        5.\quad  & \neg \neg A \tag{\(\in \Gamma\)}                                                            \\
+                        6.\quad  & \neg A \to \neg \neg A \tag{M.P. 4,5}                                                       \\
+                        7.\quad  & (\neg A \to \neg \neg A) \to (\neg A \to \neg \neg A \to A) \to (\neg A \to A) \tag{акс. 2} \\
+                        8.\quad  & (\neg A \to \neg \neg A \to A) \to (\neg A \to A) \tag{M.P. 6,7}                            \\
+                        9.\quad  & \neg A \to A \tag{M.P. 3,8}                                                                 \\
+                        10.\quad & (\neg A \to A) \to (A\lor \neg A \to A) \tag{M.P. 1,2}                                      \\
+                        11.\quad & A\lor \neg A \to A \tag{M.P. 9, 10}
+                    \end{align*}
+          \end{enumerate}
+
+    \item Предложите топологические пространства и оценку для пропозициональных переменных,
+          опровергающие следующие высказывания:
+
+          \begin{enumerate}
+              \item $\neg A \vee \neg\neg A $
+
+                    \[A = (0, +\infty) \quad \neg A = ( -\infty, 0) \quad \neg \neg A = (0, +\infty) \quad \neg A \lor \neg \neg A = \R\setminus \{0\}  \]
+
+              \item $(((A \rightarrow B) \rightarrow A) \rightarrow A)$
+                    \[A = (1, 2) \cup (2, 3) \quad B = (3, 4)\]
+              \item $\neg\neg A \rightarrow A$
+                    \[A = \R\setminus \{0\} \]
+              \item $(A \rightarrow (B \vee \neg B)) \vee (\neg A \rightarrow (B \vee \neg B))$
+                    \[X = (0, 10) \quad A = (1, 2) \cup (2, 3) \quad B = X\setminus \Z\]
+              \item $(A \rightarrow B) \vee (B \rightarrow C) \vee (C \rightarrow A)$
+          \end{enumerate}
+
+    \item Можно ли, имея $(A \rightarrow B) \vee (B \rightarrow C) \vee (C \rightarrow A)$, доказать
+          закон исключённого третьего в интуиционистской логике?
+
+    \item Известно, что в классической логике любая связка может быть \emph{выражена} как композиция
+          конъюнкций и отрицаний: существует схема высказываний, использующая только конъюнкции и отрицания,
+          задающая высказывание, логически эквивалентное исходной связке.
+          Например, для импликации можно взять $\neg(\alpha\with\neg\beta)$, ведь
+          $\alpha\rightarrow\beta\vdash\neg(\alpha\with\neg\beta)$ и $\neg(\alpha\with\neg\beta)\vdash\alpha\rightarrow\beta$.
+          Возможно ли в интуиционистской логике выразить через остальные связки:
+          \begin{enumerate}
+              \item конъюнкцию?
+              \item дизъюнкцию?
+              \item импликацию?
+              \item отрицание?
+          \end{enumerate}
+          Если да, предложите формулу и два вывода. Если нет --- докажите это.
+
+    \item Назовём теорию \emph{противоречивой}, если в ней найдётся такое $\alpha$, что $\vdash\alpha$ и $\vdash\neg\alpha$.
+          Покажите, что исчисления высказываний (классическое и интуиционистское) противоречивы тогда и только тогда,
+          когда в них доказуема любая формула.
+
+    \item \emph{Теорема Гливенко.} Обозначим доказуемость высказывания $\alpha$ в классической логике
+          как $\vdash_\text{к}\alpha$, а в интуиционистской --- как $\vdash_\text{и}\alpha$.
+          Оказывается возможным показать, что какое бы ни было $\alpha$, если $\vdash_\text{к}\alpha$,
+          то $\vdash_\text{и}\neg\neg\alpha$. А именно, покажите, что:
+
+          \begin{enumerate}
+              \item Если $\alpha$ --- аксиома, полученная из схем 1--9 исчисления высказываний, то $\vdash_\text{и}\neg\neg\alpha$.
+              \item $\vdash_\text{и}\neg\neg(\neg\neg\alpha\rightarrow\alpha)$
+              \item $\neg\neg\alpha,\neg\neg(\alpha\rightarrow\beta) \vdash_\text{и}\neg\neg\beta$
+              \item Докажите утверждение теоремы ($\vdash_\text{к}\alpha$ влечёт $\vdash_\text{и}\neg\neg\alpha$),
+                    опираясь на предыдущие пункты, и покажите, что классическое исчисление высказываний противоречиво
+                    тогда и только тогда, когда противоречиво интуиционистское.
+          \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

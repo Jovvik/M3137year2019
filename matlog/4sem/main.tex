@@ -426,26 +426,65 @@
 У нас используются следующие правила вывода: % TODO: переписать
 \begin{enumerate}
     \item \begin{prooftree}
-              \infer0[аксиома]{\Gamma \vdash \gamma, \gamma\in \Gamma}
+              \infer0[(аксиома)]{\Gamma \vdash \gamma, \gamma\in \Gamma}
           \end{prooftree}
-
+    \item \begin{prooftree}
+              \hypo{\Gamma, \varphi \vdash \psi}
+              \infer1[(введение \( \to \))]{\Gamma \vdash \varphi \to \psi}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma \vdash \varphi}
+              \hypo{\Gamma \vdash \psi}
+              \infer2[(введение \(\with\))]{\Gamma \vdash \varphi \with \psi}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma \vdash \varphi \to \psi}
+              \hypo{\Gamma \vdash \varphi}
+              \infer2[(удаление \( \to \))]{\Gamma \vdash \psi}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma \vdash \varphi \with \psi}
+              \infer1[(удаление \(\with\))]{\Gamma \vdash \varphi}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma \vdash \varphi \with \psi}
+              \infer1[(удаление \(\with\))]{\Gamma \vdash \psi}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma \vdash \varphi}
+              \infer1[(введение \(\lor\))]{\Gamma \vdash \psi \lor \varphi}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma \vdash \psi}
+              \infer1[(введение \(\lor\))]{\Gamma \vdash \psi \lor \varphi}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma \vdash \perp}
+              \infer1[(удаление \(\perp\))]{\Gamma \vdash \varphi}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma, \varphi \vdash \rho}
+              \hypo{\Gamma, \psi \vdash \rho}
+              \hypo{\Gamma \vdash \varphi \lor \psi}
+              \infer3{\Gamma \vdash \rho}
+          \end{prooftree}
 \end{enumerate}
 
 \begin{example}
     \begin{prooftree}
-        \infer0[акс.]{A\vdash A}
-        \infer1{\vdash A \to A}
+        \infer0[(акс.)]{A\vdash A}
+        \infer1[(введение \(\with\))]{\vdash A \to A}
     \end{prooftree}
 \end{example}
 
 \begin{example}
     \begin{prooftree}
-        \infer0[акс.]{A\with B\vdash A\with B}
+        \infer0[(акс.)]{A\with B\vdash A\with B}
         \infer1{A\with B \vdash B}
-        \infer0[акс.]{A\with B\vdash A\with B}
+        \infer0[(акс.)]{A\with B\vdash A\with B}
         \infer1{A\with B \vdash A}
-        \infer2{A\with B \perp B\with A}
-        \infer1[введение \( \to \)]{\vdash A\with B \to B\with A}
+        \infer2{A\with B \vdash B\with A}
+        \infer1[(введение \( \to \))]{\vdash A\with B \to B\with A}
     \end{prooftree}
 \end{example}
 

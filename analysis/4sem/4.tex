@@ -1,0 +1,78 @@
+\input{../../preamble.sty}
+
+\lhead{Математический анализ}
+\cfoot{}
+\rfoot{1.3.2021}
+
+\begin{document}
+
+\begin{theorem}[об абсолютной непрерывности интеграла]\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \(f : X \to \overline \R\)
+        \item \(f\) суммируемо
+    \end{itemize}
+
+    Тогда \(\forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall E \text{ --- изм. } \mu E < \delta : \left|\int_E f\right|< \varepsilon\)
+\end{theorem}
+\begin{corollary}
+    \?
+\end{corollary}
+\begin{proof}
+    \[X_n : = X(|f| \geq n)\]
+    \[X_n \subset X_{n+1} \subset \dots \quad \mu\left( \bigcap X_n \right) \symrefeq{почти везде конечна} 0\]
+    \begin{equation}
+        \forall \varepsilon > 0 \ \ \exists n_\varepsilon \ \ \int_{X_{n_\varepsilon}} |f| < \frac{\varepsilon}{2} \label{непрерывность сверху меры}
+    \end{equation}
+
+    Пусть \(\delta : = \frac{\varepsilon}{2n_\varepsilon} \). Тогда при \(\mu E < \delta\):
+    \[|\int_E f| \leq \int_E |f| = \int_{E\cap X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} \leq \int_{X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} n_\varepsilon < \frac{\varepsilon}{2} + \underbrace{\mu E}_{\delta} \cdot n_\varepsilon \leq \varepsilon\]
+
+    \begin{itemize}
+        \item \eqref{непрерывность сверху меры}: По непрерывности сверху меры \(A \mapsto \int_A |f| d\mu\)
+        \item \eqref{почти везде конечна}: Т.к. \(f\) почти везде конечна.
+    \end{itemize}
+\end{proof}
+
+\begin{remark}
+    Следующие два свойства не эквивалентны:
+    \begin{enumerate}
+        \item \(f_n \xRightarrow{\mu} f \ \ \forall \varepsilon > 0 \ \ \mu X(|f_n - f| > \varepsilon) \to 0\)
+        \item \(\int_X |f_n - f| d\mu \to 0\)
+    \end{enumerate}
+
+    Из 1 не следует 2: пусть \((X, \mathfrak{A}, \mu) = (\R, \mathfrak{M}, \lambda), f_n = \frac{1}{nx}\). Тогда \(f_n \xRightarrow{\lambda} 0\), но \(\int |f_n - f|\) \?
+\end{remark}
+
+\begin{theorem}[Лебега]\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \(f_n, f\) --- измеримо и почти везде конечно
+        \item \(f_n \xRightarrow{\mu} f\)
+        \item \(\exists g\) : \begin{enumerate}
+                  \item \(\forall n \ \ |f_n| \symref{``1''}{\leq} g\) почти везде
+                  \item  \(g\) --- суммируемо на \(X\)
+              \end{enumerate}
+    \end{itemize}
+
+    Тогда: \(f_n, f\) --- суммируемы и \(\int_X |f_n - f| d\mu \xrightarrow{n \to +\infty} 0\), и тем более \(\int_X f_n d\mu \to \int_X f d\mu\)
+\end{theorem}
+\begin{proof}
+    \(f_n\) --- суммируемы в силу неравенства \eqref{``1''}, \(f\) суммируемо в силу следствия теоремы Рисса, тем более \(|\int_X f_n - \int_X f| \leq  \int_X |f_n - f| \to 0\)
+
+    \begin{enumerate}
+        \item \(\mu X < +\infty\)
+
+              Зафиксируем \(\varepsilon\). \(X_n : = X(|f_n - f| > \varepsilon)\)
+
+              \(f_n \Rightarrow f\), т.е. \(\mu X_n \to 0\)
+
+              \[\int_X |f_n - f| = \int_{X_n} + \int_{X_n^c} = \underbrace{\int_{X_n} 2g}_{\xrightarrow[\text{сл. т. об абс. непр.}]{n \to +\infty} 0} + \int_{X_n^c} \varepsilon d\mu < \varepsilon + \varepsilon \mu X\]
+
+        \item \(\mu X = +\infty\)
+    \end{enumerate}
+\end{proof}
+
+\textcolor{red}{Не дописано}
+
+\end{document}

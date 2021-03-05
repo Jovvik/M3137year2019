@@ -249,6 +249,24 @@
 
 \begin{exercise}[4.c]
     \(\vdash \neg (\neg A \with \neg B) \to A \lor B\)
+
+    \begin{align*}
+        1.\quad  & \vdash A \to (A\lor B) \tag{акс. 6}                               \\
+        2.\quad  & \vdash \neg(A\lor B) \to \neg A \tag{контрапозиция}               \\
+        3.\quad  & \vdash B \to (A\lor B)                                            \\
+        4.\quad  & \vdash \neg(A\lor B) \to \neg B                                   \\
+        5.\quad  & \neg(A\lor B) \vdash \neg A                                       \\
+        6.\quad  & \neg(A\lor B) \vdash \neg B                                       \\
+        7.\quad  & \neg(A\lor B) \vdash \neg A \to \neg B \to \neg A \with \neg B    \\
+        8.\quad  & \neg(A\lor B) \vdash \neg B \to \neg A \with \neg B               \\
+        9.\quad  & \neg(A\lor B) \vdash \neg A \with \neg B                          \\
+        10.\quad & \vdash \neg(A\lor B) \to \neg A \with \neg B                      \\
+        11.\quad & \vdash \neg(\neg A\with \neg B) \to \neg \neg (A \lor B)          \\
+        12.\quad & \neg(\neg A\with \neg B) \vdash \neg \neg (A \lor B)              \\
+        13.\quad & \neg(\neg A\with \neg B) \vdash \neg \neg (A \lor B) \to A \lor B \\
+        14.\quad & \neg(\neg A\with \neg B) \vdash A \lor B                          \\
+        15.\quad & \vdash \neg(\neg A\with \neg B) \to A \lor B                      \\
+    \end{align*}
 \end{exercise}
 
 \begin{exercise}[4.d]

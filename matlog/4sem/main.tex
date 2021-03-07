@@ -638,11 +638,11 @@
 
 Неформально эта теорема говорит, что нельзя считать, что в интуиционистской логике есть три значения --- истинна, ложь и ``неизвестно''.
 
-\subsection{Модели Кринке}
+\subsection{Модели Крипке}
 
-Идея моделей Кринке следующая: общезначимое утверждение истинно во всех мирах.
+Идея моделей Крипке следующая: общезначимое утверждение истинно во всех мирах.
 
-\begin{definition}[модели Кринке]\itemfix
+\begin{definition}[модели Крипке]\itemfix
     \begin{enumerate}
         \item \(W = \{W_i\}\) --- множество миров
         \item \( \leq \) --- частичный порядок на \(W\)
@@ -670,7 +670,7 @@
 \end{definition}
 
 \begin{theorem}
-    ИИВ корректно в моделях Кринке.
+    ИИВ корректно в моделях Крипке.
 \end{theorem}
 \begin{proof}
     Рассмотрим \((W, \Omega)\) --- топологию, где \(\Omega = \{w\subset W \ |\ \text{если } w_i \in w, w_i \leq w_j \text{, то } w_j\in w\} \). Это можно представить как множество подлесов, где любая вершина входит со своими потомками.
@@ -732,14 +732,16 @@
     Если \(\varphi : \mathcal{A} \to \mathcal{B}\) согласована с \(f, g\) и \(\llbracket \alpha \rrbracket_g \neq 1_{\mathcal{B}}\), то \(\llbracket \alpha \rrbracket_f \neq 1_{\mathcal{A}}\)
 \end{theorem}
 
-Рассмотрим алгебру Линденбаума \(\mathcal{L}\), \(\Gamma(\mathcal{L})\) и \(\varphi : \Gamma(\mathcal{L}) \to \mathcal{L}\) --- гомоморфизм.
-\[\varphi(x) = \begin{cases}
-        1_\mathcal{L}, x = \omega                  \\
-        1_\mathcal{L}, x = 1_{\Gamma(\mathcal{L})} \\
-        x, \text{иначе}
-    \end{cases}\]
-Пусть \(\vdash \alpha \lor \beta\). Тогда \(\llbracket \alpha \lor \beta \rrbracket_{\Gamma(\mathcal{L})} = 1_{\Gamma(\mathcal{L})}\), но по Гёделевости \(\Gamma(\mathcal{L})\) \(\llbracket \alpha \rrbracket = 1\) или \(\llbracket \beta \rrbracket = 1\).
+\begin{proof}
+    Рассмотрим алгебру Линденбаума \(\mathcal{L}\), \(\Gamma(\mathcal{L})\) и \(\varphi : \Gamma(\mathcal{L}) \to \mathcal{L}\) --- гомоморфизм.
+    \[\varphi(x) = \begin{cases}
+            1_\mathcal{L}, x = \omega                  \\
+            1_\mathcal{L}, x = 1_{\Gamma(\mathcal{L})} \\
+            x, \text{иначе}
+        \end{cases}\]
+    Пусть \(\vdash \alpha \lor \beta\). Тогда \(\llbracket \alpha \lor \beta \rrbracket_{\Gamma(\mathcal{L})} = 1_{\Gamma(\mathcal{L})}\), но по Гёделевости \(\Gamma(\mathcal{L})\) \(\llbracket \alpha \rrbracket = 1\) или \(\llbracket \beta \rrbracket = 1\).
 
-Пусть \(\nvdash \alpha\) и \(\nvdash \beta\). Тогда \(\varphi(\llbracket \alpha \rrbracket) \neq 1_{\mathcal{L}}\) и \(\varphi(\llbracket \beta \rrbracket) \neq 1_{\mathcal{L}}\). Тогда \(\llbracket \alpha \rrbracket_{\Gamma(\mathcal{L})} \neq 1_\mathcal{L}, \llbracket \beta \rrbracket \neq 1_\mathcal{L}\) --- противоречие.
+    Пусть \(\nvdash \alpha\) и \(\nvdash \beta\). Тогда \(\varphi(\llbracket \alpha \rrbracket) \neq 1_{\mathcal{L}}\) и \(\varphi(\llbracket \beta \rrbracket) \neq 1_{\mathcal{L}}\). Тогда \(\llbracket \alpha \rrbracket_{\Gamma(\mathcal{L})} \neq 1_\mathcal{L}, \llbracket \beta \rrbracket \neq 1_\mathcal{L}\) --- противоречие.
+\end{proof}
 
 \end{document}

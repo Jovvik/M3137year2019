@@ -477,5 +477,55 @@
     \[P(H_i | A) = \frac{P(H_i A)}{P(A)} = \frac{P(H_i)P(A | H_i)}{\sum_{k = 1}^{+\infty} P(H_k)P(A|H_k)}\]
 \end{proof}
 
+\chapter{6 марта}
+
+\section{Последовательность независимых испытаний}
+
+\begin{definition}[последовательность независимых испытаний]
+    \? % TODO
+\end{definition}
+
+\begin{obozn}\itemfix
+    \begin{itemize}
+        \item \(n\) --- число испытаний
+        \item \(p\) --- вероятность события \(A\) при одном испытании
+        \item \(q = 1 - p\)
+        \item \(v_n\) --- число успехов при \(n\) испытаниях
+        \item \(P_n(k) = P(v_n = k)\)
+    \end{itemize}
+\end{obozn}
+
+\subsection{Формула Бернулли}
+
+\begin{theorem}
+    Вероятность того, что при \(n\) испытаниях произойдёт ровно \(k\) успехов равна:
+    \[P_n(k) = \binom{n}{k} p^k q^{n - k}\]
+\end{theorem}
+\begin{proof}
+    Рассмотрим один из исходов, благоприятных событию \(A\): \(A_1 = \underbrace{\text{У} \dots \text{У}}_{k} \underbrace{\text{Н} \dots \text{Н}}_{n-k}\). Т.к. рассматриваемые события независимы, верна следующая формула:
+
+    \[P(A_1) = \underbrace{p \dots p}_{k} \underbrace{q \dots q}_{n - k} = p^k q^{n - k}\]
+
+    Остальные благоприятные исходы отличаются лишь расстановкой \(k\) успехов по \(n\) местам, а их вероятности будут те же самые.
+\end{proof}
+
+Выясним, при каком значении \(k\) вероятность предшествующего числа успехов \(k - 1\) будет не более, чем вероятность \(k\) успехов, т.е. \(P_n(k) \geq P_n(k - 1)\)
+
+\begin{align*}
+    P_n(k - 1)                              & \leq P_n(k)                          \\
+    \binom{n}{k - 1} p^{k - 1}q^{n - k + 1} & \leq \binom{n}{k} p^k q^{n - k}      \\
+    \frac{n!}{(k - 1)!(n - k + 1)!} q       & \leq \frac{n!}{k!(n - k)!} p         \\
+    \frac{k!}{(k - 1)!} q                   & \leq \frac{(n - k + 1)!}{(n - k)!} p \\
+    k(1 - p)                                & \leq (n - k + 1) p                   \\
+    k - kp                                  & \leq np - kp + p                     \\
+    np + p - 1 \leq k                       & \leq np + p
+\end{align*}
+
+\begin{enumerate}
+    \item \(np\) --- целое. Тогда \(np + p\) --- не целое и \(k = np\) --- наибольшее искомое \(k\)
+    \item \(np + p\) --- не целое. Тогда \(k = [np + p]\)
+    \item \(np + p\) --- целое. Тогда \(np + p - 1\) --- целое и \(P_n(k - 1) = P_n(k)\) и \(k = np + p\) или \(k = np + p - 1\)
+\end{enumerate}
+
 \end{document}
 

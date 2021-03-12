@@ -36,6 +36,7 @@
 - [2 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/2.pdf)
 - [3 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/3.pdf)
 - [4 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/4.pdf)
+- [5 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/5.pdf)
 
 ## 3 семестр
 

@@ -744,4 +744,250 @@
     Пусть \(\nvdash \alpha\) и \(\nvdash \beta\). Тогда \(\varphi(\llbracket \alpha \rrbracket) \neq 1_{\mathcal{L}}\) и \(\varphi(\llbracket \beta \rrbracket) \neq 1_{\mathcal{L}}\). Тогда \(\llbracket \alpha \rrbracket_{\Gamma(\mathcal{L})} \neq 1_\mathcal{L}, \llbracket \beta \rrbracket \neq 1_\mathcal{L}\) --- противоречие.
 \end{proof}
 
+\chapter{12 марта}
+
+\section{Изоморфизм Карри-Ховарда}
+
+\begin{remark}
+    Эта тема в нашем курсе рукомахательная.
+\end{remark}
+
+Пусть \(p\) --- программа, т.е. функция, принимающая \(\alpha\) и возвращающая \(\beta\), т.е. \(p : \alpha \to \beta\)
+
+Можем посмотреть на это с другой стороны: \(p\) доказательство, что из \(\alpha\) следует \(\beta\), например в \texttt{Haskell} \texttt{f a = a} гласит, что \texttt{f} доказывает, что \texttt{A -> A}, где подразумевается \(\forall A\).
+
+Такое сопоставление программам доказательств и высказываниям типов называется изоморфизмом Карри-Ховарда:
+
+\begin{tabular}{|c|c|}
+    \hline
+    логическое исчисление & типизированное \(\lambda\)-исчисление   \\ \hline
+    логическая формула    & тип                                     \\
+    доказательство        & программа                               \\
+    доказуемая формула    & обитаемый тип                           \\
+    \( \to \)             & функция                                 \\
+    \(\with\)             & упорядоченная пара                      \\
+    \(\lor\)              & алгебраический тип \textit{(тип-сумма)} \\
+    \hline
+\end{tabular}
+
+\begin{remark}
+    Обитаемый тип --- тип, у которого есть хотя бы один экземпляр.
+\end{remark}
+
+Несложно заметить, что логика, соответствующая \(\lambda\)-исчислению, является интуиционистской, поэтому мы её в основном изучаем.
+
+\subsection{Алгебраические типы}
+
+Рассмотрим следующее определение списка в \texttt{Pascal}:
+
+\begin{minted}{pascal}
+type list : record
+    nul : boolean;
+    case nul of
+        true: ;
+        false: next ^list
+    end
+end;
+\end{minted}
+
+Рассмотрим то же самое в \texttt{C}, опустив \texttt{bool} и скажем, что \texttt{nul = (next == null)} \textit{(это в какой-то степени костыльно)}:
+
+\begin{minted}{c}
+struct list {
+    next: *list;
+}
+\end{minted}
+
+Определим таким же способом дерево:
+
+\begin{minted}{c}
+struct tree {
+    tree* left;
+    tree* right;
+    int value;
+}
+\end{minted}
+
+Это ещё более костыльно, т.к. то, является ли вершина листом, закодировано в неявном виде.
+
+\begin{definition}
+    \textbf{Отмеченное \textit{(дизъюнктное)} объединение} множеств \(A, B\) обозначается \(A\sqcup B\) или \(A \uplus B\) \footnote{или ещё десятком других символов} и равно \(\{\ev{\text{``}A\text{''}, a}\ |\ a\in A\} \cup \{\ev{\text{``}B\text{''}, b}\ |\ b\in B\}\).
+\end{definition}
+
+\begin{remark}
+    Это определение интуиционистское по своей сути, т.к. если дано \(s\in A \sqcup B\), то мы знаем, из какого множества \(s\).
+\end{remark}
+
+\begin{definition}
+    Тип, соответствующий такому объединению множеств, называется \textbf{алгебраическим}
+\end{definition}
+
+\begin{example}
+    В \texttt{C++} такой тип реализован как \texttt{std::variant<...>}
+\end{example}
+
+\begin{example}
+    Список в \texttt{Haskell}:
+
+    \begin{minted}{haskell}
+data List a = nil | Cons a (List a)
+    \end{minted}
+\end{example}
+
+\subsection{Применение восьмой аксиомы интуиционистской логики}
+
+Вспомним восьмую аксиому интуиционистской \footnote{и классической} логики и запишем её как правило натурального вывода:
+\begin{center}
+    \begin{prooftree}
+        \hypo{\Gamma \vdash \alpha \to \gamma}
+        \hypo{\Gamma \vdash \beta \to \gamma}
+        \hypo{\Gamma \vdash \alpha \lor \beta}
+        \infer3{\Gamma \vdash \gamma}
+    \end{prooftree}
+\end{center}
+
+Рассмотрим программу в \texttt{Haskell}, которая преобразует список в строку:
+
+\begin{minted}{haskell}
+let rec string_of_list l =
+    match l with
+        Nil -> "Nil"
+        Cons(head, tail) -> head ^ ":" ^ string_of_list tail
+\end{minted}
+
+Подставим в рассматриваемую аксиому соответствующие значения:
+\begin{center}
+    \begin{prooftree}
+        \hypo{\Gamma \vdash Nil \to string}
+        \hypo{\Gamma \vdash list \to string}
+        \hypo{\Gamma \vdash Nil \lor list}
+        \infer3{\Gamma \vdash string}
+    \end{prooftree}
+\end{center}
+
+Несложно заметить, что эта аксиома описывает \texttt{match} в \texttt{Haskell} --- мы даем выражения после ``\texttt{->}'', т.е. правила \texttt{Nil -> string}, \texttt{list -> string} и элемент \texttt{Nil} или \texttt{list}, а \texttt{match} возвращает \texttt{string}.
+
+\section{Исчисление предикатов}
+
+\subsection{Язык исчисления предикатов}
+
+Выражения в этом языке бывают двух видов:
+\begin{enumerate}
+    \item Логические выражения, называемые ``предикаты'' или ``формулы''
+    \item Предметные выражения, называемые ``термы''
+\end{enumerate}
+
+\(\theta\) --- метапеременная для термов.
+
+Термы бывают двух видов:
+\begin{itemize}
+    \item Атомы:
+          \begin{itemize}
+              \item Предметные переменные обозначаются буквами \(a,b,c \dots \)
+              \item Метапеременные обозначаются буквами \(x,y,z\)
+          \end{itemize}
+    \item Применение функциональных символов:
+          \begin{itemize}
+              \item Функциональные символы: \(f,g,h\) и записывается \(f(\theta_1 \dots \theta_n)\)
+              \item Метапеременная тоже обозначается \(f\)
+          \end{itemize}
+\end{itemize}
+
+Логические выражения:
+\begin{itemize}
+    \item Применение предикатных символов \(P(\theta_1, \dots \theta_n)\), где \(P\) --- метапеременная для предикатных символов, а предикатный символ --- \(A, B, C \dots \)
+    \item Связки \(\with, \lor, \neg, \to \) с правилами из языка классической логики.
+    \item Кванторы \footnote{По записи кванторов нет общепринятого соглашения.} \(\forall x.\varphi\) или \(\exists x.\varphi\), где \(\varphi\) --- любое логическое выражение.
+\end{itemize}
+
+Мы используем жадность кванторов. \footnote{В отношении жадности кванторов также нет соглашения; встречается запись, где квантор --- унарная операция, аналогичная \(\neg\)} Это значит, что квантор берет в \(\varphi\) все, пока не встретит конец выражения или скобку, которая оканчивает этот квантор.
+
+\begin{example}
+    \(\forall x.P(x) \with \forall y.P(y) \equiv \forall x.(P(x) \with (\forall y.P(y)))\)
+\end{example}
+
+\subsection{Теория моделей}
+
+Определим оценку формулы в исчислении предикатов:
+
+\begin{enumerate}
+    \item Фиксируем \(D\) --- предметное множество, \(V = \{\text{И}, \text{Л}\} \)
+    \item Каждому \(f_i(x_1 \dots x_n)\) сопоставим функцию \(f_{f_n} : D^n \to D\)
+    \item Каждому \(P_j(x_1 \dots x_n)\) сопоставим функцию \footnote{,  называемую предикат} \(f_{p_n} : D^n \to V\)
+    \item Каждой \(x_i\) сопоставим \(f_{x_i}\in D\)
+\end{enumerate}
+
+\begin{itemize}
+    \item \(\llbracket x \rrbracket = f_{x_i}\)
+    \item \(\llbracket \alpha \star \beta \rrbracket\) --- так же, как в исчислении высказываний.
+    \item \(\llbracket P_i(\theta_1 \dots \theta_n) \rrbracket = f_{p_i}(\llbracket \theta_1 \rrbracket \dots \llbracket \theta_n \rrbracket)\)
+    \item \(\llbracket f_j(\theta_1 \dots \theta_n) \rrbracket = f_{f_j}(\llbracket \theta_1 \rrbracket \dots \llbracket \theta_m \rrbracket)\)
+    \item \(\llbracket \forall x.\varphi \rrbracket = \begin{cases} \text{И}, & \text{если } \llbracket \varphi \rrbracket = \text{И} \text{ при всех } k\in D \\
+              \text{Л}, & \text{иначе}
+          \end{cases} \)
+    \item \(\llbracket \forall x.\varphi \rrbracket = \begin{cases} \text{И}, & \text{если } \llbracket \varphi \rrbracket = \text{И} \text{ при некотором } k\in D \\
+              \text{Л}, & \text{иначе}
+          \end{cases} \)
+\end{itemize}
+
+\begin{example}
+    \(\forall x.\forall y.E(x, y)\)
+
+    Пусть \(D = \N\), \(E(x, y) = \begin{cases} \text{И}, & x = y \\ \text{Л}, & x \neq y \end{cases} \)
+
+    \(\llbracket\forall x.\forall y.E(x, y)\rrbracket_{x: = 1, y: = 2} =\) Л, т.к. \(\llbracket E(x, y) \rrbracket =\) Л.
+\end{example}
+
+Вспомним определение предела последовательности из матанализа:
+
+\[\forall \varepsilon > 0 \ \ \exists N \ \ \forall n > N \ \ |a_n - a| < \varepsilon\]
+
+Перепишем это определение с богомерзкого языка матанализа на православный язык исчисления предикатов. \footnote{Это термины лектора, все претензии от адептов матанализа и других религий --- к нему.}
+
+Пусть \(( >)(a, b) = G(a, b), |a|= m_|(a), ( -)(a,b) = m_{ -}(a, b), m_a : n \mapsto a_n, 0() = m_0\)
+
+\begin{align*}
+     & \forall \varepsilon . \varepsilon \to 0\ \exists N . \forall n. (n > N) \to (|a_n - a| < \varepsilon)      \\
+     & \forall \varepsilon . \varepsilon \to 0\ \exists N . \forall n. (n > N) \to (|a_n - a| < \varepsilon)      \\
+     & \forall e . G(e, m_0)\ \exists n_0 . \forall n. G(n, n_0) \to G(e, m_|(m_{ -}(m_a(n), a)))) < \varepsilon) \\
+\end{align*}
+
+\subsection{Теория доказательств}
+
+Все аксиомы исчисления высказываний + Modus Ponens + две схемы аксиом + два правила:
+\begin{enumerate}
+    \item \((\forall x.\varphi) \to \psi [x : = \theta]\)
+    \item \(\varphi[x : = \theta] \to \exists x.\varphi\)
+\end{enumerate}
+Обе эти схемы применимы только если \(\theta\) свободен для подстановки вместо \(x\) в \(\varphi\), т.е. никакое свободное вхождение \(x\) в \(\theta\) не станет связным.
+
+\begin{example}\itemfix
+    \begin{minted}{c}
+int f(int x) {
+    x = y;
+}
+    \end{minted}
+
+    После замены \(y : = x\) код станет следующим:
+    \begin{minted}{c}
+int f(int x) {
+    x = x;
+}
+    \end{minted}
+
+    И код потеряет свой смысл.
+\end{example}
+
+Правила следующие:
+\begin{enumerate}
+    \item \begin{prooftree}
+              \hypo{\varphi \to \psi}
+              \infer1[(правило \(\forall \))]{\varphi \to \forall x.\psi}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\psi \to \varphi}
+              \infer1[(правило \(\exists \))]{\exists x.\psi \to \varphi}
+          \end{prooftree}
+\end{enumerate}
+
 \end{document}

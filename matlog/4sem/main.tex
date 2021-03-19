@@ -956,7 +956,7 @@ let rec string_of_list l =
 
 Все аксиомы исчисления высказываний + Modus Ponens + две схемы аксиом + два правила:
 \begin{enumerate}
-    \item \((\forall x.\varphi) \to \psi [x : = \theta]\)
+    \item \((\forall x.\varphi) \to \varphi [x : = \theta]\)
     \item \(\varphi[x : = \theta] \to \exists x.\varphi\)
 \end{enumerate}
 Обе эти схемы применимы только если \(\theta\) свободен для подстановки вместо \(x\) в \(\varphi\), т.е. никакое свободное вхождение \(x\) в \(\theta\) не станет связным.
@@ -982,11 +982,11 @@ int f(int x) {
 \begin{enumerate}
     \item \begin{prooftree}
               \hypo{\varphi \to \psi}
-              \infer1[(правило \(\forall \))]{\varphi \to \forall x.\psi}
+              \infer1[(правило \(\forall \))]{\varphi \to (\forall x.\psi)}
           \end{prooftree}
     \item \begin{prooftree}
               \hypo{\psi \to \varphi}
-              \infer1[(правило \(\exists \))]{\exists x.\psi \to \varphi}
+              \infer1[(правило \(\exists \))]{(\exists x.\psi) \to \varphi}
           \end{prooftree}
 \end{enumerate}
 

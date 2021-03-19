@@ -739,8 +739,31 @@
 
 \subsection{Теорема Пуассона для схемы Бернулли}
 
-Пусть вероятность успеха при \(n\)-том испытании \(p_n\) и при этом \(n p_n\xrightarrow{n \to +\infty}\lambda =\const\)
+\begin{theorem}[Формула Пуассона]
+    Пусть \(n \to +\infty, p_n \to 0\) так, что \(n p_n \to \lambda =\const > 0\). Тогда вероятность успеха при \(n\) испытаниях:
+    \[P_n(k) = \binom{n}{k}p_n^k (1 - p_n)^{n - k} \xrightarrow{n \to +\infty} \frac{\lambda^k}{k!}e^{ - \lambda} \]
 
-\textcolor{red}{Не дописано}
+    Эта формула применима при малых \textit{(или крупных)} \(p\) и \(n \geq 100\).
+\end{theorem}
+\begin{proof}
+    \begin{obozn}
+        \(\lambda_n = n\cdot p_n\), при этом \(\lambda_n \to \lambda\).
+    \end{obozn}
+
+    \begin{align*}
+        \binom{n}{k}p_n^k (1 - p_n)^{n - k} & \to \frac{n^k}{k!} \frac{\lambda_n^k}{n^k} \left( 1 - \frac{\lambda_n}{n} \right)^{n - k}                                             \\
+                                            & = \frac{\lambda_n^k}{k!} \left( 1 - \frac{\lambda_n}{n} \right)^{n} \underbrace{\left( 1 - \frac{\lambda_n}{n} \right)^{- k}}_{\to 1} \\
+                                            & \to \frac{\lambda_n^k}{k!} \left( 1 - \frac{\lambda_n}{n} \right)^{n}                                                                 \\
+                                            & \to \frac{\lambda_n^k}{k!} \left(\left( 1 - \frac{\lambda_n}{n} \right)^{ - \frac{n}{\lambda_n} } \right)^{ - \lambda_n}              \\
+                                            & \to \frac{\lambda^k}{k!}e^{ - \lambda}
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    Пусть \(v_n\) --- число успехов при \(n\) испытаниях в схеме Бернулли с вероятностью успеха \(p\), \(\lambda = np, A \subset \N_0\) --- произвольное подмножество.
+
+    Тогда:
+    \[\left|P(v_n\in A) - \sum \frac{\lambda^k}{k!} e^{ - \lambda}\right| \leq \min (p, np^2) = \min (p, \lambda p) = \min\left(p, \frac{\lambda^2}{n}\right)\]
+\end{theorem}
 
 \end{document}

@@ -990,4 +990,142 @@ int f(int x) {
           \end{prooftree}
 \end{enumerate}
 
+\chapter{19 марта}
+
+\begin{example}
+    \begin{prooftree}
+        \hypo{\varphi \to \psi}
+        \infer1{\exists x.(\varphi \to \psi)}
+    \end{prooftree} --- возможно доказуемо, но это не правило вывода для \(\exists \).
+\end{example}
+
+\begin{definition}
+    \(\alpha_1 \dots \alpha_n\) --- \textbf{доказательство}, если выполняется одно из:
+    \begin{enumerate}
+        \item \(\alpha_i\) --- аксиома
+        \item Существует \(j, k < i\), такие что \(\alpha_k = \alpha_j \to \alpha_i\)
+        \item Существует \(j\), такое что \(\alpha_j = \varphi \to \psi\) и \(\alpha_i = (\exists x. \varphi) \to \psi\), причём \(x\) не входит свободно в \(\psi\).
+        \item Существует \(j\), такое что \(\alpha_j = \psi \to \varphi\) и \(\alpha_i = \psi \to \forall x.\varphi\), причём \(x\) не входит свободно в \(\psi\).
+    \end{enumerate}
+\end{definition}
+
+\subsection{Вхождение}
+
+Рассмотрим некоторую формулу и рассмотрим вхождения \(x\) в неё:
+\[(P(\underbrace{x}_{1}) \lor Q(\underbrace{x}_2)) \to (R(\underbrace{x}_3) \with (\overbrace{\forall \underbrace{x}_4.P_1(\underbrace{x}_5)}^{\text{Область действия \(\forall \) по \(x\)}}))\]
+
+\begin{itemize}
+    \item Вхождение 4 связывающее
+    \item Вхождение 5 связано вхождением 4
+    \item Вхождения 1-3 свободны.
+\end{itemize}
+
+Случай множественного связывания:
+\[\underbrace{\forall x. \forall y. \overbrace{\forall x. \forall y. \underbrace{\forall x. P(x)}}^{\text{Область действия \(\forall \) по \(x\)}}}_{\text{Область действия \(\forall \) по \(x\)}}\]
+
+\begin{definition}
+    Вхождение \textbf{свободно}, если не связано.
+\end{definition}
+
+\begin{remark}
+    Свободно входящие переменные нельзя переименовывать, т.к. к формуле могут приписать кванторы, которые используют данные имена переменных. Это ограничение не распространяется на связанные переменные.
+\end{remark}
+
+Любая аксиома есть предикат.
+
+\subsection{Свобода для подстановки}
+
+\begin{definition}
+    \(\theta\) \textbf{свободен для подстановки} вместо \(x\) в \(\varphi\), если никакая свободная переменная в \(\theta\) не станет связанной в \(\varphi[x: = \theta]\)
+\end{definition}
+
+\begin{obozn}
+    \(\varphi[x: = \theta]\) --- заменить все свободные вхождения \(x\) в \(\varphi\) на \(\theta\)
+\end{obozn}
+
+\begin{example}
+    \[(\forall x.\forall y.\forall x.P(x))[x: = y] \equiv \forall x.\forall y.\forall x.P(x)\]
+    \[P(x)\lor \forall x.P(x)[x: = y] \equiv P(y)\lor \forall x.P(x)\]
+    \[(\forall y.x = y)[x: = y] \equiv \forall y.y = y\]
+    В этой формуле новый \(y\) связался.
+\end{example}
+
+\begin{remark}
+    В определении можно опустить ``\textit{свободная}'' в нашем исчислении, но это не верно в достаточно извращенных исчислениях.
+\end{remark}
+
+\begin{lemma}
+    Пусть \(\vdash \alpha\). Тогда \(\vdash \forall x.\alpha\)
+\end{lemma}
+\begin{proof}\itemfix
+    Т.к. \(\vdash \alpha\), то существует \(\gamma_1 \dots \gamma_n : \gamma_n \equiv \alpha\)
+
+    Создадим новое доказательство.
+
+    \begin{tabular}{LCr}
+        (1)   & \gamma_1                                &                         \\
+              & \vdots                                  &                         \\
+        (n)   & \gamma_n                                &                         \\
+        (n+1) & A\with A \to A                          & (акс.)                  \\
+        (n+2) & \alpha \to ((A\with A\to A) \to \alpha) & (акс.)                  \\
+        (n+3) & (A\with A\to A) \to \alpha              & (M.P. \(n, n+2\))       \\
+        (n+4) & (A\with A\to A) \to \forall x.\alpha    & (введение \(\forall \)) \\
+        (n+5) & \forall x.\alpha                        & (M.P. \(n + 1, n + 4\))
+    \end{tabular}
+\end{proof}
+
+\begin{lemma}
+    \label{для дедукции}
+    \((\alpha \to \varphi \to \psi) \to \alpha \with \varphi \to \psi\)
+\end{lemma}
+\begin{lemma}
+    \label{для дедукции 2}
+    \((\alpha \with \varphi \to \psi) \to (\alpha \to \varphi \to \psi)\)
+\end{lemma}
+\begin{proof}[Доказательство двух лемм]
+    По теореме о полноте исчисления высказываний.
+\end{proof}
+
+\begin{theorem}[о дедукции]
+    Пусть даны \(\Gamma, \alpha, \beta\).
+
+    \begin{enumerate}
+        \item Если \(\Gamma, \alpha \vdash \beta \), то \(\Gamma \vdash \alpha \to \beta\) при условии, если в доказательстве \(\Gamma, \alpha\vdash \beta\) не применялись правила для \(\forall , \exists\) по переменным, входящим свободно в \(\alpha\).
+
+        \item Если \(\Gamma \vdash \alpha \to \beta\), то \(\Gamma, \alpha \vdash \beta \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    По индукции. Пусть доказано \(\alpha \to \delta_i\) для \(i\in [1, n]\), докажем \(\alpha \to \delta_{n + 1}\).
+
+    Рассмотрим случаи:
+    \begin{enumerate}
+        \item Схемы аксиом 1-10 --- аналогично \footnote{доказательству ИВ}.
+        \item M.P. --- аналогично
+        \item Аксиомы 11-12 --- аналогично первому пункту.
+        \item Пусть \(\delta_{n + 1}\) получено правилом \(\forall \) : \(\delta_{n + 1}\equiv \varphi \to \forall x.\psi\) и существует \(\delta_k \equiv \varphi \to \psi\) и \(k \leq n\), причём \(x\) не входит свободно в \(\varphi\).
+
+              При этом в новом доказательстве уже доказано \(\alpha \to \delta_k\)
+
+              \begin{tabular}{LCr}
+                  (1)     & \alpha \to \delta_1                                                                   &                              \\
+                          & \vdots                                                                                &                              \\
+                  (k)     & \alpha \to (\varphi \to \psi)                                                         &                              \\
+                          & \vdots                                                                                &                              \\
+                  (n)     & \alpha \to \delta_n                                                                   &                              \\
+                          & \vdots                                                                                &                              \\
+                  (n+0.1) & \alpha \to \varphi \to \psi) \to \alpha \with \varphi \to \psi                        & (лемма \ref{для дедукции})   \\
+                  (n+0.2) & \alpha \with \varphi \to \psi                                                         & (M.P.)                       \\
+                  (n+0.3) & \alpha \with \varphi \to \forall x.\psi                                               & (введение \(\forall \))      \\
+                  (n+0.4) & (\alpha \with \varphi \to \forall x.\psi) \to (\alpha \to \varphi \to \forall x.\psi) & (лемма \ref{для дедукции 2}) \\
+                  (n+1)   & \alpha \to \varphi \to \forall x. \psi                                                & (M.P.)
+              \end{tabular}
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    Доказательство пункта 2 аналогично исходному доказательству для исчисления высказываний.
+\end{remark}
+
 \end{document}

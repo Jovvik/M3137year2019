@@ -1,49 +1,8 @@
-\documentclass[12pt, a4paper, oneside]{book}
-
-\usepackage{catchfilebetweentags}
-\ExecuteMetaData[../../preamble.sty]{preamble}
-
-\addto\captionsrussian{\renewcommand{\chaptername}{Лекция}}
-
-\let\MakeUppercase\relax
-
-\lfoot{}
-\cfoot{}
-\rfoot{}
-\lhead{\leftmark}
-
-\usepackage{tocloft}
-\advance\cftsecnumwidth -1em\relax
-\advance\cftsubsecindent -1em\relax
-\advance\cftsubsecnumwidth -1em\relax
-
-\usepackage{titletoc}
-\titlecontents*{chapter}% <section-type>
-  [0pt]% <left>
-  {}% <above-code>
-  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
-  {}% <numberless-entry-format>
-  {\bfseries\hfill\contentspage}% <filler-page-format>
-
-\let\endtitlepage\relax
-
-\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
-
-\usepackage{remreset}
-\makeatletter
-  \@removefromreset{section}{chapter}
-\makeatother
-
-\usepackage{chngcntr}
-\counterwithout{equation}{chapter}
-
-\renewcommand{\thesection}{\arabic{section}}
+\input{../../main_preamble.sty}
 
 \begin{document}
 
 \title{Методы оптимизации}
-\author{Михайлов Максим}
-
 \maketitle
 
 \tableofcontents

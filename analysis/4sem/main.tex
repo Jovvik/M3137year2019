@@ -1048,18 +1048,15 @@
 \begin{proof}\footnote{Теоремы, не следствия}
     \[X_n : = X(|f| \geq n)\]
     \[X_n \supset X_{n+1} \supset \dots \Rightarrow \mu\left( \bigcap X_n \right) \symrefeq{почти везде конечна} 0\]
+    \blfootnote{\eqref{почти везде конечна}: Т.к. \(f\) на \(\bigcap X_n\) бесконечна и \(f\) почти везде конечна.}
     \begin{equation}
         \forall \varepsilon > 0 \ \ \exists n_\varepsilon \ \ \int_{X_{n_\varepsilon}} |f| < \frac{\varepsilon}{2} \label{непрерывность сверху меры}
     \end{equation}
+    \blfootnote{\eqref{непрерывность сверху меры}: По непрерывности сверху меры \(A \mapsto \int_A |f| d\mu\)}
 
     Пусть \(\delta : = \frac{\varepsilon}{2n_\varepsilon} \). Тогда при \(\mu E < \delta\):
     \[\left|\int_E f\right| \leq \int_E |f| \symrefeq{оценка f} \int_{E\cap X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} |f| \leq \int_{X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} n_\varepsilon < \frac{\varepsilon}{2} + \underbrace{\mu E}_{\delta} \cdot n_\varepsilon \leq \varepsilon\]
-
-    \begin{itemize}
-        \item \eqref{почти везде конечна}: Т.к. \(f\) на \(\bigcap X_n\) бесконечна и \(f\) почти везде конечна.
-        \item \eqref{непрерывность сверху меры}: По непрерывности сверху меры \(A \mapsto \int_A |f| d\mu\)
-        \item \eqref{оценка f}: Т.к. \(|f|\) на \(E \cap X_{n_\varepsilon}^c\) не превосходит \(n_\varepsilon\) по построению \(X_{n_\varepsilon}\)
-    \end{itemize}
+    \blfootnote{\eqref{оценка f}: Т.к. \(|f|\) на \(E \cap X_{n_\varepsilon}^c\) не превосходит \(n_\varepsilon\) по построению \(X_{n_\varepsilon}\)}
 \end{proof}
 
 \begin{remark}
@@ -1139,17 +1136,17 @@
 
     \[h_n : = \sup (|f_n - f|, |f_{n+1} - f|, |f_{n + 2} - f|, \dots)\]
     \[0 \symref{тривиально неотрицательно}{ \leq } h_n \symref{по 2g}{\leq} 2g\]
+
+    \blfootnote{\eqref{тривиально неотрицательно}: по построению}
+    \blfootnote{\eqref{по 2g}: по \eqref{|f_n - f| < 2g}}
+
     \(h_n\) монотонно убывает, что очевидно по определению \(\sup\).
     \[\lim h_n \defeq \overline\lim |f_n - f| \symrefeq{по fn to f} 0 \text{ почти везде}\]
+    \blfootnote{\eqref{по fn to f}: по \eqref{fn to f}}
+
     \(2g - h_n \geq 0\) и возрастает как последовательность функций, \(2g - h_n\to 2g\) почти везде. Тогда по теореме \ref{леви}:
     \[\int_X 2g - h_n \to \int_X 2g \Rightarrow \int_X h_n \to 0\]
     \[\int_X |f_n - f| \leq \int_X h_n \to 0\]
-
-    \begin{itemize}
-        \item \eqref{тривиально неотрицательно}: по построению
-        \item \eqref{по 2g}: по \eqref{|f_n - f| < 2g}
-        \item \eqref{по fn to f}: по \eqref{fn to f}
-    \end{itemize}
 \end{proof}
 
 \unfinished

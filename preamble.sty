@@ -108,20 +108,20 @@
 
 % \theoremstyle{plain}
 
-\theoremstyle{remark}
-\newtheorem*{remark}{Примечание}
-\newtheorem*{exercise}{Упражнение}
-\newtheorem{corollary}{Следствие}
-\newtheorem*{example}{Пример}
-\newtheorem*{observation}{Наблюдение}
-\newtheorem*{prop}{Свойства}
-\newtheorem*{obozn}{Обозначение}
-
 \theoremstyle{definition}
 \newtheorem{theorem}{Теорема}
 \newtheorem*{definition}{Определение}
 \newtheorem{axiom}{Аксиома}
 \newtheorem{lemma}{Лемма}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Примечание}
+\newtheorem*{exercise}{Упражнение}
+\newtheorem{corollary}{Следствие}[theorem]
+\newtheorem*{example}{Пример}
+\newtheorem{observation}{Наблюдение}
+\newtheorem*{prop}{Свойства}
+\newtheorem*{obozn}{Обозначение}
 
 \newtheorem{manualtheoreminner}{Теорема}
 \newenvironment{manualtheorem}[1]{%

@@ -48,6 +48,9 @@
 % Footnotes
 \usepackage[hang]{footmisc}
 \setlength{\footnotemargin}{2mm}
+\makeatletter
+\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+\makeatother
 
 % References
 \usepackage{hyperref}

@@ -4,17 +4,14 @@
 
 <!-- Если вы хотите помочь, всё, чего не хватает в конспектах - [тут](https://github.com/Jovvik/M3137year2019/issues/2) -->
 
-Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм @aeriu.
+Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм @aeriu. Пулл реквесты приветствуются.
 
 ## 4 семестр
 
 ### Матанализ
 
+- [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/main.pdf)
 - [Конспект к экзамену](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf)
-- [1 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/1.pdf)
-- [2 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/2.pdf)
-- [3 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/3.pdf)
-- [4 лекция](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/4.pdf) - неполный конспект
 - [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/1.pdf) - неполный конспект
 - [2 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/2.pdf)
 - [3 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/3.pdf)

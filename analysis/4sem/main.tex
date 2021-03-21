@@ -44,8 +44,8 @@
     \[c_i \ev{g_i, g_i} \symrefeq{собственный вектор} \ev{W g_i, g_i} \symrefeq{из линала} \ev{V g_i, V g_i} > 0\]
 
     \begin{itemize}
-        \item \ref{собственный вектор}: т.к. \(g_i\) --- собственный вектор для \(W\) с собственным значением \(c_i\).
-        \item \ref{из линала}: из линейной алгебры:
+        \item \eqref{собственный вектор}: т.к. \(g_i\) --- собственный вектор для \(W\) с собственным значением \(c_i\).
+        \item \eqref{из линала}: из линейной алгебры:
               \[W_{kl} = \sum_{i = 1}^m V_{ik}V_{il}\]
               \[\ev{W g_i, g_i} = \sum_{k, l, j} V_{jk} V_{jl} g_k^{(i)} g_l^{(i)} = \ev{V g_i, V g_i}\]
     \end{itemize}
@@ -58,9 +58,9 @@
     \[\ev{h_i, h_j} \defeqfor{h_i} \frac{1}{s_i s_j}\ev{V g_i, V g_j} \symrefeq{из линала 2} \frac{1}{s_i s_j}\ev{W g_i, g_j} \symrefeq{собственный вектор 2} \frac{c_i}{s_i s_j}\ev{g_i, g_j} \symrefeq{кронекер} \delta_{ij}\]
 
     \begin{itemize}
-        \item \ref{из линала 2}: из линейной алгебры, аналогично предыдущему.
-        \item \ref{собственный вектор 2}: т.к. \(g_i\) --- собственный вектор для \(W\) с собственным значением \(c_i\).
-        \item \ref{кронекер}: при \(i \neq j\) \(\ev{g_i, g_j} = 0\) в силу ортогональности, а при \(i = j\) \(\ev{g_i, g_j} = 1\) в силу ортонормированности и \(\frac{c_i}{s_i s_j} = \frac{c_i}{\sqrt{c_i}\sqrt{c_i}} = 1\)
+        \item \eqref{из линала 2}: из линейной алгебры, аналогично предыдущему.
+        \item \eqref{собственный вектор 2}: т.к. \(g_i\) --- собственный вектор для \(W\) с собственным значением \(c_i\).
+        \item \eqref{кронекер}: при \(i \neq j\) \(\ev{g_i, g_j} = 0\) в силу ортогональности, а при \(i = j\) \(\ev{g_i, g_j} = 1\) в силу ортонормированности и \(\frac{c_i}{s_i s_j} = \frac{c_i}{\sqrt{c_i}\sqrt{c_i}} = 1\)
     \end{itemize}
 
     \begin{remark}
@@ -74,16 +74,12 @@
 
     \[V(x) \defeqfor{x} V\left( \sum_{i = 1}^m \ev{x, g_i} g_i \right) \symrefeq{линейность V} \sum_{i = 1}^m \ev{x, g_i} V(g_i) \defeqfor{h_i} \sum s_i \ev{x, g_i} h_i\]
 
-    \begin{itemize}
-        \item \ref{линейность V}: в силу линейности \(V\)
-    \end{itemize}
+    \blfootnote{\eqref{линейность V}: в силу линейности \(V\)}
 
     \[(\det V)^2 \symrefeq{мультипликативность det} \det(V^* V) \defeqfor{W} \det W \symrefeq{определитель базис} c_1 \dots c_m\]
 
-    \begin{itemize}
-        \item \ref{мультипликативность det}: в силу мультипликативности \(\det\) и инвариантности относительно транспонирования.
-        \item \ref{определитель базис}: т.к. \(\det\) инвариантен по базису и в базисе собственных векторов \(\det W = c_1 \dots c_m\).
-    \end{itemize}
+    \blfootnote{\eqref{мультипликативность det}: в силу мультипликативности \(\det\) и инвариантности относительно транспонирования.}
+    \blfootnote{\eqref{определитель базис}: т.к. \(\det\) инвариантен по базису и в базисе собственных векторов \(\det W = c_1 \dots c_m\).}
 
     \[|\det V| = \sqrt{c_1} \dots \sqrt{c_m} = s_1 \dots s_m\]
 \end{proof}
@@ -265,7 +261,7 @@
     \begin{enumerate}
         \item \(g = \sup f_n \quad X(g > a) \symrefeq{два шага} \bigcup_n X(f_n > a)\) и счётное объединение измеримых множеств измеримо.
 
-              \ref{два шага}: \begin{itemize}
+              \eqref{два шага}: \begin{itemize}
                   \item \(X(g > a) \subset \bigcup_n X(f_n > a)\), т.к. если \(x\in X(g > a)\), то \(g(x) > a\).
                         \[\sup_n f_n(x) = g(x) \neq a \Rightarrow \exists n : f_n(x) > a\]
                   \item \(X(g > a) \supset \bigcup_n X(f_n > a)\), т.к. если \(x\in X(f_n > a)\), то \(f_n(x) > a\), следовательно \(g(x) > a\).
@@ -295,8 +291,9 @@
 
 \chapter{15 февраля}
 
-\begin{theorem}[характеризация измеримых функций с помощью ступенчатых]\itemfix
+\begin{theorem}[о характеризации измеримых функций с помощью ступенчатых]\itemfix
     %<*характеризацияизмеримыхфункцийспомощьюступенчатых>
+    \label{характеризация измеримых функций с помощью ступенчатых}
     \begin{itemize}
         \item \(f: X \to \R\)
         \item \(f \geq 0\)
@@ -601,7 +598,7 @@
     \[E_k \supset E_{k+1} \quad \mu E_k \symref{счётная полуаддитивность}{\leq} \sum_{j = k}^{+\infty} \mu X\left( |f_{n_j} - f| \geq \frac{1}{j} \right) < \sum_{j = k}^{+\infty} \frac{1}{2^j} \leq \frac{2}{2^k} \to 0\]
     \[\mu E_k \to \mu E \Rightarrow \mu E = 0\]
 
-    \ref{счётная полуаддитивность}: по счётной полуаддитивности меры.
+    \blfootnote{\eqref{счётная полуаддитивность}: по счётной полуаддитивности меры.}
 
 
     Покажем, что при \(x\not\in E \ \ f_{n_k} \to f\).
@@ -841,7 +838,7 @@
                       & = \sum_i \int_{A_i} g d\mu
     \end{align*}
 
-    \ref{переставлять можно}: переставлять можно, т.к. члены суммы \( \geq 0\).
+    \blfootnote{\eqref{переставлять можно}: переставлять можно, т.к. члены суммы \( \geq 0\).}
 \end{proof}
 
 \begin{theorem}\itemfix
@@ -879,7 +876,7 @@
               \end{enumerate}
     \end{itemize}
 
-    \ref{по лемме об интеграле}: по лемме об интеграле.
+    \blfootnote{\eqref{по лемме об интеграле}: по лемме об интеграле.}
 \end{proof}
 
 \begin{corollary}
@@ -934,7 +931,7 @@
               Тогда \(\lim \int_X f_n \geq c\cdot \lim \int_{E_n}g \symrefeq{непрерывность снизу} c\int_X g\)
     \end{itemize}
 
-    \ref{непрерывность снизу}: по непрерывности снизу меры \(\nu : E \mapsto \int_E g\)
+    \blfootnote{\eqref{непрерывность снизу}: по непрерывности снизу меры \(\nu : E \mapsto \int_E g\)}
 \end{proof}
 
 \begin{theorem}\itemfix
@@ -965,7 +962,7 @@
     \(f, g\) суммируемы на \(E\). Тогда \(f + g\) суммируемо и \(\int_{E} f + g = \int_E f + \int_E g\). Таким образом, доказано \ref{доказано позже}.
 \end{corollary}
 
-\begin{proof}[суммируемости]
+\begin{proof}[Доказательство суммируемости]
     \(|f + g| \leq |f| + |g|\). Пусть \(h = f + g\). Тогда
     \begin{align*}
         h^{ +} - h^{ -}                                & = f^{ +} - f^{ -} + g^{ +} - g^{ -}                               \\
@@ -1132,7 +1129,7 @@
 \end{theorem}
 
 \begin{proof}
-    Суммируемость \(f_n, f\), а также утверждение ``и тем более'' доказываются так же, как в теореме \ref{лебега}.
+    Суммируемость \(f_n, f\), а также утверждение ``и тем более'' доказываются так же, как в теореме \nameref{лебега}.
 
     \[h_n : = \sup (|f_n - f|, |f_{n+1} - f|, |f_{n + 2} - f|, \dots)\]
     \[0 \symref{тривиально неотрицательно}{ \leq } h_n \symref{по 2g}{\leq} 2g\]
@@ -1141,14 +1138,199 @@
     \blfootnote{\eqref{по 2g}: по \eqref{|f_n - f| < 2g}}
 
     \(h_n\) монотонно убывает, что очевидно по определению \(\sup\).
-    \[\lim h_n \defeq \overline\lim |f_n - f| \symrefeq{по fn to f} 0 \text{ почти везде}\]
     \blfootnote{\eqref{по fn to f}: по \eqref{fn to f}}
+    \[\lim h_n \defeq \overline\lim |f_n - f| \symrefeq{по fn to f} 0 \text{ почти везде}\]
 
-    \(2g - h_n \geq 0\) и возрастает как последовательность функций, \(2g - h_n\to 2g\) почти везде. Тогда по теореме \ref{леви}:
+    \(2g - h_n \geq 0\) и возрастает как последовательность функций, \(2g - h_n\to 2g\) почти везде. Тогда по теореме \nameref{леви}:
     \[\int_X 2g - h_n \to \int_X 2g \Rightarrow \int_X h_n \to 0\]
     \[\int_X |f_n - f| \leq \int_X h_n \to 0\]
 \end{proof}
 
-\unfinished
+\begin{example}
+    \(\sphericalangle x > 0, x_0 > 0\)
+    \[\int_0^{+\infty} t^{x - 1}e^{ - t} dt\]
+    \[\lim_{x \to x_0} \int_0^{+\infty} t^{x - 1}e^{ - t} dt \stackrel{?}{=} \int_0^{+\infty} t^{x_0 - 1}e^{ - t} dt\]
+    Равенство выполнено, т.к. \(t^{x - 1}e^{ - t} \xrightarrow{x \to x_0} t^{x_0 - 1}e^{ - t}\) при \(t > 0\) и суммируемая мажоранта \(t^{\alpha - 1}e^{ - t} + t^{\beta - 1}e^{-t}\), где \(0 < \alpha < x_0, 0 < \beta\)
+\end{example}
+
+\begin{theorem}[Фату]\itemfix
+    \label{фату}
+    \begin{itemize}
+        \item \(X, \mathfrak{A}, \mu\) --- пространство с мерой
+        \item \(f_n \geq 0\)
+        \item \(f_n\) измеримо
+        \item \(f_n \to f\) почти везде
+        \item \(\exists C > 0 \ \ \forall n \ \ \int_X f_n \leq C\)
+    \end{itemize}
+
+    Тогда \(\int_X f \leq C\)
+\end{theorem}
+
+\begin{remark}
+    Странность: здесь не требуется, чтобы \(\int_X f_n \to \int_X f\) и это может быть неверно.
+\end{remark}
+\begin{example}
+    \[f_n = \frac{1}{n}\chi_{[0, n]} \to 0 = f \text{ п.в.} \quad \int_\R f_n = 1 \leq 1\]
+    По теореме \nameref{фату} \(\int_\R f \leq 1\), что верно, т.к. \(\int_\R f = 0 \leq 1\)
+\end{example}
+\begin{example}
+    Условие \(f_n \geq 0\) важно:
+
+    \[f_n = -\frac{1}{n}\chi_{[0, n]} \to 0 = f \text{ п.в.} \quad \int_\R f_n = - 1 \leq -1 \text{, но } \int_\R f = 0 \not \leq - 1\]
+\end{example}
+
+\begin{proof}
+    \[g_n : = \inf (f_n, f_{n+1}, \dots)\]
+    \[0 \leq g_n \leq g_{n+1}\]
+    \[\lim g_n \defeq \underline{\lim} f_n = f \text{ п.в.}\]
+    \begin{equation}
+        \int_X g_n \leq \int_X f_n \leq C \label{неравенство}
+    \end{equation}
+    \[\int_X g_n \symref{по леви}{ \to } \int_X f\]
+    \blfootnote{\eqref{по леви}: по \nameref{леви}}
+    Значит \(\int_X f \leq C\) по предельному переходу в \eqref{неравенство}
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f_n, f \geq 0\)
+        \item \(f_n, f\) измеримы
+        \item \(f_n, f\) почти везде конечны
+        \item \(f_n \Rightarrow f\)
+        \item \(\exists C > 0 \ \ \forall n \ \ \int_X f_n \leq C\)
+    \end{itemize}
+
+    Тогда \(\int_X f \leq C\)
+\end{corollary}
+\begin{proof}
+    \[f_n \Rightarrow f \implies \exists n_k : f_{n_k} \to f \text{ п.в.}\]
+    По теореме \nameref{фату} получим искомое.
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f_n \geq 0\)
+        \item \(f_n\) измеримо
+    \end{itemize}
+
+    Тогда \(\int_X \underline\lim f_n \leq \underline\lim \int_X f_n\)
+\end{corollary}
+\begin{proof}
+    Возьмём \eqref{неравенство} как в теореме. Выберем \(n_k : \int_X f_{n_k} \xrightarrow{n \to +\infty} \underline\lim \int_X f_n\)
+    \[
+        \begin{tikzcd}[ampersand replacement=\&, column sep=small]
+            \int_X g_{n_k} \arrow[swap,shift right=2em]{d}{} \leq \int_X f_{n_k} \\
+            \int_X \underline\lim f_n \leq \underline\lim \int_X f_n
+        \end{tikzcd}
+    \]
+\end{proof}
+
+\section{Плотность одной меры по отношению к другой. Замена переменных в интеграле.}
+
+\(\sphericalangle (X, \mathfrak{A}, \mu)\) --- пространство с мерой, \((Y, \mathfrak{B}, \text{\textvisiblespace}), \Phi : X \to Y\)
+
+Пусть \(\Phi\) --- измеримо в следующем смысле:
+\[\Phi^{ - 1}(\mathfrak{B})\subset \mathfrak{A}\]
+
+\begin{exercise}
+    Проверить, что \(\Phi^{-1}\) --- \(\sigma\)-алгебра. % TODO
+\end{exercise}
+
+Для \(E\in \mathfrak{B}\) положим \(\nu(E) = \mu\Phi^{-1}(E)\). Тогда \(\nu\) --- мера:
+\[\nu\left(\bigsqcup E_n\right) = \mu(\Phi^{-1}\left(\bigsqcup E_n\right)) = \mu\left(\bigsqcup \Phi^{-1}(E_n)\right) = \sum \mu \Phi^{-1} E_n = \sum \nu E_n\]
+
+Мера \(\nu\) называется \textbf{образом} \(\mu\) при отображении \(\Phi\) и \(\nu E = \int_{\Phi^{-1}(E)} 1 d\mu\)
+
+\begin{observation}
+    \label{об измеримости}
+    \(f : Y \to \overline\R\) --- измеримо относительно \(\mathfrak{B}\). Тогда \(f \circ \Phi\) --- измеримо относительно \(\mathfrak{A}\).
+\end{observation}
+
+\[X(f(\Phi(x)) < a) = \Phi^{-1}(Y(f < a)) \symref{брух}{\in} \mathfrak{A}\]
+\blfootnote{\eqref{брух}: т.к. \(Y(f < a)\in \mathfrak{B}\)}
+
+\begin{definition}
+    \(\omega : X \to \overline\R, \omega \geq 0\), измеримо на \(X\).
+    \[\forall B\in \mathfrak{B} \ \ \nu(B) : = \int_{\Phi^{-1}(B)}\omega(x)d\mu(x)\]
+    Тогда \(\nu\) называется ``\textbf{взвешенный образ меры \(\mu\)}'', \(\omega\) называется \textbf{весом}.
+\end{definition}
+
+\begin{theorem}[о вычислении интеграла по взвешенному образу меры]\itemfix
+    \label{о вычислении интеграла по взвешенному образу меры}
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \((Y, \mathfrak{B}, \nu)\) --- пространство с мерой
+        \item \(\Phi : X \to Y\)
+        \item \(\omega \geq 0\)
+        \item \(\omega\) измеримо на \(X\)
+        \item \(\nu\) взвешенный образ \(\mu\) при отображении \(\Phi\) с весом \(\omega\)
+    \end{itemize}
+
+    Тогда \(\forall\) измеримой относительно \(\mathfrak{B}\) \(f\) на \(Y, f \geq 0\) выполнено следующее:
+    \begin{enumerate}
+        \item \(f\circ \Phi\) измеримо на \(X\) относительно \(\mathfrak{A}\)
+        \item \begin{equation}
+                  \int_Y f(y) d \nu(y) = \int_X f(\Phi(x))\cdot \omega(x) d\mu(x) \label{доказываемый интеграл}
+              \end{equation}
+    \end{enumerate}
+
+    То же самое верно для суммируемой \(f\).
+\end{theorem}
+
+\begin{proof}
+    Измеримость \(f\circ \Phi\) выполнена по наблюдению \ref{об измеримости}.
+
+    \begin{enumerate}
+        \setcounter{enumi}{-1}
+        \item Пусть \(f = \chi_B, B \in \mathfrak{B}\)
+
+              \[(f \circ \Phi)(x) = f(\Phi(x)) = \begin{cases}
+                      1, & \Phi(x) \in B     \\
+                      0, & \Phi(x) \not\in B
+                  \end{cases} = \chi_{\Phi^{-1}(B)}\]
+
+              Тогда \eqref{доказываемый интеграл} это:
+              \[\mu B \stackrel{?}{ =} \int_X \chi_{\Phi^{-1}(B)} \cdot \omega d\mu = \int_{\Phi^{-1}(B)} \omega d\mu\]
+              Это выполнено по определению \(\mu B\)
+
+        \item Пусть \(f\) --- ступенчатая
+
+              \eqref{доказываемый интеграл} следует из линейности интеграла.
+
+        \item Пусть \(f \geq 0\), измеримая
+
+              По теореме \nameref{характеризация измеримых функций с помощью ступенчатых} и теореме \nameref{леви} \(\exists \{h_i\} : 0 \leq h_1 \leq h_2 \leq \dots \) --- ступенчатые, \(h_i \leq f, h_i \to f\)
+              \[\int_Y h_i d\nu = \int_X h_i \circ \Phi \cdot \omega d \mu \xrightarrow{i \to +\infty} \eqref{доказываемый интеграл}\]
+
+        \item Пусть \(f\) измерима.
+
+              Тогда для \(|f|\) выполнено \eqref{доказываемый интеграл}; \(|f|\) и \(|f\circ \Phi|\cdot \omega\) суммируемы одновременно.
+
+              \[(f \circ \Phi\cdot \omega)_+ = f_+ \circ \Phi \cdot \omega \quad (f \circ \Phi\cdot \omega)_+ = f_+ \circ \Phi \cdot \omega\]
+
+              Таким образом, искомое выполнено для \(f_+\) и \(f_-\), а следовательно и для \(f\).
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}[об интегрировании по подмножеству]
+    В условиях теоремы пусть:
+    \begin{itemize}
+        \item \(B\in \mathfrak{B}\)
+        \item \(f\) суммируемо на \(Y\)
+    \end{itemize}
+
+    Тогда
+    \[\int_B f d \nu = \int_{\Phi^{-1}(B)} f(\Phi(x)) \omega d\mu\]
+\end{corollary}
+\begin{proof}
+    В условие теоремы подставим \(f \cdot \chi_B\)
+\end{proof}
+
+\begin{definition}
+    Рассмотрим частный случай: \(X = Y, \mathfrak{A} = \mathfrak{B}, \Phi = \text{id}\). Кажется, что мы убили всю содержательность, но это не так --- есть ещё \(\omega\).
+    \[\nu(B) = \int_B \omega(x)d\mu\]
+    В этой ситуации \(\omega\) называется \textbf{плотностью} меры \(\nu\) относительно меры \(\mu\) и тогда по теореме \nameref{о вычислении интеграла по взвешенному образу меры}:
+    \[\int_X f d\nu = \int_X f(x) \omega(x) d\mu\]
+\end{definition}
 
 \end{document}

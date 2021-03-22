@@ -3,10 +3,8 @@
 function compile {
     echo "Building" "$1"
     cd "$(dirname "$1")"
-    if ! latexmk -xelatex -shell-escape "$(basename "$1")" &> "$REPOPATH"/latex.log; then
-        cat "$REPOPATH"/latex.log
-        exit 1
-    fi
+    for _ in {1..20}; do latexmk -f -xelatex -shell-escape "$(basename "$1")"; done
+    latexmk -f -xelatex -shell-escape "$(basename "$1")" || exit 1
     cd "$REPOPATH"
 }
 

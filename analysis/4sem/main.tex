@@ -1300,11 +1300,11 @@
         \item Пусть \(f \geq 0\), измеримая
 
               По теореме \nameref{характеризация измеримых функций с помощью ступенчатых} и теореме \nameref{леви} \(\exists \{h_i\} : 0 \leq h_1 \leq h_2 \leq \dots \) --- ступенчатые, \(h_i \leq f, h_i \to f\)
-              \[\int_Y h_i d\nu = \int_X h_i \circ \Phi \cdot \omega d \mu \xrightarrow{i \to +\infty} \eqref{доказываемый интеграл}\]
+              \[\int_Y h_i d\nu = \int_X h_i \circ \Phi \cdot \omega d \mu \xrightarrow{i \to +\infty}~\eqref{доказываемый интеграл}\]
 
         \item Пусть \(f\) измерима.
 
-              Тогда для \(|f|\) выполнено \eqref{доказываемый интеграл}; \(|f|\) и \(|f\circ \Phi|\cdot \omega\) суммируемы одновременно.
+              Тогда для \(|f|\) выполнено~\eqref{доказываемый интеграл}; \(|f|\) и \(|f\circ \Phi|\cdot \omega\) суммируемы одновременно.
 
               \[(f \circ \Phi\cdot \omega)_+ = f_+ \circ \Phi \cdot \omega \quad (f \circ \Phi\cdot \omega)_+ = f_+ \circ \Phi \cdot \omega\]
 
@@ -1332,5 +1332,280 @@
     В этой ситуации \(\omega\) называется \textbf{плотностью} меры \(\nu\) относительно меры \(\mu\) и тогда по теореме \nameref{о вычислении интеграла по взвешенному образу меры}:
     \[\int_X f d\nu = \int_X f(x) \omega(x) d\mu\]
 \end{definition}
+
+\chapter{15 марта}
+
+\unfinished
+
+\chapter{22 марта}
+
+\subsection{Сферические координаты в \(\R^m\)}
+
+Координаты задаются \(r, \varphi_1, \varphi_2 \dots \varphi_{m - 1}\). Зададим их по индукции:
+
+\begin{itemize}
+    \item \(\varphi_1\) --- угол между \(\overline e_1\) и \(\overline{OX}\in[0, \pi]\)
+    \item \(\varphi_2\) --- угол между \(\overline e_2\) и \(P_{2_{(e_2 \dots e_n)}}(x)\in[0, \pi]\)
+    \item \(\vdots\)
+    \item \(\varphi_{m - 1}\) --- полярный угол в \(\R^2\)
+\end{itemize}
+
+\begin{align*}
+    x_1       & = r \cos \varphi_1                                                 \\
+    x_2       & = r \sin \varphi_1 \cos \varphi_2                                  \\
+    x_3       & = r \sin \varphi_1 \sin \varphi_2 \cos \varphi_3                   \\
+    \vdots                                                                         \\
+    x_{n - 1} & = r \sin \varphi_1 \dots \sin \varphi_{m - 2} \cos \varphi_{m - 1} \\
+    x_n       & = r \sin \varphi_1 \dots \sin \varphi_{m - 2} \sin \varphi_{m - 1}
+\end{align*}
+
+\[J = r^{m - 1} \sin^{m - 2}\varphi_1 \sin^{m - 3}\varphi_2 \dots \sin \varphi_{m - 2}\]
+
+\begin{remark}
+    В \(\R^3\) ``географические'' координаты имеют якобиан \(J = r^2 \cos \psi\)
+\end{remark}
+
+Поймём, почему якобиан именно такой. Можно его посчитать руками, но это трудно.
+
+\begin{itemize}
+    \item [1 шаг] \begin{align*}
+              x_m       & = \rho_{m - 1} \sin \varphi_{m - 1} \\
+              x_{m - 1} & = \rho_{m - 1} \cos \varphi_{m - 1} \\
+          \end{align*}
+          \[(x_1 \dots x_m) \rightsquigarrow (x_1 \dots x_{m - 2}, \rho_{m - 1}, \varphi_{m - 1})\]
+          \[J = \begin{vmatrix} E & 0 \\ 0 & J_2 \end{vmatrix} = \rho_{m - 1}\]
+    \item [2 шаг] \begin{align*}
+              \rho_{m - 1} & = \rho_{m - 2} \sin \varphi_{m - 2} \\
+              x_{m - 2}    & = \rho_{m - 2} \cos \varphi_{m - 2} \\
+          \end{align*}
+          \[(x_1 \dots x_{m - 2}, \rho_{m - 1}, \varphi_{m - 1}) \rightsquigarrow (x_1 \dots x_{m - 3}, \rho_{m - 2}, \varphi_{m - 2}, \varphi_{m - 1})\]
+
+    \item [последний шаг]
+          \[(x_1 \rho_2, \varphi_2 \dots \varphi_{m - 1}) \rightsquigarrow (r, \varphi_1 \dots \varphi_{m - 1})\]
+          \begin{align*}
+              \rho_2 & = r \sin \varphi_1 \\
+              x_1    & = r \cos \varphi_1
+          \end{align*}
+\end{itemize}
+
+\begin{align*}
+    \lambda_m(\Omega) & = \int_\Omega 1 d\lambda_m                                                                                        \\
+                      & \stackrel{\text{1 шаг}}{=} \int_{\Omega_1} \rho_{m - 1}                                                           \\
+                      & \stackrel{\text{2 шаг}}{=} \int_{\Omega_2} \rho^2_{m - 2} \sin \varphi_{m - 2}                                    \\
+                      & \stackrel{\text{3 шаг}}{=} \int_{\Omega_3} \rho^3_{m - 3} \sin^2 \varphi_{m - 3} \sin \varphi_{m - 2}             \\
+                      & = \dots                                                                                                           \\
+                      & = \int_{\Omega_{m - 1}} r^{m - 1} \sin^{m - 2}\varphi_1 \sin^{m - 3}\varphi_2 \dots \sin \varphi_{m - 2} d\lambda
+\end{align*}
+
+Тогда по теореме о единственности плотности искомое верно.
+
+\section{Произведение мер}
+
+\(\sphericalangle (X, \mathfrak{A}, \mu)\), \((Y, \mathfrak{B}, \nu)\) --- пространства с мерой
+
+\begin{lemma}
+    \(\mathfrak{A}, \mathfrak{B}\) --- полукольца \( \Rightarrow \mathfrak{A} \times \mathfrak{B} = \{A \times B \subset X \times Y : A\in \mathfrak{A}, B \in \mathfrak{B}\}\) --- полукольцо.
+\end{lemma}
+\begin{proof}
+    Тривиально. % TODO: доказать
+\end{proof}
+
+\begin{obozn}
+    \(\mathcal{P} = \mathfrak{A} \times \mathfrak{B}\) --- называем \textbf{измеримыми прямоугольниками}.
+
+    \(m_0(A \times B) = \mu(A) \cdot \nu(B)\), при этом \(0 \cdot \infty\) принимаем за \(0\).
+\end{obozn}
+\begin{theorem}\itemfix
+    \begin{enumerate}
+        \item \(m_0\) --- мера на \(\mathcal{P}\)
+        \item \(\mu, \nu\) --- \(\sigma\)-конечны \( \Rightarrow m_0\) тоже \(\sigma\)-конечно.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item Проверим счётную аддитивность \(m_0\), т.е. \(m_0 P = \sum_{k = 1}^{+\infty} m_0 P_k\)\footnote{Прочие суммы/объединения также счётны в рамках данного доказательства.}, если \(A \times B = P = \bigsqcup P_k\), где \(P_k = A_k \times B_k\)
+
+              Заметим, что \(\chi_{A \times B}(x, y) = \chi_A(x) \cdot \chi_B(y)\).
+
+              Тогда \(\chi_P = \sum \chi_{P_k}\), где \(\forall x\in X, y\in Y \ \ \chi_A(x) \chi_B(y) = \sum \chi_{A_k}(x) \chi_{B_k}(y)\)
+
+              Проинтегрируем по \(y\) по мере \(\nu\) по пространству \(Y\):
+              \[\chi_A(x) \nu B = \sum \chi_{A_k}(x) \cdot \nu B_k\]
+
+              Проинтегрируем по \(x\) по мере \(\mu\) по пространству \(X\):
+              \[\mu A \mu B = \sum \mu A_k \nu B_k\]
+              Это и есть искомое.
+
+        \item Очевидно, т.к.:
+              \begin{itemize}
+                  \item \(\mu\) \(\sigma\)-конечно \( \Rightarrow X = \bigcup X_k, \mu X_k\) --- конечно \(\forall k\)
+                  \item \(\nu\) \(\sigma\)-конечно \( \Rightarrow Y = \bigcup Y_n, \nu Y_n\) --- конечно \(\forall k\)
+              \end{itemize}
+
+              Тогда \(X \times Y = \bigcup X_k \times Y_n, m_0(X_k \times Y_n) = \mu X_k \nu Y_n\). Конечное произведение конечных конечно, поэтому \(m_0\) \(\sigma\)-конечно.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(\sphericalangle (X, \mathfrak{A}, \mu)\), \((Y, \mathfrak{B}, \nu)\) --- пространства с мерой
+        \item \(\mu, \nu\) \(\sigma\)-конечны
+    \end{itemize}
+
+    Пусть \(m\) --- лебеговское продолжение меры \(m_0\) на \(\sigma\)-алгебру, которую будем обозначать \(\mathfrak{A} \otimes \mathfrak{B}\)\footnote{\(\otimes\) --- не тензорное произведение}
+
+    \begin{obozn}
+        \(m = \mu \times \nu\)
+    \end{obozn}
+
+    \((X \times Y, \mathfrak{A} \otimes \mathfrak{B}, \mu \times \nu)\) --- \textbf{произведение пространств с мерой} \((X, \mathfrak{A}, \mu)\) и \((Y, \mathfrak{B}, \nu)\)
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item Это произведение ассоциативно.
+        \item \(\sigma\)-конечность нужна для единственности произведения.
+    \end{itemize}
+\end{remark}
+
+\begin{theorem}
+    \(\lambda_m \times \lambda_n = \lambda_{m + n}\)
+\end{theorem}
+\begin{proof}
+    Не будет.
+\end{proof}
+
+\begin{definition}
+    \(X, Y\) --- множества, \(C \subset X \times Y\)
+
+    \[\forall x\in X \ \ C_x : = \{y\in Y : (x, y)\in C\}\]
+    \[\forall y\in Y \ \ C^y : = \{x\in X : (x, y)\in C\}\]
+
+    \(C_x, C^y\) называется \textbf{сечением}.
+\end{definition}
+
+\begin{remark}
+    \[\left( \bigcup_\alpha C_\alpha \right)_x = \bigcup (C_\alpha)_x \quad \left( \bigcap C_\alpha \right)_x = \bigcup (C_\alpha)_x \quad (C \setminus C')_x = C_x \setminus C'_x \]
+\end{remark}
+
+\begin{theorem}[принцип Кавальери\footnote{Ка��альери имеет к этой теореме косвенное отношение, т.к. он жил за пару веков до появления теории меры.}]\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\)
+        \item \((Y, \mathfrak{B}, \nu)\)
+        \item \(\mu, \nu\) --- \(\sigma\)-конечны.
+        \item \(\mu, \nu\) --- полные.
+        \item \(m = \mu \times \nu\)
+        \item \(C\in A \otimes B\)
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item \(C_x \in \mathfrak{B}\) при почти всех \(x\)
+        \item \(x \mapsto \nu(C_x)\) --- измеримая\footnote{функция задана при почти всех \(X\); она равна п.в. некоторой измеримой функции, заданной всюду} функция на \(X\)
+        \item \(mC = \int_X \nu(C_x) d \mu(x)\)
+    \end{enumerate}
+
+    Аналогичное верно для \(C^y\).
+\end{theorem}
+
+\begin{example}
+    \?
+\end{example}
+
+\begin{proof}
+    Пусть \(\mathfrak{D}\) --- система множеств, для которых выполнено 1.-3.
+
+    \begin{enumerate}
+        \item \(C = A \times B \Rightarrow C\in \mathfrak{D}\)
+
+              \begin{enumerate}
+                  \item \(C_x = \begin{cases}
+                            \emptyset, x\not\in A \\
+                            B, x\in A
+                        \end{cases}\)
+                  \item \(x \mapsto \nu(C_x)\) --- функция \(\nu B \cdot \chi_A\)
+                  \item \(\int \nu(C_x) d\mu = \int_X \nu B \cdot \chi_A d \mu = \nu B \cdot \mu A = mC\)
+              \end{enumerate}
+
+        \item \(E_i \in \mathfrak{D}\), дизъюнктны \( \Rightarrow \bigsqcup E_i\in \mathfrak{D}\). Обозначим \(E = \bigsqcup E_i\)
+
+              \(E_i \in \mathfrak{D} \Rightarrow (E_i)_x\) измеримо почти везде \( \Rightarrow \) при почти всех \(x\) все \((E_i)_x\) измеримы.
+
+              Тогда при этих \(x\) \(E_x = \bigsqcup (E_i)_x \in \mathfrak{B}\) --- это 1.
+
+              \(\nu E_x = \sum \underbrace{\nu(E_i)_x}_{\substack{\text{измеримая} \\ \text{функция}}} \Rightarrow\) Функция \(x \mapsto \nu E_x\) измеримо --- это 2.
+
+              \(\int_X \nu E_x d\mu = \sum_i \int_X \nu(E_i) x = \sum_i m E_i = m E\) --- это 3.
+
+        \item \(E_i \in \mathfrak{D}, E_1 \supset E_2 \supset \dots , E = \bigcap_i E_i, \mu E_i < +\infty\). Тогда \(E\in \mathfrak{D}\).
+
+              \(\int_X \nu(E_i)_x d\mu = m E_i < +\infty \Rightarrow \nu(E_i)_x\) --- конечно при почти всех \(x\).
+
+              \(\forall x\) верно \((E_1)_x \supset (E_2)_x \supset \dots , E_x = \bigcap (E_i)_x\)
+
+              Тогда \(E_x\) измеримо \textit{(это 1.)} и \(\lim_{i \to +\infty} \nu(E_i)_x = \nu E_x\) при п.в. \(x\).
+
+              Таким образом, \(x \mapsto \nu E_x\) измерима --- это 2.
+
+              \(\int_x \nu E_x d\mu = \lim \int_X \nu(E_i)_x d\mu = \lim m E_i = m E\) --- это 3.
+
+              По теореме Лебега % какой?
+              \(|\nu(E_i) x| \leq \nu(E_i)x\) суммируемо.
+
+              Итого: Если \(A_{ij}\in \mathcal{P}  = \mathfrak{A} \times \mathfrak{B}\), то \(\bigsqcap \bigcup A_{ij} \in \mathfrak{D}\)
+
+        \item \(m E = 0 \Rightarrow E \in \mathfrak{D}\)
+
+              \(m E = \inf \left\{\sum m_0 P_k : E \subset \bigcup P_k, P_k \in \mathcal{P}\right\} \) --- из пункта 5 теоремы о лебеговском продолжении.
+
+              \(\exists \) множество \(H\) вида \(\bigcap_l \bigsqcup_k P_{kl}\), т.е. \(H\in \mathfrak{D}\).
+
+              \(E\subset H, m H = m E = 0\)
+
+              \(0 = mH = \int_X \underbrace{\nu H_x}_{ \geq 0} d\mu \Rightarrow \nu H_x = 0\) про почти всех \(x\).
+
+              \(E_x \subset H_x, \nu\) --- полная \( \Rightarrow E_x\) --- измеримо при почти всех \(x\) --- это 1 и \(\nu E_x = 0\) почти везде, это 2.
+
+              \(\int \nu E_x d\mu = 0 = m E\) --- это 3.
+
+        \item \(C\) --- измеримо, \(mC < +\infty\). Тогда \(C\in \mathfrak{D}\).
+
+              \(C = H \setminus e\), где \(H\) имеет вид \(\bigsqcap \bigcup P_{k_l}, me = 0\)
+
+              \(mC = mH\)
+
+              \begin{enumerate}
+                  \item \(C_x = H_x \setminus e_x\) --- измеримо при почти всех \(x\)
+                  \item \(\nu e_x = 0\) при почти всех \(x\) \( \Rightarrow \nu C_x = \nu H_x - \nu E_x = \nu H_x \Rightarrow \) измеримо.
+                  \item \(\int_X \nu C_x d\mu = \int_X \nu H_x d\mu = mH = mC\)
+              \end{enumerate}
+
+        \item \(C\) --- произвольное измеримое множество в \(X \times Y \Rightarrow C \in \mathfrak{D}\)
+
+              \(X = \bigsqcup X_k, \mu X_k < +\infty, Y = \bigsqcup Y_j, \nu Y_j < +\infty\)
+
+              \(C = \bigsqcup (\underbrace{C \cap (X_k \times Y_j)}_{\? < +\infty})\) \? % TODO
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    \(C\) измеримо в \(X \times Y\). Пусть \(P_1(C) = \{x\in X, C_x \neq \emptyset\}\) --- проекция~\(C\) на~\(X\).
+
+    Если \(P_1(C)\) измеримо, то:
+    \[mC = \int_{P_1(C)} \nu(C_x) d\mu\]
+\end{corollary}
+\begin{proof}
+    При \(x\not\in P_1(C) \ \ \nu(C_x) = 0\)
+\end{proof}
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item \(C\) измеримо \(\nRightarrow P_1(C)\) измеримо.
+        \item \(C\) измеримо \(\nRightarrow \forall x \ \ C_x\) измеримо.
+        \item \(\forall x, \forall y \ \ C_x, C^y\) измеримо \(\nRightarrow C\) измеримо.
+
+              Пример Серпинского.
+    \end{enumerate}
+\end{remark}
 
 \end{document}

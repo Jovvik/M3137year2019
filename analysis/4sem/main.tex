@@ -959,7 +959,7 @@
 \end{proof}
 
 \begin{corollary}
-    \(f, g\) суммируемы на \(E\). Тогда \(f + g\) суммируемо и \(\int_{E} f + g = \int_E f + \int_E g\). Таким образом, доказано \ref{доказано позже}.
+    \(f, g\) суммируемы на \(E\). Тогда \(f + g\) суммируемо и \(\int_{E} f + g = \int_E f + \int_E g\). Таким образом, доказано~\ref{доказано позже}.
 \end{corollary}
 
 \begin{proof}[Доказательство суммируемости]
@@ -1085,10 +1085,10 @@
     Тогда: \(f_n, f\) --- суммируемы и \(\int_X |f_n - f| d\mu \xrightarrow{n \to +\infty} 0\), и тем более \(\int_X f_n d\mu \to \int_X f d\mu\)
 \end{theorem}
 \begin{remark}
-    Почти везде конечность \(f_n\) и \(f\) следует из \eqref{``1''}, поэтому в условии этого можно не требовать.
+    Почти везде конечность \(f_n\) и \(f\) следует из~\eqref{``1''}, поэтому в условии этого можно не требовать.
 \end{remark}
 \begin{proof}
-    \(f_n\) --- суммируемы в силу неравенства \eqref{``1''}, \(f\) суммируемо в силу следствия теоремы Рисса, тем более \(|\int_X f_n - \int_X f| \leq  \int_X |f_n - f| \to 0\)
+    \(f_n\) --- суммируемы в силу неравенства~\eqref{``1''}, \(f\) суммируемо в силу следствия теоремы Рисса, тем более \(|\int_X f_n - \int_X f| \leq  \int_X |f_n - f| \to 0\)
 
     \begin{enumerate}
         \item \(\mu X < +\infty\)
@@ -1135,10 +1135,10 @@
     \[0 \symref{тривиально неотрицательно}{ \leq } h_n \symref{по 2g}{\leq} 2g\]
 
     \blfootnote{\eqref{тривиально неотрицательно}: по построению}
-    \blfootnote{\eqref{по 2g}: по \eqref{|f_n - f| < 2g}}
+    \blfootnote{\eqref{по 2g}: по~\eqref{|f_n - f| < 2g}}
 
     \(h_n\) монотонно убывает, что очевидно по определению \(\sup\).
-    \blfootnote{\eqref{по fn to f}: по \eqref{fn to f}}
+    \blfootnote{\eqref{по fn to f}: по~\eqref{fn to f}}
     \[\lim h_n \defeq \overline\lim |f_n - f| \symrefeq{по fn to f} 0 \text{ почти везде}\]
 
     \(2g - h_n \geq 0\) и возрастает как последовательность функций, \(2g - h_n\to 2g\) почти везде. Тогда по теореме \nameref{леви}:
@@ -1188,7 +1188,7 @@
     \end{equation}
     \[\int_X g_n \symref{по леви}{ \to } \int_X f\]
     \blfootnote{\eqref{по леви}: по \nameref{леви}}
-    Значит \(\int_X f \leq C\) по предельному переходу в \eqref{неравенство}
+    Значит \(\int_X f \leq C\) по предельному переходу в~\eqref{неравенство}
 \end{proof}
 
 \begin{corollary}\itemfix
@@ -1216,7 +1216,7 @@
     Тогда \(\int_X \underline\lim f_n \leq \underline\lim \int_X f_n\)
 \end{corollary}
 \begin{proof}
-    Возьмём \eqref{неравенство} как в теореме. Выберем \(n_k : \int_X f_{n_k} \xrightarrow{n \to +\infty} \underline\lim \int_X f_n\)
+    Возьмём~\eqref{неравенство} как в теореме. Выберем \(n_k : \int_X f_{n_k} \xrightarrow{n \to +\infty} \underline\lim \int_X f_n\)
     \[
         \begin{tikzcd}[ampersand replacement=\&, column sep=small]
             \int_X g_{n_k} \arrow[swap,shift right=2em]{d}{} \leq \int_X f_{n_k} \\
@@ -1278,7 +1278,7 @@
 \end{theorem}
 
 \begin{proof}
-    Измеримость \(f\circ \Phi\) выполнена по наблюдению \ref{об измеримости}.
+    Измеримость \(f\circ \Phi\) выполнена по наблюдению~\ref{об измеримости}.
 
     \begin{enumerate}
         \setcounter{enumi}{-1}
@@ -1289,7 +1289,7 @@
                       0, & \Phi(x) \not\in B
                   \end{cases} = \chi_{\Phi^{-1}(B)}\]
 
-              Тогда \eqref{доказываемый интеграл} это:
+              Тогда~\eqref{доказываемый интеграл} это:
               \[\mu B \stackrel{?}{ =} \int_X \chi_{\Phi^{-1}(B)} \cdot \omega d\mu = \int_{\Phi^{-1}(B)} \omega d\mu\]
               Это выполнено по определению \(\mu B\)
 
@@ -1329,11 +1329,13 @@
 \begin{definition}
     Рассмотрим частный случай: \(X = Y, \mathfrak{A} = \mathfrak{B}, \Phi = \text{id}\). Кажется, что мы убили всю содержательность, но это не так --- есть ещё \(\omega\).
     \[\nu(B) = \int_B \omega(x)d\mu\]
-    В этой ситуации \(\omega\) называется \textbf{плотностью} меры \(\nu\) относительно меры \(\mu\) и тогда по теореме \nameref{о вычислении интеграла по взвешенному образу меры}:
+    В этой ситуации \(\omega\) называется \textbf{плотностью} меры \(\nu\) относительно меры \(\mu\) и тогда по теореме~\nameref{о вычислении интеграла по взвешенному образу меры}:
     \[\int_X f d\nu = \int_X f(x) \omega(x) d\mu\]
 \end{definition}
 
 \chapter{15 марта}
+
+
 
 \unfinished
 
@@ -1488,7 +1490,7 @@
     \[\left( \bigcup_\alpha C_\alpha \right)_x = \bigcup (C_\alpha)_x \quad \left( \bigcap C_\alpha \right)_x = \bigcup (C_\alpha)_x \quad (C \setminus C')_x = C_x \setminus C'_x \]
 \end{remark}
 
-\begin{theorem}[принцип Кавальери\footnote{Ка��альери имеет к этой теореме косвенное отношение, т.к. он жил за пару веков до появления теории меры.}]\itemfix
+\begin{theorem}[принцип Кавальери\footnote{Кавальери имеет к этой теореме косвенное отношение, т.к. он жил за пару веков до появления теории меры.}]\itemfix
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
         \item \((Y, \mathfrak{B}, \nu)\)

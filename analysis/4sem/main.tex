@@ -2,11 +2,12 @@
 
 \begin{document}
 
+% а где
 \title{Математический анализ}
 \titlepage
 
 % TODO: названия частей
-% \tableofcontents
+\tableofcontents
 
 \chapter{8 февраля}
 
@@ -446,7 +447,7 @@
     \(\forall e\subset \R : \lambda e = 0\), если \(f\) непрерывно на \(e\), то полученная \(\tilde{f}\) разрывна всюду.
 \end{exercise}
 
-\subsection*{Сходимость почти везде и по мере}
+\subsection{Сходимость почти везде и по мере}
 
 \begin{definition}\itemfix
     %<*свойствопочтивезде>
@@ -638,7 +639,7 @@
     Упражнение. % TODO: #70 доказать
 \end{proof}
 
-\section*{Интеграл}
+\section{Интеграл}
 
 \(\sphericalangle (X, \mathfrak{A}, \mu)\) --- зафиксировали.
 
@@ -894,7 +895,7 @@
     \(A\subset B, f \geq 0 \Rightarrow \int_A f \leq \int_B f\)
 \end{corollary}
 
-\subsection*{Предельный переход под знаком интеграла}
+\subsection{Предельный переход под знаком интеграла}
 
 Пусть \(f_n \to f\). Можно ли утверждать, что \(\int_E f_n \to \int_E f\)?
 
@@ -1335,7 +1336,120 @@
 
 \chapter{15 марта}
 
-\unfinished
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(X, \mathfrak{A}, \mu\) --- пространство с мерой
+        \item \(\nu : \mathfrak{A} \to \overline \R\) --- мера
+    \end{itemize}
+
+    \textbf{Плотность меры} \(\nu\) относительно \(\mu\) есть положительная измеримая функция \(\omega : X \to \overline \R\), такая что:
+    \[\forall B\in \mathfrak{A} \ \ \nu B = \int_B \Omega d\mu\]
+\end{definition}
+
+\begin{theorem}[критерий плотности]\itemfix
+    \label{критерий плотности}
+    \begin{itemize}
+        \item \(X, \mathfrak{A}, \mu\) --- пространство с мерой
+        \item \(\nu\) --- мера
+        \item \(\omega : X \to \overline\R\)
+        \item \(\omega \geq 0\)
+        \item \(\omega\) измеримо
+    \end{itemize}
+
+    Тогда \(\omega\) --- плотность \(\nu\) относительно \(\mu \Leftrightarrow\):
+    \[\forall A\in \mathfrak{A} \ \ \mu A \cdot \inf_A \omega \leq \nu(A) \leq \mu A \sup_A \omega\]
+    При этом \(0\cdot \infty\) считается \( = 0\).
+\end{theorem}
+
+\begin{example}[отсутствие плотности]
+    \(X = \R, \mathfrak{A} = \mathfrak{M}^1, \mu = \lambda_1\)
+
+    \(\nu\) --- одноточечная мера: \(\nu(A) =\begin{cases}
+        1, & 0\in A     \\
+        0, & 0\not\in A
+    \end{cases}\)
+
+    Необходимое условие существования плотности --- \(\mu A = 0 \Rightarrow \nu A = 0\)
+
+    Это и достаточное условие по теореме Радона-Никодима\footnote{Возможно, мы разберём её в конце семестра.}.
+\end{example}
+
+\begin{proof}[Доказательство теоремы~\nameref{критерий плотности}]\itemfix
+    \begin{itemize}
+        \item [``\( \Rightarrow \)''] Очевидно.
+        \item [``\( \Leftarrow \)''] Рассмотрим \(\omega > 0\). Общность не умаляется, т.к. пусть \(e = X(\omega = 0)\), тогда \(\nu(e) \defeq \int_e \omega d\mu = 0\), поэтому в случае \(A\cap e \neq \emptyset\) всё ещё только лучше.
+
+              Фиксируем число \(q\in(0, 1)\).
+              \[A_j : = A(q^j \leq \omega < q^{j - 1}), j\in\Z\]
+              \[A = \bigsqcup_{j\in \Z} A_j\]
+              \[\mu A_j \cdot q^j \symref{неравенство 11}{\leq} \nu A_j \symref{неравенство 12}{\leq} \mu A_j \sup_{A_j} q^{j - 1}\]
+              \[\mu A_j \cdot q^j  \symref{неравенство 21}{\leq} \int_{A_j} \omega d\mu \symref{неравенство 22}{\leq} \mu A_j q^{j - 1}\]
+              Тогда:
+              \begin{align*}
+                  q\cdot \int_A \omega d\mu & \leq q\cdot \sum \int_{A_j} \omega d\mu                            \\
+                                            & \symref{по неравенство 22}{\leq} \sum q^j \mu A_j                  \\
+                                            & \symref{по неравенство 11}{\leq} \underbrace{\sum \nu A_j}_{\nu A} \\
+                                            & \symref{по неравенство 12}{\leq} \frac{1}{q} \sum q^j \mu A_j      \\
+                                            & \symref{по неравенство 21}{\leq} \frac{1}{q}\sum \int_{A_j}        \\
+                                            & = \frac{1}{q}\int_A \omega d\mu
+              \end{align*}
+              \blfootnote{\eqref{по неравенство 11}: по~\eqref{неравенство 11}}
+              \blfootnote{\eqref{по неравенство 12}: по~\eqref{неравенство 12}}
+              \blfootnote{\eqref{по неравенство 21}: по~\eqref{неравенство 21}}
+              \blfootnote{\eqref{по неравенство 22}: по~\eqref{неравенство 22}}
+
+              То есть:
+              \[q \int_A \omega d\mu \leq \nu A \leq \frac{1}{q}\int_A \omega d\mu\]
+              Тогда предельный переход при \(q \to 1 - 0\) дает искомое.
+    \end{itemize}
+\end{proof}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(f, g\) суммируемы
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \(\forall A\in \mathfrak{A} \ \ \int_A f = \int_A g\)
+    \end{itemize}
+
+    Тогда \(f = g\) почти везде.
+\end{lemma}
+
+\begin{proof}
+    \(h: = f - g\). Дано: \(\forall A \ \ \int_A h = 0\); доказать --- \(h = 0\) почти везде.
+
+    \[A_{ +} : = X(h \geq 0) \quad A_{ - } : = X(h < 0) \quad X = A_{ +} \sqcup A_{ -}\]
+    \[\int_{A_{ +}} |h| = \int_{A_{ +}} h = 0 \quad \int_{A_{ -}} |h| = -\int_{A_{ -}} h = 0 \implies \int_X |h| = 0 \implies h = 0 \text{ п.в.}\]
+\end{proof}
+
+\begin{remark}
+    Если \(\mathcal{L}(X)\) --- линейное пространство, отображение \(l_A : f \mapsto \int_A f\) есть линейный функционал. Таким образом, множество функционалов \(\{l_A, A \in \mathfrak{A}\}\) разделяет точки, т.е. \(\forall f \neq g \in \mathcal{L}(X) \ \ \exists A : l_A(f) \neq l_A(g)\)
+\end{remark}
+
+\begin{remark}
+    В \(\R^m\) \(a = (a_1 \dots a_m)\), \(l_a : x \mapsto a_1x_1 + \dots + a_n x_n\). Тогда \(\forall x, y\in\R^m \ \ \exists a : l_a(x) =\footnote{Кажется, здесь должно быть ``\(\neq\)''}\ l_a(y)\).
+\end{remark}
+
+\section{Возвращаемся в \(\R^m\)}
+
+\begin{lemma}[о мере образа малых кубических ячеек]\itemfix
+    \begin{itemize}
+        \item \(\Phi : O \subset \R^m \to \R^m\)
+        \item \(O\) открыто
+        \item \(a\in O\)
+        \item \(\Phi\) дифференцируемо в точке \(a\)
+        \item \(c > |\det \Phi'(a)| \neq 0\)
+    \end{itemize}
+
+    Тогда \(\exists \delta > 0 \ \ \forall \text{ куба } Q\subset B(a, \delta), a\in Q\) выполняется неравенство \(\lambda \Phi(Q) < c \lambda Q\)
+\end{lemma}
+\begin{proof}
+    \(L: = \Phi'(a)\) --- обратимо\footnote{т.к. \(\det \Phi'(a) \neq 0\)}
+    \[\Phi(x) = \Phi(a) + L (x - a) + o(x - a)\]
+    \[\underbrace{a + L^{ - 1}(\Phi(x) - \Phi(a))}_{\Psi(x)} = x + o\footnote{Это не то же самое \(o\), что строчкой выше.}(x - a)\]
+    \[\forall \varepsilon > 0 \ \ \exists \text{ шар } B_{\varepsilon}(a) \ \ AAx\in B_{\varepsilon}(a) \ \ |\Psi(x) - x| < \frac{\varepsilon}{\sqrt{m}}|x - a|\]
+
+    \unfinished
+\end{proof}
 
 \chapter{22 марта}
 
@@ -1531,7 +1645,7 @@
 
               \(E_i \in \mathfrak{D} \Rightarrow (E_i)_x\) измеримо почти везде \( \Rightarrow \) при почти всех \(x\) все \((E_i)_x\) измеримы.
 
-              Тогда при этих \(x\) \(E_x = \bigsqcup (E_i)_x \in \mathfrak{B}\) --- это 1.
+              Тогда при ��тих \(x\) \(E_x = \bigsqcup (E_i)_x \in \mathfrak{B}\) --- это 1.
 
               \(\nu E_x = \sum \underbrace{\nu(E_i)_x}_{\substack{\text{измеримая} \\ \text{функция}}} \Rightarrow\) Функция \(x \mapsto \nu E_x\) измеримо --- это 2.
 

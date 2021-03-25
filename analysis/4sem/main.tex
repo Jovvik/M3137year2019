@@ -1432,24 +1432,173 @@
 \section{Возвращаемся в \(\R^m\)}
 
 \begin{lemma}[о мере образа малых кубических ячеек]\itemfix
+    \label{о мере образа малых кубических ячеек}
     \begin{itemize}
         \item \(\Phi : O \subset \R^m \to \R^m\)
         \item \(O\) открыто
         \item \(a\in O\)
-        \item \(\Phi\) дифференцируемо в точке \(a\)
+        \item \(\Phi\in C^1\)
         \item \(c > |\det \Phi'(a)| \neq 0\)
     \end{itemize}
 
     Тогда \(\exists \delta > 0 \ \ \forall \text{ куба } Q\subset B(a, \delta), a\in Q\) выполняется неравенство \(\lambda \Phi(Q) < c \lambda Q\)
+
+    \begin{remark}
+        Здесь можно считать, что \(Q\) --- замкнутые кубы.
+    \end{remark}
 \end{lemma}
 \begin{proof}
     \(L: = \Phi'(a)\) --- обратимо\footnote{т.к. \(\det \Phi'(a) \neq 0\)}
     \[\Phi(x) = \Phi(a) + L (x - a) + o(x - a)\]
     \[\underbrace{a + L^{ - 1}(\Phi(x) - \Phi(a))}_{\Psi(x)} = x + o\footnote{Это не то же самое \(o\), что строчкой выше.}(x - a)\]
-    \[\forall \varepsilon > 0 \ \ \exists \text{ шар } B_{\varepsilon}(a) \ \ AAx\in B_{\varepsilon}(a) \ \ |\Psi(x) - x| < \frac{\varepsilon}{\sqrt{m}}|x - a|\]
+    \[\forall \varepsilon > 0 \ \ \exists \text{ шар } B_{\varepsilon\footnotemark}(a) \ \ \forall x \in B_{\varepsilon}(a) \ \ |\Psi(x) - x| < \frac{\varepsilon}{\sqrt{m}}|x - a|\]
+    \footnotetext{Это не радиус шара, а параметр.}
 
-    \unfinished
+    Пусть \(Q \subset B_\varepsilon(a), a \in Q, Q\) --- куб со стороной \(h\).
+
+    При \(x\in Q\):
+
+    \[|x - a| \leq \sqrt{m}h\]
+    \[|\Psi(x) - x| \symref{по определению шара}{<} \frac{\varepsilon}{\sqrt{m}} |x - a| \leq \varepsilon h\]
+    \blfootnote{\eqref{по определению шара}: т.к. \(x\in B_\varepsilon(a)\)}
+
+    Тогда \(\Psi(Q) \subset \) куб со стороной \((1 + 2\varepsilon)h\), т.к. при \(x,y\in Q\)
+    \begin{align*}
+        |\Psi(x)_i - \Psi(y)_i| & \leq |\Psi(x)_i - x_i| + |x_i - y_i| + |\Psi(y)_i - y_i| \\
+                                & \leq |\Psi(x) - x| + h + |\Psi(y) - y|                   \\
+                                & \leq (1 + 2\varepsilon)h
+    \end{align*}
+
+    \[\lambda(\Psi(Q)) \leq (1 + 2\varepsilon)^m \cdot \lambda Q\]
+
+    \(\Psi\) и \(\Phi\) отличаются только сдвигом и линейным отображением.
+    \[\lambda \Phi(Q) = |\det L| \cdot \lambda \Psi(Q) \leq |\det L| (1 + 2\varepsilon)^m \cdot \lambda Q\]
+
+    Выбираем \(\varepsilon\) такое, чтобы \(|\det L| (1 + 2\varepsilon)^m < c\), потом берём \(\delta =\) радиус \(B_\varepsilon(a)\)
 \end{proof}
+
+\begin{lemma}\itemfix
+    \label{лемма без имени}
+    \begin{itemize}
+        \item \(f : O \subset \R^m \to \R\)
+        \item \(O\) открыто
+        \item \(f\) непрерывна
+        \item \(A\) измеримо
+        \item \(A \subset Q \subset \overline Q \subset O\)
+        \item \(Q\) --- кубическая ячейка
+    \end{itemize}
+
+    Тогда:
+    \[\inf_{\substack{G : A\subset G \\ G \text{ откр. } \subset O}} \lambda(G) \cdot \sup_G f = \lambda A \cdot \sup_A f\]
+\end{lemma}
+\begin{proof}
+    Упражнение. % TODO: доказать
+\end{proof}
+
+\begin{theorem}\itemfix
+    \label{мера лебега при диффеоморфизме}
+    \begin{itemize}
+        \item \(\Phi : O\subset \R^m \to \R^m\)
+        \item \(\Phi\) диффеоморфизм
+    \end{itemize}
+
+    Тогда
+    \[\forall A\in \mathfrak{M}^m, A \subset O \ \ \lambda \Phi(A) = \int_A |\det \Phi'(x)| d\lambda(x)\]
+\end{theorem}
+
+\begin{proof}
+    \begin{obozn}\itemfix
+        \begin{itemize}
+            \item \(J_\Phi(x) = |\det \Phi'(x)|\)
+            \item \(\nu A : = \lambda \Phi(A)\) --- мера
+        \end{itemize}
+    \end{obozn}
+
+    Надо доказать, что \(J_\Phi\) --- плотность \(\nu\) относительно \(\lambda\).
+
+    Достаточно проверить условие теоремы~\nameref{критерий плотности}, что \(\forall \) измеримого \(A\):
+    \[\inf_A J_\Phi \cdot \lambda A \leq \nu(A) \symref{искомое неравенство}{\leq} \sup_A J_\Phi \cdot \lambda A\]
+
+    Достаточно проверить только правое неравенство, т.к. левое неравенство --- правое неравенство для \(\Phi(A)\) и отображения \(\Phi^{-1}\)
+    \[\inf \frac{1}{|\det (\Phi')|} \cdot \lambda \Phi(A) \leq \lambda A \]
+
+    \begin{enumerate}
+        \item Проверяем~\eqref{искомое неравенство} для случая \(A\) --- кубическая ячейка, \(A\subset\overline A \subset O\)
+
+              От противного: \(\lambda Q \cdot \sup_Q J_\Phi < \nu (Q)\)
+
+              Возьмём \(C > \sup_Q J_\Phi : C \cdot \lambda Q < \nu (Q)\).
+
+              Запускаем половинное деление: режем \(Q\) на \(2^m\) более мелких кубических ячеек. Выберем ``мелкую'' ячейку \(Q_1 \subset Q : C \cdot \lambda Q_1 < \nu Q_1\). Опять делим на \(2^m\) частей, берём \(Q_2 Ж С\cdot \lambda Q_2 < \nu Q_2\) и т.д.
+
+              \(a \in \bigcap \overline Q_i\)
+
+              \begin{equation}
+                  Q_1 \supset Q_2 \supset \dots \quad \quad \forall n \ \ C \cdot \lambda Q_n < \nu Q_n \label{свойство кубов}
+              \end{equation}
+              \(C > \sup_Q J_\Phi = \sup_{\overline Q} J_\Phi\), в частности \(c > |\det \Phi'(a)|\). Мы получили противоречие с леммой~\nameref{о мере образа малых кубических ячеек}: в сколько угодно малой окрестности \(a\) имеются кубы \(\overline Q_n\), где выполнено~\eqref{свойство кубов}
+
+        \item Проверяем~\eqref{искомое неравенство} для случая \(A\) открыто.
+
+              Это очевидно, т.к. \(A = \bigsqcup Q_j, Q_j\) --- кубическая ячейка, \(Q_j \subset \overline Q_j \subset A\)
+              \begin{equation}
+                  \nu A = \sum \lambda Q_j \leq \sum \mu Q_j \sup_{Q_j} J_\Phi \leq \sup_A J_\Phi \cdot \sum \mu Q_j = \sup_A J_\Phi \cdot \lambda A \label{доказательство для открытых}
+              \end{equation}
+
+        \item По лемме~\ref{лемма без имени} неравенство~\eqref{искомое неравенство} выполнено для всех измеримых \(A\):
+
+              \(O = \bigsqcup Q_j\) --- кубы \(Q_j \subset \overline Q_j \subset O\), \(A = \bigsqcup \underbrace{A \cap Q_j}_{A_j}\)
+              \[\nu A_j \leq \nu G \leq \sup_G J_\Phi \cdot \lambda G \Rightarrow \nu A_j \leq \inf_G (\sup J_\Phi \cdot \lambda G) = \sup_{A_j} f \cdot \lambda A_j\]
+
+              Аналогично формуле~\eqref{доказательство для открытых} получаем \(\nu A \leq \sup_A f \cdot \lambda A\)
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(\Phi : O \subset \R^m \to \R^m\)
+        \item \(\Phi\) дифференцируемо
+    \end{itemize}
+
+    Тогда \(\forall\) измеримой \(f \geq 0\), заданной на \(O' = \Phi(O)\):
+    \[\int_{O'} f(y)d\lambda = \int_O f(\Phi(x)) \cdot J_\Phi \cdot d \lambda, J_\Phi(x) = |\det \Phi'(x)|\]
+
+    То же самое верно для суммируемой \(f\).
+\end{theorem}
+\begin{proof}
+    Применяем теорему~\nameref{о вычислении интеграла по взвешенному образу меры} при \(X = Y = \R^m, \mathfrak{A} = \mathfrak{B} = \mathfrak{M}^m, \mu = \lambda, \nu(A) = \lambda(\Phi(A))\):
+    \[\int_B f d\nu = \int_{\Phi^{-1}B} f(\Phi(x)) \omega(x) d\mu\]
+
+    По теореме~\ref{мера лебега при диффеоморфизме} \(\lambda(B) = \int_{\Phi^{-1}(O)} J_\Phi d \lambda\), т.е. \(\lambda\) --- взвешенный образ исходной меры по отношению к \(\Phi\)
+\end{proof}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item Полярные координаты в \(\R^2\):
+              \[\Phi = \begin{cases} x = r\cos \varphi \\ y = r\sin \varphi \end{cases} \quad \Phi : \{(r, \varphi), r > 0, \varphi\in(0, 2\pi)\} \to \R^2\]
+              \[\Phi' = \begin{pmatrix} \cos \varphi & - r \sin \varphi \\ \sin \varphi & r \cos \varphi \end{pmatrix} \quad \det \Phi' = r \quad J_\Phi = r \]
+              \[\iint_\Omega f(x, y)d\lambda_r = \iint_{\Phi^{ - 1}(\Omega)} f(r \cos \varphi, r \sin \varphi) \cdot r d \lambda_2\]
+        \item Сферические координаты в \(\R^3\):
+
+              \[\begin{cases}
+                      x = r\cos \varphi\cos \psi \\
+                      y = r\sin \varphi\cos \psi \\
+                      z = r\sin \psi
+                  \end{cases}\]
+              \[\begin{cases}
+                      r > 0                 \\
+                      \varphi \in (0, 2\pi) \\
+                      \psi\in \left( -\frac{\pi}{2}, \frac{\pi}{2} \right)
+                  \end{cases}\]
+
+              \[\Phi' = \begin{pmatrix}
+                      \cos \varphi\cos \psi  & - r\sin \varphi \cos \psi & - r\cos \varphi \sin \psi \\
+                      \sin \varphi \cos \psi & r\cos \varphi\cos \psi    & - r\sin \varphi\sin \psi  \\
+                      \sin \psi              & 0                         & r\cos \psi
+                  \end{pmatrix} \quad J_\Phi = r^2\cos \psi\]
+              \[\det \Phi' = r^2(\sin^2\psi\cos \psi + \cos^3\psi) = r^2\cos \psi\]
+    \end{enumerate}
+\end{example}
 
 \chapter{22 марта}
 

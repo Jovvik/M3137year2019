@@ -2,44 +2,38 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 432,
-    "uniques": 111
+    "count": 364,
+    "uniques": 101
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 229,
-    "uniques": 88
+    "count": 173,
+    "uniques": 75
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 105,
-    "uniques": 50
+    "uniques": 49
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
     "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019 · GitHub",
-    "count": 50,
-    "uniques": 24
+    "count": 42,
+    "uniques": 20
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "Jovvik/M3137year2019 at pdfs",
-    "count": 41,
-    "uniques": 27
+    "count": 36,
+    "uniques": 24
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/matlog/4sem",
     "title": "M3137year2019/matlog/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 40,
-    "uniques": 21
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/4.pdf",
-    "title": "M3137year2019/4.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 40,
-    "uniques": 19
+    "count": 34,
+    "uniques": 17
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/5.pdf",
@@ -48,15 +42,21 @@
     "uniques": 18
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem/practice",
-    "title": "M3137year2019/matlog/4sem/practice at master · Jovvik/M3137year2019 · GitHub",
-    "count": 27,
-    "uniques": 17
+    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/4.pdf",
+    "title": "M3137year2019/4.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 26,
+    "uniques": 15
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/practice/1.pdf",
-    "title": "M3137year2019/1.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 19,
-    "uniques": 6
+    "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem/practice",
+    "title": "M3137year2019/matlog/4sem/practice at master · Jovvik/M3137year2019 · GitHub",
+    "count": 24,
+    "uniques": 14
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/preamble.sty",
+    "title": "M3137year2019/preamble.sty at master · Jovvik/M3137year2019",
+    "count": 20,
+    "uniques": 1
   }
 ]

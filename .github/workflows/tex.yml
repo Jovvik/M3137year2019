@@ -15,13 +15,15 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
-              apk add git
-              apk add inkscape
-              apk add ttf-inconsolata
-              time bash build.sh
+            apk add git
+            apk add inkscape
+            apk add ttf-inconsolata
+            time bash build.sh
       - name: Set env
         run: echo "COMMIT_MSG=Built pdfs $(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
       - name: Remove anything but pdfs
@@ -37,6 +39,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: pdfs
           publish_dir: .
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
           full_commit_message: ${{ env.COMMIT_MSG }}

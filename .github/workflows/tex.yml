@@ -34,7 +34,7 @@ jobs:
           rm -rf `find -type d -name svg-inkscape` || true
           rm -rf `find -type d -name images` || true
       - name: Commit changes
-        uses: peaceiris/actions-gh-pages@v3.7.3
+        uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: pdfs

@@ -2,279 +2,477 @@
 
 \lhead{Математическая логика \textit{(практика)}}
 \cfoot{}
-\rfoot{5.3.2021}
+\rfoot{4.3.2021}
 
 \mathtoolsset{showonlyrefs=false}
 
 \begin{document}
 
 \begin{enumerate}
-      \item Обозначим выводимость в ИИВ <<гильбертовского стиля>> как $\vdash_\text{и}$,
-            а выводимость в ИИВ <<системы натурального (естественного) вывода>> как $\vdash_\text{е}$.
+    \item Обозначим выводимость в ИИВ <<гильбертовского стиля>> как $\vdash_\text{и}$,
+          а выводимость в ИИВ <<системы натурального (естественного) вывода>> как $\vdash_\text{е}$.
 
-            Заметим, что хоть языки этих исчислений и отличаются, мы можем построить преобразование
-            высказываний этих исчислений друг в друга: приняв $\bot \Rightarrow A\with\neg A$ и $\neg \alpha \Rightarrow (\alpha\rightarrow\bot)$.
-            Будем обозначать высказывания в гильбертовском ИИВ обычными греческими буквами,
-            а соответствующие им высказывания в ИИВ натурального вывода ---
-            буквами с апострофами: $\alpha', \beta', \dots$.
+          Заметим, что хоть языки этих исчислений и отличаются, мы можем построить преобразование
+          высказываний этих исчислений друг в друга: приняв $\bot \Rightarrow A\with\neg A$ и $\neg \alpha \Rightarrow (\alpha\rightarrow\bot)$.
+          Будем обозначать высказывания в гильбертовском ИИВ обычными греческими буквами,
+          а соответствующие им высказывания в ИИВ натурального вывода ---
+          буквами с апострофами: $\alpha', \beta', \dots$.
 
-            \begin{enumerate}
-                  \item Пусть $\Gamma\vdash_\text{и}\alpha$. Покажите, что $\Gamma\vdash_\text{е}\alpha'$: предложите общую схему
-                        перестроения доказательства, постройте доказательства для одного случая базы и одного случая перехода индукции.
+          \begin{enumerate}
+              \item Пусть $\Gamma\vdash_\text{и}\alpha$. Покажите, что $\Gamma\vdash_\text{е}\alpha'$: предложите общую схему
+                    перестроения доказательства, постройте доказательства для одного случая базы и одного случая перехода индукции.
 
-                        Общая схема: перебираем шаги доказательства в гильбертовом стиле и добавляем соответствующие шаги в естественном выводе в зависимости от происхождения этого шага.
+                    Общая схема: перебираем шаги доказательства в гильбертовом стиле и добавляем соответствующие шаги в естественном выводе в зависимости от происхождения этого шага.
 
-                        \textbf{База}: рассмотрим случай \(\gamma_1 \in \Gamma\). Тогда дерево вывода \(\gamma_1\) : \begin{prooftree}
-                              \infer0{\Gamma \vdash \gamma_1, \gamma_1\in \Gamma}
-                        \end{prooftree}
+                    \textbf{База}: рассмотрим случай \(\gamma_1 \in \Gamma\). Тогда дерево вывода \(\gamma_1\) : \begin{prooftree}
+                        \infer0{\Gamma \vdash \gamma_1, \gamma_1\in \Gamma}
+                    \end{prooftree}
 
-                        \textbf{Переход}: рассмотрим случай MP. Тогда дерево вывода \(\gamma_n\) : \begin{prooftree}
-                              \hypo{\dots}
-                              \infer1{\Gamma \vdash \gamma_i \to \gamma_k}
-                              \hypo{\dots}
-                              \infer1{\Gamma \vdash \gamma_i}
-                              \infer2{\Gamma \vdash \gamma_k}
-                        \end{prooftree}
+                    \textbf{Переход}: рассмотрим случай MP. Тогда дерево вывода \(\gamma_n\) : \begin{prooftree}
+                        \hypo{\dots}
+                        \infer1{\Gamma \vdash \gamma_i \to \gamma_k}
+                        \hypo{\dots}
+                        \infer1{\Gamma \vdash \gamma_i}
+                        \infer2{\Gamma \vdash \gamma_k}
+                    \end{prooftree}
 
-                  \item Пусть $\Gamma\vdash_\text{е}\alpha'$. Покажите, что $\Gamma\vdash_\text{и}\alpha$.
+              \item Пусть $\Gamma\vdash_\text{е}\alpha'$. Покажите, что $\Gamma\vdash_\text{и}\alpha$.
 
-                        Докажем по индукции по высоте дерева.
-                        \begin{proof}\itemfix
-                              \textbf{База}: \(n = 1\). Единственный случай --- аксиома. Он очевиден.
+                    Докажем по индукции по высоте дерева.
+                    \begin{proof}\itemfix
+                        \textbf{База}: \(n = 1\). Единственный случай --- аксиома. Он очевиден.
 
-                              \textbf{Переход}: \begin{enumerate}
-                                    \item \begin{prooftree}
-                                                \hypo{\Gamma, \varphi \vdash \psi}
-                                                \infer1{\Gamma \vdash \varphi \to \psi}
-                                          \end{prooftree}. По индукционному предположению \(\Gamma, \varphi \vdash \psi\) и по теореме об индукции \(\Gamma \vdash \varphi \to \psi\)
+                        \textbf{Переход}: \begin{enumerate}
+                            \item \begin{prooftree}
+                                      \hypo{\Gamma, \varphi \vdash \psi}
+                                      \infer1{\Gamma \vdash \varphi \to \psi}
+                                  \end{prooftree}. По индукционному предположению \(\Gamma, \varphi \vdash \psi\) и по теореме об индукции \(\Gamma \vdash \varphi \to \psi\)
 
-                                    \item \begin{prooftree}
-                                                \hypo{\Gamma \vdash \varphi}
-                                                \hypo{\Gamma \vdash \psi}
-                                                \infer2{\Gamma \vdash \varphi \with \psi}
-                                          \end{prooftree}. По индукционному предположению \(\Gamma \vdash \varphi, \Gamma \vdash \psi\). Объединим два доказательства, припишем аксиому 3 \(\varphi \to \psi \to \varphi \with \psi\) и применим дважды MP.
+                            \item \begin{prooftree}
+                                      \hypo{\Gamma \vdash \varphi}
+                                      \hypo{\Gamma \vdash \psi}
+                                      \infer2{\Gamma \vdash \varphi \with \psi}
+                                  \end{prooftree}. По индукционному предположению \(\Gamma \vdash \varphi, \Gamma \vdash \psi\). Объединим два доказательства, припишем аксиому 3 \(\varphi \to \psi \to \varphi \with \psi\) и применим дважды MP.
 
-                                    \item \begin{prooftree}
-                                                \hypo{\Gamma \vdash \varphi \to \psi}
-                                                \hypo{\Gamma \vdash \varphi}
-                                                \infer2{\Gamma \vdash \psi}
-                                          \end{prooftree}. По индукционному предположению \(\Gamma \vdash \varphi \to \psi, \Gamma \vdash \varphi\). Объединим два доказательства, используем MP.
-                              \end{enumerate}
-
-                              Прочие случаи аналогичны.
-                        \end{proof}
-            \end{enumerate}
-
-      \item Рассмотрим $\mathbb{N}_0$ (натуральные числа с нулём) с традиционным отношением порядка как решётку.
-            Каков будет смысл операций $(+)$ и $(\cdot)$ в данной решётке, есть ли в ней псевдодополнение,
-            определены ли 0 или 1? Приведите несколько свойств традиционных определений $(+)$ и $(\cdot)$,
-            которые будут всё равно выполнены при таком переопределении, и несколько свойств, которые перестанут выполняться.
-
-            \[a + b = \max(a, b) \quad a \cdot b = \min(a, b)\]
-
-            Псевдополнения нет для произвольных элементов, т.к. \(\min(a, c) \leq b\) не ограничивает сверху \(c\) для \(a \leq b\). Для \(a \not \leq b\) \(a \to b = b\).
-
-            \(\mathbf 0\) это \(0\), т.к. \(\forall x\in\N_0 \ \ 0 \leq x\)
-
-            \(\mathbf 1\) нет, т.к. \(\mathbf 1 + 1 \not \leq \mathbf 1\)
-
-            Выполнены:
-            \begin{enumerate}
-                  \item \(a \cdot 0 = 0\)
-                  \item \(a + 0 = a\)
-                  \item \(a + b + c = a + (b + c)\)
-                  \item \(a \cdot b \cdot c = a \cdot (b \cdot c)\)
-                  \item \(a + b = b + a\)
-                  \item \(a\cdot b = b\cdot a\)
-            \end{enumerate}
-
-            Не выполнены:
-            \begin{enumerate}
-                  \item \((a + b) \cdot c = a\cdot c + b\cdot c\)
-            \end{enumerate}
-
-      \item Постройте следующие примеры:
-            \begin{enumerate}
-                  \item \begin{itemize}
-                              \item непустого частично-упорядоченного множества, не имеющего операций $(+)$ и $(\cdot)$ ни для каких элементов;
-
-                                    Такого не существует, т.к. \(\forall a \ \ a \leq a\), следовательно в \(a + a\) все элементы сравнимы с \(a\) и при этом \(a\in(a + a)\). Таким образом, наименьший --- \(a\). Аналогично можно сказать про \(\cdot\).
-
-                              \item имеющего операцию $(+)$ для всех элементов, но не имеющего $(\cdot)$ для некоторых;
-
-                                    Следующий номер, но наоборот.
-
-                              \item имеющего операцию $(\cdot)$ для всех элементов, но не имеющего $(+)$ для некоторых.
-
-                                    \(\{1, 2, 3\}\), упорядоченное по делимости.
-
-                        \end{itemize}
-
-
-                  \item \begin{itemize}
-                              \item решётки, не являющейся дистрибутивной решёткой;
-
-                                    \(\N_0\) со стандартным порядком.
-
-                              \item дистрибутивной, но не импликативной решётки;
-
-                                    \(\Z\) и его конечные подмножества с отношением \(\subset\), т.е. \(\{X\ |\ X\subset \Z, |X|\in\N_0\} \). Дистрибутивность тривиальна из теории множеств, как и то, что это решетка. Нет \(\{0\} \to \Z\), т.к. \(\{c\ |\ \{0\} \cdot c \leq \Z\} \) есть все конечные подмножества, а среди них нет наибольшего.
-
-                              \item импликативной решётки без 0.
-
-                                    \( - \N_0, \leq \)
-                        \end{itemize}
-            \end{enumerate}
-
-      \item Покажите следующие тождества и свойства для импликативных решёток:
-            \begin{enumerate}
-                  \item ассоциативность: $a + (b + c) = (a + b) + c$ и $a \cdot (b \cdot c) = (a \cdot b) \cdot c$;
-
-                        Тривиально из теории множеств.
-
-                  \item монотонность: пусть $a \preceq b$ и $c \preceq d$, тогда $a + c \preceq b + d$ и $a \cdot c \preceq b \cdot d$;
-
-                        \(a \leq b \Rightarrow a \leq b + d, c \leq d \Rightarrow c \leq b + d\). Таким образом, \(a + c \leq b + d\).
-
-                        Вторая часть аналогично.
-
-                  \item \emph{Законы поглощения:} $a \cdot (a + b) = a$; $a + (a \cdot b) = a$;
-
-                        \begin{enumerate}
-                              \item \(a\cdot (a + b) = a\)
-
-                                    \(a + b\) либо \( = a\), либо \( \leq a\). В обоих случаях \(a\cdot (a + b) = a\)
-
-                              \item \(a + (a \cdot b) = a\)
-
-                                    \(a + b\) либо \( = a\), либо \( \geq a\). В обоих случаях \(a + (a \cdot b) = a\)
+                            \item \begin{prooftree}
+                                      \hypo{\Gamma \vdash \varphi \to \psi}
+                                      \hypo{\Gamma \vdash \varphi}
+                                      \infer2{\Gamma \vdash \psi}
+                                  \end{prooftree}. По индукционному предположению \(\Gamma \vdash \varphi \to \psi, \Gamma \vdash \varphi\). Объединим два доказательства, используем MP.
                         \end{enumerate}
 
-                  \item $a \preceq b$ выполнено тогда и только тогда, когда $a \rightarrow b = 1$;
+                        Прочие случаи аналогичны.
+                    \end{proof}
+          \end{enumerate}
 
-                        \[a \to b = 1 \Leftrightarrow 1 \in \{c\ |\ a\cdot c \leq b\} \Leftrightarrow a\cdot 1 \leq b \Leftrightarrow a \leq b\]
+    \item Рассмотрим $\mathbb{N}_0$ (натуральные числа с нулём) с традиционным отношением порядка как решётку.
+          Каков будет смысл операций $(+)$ и $(\cdot)$ в данной решётке, есть ли в ней псевдодополнение,
+          определены ли 0 или 1? Приведите несколько свойств традиционных определений $(+)$ и $(\cdot)$,
+          которые будут всё равно выполнены при таком переопределении, и несколько свойств, которые перестанут выполняться.
 
-                  \item из $a \preceq b$ следует $b\rightarrow c \preceq a\rightarrow c$ и $c\rightarrow a \preceq c \rightarrow b$;
+          \[a + b = \max(a, b) \quad a \cdot b = \min(a, b)\]
 
-                        \begin{align*}
-                              a \cdot (b \to c) & \leq b \cdot (b \to c) \leq c \\
-                              b \to c           & \leq a \to c
-                        \end{align*}
-                        \begin{align*}
-                              c \cdot (c \to a) & \leq a \leq b \\
-                              c \to a           & \leq c \to b
-                        \end{align*}
+          Псевдополнения нет для произвольных элементов, т.к. \(\min(a, c) \leq b\) не ограничивает сверху \(c\) для \(a \leq b\). Для \(a \not \leq b\) \(a \to b = b\).
 
-                  \item из $a \preceq b \rightarrow c$ следует $a \cdot b \preceq c$;
+          \(\mathbf 0\) это \(0\), т.к. \(\forall x\in\N_0 \ \ 0 \leq x\)
 
-                        \[a \leq b \to c \Rightarrow \exists d : \begin{cases}
-                                    d \geq a \\
-                                    b\cdot d \leq c
-                              \end{cases} \Rightarrow b\cdot a \leq c\]
+          \(\mathbf 1\) нет, т.к. \(\mathbf 1 + 1 \not \leq \mathbf 1\)
 
-                        Так как множество, из которого берется \(b\cdot a\) есть подмножество ``\(b\cdot d\)''
+          Выполнены:
+          \begin{enumerate}
+              \item \(a \cdot 0 = 0\)
+              \item \(a + 0 = a\)
+              \item \(a + b + c = a + (b + c)\)
+              \item \(a \cdot b \cdot c = a \cdot (b \cdot c)\)
+              \item \(a + b = b + a\)
+              \item \(a\cdot b = b\cdot a\)
+          \end{enumerate}
 
-                  \item $b \preceq a \rightarrow b$ и $a \rightarrow (b \rightarrow a) = 1$;
+          Не выполнены:
+          \begin{enumerate}
+              \item \((a + b) \cdot c = a\cdot c + b\cdot c\)
+          \end{enumerate}
 
-                        \begin{align*}
-                              b\cdot a & \leq b       \\
-                              a\cdot b & \leq b       \\
-                              b        & \leq a \to b
-                        \end{align*}
+    \item Постройте следующие примеры:
+          \begin{enumerate}
+              \item \begin{itemize}
+                        \item непустого частично-упорядоченного множества, не имеющего операций $(+)$ и $(\cdot)$ ни для каких элементов;
 
-                        \(a \leq b \to a\) по пункту d.
+                              Такого не существует, т.к. \(\forall a \ \ a \leq a\), следовательно в \(a + a\) все элементы сравнимы с \(a\) и при этом \(a\in(a + a)\). Таким образом, наименьший --- \(a\). Аналогично можно сказать про \(\cdot\).
 
-                  \item $a \rightarrow b \preceq ((a \rightarrow (b \rightarrow c)) \rightarrow (a \rightarrow c))$;
-                  \item $a \preceq b \rightarrow a \cdot b$ и $a \rightarrow (b \rightarrow (a \cdot b)) = 1$
-                  \item $a \rightarrow c \preceq (b \rightarrow c) \rightarrow (a + b \rightarrow c)$
-            \end{enumerate}
+                        \item имеющего операцию $(+)$ для всех элементов, но не имеющего $(\cdot)$ для некоторых;
 
-      \item Покажите, что импликативная решётка дистрибутивна.
+                              Следующий номер, но наоборот.
 
-            Пусть \(d = a \cdot b + a \cdot c\). Рассмотрим \(a \to d\).
-            \begin{align}
-                  a \cdot b      & \leq d \label{по построению}            \\
-                  b              & \leq a \to d \label{по определению to}  \\
-                  a \cdot c      & \leq d \label{по построению2}           \\
-                  c              & \leq a \to d \label{по определению to2} \\
-                  b + c          & \leq a \to d \label{из предыдущих}      \\
-                  a\cdot (b + c) & \leq a \cdot (a \to d)                  \\
-                                 & \leq d                                  \\
-                                 & = a\cdot b + a\cdot c
-            \end{align}
+                        \item имеющего операцию $(\cdot)$ для всех элементов, но не имеющего $(+)$ для некоторых.
 
-            \begin{itemize}
-                  \item \eqref{по построению} и \eqref{по построению2}: по построению \(d\)
-                  \item \eqref{по определению to} и \eqref{по определению to2}: по определению \( \to \)
-                  \item \eqref{из предыдущих}: из \eqref{по определению to} и \eqref{по определению to2}
-            \end{itemize}
+                              \(\{1, 2, 3\}\), упорядоченное по делимости.
 
-            Итого \(a\cdot (b + c) \leq a\cdot b + a\cdot c\), покажем, что \(a\cdot (b + c) \geq a\cdot b + a\cdot c\)
-            \begin{align}
-                  a \cdot b             & \leq a                                  \\
-                  a \cdot b             & \leq b \leq b + c                       \\
-                  a \cdot b             & \leq a \cdot (b + c) \label{этому}      \\
-                  a \cdot c             & \leq a \cdot (b + c) \label{аналогично} \\
-                  a \cdot b + a \cdot c & \leq a \cdot (b + c)
-            \end{align}
-            \begin{itemize}
-                  \item \eqref{аналогично}: аналогично \eqref{этому}
-            \end{itemize}
+                    \end{itemize}
 
-      \item Покажите, что в дистрибутивной решётке (всегда $(a + b)\cdot c = (a \cdot c) + (b \cdot c)$) также выполнено
-            и $a + (b \cdot c) = (a + b) \cdot (a + c)$.
 
-            \begin{align}
-                  (a + b) \cdot (a + c) & = (a + b) \cdot a + (a + b) \cdot c \label{дистр} \\
-                                        & = a + (a + b) \cdot c                             \\
-                                        & = a + a \cdot c + b \cdot c                       \\
-                                        & = a + b \cdot c
-            \end{align}
+              \item \begin{itemize}
+                        \item решётки, не являющейся дистрибутивной решёткой;
 
-            \begin{itemize}
-                  \item \eqref{дистр}: по дистрибутивности
-            \end{itemize}
+                              \(\N_0\) со стандартным порядком.
 
-      \item Рассмотрим топологическое пространство $\langle X, \Omega \rangle$, упорядочим его топологию $\Omega$ отношением $\subseteq$.
-            Покажите, что такая конструкция является псевдобулевой алгеброй, а если топология --- дискретная (любое подмножество $X$ открыто),
-            то булевой алгеброй.
+                        \item дистрибутивной, но не импликативной решётки;
 
-      \item Докажите, что ИИВ корректно, если в качестве модели выбрать псевдобулеву алгебру, а функции оценок определить так:
-            $$\begin{array}{ccc}
-                        \llbracket\alpha \with \beta\rrbracket       & = & \llbracket\alpha\rrbracket \cdot \llbracket\beta\rrbracket       \\
-                        \llbracket\alpha \vee \beta\rrbracket        & = & \llbracket\alpha\rrbracket + \llbracket\beta\rrbracket           \\
-                        \llbracket\alpha \rightarrow \beta\rrbracket & = & \llbracket\alpha\rrbracket \rightarrow \llbracket\beta\rrbracket \\
-                        \llbracket\neg\alpha\rrbracket               & = & \llbracket\alpha\rrbracket \rightarrow 0                         \\
-                        \llbracket\bot\rrbracket                     & = & 0                                                                \\
-                  \end{array}$$
+                              \(\Z\) и его конечные подмножества с отношением \(\subset\), т.е. \(\{X\ |\ X\subset \Z, |X|\in\N_0\} \). Дистрибутивность тривиальна из теории множеств, как и то, что это решетка. Нет \(\{0\} \to \Z\), т.к. \(\{c\ |\ \{0\} \cdot c \leq \Z\} \) есть все конечные подмножества, а среди них нет наибольшего.
 
-      \item Пусть задано отношение \emph{предпорядка} $R$ (транзитивное и рефлексивное, но необязательно антисимметричное) на множестве $A$.
-            Напомним несколько определений:
-            \begin{itemize}
-                  \item определим отношение $R^= := \{ \langle x,y \rangle\ |\ xRy \text{ и } yRx \}$;
-                  \item $[a]_{R^=} := \{ x\ |\ aR^=x \}$ --- класс эквивалентности, порождённый элементом $a$;
-                  \item фактор-множество $A/{R^=} := \{ [a]_{R^=}\ |\ a \in A \}$;
-                  \item на $A/{R^=}$ можно перенести отношение $R^* := \{ \langle [a],[b] \rangle\ |\ aRb \}$.
-            \end{itemize}
+                        \item импликативной решётки без 0.
 
-            Покажите, что: отношение $R^=$ --- отношение эквивалентности; если $x \in [a]_{R^=}$, $y \in [b]_{R^=}$ и $aRb$, то $xRy$; отношение $R^*$ ---
-            отношение порядка на $A/{R^=}$.
+                              \( - \N_0, \leq \)
+                    \end{itemize}
+          \end{enumerate}
 
-      \item Покажем, что конструкция из определения алгебры Линденбаума действительно является решёткой:
-            \begin{enumerate}
-                  \item Покажите, что отношение $(\approx)$ --- отношение эквивалентности (напомним, что $\alpha\preceq\beta$, если $\alpha\vdash\beta$, а $\alpha\approx\beta$, если
-                        $\alpha\vdash\beta$ и $\beta\vdash\alpha$). \emph{Подсказка:} воспользуйтесь предыдущим заданием.
-                  \item Покажите, что $[\alpha]_\approx\cdot[\beta]_\approx = [\alpha\with\beta]_\approx$. Для этого, например, можно показать:
-                        \begin{itemize}
-                              \item $\alpha\with\beta \preceq \alpha$;
-                              \item если $\gamma \preceq \alpha$ и $\gamma\preceq\beta$, то $\gamma\preceq\alpha\with\beta$;
-                              \item операция однозначно определена для всех элементов решётки (то есть определена для всех классов
-                                    эквивалентности и не зависит от выбора представителей). \emph{Подсказка:} воспользуйтесь предыдущим заданием.
-                        \end{itemize}
-                  \item Покажите, что $[\alpha]+[\beta]=[\alpha\vee\beta]$.
-                  \item Покажите, что $[\alpha]\rightarrow[\beta]=[\alpha\rightarrow\beta]$.
-                  \item Найдите классы эквивалентности для 0 и 1.
-            \end{enumerate}
+    \item Покажите следующие тождества и свойства для импликативных решёток:
+          \begin{enumerate}
+              \item ассоциативность: $a + (b + c) = (a + b) + c$ и $a \cdot (b \cdot c) = (a \cdot b) \cdot c$;
+
+                    Тривиально из теории множеств.
+
+              \item монотонность: пусть $a \preceq b$ и $c \preceq d$, тогда $a + c \preceq b + d$ и $a \cdot c \preceq b \cdot d$;
+
+                    \(a \leq b \Rightarrow a \leq b + d, c \leq d \Rightarrow c \leq b + d\). Таким образом, \(a + c \leq b + d\).
+
+                    Вторая часть аналогично.
+
+              \item \emph{Законы поглощения:} $a \cdot (a + b) = a$; $a + (a \cdot b) = a$;
+
+                    \begin{enumerate}
+                        \item \(a\cdot (a + b) = a\)
+
+                              \(a + b\) либо \( = a\), либо \( \leq a\). В обоих случаях \(a\cdot (a + b) = a\)
+
+                        \item \(a + (a \cdot b) = a\)
+
+                              \(a + b\) либо \( = a\), либо \( \geq a\). В обоих случаях \(a + (a \cdot b) = a\)
+                    \end{enumerate}
+
+              \item $a \preceq b$ выполнено тогда и только тогда, когда $a \rightarrow b = 1$;
+
+                    \[a \to b = 1 \Leftrightarrow 1 \in \{c\ |\ a\cdot c \leq b\} \Leftrightarrow a\cdot 1 \leq b \Leftrightarrow a \leq b\]
+
+              \item из $a \preceq b$ следует $b\rightarrow c \preceq a\rightarrow c$ и $c\rightarrow a \preceq c \rightarrow b$;
+
+                    \begin{align*}
+                        a \cdot (b \to c) & \leq b \cdot (b \to c) \leq c \\
+                        b \to c           & \leq a \to c
+                    \end{align*}
+                    \begin{align*}
+                        c \cdot (c \to a) & \leq a \leq b \\
+                        c \to a           & \leq c \to b
+                    \end{align*}
+
+              \item из $a \preceq b \rightarrow c$ следует $a \cdot b \preceq c$;
+
+                    \[a \leq b \to c \Rightarrow \exists d : \begin{cases}
+                            d \geq a \\
+                            b\cdot d \leq c
+                        \end{cases} \Rightarrow b\cdot a \leq c\]
+
+                    Так как множество, из которого берется \(b\cdot a\) есть подмножество ``\(b\cdot d\)''
+
+              \item $b \preceq a \rightarrow b$ и $a \rightarrow (b \rightarrow a) = 1$;
+
+                    \begin{align*}
+                        b\cdot a & \leq b       \\
+                        a\cdot b & \leq b       \\
+                        b        & \leq a \to b
+                    \end{align*}
+
+                    \(a \leq b \to a\) по пункту d.
+
+              \item $a \rightarrow b \preceq ((a \rightarrow (b \rightarrow c)) \rightarrow (a \rightarrow c))$;
+              \item $a \preceq b \rightarrow a \cdot b$ и $a \rightarrow (b \rightarrow (a \cdot b)) = 1$
+              \item $a \rightarrow c \preceq (b \rightarrow c) \rightarrow (a + b \rightarrow c)$
+          \end{enumerate}
+
+    \item Покажите, что импликативная решётка дистрибутивна.
+
+          Пусть \(d = a \cdot b + a \cdot c\). Рассмотрим \(a \to d\).
+          \begin{align}
+              a \cdot b      & \leq d \label{по построению}            \\
+              b              & \leq a \to d \label{по определению to}  \\
+              a \cdot c      & \leq d \label{по построению2}           \\
+              c              & \leq a \to d \label{по определению to2} \\
+              b + c          & \leq a \to d \label{из предыдущих}      \\
+              a\cdot (b + c) & \leq a \cdot (a \to d)                  \\
+                             & \leq d                                  \\
+                             & = a\cdot b + a\cdot c
+          \end{align}
+
+          \begin{itemize}
+              \item \eqref{по построению} и \eqref{по построению2}: по построению \(d\)
+              \item \eqref{по определению to} и \eqref{по определению to2}: по определению \( \to \)
+              \item \eqref{из предыдущих}: из \eqref{по определению to} и \eqref{по определению to2}
+          \end{itemize}
+
+          Итого \(a\cdot (b + c) \leq a\cdot b + a\cdot c\), покажем, что \(a\cdot (b + c) \geq a\cdot b + a\cdot c\)
+          \begin{align}
+              a \cdot b             & \leq a                                  \\
+              a \cdot b             & \leq b \leq b + c                       \\
+              a \cdot b             & \leq a \cdot (b + c) \label{этому}      \\
+              a \cdot c             & \leq a \cdot (b + c) \label{аналогично} \\
+              a \cdot b + a \cdot c & \leq a \cdot (b + c)
+          \end{align}
+          \begin{itemize}
+              \item \eqref{аналогично}: аналогично \eqref{этому}
+          \end{itemize}
+
+    \item Покажите, что в дистрибутивной решётке (всегда $(a + b)\cdot c = (a \cdot c) + (b \cdot c)$) также выполнено
+          и $a + (b \cdot c) = (a + b) \cdot (a + c)$.
+
+          \begin{align}
+              (a + b) \cdot (a + c) & = (a + b) \cdot a + (a + b) \cdot c \label{дистр} \\
+                                    & = a + (a + b) \cdot c                             \\
+                                    & = a + a \cdot c + b \cdot c                       \\
+                                    & = a + b \cdot c
+          \end{align}
+
+          \begin{itemize}
+              \item \eqref{дистр}: по дистрибутивности
+          \end{itemize}
+
+    \item Рассмотрим топологическое пространство $\langle X, \Omega \rangle$, упорядочим его топологию $\Omega$ отношением $\subseteq$.
+          Покажите, что такая конструкция является псевдобулевой алгеброй, а если топология --- дискретная (любое подмножество $X$ открыто),
+          то булевой алгеброй.
+
+          Это решетка, т.к. топология замкнута по \(\cap, \cup\) и \(a + b = a\cup b, a - b = a\cap b\).
+
+          Решетка импликативна, т.к. \(c = a \to b \Rightarrow  a\cap c \subset b \Rightarrow c = (b \cup (X\setminus a))^\circ\), а оно определено однозначно, т.е. \(\exists \).
+
+          Ноль в этой решетке есть \(\emptyset\), таким образом это псевдобулева алгебра.
+
+          \(a + (a \to 0) = a\cup \emptyset \cup (X\setminus a)^\circ \stackrel{\text{дискр.}}{=} a \cup (X\setminus a) = X = 1\)
+
+    \item Докажите, что ИИВ корректно, если в качестве модели выбрать псевдобулеву алгебру, а функции оценок определить так:
+          \[\begin{array}{ccc}
+                  \llbracket\alpha \with \beta\rrbracket       & = & \llbracket\alpha\rrbracket \cdot \llbracket\beta\rrbracket       \\
+                  \llbracket\alpha \vee \beta\rrbracket        & = & \llbracket\alpha\rrbracket + \llbracket\beta\rrbracket           \\
+                  \llbracket\alpha \rightarrow \beta\rrbracket & = & \llbracket\alpha\rrbracket \rightarrow \llbracket\beta\rrbracket \\
+                  \llbracket\neg\alpha\rrbracket               & = & \llbracket\alpha\rrbracket \rightarrow 0                         \\
+                  \llbracket\bot\rrbracket                     & = & 0                                                                \\
+              \end{array}\]
+
+          Разберем случаи:
+
+          \begin{tabular}{c|c|c}
+              \(\llbracket\alpha\rrbracket\) & \(\llbracket\beta\rrbracket\) & \(\llbracket\alpha\rrbracket \cdot \llbracket\beta\rrbracket\) \\ \hline
+              0                              & 0                             & 0                                                              \\
+              0                              & 1                             & 0                                                              \\
+              1                              & 0                             & 0                                                              \\
+              1                              & 1                             & 1                                                              \\
+          \end{tabular}
+
+          \begin{tabular}{c|c|c}
+              \(\llbracket\alpha\rrbracket\) & \(\llbracket\beta\rrbracket\) & \(\llbracket\alpha\rrbracket + \llbracket\beta\rrbracket\) \\ \hline
+              0                              & 0                             & 0                                                          \\
+              0                              & 1                             & 1                                                          \\
+              1                              & 0                             & 1                                                          \\
+              1                              & 1                             & 1                                                          \\
+          \end{tabular}
+
+          \begin{tabular}{c|c|c}
+              \(\llbracket\alpha\rrbracket\) & \(\llbracket\beta\rrbracket\) & \(\llbracket\alpha\rrbracket \to \llbracket\beta\rrbracket\) \\ \hline
+              0                              & 0                             & 1                                                            \\
+              0                              & 1                             & 1                                                            \\
+              1                              & 0                             & 0                                                            \\
+              1                              & 1                             & 1                                                            \\
+          \end{tabular}
+
+          \begin{tabular}{c|c}
+              \(\llbracket\alpha\rrbracket\) & \(\llbracket\alpha\rrbracket \to 0\) \\ \hline
+              0                              & 1                                    \\
+              1                              & 0                                    \\
+          \end{tabular}
+
+          Тогда несложно заметить, что с \(V = \{0, 1\}\) оценки на псевдобулевой алгебре эквивалентны оценкам обычной интуиционистской логики, а она корректна.
+
+    \item Пусть задано отношение \emph{предпорядка} $R$ (транзитивное и рефлексивное, но необязательно антисимметричное) на множестве $A$.
+          Напомним несколько определений:
+          \begin{itemize}
+              \item определим отношение $R^= := \{ \langle x,y \rangle\ |\ xRy \text{ и } yRx \}$;
+              \item $[a]_{R^=} := \{ x\ |\ aR^=x \}$ --- класс эквивалентности, порождённый элементом $a$;
+              \item фактор-множество $A/{R^=} := \{ [a]_{R^=}\ |\ a \in A \}$;
+              \item на $A/{R^=}$ можно перенести отношение $R^* := \{ \langle [a],[b] \rangle\ |\ aRb \}$.
+          \end{itemize}
+
+          Покажите, что: отношение $R^=$ --- отношение эквивалентности; если $x \in [a]_{R^=}$, $y \in [b]_{R^=}$ и $aRb$, то $xRy$; отношение $R^*$ ---
+          отношение порядка на $A/{R^=}$.
+
+          \begin{proof}
+              Рефлексивность и симметричность очевидны из определения \(R^ =\).
+
+              \(\sphericalangle xR^{ = }y, yR^{ = }z \Rightarrow xRy, yRz \Rightarrow xRz\) и аналогично \(zRx \Rightarrow xR^{ = }z\), получили транзитивность.
+
+              \(aRb, aR^{ = }x, bR^{ = }y \Rightarrow aRx, bRy\). \(\begin{cases} xRa \\ aRb \\ bRy \end{cases} \Rightarrow xRy\)
+
+              \begin{itemize}
+                  \item Рефлексивность: \(aR^{*}a \Leftarrow aRa\), что выполнено по рефлексивности \(R\)
+                  \item Антисимметричность: \(aR^{*}b, bR^{*}a \Rightarrow aRb, bRa \Rightarrow a, b\in [a]_{R^{ =}}\) и \(\in [b]_{R^{ =}}\), но классы эквивалентности не пересекаются \( \Rightarrow a = b\).
+                  \item Транзитивность: по транзитивности \(R\).
+              \end{itemize}
+          \end{proof}
+
+    \item Покажем, что конструкция из определения алгебры Линденбаума действительно является решёткой:
+          \begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+              \item Покажите, что отношение $(\approx)$ --- отношение эквивалентности (напомним, что $\alpha\preceq\beta$, если $\alpha\vdash\beta$, а $\alpha\approx\beta$, если
+                    $\alpha\vdash\beta$ и $\beta\vdash\alpha$). \emph{Подсказка:} воспользуйтесь предыдущим заданием.
+
+                    Покажем, что \(\vdash\) есть предпорядок.
+
+                    \begin{itemize}
+                        \item Рефлексивность: \(\alpha \vdash \alpha\)
+                        \item Транзитивность: \(\alpha \vdash \beta, \beta \vdash \gamma\) --- верно по MP и теореме о дедукции. Также можно без них --- берем вывод \(\beta\), приписываем вывод \(\gamma\), но удаляем шаги \(\beta\in\Gamma\).
+                    \end{itemize}
+
+                    \(\vdash\) это предпорядок, а \(\approx\) есть его \(R^{ =}\). По предыдущему номеру \(\approx\) --- отношение эквивалентности.
+
+              \item Покажите, что $[\alpha]_\approx\cdot[\beta]_\approx = [\alpha\with\beta]_\approx$. Для этого, например, можно показать:
+                    \begin{itemize}
+                        \item $\alpha\with\beta \preceq \alpha$: \(\alpha \with \beta \vdash \alpha\) --- очевидно \textit{(аксиома 4 и MP)}.
+                        \item если $\gamma \preceq \alpha$ и $\gamma\preceq\beta$, то $\gamma\preceq\alpha\with\beta$; \textit{(аксиома 3 и MP дважды)}
+                        \item операция однозначно определена для всех элементов решётки (то есть определена для всех классов
+                              эквивалентности и не зависит от выбора представителей). \emph{Подсказка:} воспользуйтесь предыдущим заданием.
+
+                              Покажем независимость от выбора представителей:
+
+                              Если \(\alpha \approx \gamma\), то \(\alpha \with \beta \approx \gamma \with \beta\), т.к.:
+
+                              \[\alpha \with \beta \approx \gamma \with \beta \Leftarrow \begin{cases}
+                                      \alpha \with \beta \vdash \gamma \with \beta \Leftarrow \begin{cases}
+                                          \alpha \with \beta \vdash \alpha, \beta \\
+                                          \alpha \vdash \gamma
+                                      \end{cases} \\
+                                      \gamma \with \beta \vdash \alpha \with \beta \Leftarrow \begin{cases}
+                                          \alpha \with \beta \vdash \alpha, \beta \\
+                                          \gamma \vdash \alpha
+                                      \end{cases} \\
+                                  \end{cases}\]
+
+                              \(\beta \approx \gamma \Rightarrow \alpha \with \beta \approx \alpha \with \gamma\) аналогично.
+
+                              Определенность для всех классов была показана в предыдущих пунктах.
+                    \end{itemize}
+              \item Покажите, что $[\alpha]+[\beta]=[\alpha\vee\beta]$.
+                    \begin{itemize}
+                        \item \(\alpha \preceq \alpha \lor \beta\) и \(\beta \preceq \alpha \lor \beta\) --- очевидно по аксиомам 6, 7.
+                        \item Если \(\alpha \preceq \gamma\) и \(\beta \preceq \gamma\), то \(\alpha \lor \beta \preceq \gamma\)
+                              \[\begin{cases}
+                                      \alpha \vdash \gamma \\
+                                      \beta \vdash \gamma
+                                  \end{cases} \Rightarrow \begin{cases}
+                                      \vdash \alpha \to \gamma \\
+                                      \vdash \beta \to \gamma
+                                  \end{cases} \xRightarrow{\text{акс. 8, M.P.}} \alpha \lor \beta \vdash \gamma\]
+                        \item Независимость от выбора представителей
+
+                              Если \(\alpha \approx \gamma\), то \(\alpha \lor \beta \approx \gamma \lor \beta\), т.к.:
+
+                              \[\alpha \lor \beta \approx \gamma \lor \beta \Leftarrow \begin{cases}
+                                      \alpha \lor \beta \vdash \gamma \lor \beta \\
+                                      \gamma \lor \beta \vdash \alpha \lor \beta
+                                  \end{cases}\]
+
+                              \[\Gamma : = \alpha \lor \beta, \alpha \to \gamma\]
+
+                              \begin{prooftree}
+                                  \infer0{\Gamma, \alpha \vdash \alpha}
+                                  \infer0{\Gamma, \alpha \vdash \alpha \to \gamma}
+                                  \infer2{\Gamma, \alpha \vdash \gamma}
+                                  \infer1{\Gamma, \alpha \vdash \gamma \lor \beta}
+                                  \infer0{\Gamma, \beta \vdash \beta}
+                                  \infer1{\Gamma, \beta \vdash \gamma \lor \beta}
+                                  \infer0{\Gamma \vdash \alpha \lor \beta}
+                                  \infer3{\Gamma \vdash \gamma \lor \beta}
+                              \end{prooftree}
+
+                              Аналогично для \(\gamma \lor \beta \vdash \alpha \lor \beta\)
+                    \end{itemize}
+
+              \item Покажите, что $[\alpha]\rightarrow[\beta]=[\alpha\rightarrow\beta]$.
+
+                    \begin{itemize}
+                        \item \(\alpha \with (\alpha \to \beta) \preceq \beta\) --- по аксиомам 4, 5 и M.P.
+                        \item Если \(\alpha \with \gamma \preceq \beta\), то \(\gamma \preceq \alpha \to \beta\)
+
+                              \begin{align*}
+                                  \alpha \with \gamma \to \beta                 & \vdash \gamma \to \alpha \to \beta \\
+                                  \alpha \with \gamma \to \beta, \gamma         & \vdash \alpha \to \beta            \\
+                                  \alpha \with \gamma \to \beta, \gamma, \alpha & \vdash \beta                       \\
+                              \end{align*}
+
+                              Это доказывается через аксиому 3 и M.P.
+                        \item Независимость от выбора представителей
+
+                              Если \(\gamma \approx \alpha\), то:
+                              \begin{enumerate}
+                                  \item \(\alpha \to \beta \approx \gamma \to \beta\)
+
+                                        \(\Gamma : = \alpha \to \beta, \gamma \to \alpha\)
+
+                                        \begin{prooftree}
+                                            \infer0{\Gamma, \gamma \vdash \gamma}
+                                            \infer0{\Gamma, \gamma \vdash \gamma \to \alpha}
+                                            \infer2{\Gamma, \gamma \vdash \alpha}
+                                            \infer0{\Gamma, \gamma \vdash \alpha \to \beta}
+                                            \infer2{\Gamma, \gamma \vdash \beta}
+                                            \infer1{\Gamma \vdash \gamma \to \beta}
+                                        \end{prooftree}
+
+                                        % \[\alpha \to \beta \approx \gamma \to \beta \Leftarrow \begin{cases}
+                                        %         \alpha \to \beta \vdash \gamma \to \beta \Leftarrow \alpha \to \beta, \gamma \vdash \beta \Leftarrow \gamma \vdash \alpha \\
+                                        %         \gamma \to \beta \vdash \alpha \to \beta
+                                        %     \end{cases}\]
+
+                                        Аналогично \(\gamma \to \beta \vdash \alpha \to \beta\)
+
+                                  \item \(\beta \to \alpha \approx \beta \to \gamma\)
+
+                                        \(\Gamma : = \beta \to \alpha, \alpha \to \gamma\)
+
+                                        \begin{prooftree}
+                                            \infer0{\Gamma, \beta \vdash \beta}
+                                            \infer0{\Gamma, \beta \vdash \beta \to \alpha}
+                                            \infer2{\Gamma, \beta \vdash \alpha}
+                                            \infer0{\Gamma, \beta \vdash \alpha \to \gamma}
+                                            \infer2{\Gamma, \beta \vdash \gamma}
+                                            \infer1{\Gamma \vdash \beta \to \gamma}
+                                        \end{prooftree}
+                              \end{enumerate}
+                    \end{itemize}
+
+              \item Найдите классы эквивалентности для 0 и 1.
+
+                    \(\forall \alpha \ \ 0 \preceq \alpha\)
+                    \begin{align*}
+                        0 & \vdash \alpha                                            \\
+                          & \vdash 0 \to \alpha                                      \\
+                          & \vdash 0 \to \neg\alpha                                  \\
+                          & \vdash (0 \to \alpha) \to (0 \to \neg \alpha) \to \neg 0 \\
+                          & \vdash \neg 0
+                    \end{align*}
+
+                    Итого \(\forall \alpha \ \ 0 \preceq \alpha \Rightarrow \vdash \neg 0\). Докажем ``\( \Leftarrow \)''.
+
+                    \begin{prooftree}
+                        \infer0{\neg 0, 0 \vdash 0}
+                        \infer0{\neg 0, 0 \vdash 0 \to \perp}
+                        \infer2{\neg 0, 0 \vdash \perp}
+                        \infer1{\neg 0, 0 \vdash \alpha}
+                        \infer1{\neg 0 \vdash 0 \to \alpha}
+                    \end{prooftree}
+
+                    Итого \([0]_\approx\) есть множество формул \(\beta\), таких что \(\vdash \neg \beta\).
+
+                    \(\forall \alpha \ \ \alpha \preceq 1\)
+
+                    Рассмотрим \(\alpha = \beta \to \beta\). По построению \(1\) получается \(\beta \to \beta \vdash 1\). Рассмотрим такое доказательство. Если в нём используется \(\beta \to \beta\) с обоснованием \(\in\Gamma\), вставим доказательство \(\beta \to \beta\) и удалим такой шаг. Доказательство останется верным, но не будет использовать факт \(\beta \to \beta \in \Gamma\), следовательно \(\vdash 1\).
+
+                    Итого \(\forall \alpha \ \ \alpha \preceq 1 \Rightarrow \vdash 1\). Докажем ``\( \Leftarrow \)''. Этот факт очевиден, т.к. доказательство \(\vdash 1\) есть доказательство \(\alpha \vdash 1\).
+          \end{enumerate}
 \end{enumerate}
 
 \end{document}

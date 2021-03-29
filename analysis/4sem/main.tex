@@ -1752,6 +1752,7 @@
 \end{remark}
 
 \begin{theorem}[принцип Кавальери\footnote{Кавальери имеет к этой теореме косвенное отношение, т.к. он жил за пару веков до появления теории меры.}]\itemfix
+    \label{принцип Кавальери}
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
         \item \((Y, \mathfrak{B}, \nu)\)
@@ -1772,7 +1773,7 @@
 \end{theorem}
 
 \begin{example}
-    \?
+    \? % TODO #93
 \end{example}
 
 \begin{proof}
@@ -1792,7 +1793,7 @@
 
         \item \(E_i \in \mathfrak{D}\), дизъюнктны \( \Rightarrow \bigsqcup E_i\in \mathfrak{D}\). Обозначим \(E = \bigsqcup E_i\)
 
-              \(E_i \in \mathfrak{D} \Rightarrow (E_i)_x\) измеримо почти везде \( \Rightarrow \) при почти всех \(x\) все \((E_i)_x\) измеримы.
+              \(E_i \in \mathfrak{D} \Rightarrow (E_i)_x\) измерим�� почти везде \( \Rightarrow \) при почти всех \(x\) все \((E_i)_x\) измеримы.
 
               Тогда при этих \(x\) \(E_x = \bigsqcup (E_i)_x \in \mathfrak{B}\) --- это 1.
 
@@ -1847,7 +1848,7 @@
 
               \(X = \bigsqcup X_k, \mu X_k < +\infty, Y = \bigsqcup Y_j, \nu Y_j < +\infty\)
 
-              \(C = \bigsqcup (\underbrace{C \cap (X_k \times Y_j)}_{\? < +\infty})\) \? % TODO
+              \(C = \bigsqcup (\underbrace{C \cap (X_k \times Y_j)}_{\? < +\infty})\) \? % TODO #92
     \end{enumerate}
 \end{proof}
 
@@ -1870,5 +1871,150 @@
               Пример Серпинского.
     \end{enumerate}
 \end{remark}
+
+\chapter{29 марта}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f: [a, b] \to \R\)
+        \item \(f\) непрерывно
+    \end{itemize}
+
+    Тогда \(\int_a^b f(x)dx = \int_{[a, b]} fd\lambda_1\)
+\end{corollary}
+
+\begin{proof}
+    Рассмотрим случай \(f > 0\). \(\text{ПГ}\footnote{подграфик}(f_{\?}[a, b])\) --- измеримое в \(\R^2\) множество. Доказать это --- упражнение. % TODO
+
+    \(C_x = [0, f(x)]\), \(\lambda_1(C_x) = f(x)\)
+
+    \[\int_a^b f(x) dx = \lambda_2(\text{ПГ}) = \int_{[a, b]} f d\lambda_1\]
+\end{proof}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item \(\lambda_2\) можно продолжить на множество \(2^{\R^2}\) с сохранением конечной аддитивности и это продолжение можно сделать не единственным образом.
+        \item Для \(\lambda_m, m > 2\) аналогичным образом продолжить невозможно.
+    \end{itemize}
+
+    Для обоих случаев требуется инвариантность меры относительно движения \(\R^m\).
+
+    В множествах размерности \( > 2\) действует парадокс Хаусдорфа-Банаха-Тарского, вследствие чего аддитивность невозможна.
+\end{remark}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(C \subset X \times Y\)
+        \item \(f : X \times Y \to \overline\R\)
+    \end{itemize}
+
+    \(\forall x\in X \ \ f_x\) --- функция \(f_x(y) = f(x, y)\)
+
+    \(\forall y\in Y \ \ f_y\) --- функция \(f_y(x) = f(x, y)\)
+\end{definition}
+
+\begin{theorem}[Тонелли]\itemfix
+    \label{тонелли}
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\)
+        \item \((Y, \mathfrak{B}, \nu)\)
+        \item \(\mu, \nu\) --- \(\sigma\)-конечные, полные
+        \item \(m = \mu \times \nu\)
+        \item \(f : X \times Y \to \overline \R\)
+        \item \(f \geq 0\)
+        \item \(f\) измеримо относительно \(\mathfrak{A} \otimes \mathfrak{B}\)
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item При почти всех \(x\) \(f_x\) измерима на \(Y\).
+        \item \(x \mapsto \varphi(x) = \int_Y f_x d \nu = \int_Y f(x, y) d \nu(y)\) --- измерима\footnote{почти везде} на \(X\)
+        \item \(\int_{X \times Y} f dm = \int_X \varphi d\mu = \int_X \left( \int_Y f(x, y) d \nu(y) \right) d\mu(x)\)
+    \end{enumerate}
+
+    Аналогичные утверждения верны, если поменять местами \(X\) и \(Y\):
+    \begin{enumerate}
+        \item \(f^y\) измеримо на \(X\) почти везде.
+        \item \(y \mapsto \psi(y) = \int_X f^y d\mu\) --- измерима\footnote{почти везде} на \(Y\)
+        \item \(\int_{X \times Y} f dm = \int_Y \psi d\mu = \int_Y \left( \int_X f(x, y) d \mu(x) \right) d\nu(y)\)
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \(f = \chi_C, C \subset X \times Y, \) измеримо. Тогда \(f_x(y) = \chi_C(y)\)
+
+              \(C_x\) измеримо при почти всех \(x\) по \nameref{принцип Кавальери} \( \Rightarrow f_x\) измеримо при почти всех \(x\)
+
+              \(\varphi(x) = \int_Y f_x d\nu = \nu C_x\) --- измерима\footnote{почти везде} функция по \nameref{принцип Кавальери}
+
+              \[\int_X \varphi(x) d\mu = \int_X \nu C_x d\mu \symrefeq{по кавальери} mC = \int_{X \times Y} f dm\]
+              \blfootnote{\eqref{по кавальери}: по \nameref{принцип Кавальери}}
+
+        \item \(f\) --- ступенчатая, \(f \geq 0, f = \sum_{\text{кон.}} \alpha_k \chi_{c_k}, f_x = \sum \alpha_k \chi_{(C_k)_x}\) --- измеримо почти везде.
+
+              \(\varphi(x) = \int_Y f_x d\nu = \sum \alpha_k \nu (C_k)_x\) --- измерима\footnote{почти везде}
+
+              \[\int_X \varphi(x) = \sum \int_X \alpha_k \nu(C_k)_x = \sum \alpha_k m C_k = \int_{X \times Y} f dm\]
+
+        \item \(f \geq 0\), измеримо.
+
+              \(f = \lim g_n, g_n \uparrow f, g_n \geq 0\), ступенчатые
+
+              \(f_x = \lim\limits_{n \to +\infty} (g_n)_x \Rightarrow f_x\) --- измеримо на \(y\).
+
+              \[\varphi(x) = \int_Y f_x d\nu \symrefeq{по леви 2} \lim \int_Y (g_n)_x d\nu \implies \varphi \text{ --- измерима\footnote{почти везде}}\]
+              \blfootnote{\eqref{по леви 2}: по \nameref{леви}}
+
+              \? % TODO
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    \?
+\end{corollary}
+
+\begin{theorem}[Фубини]\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\)
+        \item \((Y, \mathfrak{B}, \nu)\)
+        \item \(\mu, \nu\) --- \(\sigma\)-конечные, полные
+        \item \(m = \mu \times \nu\)
+        \item \(f\) --- суммируемо на \(X \times Y\)
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item \(f_x\) --- суммируема на \(Y\) при почти всех \(x\)
+        \item \(x \mapsto \varphi(x) = \int_Y f_x d\nu = \int_Y f(x, y) d\nu(y)\) --- суммируема на \(Y\)
+        \item \(\int_{X \times Y} f dm = \int_X \varphi d \mu = \int_X \left( \int_y f(x, y) d\nu(y) \right) d\mu(x)\)
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Слишком неинтересно.
+
+    Общий подход: берём \(f_{ +}\) и \(f_{ -}\).
+\end{proof}
+
+\begin{example}
+    \(B(s, t) \defeq \int_0^1 x^{s - 1} (1 - x)^{t - 1} dx,\ s, t > 0\).
+
+    Тогда \(B(s, t) = \cfrac{\Gamma(s)\Gamma(t)}{\Gamma(s + t)}\), где \(\Gamma(s) = \int_0^{+\infty} x^{s - 1}e^{ - x}dx\)
+\end{example}
+
+\begin{proof}
+    \begin{align*}
+        \Gamma(s)\Gamma(t) & = \int_0^{+\infty} x^{s - 1}e^{ - x}\left( \int_0^{+\infty} y^{t - 1}e{ - y}dy \right)dx         \\
+                           & = \int_0^{+\infty} \left( \int_0^{+\infty} x^{s - 1}y^{t - 1} e^{ - x}e^{ - y} dy \right) dx     \\
+        y : = u - x                                                                                                           \\
+                           & = \int_0^{+\infty} \left( \int_0^{+\infty} x^{s - 1}(u - x)^{t - 1} e^{ - u} du \right) dx       \\
+                           & = \int \dots d\lambda_2                                                                          \\
+                           & = \int_0^{+\infty} \left( \int_0^u x^{s - 1}(u - x)^{t - 1} e^{ - u} dx \right) du               \\
+        x : = u\cdot v
+                           & = \int_0^{+\infty} \left( \int_0^1 (uv)^{s - 1}(u - uv)^{t - 1} e^{ - u} \cdot u dv \right) du   \\
+                           & = \int_0^{+\infty} u^{s + t - 1} e^{ - u} \left( \int_0^1 v^{s - 1}(1 - v)^{t - 1} dv \right) du \\
+                           & = B(s, t) \Gamma(s + t)
+    \end{align*}
+\end{proof}
 
 \end{document}

@@ -1089,4 +1089,165 @@ int f(int x) {
     Доказательство пункта 2 аналогично исходному доказательству для исчисления высказываний.
 \end{remark}
 
+\chapter{2 апреля}
+
+\begin{definition}
+    Будем говорить, что \(\Gamma \Vdash \alpha\), т.е. \(\alpha\) следует из \(\Gamma\), если при всех оценках, таких что все \(\gamma \in \Gamma \ \ \llbracket \gamma \rrbracket = \text{И}\), выполнено \(\llbracket \alpha \rrbracket = \text{И}\)
+\end{definition}
+
+\begin{example}[странный случай]
+    \(x = 0 \vdash \forall x.x = 0\), но \(x = 0 \nVdash \forall x.x = 0\)
+\end{example}
+
+Условие для корректности: правила для кванторов по свободным переменным из \(\Gamma\) запрещены. Тогда \(\Gamma \vdash \alpha\) влечёт \(\Gamma \Vdash \alpha\) и \(\llbracket \alpha [x: = \Theta] \rrbracket = \llbracket \alpha \rrbracket^{x: = \llbracket \Theta \rrbracket}\)
+
+\begin{remark}
+    Здесь и далее мы предполагаем условие корректности.
+\end{remark}
+
+\subsection{Полнота исчисления предикатов}
+
+\begin{definition}
+    \(\Gamma\) --- непротиворечивое. если \(\Gamma \nvdash \alpha \with \neg \alpha\) ни при каком \(\alpha\)
+\end{definition}
+
+\begin{example}\itemfix
+    \begin{itemize}
+        \item Непротиворечивое: \(\emptyset, A \lor \neg A\)
+        \item Противоречивое: \(A \with \neg A\)
+    \end{itemize}
+\end{example}
+
+Мы будем рассматривать непротиворечивое множество замкнутых бескванторных формул и обозначать \((\ldots)\).
+\begin{example}\itemfix
+    \begin{itemize}
+        \item \(\{A\}\)
+        \item \(\{0 = 0\}\)
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    \textbf{Моделью} для \((\ldots)\) \(\Gamma\) называется такая модель, что каждая формула из \(\Gamma\) оценивается в \(\text{И}\).
+\end{definition}
+
+\begin{definition}
+    \((\ldots)\) \(\Gamma\) называется \textbf{полным}, если для каждой замкнутой бескванторной формулы \(\alpha\) либо \(\alpha \in \Gamma\), либо \(\neg \alpha \in \Gamma\).
+
+    Аналогично определяется для не бескванторного множества.
+\end{definition}
+
+\begin{theorem}
+    Если \(\Gamma\) \((\ldots)\) и \(\alpha\) --- замкнутая бескванторная формула, то либо \(\Gamma \cup \{\alpha\} \), либо \(\Gamma \cup \{\neg \alpha\}\) --- \((\ldots)\)
+
+    Аналогичное верно для не бескванторного множества.
+\end{theorem}
+\begin{proof}
+    Пусть и \(\Gamma \cup \{\alpha\} \), и \(\Gamma \cup \{\neg \alpha\} \) --- противоречивы, т.е.:
+    \[\Gamma, \alpha \vdash \beta \with \neg \beta \quad \Gamma, \neg \alpha \vdash \beta \with \neg \beta\]
+
+    \[\begin{cases} \Gamma \vdash \alpha \to \beta \with \neg \beta \\ \Gamma \vdash \neg \alpha \to \beta \with \neg \beta \end{cases} \Rightarrow \gamma \vdash \beta \with \neg \beta \]
+
+    Т.е. \(\Gamma\) --- противоречиво. Это противоречие.
+\end{proof}
+
+\begin{theorem}
+    Если \(\Gamma\) --- \((\ldots)\) и в языке счётное количество формул\footnote{В исчислении предикатов это верно.}, то можно построить \(\Delta\) --- полное \((\ldots)\), такое что \(\Gamma \subset \Delta\).
+
+    Аналогичное верно для не бескванторного множества.
+\end{theorem}
+
+\begin{proof}
+    Пусть \(\varphi_1, \varphi_2 \dots \) --- замкнутые бескванторные формулы исчисления предикатов.
+
+    \(\Gamma_0: = \Gamma\)
+
+    \(\Gamma_1 : = \Gamma_0 \cup \{\varphi_1\} \) или \(\Gamma_0 \cup \{\neg \varphi_1\} \) --- смотря что непротиворечиво
+
+    \(\Gamma_2 : = \Gamma_1 \cup \{\varphi_2\} \) или \(\Gamma_1 \cup \{\neg \varphi_2\} \) --- смотря что непротиворечиво
+
+    \(\vdots\)
+
+    \(\Gamma^* : = \bigcup_i \Gamma_i\), тогда \(\Gamma^*\) --- полное и непротиворечивое. Первое очевидно, покажем второе.
+
+    Пусть \(\Gamma^* \vdash \beta \with \neg \beta\). Это конечное доказательство \(\delta_1 \dots \delta_s\) использует конечное число гипотез, пусть они \(\gamma_1 \dots \gamma_k\) и \(\gamma_i \in \Gamma_{R_i}\). Возьмём \(\Gamma_{\max(R_i)}\). Тогда \(\Gamma_{\max(R_i)} \vdash \beta \with \neg \beta\) --- противоречие.
+\end{proof}
+
+\begin{theorem}
+    Любое полное \((\ldots)\) \(\Gamma\) имеет модель, т.е. существует оценка \(\llbracket  \rrbracket\), такая что если \(\gamma \in \Gamma\), то \(\llbracket \gamma \rrbracket = \text{И}\)
+\end{theorem}
+
+\begin{proof}
+    Пусть \(D\) --- все записи из функциональных символов:
+
+    \(\llbracket f_0^n \rrbracket\)\footnote{константа} \( \Rightarrow \text{``}f_0^n\text{''}\)
+
+    \(\llbracket f_k^n(\theta_1 \dots \theta_k) \rrbracket \Rightarrow \text{``}f_k^n(\text{''} + \llbracket \theta_1 \rrbracket \text{``},\text{''} + \cdots + \text{``},\text{''} + \llbracket \theta_n \rrbracket + \text{``})\text{''}\)
+
+    Предикатные символы: \(\llbracket P(\theta_1 \dots \theta_n) \rrbracket = \begin{cases} \text{И}, & P(\theta_1 \dots \theta_n) \in \Gamma \\ \text{Л}, & \text{иначе} \end{cases} \)
+
+    Свободных предметных переменных нет, поэтому для них не нужно придумывать оценку.
+
+    Так построенная модель --- модель для \(\Gamma\). Докажем это по индукции по количеству связок: любая формула \(\alpha\), имеющая \( \leq n\) связок, истинно \(\Leftrightarrow \alpha \in \Gamma\).
+
+    \begin{itemize}
+        \item [База.] Очевидно.
+        \item [Переход.] Рассмотрим случай \(\alpha \with \beta\).
+
+              \begin{enumerate}
+                  \item Если \(\llbracket \alpha \rrbracket = \text{И}\) и \(\llbracket \beta \rrbracket = \text{И}\), то \(\alpha \with \beta \in \Gamma\)
+                  \item Если \(\llbracket \alpha \rrbracket \neq \text{И}\) или \(\llbracket \beta \rrbracket \neq \text{И}\), то \(\alpha \with \beta \not\in \Gamma\)
+              \end{enumerate}
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    \textbf{Предварённая нормальная форма} --- форма, где \(\forall \exists \forall \dots (\tau)\), где \(\tau\) --- формула без кванторов.
+\end{definition}
+\begin{theorem}
+    Если \(\varphi\) --- формула, то существует \(\psi\) в предварённой нормальной форме и при этом \(\varphi \to \psi\) и \(\psi \to \varphi\).
+\end{theorem}
+
+\begin{theorem}[Гёделя о полноте исчисления предикатов]
+    Если \(\Gamma\) --- полное непротиворечивое множество замкнутых формул, то оно имеет модель.
+\end{theorem}
+\begin{proof}
+    План таков: рассмотрим \(\Gamma\) --- полное непротиворечивое множество замкнутых формул. Построим по нему \(\Gamma^\Delta\) --- п.н.м. бескванторных з.ф. Построим по нему по теореме о существовании модели модель \(M^\Delta\) и покажем, что \(M^\Delta\) --- модель для \(\Gamma\):
+    \[\begin{tikzcd}
+            \Gamma \arrow{d}[swap]{\text{без кванторов}} & M \\
+            \Gamma^\Delta \arrow{r}{\text{теорема}}      & M^\Delta \arrow{u}{id}
+        \end{tikzcd}\]
+
+    Рассмотрим \(\Gamma_0 \subset \Gamma_1 \dots \Gamma_i \dots \subset \Gamma^*\) и \(\Gamma^* = \bigcup_i \Gamma_i\), а также \(\Gamma_0 = \Gamma_1\), где все формулы в предварённой нормальной форме. Определим переход \(\Gamma_i \to \Gamma_{i + 1}\).
+
+    Построим семейство функциональных символов \(d^i_j\), которые нигде ранее не использовались.
+
+    Рассмотрим случаи того, чем является \(\varphi_j \in \Gamma_i\).
+    \begin{enumerate}
+        \item \(\varphi_j\) без кванторов --- не трогаем.
+        \item \(\varphi_j \equiv \forall x.\psi\) --- добавим все формулы вида \(\psi[x : = \theta]\), где \(\theta\) --- терм, состваленный из \(f, d_0^l, d_1^l, \dots d_{i - 1}^l\)
+        \item \(\varphi_j \equiv \exists x.\psi\) --- добавим формулу \(\psi[x: = d_i^j]\)
+    \end{enumerate}
+
+    Таким образом, мы получим \(\Gamma_{i + 1} = \Gamma_i \cup \{\text{все добавленные формулы}\}\).
+\end{proof}
+
+\begin{corollary}
+    Пусть \(\Vdash \alpha\) и \(\alpha\) замкнута, тогда \(\vdash \alpha\).
+\end{corollary}
+\begin{proof}
+    Пусть \(\Vdash \alpha\), но не \(\nvdash \alpha\). Значит, \(\{\neg \alpha\} \) --- непротиворечивое множество замкнутых формул.
+
+    Почему непротиворечиво? \(\neg \alpha \vdash \beta \with \neg \beta, \beta \with \neg \beta \vdash \alpha\), следовательно \(\neg \alpha \vdash \alpha\), но ещё и \(\alpha \vdash \alpha\). Таким образом, \(\vdash \alpha\).
+
+    Значит, у \(\neg \alpha\) есть модель \(M\), \(\llbracket \neg \alpha \rrbracket_M = \text{И}\). Значит, \(\nVdash \alpha\)
+\end{proof}
+
+\begin{theorem}
+    Если \(\Gamma_i\) непротиворечиво, то \(\Gamma_{i + 1}\) непротиворечиво.
+\end{theorem}
+\begin{theorem}
+    \(\Gamma^*\) непротиворечиво.
+\end{theorem}
+\(\Gamma^\Delta = \Gamma^*\) без формул с \(\forall , \exists \)
+
 \end{document}

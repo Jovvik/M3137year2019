@@ -1062,7 +1062,7 @@ int f(int x) {
 
     Рассмотрим случаи:
     \begin{enumerate}
-        \item Схемы аксиом 1-10 --- аналогично \footnote{доказательству ИВ}.
+        \item Схемы аксиом 1-10 --- аналогично\footnote{доказательству ИВ}.
         \item M.P. --- аналогично
         \item Аксиомы 11-12 --- аналогично первому пункту.
         \item Пусть \(\delta_{n + 1}\) получено правилом \(\forall \) : \(\delta_{n + 1}\equiv \varphi \to \forall x.\psi\) и существует \(\delta_k \equiv \varphi \to \psi\) и \(k \leq n\), причём \(x\) не входит свободно в \(\varphi\).
@@ -1076,10 +1076,10 @@ int f(int x) {
                           & \vdots                                                                                &                              \\
                   (n)     & \alpha \to \delta_n                                                                   &                              \\
                           & \vdots                                                                                &                              \\
-                  (n+0.1) & \alpha \to \varphi \to \psi) \to \alpha \with \varphi \to \psi                        & (лемма \ref{для дедукции})   \\
+                  (n+0.1) & (\alpha \to \varphi \to \psi) \to \alpha \with \varphi \to \psi                       & (лемма~\ref{для дедукции})   \\
                   (n+0.2) & \alpha \with \varphi \to \psi                                                         & (M.P.)                       \\
                   (n+0.3) & \alpha \with \varphi \to \forall x.\psi                                               & (введение \(\forall \))      \\
-                  (n+0.4) & (\alpha \with \varphi \to \forall x.\psi) \to (\alpha \to \varphi \to \forall x.\psi) & (лемма \ref{для дедукции 2}) \\
+                  (n+0.4) & (\alpha \with \varphi \to \forall x.\psi) \to (\alpha \to \varphi \to \forall x.\psi) & (лемма~\ref{для дедукции 2}) \\
                   (n+1)   & \alpha \to \varphi \to \forall x. \psi                                                & (M.P.)
               \end{tabular}
     \end{enumerate}

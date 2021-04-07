@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 228,
-    "uniques": 62
+    "count": 216,
+    "uniques": 59
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
@@ -14,20 +14,14 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/5.pdf",
     "title": "M3137year2019/5.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 36,
-    "uniques": 16
+    "count": 35,
+    "uniques": 15
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 21,
+    "count": 19,
     "uniques": 10
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/1.pdf",
-    "title": "M3137year2019/1.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 17,
-    "uniques": 13
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/4.pdf",
@@ -42,21 +36,27 @@
     "uniques": 8
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/3.pdf",
-    "title": "M3137year2019/3.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/main.pdf",
+    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 16,
+    "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/1.pdf",
+    "title": "M3137year2019/1.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 15,
     "uniques": 11
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/3.pdf",
+    "title": "M3137year2019/3.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 14,
+    "uniques": 10
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
     "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019",
     "count": 14,
     "uniques": 9
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 13,
-    "uniques": 2
   }
 ]

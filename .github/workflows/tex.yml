@@ -18,10 +18,17 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: |
-            .
-            !**/*.tex
-            !**/images/**
-            !.git/**
+            **/*.pdf
+            **/*.aux
+            **/*.fls
+            **/*.log
+            **/*.toc
+            **/*.synctex.gz
+            **/*.xdv
+            **/*.fdb_latexmk
+            **/*.fdb_latexmk
+            **/svg-inkscape/**
+            **/minted-*/**
           key: auxfiles
       - uses: xu-cheng/texlive-action/full@v1
         with:

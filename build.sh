@@ -3,8 +3,8 @@
 function compile {
     echo "Building" "$1"
     cd "$(dirname "$1")"
-    for _ in {1..20}; do latexmk -f -xelatex -shell-escape "$(basename "$1")" &> /dev/null; done
-    if ! latexmk -f -xelatex -shell-escape "$(basename "$1")" &> "$REPOPATH"/latex.log; then
+    # for _ in {1..20}; do latexmk -f -xelatex -shell-escape "$(basename "$1")" &> /dev/null; done
+    if ! latexmk -pdf -xelatex -interaction=nonstopmode -shell-escape "$(basename "$1")" &> "$REPOPATH"/latex.log; then
         cat "$REPOPATH"/latex.log
         exit 1
     fi
@@ -13,10 +13,10 @@ function compile {
 
 REPOPATH=$(pwd)
 
-while IFS= read -r -d '' file
+while IFS= read -r -d '' fname
 do
-    compile "$file"
-done <   <(find . -wholename "*/4sem/*.tex" -type f -print0)
+    compile "$fname"
+done <   <(find . -name "*.tex" -type f -print0)
 
 # while IFS= read -r -d '' file
 # do

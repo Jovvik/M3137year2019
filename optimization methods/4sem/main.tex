@@ -732,4 +732,172 @@
     \item Анализ собственных значений \(\mathbf H(x)\).
 \end{enumerate}
 
+\chapter{17 марта}
+
+\subsubsection{Критерии Сильвестра проверки достаточных условий экстремума}
+
+\begin{enumerate}
+    \item Для того, чтобы \(\mathbf H(x^*) > 0\) и \(x^*\) являлась точкой локального минимума, необходимо и достаточно, чтобы \textbf{угловые} миноры были строго положительными, т.е. \(\Delta_1 > 0, \Delta_2 > 0 \dots \Delta_n > 0\).
+    \item Для того, чтобы \(\mathbf H(x^*) < 0\) и \(x^*\) являлась точкой локального максимума, необходимо и достаточно, чтобы знаки \textbf{угловых} миноров чередовались, т.е. \(\Delta_1 < 0, \Delta_2 > 0 \dots ( - 1)^n\Delta_n > 0\)
+\end{enumerate}
+
+\subsubsection{Критерии Сильвестра проверки необходимых условий экстремума}
+
+\begin{enumerate}
+    \item Для того, чтобы \(\mathbf H(x^*) \geq 0\) и \(x^*\) мог быть точкой локального минимума, необходимо и достаточно, чтобы \textbf{главные} миноры были положительными, т.е. \(\Delta_1 \geq 0, \Delta_2 \geq 0, \dots \Delta^n \geq 0\)
+    \item Для того, чтобы \(\mathbf H(x^*) \leq 0\) и \(x^*\) мог быть точкой локального максимума, необходимо и достаточно, чтобы знаки \textbf{главных} миноров чередовались, т.е. \(\Delta_1 \leq 0, \Delta_2 \geq 0, \dots ( - 1)^n \Delta^n \geq 0\)
+\end{enumerate}
+
+\begin{definition}
+    \textbf{Собственные значения} \(\lambda_i\) матрицы \(\mathbb H(x^*)\) находятся как корни характеристического уравнения \(|H(x^*) - \lambda E| = 0\)
+\end{definition}
+
+Если \(H(x)\) --- вещественная, симметричная матрица, то \(\lambda_i\) тоже вещественные.
+
+\subsection{Квадратичные функции}
+
+\begin{definition}
+    Функция вида
+    \begin{equation}
+        f(x) = \sum_{i = 1}^n \sum_{j = 1}^n a_{ij} x_i x_j + \sum_{j = 1}^n b_j x_j + c \label{квадратичная функция}
+    \end{equation}
+    называется \textbf{квадратичной функцией} \(n\) переменных.
+\end{definition}
+
+Положим \(a_{ij} = a_{ji}\)\footnote{На лекции было дано \(a_{ij} = a_{ij} + a_{ji}\), но это не похоже на правду, т.к. тогда \(a_{ji} = 0 \ \ \forall i, j\). Нулевая матрица действительно симметрична, но вряд ли это подразумевалось.}, тогда \(a_{ij}\) задаёт симметричную матрицу \(A\).
+\begin{equation}
+    f(x) = \frac{1}{2} \ev{Ax, x} + \ev{b, x} + c \label{квадратичная функция с симметричной матрицей}
+\end{equation}
+, где \(b = \begin{pmatrix} b_1 & \dots & b_n \end{pmatrix}^T \in E_n\) --- вектор коэффициентов, \(x = \begin{pmatrix} x_1 & \dots & x_n \end{pmatrix}^T\)
+
+\begin{prop}[квадратичных функций]\itemfix
+    \begin{enumerate}
+        \item \(\nabla f(x) = Ax + b\)
+              \begin{align*}
+                  \frac{\partial f}{\partial x_k} & = \frac{\partial}{\partial x_k} \left( \frac{1}{2} \sum_{j = 1}^n a_{ij} x_i x_j + \sum_{j = 1}^n b_j x_j + c \right) \\
+                                                  & = \frac{1}{2} \sum_{i = 1}^n (a_{ik} + a_{ki}) x_i + b_k                                                              \\
+                                                  & = \sum_{i = 1}^n a_{ki} x_i + b_k
+              \end{align*}
+
+        \item \(\mathbf H(x) = A\)
+
+              \[\frac{\partial^2 f}{\partial x_l \partial x_k} = \frac{\partial}{\partial x_l} \left( \frac{\partial f}{\partial x_k} \right) = \frac{\partial}{\partial x_l} \left( \sum_{i = 1}^n a_{ki} x_i + b_k \right) = a_{kl}\]
+
+        \item Квадратичная функция \(f(x)\), для которой выполнено~\eqref{квадратичная функция с симметричной матрицей}, с положительно определенной матрицей \(A\) сильно выпуклая, т.к. \(\mathbf H(x) = A\) --- симметричная и положительная определенная, а следовательно \(\lambda_i > 0\) и \(\exists \) ортонормированный базис из собственных векторов этой матрицы. В этом базисе:
+
+              \[A = \begin{pmatrix}
+                      \lambda_1 & 0         & \dots  & 0         \\
+                      0         & \lambda_2 & \dots  & 0         \\
+                      \vdots    & \vdots    & \ddots & \vdots    \\
+                      0         & 0         & \dots  & \lambda_n
+                  \end{pmatrix} \quad A - lE = \begin{pmatrix}
+                      \lambda_1 - l & 0             & \dots  & 0             \\
+                      0             & \lambda_2 - l & \dots  & 0             \\
+                      \vdots        & \vdots        & \ddots & \vdots        \\
+                      0             & 0             & \dots  & \lambda_n - l
+                  \end{pmatrix}\]
+
+              В этом базисе все угловые миноры матрицы \(A\) и матрицы \(A - lE\) положительны при достаточно малом \(l : 0 < l < \lambda_{\min} \Rightarrow f\) сильно выпуклая.
+    \end{enumerate}
+\end{prop}
+
+\subsection{Общие принципы многомерной оптимизации}
+
+Алгоритмы многомерной оптимизации обычно используют итерационную процедуру, описываемую следующим образом: \(x^{k + 1} = \Phi(x^k, x^{k - 1} \dots x^0), x^0 \in E_n\). Эти алгоритмы строят последовательность промежуточных результатов \(\{x_k\}\), которая обладает следующими свойствами:
+\begin{equation}
+    \begin{cases}
+        \lim\limits_{k \to +\infty} f(x^k) = f^* = \min\limits_{E_n} f(x), & \text{если \(U^* \neq \emptyset\)} \\
+        \lim\limits_{k \to +\infty} f(x^k) = f^* = \inf\limits_{E_n} f(x), & \text{если \(U^* = \emptyset\)}
+    \end{cases}
+    \label{последовательность результатов}
+\end{equation}
+, где \(U^*\) --- множество точек глобального минимума функции \(f(x)\).
+
+\begin{definition}
+    Если для \(\{x^k\} \) выполняется условие~\eqref{последовательность результатов}, то эта последовательность называется \textbf{минимизирующей}.
+\end{definition}
+
+\begin{definition}
+    Если для \(U^* \neq \emptyset\) выполняется условие \(\lim_{k \to +\infty} \rho(x^k, U^*) = 0\), то \(\{x^k\}\) \textbf{сходится} к множеству \(U^*\)
+\end{definition}
+
+\begin{definition}[расстояние от точки до множества]
+    \(\rho(x, U) = \inf_{y\in U} \rho(x, y)\)
+\end{definition}
+
+Если \(U^*\) состоит из одной точки \(x^*\), то для \(\{x^k\}\), сходящейся к \(U^*\), \(\lim_{k \to +\infty} x^k = x^*\). Минимизирующая последовательность может и не сходиться к точке минимума.
+
+\begin{theorem}[Вейерштрасса]
+    Если \(f*x\) непрерывна в \(E_n\) и множество \(U^\alpha = \{x : f(x) \leq \alpha\} \) для некоторого \(\alpha\) непусто и ограничено, то \(f(x)\) достигает глобального минимума в \(E_n\).
+\end{theorem}
+
+\subsection{Скорость сходимости минимизирующей последовательности}
+
+\begin{definition}
+    \(\{x^k\} \) сходится к точке \(x^*\) \textbf{линейно} \textit{(со скоростью геометрической прогрессии)}, если
+    \[\exists q \in (0, 1) : \rho(x^k, x^*) = q \rho(x^{k - 1}, x^*)\]
+    , т.е. \(\rho(x^k, x^*) \leq q^k \rho(x^0, x^*)\)
+\end{definition}
+
+\begin{definition}
+    Сходимость называется \textbf{сверхлинейной}, если
+    \[\rho(x^k, x^*) \leq (c \rho(x^{k - 1}, x^*))^2, c > 0\]
+\end{definition}
+
+Критерий окончания итерационного процесса:
+\begin{enumerate}
+    \item \(\rho(x^{k + 1}, x^k) < \varepsilon_1\)
+    \item \(|f(x^{k + 1}) - f(x^k)| < \varepsilon_2\)
+    \item \(||\nabla f(x^k)|| < \varepsilon_3\)
+\end{enumerate}
+
+\begin{equation}
+    x^{k + 1} = x^k + \alpha_k p^k
+    \label{итерационный процесс}
+\end{equation}
+, где \(p^k\) --- \textbf{направление поиска} из \(x^k\) в \(x^{k + 1}\), а \(\alpha_k\) --- \textbf{величина шага}. Алгоритмы, которые мы будем рассматривать, различаются этими двумя величинами.
+
+\begin{definition}
+    В итерационном процессе~\eqref{итерационный процесс} производится \textbf{исчерпывающий спуск}, если величина шага \(\alpha_k\) находится из решения одномерной задачи минимизации
+    \begin{equation}
+        \Phi_k(\alpha) \to \min_\alpha, \Phi_k(\alpha = f(x^k + \alpha p^k))
+        \label{исчерпывающий спуск}
+    \end{equation}
+\end{definition}
+
+\begin{theorem}
+    Если функция \(f(x)\) дифференцируема в \(E_n\), то в итерационном процессе~\eqref{итерационный процесс} с выбором шага с исчерпывающим спуском для любого \(k \geq 1\) выполняется следующее условие:
+    \begin{equation}
+        \ev{\nabla f(x^{k + 1}), p^k} = 0
+        \label{условие при процессе}
+    \end{equation}
+\end{theorem}
+\begin{proof} % первое за курс, ура!
+    Для \(\Phi_k(\alpha)\) необходимое условие минимума функции:
+    \[\frac{d \Phi_k(\alpha)}{d \alpha} = \sum_{j = 1}^n \frac{\partial f(x^{k + 1})}{\partial x_j} \frac{d x_j^{k + 1}}{d \alpha} = 0\]
+    Учитывая, что \(x^{k + 1}_j = x_j^k + \alpha p_j^k\), получаем, что \(\frac{d x_j^{k + 1}}{d \alpha} = p_j^k\)
+\end{proof}
+
+\begin{theorem}
+    Для квадратичной функции \(f(x) = \frac{1}{2} \ev{Ax, x} + \ev{b, x} + c\) величина \(\alpha_k\) исчерпывающего спуска в итерационном процессе~\eqref{итерационный процесс} равна:
+    \begin{equation}
+        \alpha_k = - \frac{\ev{\nabla f(x^k), p^k}}{\ev{A p^k, p^k}} = - \frac{\ev{Ax^k + b, p^k}}{\ev{Ap^k, p^k}}
+        \label{alpha k в исчерпывающем спуске}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        x^{k + 1}           & = x^k + \alpha_k p^k             \\
+        Ax^{k + 1} + b      & = Ax^k + b + \alpha_k A p^k      \\
+        \nabla f(x^{k + 1}) & = \nabla f(x^k) + \alpha_k A p^k
+    \end{align*}
+    \begin{align*}
+        \ev{\nabla f(x^{k + 1}), p^k}                      & = 0                                                 \\
+        \ev{\nabla f(x^k) + \alpha_k A p^k, p^k}           & = 0                                                 \\
+        \ev{\nabla f(x^k), p^k} + \ev{\alpha_k A p^k, p^k} & = 0                                                 \\
+        \ev{\nabla f(x^k), p^k} + \alpha_k \ev{A p^k, p^k} & = 0                                                 \\
+        \alpha_k                                           & = - \frac{\ev{\nabla f(x^k), p^k}}{\ev{A p^k, p^k}}
+    \end{align*}
+\end{proof}
+
 \end{document}

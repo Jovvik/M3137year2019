@@ -20,7 +20,9 @@ jobs:
           path: |
             .
             !**/*.tex
+            !**/images/**
             !.git/**
+          key: auxfiles
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |

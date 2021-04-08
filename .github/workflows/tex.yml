@@ -15,6 +15,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - uses: actions/cache@v2
+        with:
+          path: |
+            .
+            !**/*.tex
+            !.git/**
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |

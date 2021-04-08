@@ -175,6 +175,13 @@
 \renewcommand{\emptyset}{\varnothing}
 \newcommand{\longarrow}[1]{\xRightarrow[#1]{\qquad}}
 \DeclareMathOperator{\esup}{\text{ess sup}}
+\newcommand\smallO{
+  \mathchoice
+    {{\scriptstyle\mathcal{O}}}% \displaystyle
+    {{\scriptstyle\mathcal{O}}}% \textstyle
+    {{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
+    {\scalebox{.6}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+  }
 
 \makeatletter
 \newcommand{\oplabel}[1]{\refstepcounter{equation}(\theequation\ltx@label{#1})}

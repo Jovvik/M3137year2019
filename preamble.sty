@@ -94,6 +94,8 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\B}{\mathbb{B}}
 \newcommand{\N}{\mathbb{N}}
+\renewcommand{\Re}{\mathfrak{R}}
+\renewcommand{\Im}{\mathfrak{I}}
 
 \newcommand{\const}{\text{const}}
 
@@ -119,6 +121,7 @@
 \newtheorem*{remark}{Примечание}
 \newtheorem*{exercise}{Упражнение}
 \newtheorem{corollary}{Следствие}[theorem]
+\newtheorem*{corollary*}{Следствие}
 \newtheorem*{example}{Пример}
 \newtheorem{observation}{Наблюдение}
 \newtheorem*{prop}{Свойства}
@@ -171,6 +174,7 @@
 \newcommand{\?}{\textcolor{red}{???}}
 \renewcommand{\emptyset}{\varnothing}
 \newcommand{\longarrow}[1]{\xRightarrow[#1]{\qquad}}
+\DeclareMathOperator{\esup}{\text{ess sup}}
 
 \makeatletter
 \newcommand{\oplabel}[1]{\refstepcounter{equation}(\theequation\ltx@label{#1})}

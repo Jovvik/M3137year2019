@@ -15,8 +15,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: satackey/action-docker-layer-caching@v0.0.11
-        continue-on-error: true
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
@@ -42,3 +40,4 @@ jobs:
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
           full_commit_message: ${{ env.COMMIT_MSG }}
+          keep_files: true

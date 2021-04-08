@@ -588,4 +588,148 @@
     \end{tabular}
 \end{example}
 
+\chapter{10 марта}
+
+\section{Минимизация функций многих переменных}
+
+\subsection{Постановка задачи}
+
+Необходимо найти \(x^* = \begin{pmatrix} x_1 & x_2 & \dots & x_n \end{pmatrix}^T \in U \subset E_n\), где \(U\) --- множество допустимых значений, а \(E_n\) --- евклидово пространство размера \(n\), при этом \(f(x^*) = \min_{x\in U} f(x)\).
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item Как и в одномерном случае, задача минимизации эквивалентна задачи максимизации и в общем случае называется задачей поиска экстремума.
+        \item Если \(U\) задается ограничениями на вектор \(x\), то такая задача оптимизации называется задачей поиска условного экстремума.
+        \item Если \(U = E_n\), т.е. не имеет ограничений, то такая задача оптимизации называется задачей поиска безусловного экстремума.
+        \item Решением задачи поиска экстремума называется пара \((x^*, f(x^*))\).
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}
+    Если \(f(x^*) \leq f(x) \ \ \forall x\in U\), то \(x^*\) называется \textbf{глобальным минимумом}.
+\end{definition}
+\begin{definition}
+    Если \(\exists \varepsilon > 0 : ||x - x^*|| < \varepsilon \Rightarrow f(x^*) \geq f(x)\), то \(x^*\) называется \textbf{локальным минимумом}.
+\end{definition}
+\begin{remark}
+    \[||x|| = \sqrt{\sum_i x_i}\]
+\end{remark}
+
+\begin{definition}
+    \textbf{Поверхностью уровня} функции \(f(x)\) называется множество точек, в которых функция принимает постоянное значение.
+\end{definition}
+
+\begin{definition}
+    \textbf{Градиентом} \(\nabla f(x)\) непрерывно дифференцируемой функции \(f(x)\) в \(x\) называется:
+    \[\nabla f(x) = \begin{pmatrix} \frac{\partial f(x)}{\partial x_1} \\ \frac{\partial f(x)}{\partial x_2} \\ \vdots \\ \frac{\partial f(x)}{\partial x_n} \end{pmatrix} \]
+\end{definition}
+
+\begin{remark}
+    Градиент направлен по нормали к поверхности нормали уровня, т.е. перпендикулярно к касательной плоскости, проведенной в точке \(x\) в сторону наибольшего возрастания функции.
+\end{remark}
+
+\begin{definition}
+    Матрица Гессе \(\mathbf H(x)\) дважды непрерывно дифференцируемой в точке \(x\) функции \(f(x)\) называется матрица частных производных производных второго порядка, вычисленных в данной точке.
+
+    \[\mathbf H(x) = \begin{pmatrix}
+            \frac{\partial^2 f(x)}{\partial x_1^2}            & \frac{\partial^2 f(x)}{\partial x_1 \partial x_2} & \dots  & \frac{\partial^2 f(x)}{\partial x_1 \partial x_n} \\
+            \vdots                                            & \vdots                                            & \ddots & \vdots                                            \\
+            \frac{\partial^2 f(x)}{\partial x_n \partial x_1} & \frac{\partial^2 f(x)}{\partial x_n\partial x_2}  & \dots  & \frac{\partial^2 f(x)}{\partial x_n^2}
+        \end{pmatrix} = \begin{pmatrix}
+            h_{11} & h_{12} & \dots  & h_{1n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            h_{n1} & h_{n2} & \dots  & h_{nn}
+        \end{pmatrix}  \]
+\end{definition}
+
+\begin{enumerate}
+    \item \(\mathbf H(x)\) симметрична, имеет размер \(n \times n\).
+    \item Можно определить антиградиент --- вектор, равный по модулю градиенту и направленный противоположно. Антиградиент указывает в сторону наибольшего убывания \(f(x)\).
+    \item \(\Delta f(x) = f(x + \Delta x) - f(x) = \nabla f(x)^T \Delta x + \frac{1}{2} \Delta x^T \mathbf H(x) \Delta x + \smallO(||\Delta x||^2)\), где \(\smallO(||\Delta x||^2)\) есть сумма всех членов разложения, имеющих порядок выше второго. Можем заметить, что \(\Delta x^T \mathbf H(x) \Delta x\) --- квадратичная форма.
+\end{enumerate}
+
+\begin{definition}
+    \textbf{Квадратичная форма} \(\Delta x^T \mathbf H(x) \Delta x\)\footnote{и соответствующая ей матрица \(\mathbf H(x)\)} называется:
+    \begin{itemize}
+        \item Положительно определенной, если \(\forall \Delta x \neq 0 \ \ \Delta x^T \mathbf H(x) \Delta x > 0\)
+        \item Отрицательно определенной, если \(\forall \Delta x \neq 0 \ \ \Delta x^T \mathbf H(x) \Delta x < 0\)
+        \item Положительно полуопределенной, если \(\forall \Delta x \ \ \Delta x^T \mathbf H(x) \Delta x \geq 0\) и имеется \(\Delta x \neq 0 : \Delta x^T \mathbf H(x) \Delta x = 0\)
+        \item Отрицательно полуопределенной, если \(\forall \Delta x \ \ \Delta x^T \mathbf H(x) \Delta x \leq 0\) и имеется \(\Delta x \neq 0 : \Delta x^T \mathbf H(x) \Delta x = 0\)
+        \item Неопределенной, если \(\exists \Delta x, \Delta \tilde x : \Delta x^T \mathbf H(x) \Delta x > 0, \Delta \tilde x^T \mathbf H(x) \Delta \tilde x < 0\)
+        \item Тождественно равной нулю, если \(\forall \Delta x \ \ \Delta x^T \mathbf H(x) \Delta x = 0\)
+    \end{itemize}
+\end{definition}
+
+\subsection{Свойства выпуклых множеств и выпуклых функций}
+
+\begin{definition}
+    Пусть \(x, y \in E_n\), множество точек вида \(\{z\} \subset E_n : z = \alpha x + (1 - \alpha) y\), т.е. \(z\) это отрезок \([x, y]\).
+\end{definition}
+
+\begin{definition}
+    \(U \subset E_n\) выпуклое, если вместе с точками \(x, y \in U\) оно содержит весь отрезок \(z\).
+\end{definition}
+
+\begin{definition}
+    Функция \(f(x)\), заданная на выпуклом множестве \(U \subset E_n\), называется:
+    \begin{itemize}
+        \item \textbf{выпуклой}, если:
+              \[\forall x, y \in U, \alpha \in [0, 1] \ \ f(\alpha x + (1 - \alpha) y) \leq \alpha f(x) + (1 - \alpha) f(y)\]
+        \item \textbf{строго выпуклой}, если:
+              \[\forall x, y \in U, \alpha \in (0, 1) \ \ f(\alpha x + (1 - \alpha) y) < \alpha f(x) + (1 - \alpha) f(y)\]
+        \item \textbf{сильно выпуклой} с константой \(l > 0\), если:
+              \[\forall x, y \in U, \alpha \in [0, 1] \ \ f(\alpha x + (1 - \alpha) y) \leq \alpha f(x) + (1 - \alpha) f(y) - \frac{l}{2} \alpha (1 - \alpha) ||x - y||^2\]
+    \end{itemize}
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item Функция \(f(x)\) выпуклая, если её график целиком лежит не выше отрезка, соединяющего две её произвольные точки.
+        \item Функция \(f(x)\) строго выпуклая, если её график целиком лежит ниже отрезка, соединяющего две её произвольные, но не совпадающие точки.\footnote{Пример будет на следующей лекции}.
+        \item Если функция сильно выпуклая, то она одновременно строго выпуклая и выпуклая.
+        \item Если функция строго выпуклая, то она выпуклая.
+        \item Выпуклость функции можно определить по \(\mathbf H(x)\):
+              \begin{itemize}
+                  \item Если \(\mathbf H(x) \geq 0 \ \ \forall x \in E_n\), то \(f(x)\) выпуклая.
+                  \item Если \(\mathbf H(x) > 0 \ \ \forall x \in E_n\), то \(f(x)\) строго выпуклая.
+                  \item Если \(\mathbf H(x) \geq lE\footnote{единичная матрица} \ \ \forall x \in E_n\), то \(f(x)\) сильно выпуклая.
+              \end{itemize}
+    \end{enumerate}
+\end{prop}
+
+\begin{prop}[выпуклых функций]\itemfix
+    \begin{enumerate}
+        \item Если \(f(x)\) --- выпуклая функция на множестве \(U\), то всякая точка локального минимума --- глобальный минимум на \(U\).
+        \item Если выпуклая функция достигает своего минимума в двух различных точках, то она достигает минимума во всех точках отрезка, соединяющего эти точки.
+        \item Если \(f(x)\) строго выпуклая функция на множестве \(U\), то она может достигать своего глобального минимума на \(U\) не более чем в одной точке.
+    \end{enumerate}
+\end{prop}
+
+\subsection{Необходимое и достаточное условие безусловного экстремума}
+
+\subsubsection{Необходимое условие экстремума первого порядка}
+
+Пусть \(x^* \in E_n\) --- точка локального минимума\footnote{или максимума} \(f(x)\) на \(E_n\) и \(f(x)\) дифференцируема в точке \(x^*\). Тогда \(\nabla f(x)\) в точке \(x^*\) равен нулю: \(\nabla f(x^*) = 0\) или \(\frac{\partial f(x^*)}{\partial x_i} = 0 \ \ \forall i \in 1 \dots n \). Точка \(x^*\) называется \textbf{стационарной}.
+
+\subsubsection{Необходимое условие экстремума второго порядка}
+
+Пусть \(x^* \in E_n\) --- точка локального минимума\footnote{или максимума} \(f(x)\) на \(E_n\) и \(f(x)\) дважды дифференцируема в точке \(x^*\). Тогда \(\mathbf H(x^*)\) положительно полуопределена или отрицательно полуопределена.
+
+\subsubsection{Достаточное условие экстремума}
+
+Пусть \(f(x)\) в \(x^* \in E_n\) дважды дифференцируема, \(\nabla f(x^*) = 0\) и \(\mathbf H(x) > 0\) (или \(\mathbf H(x) < 0\)). Тогда \(x^*\) --- точка локального минимума\footnote{или максимума} \(f(x)\) на \(E_n\).
+
+\subsubsection{Проверка выполнений условий экстремума}
+
+\begin{itemize}
+    \item Вычисление угловых миноров \(\mathbf H(x)\)
+    \item Вычисление главных миноров \(\mathbf H(x)\)
+\end{itemize}
+
+Есть два способа это сделать:
+\begin{enumerate}
+    \item Исследование положительной или отрицательной определенности угловых и главных миноров \(\mathbf H(x)\).
+    \item Анализ собственных значений \(\mathbf H(x)\).
+\end{enumerate}
+
 \end{document}

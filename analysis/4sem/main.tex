@@ -2156,7 +2156,7 @@
 \chapter{5 апреля}
 
 \begin{definition}
-    \(M \subset \R^3\) --- \textbf{кусочно-гладкое двумерное многообразие}, если \(M\) --- конечное объединение:
+    \(M \subset \R^3\) --- \textbf{кусочн����-гладкое двумерное многообразие}, если \(M\) --- конечное объединение:
     \begin{itemize}
         \item Простых гладких многообразий \(M_i\)
         \item Гладких кривых
@@ -2347,7 +2347,255 @@
                   \item \(f\in L^p \Rightarrow f\) --- почти везде конечно, если \(1 \leq p \leq +\infty \Rightarrow \) можно считать, что \(f\) задана всюду на \(E\) и всюду конечна. % почему, как интерполировать?
               \end{enumerate}
           \end{remark}
-
 \end{enumerate}
+
+\chapter{12 апреля}
+
+% \begin{remark}
+%     Начало лекции не записано, но, кажется, оно и не нужно.
+% \end{remark}
+
+\begin{definition}[мера Лебега на \(k\)-мерном многообразии в \(\R^m\)]\itemfix
+    \begin{itemize}
+        \item \(\Phi : O \subset \R^k \to \R^m\)
+        \item \(\exists \Phi'_1 \dots \Phi'_k\)
+    \end{itemize}
+
+    \(\lambda_k(\text{ПРЛП}\footnote{Площадь параллелипипеда}(\Phi_1' \dots \Phi_k'))\) --- это и будет плотность меры.
+\end{definition}
+
+\section{Формула Грина}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(D\subset \R^2\) --- компактное, связное, односвязное\footnote{Любая петля стягиваема}, ограниченное множество.
+        \item \(D\) ограничено кусочно-гладкой кривой \(\partial D\)
+        \item \((P, Q)\) --- гладкое векторное поле в окрестности \(D\)
+    \end{itemize}
+
+    Пусть \(\partial D\) ориентроиванно согласованно с ориентацией \(D\) \textit{(против часовой стрелки)} --- обозначим \(\partial D^{ +}\). Тогда:
+    \[\iint_D \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} dx dy = \int_{\partial D^{ +}} Pdx + Qdy\]
+\end{theorem}
+\begin{proof}
+    Ограничимся случаем \(D\) --- ``криволинейный четырёхугольник''.
+
+    \begin{figure}[h]
+        \includesvg{images/криволинейный_четырехугольник.svg}
+        \centering
+        \caption{Криволинейный четырёхугольник с \(\partial D\)}
+    \end{figure}
+
+    \(\partial D\) состоит из путей \(\gamma_1 \dots \gamma_4\), где \(\gamma_2\) и \(\gamma_4\) --- вертикальные отрезки\footnote{Возможно, вырожденные}, \(\gamma_1\) и \(\gamma_3\) --- гладкие кривые --- можно считать, что это графики функций \(\varphi_1(x), \varphi_3(x)\).
+
+    Аналогично можно описать \(\partial D\) по отрезкам, параллельным оси \(OY\). % TODO: расшифровка сокращений угадана
+
+    Проверим, что \( - \iint_D \frac{\partial P}{\partial y} dx dy = \int_{\partial D^{ +}} Pdx + 0 dy\)
+
+    \begin{align*}
+        - \iint_D \frac{\partial P}{\partial y} dx dy & = -\int_a^b dx \int_{\varphi_1(x)}^{\varphi_3(x)} \frac{\partial P}{\partial y} dy \\
+                                                      & = -\int_a^b P(x, \varphi_3(x)) - P(x, \varphi_1(x)) dx
+    \end{align*}
+    \begin{align*}
+        \int_{\partial D^{ +}} Pdx + 0 dy & = \int_{\varphi_1} + \underbrace{\int_{\varphi_2}}_0 + \int_{\varphi_3} + \underbrace{\int_{\varphi_4}}_0 \\
+                                          & = \int_a^b P(x, \varphi_1(x)) dx - \int_a^b P(x, \varphi_3(x)) dx
+    \end{align*}
+
+    Таким образом, искомое доказано.
+\end{proof}
+
+\begin{remark}
+    Теорема верна для любой области \(D\) с кусочно-гладкой границей, которую можно разрезать на криволинейные четырёхугольники.
+
+    Такой разрез --- безобидное действие, которое можно выполнить вертикальным разрезанием по середине:
+    \begin{figure}[h]
+        \includesvg[scale=0.7]{images/разрез.svg}
+        \centering
+    \end{figure}
+
+    Кажется, такими разрезами можно достичь искомого в любой области, но мы не будем это утверждать.
+\end{remark}
+
+\begin{theorem}[формула Стокса]\itemfix
+    \begin{itemize}
+        \item \(\Omega\) --- просто гладкое двумерное многообразие в \(\R^3\) \textit{(двустороннее)}
+        \item \(\Phi : G \subset \R^2 \to \R^3\) --- параметризация \(\Omega\)
+        \item \(L^{ +}\) -- граница \(G\)
+        \item \(n_0\) --- сторона \(\Omega\)
+        \item \(\partial \Omega\) --- кусочно-гладкая кривая
+        \item \(\partial \Omega^{ +}\) --- кривая с согласованной ориентацией
+        \item \((P, Q, R)\) --- гладкое векторное поле в окрестности \(\Omega\)
+    \end{itemize}
+
+    Тогда:
+    \[\int_{\partial \Omega^{ +}} P dx + Q dy + R dz = \iint_\Omega \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right) dy dz + \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right) dz dx + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dx dy\]
+\end{theorem}
+
+\begin{remark}
+    \(dx dy = - dy dx, dx dx = 0\)
+    \[d P dx + dQ dy + dR dz = (P'_x dx + P'_y dy + P'_z dz) dx + \dots \]
+\end{remark}
+
+\begin{proof}
+    Ограничимся случаем \(\Omega \subset C^2\). % TODO: что такое C?
+
+    Достаточно показать, что:
+    \[\int_{\partial \Omega^{ +}} P dx = \iint_\Omega \frac{\partial P}{\partial z} dz dx - \frac{\partial P}{\partial y} dx dy\]
+
+    Пусть \(\Phi = (x(u, v), y(u, v), z(u, v))\).
+
+    \begin{align*}
+        \int_{\partial \Omega^{ +}} P dx & =\int_a^b P \left( \frac{\partial x}{\partial u} u' + \frac{\partial x}{\partial v} v' \right) dt \\
+                                         & =\int_a^b P \frac{\partial x}{\partial u} du + \frac{\partial x}{\partial v} dv
+    \end{align*}
+
+    \begin{align*}
+        \int_{\partial \Omega^{ +}} P dx & = \int_{L^{ +}} P \left( \frac{\partial x}{\partial u} du + \frac{\partial x}{\partial v} dv \right)                                                                    \\
+                                         & = \iint_G \frac{\partial}{\partial u} \left( P \frac{\partial x}{\partial v} \right) - \frac{\partial}{\partial v} \left( P \frac{\partial x}{\partial u} \right) du dv \\
+                                         & = \iint_G (P'_x x'_u + P'_y y'_u + P'_z z'_u)x'_v + P \cdot x''_{uv} - (P'_x x'_v + P'_y y'_v + P'_z z'_v) x'_u - P x''_{uv} du dv                                      \\
+                                         & = \iint_G \frac{\partial P}{\partial z} (z'_u x'_v - z'_v x'_u) - \frac{\partial P}{\partial y} (x'_u y'_v - x'_v y'_u) du dv                                           \\
+                                         & = \iint_G \frac{\partial P}{\partial z} dz dx - \frac{\partial P}{\partial x} dx dy
+    \end{align*}
+\end{proof}
+
+\section{Ряды Фурье \textit{(возвращение)}}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(\mu E < +\infty\)
+        \item \(1 \leq s < r < +\infty\)
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item \(L^r(E, \mu) \subset L^s(E, \mu)\)
+        \item \(||f||_S \leq \mu E^{\frac{1}{s} - \frac{1}{r}} \cdot ||f||_r\)
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    1 следует из 2. Докажем 2.
+
+    При \(r = \infty\) очевидно:
+    \[\left(\int_E |f|^S d\mu \right)^{\frac{1}{s}} \leq \esup |f| \cdot \mu E^{\frac{1}{s}}\]
+
+    При \(r < +\infty\) \(p : = \frac{r}{s}, q : = \frac{r}{r - s}\)
+
+    \begin{align*}
+        ||f||_s^s & = \int_E |f|^s d\mu                                                                                                                             \\
+                  & = \int_E |f|^s \cdot 1 d\mu                                                                                                                     \\
+                  & \leq \left( \int_E |f|^{s \cdot \frac{r}{s}} d\mu \right)^{\frac{s}{r}} \cdot \left( \int_E 1^{\frac{r}{r - s}} d\mu \right)^{\frac{r - s}{r} } \\
+                  & \leq ||f||_r^s \mu E^{1 - \frac{s}{r}}
+    \end{align*}
+\end{proof}
+\begin{corollary}
+    \(\mu E < +\infty, 1 \leq s, r \leq +\infty, f_n \xrightarrow{L^r} f\). Тогда \(f_n \xrightarrow{L^s} f\)
+\end{corollary}
+\begin{proof}
+    \(||f_n - f||_s \leq \mu E^{\frac{1}{s} - \frac{1}{r}} \cdot ||f_n - f||_r \to 0\)
+\end{proof}
+
+\begin{theorem}[о сходиомсти в \(L^p\) и по мере]\itemfix
+    \begin{itemize}
+        \item \(1 \leq p < +\infty\)
+        \item \(f_n \in L^p(X, \mu)\)
+    \end{itemize}
+    Тогда
+    \begin{enumerate}
+        \item \(f \in L^p, f_n \xrightarrow{L^p} f \Rightarrow f_n \xRightarrow{\mu} f\)
+        \item \unfinished % TODO: дописать
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Напоминание}
+
+\begin{itemize}
+    \item Фундаментальная последовательность : \(\forall \varepsilon > 0 \ \ \exists N \ \ \forall k, n > N \ \ ||f_n - f_k|| < \varepsilon\), т.е. \(||f_n - f_k|| \xrightarrow{n,m \to +\infty} 0\)
+    \item \(f_n \to f \Rightarrow  (f_n)\) --- фундаментальная, \(||f_n - f_k|| \leq  ||f_n - f|| + ||f - f_k||\)
+    \item \(C(K)\) --- пространство непрерывных функций на компакте \(K\).
+
+          \(||f|| = \max_K |f|\). Утверждение: \(C(K)\) --- полное.
+\end{itemize}
+
+\begin{exercise}
+    \(L^{\infty}(X, \mu)\) --- полное % TODO
+\end{exercise}
+
+\begin{theorem}
+    \(L^p(X, \mu), 1 \leq p < +\infty\) --- полное.
+\end{theorem}
+\begin{proof}
+    Рассмотрим \(f_n\) --- фундаментальную. Куда бы она могла сходиться?
+
+    Пусть \(\varepsilon = \frac{1}{2}\). Тогда \(\exists N_1 \ \ \forall n_1, k > N_1 \ \ ||f_{n_1} - f_k||_p < \frac{1}{2}\). Зафиксируем какой-либо \(n_1\).
+
+    Аналогично для \(\varepsilon = \frac{1}{4}\).
+
+    В общем случае \(\sum_k ||f_{n_{k+1}} - f_{n_k}||_p \leq \sum_k \frac{1}{2^k} = 1\). Рассмотрим ряд \(S(x) = \sum |f_{n_{k+1}}(x) - f_{n_k}(x)|, S(x) \in [0, +\infty]\) и его частичный суммы \(S_N\).
+    \[||S_N||_p \leq \sum_{k = 1}^N ||f_{n_{k+1}} - f_{n_k}||_p < 1\]
+    Таким образом, \(\int_X S_N^p < 1\). По теореме Фату \(\int_X S^p d\mu < 1\), т.е. \(S^p\) --- суммируемо \( \Rightarrow S\) почти везде конечно.
+
+    \(f(x) = f_{n_1}(x) + \sum_{k = 1}^{+\infty} (f_{n_{k+1}}(x) - f_{n_k}(x))\) --- его частичные суммы это \(f_{n_{N+1}}(x)\), т.е. сходимость этого ряда почти везде означает, что \(f_{n_k} \to f\) почти везде. Таким образом, кандидат --- \(f\). Проверим, что \(||f_n - f||_p \to 0\):
+    \[\forall \varepsilon > 0 \ \ \exists N \ \ \forall m,n > N \ \ ||f_n - f_m||_p < \varepsilon\]
+    Берём \(m = n_k > N\).
+    \[||f_n - f_{n_k}||_p^p = \int_X |f_n - f_{n_k}|^p d\mu < \varepsilon^p\]
+
+    Это выполнено при всех достаточно больших \(k\). Тогда по теореме Фату \(\int_X |f_n - f|^p d\mu < \varepsilon^p\), т.е. \(||f_n - f||_p < \varepsilon\).
+\end{proof}
+
+\begin{theorem}
+    \(Y\) --- метрическое пространство, \(A \subset Y\), \(A\) --- \textbf{\textit{(всюду)} плотно} в \(Y\), если:
+    \[\forall y\in Y \ \ \forall U(y) \ \ \exists a \in A : a\in U(y)\]
+\end{theorem}
+\begin{example}
+    \(\Q\) плотно в \(\R\).
+\end{example}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\)
+        \item \(1 \leq p \leq +\infty\)
+    \end{itemize}
+
+    Множество ступенчатых функций \textit{(из \(L^p\))} плотно в \(L^p\).
+\end{lemma}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \(p = \infty\)
+
+              \(\sphericalangle f\in L^{\infty}\). Изменив \(f\) на множестве меры \(0\), считаем, что \(|f| \leq ||f||_\infty\).
+
+              Тогда \(\exists \) ступенчатые функции \(0 \leq \varphi \rightrightarrows f^{ +}\) и \(0 \leq \psi_n \rightrightarrows f^{ -}\)
+
+
+              Тогда сколь угодно близко к \(f\) можно найти ступенчатую функцию вида \(\varphi_n + \psi_n\).
+
+        \item \(p < +\infty\). Пусть \(f \geq 0\).
+
+              \(\exists \varphi_{n \geq 0}\) ступенчатая : \(\varphi \uparrow f\)
+              \[||\varphi_n - f||_p^p = \int_X |\varphi_n - f|^p \xrightarrow{\text{т. Лебега}} 0\]
+    \end{enumerate}
+\end{proof}
+\begin{remark}
+    \(\varphi \in L^p\) --- ступенчатая \( \Rightarrow \mu X (\varphi \neq 0) < +\infty\)
+\end{remark}
+
+\begin{definition}
+    \(f : \R^m \to \R\) --- \textbf{финитная}, если \(\exists B(0, r) : f\equiv 0\) вне \(B(0, r)\).
+\end{definition}
+
+\begin{obozn}
+    \(C_0(\R^m)\) --- непрерывные финитные функции
+\end{obozn}
+
+Очевидно, что \(\forall p \geq 1 \ \ C_0(\R^m) \subset L^p(\R^m, \lambda_m)\)
+
+\begin{definition}
+    Топологическое пространство \(X\) \textbf{нормальное}, если:
+    \begin{enumerate}
+        \item Точки \(X\) суть замкнутые множества
+        \item \(\forall F_1, F_2 \subset X\) -- замкнуты \(\exists U(F_1), U(F_2)\) --- открыты, \(U(F_1) \cap U(f_2) = \emptyset\)
+    \end{enumerate}
+\end{definition}
+
+Загадка: \(\R^m\) --- нормальные.
 
 \end{document}

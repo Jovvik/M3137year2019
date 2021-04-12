@@ -841,6 +841,12 @@
 
 \begin{definition}
     Сходимость называется \textbf{сверхлинейной}, если
+    \[\rho(x^k, x^*) \leq q_k \rho(x^{k - 1}, x^*)\]
+    и \(q_k \to + 0\) при \(k \to +\infty\)
+\end{definition}
+
+\begin{definition}
+    Сходимость называется \textbf{квадратичной}, если
     \[\rho(x^k, x^*) \leq (c \rho(x^{k - 1}, x^*))^2, c > 0\]
 \end{definition}
 
@@ -1127,10 +1133,10 @@
     \item Фиксируем значения всех переменных вектора \(x = \begin{pmatrix} x_1 & \dots & x_n \end{pmatrix} \), кроме \(x_i\).
     \item \(f(x_i) \to \min\) методом одномерной оптимизации \textit{(наиболее популярный метод --- золотого сечения)}.
     \item Проверка критерия остановки:
-        \begin{itemize}
-            \item \(||x^{k + 1} - x^k|| \leq \varepsilon_1\)
-            \item \(||f(x^{k + 1}) - f(x^k)|| \leq \varepsilon_2\)
-        \end{itemize}
+          \begin{itemize}
+              \item \(||x^{k + 1} - x^k|| \leq \varepsilon_1\)
+              \item \(||f(x^{k + 1}) - f(x^k)|| \leq \varepsilon_2\)
+          \end{itemize}
 \end{enumerate}
 
 \end{document}

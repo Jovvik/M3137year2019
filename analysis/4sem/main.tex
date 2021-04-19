@@ -1702,7 +1702,7 @@
         \item Очевидно, т.к.:
               \begin{itemize}
                   \item \(\mu\) \(\sigma\)-конечно \( \Rightarrow X = \bigcup X_k, \mu X_k\) --- конечно \(\forall k\)
-                  \item \(\nu\) \(\sigma\)-конечно \( \Rightarrow Y = \bigcup Y_n, \nu Y_n\) --- конечно \(\forall k\)
+                  \item \(\nu\) \(\sigma\)-конечн�� \( \Rightarrow Y = \bigcup Y_n, \nu Y_n\) --- конечно \(\forall k\)
               \end{itemize}
 
               Тогда \(X \times Y = \bigcup X_k \times Y_n, m_0(X_k \times Y_n) = \mu X_k \nu Y_n\). Конечное произведение конечных конечно, поэтому \(m_0\) \(\sigma\)-конечно.
@@ -2156,7 +2156,7 @@
 \chapter{5 апреля}
 
 \begin{definition}
-    \(M \subset \R^3\) --- \textbf{кусочн����-гладкое двумерное многообразие}, если \(M\) --- конечное объединение:
+    \(M \subset \R^3\) --- \textbf{кусочно-гладкое двумерное многообразие}, если \(M\) --- конечное объединение:
     \begin{itemize}
         \item Простых гладких многообразий \(M_i\)
         \item Гладких кривых
@@ -2417,7 +2417,7 @@
 
 \begin{theorem}[формула Стокса]\itemfix
     \begin{itemize}
-        \item \(\Omega\) --- просто гладкое двумерное многообразие в \(\R^3\) \textit{(двустороннее)}
+        \item \(\Omega\) --- простое гладкое двумерное многообразие в \(\R^3\) \textit{(двустороннее)}
         \item \(\Phi : G \subset \R^2 \to \R^3\) --- параметризация \(\Omega\)
         \item \(L^{ +}\) -- граница \(G\)
         \item \(n_0\) --- сторона \(\Omega\)
@@ -2597,5 +2597,142 @@
 \end{definition}
 
 Загадка: \(\R^m\) --- нормальные.
+
+\chapter{19 апреля}
+
+\begin{theorem}[Формула Остроградского для \dots]\itemfix
+    \begin{itemize}
+        \item \(V = \{(x, y, z) : (x, y)\in G \subset \R^2 \ \ f(x, y) \leq z \leq F(x, y) \} \)
+        \item \(G\) --- компакт
+        \item \(\partial G\) --- кусочно-гладкое
+        \item \(f, F\in C^1\)
+    \end{itemize}
+
+    Фиксируем внешнюю сторону поверхности, \(\mathbb R :\) окрестность \(V \to \R, \mathbb R \in C^1\)
+
+    Тогда
+    \[\iiint_V \frac{\partial R}{\partial z} dxdydz = \iint_{\partial V_\text{внешн.}} R dx dy = \iint_{\partial V} 0 dy dz + 0 dz dx + R dx dy\]
+\end{theorem}
+\begin{proof}
+    % TODO: иллюстрация
+
+    \begin{align*}
+        \iiint_V \frac{\partial R}{\partial z} & = \iint_G dx dy \int_{f(x, y)}^{F(x, y)} \frac{\partial R}{\partial z} dz                              \\
+                                               & = \iint_G R(x, y, F(x, y)) dx dy - \iint_G R(x, y, f(x, y)) dx dy                                      \\
+                                               & = \iint_{\Omega_F} R(x, y, z) dx dy + \iint_{\Omega_f} R dx dy + \underbrace{\iint_{\Omega} R dx dy}_0
+    \end{align*}
+\end{proof}
+
+\begin{corollary}[обощенная формула Остроградского]
+    \[\iiint_V \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} dx dy dz = \iint_{\partial V_{\text{внеш.}}} P dy dz + Q dz dx + R dx dy\]
+\end{corollary}
+
+\begin{definition}
+    \(V\) --- гладкое векторное поле. Тогда \textbf{дивергенция} \(\div V = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\)
+\end{definition}
+
+Наблюдение:
+\[\div V(a) = \lim_{\varepsilon \to 0} \frac{1}{\frac{4}{3}\pi \varepsilon^3} \iiint_{B(a, \varepsilon)} \div V dx dy dz = \lim_{\varepsilon \to 0} \frac{1}{\frac{4}{3}\pi \varepsilon^3} \iint_{S(a, \varepsilon)} \ev{V, \pi_0} dS\]
+, не зависит от координат.
+
+Физический смысл --- мы измеряем поток воды и обнаруживаем, что поток по замкнутой поверхности пропадает или же появляется. Тогда \(\div V\) --- мера\footnote{Не та, что в теории меры; ``измерение''} интенсивности стока/истока.
+
+\begin{corollary}
+    \(l \in \R^3, f\in C^1(\text{окр.}(V))\)
+    \[\iiint_V \frac{\partial f}{\partial l} dx dy dz = \iint_{\partial V} f \cdot \ev{l, n_0} dS\]
+\end{corollary}
+\begin{proof}
+    Загадка.
+\end{proof}
+
+\begin{definition}
+    \textbf{Ротор \textit{(вихрь)}}
+    \[\rot V = \begin{pmatrix} \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} & \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} & \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \end{pmatrix}\]
+\end{definition}
+
+\begin{remark}
+    Поле \(V = (P, Q, R)\) --- потенциально \(\Leftrightarrow \exists f : V = \nabla f\). По теореме Пуанкаре при \(\Omega\) --- односвязной: \(V\) --- потенциально \(\Leftrightarrow \rot V = 0\), т.к. \(\rot(\nabla f)\equiv 0\)
+\end{remark}
+
+\begin{definition}
+    Векторное поле \(A = (A_1,A_2,A_3)\) \textbf{соленоидально} в области \(\Omega \subset \R^3\), если \(\exists \) гладкое векторное поле \(B\) в \(\Omega\), такое что \(A = \rot B\).
+\end{definition}
+
+\begin{theorem}[Пуанкаре\({}'\)]\itemfix
+    \begin{itemize}
+        \item \(\Omega\) --- открытое \?
+        \item \(A\) --- векторное поле в \(\Omega\)
+        \item \(A \in C^1\)
+    \end{itemize}
+
+    Тогда \(A\) --- соленоидально \(\Leftrightarrow \div A = 0\)
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item [\( \Rightarrow \)] \(\div \rot B \equiv 0\)
+        \item [\( \Leftarrow \)] Дано: \(A_{1}'{}_x + A_2'{}_y + A_3'{}_z = 0\). Найдём векторный потенциал \(B = (B_1, B_2, B_3)\), где \(A = \rot B\).
+
+              Пусть \(B_3 \equiv 0\).
+              \[\begin{cases} B_3'{}_y - B_2'{}_z = A_1 \\ B_1'{}_z - B_3'{}_x = A_2 \\ B_2'{}_x - B_1'{}_y = A_3 \end{cases}\]
+              \begin{align}
+                  - B_2'{}_z          & = A_1 \label{штука1} \\
+                  - B_1'{}_z          & = A_2 \label{штука2} \\
+                  B_2'{}_x - B_2'{}_y & = A_3 \label{штука3} \\
+              \end{align}
+
+              \begin{align*}
+                  \eqref{штука1} \quad B_2 & = - \int_{z_0}^z A_1 dz + \varphi(x, y)                           \\
+                  \eqref{штука2} \quad B_1 & = \int_{z_0}^z A_2 dz                                             \\
+                  \eqref{штука3} \quad A_3 & =  -\int_{z_0}^z A_1'x dz + \varphi'_x - \int_{z_0}^z A_2'{}_y dz \\
+              \end{align*}
+
+              \[\int_{z_0}^z A_3'{}_z + \varphi'_x = A_3 \Leftrightarrow A_3(x, y, z) - A_3(x, y, z_0) + \varphi'_x = A_3(x, y, z) \Leftrightarrow \varphi'_x = A_3(x, y, z_0)\]
+
+              Отсюда найдём \(\varphi = \int_{x_0}^x A_3(x, y, z_0)dx\)
+    \end{itemize}
+\end{proof}
+
+\begin{lemma}[Урысона]\itemfix
+    \begin{itemize}
+        \item \(X\) нормальное
+        \item \(F_0, F_1 \subset X\) --- замкнутые
+        \item \(F_0 \cap F_1 = \emptyset\)
+    \end{itemize}
+
+    Тогда \(\exists f : X \to \R\) непрерывное, \(0 \leq f \leq 1\), \(f\Big|_{F_0} \equiv 0, f\Big|_{F_1}\equiv 1\)
+\end{lemma}
+\begin{proof}
+    Переформулируем нормальность: если \(F\subset G\), \(F\) замкнутое, \(G\) открытое, то \(\exists U(F)\) --- открытое, такое что \(F \subset U(F) \subset \overline{U(F)} \subset G\)
+
+    \[F \leftrightarrow F_0 \quad G \leftrightarrow (F_1)^c \quad F_0 \subset \underbrace{U(F_0)}_{G_0} \subset \underbrace{\overline{U(F_0)}}_{\overline{G_0}} \subset \underbrace{F_1^c}_{G_1}\]
+
+    Строим \(G_{\frac{1}{2}}\):
+    \[G_0 \subset \overline{G_0} \subset \underbrace{U(\overline{G_0})}_{G_\frac{1}{2}} \subset \underbrace{\overline{U(\overline{G_0})}}_{\overline{G_{\frac{1}{2}}}}\]
+
+    Строим \(G_{\frac{1}{4}}\):
+    \[\overline{G_{\frac{1}{2}}} \subset \underbrace{U(\overline{G_{\frac{1}{2}}})}_{G_\frac{1}{4}} \subset \overline{U(\overline{G_{\frac{1}{2}}})}\]
+
+    Таким образом, \(\forall \) двоично рациональной \(\alpha \in [0, 1]\) задаётся открытое множество \(G_\alpha\).
+
+    \[f(x) : = \inf \{\alpha \text{ --- двоично рациональная } : x\in G_\alpha\} \]
+
+    \(f\) --- непрерывно \(\xLeftrightarrow{?} f^{ - 1}(a, b)\) --- всегда открыто.
+
+    Достаточно проверить:
+    \begin{enumerate}
+        \item \(\forall b \ \ f^{ - 1}( -\infty, b)\) --- открыто
+        \item \(\forall a \ \ f^{ - 1}( -\infty, a]\) --- замкнуто
+    \end{enumerate}
+
+    \begin{enumerate}
+        \item \(f^{ - 1}( - \infty, b) = \bigcup\limits_{\substack{q < b \\ q \text{ дв. рац.}}} G_q\) --- открыто. Почему это так?
+
+              \(f^{ - 1}( - \infty, b) \subset \bigcup\), т.к. \(f(x) = b_0 < b\). Возьмём \(q : b_0 < q < b\). Тогда \(x\in G_q\)
+
+              \(f^{ - 1}( - \infty, b) \supset \bigcup\) очевидно, т.к. при \(x\in G_q \ \ f(x \leq q < b)\).
+
+        \item \unfinished
+    \end{enumerate}
+\end{proof}
 
 \end{document}

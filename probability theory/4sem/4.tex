@@ -1,0 +1,132 @@
+\chapter{6 марта}
+
+\section{Последовательность независимых испытаний}
+
+\begin{definition}
+    Схемой Бернулли называется серия одинаковых независимых испытаний, каждое из которых имеет лишь два исхода --- интересующее нас событие произошло \textit{(успех)} или не произошло \textit{(неудача)}.
+\end{definition}
+
+\begin{obozn}\itemfix
+    \begin{itemize}
+        \item \(n\) --- число испытаний
+        \item \(p\) --- вероятность события \(A\) при одном испытании
+        \item \(q = 1 - p\)
+        \item \(v_n\) --- число успехов при \(n\) испытаниях
+        \item \(P_n(k) = P(v_n = k)\)
+    \end{itemize}
+\end{obozn}
+
+\subsection{Формула Бернулли}
+
+\begin{theorem}
+    Вероятность того, что при \(n\) испытаниях произойдёт ровно \(k\) успехов равна:
+    \[P_n(k) = \binom{n}{k} p^k q^{n - k}\]
+\end{theorem}
+\begin{proof}
+    Рассмотрим один из исходов, благоприятных событию \(A\): \(A_1 = \underbrace{\text{У} \dots \text{У}}_{k} \underbrace{\text{Н} \dots \text{Н}}_{n-k}\). Т.к. рассматриваемые события независимы, верна следующая формула:
+
+    \[P(A_1) = \underbrace{p \dots p}_{k} \underbrace{q \dots q}_{n - k} = p^k q^{n - k}\]
+
+    Остальные благоприятные исходы отличаются лишь расстановкой \(k\) успехов по \(n\) местам, а их вероятности будут те же самые.
+\end{proof}
+
+Выясним, при каком значении \(k\) вероятность предшествующего числа успехов \(k - 1\) будет не более, чем вероятность \(k\) успехов, т.е. \(P_n(k) \geq P_n(k - 1)\)
+
+\begin{align*}
+    P_n(k - 1)                              & \leq P_n(k)                          \\
+    \binom{n}{k - 1} p^{k - 1}q^{n - k + 1} & \leq \binom{n}{k} p^k q^{n - k}      \\
+    \frac{n!}{(k - 1)!(n - k + 1)!} q       & \leq \frac{n!}{k!(n - k)!} p         \\
+    \frac{k!}{(k - 1)!} q                   & \leq \frac{(n - k + 1)!}{(n - k)!} p \\
+    k(1 - p)                                & \leq (n - k + 1) p                   \\
+    k - kp                                  & \leq np - kp + p                     \\
+    np + p - 1 \leq k                       & \leq np + p
+\end{align*}
+
+\begin{enumerate}
+    \item \(np\) --- целое. Тогда \(np + p\) --- не целое и \(k = np\) --- наибольшее искомое \(k\)
+    \item \(np + p\) --- не целое. Тогда \(k = [np + p]\)
+    \item \(np + p\) --- целое. Тогда \(np + p - 1\) --- целое и \(P_n(k - 1) = P_n(k)\) и \(k = np + p\) или \(k = np + p - 1\)
+\end{enumerate}
+
+\subsection{Локальная формула Муавра-Лапласа}
+
+\begin{remark}
+    Локальность формулы означает, что мы её применям, чтобы найти вероятность некоторого числа успехов.
+\end{remark}
+
+\[P_n(v_n = k) \approx \frac{1}{\sqrt{n p q}} \varphi(x) \text{ , где } \varphi(x) = \frac{1}{\sqrt{2\pi}}e^{ -\frac{x^2}{2}}, x = \frac{k - np}{\sqrt{npq}} \]
+
+\(\varphi\) называется функцией Гаусса.
+
+\begin{prop}\itemfix
+    \begin{itemize}
+        \item \(\varphi( - x) = \varphi(x)\)
+        \item При \( x > 5\) \(\varphi(x) \approx 0\)
+    \end{itemize}
+\end{prop}
+
+\subsection{Интегральная формула Лапласа}
+
+\begin{remark}
+    Эта формула применяется, если искомое число успехов лежит в некотором диапазоне.
+\end{remark}
+
+\[P_n(k_1 \leq v_n \leq k_2) \xrightarrow{n \to +\infty} \Phi(x_2) - \Phi(x_1) \text{ , где } \Phi(x) = \frac{1}{\sqrt{2\pi}} \int_0^x e^{- \frac{t^2}{2}dt}\]
+\[x_1 = \frac{k_1 - np}{\sqrt{npq}}, x_2 = \frac{k_2 - np}{\sqrt{npq}}\]
+
+\begin{prop}\itemfix
+    \begin{itemize}
+        \item \(\Phi( - x) = -\Phi(x)\)
+        \item При \( x > 5\) \(\Phi(x) \approx 0.5\)
+    \end{itemize}
+\end{prop}
+
+\begin{remark}
+    В некоторых источниках под функцией Лапласа подразумевается несколько иная функция, чаще всего
+    \[F_0(X) = \int_{ -\infty}^x e^{- \frac{t^2}{2}dt}\]
+    Несложно заметить, что \(F_0(x) = 0.5 + \Phi(x)\)
+\end{remark}
+
+Мы применяем эти формулы при \(n \geq 100\) и \(p, q \geq 0.1\)
+
+\begin{example}
+    Вероятность попадания стрелка в цель при одном выстреле \(0.8\). Стрелок сделал \(400\) выстрелов. Найти вероятность того, что:
+    \begin{enumerate}
+        \item Произошло ровно \(330\) попаданий.
+        \item Произошло от \(312\) до \(336\) попаданий.
+    \end{enumerate}
+
+    \begin{enumerate}
+        \item \(k = 400, p = 0.8, q = 0.2, k = 330\)
+              \[x = \frac{330 - 400\cdot 0.8}{\sqrt{400\cdot 0.8\cdot 0.2}} = \frac{10}{8} = 1.25\]
+              \[P_{400}(320) \approx \frac{1}{\sqrt{400\cdot 0.8\cdot 0.2}} \frac{1}{\sqrt{2\pi}}e^{ - \frac{1.25^2}{2}} \approx 0.0228\]
+
+        \item \(k = 400, k_1 = 312, k_2 = 336, p = 0.8, q = 0.2\)
+              \[x_1 = \frac{332 - 400\cdot 0.8}{\sqrt{400\cdot 0.8\cdot 0.2}} = \frac{312 - 320}{8} =- 1\]
+              \[x_2 = \frac{336 - 320}{8} = 2\]
+              \[P_{400}(312 \leq v_n \leq 336) \approx \Phi(2) - \Phi( - 1) = \Phi(2) + \Phi(1) \approx 0.8285\]
+    \end{enumerate}
+\end{example}
+
+\subsection{Вероятность отклонения относительно частоты от вероятности события}
+
+Пусть \(p\) --- вероятность события \(A\), \(\frac{n_A}{n}\) --- частота \(A\). По интегральной формуле Лапласа найдём вероятность того, что частота отклонится от \(p\) не больше, чем на \(\varepsilon\):
+\begin{align*}
+    P\left(\left|\frac{n_A}{n} - p\right| \leq \varepsilon\right) & = P( - \varepsilon \leq \frac{n_A}{n} - p \leq \varepsilon)                                                      \\
+                                                                  & = P( - n\varepsilon \leq n_A - np \leq n\varepsilon)                                                             \\
+                                                                  & = P( np - n\varepsilon \leq n_A \leq np + n\varepsilon)                                                          \\
+                                                                  & \approx \Phi\left( \frac{n\varepsilon}{\sqrt{npq}} \right) - \Phi\left( -\frac{n\varepsilon}{\sqrt{npq}} \right) \\
+                                                                  & = 2\Phi\left( \frac{n\varepsilon}{\sqrt{npq}} \right)
+\end{align*}
+
+Итого:
+\[P\left(\left|\frac{n_A}{n} - p\right| \leq \varepsilon\right) \approx 2\Phi\left( \frac{\sqrt{n}\varepsilon}{\sqrt{pq}} \right)\]
+
+\subsection{Закон больших чисел Бернулли}
+
+\[P\left(\left|\frac{n_A}{n} - p\right| \leq \varepsilon\right) \xrightarrow{n \to +\infty} 2\Phi\left( \frac{\sqrt{n}\varepsilon}{\sqrt{pq}} \right)\]
+
+При \(n \to +\infty\) : \(\frac{\sqrt{n}\varepsilon}{\sqrt{pq}} \to +\infty\) и \(\Phi\left( \frac{\sqrt{n}\varepsilon}{\sqrt{pq}} \right) \to 0.5\), поэтому \(P\left(\left|\frac{n_A}{n} - p\right| \leq \varepsilon\right) \to 2\cdot 0.5 = 1\), т.е.:
+
+\[\lim_{n \to +\infty} P\left(\left|\frac{n_A}{n} - p\right| \leq \varepsilon\right) = 1\]
+Эта формула называется законом больших чисел Бернулли.

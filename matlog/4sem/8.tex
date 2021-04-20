@@ -1,0 +1,121 @@
+\chapter{9 апреля}
+
+\subsection{Теорема Гёделя о полноте исчисления предикатов}
+
+\begin{theorem}[Гёделя о полноте исчисления предикатов]
+    У любого замкнутого непротиворечивого множества формул исчисления предикатов существует модель.
+\end{theorem}
+
+\begin{theorem}
+    Если \(\varphi\) --- замкнутая\footnote{Слово ``замкнутая'' не нужно, но мне нравится --- Д.Г.} формула исчисления предикатов, то найдётся \(\psi\) --- замкнутая формула исчисления предикатов, такая что \(\vdash \varphi \to \psi\) и \(\psi \to \varphi\), при этом \(\psi\) с поверхностными кванторами.
+\end{theorem}
+\begin{proof}
+    В домашних заданиях.
+\end{proof}
+
+Рассмотрим \(\Gamma\) --- непротиворечивое множество замкнутых формул. Рассмотрим \(\Gamma'\) --- полное расширение \(\Gamma\). Пусть \(\varphi\) --- формула из \(\Gamma'\), тогда найдётся \(\psi \in \Gamma'\), что \(\psi\) --- с поверхностными кванторами и \(\vdash \varphi \to \psi, \vdash \psi \to \varphi\).
+
+Рассмотрим новое множество констант \(d_j^i\). Построим семейство \(\{\Gamma_j\}\): \(\Gamma' = \Gamma_0 \subset \Gamma_1 \subset \Gamma_2 \subset \dots \subset \Gamma_j \subset \cdots\)
+
+Опишем переход \(\Gamma_j \Rightarrow \Gamma_{j + 1}\).
+
+Рассмотрим все формулы из \(\Gamma_j : \{\gamma_1, \gamma_2, \dots\}\).
+\begin{enumerate}
+    \item \(\gamma_i\) --- формула без кванторов --- оставим как есть.
+    \item \(\gamma_i \equiv \forall x.\varphi\) --- добавим в \(\Gamma_{j + 1}\) все формулы вида \(\varphi[x: = \theta]\), где \(\theta\) составлен из всех функциональных символов исчисления предикатов и констант вида \(d_1^k \dots d_j^k\).
+    \item \(\varphi_i \equiv \exists x.\varphi\) --- добавим \(\varphi[x: = d^i_{j + 1}]\)
+\end{enumerate}
+
+\begin{statement}
+    \(\Gamma_{i + 1}\) непротиворечиво, если \(\Gamma_i\) непротиворечиво.
+\end{statement}
+\begin{proof}
+    От противного. Пусть \(\Gamma_{i + 1} \vdash \beta \with \neg \beta\)
+
+    \(\Gamma_i, \gamma_1 \dots \gamma_n \vdash \beta \with \neg \beta, \gamma_i \in \Gamma_{i + 1} \setminus \Gamma_i\)
+
+    \(\Gamma_i \vdash \gamma_1 \to \gamma_2 \to \dots \to \gamma_n \to \beta \with \neg \beta\)
+
+    Докажем, что \(\Gamma_i \vdash \beta \with \neg \beta\) по индукции. \(\Gamma_i \vdash \gamma \to \varepsilon\footnote{что-то}\), т.е. \(\gamma\) получен из \(\forall x.\xi \in \Gamma_i \) или \(\exists x.\xi \in \Gamma_i\)
+
+    Покажем, что \(\Gamma_i \vdash \varepsilon\).
+
+    Рассмотрим случай \(\forall x.\xi\). Заметим, что \(\Gamma_i \vdash \forall x.\xi\), т.к. \(\forall x.\xi \in \Gamma_i\). По индукционному предположению \(\Gamma_i \vdash \gamma \to \varepsilon\). \(\Gamma_i \vdash (\forall x.\xi) \to \underbrace{(\xi[x: = \theta])}_{\substack{\gamma \text{ по} \\ \text{построению } \Gamma_{i+1}}}\) --- по аксиоме 11. Очевидно, что \((\forall x.\xi) \to \varepsilon\) и у нас есть гипотеза \(\forall x.\xi\), поэтому по M.P. \(\varepsilon\).
+
+    В случае \(\exists x.\xi\) аналогично доказать не получится. Поэтому мы будем делать странное, без этого в теореме Гёделя никак\footnote{Это цитата.}.
+
+    Рассмотрим \(\Gamma_i \vdash \underbrace{\xi[x: = d_{i+1}^k]}_\gamma \to \varepsilon\). Заметим, что \(d_{i+1}^k\) не входит в \(\varepsilon\). Заменим все \(d_{i+1}^k\) в доказательстве на \(y\) --- новую переменную. Это будет доказательством \(\Gamma \vdash \xi[x: = y] \to \varepsilon\). Тогда \(\exists y.\xi[x: = y] \to \varepsilon\)\footnote{Правило можно применять, т.к. \(y\) не входит в правую часть.}. По ДЗ можно заметить, что \((\exists x.\xi x) \to (\exists y.\xi[x: = y])\) и по лемме \((\exists x.\xi) \to \varepsilon\) и у нас есть гипотеза \(\exists x.\xi\), поэтому по M.P. \(\varepsilon\).
+
+    Таким образом, \(\Gamma_i \vdash \beta \with \neg \beta\) --- противоречие.
+\end{proof}
+
+\[\Gamma^* : = \bigcup_i \Gamma_i\]
+
+\begin{statement}
+    \(\Gamma^*\) непротиворечиво.
+\end{statement}
+\begin{proof}
+    Предположим обратное: \(\Gamma_0 \vdash \gamma_1 \to \dots \to \gamma_n \to \beta \with \neg \beta\), где \(\gamma_i \in \Gamma_i\).
+
+    \(\Gamma_{\max_{i}} \vdash \beta \with \neg \beta\), значит \(\Gamma_{\max}\) противоречиво --- противоречие.
+\end{proof}
+
+Пусть \(\Gamma^\Delta\) --- \(\Gamma^*\) без кванторов. По утверждению у \(\Gamma^\Delta\) есть модель \(M\).
+
+\begin{statement}
+    Если \(\gamma \in \Gamma'\), то \(\llbracket \gamma \rrbracket_M = \text{И}\).
+\end{statement}
+
+\begin{proof}
+    Докажем по индукции; база очевидна.
+
+    Переход --- рассмотрим два случая:
+    \begin{enumerate}
+        \item \(\gamma \equiv \forall x.\delta\)
+
+              \(\llbracket \forall x.\delta \rrbracket = \text{И}\), если \(\llbracket \delta \rrbracket^{x : = k} = \text{И}, k \in D\footnote{все записи из функциональных символов}\). Рассмотрим \(\llbracket \delta \rrbracket^{x: = k}, k \in D\). \(k\) осмысленно в некотором \(\Gamma_p\). \(\delta\) добавлено на шаге \(q\). Рассмотрим шаг \(\Gamma_{\max(p, q)}\). В шаге \(\Gamma_{\max(p, q) + 1}\) добавлено \(\delta[x: = k]\). \(\delta [x: = k]\) меньше на один квантор, чем \(\gamma\), и соответственно \(\llbracket \delta[x: = k] \rrbracket = \text{И}\).
+
+        \item \(\gamma \equiv \exists x.\delta\) --- аналогично.
+    \end{enumerate}
+\end{proof}
+
+\subsection{Неразрешимость исчисления предикатов}
+
+\begin{theorem}
+    Исчисление предикатов неразрешимо.
+\end{theorem}
+
+\begin{definition}
+    \textbf{Язык} --- множество слов.
+\end{definition}
+
+\begin{definition}
+    Язык \(\mathcal{L}\) \textbf{разрешим}, если существует алгоритм \(A\) такой, что по слову \(w\) \(A(w)\) останавливается в ``\(1\)'', если \(w \in \mathcal{L}\)
+\end{definition}
+
+\textbf{Проблема останова}: не существует алгоритма, который по программе машины Тьюринга ответит, остановится она или нет. Альтернативная формулировка: пусть \(\mathcal{L}'\) --- язык всех останавливающихся программ для машин Тьюринга. \(\mathcal{L}'\) неразрешим.
+
+\begin{proof}
+    Вспомним операцию конкатенации элементов \texttt{cons}.
+
+    Пусть \(A\) --- алфавит ленты\footnote{машины Тьюринга}. Создадим два набора функциональных нульместных символов: \(S_x, x \in A\) и \(e\) --- \texttt{nil}. Также создадим \(c(a, b)\) --- двухместный функциональный символ, которому соответствует \texttt{cons}.
+
+    Пусть \(S\) --- множество состояний, тогда \(b_s\), если \(s \in S\) --- функциональный символ для состояния. \(b_0\) --- начальное состояние, \(b_\Delta\) --- допускающее.
+
+    Создадим предикат \(R(\alpha, w, b_s)\), гласящий, придет ли машина Тьюринга в состояние \(b_s\), при этом слева от головки \textit{(и под ней)} строка \(\alpha\), справа строка \(w\). В частности, \(R(\alpha, e, b_0)\) истинно, т.к. это начальное состояние при запуске на строке \(\alpha\).
+
+    Машина Тьюринга совершает переходы вида \((s_x, b_s) \to (s_y b_t, a)\), где \(a\) --- одно из действий ``передвинуться влево'', ``перевдинуться вправо'', ``не двигаться''. \(x\) --- буква на ленте, \(s\) --- текущее состояние. То же самое, но в терминах предиката :
+    \begin{enumerate}
+        \item Не двигаться:
+              \[\forall z.\forall w.R(c(s_x, z), w, b_s) \to R(c(s_x, z), w, b_t)\]
+        \item Передвинуться влево:
+              \[\forall z.\forall w.R(c(s_x, z), w, b_s) \to R(z, c(s_y, w), b_t)\]
+        \item Передвинуться вправо:
+              \[\forall z.\forall w.R(z, с(s_y, w), b_s) \to R(c(s_y, z), w, b_t)\]
+    \end{enumerate}
+
+    Мы опустили некоторые технические шаги --- описать начальное и завершающее состояния.
+
+    Взяв \(\with\) по всем формулам, мы получим некоторую формулу \(\varphi\). Эта формула описывает машину Тьюринга и из неё выводится завершающее состояние: \(\varphi \to \exists z.\exists w.R(z, w, b_\Delta)\). Таким образом, разрешимость этой формулы эквивалентна разрешимости машины Тьюринга.
+\end{proof}
+

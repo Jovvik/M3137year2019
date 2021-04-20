@@ -1,0 +1,438 @@
+\chapter{15 февраля}
+
+\begin{theorem}[о характеризации измеримых функций с помощью ступенчатых]\itemfix
+    %<*характеризацияизмеримыхфункцийспомощьюступенчатых>
+    \label{характеризация измеримых функций с помощью ступенчатых}
+    \begin{itemize}
+        \item \(f: X \to \R\)
+        \item \(f \geq 0\)
+        \item \(f\) измеримо
+    \end{itemize}
+    Тогда \(\exists f_n\) --- ступенчатые:
+    \begin{enumerate}
+        \item \(0 \leq f_1 \leq f_2 \leq f_3 \leq \dots \)
+        \item \(\forall x \ \ f(x) = \lim\limits_{n \to +\infty} f_n(x)\)
+    \end{enumerate}
+    %</характеризацияизмеримыхфункцийспомощьюступенчатых>
+\end{theorem}
+
+\begin{proof}
+    %<*характеризацияизмеримыхфункцийспомощьюступенчатыхproof>
+    \[e^{(n)}_k = X\left( \frac{k - 1}{n} \leq f < \frac{k}{n} \right) \quad k = 1 \dots n^2\]
+    \[e^{(n)}_{n^2 + 1} : = X(n \leq f)\]
+    \[g_n: = \sum_{k = 1}^{n^2 + 1} \frac{k - 1}{n} \chi_{e_k^{(n)}}\]
+
+    \begin{figure}[h]
+        \centering
+        \includesvg[scale=0.7]{images/приближение_ступенчатой.svg}
+    \end{figure}
+
+    \[g_n \geq 0\]
+    \[\lim\limits_{n \to +\infty} g_n(x) = f(x) : g_n(x) \leq f(x)\]
+
+    \textcolor{red}{Не дописано.}
+
+    % TODO: #66 дописать
+    %</характеризацияизмеримыхфункцийспомощьюступенчатыхproof>
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f\) --- измеримо
+    \end{itemize}
+    Тогда \(\exists f_n\) --- измеримые : \(f_n \xrightarrow[n \to +\infty]{} f\) всюду и \(|f_n| \leq |f|\)
+\end{corollary}
+\begin{proof}
+    Рассмотрим срезки \(f^{+}, f^{-}\), дальше очевидно.
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f, g\) --- измеримо
+    \end{itemize}
+    Тогда \(fg\) --- измеримо, если \(0\cdot \infty = 0\).
+\end{corollary}
+\begin{proof}
+    \[\underbrace{f_n}_{\text{ступ.}} \to f, \underbrace{g_n}_{\text{ступ.}} \to g\]
+    \[f_n g_n \text{ --- ступ.} \quad f_n g_n \to fg\]
+    Измеримость выполняется в силу измеримости предела.
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f, g\) --- измеримо
+    \end{itemize}
+
+    Тогда \(f + g\) измеримо.
+
+    \begin{remark}
+        Считаем, что \(\forall x\) не может быть одновременно \(f(x) = \pm \infty, g(x) = \pm \infty\).
+    \end{remark}
+\end{corollary}
+
+\begin{proof}
+    \[f_n + g_n \to f + g\]
+\end{proof}
+
+\begin{theorem}[об измеримости функций, непрерывных на множестве полной меры]
+    %<*обизмеримостифункцийнепрерывныхнамножествеполноймеры>
+    \begin{remark}
+        \(A\subset X\) --- \textbf{полной меры}, если \(\mu(X\setminus A) = 0\).
+    \end{remark}
+
+    \begin{itemize}
+        \item \(f: E \to \R, E\subset \R^m\)
+        \item \(e\subset E\)
+        \item \(\lambda_m e = 0\)
+        \item \(f\) --- непрерывно на \(E' = E \setminus e\)
+    \end{itemize}
+
+    Тогда \(f\) --- измеримо.
+    %</обизмеримостифункцийнепрерывныхнамножествеполноймеры>
+\end{theorem}
+%<*обизмеримостифункцийнепрерывныхнамножествеполноймерыproof>
+\begin{proof}
+    \(f\) --- измеримо на \(E'\), т.к. \(E'(f < a)\) открыто в \(E'\) по топологическому определению непрерывности.
+
+    \(e(f < a) \subset e\), \(\lambda_m\) --- полная \( \Rightarrow e(f < a)\) --- измеримо в \(E\).
+
+    \(E(f < a) = E'(f < a)\cup e(f < a)\), объединение измеримых множеств измеримо.
+\end{proof}
+%</обизмеримостифункцийнепрерывныхнамножествеполноймерыproof>
+
+\begin{example}
+    \(E = \R, f = \chi_{\text{Irr}}\), где \(\text{Irr}\) --- множество иррациональных чисел. \(f\) непр. на \(\text{Irr}\) и разрывно на \(\R\).
+\end{example}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f : E \to \R\)
+        \item \(e \subset E \subset X\)
+        \item \(\mu e = 0\)
+        \item \(E' = E\setminus e\)
+        \item \(f\) измеримо на \(E'\)
+    \end{itemize}
+
+    Тогда можно так переопределить \(f\) на \(e\), что полученная функция \(\tilde{f}\) будет измерима.
+\end{corollary}
+\begin{proof}
+    Пусть \(\tilde{f}(x) = \begin{cases}
+        f(x), x\in E' \\
+        \const, x\in e
+    \end{cases}\)
+
+    \[E(\tilde{f} < a) = \underbrace{E'(\tilde{f} < a)}_{E'(f < a)} \subset \underbrace{e(\tilde{f} < a)}_{\emptyset \text{ или } e}\]
+\end{proof}
+
+\begin{corollary}
+    \(f : \ev{a, b} \to \R\) --- монотонна.
+
+    Тогда \(f\) измерима.
+\end{corollary}
+\begin{proof}
+    \(f\) --- непрерывно на \(\ev{a, b}\) за исключением, возможно, счётного множества точек.
+\end{proof}
+
+% TODO: #67 решить задачи
+
+\begin{exercise}
+    \(f, g : \R \to \R\) --- измеримо.
+
+    \(\varphi : \R^2 \to \R\) --- непрерывна.
+
+    Доказать: \(x \mapsto \varphi(f(x), g(x))\) --- измеримо.
+\end{exercise}
+
+\begin{exercise}
+    \(f : \R \to \R\) --- измеримо.
+
+    Доказать: \(\R^2 \to \R : (x, y) \mapsto f(x, y)\) --- измеримо.
+\end{exercise}
+
+\begin{exercise}
+    Доказать, что \(\exists \) измеримая функция \(f:\R \to \R\)
+
+    \(\forall e\subset \R : \lambda e = 0\), если \(f\) непрерывно на \(e\), то полученная \(\tilde{f}\) разрывна всюду.
+\end{exercise}
+
+\subsection{Сходимость почти везде и по мере}
+
+\begin{definition}\itemfix
+    %<*свойствопочтивезде>
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\)
+        \item \(E\in \mathfrak{A}\)
+        \item \(W(x)\) --- высказывание \((x \in X)\)
+    \end{itemize}
+
+    \(W(x)\) --- верно при почти всех из \(E\) = почти всюду на \(E\) = почти везде на \(E\) = п.в. \(E\), если:
+
+    \(\exists e\in E : \mu e = 0 \ \ W(x)\) --- истинно при \(x\in E\setminus e\)
+    %</свойствопочтивезде>
+\end{definition}
+
+\begin{example}
+    \(X =\R\), \(W\) = иррационально.
+\end{example}
+
+\begin{example}
+    \(f_n(x) \xrightarrow[x \to +\infty]{} f(x)\) при п.в. \(x\in E\)
+\end{example}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \begin{itemize}
+                  \item \(\mu\) --- полная
+                  \item \(f_n, f : X \to \overline R\) п.в. \(X\)
+                  \item \(f_n\) измеримо
+              \end{itemize}
+
+              Тогда \(f\) измеримо.
+
+              \begin{proof}
+                  \(f_n \to f\) на \(X'\), где \(e = X\setminus X', \mu e = 0\)
+
+                  \(f\) --- измеримо на \(X\)
+
+                  \(\mu\) --- полная \( \Rightarrow \) \(f\) измеримо на \(X\), т.к. \(X(f < a) = \underbrace{X'(f < a)}_{\text{изм.}} \cup \underbrace{e(f < a)}_{\subset e}\)
+              \end{proof}
+
+        \item \? % TODO #68
+        \item Пусть \(\forall n \ \ W_n(x)\) истинно при почти всех \(x\).
+
+              Тогда утверждение `` \(\forall n \ \ W_n\) истинно'' --- верно при почти всех \(X\)
+
+              \begin{proof}
+                  \(\sphericalangle e_n : \mu(e_n) = 0\). Искомое высказывание верно при \(x\in X \setminus \left( \bigcup\limits_{i = 1}^{+\infty} e_i \right), \mu(\bigcup e_i) = 0\)
+              \end{proof}
+    \end{enumerate}
+\end{prop}
+
+\begin{definition}
+    %<*сходимостьпомере>
+    \(f_n, f : X \to \overline \R\) --- почти везде конечны.
+
+    \(f_n\) \textbf{сходится к} \(f\) \textbf{по мере} \(\mu\), обозначается \(f_n \longarrow{\mu} f : \forall \varepsilon > 0 \ \ \mu X(|f_n - f| \geq \varepsilon)\xrightarrow[n\to +\infty]{} 0\)
+    %</сходимостьпомере>
+\end{definition}
+
+\begin{remark}
+    \(f_n\) и \(f\) можно изменить на множестве меры \(0\), т.е. предел не задан однозначно.
+\end{remark}
+
+\begin{exercise} % TODO: #69 доказать
+    \(f_n \longarrow{\mu} f; f_n \longarrow{\mu} g\). Тогда \(f\) и \(g\) эквивалентны.
+\end{exercise}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item \(f_n(x) = \frac{1}{nx}, x > 0, X = \R_{ +}, f \equiv 0\)
+
+              \(f_n \to f\) всюду на \((0, +\infty)\)
+
+              \(f_n \longarrow{\mu} f\)
+
+              \[X(|f_n - f| \geq \varepsilon) = X\left(\frac{1}{nx} \geq \varepsilon\right) = X(x \leq \frac{1}{\varepsilon n})\]
+              \[\lambda(\dots ) = \frac{1}{\varepsilon n} \to 0\]
+
+        \item \(f_n(x) : = e^{ -(n - x)^2}, x\in\R\)
+
+              \(f_n(x) \to 0\) при всех \(x\)
+
+              \(f_n(x) \longarrow{} 0\)
+
+              \[\mu(\R(e^{ -(n - x)^2} \geq \varepsilon)) = \const \not\to 0\]
+
+        \item \(n = 2^k + l, 0 \leq l < 2^k, X = [0, 1], \lambda\)
+
+              \[f_n(x) : = \chi_{[\frac{l}{2^k}, \frac{l + 1}{2^k} ]}\]
+
+              \(\lim f_n(x)\) не существует ни при каком \(x\)!
+
+              \[X(f_n \geq \varepsilon) = \frac{1}{2^k} \to 0 \Rightarrow f_n \longarrow{\lambda} 0\]
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}[Лебега]\itemfix
+    %<*лебега>
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\)
+        \item \(\mu X\) конечно
+        \item \(f_n, f\) --- измеримо, п.в. конечно
+        \item \(f_n \to f\) п.в.
+    \end{itemize}
+
+    Тогда \(f_n \longarrow{\mu} f\)
+    %</лебега>
+\end{theorem}
+
+%<*лебегаproof>
+\begin{proof}
+    Переопределим \(f_n, f\) на множестве меры \(0\), чтобы сходимость была всюду.
+
+    Рассмотрим частный случай: \(\forall x\) последовательность \(f_n(x)\) монотонно убывает к \(0\), то есть \(f\equiv 0\)
+    \[X(|f_n| \geq \varepsilon) = X(f_n \geq \varepsilon) \supset X(f_{n+1} \geq \varepsilon)\]
+    \[\bigcap X(f_n \geq \varepsilon)\]
+
+    Таким образом, по теореме о непрерывности меры сверху, \(\mu X(f_n \geq \varepsilon) \to 0\)
+
+    Рассмотрим общий случай: \(f_n \to f\), \(\varphi(x) : = \sup\limits_{k \geq n} |f_k(x) - f(x)|\)
+
+    Тогда \(\varphi_n \to 0, \varphi_n \geq 0\) и монотонно, таким образом мы попали в частный случай.
+
+    \[X(|f_n - f| \geq \varepsilon) \subset X(\varphi_n \geq \varepsilon)\]
+    \[\mu X(|f_n - f| \geq \varepsilon) \leq \mu X(\varphi_n \geq \varepsilon) \to 0\]
+\end{proof}
+%</лебегаproof>
+
+\begin{theorem}[Рисс]\itemfix
+    %<*рисса>
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\)
+        \item \(f_n \longarrow{\mu} f\).
+    \end{itemize}
+    Тогда \(\exists n_k : f_{n_k} \to f\) почти везде.
+    %</рисса>
+\end{theorem}
+
+%<*риссаproof>
+\begin{proof}
+    \[\forall k \ \ \mu X\left(|f_n - f| \geq \frac{1}{k}\right) \to 0\]
+    \[\exists n_k : \text{при } n \geq n_k \ \ \mu X\left( |f_n - f| \geq \frac{1}{k} \right) < \frac{1}{2^k}\]
+    Можно считать, что \(n_1 < n_2 < n_3\)
+
+    Проверим, что \(f_{n_k} \to f\) почти везде.
+
+    \[E_k : = \bigcup_{j = k}^{+\infty} X\left( |f_{n_j} - f| \geq \frac{1}{j} \right) \quad E = \bigcap E_k\]
+    \[E_k \supset E_{k+1} \quad \mu E_k \symref{счётная полуаддитивность}{\leq} \sum_{j = k}^{+\infty} \mu X\left( |f_{n_j} - f| \geq \frac{1}{j} \right) < \sum_{j = k}^{+\infty} \frac{1}{2^j} \leq \frac{2}{2^k} \to 0\]
+    \[\mu E_k \to \mu E \Rightarrow \mu E = 0\]
+
+    \blfootnote{\eqref{счётная полуаддитивность}: по счётной полуаддитивности меры.}
+
+
+    Покажем, что при \(x\not\in E \ \ f_{n_k} \to f\).
+
+    \[x\not\in E \ \ \exists N \ \ x\not\in E_k \text{ при } k > N \ \ |f_{n_k}(x) - f(x)|< \frac{1}{k}\]
+
+    То есть \(f_{n_k}(x) \to f(a)\).
+
+    Т.к. \(\mu E = 0\), искомое выполнено.
+\end{proof}
+%</риссаproof>
+
+\begin{corollary}
+    \(f_n \longarrow{\mu} f \ \ |f_n| \leq g\) почти всюду. Тогда \(|f| \leq g\) почти всюду.
+\end{corollary}
+\begin{proof}
+    \(\exists n_k \ \ f_{n_k} \to f\) почти всюду.
+
+    % TODO: отпарсить
+\end{proof}
+
+\[f_n \rightrightarrows f  \Rightarrow f_n(x) \to f(x) \ \  \forall x \Rightarrow f_n \longarrow{} f\]
+
+\begin{theorem}[Егорова]\itemfix
+    %<*теоремаегорова>
+    \begin{itemize}
+        \item \(X, \mathfrak{A}, \mu\)
+        \item \(\mu X < +\infty\)
+        \item \(f_n, f\) --- почти везде конечно, измеримо
+    \end{itemize}
+
+    Тогда
+    \[\forall \varepsilon > 0 \ \ \exists e\subset X : \mu e < \varepsilon \quad f_n \xrightrightarrows[X\setminus e]{} f\]
+    %</теоремаегорова>
+\end{theorem}
+\begin{proof}
+    Упражнение. % TODO: #70 доказать
+\end{proof}
+
+\section{Интеграл}
+
+\(\sphericalangle (X, \mathfrak{A}, \mu)\) --- зафиксировали.
+
+\begin{definition}[1]\itemfix
+    %<*интеграл1>
+    \begin{itemize}
+        \item \(f = \sum \alpha_k \chi_{E_k}\)
+        \item \(E_k\) --- допустимое разбиение
+        \item \(\alpha_k \geq 0\)
+    \end{itemize}
+
+    \[\int_X f d_{\mu(x)} : = \sum \alpha_k \mu E_k\]
+
+    И пусть \(0\cdot \infty = 0\)
+    %</интеграл1>
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item Не зависит от представления \(f\) в виде суммы, т.е.:
+
+              \[f = \sum \alpha_k \chi_{E_k} = \sum \alpha'_k \chi_{E'_k} = \sum_{k, j} \alpha_k \chi_{E_k\cap E'_j}\]
+
+              \begin{remark}
+                  При \(E_k \cap E'_j \neq \emptyset\) \(\alpha_k = \alpha_j \Rightarrow \) можно писать любое из них.
+              \end{remark}
+
+              \[\int f = \sum \alpha_k \mu E_k = \sum_{k, j} \alpha_k \mu(E_k\cap E'_j) = \sum \alpha'_k \mu E'_k\] % TODO: пояснить
+
+        \item \(\underbrace{f}_{\text{ст.}} \leq \underbrace{g}_{\text{ст.}} \Rightarrow \int_X f \leq \int_X g\)
+    \end{enumerate}
+\end{prop}
+
+\begin{definition}[2]\itemfix
+    %<*интеграл2>
+    \begin{itemize}
+        \item \(f \geq 0\)
+        \item \(f\) измеримо
+    \end{itemize}
+    \[\int_X f d\mu : = \sup_{\substack{g \text{ --- ступ.} \\ 0 \leq g \leq f}} \int g d\mu\]
+    %</интеграл2>
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{itemize}
+        \item Если \(f\) ступенчатая, то определение 2 = определение 1.
+        \item \(0 \leq \int_X f \leq +\infty\)
+        \item \(g \leq f, f\) --- измеримая, \(g\) --- измеримая \( \Rightarrow \int_X g \leq \int_X f\)
+    \end{itemize}
+\end{prop}
+
+\begin{definition}[3]\itemfix
+    \begin{itemize}
+        \item \(f\) измеримо
+        \item \(\int f^{+}\) или \(\int f^{-}\) конечен
+    \end{itemize}
+
+    \[\int_X f d\mu = \int_X f^{+} d\mu - \int_X f^{-} d\mu\]
+
+    Требование о конечности необходимо для избегания неопределенностей.
+\end{definition}
+
+\begin{theorem}[Тонелли]\itemfix
+    \begin{itemize}
+        \item \(f : \R^{m + n} \to \overline \R\)
+        \item \(f \geq 0\)
+        \item \(f\) измерима
+        \item Записывается как \(f(x, y)\), где \(x\in\R^m, y\in\R^n\)
+        \item \(E\subset \R^{m + n}\)
+    \end{itemize}
+
+    \begin{obozn}
+        \[\forall x\in\R^{m + n} \ \ E_x : = \{y\in\R^n : (x, y)\in E\} \]
+        % TODO: #71 иллюстрация
+    \end{obozn}
+
+    Тогда:
+    \begin{enumerate}
+        \item При почти всех \(x\in \R^m\) функция \(y \mapsto f(x,y)\) измерима на \(\R^n\)
+        \item Функция \(x \mapsto \int_{E_x} f(x, y) d\lambda_n(y) \geq 0\), измерима и корректно задана.
+        \item \[\int_E f(x, y) d\mu = \int_{\R^m} \left( \int_{E_x} f(x, y) d\lambda_n(y) \right) d\lambda_m (x)\]
+    \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+    Неформально говоря, можно разбить \(\R^{m + n}\) на \(\R^{m}\) и \(\R^n\) и интегрировать сначала по одной переменной, потом по другой.
+\end{remark}
+

@@ -1,0 +1,166 @@
+\chapter{27 марта}
+
+\subsection{Стандартные дискретные распределения}
+
+\begin{enumerate}
+    \item Распределение Бернулли \(B_p\) с параметром \(0 < p < 1\). \(\xi\) --- число успехов при одном испытании, где \(p\) --- вероятность успеха при одном испытании. Закон распределения: \begin{tabular}{C|C|C}
+              \xi & 0   & 1 \\ \hline
+              p   & 1-p & p
+          \end{tabular}
+          \[\mathbb{E}\xi = 0(1 - p) + 1 \cdot p = p\]
+          \[\mathbb{D}\xi = 0^2(1 - p) + 1^2 p - p^2 = p - p^2 = pq\]
+
+    \item Биномиальное распределение \(B_{n, p}\) с параметрами \(n\) и \(p\). \(\xi\) --- число успехов при \(n\) испытаниях, \(p\) --- вероятность успеха при одном испытании.
+          \[\xi \in B_{n, p} \Leftrightarrow P(\xi = x) = \binom{n}{k} p^k q^{n - k},\quad 0 \leq k \leq n, q = 1 - p\]
+
+          \begin{remark}
+              \(B_p = B_{1, p}\)
+          \end{remark}
+
+          \(\xi = \xi_1 + \dots \xi_n\), где \(\xi_i \in B_p\), \(\mathbb{E}\xi_i = p, \mathbb{D}\xi_i = pq\).
+          \[\mathbb{E}\xi = \sum_{i = 1}^n \mathbb{E}\xi_i = np\]
+          \[\mathbb{D}\xi = \sum_{i = 1}^n \mathbb{D}\xi_i = npq\]
+          \[\sigma \xi = \sqrt{npq}\]
+
+    \item Геометрическое распределение \(G_p\). \(\xi\) --- номер первого успешного испытания.
+          \[\xi \in G_p \Leftrightarrow P(\xi = k) = (1 - p)^{k - 1} p,\quad 1 \leq k < +\infty\]
+
+          \[\mathbb{E} \xi = \sum_{i = 1}^{+\infty} k \cdot q^{k - 1} \cdot p = p \left(\sum_{i = 1}^{+\infty} q^k\right)' = p \left( \frac{1}{1 - q} \right)' = p \frac{1}{(1 - q)^2} = \frac{p}{p^2} = \frac{1}{p}\]
+          \[\mathbb{E} \xi^2 = \sum_{k = 1}^{+\infty} k^2 \cdot q^{k - 1} \cdot p = p \sum_{k = 1}^{+\infty} k(k - 1) \cdot q^{k - 1} + k \cdot q^{k - 1} = pq \cdot \left( \frac{1}{1 - q} \right)' + \frac{1}{p} = \frac{2q}{p^2} + \frac{1}{p} \]
+          \[\mathbb{D}\xi = \mathbb{E}\xi^2 - (E\xi)^2 = \frac{2q}{p^2} + \frac{1}{p} = \frac{q}{p^2}\]
+
+    \item Распределение Пуассона \(\Pi_\lambda\) с параметром \(\lambda > 0\).
+          \[\xi \in \Pi_\lambda \Leftrightarrow P(\xi = k) = \frac{\lambda^k}{k!} e^{ - \lambda}, \quad 0 \leq k < +\infty \]
+
+          \[\mathbb{E}\xi = \sum_{k = 0}^{+\infty} k \cdot \frac{\lambda^k}{k!} e^{ - \lambda} = e^{ - \lambda} \sum_{k = 0}^{\infty} \frac{\lambda^k}{(k - 1)!} = \lambda e^{ - \lambda} \sum_{k = 0}^{+\infty} \frac{\lambda^k}{k!} = \lambda e^{ - \lambda} e^{ \lambda} = \lambda \]
+          \[\mathbb{E}\xi^2 = \sum_{k = 0}^{+\infty} k^2 \cdot \frac{\lambda^k}{k!} e^{ - \lambda} = \sum_{k = 0}^{+\infty} (k(k - 1) + k) \cdot \frac{\lambda^k}{k!} e^{ - \lambda} = \lambda^2 + \lambda \]
+          \[\mathbb{D}\xi = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2 = \lambda^2 + \lambda - \lambda^2 = \lambda\]
+          \[\sigma \xi = \sqrt{\lambda}\]
+\end{enumerate}
+
+\begin{definition}
+    \textbf{Функцией распределения} случайной величины \(\xi\) называется функция \(F_\xi(x) = P(\xi < x)\)
+\end{definition}
+
+\begin{example}
+    \(\xi \in B_p\). Тогда \(F(x) = \begin{cases} 0, & x \leq 0 \\ 1 - p, & 0 < x \leq 1 \\ 1 , & x > 1 \end{cases}\).
+\end{example}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(F(x)\) --- ограниченная функция.
+        \item \(F(x)\) --- неубывающая функция.
+              \begin{proof}
+                  \begin{align*}
+                      \{\xi < x_1\} & \subset \{\xi < x_2\} \\
+                      P(\xi < x_1)  & \leq P(\xi < x_2)     \\
+                      F(x_1)        & \leq F(x_2)
+                  \end{align*}
+              \end{proof}
+
+        \item \(P(x_1 \leq \xi < x_2) = F(x_2) - F(x_1)\)
+              \begin{proof}
+                  \begin{align*}
+                      P(\xi < x_2)          & = P(\xi < x_1) + P(x_1 \leq \xi < x_2) \\
+                      F(x_2)                & = F(x_1) + P(x_1 \leq \xi < x_2)       \\
+                      P(x_1 \leq \xi < x_2) & = F(x_2) - F(x_1)
+                  \end{align*}
+              \end{proof}
+        \item Т.к. \(\mathfrak{B}\) порождается интервалами, то, зная функцию распределения, можно найти вероятность попадания случайной величины в любое борелевское множество \(B \in \mathfrak{B}\), а значит распределение полностью задаётся функцией распределения.
+
+        \item \(\lim_{x \to -\infty} F(x) = 0, \lim_{x \to +\infty} F(x) = 1\)
+              \begin{proof}
+                  Т.к. \(F(x)\) ограничена и монотонна, эти пределы существуют. Поэтому достаточно доказать пределы для каких-нибудь последовательностей \(x_n \to \pm \infty\).
+
+                  Рассмотрим \(A_n = \{w : n - 1 \leq \xi(w) < n\}, n\in\N \) --- несовместные события и по счётной аддитивности
+                  \begin{align*}
+                      1 & = P(\Omega)                                                   \\
+                        & =  P\left( \bigcup A_n \right)                                \\
+                        & =  \sum_{n = -\infty}^{+\infty} P(a_n)                        \\
+                        & =  \sum_{n = -\infty}^{+\infty} F(n) - F(n - 1)               \\
+                        & =  \lim_{N \to \infty} \sum_{ - N}^N F(n) - F(n - 1)          \\
+                        & =  \lim_{N \to \infty} F(N) - F( - N - 1)                     \\
+                        & =  \lim_{N \to \infty} F(N) - \lim_{N \to \infty} F( - N - 1)
+                  \end{align*}
+
+                  Таким образом, \(\lim_{N \to \infty} F(N) = 1\), т.к. \(F(N) \leq 1\) и \(F( - N - 1) \geq 0\)
+              \end{proof}
+
+        \item \(F(x)\) --- непрерывная слева и \(F(x - 0) = F(x)\)
+              \begin{proof}
+                  В силу монотонности и ограниченности предел существует.
+
+                  Рассмотрим \(B_n = \{x_0 - \frac{1}{n} < \xi < x_0\} \). \(B_1 \supset B_2 \supset \dots \supset B_n \supset \dots\) и \(\bigcap B_n = \emptyset \). Таким образом, по аксиоме непрерывности \(\lim\limits_{n \to +\infty} P(B_n) = 0 \Rightarrow \lim\limits_{n \to +\infty} P(B_n) = \lim_{n \to +\infty} (F(x_0) - F\left( x_0 - \frac{1}{n} \right)) = F(x_0) - \lim\limits_{n \to +\infty} F\left( x_0 - \frac{1}{n} \right) \Rightarrow F(x_0) = F(x_0 - 0)\)
+              \end{proof}
+
+        \item Скачок в точке \(x_0\) равен вероятности попадания в эту точку.
+              \begin{proof}
+                  \(C_n = \{x_0 < \xi < x_0 + \frac{1}{n}\} \). По аксиоме непрерывности \(\lim\limits_{n \to +\infty} P(n) = 0\).
+
+                  \begin{align*}
+                      P(C_n) + P(\xi \geq x_0)                       & = P(\xi = x_0)                           \\
+                      P\left(x_0 \leq \xi < x_0 + \frac{1}{n}\right) & \xrightarrow{n \to +\infty} P(\xi = x_0) \\
+                      F\left(x_0 + \frac{1}{n}\right) - F(x_0)       & \xrightarrow{n \to +\infty} P(\xi = x_0) \\
+                      F(x_0 + 0) - F(x_0) = P(\xi = x_0)
+                  \end{align*}
+              \end{proof}
+
+        \item \(P(\xi = x_0) = 0\)
+        \item Если \(F(x)\) непрерывно, то \(P(x_1 \leq \xi < x_2) = P(x_1 < \xi < x_2) = P(x_1 \leq \xi \leq x_2) = P(x_1 < \xi \leq x_2) = F(x_2) - F(x_1)\)
+    \end{enumerate}
+\end{prop}
+
+\subsection{Абсолютно непрерывные случайные величины}
+
+\begin{definition}
+    Случайная величина \(\xi\) имеет \textbf{абсолютно непрерывное распредление}, если для любого борелевского множества \(B \in \mathfrak{B}\) \(P(\xi \in \mathfrak{B}) = \int_B f_\xi(x) dx\) для некоторой функции \(f_\xi(x)\).
+\end{definition}
+
+\begin{remark}
+    Интеграл выше --- Лебега, а не Римана.
+\end{remark}
+
+\begin{definition}
+    Функция \(f_\xi(x)\) называется \textbf{полностью распределения} случайной величины \(\xi\).
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(P(\alpha < \xi < \beta) = \int_\alpha^\beta f_\xi(x) dx\)
+              \begin{proof}
+                  Очевидно из определения, если взять интеравл \(B = (\alpha, \beta)\).
+              \end{proof}
+
+        \item \(\int_{ -\infty}^{+\infty} f_\xi(x)dx = 1\).
+        \item \(F_\xi(x) = \int_{ - \infty}^x f(x) dx\)
+              \begin{proof}
+                  По определению \(F_\xi(x) = P(\xi < x) = \int_{ -\infty}^x f(x) dx\)
+              \end{proof}
+        \item \(F_\xi(x)\) --- непрерывная функция
+        \item \(F_\xi(x)\) дифференцируема почти всюду
+        \item \(f_\xi(x) \geq 0\)
+        \item \(P(\xi = x_0) = 0\)
+        \item \(P(x_1 < \xi < x_2) = P(x_1 \leq \xi \leq x_2) = F(x_2) - F(x_1)\)
+        \item Если для \(f(x)\) выполнены свойства 2 и 6, то она является плотностью некоторой случайной величины.
+    \end{enumerate}
+\end{prop}
+
+\subsection{Числовые характеристики непрерывной случайной величины}
+
+\begin{definition}
+    \textbf{Математическим ожиданием} абсолютно непрерывной случайной величины \(\xi\) называется число \(\mathbb{E}\xi = \int_{ -\infty}^{+\infty} x f(x) dx\) при условии, что данный интеграл сходится абсолютно.
+\end{definition}
+
+\begin{definition}
+    \(\mathbb{D}\xi = \mathbb{E}(\xi - \mathbb{E}\xi)^2 = \int_{ -\infty}^{+\infty} (x - \mathbb{E}\xi)^2 f(x) dx\) --- \textbf{дисперсия}
+\end{definition}
+
+\begin{remark}
+    Удобная формула: \(\mathbb{D}\xi = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2 = \int_{ -\infty}^{+\infty} x^2 f(x) dx - (\mathbb{E}\xi)^2\)
+\end{remark}
+
+\[\sigma = \sqrt{\mathbb{D}\xi}\]
+
+\begin{remark}
+    Смысл и свойства характеристик идентичны таковым для дискретной величины.
+\end{remark}

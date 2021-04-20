@@ -1,0 +1,154 @@
+\chapter{16 апреля}
+
+\section{Теория первого порядка}
+
+Это исчисление предикатов + нелогические функциональные предикатные символы + нелогические \textit{(математические)} аксиомы.
+
+\begin{itemize}
+    \item Теория нулевого порядка --- без кванторов
+    \item Теория первого порядка --- кванторы по предметным переменным
+    \item Теория второго порядка --- кванторы по предикатам
+    \item Теория третьего порядка --- кванторы по предикатам от предикатов
+\end{itemize}
+И так далее. Чем больше порядок, тем о большем количестве вещей мы можем судить. Теория нулевого порядка описывает объекты, первого --- множества, второго --- множества множеств и т.д.
+
+Теория первого порядка нам нужна, чтобы зафиксировать некоторый набор аксиом. Можно их всегда писать перед ``\(\vdash\)'', но мы не хотим. В какой-то степени это похоже на программы, где мы используем стандартную библиотеку \textit{ИП} и навешиваем свои функции.
+
+\subsection{Аксиоматика Пеано}
+
+Это первая\footnote{рукомахательная} попытка формализации чисел. Будем говорить, что \(N\) соответствует аксиоматике Пеано, если:
+\begin{enumerate}
+    \item Задана \(('): N \to N\) --- иньективная функция.
+    \item Задан \(0 \in N : \) нет такого \(a \in N\), что \(a' = 0\)
+    \item Если \(P(x)\) --- некоторое утверждение, зависящее от \(x \in N\), такое, что \(P(0)\) и всегда, когда \(P(x)\), также и \(P(x')\), тогда \(P(x)\). Это свойство индукции.
+\end{enumerate}
+
+\begin{remark}
+    Мы неявно зависим от множества вещей --- что такое равенство, что такое утверждение и т.д.
+\end{remark}
+
+\begin{statement}
+    \(0\) единственный.
+\end{statement}
+\begin{proof}
+    Пусть \(0\) и \(n\) нули. Тогда нет \(x : x' = 0\) и \(x' = n\). Рассмотрим утверждение \(P(x) = x = 0 \text{, либо существует } t: t' = x\). Рассмотрим случаи:
+    \begin{enumerate}
+        \item \(P(0) : 0 = 0\) --- ок.
+        \item Пусть \(P(x)\) выполнено, докажем \(P(x')\). Заметим, что \(t = x\).
+    \end{enumerate}
+
+    Таким образом, \(P(x)\) при всех \(x \in N\).
+\end{proof}
+
+\begin{definition}
+    \[a + b = \begin{cases}
+            a,        & b = 0  \\
+            (a + c)', & b = c'
+        \end{cases} \]
+\end{definition}
+
+\begin{example}
+    \[2 + 2 = 0'' + 0'' = (0'' + 0')' = ((0'' + 0)')' = ((0'')')' = 0'''' = 4\]
+\end{example}
+
+\begin{definition}
+    \[a \cdot b = \begin{cases}
+            0, & b = 0 \\
+            (a \cdot c) + a, b = c'
+        \end{cases} \]
+
+    \[a^b = \begin{cases} 1, & b = 0 \\ (a^c) \cdot a, & b = c' \end{cases} \]
+\end{definition}
+
+\begin{statement}
+    \label{a+0}
+    \(a + 0 = 0 + a\)
+\end{statement}
+\begin{proof}
+    Пусть \(P(a) \equiv a + 0 = 0 + a\).
+
+    База: \(P(0) = 0 + 0 = 0 + 0\)
+
+    Переход: \(P(x) \to P(x')\)
+
+    \[0 + x' \stackrel{\text{опр. }+}{=} (0 + x)' \stackrel{\substack{\text{инд.}\\\text{предп.}}}{=} (x + 0)' \stackrel{\substack{\text{инд.}\\\text{предп.}}}{=} x' + 0\]
+\end{proof}
+
+\begin{statement}
+    \(a + b' = a' + b\)
+\end{statement}
+
+\begin{proof}
+    При \(b = 0\):
+    \[a' + 0 = a' = (a + 0)' = a + 0'\]
+
+    При \(b = c'\) есть \(a + c' = a' + c\). Докажем \(a + c'' = a' + c'\)
+
+    \[(a + c')' = (a' + c)' = a' + c\]
+\end{proof}
+
+\begin{statement}
+    \(a + b = b + a\)
+\end{statement}
+
+\begin{proof}
+    База: \(b = 0\) --- утверждение \ref{a+0}
+
+    Переход: \(a + c'' = c + a\), если \(a + c' = c' + a\)
+
+    \[a + c'' \stackrel{\text{опр. }+}{= } (a + c')' \stackrel{\substack{\text{инд.}\\\text{предп.}}}{=} (c' + a)' \stackrel{\text{опр. }+}{= } c' + a'\]
+\end{proof}
+
+\subsection{Формальная арифметика}
+
+Рассмотрим следующую теорию первого порядка: исчисление предикатов, в которое добавили следующие символы:
+\begin{itemize}
+    \item 0-местный функциональный символ \(0\)
+    \item 1-местный функциональный символ \('\)
+    \item 2-местные функциональные символы \((\cdot), ( +)\)
+    \item 2-местный предикатный символ \((=)\)
+\end{itemize}
+
+И добавили следующие 8 аксиом:
+\begin{enumerate}
+    \item \(a = b \to a' = b'\)
+    \item \(a = b \to a = c \to b = c\)
+    \item \(a' = b' \to a = b\)
+    \item \(\neg a' = 0\)
+    \item \(a + b' = (a + b)'\)
+    \item \(a + 0 = a\)
+    \item \(a \cdot 0 = a\)
+    \item \(a \cdot b' = a \cdot b + a\)
+    \item Схема аксом индукции:
+          \[(\psi[x: = 0]) \with (\forall x.\psi \to (\psi[x: = x'])) \to \psi\]
+          Если \(x\) входит свободно в \(\psi\)
+\end{enumerate}
+
+\begin{definition}
+    \(\exists !x.\varphi(x) \equiv (\exists x.\varphi(x)) \with \forall p.\forall q.\varphi(p) \with \varphi(q) \to p = q\)
+\end{definition}
+
+\begin{definition}
+    \(a \leq b\) --- сокращение для \(\exists n.a + n = b\)
+\end{definition}
+
+\begin{definition}
+    \[0^{(n)} = \begin{cases} 0, & n = 0 \\ 0^{(n - 1)'}, & n > 0 \end{cases}\]
+    \[\overline n = 0^{(n)} \]
+\end{definition}
+
+\begin{definition}
+    Пусть \(W \subset \N_0^n\). \(W\) --- \textbf{выразимое в формальной арифметике отношение, если}: (пусть \(k_1 \dots k_n \in \N\))
+    \begin{enumerate}
+        \item \((k_1\dots k_n)\in W\), тогда \(\vdash w[x_1: = \overline k_1 \dots x_n: = \overline k_n]\)
+        \item \((k_1\dots k_n)\not\in W\), тогда \(\vdash \neg w[x_1: = \overline k_1 \dots x_n: = \overline k_n]\)
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    \(f : \N^n \to \N\) \textbf{представима в формальное арифметике}, если найдётся \(\varphi\) --- формула с \(n + 1\) свободной переменной \(k_1 \dots k_{n+1} \in \N\)
+    \begin{enumerate}
+        \item \(f(k_1\dots k_n) = k_{n+1}\), то \(\vdash \varphi(\overline k_1 \dots \overline k_{n+1})\)
+        \item \(\vdash \exists ! x.\varphi(k_1 \dots k_n, x)\)
+    \end{enumerate}
+\end{definition}

@@ -1,0 +1,280 @@
+\chapter{29 марта}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f: [a, b] \to \R\)
+        \item \(f\) непрерывно
+    \end{itemize}
+
+    Тогда \(\int_a^b f(x)dx = \int_{[a, b]} fd\lambda_1\)
+\end{corollary}
+
+\begin{proof}
+    Рассмотрим случай \(f > 0\). \(\text{ПГ}\footnote{подграфик}(f_{\?}[a, b])\) --- измеримое в \(\R^2\) множество. Доказать это --- упражнение. % TODO
+
+    \(C_x = [0, f(x)]\), \(\lambda_1(C_x) = f(x)\)
+
+    \[\int_a^b f(x) dx = \lambda_2(\text{ПГ}) = \int_{[a, b]} f d\lambda_1\]
+\end{proof}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item \(\lambda_2\) можно продолжить на множество \(2^{\R^2}\) с сохранением конечной аддитивности и это продолжение можно сделать не единственным образом.
+        \item Для \(\lambda_m, m > 2\) аналогичным образом продолжить невозможно.
+    \end{itemize}
+
+    Для обоих случаев требуется инвариантность меры относительно движения \(\R^m\).
+
+    В множествах размерности \( > 2\) действует парадокс Хаусдорфа-Банаха-Тарского, вследствие чего аддитивность невозможна.
+\end{remark}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(C \subset X \times Y\)
+        \item \(f : X \times Y \to \overline\R\)
+    \end{itemize}
+
+    \(\forall x\in X \ \ f_x\) --- функция \(f_x(y) = f(x, y)\)
+
+    \(\forall y\in Y \ \ f_y\) --- функция \(f_y(x) = f(x, y)\)
+\end{definition}
+
+\begin{theorem}[Тонелли]\itemfix
+    \label{тонелли}
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\)
+        \item \((Y, \mathfrak{B}, \nu)\)
+        \item \(\mu, \nu\) --- \(\sigma\)-конечные, полные
+        \item \(m = \mu \times \nu\)
+        \item \(f : X \times Y \to \overline \R\)
+        \item \(f \geq 0\)
+        \item \(f\) измеримо относительно \(\mathfrak{A} \otimes \mathfrak{B}\)
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item При почти всех \(x\) \(f_x\) измерима на \(Y\).
+        \item \(x \mapsto \varphi(x) = \int_Y f_x d \nu = \int_Y f(x, y) d \nu(y)\) --- измерима\footnote{почти везде} на \(X\)
+        \item \(\int_{X \times Y} f dm = \int_X \varphi d\mu = \int_X \left( \int_Y f(x, y) d \nu(y) \right) d\mu(x)\)
+    \end{enumerate}
+
+    Аналогичные утверждения верны, если поменять местами \(X\) и \(Y\):
+    \begin{enumerate}
+        \item \(f^y\) измеримо на \(X\) почти везде.
+        \item \(y \mapsto \psi(y) = \int_X f^y d\mu\) --- измерима\footnote{почти везде} на \(Y\)
+        \item \(\int_{X \times Y} f dm = \int_Y \psi d\mu = \int_Y \left( \int_X f(x, y) d \mu(x) \right) d\nu(y)\)
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \(f = \chi_C, C \subset X \times Y, \) измеримо. Тогда \(f_x(y) = \chi_C(y)\)
+
+              \(C_x\) измеримо при почти всех \(x\) по \nameref{принцип Кавальери} \( \Rightarrow f_x\) измеримо при почти всех \(x\)
+
+              \(\varphi(x) = \int_Y f_x d\nu = \nu C_x\) --- измерима\footnote{почти везде} функция по \nameref{принцип Кавальери}
+
+              \[\int_X \varphi(x) d\mu = \int_X \nu C_x d\mu \symrefeq{по кавальери} mC = \int_{X \times Y} f dm\]
+              \blfootnote{\eqref{по кавальери}: по \nameref{принцип Кавальери}}
+
+        \item \(f\) --- ступенчатая, \(f \geq 0, f = \sum_{\text{кон.}} \alpha_k \chi_{c_k}, f_x = \sum \alpha_k \chi_{(C_k)_x}\) --- измеримо почти везде.
+
+              \(\varphi(x) = \int_Y f_x d\nu = \sum \alpha_k \nu (C_k)_x\) --- измерима\footnote{почти везде}
+
+              \[\int_X \varphi(x) = \sum \int_X \alpha_k \nu(C_k)_x = \sum \alpha_k m C_k = \int_{X \times Y} f dm\]
+
+        \item \(f \geq 0\), измеримо.
+
+              \(f = \lim g_n, g_n \uparrow f, g_n \geq 0\), ступенчатые
+
+              \(f_x = \lim\limits_{n \to +\infty} (g_n)_x \Rightarrow f_x\) --- измеримо на \(y\).
+
+              \[\varphi(x) = \int_Y f_x d\nu \symrefeq{по леви 2} \lim \underbrace{\int_Y (g_n)_x d\nu}_{\varphi_n(x)} \implies \varphi \text{ --- измерима\footnote{почти везде}}\]
+
+              \(\varphi_n(x)\) измерима почти везде, поэтому \(\varphi\) измерима почти везде.
+
+              \[\int_X \varphi(x) \symrefeq{по леви 3} \lim \int_X \varphi_n = \lim \int_{X \times Y} g_n \symrefeq{по леви 4} \int_{X \times Y} f dm\]
+              \blfootnote{\eqref{по леви 2},~\eqref{по леви 3},~\eqref{по леви 4}: по теореме \nameref{леви}}
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    Если в условиях теоремы \nameref{тонелли} \(C \subset X \times Y, P_1(C)\) измеримо, то \(\int_C f dm = \int_{P_1(C)}\left( \int_{C_x} f(x, y) d\nu(y) \right) d\mu(x)\)
+\end{corollary}
+\begin{proof}
+    Очевидно, т.к. вместо \(f\) можно взять \(f \cdot \chi_C\)
+\end{proof}
+
+\begin{theorem}[Фубини]\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\)
+        \item \((Y, \mathfrak{B}, \nu)\)
+        \item \(\mu, \nu\) --- \(\sigma\)-конечные, полные
+        \item \(m = \mu \times \nu\)
+        \item \(f\) --- суммируемо на \(X \times Y\)
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item \(f_x\) --- суммируема на \(Y\) при почти всех \(x\)
+        \item \(x \mapsto \varphi(x) = \int_Y f_x d\nu = \int_Y f(x, y) d\nu(y)\) --- суммируема на \(Y\)
+        \item \(\int_{X \times Y} f dm = \int_X \varphi d \mu = \int_X \left( \int_y f(x, y) d\nu(y) \right) d\mu(x)\)
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Слишком неинтересно.
+
+    Общий подход: берём \(f_{ +}\) и \(f_{ -}\).
+\end{proof}
+
+\begin{example}
+    \(B(s, t) \defeq \int_0^1 x^{s - 1} (1 - x)^{t - 1} dx,\ s, t > 0\).
+
+    Тогда \(B(s, t) = \cfrac{\Gamma(s)\Gamma(t)}{\Gamma(s + t)}\), где \(\Gamma(s) = \int_0^{+\infty} x^{s - 1}e^{ - x}dx\)
+\end{example}
+
+\begin{proof}
+    \begin{align*}
+        \Gamma(s)\Gamma(t) & = \int_0^{+\infty} x^{s - 1}e^{ - x}\left( \int_0^{+\infty} y^{t - 1}e{ - y}dy \right)dx         \\
+                           & = \int_0^{+\infty} \left( \int_0^{+\infty} x^{s - 1}y^{t - 1} e^{ - x}e^{ - y} dy \right) dx     \\
+        y : = u - x                                                                                                           \\
+                           & = \int_0^{+\infty} \left( \int_0^{+\infty} x^{s - 1}(u - x)^{t - 1} e^{ - u} du \right) dx       \\
+                           & = \int \dots d\lambda_2                                                                          \\
+                           & = \int_0^{+\infty} \left( \int_0^u x^{s - 1}(u - x)^{t - 1} e^{ - u} dx \right) du               \\
+        x : = u\cdot v
+                           & = \int_0^{+\infty} \left( \int_0^1 (uv)^{s - 1}(u - uv)^{t - 1} e^{ - u} \cdot u dv \right) du   \\
+                           & = \int_0^{+\infty} u^{s + t - 1} e^{ - u} \left( \int_0^1 v^{s - 1}(1 - v)^{t - 1} dv \right) du \\
+                           & = B(s, t) \Gamma(s + t)
+    \end{align*}
+\end{proof}
+
+\begin{example}[Объём\footnote{на самом деле мера} шара в \(\R^m\)]
+    \(\alpha_m : = \lambda_m(B(0, 1)), \lambda_m(B(0, r)) = r^m \cdot \alpha_m\) --- получается заменой координат.
+
+    \[B(0, 1) \defeq \left\{x\in \R^m : \sum_{i = 1}^m x_i^2 \leq 1\right\} \]
+    \[B(0, 1)_{x_m} = \left\{x\in \R^{m - 1} : \sum_{i = 1}^{m - 1} x_i^2 \leq 1 - x_m^2 \right\}\]
+    \begin{align*}
+        \alpha_m
+         & = \int_{ - 1}^{1} \lambda_{m - 1} \left(B\left( 0, \sqrt{1 - y^2} \right)\right)                                                   \\
+         & = \int_{ - 1}^{1} \alpha_{m - 1} (1 - y^2)^{\frac{m - 1}{2}} dy                                                                    \\
+         & = 2\alpha_{m - 1} \int_{0}^{1} (1 - t)^{\frac{m - 1}{2}} \frac{1}{2} t^{ - \frac{1}{2}} dt                                         \\
+         & = B\left(\frac{m + 1}{2}, \frac{1}{2}\right) \alpha_{m - 1}                                                                        \\
+         & = \frac{\Gamma\left( \frac{m + 1}{2} \right)\Gamma\left( \frac{1}{2} \right)}{\Gamma\left( \frac{m + 2}{2} \right)} \alpha_{m - 1} \\
+    \end{align*}
+
+    \begin{align*}
+        \alpha_m & = \frac{\xcancel{\Gamma\left( \frac{m + 1}{2} \right)}\Gamma\left( \frac{1}{2} \right)}{\Gamma\left( \frac{m + 2}{2} \right)} \cdot \frac{\Gamma\left( \frac{m}{2} \right)\Gamma\left( \frac{1}{2} \right)}{\xcancel{\Gamma\left( \frac{m + 1}{2} \right)}} \dots \frac{\Gamma\left( \frac{3}{2} \right)\Gamma\left( \frac{1}{2} \right)}{\Gamma\left( \frac{4}{2} \right)} \underbrace{\alpha_1}_{ = 2} \\
+                 & = \frac{\Gamma\left( \frac{3}{2} \right)\Gamma\left( \frac{1}{2} \right)}{\Gamma\left( \frac{m}{2} + 1 \right)^{m - 1}} \cdot 2                                                                                                                                                                                                                                                                          \\
+                 & = \frac{\pi^{\frac{m}{2}}}{\Gamma\left( \frac{m}{2} + 1 \right)}
+    \end{align*}
+
+    В случае \(m = 3\) \(\alpha_3 = \frac{4}{3} \pi\)
+
+    \begin{remark}
+        \begin{align*}
+            \Gamma\left( \frac{1}{2} \right) & = \int_0^{+\infty} t^{ - \frac{1}{2}} e^{ - t} dt = 2 \underbrace{\int_0^{+\infty} e^{ - x^2} dx}_I
+        \end{align*}
+        \begin{align*}
+            I^2 & = \int_0^{+\infty} \left( \int_0^{+\infty} e^{ - x^2 - y^2} dy \right) dx \\
+                & = \int_0^{+\infty} dr \int_0^{ \frac{\pi}{2}} e^{ - r^2} \cdot r dr       \\
+                & = \frac{\pi}{4} e^{ - r^2} \Bigg|_0^{+\infty}                             \\
+                & = \frac{\pi}{4}
+        \end{align*}
+    \end{remark}
+
+    Переход в полярные координаты:
+    \begin{align*}
+        x_1       & = r\cos \varphi_1                             \\
+        x_2       & = r\sin \varphi_1\cos \varphi_2               \\
+                  & \vdots                                        \\
+        x_{m - 1} & = r\sin \varphi_1 \dots \sin \varphi_{m - 1}  \\
+        x_m       & = r \sin \varphi_1 \dots \cos \varphi_{m - 1}
+    \end{align*}
+
+    \begin{align*}
+        \lambda_m (B(0, R)) & = \int_{B(0, R)} 1 d\lambda_m                                                                                                                                                                                \\
+                            & = \int_0^R dr \int_0^{\pi} d\varphi_1 \int_0^{\pi} d\varphi_2 \dots \int_0^{\pi} d\varphi_{m - 2} \int_0^{2\pi} d\varphi_{m - 1} \cdot r^{m - 1} \cdot \sin^{m - 2} \varphi_1 \dots \sin \varphi_{m - 2}     \\
+                            & \stackrel{\eqref{интеграл синуса в степени}}{ = } 2\pi \frac{R^m}{m} \prod_{k = 1}^{m - 2} \frac{\Gamma\left( \frac{k + 1}{2} \right)\Gamma\left( \frac{1}{2} \right)}{\Gamma\left( \frac{k + 2}{2} \right)} \\
+                            & = \pi \frac{R^m}{m}\frac{\pi^{\frac{m - 2}{2} }}{\Gamma\left( \frac{m - 2}{2} + 1 \right)}                                                                                                                   \\
+                            & \symrefeq{потеряли двойку} \frac{\pi^{\frac{m}{2} R^m}}{\Gamma\left( \frac{m - 2}{2} + 1 \right)}
+    \end{align*}
+    \blfootnote{Мы потеряли двойку в~\eqref{потеряли двойку}.}
+
+    \begin{equation}
+        \int_0^\pi \sin^k \alpha d\alpha = 2 \int_0^{\frac{\pi}{2}} = \begin{bmatrix} t = \sin^2\alpha \\ dt = \frac{1}{2}t^{ - \frac{1}{2}} (1 - t)^{ - \frac{1}{2}} dt \end{bmatrix} = B\left( \frac{k}{2} + \frac{1}{2}, \frac{1}{2} \right) \label{интеграл синуса в степени}
+    \end{equation}
+\end{example}
+
+\pagebreak
+
+\section{Поверхностный интеграл}
+
+\subsection{Поверхностный интеграл I рода}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(M \subset \R^3\) --- простое двумерное гладкое многообразие
+        \item \(\varphi : G \subset \R^2 \to \R^3\) --- параметризация \(M\)
+    \end{itemize}
+
+    \(E \subset M\) --- \textbf{измеримо по Лебегу}, если \(\varphi^{-1}(E)\) измеримо в \(\R^2\) по Лебегу.
+\end{definition}
+
+\begin{obozn}
+    \(\mathfrak{A}_M = \{E \subset M : E \text{ изм.}\} = \{\varphi(A), A \in \mathfrak{M}^2, A \subset G\} \)
+\end{obozn}
+
+\begin{definition}[Мера на \(\mathfrak{A}_M\)]
+    \[S(E) : = \iint_{\varphi^{-1}(E)} |\varphi'_u \times \varphi'_v| du dv\]
+    т.е. это взвешенный образ меры Лебега при отображении \(\varphi\).
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item \(\mathfrak{A}_m\) --- \(\sigma\)-алебра, \(S\) --- мера.
+        \item \(E\subset M\) --- компакт \( \Rightarrow \varphi^{-1}(E)\) --- компакт \( \Rightarrow \) измерим \( \Rightarrow \) замкнутые множества измеримы \( \Rightarrow \) открытые относительно себя множества измеримы.
+        \item \(\mathfrak{A}_m\) не зависит от параметризации \(\varphi\) по теореме о двух параметризациях.
+        \item \(S\) не зависит от \(\varphi\)!
+
+              \begin{align*}
+                  |\vv{\varphi}'_s \times \vv{\varphi}'_t| & = |(\vv{\varphi}'_u \cdot u'_s + \vv{\varphi}'_v \cdot v'_s) \times (\vv{\varphi}'_i \cdot u'_t + \vv{\varphi}'_v \cdot v'_t)| \\
+                                                           & = |\vv{(\varphi'_u \times \varphi'_v)}(u'_s v'_t - v'_s u'_t)|                                                                 \\
+                                                           & = |\varphi'_u \times \varphi'_v| \cdot |\det \begin{pmatrix} u'_s & u'_t \\ v'_s & v'_u \end{pmatrix} |
+              \end{align*}
+
+        \item \(f : M \to \overline\R\) измерима, если \(M(f < a)\) измеримо относительно \(\mathfrak{A}_m\), что в свою очередь \(\Leftrightarrow M(f \circ \varphi < a)\) измеримо относительно \(\mathfrak{M}^2\).
+
+              \(f\) измеримо относительно \(\mathfrak{A}_m \Leftrightarrow f \circ \varphi\) измеримо относительно \(\mathfrak{M}^2\).
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}[поверхностный интеграл первого рода]\itemfix
+    \begin{itemize}
+        \item \(M\) --- простое гладкое двумерное многообразие в \(\R^3\)
+        \item \(\varphi\) --- параметризация \(M\)
+        \item \(f : M \to \overline \R\) --- суммируемо по мере \(S\) на \(M\)
+    \end{itemize}
+
+    Тогда \(\iint_M f dS = \iint_M f(x, y, z) dS\) называется \textbf{интегралом первого рода} от \(f\) по многообразию \(M\).
+\end{definition}
+
+\begin{remark}
+    Как вычислять этот интеграл? По теореме \nameref{о вычислении интеграла по взвешенному образу меры}:
+    \[\iint_M fdS = \iint_G f(\varphi(u, v)) |\varphi'_u \times \varphi'_v| du dv\]
+    \[\varphi'_u \times \varphi'_v = \begin{vmatrix}
+            i & x'_u & x'_v \\
+            j & y'_u & y'_v \\
+            k & z'_u & z'_v
+        \end{vmatrix}\]
+    \[ |\varphi'_u \times \varphi'_v| = |\varphi'_u| |\varphi'_v| \sin \alpha = \sqrt{ |\varphi'_u|^2 |\varphi'_v|^2 (1 - \cos^2\alpha) } = \sqrt{EG - F^2} \]
+    \[F = \ev{\varphi'_u, \varphi'_v} = x'_u x'_v + y'_u y'_v + z'_u z'_v\]
+\end{remark}
+
+\begin{example}
+    \(M\) --- график функции \(f\) \( = \{(x, y, z) : (x, y) \in G, z = f(x, y)\} \)
+
+    \[\varphi : G \to \R^3 \quad \varphi(u, v) = \begin{pmatrix} u \\ v \\ f(u, v) \end{pmatrix} \quad \varphi'_u = \begin{pmatrix} 1 \\ 0 \\ f'_u \end{pmatrix} \quad \varphi'_v \begin{pmatrix} 0 \\ 1 \\ f'_v \end{pmatrix} \]
+
+    \[|\varphi'_u \times \varphi'_v| = \sqrt{1 + f_u^{\prime 2} + f_v^{\prime 2}}\]
+    \[\iint_M g dS = \iint_G g(x, y, f(x, y)) \sqrt{1 + f_x^{\prime 2} + f_y^{\prime 2}} dx dy\]
+\end{example}

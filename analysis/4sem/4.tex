@@ -1,0 +1,305 @@
+\chapter{1 марта}
+
+\begin{theorem}[об абсолютной непрерывности интеграла]\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \(f : X \to \overline \R\)
+        \item \(f\) суммируемо
+    \end{itemize}
+
+    Тогда \(\forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall E \text{ --- изм., } \mu E < \delta : \left|\int_E f\right|< \varepsilon\)
+\end{theorem}
+\begin{corollary}
+    \(f\) суммируемо на \(X\), \(E_n \subset X\), тогда \(\mu E_n \to 0 \Rightarrow \int_{E_n} f \to 0\)
+\end{corollary}
+\begin{proof}\footnote{Теоремы, не следствия}
+    \[X_n : = X(|f| \geq n)\]
+    \[X_n \supset X_{n+1} \supset \dots \Rightarrow \mu\left( \bigcap X_n \right) \symrefeq{почти везде конечна} 0\]
+    \blfootnote{\eqref{почти везде конечна}: Т.к. \(f\) на \(\bigcap X_n\) бесконечна и \(f\) почти везде конечна.}
+    \begin{equation}
+        \forall \varepsilon > 0 \ \ \exists n_\varepsilon \ \ \int_{X_{n_\varepsilon}} |f| < \frac{\varepsilon}{2} \label{непрерывность сверху меры}
+    \end{equation}
+    \blfootnote{\eqref{непрерывность сверху меры}: По непрерывности сверху меры \(A \mapsto \int_A |f| d\mu\)}
+
+    Пусть \(\delta : = \frac{\varepsilon}{2n_\varepsilon} \). Тогда при \(\mu E < \delta\):
+    \[\left|\int_E f\right| \leq \int_E |f| \symrefeq{оценка f} \int_{E\cap X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} |f| \leq \int_{X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} n_\varepsilon < \frac{\varepsilon}{2} + \underbrace{\mu E}_{\delta} \cdot n_\varepsilon \leq \varepsilon\]
+    \blfootnote{\eqref{оценка f}: Т.к. \(|f|\) на \(E \cap X_{n_\varepsilon}^c\) не превосходит \(n_\varepsilon\) по построению \(X_{n_\varepsilon}\)}
+\end{proof}
+
+\begin{remark}
+    Следующие два свойства не эквивалентны:
+    \begin{enumerate}
+        \item \(f_n \xRightarrow[\mu]{} f \xLeftrightarrow{def} \forall \varepsilon > 0 \ \ \mu X(|f_n - f| > \varepsilon) \to 0\)
+        \item \(\int_X |f_n - f| d\mu \to 0\)
+    \end{enumerate}
+
+    Из 1 не следует 2: пусть \((X, \mathfrak{A}, \mu) = (\R, \mathfrak{M}, \lambda), f_n = \frac{1}{nx}\). Тогда \(f_n \xRightarrow{\lambda} 0\), но \(\int |f_n - f| = +\infty\) при всех \(n\).
+
+    Из 2 следует 1, т.к.
+    \[\mu \underbrace{X(|f_n - f|> \varepsilon)}_{X_n} = \int_{X_n} 1 \leq \int_{X_n} \frac{|f_n - f|}{\varepsilon} = \frac{1}{\varepsilon} \int_{X_n} |f_n - f| \leq \frac{1}{\varepsilon} \int_X |f_n - f| \xrightarrow{n \to +\infty} 0\]
+\end{remark}
+
+\begin{theorem}[Лебега о предельном переходе под знаком интеграла]\itemfix
+    \label{лебега}
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \(f_n, f\) --- измеримо и почти везде конечно
+        \item \(f_n \xRightarrow{\mu} f\)
+        \item \(\exists g\), называемое ``суммируемая мажоранта'':
+              \begin{enumerate}
+                  \item \(\forall n \ \ |f_n| \symref{``1''}{\leq} g\) почти везде
+                  \item \(g\) --- суммируемо на \(X\)
+              \end{enumerate}
+    \end{itemize}
+
+    Тогда: \(f_n, f\) --- суммируемы и \(\int_X |f_n - f| d\mu \xrightarrow{n \to +\infty} 0\), и тем более \(\int_X f_n d\mu \to \int_X f d\mu\)
+\end{theorem}
+\begin{remark}
+    Почти везде конечность \(f_n\) и \(f\) следует из~\eqref{``1''}, поэтому в условии этого можно не требовать.
+\end{remark}
+\begin{proof}
+    \(f_n\) --- суммируемы в силу неравенства~\eqref{``1''}, \(f\) суммируемо в силу следствия теоремы Рисса, тем более \(|\int_X f_n - \int_X f| \leq  \int_X |f_n - f| \to 0\)
+
+    \begin{enumerate}
+        \item \(\mu X < +\infty\)
+
+              Зафиксируем \(\varepsilon\). \(X_n : = X(|f_n - f| > \varepsilon)\)
+
+              \(f_n \Rightarrow f\), т.е. \(\mu X_n \to 0\)
+
+              \begin{equation}
+                  |f_n - f| \leq |f_n| + |f| \leq 2g \label{|f_n - f| < 2g}
+              \end{equation}
+              \[\int_X |f_n - f| = \int_{X_n} + \int_{X_n^c} = \underbrace{\int_{X_n} 2g}_{\xrightarrow[\text{сл. т. об абс. непр.}]{n \to +\infty} 0} + \int_{X_n^c} \varepsilon d\mu < \varepsilon + \varepsilon \mu X\]
+
+        \item \(\mu X = +\infty\)
+
+              Утверждение: \(\forall \varepsilon > 0 \ \ \exists A \subset X, \text{изм., конечной меры}, \mu A \text{ конечно : } \int_{X\setminus A} g < \varepsilon\). Докажем его.
+
+              \[\int_X g = \sup \left\{\int g_n, 0 \leq g_n \leq g, g_n \text{ --- ступ.}\right\} \]
+              \[A : = \{x : g_n(x) > 0\}\]
+              \[0 \leq \int_X g - \int_X g_n = \int_A g - g_n + \int_{X\setminus A} g < \varepsilon\]
+              \[\int_X |f_n - f| d\mu = \int_A + \int_{X\setminus A} \leq \underbrace{\int_A |f_n - f|}_{\substack{ \to 0 \\ \text{по случаю 1}}} + \underbrace{\int_{X\setminus A} 2g}_{ < 2\varepsilon} < 3 \varepsilon\]
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Лебега]\itemfix
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \(f_n, f\) --- измеримо
+        \item \(f_n \symref{fn to f}{\to} f\) почти везде
+        \item \(\exists g\), называемое ``суммируемая мажоранта'':
+              \begin{enumerate}
+                  \item \(\forall n \ \ |f_n| \leq g\) почти везде
+                  \item \(g\) --- суммируемо на \(X\)
+              \end{enumerate}
+    \end{itemize}
+
+    Тогда \(f_n, f\) --- суммируемы, \(\int_X |f_n - f| d\mu \to 0\), и тем более \(\int_X f_n \to \int_X f\)
+\end{theorem}
+
+\begin{proof}
+    Суммируемость \(f_n, f\), а также утверждение ``и тем более'' доказываются так же, как в теореме \nameref{лебега}.
+
+    \[h_n : = \sup (|f_n - f|, |f_{n+1} - f|, |f_{n + 2} - f|, \dots)\]
+    \[0 \symref{тривиально неотрицательно}{ \leq } h_n \symref{по 2g}{\leq} 2g\]
+
+    \blfootnote{\eqref{тривиально неотрицательно}: по построению}
+    \blfootnote{\eqref{по 2g}: по~\eqref{|f_n - f| < 2g}}
+
+    \(h_n\) монотонно убывает, что очевидно по определению \(\sup\).
+    \blfootnote{\eqref{по fn to f}: по~\eqref{fn to f}}
+    \[\lim h_n \defeq \overline\lim |f_n - f| \symrefeq{по fn to f} 0 \text{ почти везде}\]
+
+    \(2g - h_n \geq 0\) и возрастает как последовательность функций, \(2g - h_n\to 2g\) почти везде. Тогда по теореме \nameref{леви}:
+    \[\int_X 2g - h_n \to \int_X 2g \Rightarrow \int_X h_n \to 0\]
+    \[\int_X |f_n - f| \leq \int_X h_n \to 0\]
+\end{proof}
+
+\begin{example}
+    \(\sphericalangle x > 0, x_0 > 0\)
+    \[\int_0^{+\infty} t^{x - 1}e^{ - t} dt\]
+    \[\lim_{x \to x_0} \int_0^{+\infty} t^{x - 1}e^{ - t} dt \stackrel{?}{=} \int_0^{+\infty} t^{x_0 - 1}e^{ - t} dt\]
+    Равенство выполнено, т.к. \(t^{x - 1}e^{ - t} \xrightarrow{x \to x_0} t^{x_0 - 1}e^{ - t}\) при \(t > 0\) и суммируемая мажоранта \(t^{\alpha - 1}e^{ - t} + t^{\beta - 1}e^{-t}\), где \(0 < \alpha < x_0, 0 < \beta\)
+\end{example}
+
+\begin{theorem}[Фату]\itemfix
+    \label{фату}
+    \begin{itemize}
+        \item \(X, \mathfrak{A}, \mu\) --- пространство с мерой
+        \item \(f_n \geq 0\)
+        \item \(f_n\) измеримо
+        \item \(f_n \to f\) почти везде
+        \item \(\exists C > 0 \ \ \forall n \ \ \int_X f_n \leq C\)
+    \end{itemize}
+
+    Тогда \(\int_X f \leq C\)
+\end{theorem}
+
+\begin{remark}
+    Странность: здесь не требуется, чтобы \(\int_X f_n \to \int_X f\) и это может быть неверно.
+\end{remark}
+\begin{example}
+    \[f_n = \frac{1}{n}\chi_{[0, n]} \to 0 = f \text{ п.в.} \quad \int_\R f_n = 1 \leq 1\]
+    По теореме \nameref{фату} \(\int_\R f \leq 1\), что верно, т.к. \(\int_\R f = 0 \leq 1\)
+\end{example}
+\begin{example}
+    Условие \(f_n \geq 0\) важно:
+
+    \[f_n = -\frac{1}{n}\chi_{[0, n]} \to 0 = f \text{ п.в.} \quad \int_\R f_n = - 1 \leq -1 \text{, но } \int_\R f = 0 \not \leq - 1\]
+\end{example}
+
+\begin{proof}
+    \[g_n : = \inf (f_n, f_{n+1}, \dots)\]
+    \[0 \leq g_n \leq g_{n+1}\]
+    \[\lim g_n \defeq \underline{\lim} f_n = f \text{ п.в.}\]
+    \begin{equation}
+        \int_X g_n \leq \int_X f_n \leq C \label{неравенство}
+    \end{equation}
+    \[\int_X g_n \symref{по леви}{ \to } \int_X f\]
+    \blfootnote{\eqref{по леви}: по теореме \nameref{леви}}
+    Значит \(\int_X f \leq C\) по предельному переходу в~\eqref{неравенство}
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f_n, f \geq 0\)
+        \item \(f_n, f\) измеримы
+        \item \(f_n, f\) почти везде конечны
+        \item \(f_n \Rightarrow f\)
+        \item \(\exists C > 0 \ \ \forall n \ \ \int_X f_n \leq C\)
+    \end{itemize}
+
+    Тогда \(\int_X f \leq C\)
+\end{corollary}
+\begin{proof}
+    \[f_n \Rightarrow f \implies \exists n_k : f_{n_k} \to f \text{ п.в.}\]
+    По теореме \nameref{фату} получим искомое.
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f_n \geq 0\)
+        \item \(f_n\) измеримо
+    \end{itemize}
+
+    Тогда \(\int_X \underline\lim f_n \leq \underline\lim \int_X f_n\)
+\end{corollary}
+\begin{proof}
+    Возьмём~\eqref{неравенство} как в теореме. Выберем \(n_k : \int_X f_{n_k} \xrightarrow{n \to +\infty} \underline\lim \int_X f_n\)
+    \[
+        \begin{tikzcd}[ampersand replacement=\&, column sep=small]
+            \int_X g_{n_k} \arrow[swap,shift right=2em]{d}{} \leq \int_X f_{n_k} \\
+            \int_X \underline\lim f_n \leq \underline\lim \int_X f_n
+        \end{tikzcd}
+    \]
+\end{proof}
+
+\section{Плотность одной меры по отношению к другой. Замена переменных в интеграле.}
+
+\(\sphericalangle (X, \mathfrak{A}, \mu)\) --- пространство с мерой, \((Y, \mathfrak{B}, \text{\textvisiblespace}), \Phi : X \to Y\)
+
+Пусть \(\Phi\) --- измеримо в следующем смысле:
+\[\Phi^{ - 1}(\mathfrak{B})\subset \mathfrak{A}\]
+
+\begin{exercise}
+    Проверить, что \(\Phi^{-1}\) --- \(\sigma\)-алгебра. % TODO #89
+\end{exercise}
+
+Для \(E\in \mathfrak{B}\) положим \(\nu(E) = \mu\Phi^{-1}(E)\). Тогда \(\nu\) --- мера:
+\[\nu\left(\bigsqcup E_n\right) = \mu(\Phi^{-1}\left(\bigsqcup E_n\right)) = \mu\left(\bigsqcup \Phi^{-1}(E_n)\right) = \sum \mu \Phi^{-1} E_n = \sum \nu E_n\]
+
+Мера \(\nu\) называется \textbf{образом} \(\mu\) при отображении \(\Phi\) и \(\nu E = \int_{\Phi^{-1}(E)} 1 d\mu\)
+
+\begin{observation}
+    \label{об измеримости}
+    \(f : Y \to \overline\R\) --- измеримо относительно \(\mathfrak{B}\). Тогда \(f \circ \Phi\) --- измеримо относительно \(\mathfrak{A}\).
+\end{observation}
+
+\[X(f(\Phi(x)) < a) = \Phi^{-1}(Y(f < a)) \symref{брух}{\in} \mathfrak{A}\]
+\blfootnote{\eqref{брух}: т.к. \(Y(f < a)\in \mathfrak{B}\)}
+
+\begin{definition}
+    \(\omega : X \to \overline\R, \omega \geq 0\), измеримо на \(X\).
+    \[\forall B\in \mathfrak{B} \ \ \nu(B) : = \int_{\Phi^{-1}(B)}\omega(x)d\mu(x)\]
+    Тогда \(\nu\) называется ``\textbf{взвешенный образ меры \(\mu\)}'', \(\omega\) называется \textbf{весом}.
+\end{definition}
+
+\begin{theorem}[о вычислении интеграла по взвешенному образу меры]\itemfix
+    \label{о вычислении интеграла по взвешенному образу меры}
+    \begin{itemize}
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+        \item \((Y, \mathfrak{B}, \nu)\) --- пространство с мерой
+        \item \(\Phi : X \to Y\)
+        \item \(\omega \geq 0\)
+        \item \(\omega\) измеримо на \(X\)
+        \item \(\nu\) взвешенный образ \(\mu\) при отображении \(\Phi\) с весом \(\omega\)
+    \end{itemize}
+
+    Тогда \(\forall\) измеримой относительно \(\mathfrak{B}\) \(f\) на \(Y, f \geq 0\) выполнено следующее:
+    \begin{enumerate}
+        \item \(f\circ \Phi\) измеримо на \(X\) относительно \(\mathfrak{A}\)
+        \item \begin{equation}
+                  \int_Y f(y) d \nu(y) = \int_X f(\Phi(x))\cdot \omega(x) d\mu(x) \label{доказываемый интеграл}
+              \end{equation}
+    \end{enumerate}
+
+    То же самое верно для суммируемой \(f\).
+\end{theorem}
+
+\begin{proof}
+    Измеримость \(f\circ \Phi\) выполнена по наблюдению~\ref{об измеримости}.
+
+    \begin{enumerate}
+        \setcounter{enumi}{-1}
+        \item Пусть \(f = \chi_B, B \in \mathfrak{B}\)
+
+              \[(f \circ \Phi)(x) = f(\Phi(x)) = \begin{cases}
+                      1, & \Phi(x) \in B     \\
+                      0, & \Phi(x) \not\in B
+                  \end{cases} = \chi_{\Phi^{-1}(B)}\]
+
+              Тогда~\eqref{доказываемый интеграл} это:
+              \[\mu B \stackrel{?}{ =} \int_X \chi_{\Phi^{-1}(B)} \cdot \omega d\mu = \int_{\Phi^{-1}(B)} \omega d\mu\]
+              Это выполнено по определению \(\mu B\)
+
+        \item Пусть \(f\) --- ступенчатая
+
+              \eqref{доказываемый интеграл} следует из линейности интеграла.
+
+        \item Пусть \(f \geq 0\), измеримая
+
+              По теореме \nameref{характеризация измеримых функций с помощью ступенчатых} и теореме \nameref{леви} \(\exists \{h_i\} : 0 \leq h_1 \leq h_2 \leq \dots \) --- ступенчатые, \(h_i \leq f, h_i \to f\)
+              \[\int_Y h_i d\nu = \int_X h_i \circ \Phi \cdot \omega d \mu \xrightarrow{i \to +\infty}~\eqref{доказываемый интеграл}\]
+
+        \item Пусть \(f\) измерима.
+
+              Тогда для \(|f|\) выполнено~\eqref{доказываемый интеграл}; \(|f|\) и \(|f\circ \Phi|\cdot \omega\) суммируемы одновременно.
+
+              \[(f \circ \Phi\cdot \omega)_+ = f_+ \circ \Phi \cdot \omega \quad (f \circ \Phi\cdot \omega)_+ = f_+ \circ \Phi \cdot \omega\]
+
+              Таким образом, искомое выполнено для \(f_+\) и \(f_-\), а следовательно и для \(f\).
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}[об интегрировании по подмножеству]
+    В условиях теоремы пусть:
+    \begin{itemize}
+        \item \(B\in \mathfrak{B}\)
+        \item \(f\) суммируемо на \(Y\)
+    \end{itemize}
+
+    Тогда
+    \[\int_B f d \nu = \int_{\Phi^{-1}(B)} f(\Phi(x)) \omega d\mu\]
+\end{corollary}
+\begin{proof}
+    В условие теоремы подставим \(f \cdot \chi_B\)
+\end{proof}
+
+\begin{definition}
+    Рассмотрим частный случай: \(X = Y, \mathfrak{A} = \mathfrak{B}, \Phi = \text{id}\). Кажется, что мы убили всю содержательность, но это не так --- есть ещё \(\omega\).
+    \[\nu(B) = \int_B \omega(x)d\mu\]
+    В этой ситуации \(\omega\) называется \textbf{плотностью} меры \(\nu\) относительно меры \(\mu\) и тогда по теореме~\nameref{о вычислении интеграла по взвешенному образу меры}:
+    \[\int_X f d\nu = \int_X f(x) \omega(x) d\mu\]
+\end{definition}
+

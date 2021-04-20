@@ -1,0 +1,196 @@
+\chapter{5 апреля}
+
+\begin{definition}
+    \(M \subset \R^3\) --- \textbf{кусочно-гладкое двумерное многообразие}, если \(M\) --- конечное объединение:
+    \begin{itemize}
+        \item Простых гладких многообразий \(M_i\)
+        \item Гладких кривых
+        \item Точек
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \(E \subset M\) измеримо, если \(E \cap M_i\) измеримо.
+
+    \[S(E) : = \sum_i S(E \cap M_i)\]
+    \[\int_E fds : = \sum_i \int_{E\cap M_i} f ds\]
+\end{definition}
+
+\subsection{Поверхностный интеграл II рода}
+
+\begin{obozn}
+    Будем называть простое двумерное гладкое многообразие в \(\R^3\) поверхностью.
+\end{obozn}
+
+\begin{definition}
+    \textbf{Сторона поверхности} есть непрерывное семейство единичных нормалей к этой поверхности.
+\end{definition}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(M\) --- поверхность в \(\R^3\)
+        \item \(n_0\) --- сторона % чья?
+        \item \(\gamma\) --- конутр \textit{(петля)} в \(M\), ориентированная
+    \end{itemize}
+
+    Говорят, что сторона поверхности \(n_0\) согласована с ориентацией \(\gamma\), если:
+    \[(\gamma' \times N_{\text{внутр.}}) \parallel n_0\]
+    Т.е. если ориентация \(\gamma\) задаёт сторону \(n_0\).
+\end{definition}
+
+\begin{definition}[интеграл II рода]\itemfix
+    \begin{itemize}
+        \item \(M\) --- простое двумерное гладкое многообразие
+        \item \(n_0\) --- сторона \(M\)
+        \item \(F : M \to \R^3\) --- непрерывное векторное поле
+    \end{itemize}
+    Тогда \(\int_M \ev{V, n_0} dS\) --- интеграл II рода векторного поля \(F\) по поверхности \(M\).
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item Смена стороны = смена знака
+        \item Не зависит от параметризации
+        \item \(F = (P, Q, R)\), тогда интеграл обозначается \(\iint P dy dz + Q dz dx + R dx dy\)
+        \item \(\Phi, n = \Phi'_u \times \Phi'_v \rightsquigarrow n_0\) % ??
+
+              Пусть \(\Phi(u, v) = (x(u, v), y(u, v), z(u, v))\)
+
+              \begin{align*}
+                  \int_M \ev{F, n_0} ds & = \int_O \ev{F, \frac{\Phi'_u \times \Phi'_v}{|\Phi'_u \times \Phi'_v|}} |\Phi'_u \times \Phi'_v| du dv                  \\
+                                        & = \int_O \underbrace{\ev{F, \Phi'_u \times \Phi'_v}}_{\substack{\text{смешанное}                                         \\ \text{произведение}:~\eqref{смешанное произведение}}} du dv \\
+                                        & = \int_O P \cdot \begin{vmatrix} y'_u & y'_v \\ z'_u & z'_v \end{vmatrix} + Q \cdot \begin{vmatrix} z'_u & z'_v \\ x'_u & x'_v \end{vmatrix} + R \cdot \begin{vmatrix} x'_u & x'_v \\ y'_u & y'_v \end{vmatrix} du dv
+              \end{align*}
+
+              \begin{equation}
+                  \ev{F, \Phi'_u \times \Phi'_v} = \begin{vmatrix} P & x'_u & x'_v \\ Q & y'_u & y'_v \\ R & z'_u & z'_v \end{vmatrix} \label{смешанное произведение}
+              \end{equation}
+
+              Сторона поверхности учитывается в порядке переменных \(u, v\).
+    \end{itemize}
+\end{remark}
+
+\begin{example}
+    Рассмотрим график функции \(z(x, y)\) над областью \(G\) по верхней стороне.
+    \[n_0 = \begin{pmatrix} - \frac{z'_x}{\sqrt{1 + z_x^{\prime 2} + z_y^{\prime 2}}} & - \frac{z'_y}{\sqrt{1 + z_x^{\prime 2} + z_y^{\prime 2}}} & \frac{1}{\sqrt{1 + z_x^{\prime 2} + z_y^{\prime 2}}} \end{pmatrix} \]
+    \begin{align*}
+        \int_{\Gamma_z} R dx dy & = \int_{\Gamma_z} 0 dy dz + 0 dz dx + R(x, y, z) dx dy                                           \\
+                                & \defeq \iint_{\Gamma_z} R(x, y, z) \cdot \frac{1}{\sqrt{1 + z_x^{\prime 2} + z_y^{\prime 2}}} dS \\
+                                & = \iint_G R(x, y, z(x, y)) dx dy                                                                 \\
+                                & = \iint_G R dx dy
+    \end{align*}
+
+    Т.е. этот интеграл II рода равен интегралу по проекции.
+\end{example}
+
+\begin{corollary*}
+    \(V \subset \R^3, M = \partial V\) --- гладкая двумерная поверхность, \(n_0\) --- внешняя нормаль.
+
+    \[\lambda_3 V = \iint_{\partial V} z dx dy = \frac{1}{3} \iint_{\partial V} x dy dz + y dz dx + z dx dy\]
+\end{corollary*}
+
+\begin{corollary*}
+    \(\Omega\) --- гладкая кривая в \(\R^2\), \(M\) --- цилиндр над \(\Omega\), т.е. \(M = \Omega \times [z_0, z_1]\)
+
+    Тогда \(\int_M R dx dy = 0\) по любой стороне.
+\end{corollary*}
+\begin{proof}
+    \(n_0 \perp (0, 0, R)\)
+\end{proof}
+
+\section{Ряды Фурье}
+
+\subsection{Пространства \(L^p\)}
+
+\begin{enumerate}
+    \item \begin{itemize}
+              \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
+              \item \(f : X \to \mathbb C\), т.е. \(x = f(x) = u(x) + iv(x), u = \Re f, v = \Im f\)
+          \end{itemize}
+
+          \(f\) \textbf{измеримо}, если \(u\) и \(v\) измеримы\footnote{Или измеримы почти везде.}.
+
+          \(f\) \textbf{суммируемо}, если \(u\) и \(v\) суммируемы.
+
+          Если \(f\) суммируемо, то \(\int_E f = \int_E u + i \int_E v\)
+
+    \item Неравенство Гёльдера.
+
+          \begin{itemize}
+              \item \(p, q, > 1, \frac{1}{p} + \frac{1}{q} = 1\)
+              \item \((X, \mathfrak{A}, \mu)\)
+              \item \(E\) --- измеримо
+              \item \(f, g : E \to \mathbb C\)
+              \item \(f, g\) --- измеримы
+          \end{itemize}
+
+          Тогда \(\int_E |fg| d\mu \leq \left( \int_E |f|^p \right)^{\frac{1}{p}} \left( \int_E |g|^q \right)^{\frac{1}{q}}\)
+          \begin{proof}
+              Не будет, но общая идея следующая:
+              \begin{enumerate}
+                  \item Для ступенчатых функций --- из неравенства Гёльдера\footnote{Мы его рассматривали во втором семестре.}
+                  \item Для суммируемых функций --- по теореме \nameref{леви}.
+              \end{enumerate}
+          \end{proof}
+
+    \item Неравенство Минковского.
+
+          В тех же условиях \(\left( \int_E |f + g|^p \right)^{\frac{1}{p}} \leq \left( \int_E |f|^p \right)^{\frac{1}{p}} + \left( \int_E |g|^p \right)^{\frac{1}{p}}\)
+
+          \begin{proof}
+              Не будет, можно вывести аналогично выводу во втором семестре.
+          \end{proof}
+
+    \item Определение пространства \(L^p, 1 \leq p < +\infty\)
+
+          \begin{itemize}
+              \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой.
+              \item \(E \subset X\) --- измеримо.
+          \end{itemize}
+
+          \(\mathcal{L}^p(E, \mu) : = \{f : \text{почти везде } E \to \overline{\R}(\overline{\mathbb C}\footnote{ \(\overline{\mathbb C} = \mathbb C \cup \{\infty\} \)}), f \text{ --- изм.}, \int_E |f|^p d\mu < +\infty\} \) --- это линейное пространство по неравенству Минковского.
+
+          Зададим отношение эквивалентности \(\sim\) на \(\mathcal{L}^p(E, \mu)\): \(f \sim g \Leftrightarrow f = g\) почти везде.
+
+          \(\mathcal{L}^p /_\sim = L^p(E, \mu)\) --- линейное пространство.
+
+          Задаём норму на \(L^p\): \(||f||_{L^p(E, \mu)} = \left( \int_E |f|^p \right)^{\frac{1}{p}}\), обозначается \(||f||_p\)
+
+    \item \(L^{\infty}(E, \mu)\)
+
+          \begin{itemize}
+              \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой.
+              \item \(E \subset X\) --- измеримо.
+              \item \(f : \) почти везде \(\to \overline{\R}\) --- измеримо
+          \end{itemize}
+
+          \begin{definition}[существенный супремум]
+              \[\esup_{x\in E} f = \inf \{A \in \overline\R, f \leq A \text{ почти везде}\} \]
+              При этом \(A\) называется существенной вещественной границей.
+          \end{definition}
+
+          \begin{prop}\itemfix
+              \begin{itemize}
+                  \item \(\esup f \leq \sup f\) --- очевидно.
+                  \item \(f \leq \esup f \leq\) почти везде --- пусть \(B = \esup f\), тогда \(\forall n \ \ f \leq B + \frac{1}{n}\) почти везде.
+                  \item \(f\) --- суммируемо, \(\esup_E |g| < +\infty\). Тогда \(|\int_E fg| \leq \esup |g| \cdot \int_E |f|\)
+                        \begin{proof}
+                            \begin{equation}
+                                \left|\int_E fg\right| \leq \int_E |fg| \leq \int_E \esup |g| \cdot |f| \label{брух 2}
+                            \end{equation}
+                        \end{proof}
+              \end{itemize}
+          \end{prop}
+
+          \(L^{\infty}(E, \mu) = \{f : \text{почти везде } E \to \overline\R(\overline{\mathbb C}), \text{ изм.}, \esup |f| < +\infty\}/_\sim \) --- линейное пространство.
+
+          \(||f||_{L^{\infty}(E, \mu)}: = \esup_E |f| = ||f||_{\infty}\)
+
+          \begin{remark}\itemfix
+              \begin{enumerate}
+                  \item В новых обозначениях неравенство Гёльдера: \(||fg||_1 \leq ||f||_p \cdot ||g||_q\) --- здесь можно брать \(p = 1, q = +\infty\) --- это~\eqref{брух 2}.
+                  \item \(f\in L^p \Rightarrow f\) --- почти везде конечно, если \(1 \leq p \leq +\infty \Rightarrow \) можно считать, что \(f\) задана всюду на \(E\) и всюду конечна. % почему, как интерполировать?
+              \end{enumerate}
+          \end{remark}
+\end{enumerate}
+

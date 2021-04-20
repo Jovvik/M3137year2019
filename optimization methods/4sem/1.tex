@@ -1,0 +1,255 @@
+\chapter{10 февраля}
+
+Этот курс --- о минимизации \textit{(максимизации)} функционалов. Кроме конкретных методов оптимизации, планируется рассмотреть форматы хранения матриц, о методах работы с ними и рассмотреть 1-2 \textit{(может быть 3)} СЛАУ с использованием различных форматов.
+
+Т.к. значения, получаемые компьютерами --- не точные, нам требуется теория погрешности.
+
+\section{Теория погрешности}
+
+Все погрешности разделяются на два класса:
+
+\begin{enumerate}
+    \item Неустранимая --- обусловлена неточностью исходных данных. Например, неточное знание физических констант или других параметров задачи. Тем не менее, необходимо знать эту погрешность, чтобы ставить рамки погрешности для решения.
+    \item Устранимая --- погрешность процесса решения задачи. Эту погрешность можно уменьшить выбором метода решения задачи.
+          \begin{enumerate}
+              \item Погрешность модели
+              \item Остаточная погрешность \textit{(погрешность аппроксимации)}
+
+                    Например, аппроксимация ряда первыми \(n\) его членами или аппроксимация по теореме Вейерштрасса квадратичной функцией.
+
+              \item Погрешность округления \label{округления}
+              \item Накапливаемая погрешность \label{накапливаемая}
+          \end{enumerate}
+
+          \ref{округления} и \ref{накапливаемая} часто объединяют в вычислительную погрешность.
+\end{enumerate}
+
+\begin{definition}
+    Пусть \(X^*\) --- точное решение, а \(X\) --- найденное \textit{(приближенное)} решение. Тогда \(X^* - X\) называется \textbf{погрешностью}, а её модуль \(\Delta X = |X^* - X|\) --- \textbf{абсолютная погрешность}.
+\end{definition}
+
+Разумеется, \(\Delta X\) представляет сугубо теоретический интерес, т.к. \(X^*\) неизвестна и \(\Delta X\) нельзя вычислить.
+
+\begin{definition}
+    В качестве требования к решению часто предоставляется \textbf{предельная абсолютная погрешность} \(\Delta_X \geq |X^* - X|\).
+\end{definition}
+
+\begin{definition}
+    Также существует \textbf{относительная погрешность} \(\delta X = \left|\cfrac{X^* - X}{|X|}\right|\)
+\end{definition}
+
+Относительная погрешность позволяет выражать погрешность относительно значений самой величины. Например, при измерении длины парты погрешность 1 см не очень хорошо, а при измерении расстояния между городами --- приемлемо.
+
+\begin{definition}
+    \textbf{Предельная относительная погрешность} \(\delta_X \geq \left|\cfrac{X^* - X}{|X|}\right|\)
+\end{definition}
+
+\begin{definition}
+    \textbf{Значащие цифры} некоторого числа --- все цифры в его изображении, отличные от нуля, а также нули, если они содержатся между значащими цифрами или расположены в конце числа и указывают на сохранение разряда точности.
+\end{definition}
+
+\begin{definition}
+    Если значащая цифра приближенного значения \(a\), находящаяся в разряде, в котором выполняется условие \(\Delta \leq 0.5 \cdot 10^k\), т.е. абсолютное значение погрешности не превосходит половину единицы этого разряда \textit{(\(k\) --- номер этого разряда)}, то такая цифра называется \textbf{верной в узком смысле}.
+
+    Цифра называется \textbf{верной в широком смысле}, если в определении выше используется \(1\) вместо \(0.5\).
+\end{definition}
+
+\begin{example}
+    \(a = 3.635, \Delta a = 0.003\)
+    \begin{itemize}
+        \item \(k = 0 \quad \frac{1}{2} \cdot 10^0 = \frac{1}{2} \geq \Delta a\)
+        \item \(k = - 1 \quad \frac{1}{2} \cdot 10^{ - 1} = 0.05 \geq \Delta a\)
+        \item \(k = - 2 \quad \frac{1}{2} \cdot 10^{ - 2} = 0.005 \geq \Delta a\)
+        \item \(k = - 3 \quad \frac{1}{2} \cdot 10^{ - 3} = 0.0005 < \Delta a\)
+    \end{itemize}
+
+    Таким образом, цифра \(5\) является сомнительной, остальные --- верные.
+\end{example}
+
+\begin{example}
+    Рассмотрим следующие способы записи одного и того же выражения:
+    \[\left( \frac{\sqrt{2} - 1}{\sqrt{2} + 1}  \right)^3 = (\sqrt{2} - 1)^6 = (3 - 2\sqrt{2})^3 = 99 - 70\sqrt{2}\]
+
+    Посчитаем все выражения с различными приближениями \(\sqrt{2}\):
+
+    \begin{itemize}
+        \item \(\frac{7}{5} = 1.4\)
+        \item \(\frac{17}{12} = 1.41666\)
+        \item \(\frac{707}{500} = 1.414\)
+        \item \(\sqrt{2} = 1.4142135624\)
+    \end{itemize}
+
+    \begin{center}\bgroup\def\arraystretch{1.5}
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \(\sqrt{2}\)        & \(\left( \frac{\sqrt{2} - 1}{\sqrt{2} + 1}  \right)^3\)     & \((\sqrt{2} - 1)^6\)                                                      & \((3 - 2\sqrt{2})^3\)                                    & \(99 - 70\sqrt{2}\)           \\ \hline
+            \(\frac{7}{5}\)     & \(\frac{1}{216}\approx 0.00 \underline 4 6\)                & \(\frac{64}{15625}\approx 0.00\underline 51\)                             & \(\frac{1}{125} = 0.008\)                                & \(1\)                         \\ \hline
+            \(\frac{17}{12}\)   & \(\frac{125}{24389}\approx 0.00\underline{51}3\)            & \(\frac{15625}{2985354}\approx 0.00\underline52\)                         & \(\frac{1}{216}\approx 0.00\underline46\)                & \( - \frac{1}{6} = - 0.6(6)\) \\ \hline
+            \(\frac{707}{500}\) & \(\frac{8869743}{1758416743} \approx 0.00\underline{50}44\) & \(\frac{78672340886049}{15625\cdot 10^{12}} \approx 0.00\underline{50}4\) & \(\frac{636056}{125000000} \approx 0.00\underline{50}9\) & \(0.02\)                      \\ \hline
+        \end{tabular}
+        \egroup
+    \end{center}
+\end{example}
+
+\[\Delta_{(X \pm Y)} = \Delta_X + \Delta_Y\]
+\[\Delta_{(X\cdot Y)} \approx |Y|\Delta_X + |X|\Delta_Y\]
+\[\Delta_{(X / Y)} \approx \left|\frac{1}{Y}\right| \Delta_X + \left|\frac{X}{Y^2}\right| \Delta_Y\]
+\[|\Delta u| = |f(x_1 + \Delta x_1, \dots , x_n + \Delta x_n) - f(x_1 \dots x_n)|\]
+\[|\Delta u| \approx |df(x_1 \dots x_n)| = \left|\sum_{i = 1}^n \frac{\partial u}{\partial x_i} \Delta x_i\right| \leq \sum_{i = 1}^n \left|\frac{\partial u}{\partial x_i}\right| |\Delta x_i|\]
+\[\Delta_u = \sum_{i = 1}^n \left|\frac{\partial u}{\partial x_i}\right| \Delta x_i\]
+\[|\delta u| = \sum_{i = 1}^n \left|\frac{\partial \ln u}{\partial x_i}\right||\Delta x_i|\]
+\[\delta_u = \sum_{i = 1}^n \left|\frac{\partial \ln u}{\partial x_i}\right||\Delta x_i|\]
+\[\delta_{(X \pm Y)} = \left|\frac{X}{X \pm Y}\right|\delta_X + \left|\frac{Y}{X \pm Y}\right|\delta_Y\]
+\[\delta_{(X\cdot Y)} = \delta_X + \delta_Y\]
+\[\delta_{(X / Y)} = \delta_X + \delta_Y\]
+
+Вернемся к прошлому примеру и посчитаем относительную погрешность.
+
+\(\sphericalangle x = \frac{7}{5}\)
+
+\[\delta_{f_1} = 3 \left|\frac{1}{x - 1} - \frac{1}{x + 1}\right| \cdot |\delta x| = 6.25 |\delta x|\]
+\[\delta_{f_2} = 6 \left|\frac{1}{x - 1}\right| \cdot |\delta x| = 15 |\delta x|\]
+\[\delta_{f_3} = 6 \left|\frac{1}{3 - 2x}\right| \cdot |\delta x| = 30 |\delta x|\]
+\[\delta_{f_4} = \left|\frac{90}{99 - 70x}\right| \cdot |\delta x| = 70 |\delta x|\]
+
+Таким образом, наибольшую погрешность даёт \(f_4\), наименьшую --- \(f_1\).
+
+\begin{example}
+    \[y^2 - 140y + 1 = 0\]
+    \[y = 70 - \sqrt{4899}\]
+    \[\sqrt{4899}\approx 69.99\]
+    \[y\approx 70 - 69.99 = 0.0\underline 1\]
+    Посчитаем другим методом --- избавимся от вычитания похожих чисел.
+    \[y = \frac{1}{70 + \sqrt{4899}}\]
+    \[y = \frac{1}{139.99}\approx \frac{1}{140} = 0.00714285 \approx 0.00\underline{7143}\]
+
+    Можно заметить, что результат весьма точнее.
+\end{example}
+
+\begin{example}
+    Рассмотрим задачу вычисления суммы \(S = \sum_{j = 1}^{10^6} \frac{1}{j^2}\).
+
+    Если суммировать по формуле \(S_n = S_{n - 1} + \frac{1}{n^2}\), то из-за того, что сначала суммируются большие числа, а потом малые, погрешность велика: \(\Delta = 10^6 \cdot 2^{ - 1}\approx 2\cdot 10^{ - 4}\)
+
+    Если же суммировать с конца, то \(\Delta = \mathcal{O}\left( \frac{1}{n} \right) \approx 6\cdot 10^{ - 8}\)
+\end{example}
+
+Рекомендации для увеличения точности вычислений:
+\begin{enumerate}
+    \item Если складывать или вычитать последовательность чисел, то лучше начинать с малых членов. % uwu (поздравляю, вы нашли пасхалку)
+    \item Желательно избавляться от вычитания двух почти равных чисел, по возможности преобразую формулу.
+    \item Необходимо сводить к минимуму число математических операций. Это также способствует ускорению работы алгоритма.
+    \item Если ЯП и компьютер позволяют использовать числа разных типов, то числа с большим числом разрядов всегда повышают точность вычислений \textit{(в ущерб памяти)}. % спасибо, кэп
+\end{enumerate}
+
+Дробные числа нужно сравнивать с помощью \(\varepsilon\), т.е. \(|a - b| \leq \varepsilon\)
+
+\section{Задачи оптимизации. Вводное.}
+
+Здесь и далее \textbf{целевая функция} --- функция, которую мы минимизируем.
+
+\begin{obozn}
+    Пусть целевая функция --- \(f(x)\). Это обозначается как \(f(x) \xrightarrow{x\in U} \min\).
+
+    \(f(x) \to \max \Rightarrow - f(x) \to \min\). Таким образом, мы без потери общности рассматриваем задачу минимизации.
+\end{obozn}
+
+\begin{definition}
+    Если \(\exists x^* \in U \ \ f(x^*) \leq f(x) \ \ \forall x\in U\), то такой \(x^*\) называется \textbf{точкой \textit{(глобального)} минимума}
+\end{definition}
+
+\begin{obozn}
+    Множество всех точек минимума обозначается \(U^* = \{x^*_i\ |\ i = 1\dots k\} \)
+\end{obozn}
+
+Мы рассматриваем класс функций таких, что \(U^* \neq \emptyset\)
+
+\begin{definition}
+    Функция \(f(x)\) называется \textbf{унимодальной} на \([a, b]\), если она:
+    \begin{enumerate}
+        \item Непрерывна на \([a, b]\)
+        \item \(\exists \alpha, \beta : a \leq \alpha \leq \beta \leq b\), такие что:
+              \begin{enumerate}
+                  \item Если \(a < \alpha\), то на \([a, \alpha] \quad f(x)\) строго монотонно убывает.
+                  \item Если \(\beta < b\), то на \([\beta, b] \quad f(x)\) строго монотонно возрастает.
+                  \item \(\forall x\in [\alpha, \beta] \ \ f(x) = f_* = \min\limits_{[a, b]} f(x)\)
+              \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includesvg[width=.9\linewidth]{images/вырожденная_унимодальная.svg}
+        \caption{Вырожденные \(\alpha\) и \(\beta\), унимодальная функция}
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includesvg[width=.9\linewidth]{images/не_вырожденная_унимодальная.svg}
+        \caption{Унимодальная функция}
+    \end{minipage}
+\end{figure}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item Если функция унимодальна на \([a, b]\), то она унимодальна и на \([c, d] \subset [a, b]\)
+        \item Если \(f\) унимодальна на \([a, b], a \leq x_1 < x_2 \leq b\), тогда:
+              \begin{enumerate}
+                  \item Если \(f(x_1) \leq f(x_2)\), то \(x^*\in [a, x_2]\)
+                  \item Если \(f(x_1) > f(x_2)\), то \(x^*\in[x_1, b]\)
+              \end{enumerate}
+    \end{enumerate}
+\end{prop}
+
+\begin{definition}
+    \(f(x)\), заданная на \([a, b]\), называется выпуклой на этом отрезке, если
+    \[\forall x', x''\in [a, b], \alpha\in[0,1] \quad f(\alpha x' + (1 - \alpha)x'') \leq \alpha f(x') + (1 - \alpha)f(x'')\]
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item Если \(f(x)\) выпукло на \([a, b]\), то \(\forall [x', x''] \subset [a, b]\), то её график расположен ниже хорды между \(x'\) и \(x''\)
+        \item Всякая выпуклая функция на отрезке является унимодальной на нём.
+    \end{enumerate}
+\end{prop}
+
+\begin{definition}
+    \textbf{Стационарные точки} --- точки \(x\), для которых \(f'(x) = 0\).
+\end{definition}
+
+Мы будем рассматривать одномерные задачи оптимизации, т.к. многомерные задачи часто сводятся к одномерным.
+
+\section{Одномерная минимизация функций. Прямые методы.}
+
+Прямые методы --- методы, не использующие производные целевой функции.
+
+\subsection{Метод дихотомии}
+
+Этот метод --- тернарный поиск.
+
+\[x_1 = \frac{b + a - \delta}{2} \quad x_2 = \frac{b + a + \delta}{2}\]
+\[\tau = \frac{b - x_1}{b - a} = \frac{x_2 - a}{b - a} \to \frac{1}{2}\]
+\[x^* \in [a_i, b_i] \ \ \forall i\]
+
+\begin{itemize}
+    \item [Шаг 1:] Находим \(x_1\) и \(x_2\), вычисляем \(f(x_1)\) и \(f(x_2)\)
+    \item [Шаг 2:] Сравниваем \(f(x_1)\) и \(f(x_2)\).
+          \begin{itemize}
+              \item Если \(f(x_1) \leq f(x_2)\), переходим к отрезку \([a, x_2]\), т.е. \(b = x_2\)
+              \item Иначе переходим к \([x_1, b]\), т.е. \(a = x_1\)
+          \end{itemize}
+    \item [Шаг 3:] \(\varepsilon_n = \frac{b - a}{2} \), где \(n\) --- номер итерации.
+          \begin{itemize}
+              \item Если \(\varepsilon_n > \varepsilon\), переходим к новой итерации.
+              \item Если \(\varepsilon_n \leq \varepsilon\), завершаем поиск и переходим к шагу 4.
+          \end{itemize}
+    \item [Шаг 4:] \(X^* \approx \overline X = \frac{a + b}{2}\)
+\end{itemize}
+
+\begin{remark}
+    \(\delta\) выбирается на интервале \((0, 2\varepsilon)\). Чем меньше \(\delta\), тем больше относительное уменьшение длины отрезка на каждой итерации. При черезмерно малом \(\delta\) сравнение \(f(x_1)\) и \(f(x_2)\) будет затруднительно, т.к. они близки.
+\end{remark}
+
+Мы можем оценить число необходимых итераций:
+\[n \geq \log_2 \frac{b - a - \delta}{2\varepsilon - \delta}\]

@@ -1,0 +1,146 @@
+\chapter{5 марта}
+
+\begin{definition}
+    \textbf{Полный порядок} --- линейный, где в каждом подмножестве есть наименьший элемент. Множество с полным порядком называют \textbf{вполне упорядоченным}.
+\end{definition}
+\begin{example}
+    \(\N\) --- вполне упорядоченное множество
+
+    \(\R\) --- не вполне упорядоченное множество, т.к. \((a, b)\) не имеет наименьшего \(\forall a, b\). Кроме того, \(\R\) не имеет наименьшего.
+\end{example}
+\begin{definition}
+    \textbf{Предпорядок} --- транзитивное, рефлексивное отношение.
+\end{definition}
+
+Как мы знаем из домашнего задания, по предпорядку можно построить частичный порядок, сжав компоненты связности в классы эквивалентности.
+
+\subsection{Табличные модели}
+
+\begin{definition}
+    \textbf{Табличная модель} для интуиционистского исчисления высказываний:
+    \begin{itemize}
+        \item \(V\) --- множество истинностных значений
+        \item \(f_\to, f_\with, f_\lor : V^2 \to V\)
+        \item Выделенное истинное значение \(T\in V\)
+        \item Оценка переменных \(\llbracket P_i \rrbracket \in V\), \(f_{\mathcal{P}} : P_i \to V\)
+    \end{itemize}
+    И \(\llbracket P_i \rrbracket = f_{\mathcal{P}}(P_i)\), \(\llbracket \alpha \star \beta \rrbracket = f_\star(\llbracket \alpha \rrbracket, \llbracket \beta \rrbracket)\), \(\llbracket \neg \alpha \rrbracket = f_\neg(\llbracket \alpha \rrbracket)\)
+
+    \(\models \alpha\) означает, что \(\llbracket \alpha \rrbracket = T\) при любой \(f_{\mathcal{P}}\)
+\end{definition}
+\begin{definition}
+    \textbf{Конечная} табличная модель --- табличная модель с конечным \(V\).
+\end{definition}
+
+\begin{theorem}
+    У интуиционистского исчисления высказываний не существует корректной полной табличной модели.
+\end{theorem}
+
+Неформально эта теорема говорит, что нельзя считать, что в интуиционистской логике есть три значения --- истинна, ложь и ``неизвестно''.
+
+\subsection{Модели Крипке}
+
+Идея моделей Крипке следующая: общезначимое утверждение истинно во всех мирах.
+
+\begin{definition}[модели Крипке]\itemfix
+    \begin{enumerate}
+        \item \(W = \{W_i\}\) --- множество миров
+        \item \( \leq \) --- частичный порядок на \(W\)
+        \item Отношение вынужденности \(W_j \Vdash P_i\), где \(P_i\) --- переменная, т.е. \((\Vdash) \subset W \times \mathcal{P}\)
+    \end{enumerate}
+
+    При этом, если \(W_j \Vdash P_i\) и \(W_j \leq W_k\), то \(W_k \Vdash P_i\)
+\end{definition}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(W_i \Vdash \alpha\) и \(W_i \Vdash \beta\), тогда \textit{(и только тогда)} \(W_i \Vdash \alpha \with \beta\)
+        \item \(W_i \Vdash \alpha\) или \(W_i \Vdash \beta\), тогда \textit{(и только тогда)} \(W_i \Vdash \alpha \lor \beta\)
+        \item Пусть во всех \(W_i \leq W_j\) всегда, когда \(W_j \Vdash \alpha\), имеет место \(W_j \Vdash \beta\). Тогда \(W_i \Vdash \alpha \to \beta\)
+        \item \(W_i \Vdash \neg \alpha\) значит, что \(\alpha\) не вынуждено нигде, начиная с \(W_i\): \(W_i \leq W_j \Rightarrow W_j \nVdash \alpha\)
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    Если \(W_i \Vdash \alpha\) и \(W_i \leq W_j\), то \(W_j \Vdash \alpha\)
+\end{theorem}
+
+\begin{definition}
+    Если \(W_i \Vdash \alpha\) при всех \(W_i\in W\), то \(\models \alpha\)
+\end{definition}
+
+\begin{theorem}
+    ИИВ корректно в моделях Крипке.
+\end{theorem}
+\begin{proof}
+    Рассмотрим \((W, \Omega)\) --- топологию, где \(\Omega = \{w\subset W \ |\ \text{если } w_i \in w, w_i \leq w_j \text{, то } w_j\in w\} \). Это можно представить как множество подлесов, где любая вершина входит со своими потомками.
+
+    \(\{W_k\ |\ W_k \Vdash P_j\}\) --- открытое множество, что очевидно из определения \(\Omega\) и \(\Vdash\).
+
+    Примем \(\llbracket P_i \rrbracket = \{W_k\ |\ W_k\Vdash P_j\}\) и аналогично \(\llbracket \alpha \rrbracket = \{W_k\ |\ W_k \Vdash \alpha\}\). Корректность этого определения докажем в ДЗ.
+
+    Поскольку любая топология является корректной моделью ИИВ, искомое доказано.
+\end{proof}
+
+\begin{proof}[Доказательство теоремы о нетабличности]
+    Предположим обратное, т.е. существует конечная табличная модель, \(|V| = n\).
+
+    Рассмотрим следующую формулу:
+    \[\varphi_n = \bigvee_{\substack{ 1 \leq i, j \leq n + 1 \\ i \neq j}} (P_i \to P_j \with P_j \to P_i)\]
+
+    \begin{enumerate}
+        \item \(\nvdash\varphi_n\). Почему? Рассмотрим последовательность миров, таких что \(W_i \Vdash P_i\), состоящую из \(n + 1\) мира. Тогда \(W_i \nVdash (P_i \to P_j) \with (P_k \to P_j)\), таким образом \(\nVdash (P_i \to P_j) \with (P_k \to P_j)\) и \(\nVdash \bigvee (P_i \to P_j) \with (P_k \to P_j)\), а значит \(\nvdash \varphi_n\)
+        \item \(\models \varphi_n\) в \(V\) по принципу Дирихле: \(\exists i \neq j : \llbracket P_i \rrbracket = \llbracket P_j \rrbracket\), а значит \(\llbracket P_i \to P_j \rrbracket = \) И, и соответственно \(\llbracket \varphi_n \rrbracket =\) И.
+    \end{enumerate}
+
+    Т.к. \(\models \varphi_n\), то \(\vdash \varphi_n\), но это не так --- противоречие.
+\end{proof}
+
+\begin{definition}
+    Дизъюнктинвость ИИВ: \(\vdash \alpha \lor \beta\) влечет \(\vdash \alpha\) или \(\vdash \beta\)
+\end{definition}
+
+\begin{definition}
+    \textbf{Алгебра Гёделя} --- алгебра Гейтинга, в которой из \(a + b = 1\) следует \(a = 1\) или \(b = 1\)
+\end{definition}
+
+\begin{definition}
+    Пусть \(\mathcal{A}\) --- алгебра Гейтинга. Тогда \(\Gamma(\mathcal{A})\) получается переименовыванием \(1\) в \(\omega\) и добавлением нового элемента \(1_{\Gamma(\mathcal{A})}\), являющегося единицей для новой алгебры.
+\end{definition}
+
+\begin{theorem}
+    \(\Gamma(\mathcal{A})\) есть алгебра Гейтинга и \(\Gamma(\mathcal{A})\) Гёделева.
+\end{theorem}
+
+\begin{proof}
+    Очевидно.
+\end{proof}
+
+\begin{definition}
+    \textbf{Гомоморфизм алгебр Гейтинга} --- отображение \(\varphi : \mathcal{A} \to \mathcal{B}\), где \(\mathcal{A}, \mathcal{B}\) --- алгебры Гейтинга, \(\varphi(a \star b) = \varphi(a) \star \varphi(b)\), \(\varphi(1_{\mathcal{A}}) = 1_{\mathcal{B}}\), \(\varphi(0_{\mathcal{A}}) = 0_{\mathcal{B}}\)
+\end{definition}
+
+\begin{theorem}
+    Если \(a \leq b\), то \(\varphi(a) \leq \varphi(b)\)
+\end{theorem}
+
+\begin{definition}
+    Пусть \(\alpha\) --- формула ИИВ, \(f, g\) --- оценки ИИВ, где \(f : \text{ИИВ} \to \mathcal{A}, g : \text{ИИВ} \to \mathcal{B}\). Тогда \(\varphi\) \textbf{согласовано} с \(f, g\), если \(\varphi(f(\alpha)) = g(\alpha)\)
+\end{definition}
+
+\begin{theorem}
+    Если \(\varphi : \mathcal{A} \to \mathcal{B}\) согласована с \(f, g\) и \(\llbracket \alpha \rrbracket_g \neq 1_{\mathcal{B}}\), то \(\llbracket \alpha \rrbracket_f \neq 1_{\mathcal{A}}\)
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим алгебру Линденбаума \(\mathcal{L}\), \(\Gamma(\mathcal{L})\) и \(\varphi : \Gamma(\mathcal{L}) \to \mathcal{L}\) --- гомоморфизм.
+    \[\varphi(x) = \begin{cases}
+            1_\mathcal{L}, x = \omega                  \\
+            1_\mathcal{L}, x = 1_{\Gamma(\mathcal{L})} \\
+            x, \text{иначе}
+        \end{cases}\]
+    Пусть \(\vdash \alpha \lor \beta\). Тогда \(\llbracket \alpha \lor \beta \rrbracket_{\Gamma(\mathcal{L})} = 1_{\Gamma(\mathcal{L})}\), но по Гёделевости \(\Gamma(\mathcal{L})\) \(\llbracket \alpha \rrbracket = 1\) или \(\llbracket \beta \rrbracket = 1\).
+
+    Пусть \(\nvdash \alpha\) и \(\nvdash \beta\). Тогда \(\varphi(\llbracket \alpha \rrbracket) \neq 1_{\mathcal{L}}\) и \(\varphi(\llbracket \beta \rrbracket) \neq 1_{\mathcal{L}}\). Тогда \(\llbracket \alpha \rrbracket_{\Gamma(\mathcal{L})} \neq 1_\mathcal{L}, \llbracket \beta \rrbracket \neq 1_\mathcal{L}\) --- противоречие.
+\end{proof}
+

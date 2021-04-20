@@ -1,0 +1,157 @@
+\chapter{13 марта}
+
+\begin{remark}
+    Конспект этой лекции написан по другому конспекту, т.к. записи лекции нет.
+\end{remark}
+
+\begin{definition}
+    Отображение \(k \mapsto \binom{n}{k} q^{n - k}p^k\), где \(0 \leq k \leq n\) называется \textbf{биноминальным распределением} с параметрами \(n\) и \(p\).
+\end{definition}
+
+\begin{obozn}
+    \(B(n,p)\) или \(B_{n, p}\)
+\end{obozn}
+
+\subsection{Схема до первого успешного испытания}
+
+Пусть проводится бесконечная серия испытаний, которая заканчивается после первого успеха. Номер такого успеха обозначается \(\tau\).
+
+\begin{theorem}
+    \(P(\tau = k) = q^{n - 1}p\)
+\end{theorem}
+\begin{proof}
+    \[P(\tau = k) = P(\underbrace{\text{НН}\dots\text{Н}}_{k - 1}\text{У}) = q^{k-1}p\]
+\end{proof}
+
+\begin{definition}
+    Отображение \(k \mapsto q^{k - 1}p\) при \(1 \leq k < +\infty\) называется \textbf{геометрическим распределением} с параметром \(p\).
+\end{definition}
+
+\begin{obozn}
+    \(G_p\) или \(G(p)\)
+\end{obozn}
+
+\begin{remark}
+    Это распределение обладает свойством ``отсутствие последействия'' или нестарения, т.е. знание о том, что у вас не было успеха в течение \(n\) испытаний, никак не влияет на распределение оставшегося числа испытаний.
+\end{remark}
+
+\begin{theorem}
+    \(p(\tau = k) = q^{k - 1}p\). Тогда
+    \[\forall n,k\in\N \ \ P(\tau > k + n\ |\ \tau > n) = p(\tau > k)\]
+\end{theorem}
+\begin{proof}
+    \[P(\tau > n) = P(\underbrace{\text{НН}\dots\text{Н}}_{m})= q^m\]
+
+    По формуле полной вероятности:
+    \begin{align*}
+        P(\tau > n + k\ |\ \tau > n) & = \frac{P(\tau > n + k \cap \tau > n)}{P(\tau > k)} \\
+                                     & = \frac{P(\tau > n + k)}{P(\tau > n)}               \\
+                                     & = \frac{q^{n + k}}{q^n}                             \\
+                                     & = q^k                                               \\
+                                     & = P(\tau > k)
+    \end{align*}
+\end{proof}
+
+\begin{remark}
+    Аналогично \(P(\tau = n + k\ |\ \tau > n) = P(\tau = k)\)
+\end{remark}
+
+\subsection{Испытания с несколькими исходами}
+
+Пусть мы выполняем \(n\) испытаний, и при каждом из них может произойти один из \(m\) несовместных исходов.
+\begin{obozn}
+    \(p_i\) --- вероятность \(i\)-го исхода при одном испытании.
+\end{obozn}
+
+\begin{theorem}
+    Вероятность того, что при \(n\) испытаниях первый исход появится \(n_1\) раз, второй \(n_2\) раз, \(m\)-тый исход \(n_m\) раз:
+    \[P(n_1 \dots n_m) = \frac{n!}{n_1!n_2! \dots n_m!} \cdot p_1^{n_1} p_2^{n_2} \dots p_m^{n_m}\]
+\end{theorem}
+
+\begin{remark}
+    При \(m = 2\) эта теорема эквивалентна формуле Бернулли.
+\end{remark}
+
+\begin{proof}
+    Рассмотрим следующий благоприятный исход \(A_1\):
+    \[\underbrace{1\dots 1}_{n_1} \underbrace{2\dots 2}_{n_2} \dots \underbrace{m\dots m}_{n_m}\]
+    \[P(A_1) = p_1^{n_1} p_2^{n_2} \dots p_m^{n_m}\]
+
+    Остальные благоприятные исходы имеют ту же вероятность и равны с точностью до перестановки. Всего таких исходов
+    \[\binom{n}{n_1}\binom{n - n_1}{n_2}\binom{n - n_1 - n_2}{n_3} \dots \binom{n_m}{n_m} = \frac{n!}{n_1!n_2! \dots n_m!}\]
+\end{proof}
+
+\subsection{Урновая схема}
+
+В урне \(N\) шаров, из них \(K\) белых и \(N - K\) чёрных. Из неё выбрали \(n\) шаров без учета порядка.
+
+\begin{enumerate}
+    \item Схема с возвратом.
+
+          Вероятность выбрать белый шар не меняется и равна \(\frac{K}{N}\). Тогда \(P_n(k) = \binom{n}{k}p^k(1 - p)^{n - k}\) --- опять биноминальное распределение.
+
+    \item Схема без возврата.
+
+          Тогда \(P_{N,K}(n, k) = \cfrac{\binom{N}{k} \cdot \binom{N - K}{n - k}}{\binom{N}{n}} \)
+\end{enumerate}
+
+\begin{definition}
+    Отображение \(k \mapsto \cfrac{\binom{K}{k}\cdot \binom{N - K}{n - k}}{\binom{N}{n}}\) при \(k < K\) называется \textbf{гипергеометрическим распределением}.
+\end{definition}
+
+\begin{theorem}
+    Если \(N \to +\infty\) и \(K \to +\infty\) так, что \(\frac{K}{N} \to p\in(0,1)\), \(n\) и \(0 \leq k \leq n\) фиксированы, то \(P_{N,K}(n,k) = \cfrac{\binom{K}{k}\binom{N - K}{n - k}}{\binom{N}{n}} \to \binom{n}{k}p^k q^{n - k}\)
+
+    \label{урна бином}
+\end{theorem}
+
+\begin{lemma}
+    \(\binom{K}{k} \sim \frac{K^k}{k!} \), где \(K \to +\infty\), \(k = \const\)
+\end{lemma}
+\begin{proof}
+    \begin{align*}
+        \binom{K}{k} & = \frac{K!}{k!(K - k)!}                                                                                                             \\
+                     & = \frac{K\cdot(K - 1)\dots (K - k + 1)}{k^k}\frac{K^k}{k!}                                                                          \\
+                     & = 1\cdot \left( 1 - \frac{1}{k} \right)\left( 1 - \frac{2}{k} \right) \dots \left( 1 - \frac{k - 1}{k} \right) \cdot \frac{K^k}{k!} \\
+                     & \sim \frac{K^k}{k!}
+    \end{align*}
+\end{proof}
+
+\begin{proof}[Доказательство \ref{урна бином}]
+    \begin{align*}
+        P_{N, K}(n, k) & = \frac{\binom{K}{k} \binom{N - K}{n - k}}{\binom{N}{n}}                         \\
+                       & \xrightarrow[n \to +\infty]{\substack{\text{к каждому}                           \\ \text{применили} \\ \text{формулу}}} \frac{K^k}{k!} \frac{(N-K)^{n-k}}{(n-k)!} \frac{n!}{N^n}   \\
+                       & = \frac{n!}{k!(n - k)!} \frac{K^k}{N^k} \frac{(N - k)^{n - k}}{N^{n - k}}        \\
+                       & = \binom{N}{k} \left( \frac{k}{N} \right) \left( 1 - \frac{K}{N} \right)^{n - k} \\
+                       & \xrightarrow{N \to +\infty} \binom{n}{k} p^k (1 - p)^{n - k}
+    \end{align*}
+\end{proof}
+
+\subsection{Теорема Пуассона для схемы Бернулли}
+
+\begin{theorem}[Формула Пуассона]
+    Пусть \(n \to +\infty, p_n \to 0\) так, что \(n p_n \to \lambda =\const > 0\). Тогда вероятность успеха при \(n\) испытаниях:
+    \[P_n(k) = \binom{n}{k}p_n^k (1 - p_n)^{n - k} \xrightarrow{n \to +\infty} \frac{\lambda^k}{k!}e^{ - \lambda} \]
+
+    Эта формула применима при малых \textit{(или крупных)} \(p\) и \(n \geq 100\).
+\end{theorem}
+\begin{proof}
+    \begin{obozn}
+        \(\lambda_n = n\cdot p_n\), при этом \(\lambda_n \to \lambda\).
+    \end{obozn}
+
+    \begin{align*}
+        \binom{n}{k}p_n^k (1 - p_n)^{n - k} & \to \frac{n^k}{k!} \frac{\lambda_n^k}{n^k} \left( 1 - \frac{\lambda_n}{n} \right)^{n - k}                                             \\
+                                            & = \frac{\lambda_n^k}{k!} \left( 1 - \frac{\lambda_n}{n} \right)^{n} \underbrace{\left( 1 - \frac{\lambda_n}{n} \right)^{- k}}_{\to 1} \\
+                                            & \to \frac{\lambda_n^k}{k!} \left( 1 - \frac{\lambda_n}{n} \right)^{n}                                                                 \\
+                                            & \to \frac{\lambda_n^k}{k!} \left(\left( 1 - \frac{\lambda_n}{n} \right)^{ - \frac{n}{\lambda_n} } \right)^{ - \lambda_n}              \\
+                                            & \to \frac{\lambda^k}{k!}e^{ - \lambda}
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    Пусть \(v_n\) --- число успехов при \(n\) испытаниях в схеме Бернулли с вероятностью успеха \(p\), \(\lambda = np, A \subset \N_0\) --- произвольное подмножество.
+
+    Тогда:
+    \[\left|P(v_n\in A) - \sum \frac{\lambda^k}{k!} e^{ - \lambda}\right| \leq \min (p, np^2) = \min (p, \lambda p) = \min\left(p, \frac{\lambda^2}{n}\right)\]
+\end{theorem}

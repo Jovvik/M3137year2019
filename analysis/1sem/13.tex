@@ -60,17 +60,17 @@
     \begin{enumerate}
         \item $f$ непр. на $[a,b]$, дифф. в $(a,b)$
 
-        $\exists M : \forall x \ \ |f'(x)|\leq M$
-    
-        Тогда $\forall x, x+h\in[a,b]$
-    
-        $$|f(x+h)-f(x)|\leq M|h|$$
+              $\exists M : \forall x \ \ |f'(x)|\leq M$
+
+              Тогда $\forall x, x+h\in[a,b]$
+
+              $$|f(x+h)-f(x)|\leq M|h|$$
 
         \item $f$ --- непр. на $[a,b\rangle$, дифф. на $(a,b\rangle$
-        
-        $\exists \lim\limits_{x\to a+0}f'(x)=k\in\overline\R$
 
-        Тогда $f'_+(a)=k$
+              $\exists \lim\limits_{x\to a+0}f'(x)=k\in\overline\R$
+
+              Тогда $f'_+(a)=k$
     \end{enumerate}
     %</следствия>
 \end{corollary}
@@ -85,9 +85,9 @@
 %</следствияproof>
 
 $\sphericalangle f(x)=\begin{cases}
-    e^{-\frac{1}{x^2}} & ,x\not=0 \\
-    0 & ,x=0
-\end{cases}$
+        e^{-\frac{1}{x^2}} & ,x\not=0 \\
+        0                  & ,x=0
+    \end{cases}$
 
 $f$ --- дифф. при $x>0$
 
@@ -95,7 +95,7 @@ $f'=e^{-\frac{1}{x^2}}\cdot \frac{2}{x^3}$
 
 $\lim\limits_{x\to0} \frac{2e^{-\frac{1}{x^2}}}{x^3}=0$ (позже)
 
-Это был контрпример --- функция, которая везде дифф., но $\not\exists\lim$
+Это был контрпример --- функция, которая везде дифф., но $\nexists\lim$
 
 \begin{theorem}
     Дарбу.
@@ -116,8 +116,8 @@ $\lim\limits_{x\to0} \frac{2e^{-\frac{1}{x^2}}}{x^3}=0$ (позже)
 
     \begin{enumerate}
         \item $F'(a)>0 \ \ F'(b) < 0$
-        
-        По лемме при $x>a$, близких к $a \ \ f(x) > f(a) \Rightarrow \max f$ достигается в $c\in(a,b)$
+
+              По лемме при $x>a$, близких к $a \ \ f(x) > f(a) \Rightarrow \max f$ достигается в $c\in(a,b)$
     \end{enumerate}
 \end{proof}
 %</теоремадарбуproof>
@@ -146,10 +146,10 @@ $f:\R\to\R$, непр.
     Тогда:
     \begin{enumerate}\label{exponentofmultiplication}
         \item $\forall x \ \ f(x)>0; f(0)=1$
-        \item $\forall r \in\Q \quad f(rx)=(f(x))^r$ 
+        \item $\forall r \in\Q \quad f(rx)=(f(x))^r$
         \item $f$ --- строго монот.: $a:=f(1)$
-        
-        Тогда $a\not=1$, если $a>1$ --- возр., если $a<1$ --- убыв.
+
+              Тогда $a\not=1$, если $a>1$ --- возр., если $a<1$ --- убыв.
 
         \item Множество значений $f \quad (0, +\infty)$
         \item $\tilde f(1)=f(1)$, тогда $f=\tilde f$
@@ -161,65 +161,65 @@ $f:\R\to\R$, непр.
     \begin{enumerate}
         \item $f\not\equiv 0 \ \ \exists f(x_0)\not=0$
 
-        $x=x_0, y=0 \quad f(x_0+0)=f(x_0)\cdot f(0)\Rightarrow f(0)=1$
+              $x=x_0, y=0 \quad f(x_0+0)=f(x_0)\cdot f(0)\Rightarrow f(0)=1$
 
-        Если $f(x_1)=0$, тогда $$\forall x \quad f(x)=f(x-x_1)\cdot f(x_1) = 0$$
-        $$f(x)=f\left(\frac{x}{2}\right)\cdot f\left(\frac{x}{2}\right)>0$$
+              Если $f(x_1)=0$, тогда $$\forall x \quad f(x)=f(x-x_1)\cdot f(x_1) = 0$$
+              $$f(x)=f\left(\frac{x}{2}\right)\cdot f\left(\frac{x}{2}\right)>0$$
 
         \item Как в опр. ст. с рациональным показателем
-        \begin{enumerate}
-            \item $r=1$
-            \item $r\in\N$
-            $$f(2x)=f(x+x)=f(x)\cdot f(x) = f(x^2)$$
-            $$f((n+1)x)=f(nx+x)=f(nx)\cdot f(x)=(f(x))^nf(x)=(f(x))^{n+1}$$
-            \item $r\in$``$-\N$''
-            $$1=f(0)=f(nx+(-n)x)=f(nx)\cdot f(-nx)=(f(x))^nf(-nx)$$
-            \item $r=0$
-            $$f(rx)=f(0)=1=(f(x))^0$$
-            \item $r=\frac{1}{n}$
-            $$f(x)=f(n\cdot\frac{x}{n})=(f(\frac{x}{n}))^n$$
-            $$f(\frac{1}{n}x)=(f(x))^{\frac{1}{n}}$$
-            \item $r=\frac{m}{n} \quad m\in\Z, n\in\N$
-            $$f(\frac{m}{n}x)=f(m\cdot(\frac{1}{n}x))=(f(\frac{1}{n}x))^m=(f(x)^{\frac{1}{n}})^m$$
-        \end{enumerate}
+              \begin{enumerate}
+                  \item $r=1$
+                  \item $r\in\N$
+                        $$f(2x)=f(x+x)=f(x)\cdot f(x) = f(x^2)$$
+                        $$f((n+1)x)=f(nx+x)=f(nx)\cdot f(x)=(f(x))^nf(x)=(f(x))^{n+1}$$
+                  \item $r\in$``$-\N$''
+                        $$1=f(0)=f(nx+(-n)x)=f(nx)\cdot f(-nx)=(f(x))^nf(-nx)$$
+                  \item $r=0$
+                        $$f(rx)=f(0)=1=(f(x))^0$$
+                  \item $r=\frac{1}{n}$
+                        $$f(x)=f(n\cdot\frac{x}{n})=(f(\frac{x}{n}))^n$$
+                        $$f(\frac{1}{n}x)=(f(x))^{\frac{1}{n}}$$
+                  \item $r=\frac{m}{n} \quad m\in\Z, n\in\N$
+                        $$f(\frac{m}{n}x)=f(m\cdot(\frac{1}{n}x))=(f(\frac{1}{n}x))^m=(f(x)^{\frac{1}{n}})^m$$
+              \end{enumerate}
         \item $a=1 \quad f(1)=1 \quad \forall r\in\Q \ \ f(r)=1^r=1$
-        
-        $f$ --- непр. и $f(x)=1$ при $x\in\Q\Rightarrow f\equiv1$
 
-        $a>1$. Тогда $\forall x>0 \quad f(x)>1$
-        $$r\in\Q, r>0 \quad f(r)=r(r\cdot 1)=(f(1))^r=a^r>1$$
+              $f$ --- непр. и $f(x)=1$ при $x\in\Q\Rightarrow f\equiv1$
 
-        Значит $\forall x\in\R, x>0$ берем $r_k\to x (r_k\in\Q)$
+              $a>1$. Тогда $\forall x>0 \quad f(x)>1$
+              $$r\in\Q, r>0 \quad f(r)=r(r\cdot 1)=(f(1))^r=a^r>1$$
 
-        $f(r_k)\to f(x)$, значит $f(x)\geq 1$
+              Значит $\forall x\in\R, x>0$ берем $r_k\to x (r_k\in\Q)$
 
-        $$f(x)=f((x-r)+r)=f(x-r)\cdot f(r)>1$$
+              $f(r_k)\to f(x)$, значит $f(x)\geq 1$
 
-        $\exists r\in\Q : 0<r<x$
+              $$f(x)=f((x-r)+r)=f(x-r)\cdot f(r)>1$$
 
-        возр. $x\in\R, h>0$
+              $\exists r\in\Q : 0<r<x$
 
-        $f(x+h)=f(x)\cdot f(h)$
+              возр. $x\in\R, h>0$
 
-        $f(h)>1 \Rightarrow f(x+h)>f(x)$
+              $f(x+h)=f(x)\cdot f(h)$
 
-        $a<1$ --- аналогично.
+              $f(h)>1 \Rightarrow f(x+h)>f(x)$
+
+              $a<1$ --- аналогично.
 
         \item $f(\R)=(\inf f, \sup f)$
-        
-        $\inf f = 0 \quad \sup f = +\infty$
 
-        $f(1)=a>1$
-        
-        $a^n, n\in\Z$
+              $\inf f = 0 \quad \sup f = +\infty$
+
+              $f(1)=a>1$
+
+              $a^n, n\in\Z$
 
         \item $\tilde f(1)=f(1) \Rightarrow \forall r \quad \tilde f(r)=f(r)$
-        
-        $\forall x \quad r_k\to x$
 
-        $\tilde f(r_k) =f(r_k)$
+              $\forall x \quad r_k\to x$
 
-        $\tilde f(r_k)\to \tilde f(x); f(r_k)\to f(x) \Rightarrow f(x) = \tilde f(x)$
+              $\tilde f(r_k) =f(r_k)$
+
+              $\tilde f(r_k)\to \tilde f(x); f(r_k)\to f(x) \Rightarrow f(x) = \tilde f(x)$
     \end{enumerate}
 \end{proof}
 %</свойствапоказательнойфункцииproof>
@@ -237,7 +237,7 @@ $f:\R\to\R$, непр.
 Доказательство будет позже.
 \begin{theorem}
     $f$ --- показ. ф-ция.
-    
+
     Тогда $\exists \alpha\in\R \ \ \forall x \ \ f(x)=f_0(\alpha x)$
 \end{theorem}
 \begin{proof}
@@ -336,11 +336,11 @@ $f:\R\to\R$, непр.
     $P(x)$ --- многочлен степени $n$
 
     Пусть $\begin{smallmatrix}
-        P(a)=C_0 \\
-        P'(a)=C_1 \\
-        \vdots \\
-        P^{(n)}(a)=C_n
-    \end{smallmatrix}$
+            P(a)=C_0 \\
+            P'(a)=C_1 \\
+            \vdots \\
+            P^{(n)}(a)=C_n
+        \end{smallmatrix}$
 
     $$P(x)=\alpha_0+\alpha_1(x-a)+\alpha_2(x-a)^2+\ldots+\alpha_n(x-a)^N$$
     $P(a)=\alpha_0=C_0$
@@ -348,7 +348,7 @@ $f:\R\to\R$, непр.
     $P'(a)=\alpha_1=C_1$
     $$P''(x)=2\alpha_2+6\alpha_3(x-a)+\ldots+n(n-1)\alpha_n(x-a)^{n-2}$$
     $P''(a)=2\alpha_2$
-    
+
     $\vdots$
     $$P^{(n)}(a)=n(n-1)(n-2)\ldots 2\cdot 1\cdot \alpha_n$$
 

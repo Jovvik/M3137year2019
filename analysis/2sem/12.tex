@@ -96,10 +96,10 @@ $$\sum_{k=1}^n a_kb_k = A_nb_n + \sum_{k=1}^{n-1} A_k(b_k-b_{k+1})$$
     \begin{enumerate}
         \item $B$ сходится $\not\Rightarrow A$ сходится. Контрпример: $\sum(-1)^n$
         \item $a_n\to0$, скобки ``ограниченного размера'': $\exists M \ \ \forall k \ \ |n_k-n_{k-1}|<M$
-        
-        Тогда $B$ сходится $\Rightarrow A$ сходится:
-        $$|a_n|\to0 \ \ |a_n|+|a_{n+1}|\to0 $$
-        \textcolor{red}{Скипнуто}
+
+              Тогда $B$ сходится $\Rightarrow A$ сходится:
+              $$|a_n|\to0 \ \ |a_n|+|a_{n+1}|\to0 $$
+              \textcolor{red}{Скипнуто}
     \end{enumerate}
 \end{remark}
 %</группировкарядовremark>
@@ -124,7 +124,7 @@ $\lim\limits_{x\to a} f\Big|_{D_1}$ --- предел по подмножеств
 
 \begin{definition}
     %<*пределвдольпути>
-    
+
     \textbf{Предел вдоль пути} \textit{(непрерывного)} $\gamma : [-\alpha, \alpha]\to\R^m$ функции $f : \R^m \to \R$:
     $$\lim_{t\to0} f(\gamma(t))$$
     %</пределвдольпути>
@@ -132,12 +132,12 @@ $\lim\limits_{x\to a} f\Big|_{D_1}$ --- предел по подмножеств
 
 \begin{enumerate}
     \item Если $\exists \lim\limits_{x\to a} f(x) = L$, то $\exists$ и пределы всем направлениям и они равны $L$.
-    \item Если пределы по направлениям $\exists$ и не равны, то $\not\exists \lim\limits_{x\to a}f(x)$
+    \item Если пределы по направлениям $\exists$ и не равны, то $\nexists \lim\limits_{x\to a}f(x)$
 \end{enumerate}
 
 \begin{example}
     $$f=\frac{xy}{x^2+y^2}$$
-    $$l:=(\cos \varphi, \sin \varphi) \quad \lim_{t\to 0} \frac{t\cos \varphi t\sin \varphi}{t^2(\cos^2 \varphi + \sin^2 \varphi)}=\cos\varphi\sin\varphi\Rightarrow \not\exists\lim_{(x,y)\to(0,0)}f(x,y)$$
+    $$l:=(\cos \varphi, \sin \varphi) \quad \lim_{t\to 0} \frac{t\cos \varphi t\sin \varphi}{t^2(\cos^2 \varphi + \sin^2 \varphi)}=\cos\varphi\sin\varphi\Rightarrow \nexists\lim_{(x,y)\to(0,0)}f(x,y)$$
 \end{example}
 
 \begin{definition}
@@ -162,10 +162,10 @@ $$f:\R^m \to\R^n \text{ --- лин.} \quad \forall \alpha,\beta\in\R \ \ \forall
 
 Линейное отображение задается матрицей:
 $$f:\R^m\to \R^n \quad f\leftrightarrow A = \begin{bmatrix}
-    a_{11} & \ldots & a_{1m} \\
-    \vdots & \ddots & \vdots \\
-    a_{n1} & \ldots & a_{nm} 
-\end{bmatrix}$$
+        a_{11} & \ldots & a_{1m} \\
+        \vdots & \ddots & \vdots \\
+        a_{n1} & \ldots & a_{nm}
+    \end{bmatrix}$$
 $$f(x) = Ax$$
 
 \begin{theorem}
@@ -189,25 +189,25 @@ $$f(x) = Ax$$
 
 \begin{definition}
     \begin{enumerate}
-        \item 
-        %<*бесконечномалоеотображение>
-        \textbf{Бесконечно малое отображение} $\varphi : E\subset\R^m \to\R^l$
+        \item
+              %<*бесконечномалоеотображение>
+              \textbf{Бесконечно малое отображение} $\varphi : E\subset\R^m \to\R^l$
 
-        $x_0$ --- предельная точка $E$
-    
-        $\varphi$ --- бесконечно малое отображение при $x\to x_0$ $\varphi(x)\xrightarrow{x\to x_0}0$
-        %</бесконечномалоеотображение>
+              $x_0$ --- предельная точка $E$
+
+              $\varphi$ --- бесконечно малое отображение при $x\to x_0$ $\varphi(x)\xrightarrow{x\to x_0}0$
+              %</бесконечномалоеотображение>
 
         \item %<*омалоеотображение>
-        $o(h)$ (оно же $o(|h|)$)
-        
-        $\varphi : E\subset \R^m \to \R^l$, $0$ --- предельная точка $E$
+              $o(h)$ (оно же $o(|h|)$)
 
-        $\varphi(h) = o(h)$ при $h\to0$, если $\frac{\varphi(h)}{|h|}\xrightarrow{h\to0}0$
+              $\varphi : E\subset \R^m \to \R^l$, $0$ --- предельная точка $E$
 
-        По-другому: $\exists \alpha : E\to\R^l$ --- бесконечно малое при $h\to0$:
-        $$\varphi(h)=|h|\alpha(h)$$
-        %</омалоеотображение>
+              $\varphi(h) = o(h)$ при $h\to0$, если $\frac{\varphi(h)}{|h|}\xrightarrow{h\to0}0$
+
+              По-другому: $\exists \alpha : E\to\R^l$ --- бесконечно малое при $h\to0$:
+              $$\varphi(h)=|h|\alpha(h)$$
+              %</омалоеотображение>
     \end{enumerate}
 \end{definition}
 
@@ -234,7 +234,7 @@ $$f(x) = Ax$$
 
 \begin{definition}
     %<*дифференциалотображения>
-    
+
     Выражение $F'(a)h$ называется \textbf{дифференциалом} отображения $F$ в точке $a$.
 
     Это понимают как:
@@ -250,28 +250,28 @@ $F:\mathbb{C}\to\mathbb{C} \quad a\in\mathbb{C}$
     $F$ \textbf{комплексно дифференциируема} в точке $A$, если $\exists \lambda\in\mathbb{C}$:
     $$F(a+h)=F(a)+\lambda h + o(h), h\to0$$
     $$h=x+iy \leftrightarrow \begin{pmatrix}
-        x \\
-        y
-    \end{pmatrix}\in\R^2 \quad \lambda=a+bi$$
+            x \\
+            y
+        \end{pmatrix}\in\R^2 \quad \lambda=a+bi$$
     $$h\mapsto \lambda h$$
     $$(x+iy)\mapsto (a+bi)(x+iy)=ax-by+i(ay+bx)$$
     $$\begin{pmatrix}
-        x \\
-        y
-    \end{pmatrix} \mapsto \begin{pmatrix}
-        ax-by \\
-        ay+bx
-    \end{pmatrix} = \begin{pmatrix}
-        a & -b \\
-        b & a
-    \end{pmatrix}\begin{pmatrix}
-        x \\
-        y
-    \end{pmatrix}$$
+            x \\
+            y
+        \end{pmatrix} \mapsto \begin{pmatrix}
+            ax-by \\
+            ay+bx
+        \end{pmatrix} = \begin{pmatrix}
+            a & -b \\
+            b & a
+        \end{pmatrix}\begin{pmatrix}
+            x \\
+            y
+        \end{pmatrix}$$
     $$L=\begin{pmatrix}
-        a & -b \\
-        b & a
-    \end{pmatrix}$$
+            a & -b \\
+            b & a
+        \end{pmatrix}$$
     Этому соответствует вещественное отображение $F:\R^2\to\R^2$
     $$F(a+h)=F(a)+Lh+o(h)$$
 \end{definition}
@@ -285,7 +285,7 @@ $F:\mathbb{C}\to\mathbb{C} \quad a\in\mathbb{C}$
 \begin{proof}
     $$\exists \delta>0 \ \ \forall h : |h|<\delta \ \ a+h\in E$$
     Возьмём $v\in\R^m \quad h:=tv, t<\frac{\delta}{|v|}$
-    
+
     По определению дифференциала:
     $$F(a+tv)=F(a)+F'(a)tv + |tv| \alpha(tv)=F(a)+tF'(a)v+|t||v|\alpha(tv)$$
     $$F'(a)v=\frac{F(a+tv)-F(a)}{t} - \overbrace{\underbrace{\frac{|t|}{t}}_{\pm1} |v|\alpha(tv)}^{\xrightarrow[t\to0]{}\pm |v|0}$$

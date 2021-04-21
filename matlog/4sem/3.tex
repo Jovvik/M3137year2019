@@ -147,8 +147,12 @@
     Пусть \(X\) --- узлы дерева, \(\Omega\) --- все множества узлов, которые содержат узлы вместе со всеми потомками.
 \end{example}
 
+\begin{definition}
+    \[X^\circ \defeq \text{наиб}\{w\ |\ w \subseteq X, w \text{ --- открыто}\} \]
+\end{definition}
+
 \begin{theorem}
-    Пусть \((X,\Omega)\) --- топологическое пространство, \(a + b = a\cup b, a\cdot b = a \cap b, a \to b = ((X\setminus a)\subset b)^\circ\), \(a \leq b \Leftrightarrow a \leq b\), тогда \((\Omega, \leq)\) есть алгебра Гейтинга.
+    Пусть \((X,\Omega)\) --- топологическое пространство, \(a + b = a\cup b, a\cdot b = a \cap b, a \to b = ((X\setminus a)\subset b)^\circ\), \(a \leq b \Leftrightarrow a \subseteq b\), тогда \((\Omega, \leq)\) есть алгебра Гейтинга.
 \end{theorem}
 
 \begin{example}
@@ -156,7 +160,7 @@
 \end{example}
 
 \begin{enumerate}
-    \item \(X^0 = X\)
+    \item \(X^\circ = X\)
     \item \(a \to 0 = (X\setminus a \cup \emptyset) = X\setminus a\)
 \end{enumerate}
 

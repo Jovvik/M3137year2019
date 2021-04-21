@@ -1,0 +1,235 @@
+\chapter{3 апреля}
+
+\subsection{Стандартные абсолютно непрерывные распределения}
+
+\subsubsection{Равномерное распределение}
+
+\(\xi\) равномерно распределена на \([a, b]\), если её плотность постоянна на этом отрезке и такая величина обозначается \(\xi \in U_{a, b}\) или \(\xi \in U(a; b)\).
+
+\[f_\xi(x) = \begin{cases} 0, & x < a \\ \frac{1}{b - a}, & a \leq x \leq b \\ 0, & x > b \end{cases} \]
+
+\[F(x) = \int_{ -\infty}^{+\infty} f_\xi(x) dx\]
+\[F(X) = \begin{cases} 0, & x < a \\ \frac{x - a}{b - a}, & a \leq x \leq b \\ 1, & x > b \end{cases} \]
+\[\mathbb{E}\xi = \int_{ -\infty}^{+\infty} x f_\xi(x) dx = \int_a^b x \frac{1}{b - a}dx = \frac{b^2 - a^2}{2(b - a)} = \frac{a + b}{2} \]
+\[\mathbb{E}\xi^2 = \int_{ -\infty}^{+\infty} x^2 f_\xi(x) dx = \int_a^b x^2 \frac{dx}{b - a} = \frac{a^2 + ab + b^2}{3}\]
+\[\mathbb{D}\xi = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2 = \frac{a^2 + ab + b^2}{2} - \left( \frac{a + b}{2} \right)^2 = \frac{a^2 + b^2 - 2ab}{12} = \frac{(b - a)^2}{12}\]
+\[\sigma = \sqrt{\mathbb{D}\xi} = \frac{b - a}{2\sqrt{3}} \]
+\[P(\alpha < q < \beta) = \frac{\beta - \alpha}{b - a}, \quad \alpha, \beta \in [a, b]\]
+
+\subsubsection{Показательное \textit{(экспоненциальное)} распределение}
+
+\(\xi\) показательно распределена с параметром \(\alpha > 0\) на \([a, b]\), если \(f_\xi(x) = \begin{cases}
+    0,                      & x < 0    \\
+    \alpha e^{ - \alpha x}, & x \geq 0
+\end{cases}\) и такая величина обозначается \(\xi \in E_\alpha\) или \(\xi \in E(\alpha)\).
+
+\[F(x) = \begin{cases}
+        0 ,                                                                                    & x < 0    \\
+        \int_0^x \alpha e^{ - \alpha x} dx = - e^{ - \alpha x}\Big|_0^x = 1 - e^{ - \alpha x}, & x \geq 0
+    \end{cases}\]
+
+\begin{definition}
+    \textbf{Гамма-фукнция Эйлера} \(G(\lambda) = \int_0^{+\infty} t^{\lambda - 1} e^{ - t}dt\). При \(\lambda \in \N\) \(\Gamma(\lambda + 1) = \lambda!\)
+\end{definition}
+
+\[\mathbb{E}\xi^k = \int_{ -\infty}^{+\infty} x^k f_\xi(x) dx = \int_0^{+\infty} x^k \alpha e^{ - \alpha x} dx = \frac{1}{\alpha^k} \int_0^{+\infty} (\alpha x)^k \alpha e^{ - \alpha k} d(\alpha x) = \frac{k!}{\alpha^k} \]
+\[\mathbb{E}\xi = \frac{1}{\alpha}\]
+\[\mathbb{E}\xi^2 = \frac{2}{\alpha^2}\]
+\[\mathbb{D}\xi = \frac{2}{\alpha^2} - \left( \frac{1}{\alpha} \right)^2 = \frac{1}{\alpha^2}\]
+\[\sigma = \frac{1}{\alpha}\]
+\[P(\alpha < \xi < \beta) = e^{ - a\alpha} - e^{ - b\alpha}\]
+\begin{proof}
+    \[P(\alpha < \xi < \beta) = F(b) - F(a) = (1 - e^{ - \alpha b}) - (1 - e^{ - \alpha a}) = e^{ - a\alpha} - e^{ - b\alpha}\]
+\end{proof}
+
+\begin{theorem}
+    Если \(\xi \in E_\alpha\), то \(P(\xi > x + y\ |\ \xi > x) = P(\xi > y)\)
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        P(\xi > x + y\ |\ \xi > x) & = \frac{P(\xi > x + y, \xi > x)}{P(\xi > x)}                     \\
+                                   & = \frac{1 - P(\xi < x + y)}{1 - P(\xi < x)}                      \\
+                                   & = \frac{1 - F(x + y)}{1 - F(x)}                                  \\
+                                   & = \frac{1 - (1 - e^{ - \alpha (x + y)})}{1 - (1 - e^{\alpha x})} \\
+                                   & = e^{ - \alpha y}                                                \\
+                                   & = 1 - (1 - e^{ - \alpha y})                                      \\
+                                   & = 1 - F(y)                                                       \\
+                                   & =  1 - P(\xi < y)                                                \\
+                                   & = P(\xi > y)
+    \end{align*}
+\end{proof}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item Время работы прибора до поломки.
+        \item Время между появлением двух соседних редких событий в простейшем потоке событий.
+    \end{enumerate}
+\end{example}
+
+\subsubsection{Нормальное распределение}
+
+\(\xi\) имеет нормальное распределение с параметрами \(a\) и \(\sigma > 0\), если её плотность имеет вид \(f_\xi(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{ - \frac{(x - a)^2}{2\sigma^2}}, x\in\R\), обозначается \(\xi \in N_{a, \sigma^2}\) или \(\xi \in N(\alpha, \sigma^2)\)
+
+Смысл параметров распределения:
+\[\mathbb{E}\xi = a \quad \sigma \xi = \sigma \quad \mathbb{D}\xi = \sigma^2\]
+
+\[F_\xi(x) = \frac{1}{\sigma \sqrt{2 \pi}} \int_{-\infty}^{+\infty} e^{ - \frac{(x - a)^2}{2\sigma^2} } dt\]
+
+\begin{definition}
+    \textbf{Стандартным нормальным распределением} называется нормальное распределение с параметрами \(a = 0, \sigma = 1\).
+
+    Плотность:
+    \[\varphi(x) = \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}}\]
+    Эта функция называется \textbf{функцией Гаусса}
+\end{definition}
+
+Функция распределения:
+\[\Phi_0(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x e^{ - \frac{z^2}{2}} dz\]
+
+\begin{remark}
+    \[\Phi_0(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^0 e^{ - \frac{z^2}{2}} dz + \frac{1}{\sqrt{2\pi}} \int_0^x e^{\frac{z^2}{2}} dz = 0.5 + \Phi(x)\]
+    Здесь \(\Phi(x)\) --- функция Лапласа.
+\end{remark}
+
+\begin{remark}
+    Интеграл Пуассона:
+    \[\int_{-\infty}^{+\infty} e^{ - \frac{x^2}{2}} dx = \sqrt{2\pi}\]
+\end{remark}
+
+\begin{align*}
+    \mathbb{E}\xi & = \int_{-\infty}^{+\infty} x \varphi(x) dx                                                                                   \\
+                  & = \int_{-\infty}^{+\infty} x \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} dx                                                   \\
+                  & = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{ - \frac{x^2}{2}} d \frac{x^2}{2}                                        \\
+                  & = - \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} \Big|_{-\infty}^{ +\infty}                                                    \\
+                  & = \frac{1}{\sqrt{2\pi}} \left( \lim_{x \to +\infty} e^{ - \frac{x^2}{2}} - \lim_{x \to -\infty} e^{ - \frac{x^2}{2}} \right) \\
+                  & = 0
+\end{align*}
+
+\begin{align*}
+    \mathbb{D}\xi & = \int_{-\infty}^{+\infty} x^2 \varphi(x) dx - (\mathbb{E}\xi)^2                                                                              \\
+                  & = \int_{-\infty}^{+\infty} x^2 \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} dx - 0 = \begin{bmatrix}
+        u = x                         & du = dx                  \\
+        dv = xe^{ - \frac{x^2}{2}} dx & v = e^{ - \frac{x^2}{2}}
+    \end{bmatrix}                                 \\
+                  & = \frac{1}{\sqrt{2\pi}} \left( - xe^{ - \frac{x^2}{2}} \Big|_{ -\infty}^{+\infty} + \int_{ -\infty}^{+\infty} e^{ - \frac{x^2}{2}} dx \right) \\
+                  & = \frac{1}{\sqrt{2\pi}} (0 + \sqrt{2\pi})                                                                                                     \\
+                  & = 1
+\end{align*}
+
+\subsubsection{Связь между нормальным и стандартным нормальным распределениями и её следствия}
+
+\begin{enumerate}
+    \item Пусть \(\xi \in N(a, \sigma^2)\). Тогда \(F_\xi(x) = \Phi_0\left( \frac{x - a}{\sigma} \right)\)
+          \begin{proof}
+              \begin{align*}
+                  F_\xi(x) & = \frac{1}{\sigma\sqrt{2\pi}} \int_{ -\infty}^{x} e^{ - \frac{(t - a)^2}{2\sigma^2}} dt = \begin{bmatrix}
+                      z = \frac{t - a}{\sigma} & t = \sigma z + a            & dt = \sigma dz \\
+                      z( -\infty) = -\infty    & z(x) = \frac{x - a}{\sigma}
+                  \end{bmatrix} \\
+                           & = \frac{1}{\sigma \sqrt{2\pi}} \int_{ -\infty}^{+\infty} e^{ - \frac{x^2}{2}} \sigma dz                              \\
+                           & = \frac{1}{\sqrt{2\pi}} \int_{ -\infty}^{\frac{x - a}{\sigma}} e^{ - \frac{z^2}{2}} dz                               \\
+                           & = \Phi_0\left(\frac{x - a}{\sigma}\right)
+              \end{align*}
+          \end{proof}
+    \item Если \(\xi \in N(a, \sigma^2)\). Тогда \(\eta = \frac{\xi - a}{\sigma} \in N(0, 1)\)
+
+          \begin{remark}
+              Эта операция называется стандартизацией.
+          \end{remark}
+
+          \begin{proof}
+              \[F_\eta(x) = P\left( \frac{\xi - a}{\sigma} < x \right) = P(\xi < \sigma x + a) = F_\xi(\sigma x + a) = \Phi_0\left( \frac{\sigma x + a - a}{\sigma} \right) = \Phi_0(x)\]
+          \end{proof}
+
+    \item Пусть \(\xi \in N(a, \sigma^2)\). Тогда \(\mathbb{E}\xi = a, \mathbb{D}\xi = \sigma^2\).
+          \begin{proof}
+              \[\eta : = \frac{\xi - a}{\sigma} \in N(0, 1)\]
+              \[\mathbb{E}\xi = \sigma \mathbb{E}\xi + a = 0 + a = a\]
+              \[\mathbb{D}\xi = \sigma^2 \cdot 1 = \sigma^2\]
+          \end{proof}
+
+    \item Вероятность попадания нормальной случайной величины в заданный интервал \(P(\alpha < \xi < \beta) = \Phi\left( \frac{\beta - a}{\sigma} \right) - \Phi\left( \frac{\alpha - a}{\sigma} \right)\)
+          \begin{proof}
+              \begin{align*}
+                  P(\alpha < \xi < \beta) & = F_\xi(\beta) - F_\xi(\alpha)                                                                           \\
+                                          & = \Phi_0\left( \frac{\beta - a}{\sigma} \right) - \Phi_0\left( \frac{\alpha - a}{\sigma} \right)         \\
+                                          & = 0.5 + \Phi\left( \frac{\beta - a}{\sigma} \right) - 0.5 - \Phi\left( \frac{\alpha - a}{\sigma} \right) \\
+                                          & = \Phi\left( \frac{\beta - a}{\sigma} \right) - \Phi\left( \frac{\alpha - a}{\sigma} \right)
+              \end{align*}
+          \end{proof}
+
+          \begin{remark}
+              В этой формуле можно заменить \(\Phi\) на \(\Phi_0\), т.к. они отличаются на константу и она сократится.
+          \end{remark}
+
+    \item Вероятность отклонения случайной величины от её среднего значения \textit{(попадание в интервал, симметричный относительно \(a\))}.
+
+          \[P(|\xi - a| < t) = 2 \Phi\left( \frac{t}{\sigma} \right)\]
+
+          \begin{proof}
+              \begin{align*}
+                  P(|\xi - a| < t) & = P( - t < \xi - a < t)                                                                     \\
+                                   & = P(a - t < \xi < a + t)                                                                    \\
+                                   & = \Phi\left( \frac{a + t - a}{\sigma} \right) - \Phi\left( \frac{a - t - a}{\sigma} \right) \\
+                                   & = \Phi\left( \frac{t}{\sigma} \right) - \Phi\left( - \frac{t}{\sigma} \right)               \\
+                                   & = 2\Phi\left( \frac{t}{\sigma} \right)
+              \end{align*}
+          \end{proof}
+
+          При замене в этой формуле \(\Phi\) на \(\Phi_0\) получим \(P(|\xi - a| < t) = 2\Phi_0\left( \frac{t}{\sigma} \right) - 1\).
+
+          Правило трёх \(\sigma\): \(P(|\xi - a| < 3\sigma) \approx 0.9973\).
+          \begin{proof}
+              \[P(|\xi - a| < 3\sigma) = 2\Phi(3) \approx 2 \cdot 0.49865 = 0.9973\]
+          \end{proof}
+
+          Смысл этого правила: нормальная случайная величина почти гарантировано попадает в интервал \((a - 3\sigma, a + 3\sigma)\)
+\end{enumerate}
+
+\subsubsection{Коэффициенты асимметрии и эксцесса}
+
+\begin{definition}
+    \textbf{Асимметрией} распределения называется число \(A_s = \mathbb{E}\left( \frac{\xi - a}{\sigma} \right)^3 = \frac{M_3}{\sigma^3}\)
+\end{definition}
+
+\begin{definition}
+    \textbf{Эксцессом} распределения называется число \(E_k = \mathbb{E}\left( \frac{\xi - a}{\sigma} \right)^4 - 3 = \frac{M_4}{\sigma^4} - 3\)
+\end{definition}
+
+Если \(\xi \in N(a, \sigma^2)\), то \(A_s = 0, E_k = 0\). Таким образом, эти коэффициенты показывают, насколько сильно данное распределение отличается от нормального.
+
+\subsection{\(\Gamma\)-функция и \(\Gamma\)-распределение}
+
+\begin{definition}
+    \textbf{Гамма-фукнция Эйлера} \(G(\lambda) = \int_0^{+\infty} t^{\lambda - 1} e^{ - t}dt\). При \(\lambda \in \N\) \(\Gamma(\lambda + 1) = \lambda!\)
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\Gamma(\lambda) = (\lambda - 1) \cdot \Gamma(\lambda - 1)\)
+        \item \(\Gamma(1) = 1\)
+        \item \(\Gamma(x) = (x - 1)!, x \in \N\)
+        \item \(\Gamma\left( \frac{1}{2} \right) = \sqrt{\pi}\)
+    \end{enumerate}
+\end{prop}
+
+\begin{definition}
+    Случайная величина \(\xi\) имеет \(\Gamma\)-распределение с параметрами \(\alpha > 0, \lambda > 0\), если её плотность имеет вид \(f_\xi(x) = \begin{cases}
+        0,                                                                            & x < 0    \\
+        \frac{\alpha^\lambda}{\Gamma(\lambda)} x^{\lambda - 1} \cdot e^{ - \alpha x}, & x \geq 0
+    \end{cases} \),
+    обозначается \(\xi \in \Gamma_{\alpha, \lambda}\)
+\end{definition}
+
+\[F_\xi(x) = \frac{\lambda^k}{\Gamma(\lambda)} \int_0^x t^{\lambda - 1} e^{ - \alpha t} dt , \quad x \geq 0\]
+Если \(\lambda\in\N\), то:
+\[F_\xi(x) = \sum_{k = \lambda}^{+\infty} \frac{(\lambda x)^k}{k!} e^{ - \alpha x}\]
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\mathbb{E}\xi = \frac{\lambda}{\alpha}, \mathbb{D}\xi = \frac{\lambda}{\alpha^2}\)
+        \item \(\Gamma_{\alpha, 1} = E_\alpha\)
+        \item Пусть случайные величины \(\xi_1 \dots \xi_n\) независимы и имеют одинаковое показательное распределение \(E_\alpha\). Тогда \(\sum_{i = 1}^n \xi_i = \Gamma_{\alpha, n}\)
+        \item Если \(\xi \in N(0, 1)\), то \(\xi^2 \in \Gamma_{\frac{1}{2}, \frac{1}{2}}\)
+    \end{enumerate}
+\end{prop}

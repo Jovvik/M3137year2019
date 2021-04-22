@@ -1,0 +1,293 @@
+\chapter{17 апреля}
+
+\subsection{Сходимость случайных величин}
+
+\subsubsection{Сходимость почти наверное}
+
+\begin{definition}
+    Случайная величина \(\xi\) имеет некоторое свойство \textbf{почти наверное}, если вероятность того, что \(\xi\) имеет это свойство, равна 1.
+\end{definition}
+
+\begin{definition}
+    Последовательность случайных величин \(\{\xi_n\}\) сходится \textbf{почти наверное} к случайной величине \(\xi\) при \(n \to +\infty\), если:
+    \[P(w \in \Omega\ |\ \xi_n(w) \to \xi(w)) = 1\]
+    и обозначается \(\xi_n \xrightarrow[n \to +\infty]{\text{п.н.}} \xi\).
+\end{definition}
+
+\subsubsection{Сходимость по вероятности}
+
+\begin{definition}
+    Последовательность случайных величин \(\{\xi_n\}\) сходится по вероятности к случайной величине \(\xi\) при \(n \to +\infty\), если:
+    \[\forall \varepsilon > 0 \ \ P(|\xi_n - \xi| \geq \varepsilon) \xrightarrow[n \to +\infty]{} 0 \text{ или } P(|\xi_n - \xi| < \varepsilon) \xrightarrow[n \to +\infty]{} 1\]
+    и обозначается \(\xi_n \xrightarrow[n \to +\infty]{P} \xi\)
+\end{definition}
+
+\begin{remark}
+    \(\xi_n \xrightarrow{P} \xi \nRightarrow \mathbb{E}\xi_n \to \mathbb{E}\xi\)
+\end{remark}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(|\xi_n| \leq C = \const \ \ \forall n\). Тогда \(\xi_n \xrightarrow{P} \xi \Rightarrow \mathbb{E}\xi_n \to \mathbb{E}\xi\)
+        \item Если \(\xi_n \xrightarrow{P} \xi\) и \(\eta_n \xrightarrow{P} \eta\), то \(\xi_n + \eta_n \xrightarrow{P} \xi + \eta\) и \(\xi_n \cdot \eta_n \xrightarrow{P} \xi \cdot \eta\)
+    \end{enumerate}
+\end{prop}
+
+\subsubsection{Слабая сходимость \textit{(сходимость по функции распределения)}}
+
+\begin{definition}
+    Последовательность случайных величин \(\{\xi_n\}\) \textbf{слабо сходится} к случайной величине \(\xi\), если последовательность функций распределений \(F_{\xi_n}(x)\) сходится к функции распределения \(F_\xi\) для всех \(x\) таких, что \(F_\xi(x)\) непрерывно в точке \(x\).
+
+    и обозначается \(\xi_n \rightrightarrows \xi\).
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item Если последовательность случайных величин \(\xi_n \xrightarrow{P} C\) и \(\eta_n \rightrightarrows \eta\), то \(\xi_n \eta_n \rightrightarrows C \eta\) и \(\xi_n + \eta_n \rightrightarrows C + \eta\)
+    \end{enumerate}
+\end{prop}
+
+\subsubsection{Связь между видами сходимости}
+
+\begin{theorem}
+    \(\xi_n \xrightarrow{\text{п.н.}} \xi \Rightarrow \xi_n \xrightarrow{P} \xi \Rightarrow \xi_n \rightrightarrows \xi\)
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \(\xi_n \xrightarrow{\text{п.н.}} \xi \Rightarrow \xi_n \xrightarrow{P} \xi\)
+
+              Можно ограничиться случаем, когда \(\xi_n(w) \xrightarrow[n \to +\infty]{} \xi(w) \ \ \forall w\in \Omega\). Зафиксируем \(w \in \Omega\).
+
+              \[\xi_n(w) \xrightarrow[n \to +\infty]{} \xi(w) \Rightarrow \forall \varepsilon > 0 \ \ \exists N = N(\varepsilon, w) \ \ \forall n > N \ \ |\xi_n(w) - \xi(w)| < \varepsilon\]
+              Или
+              \[A = \{w \in \Omega\ |\ N(\varepsilon, w) < n\} \subset B = \{|\xi_n(w) - \xi(w)|< \varepsilon\}\]
+              Тогда
+              \[1 \geq P(B) \geq P(A) = P(N(\varepsilon, w) < n) = F_{N(\varepsilon, w)}(n) \xrightarrow{n \to +\infty} 1 \Rightarrow P(B) \xrightarrow{n \to +\infty} 1\]
+
+        \item \(\xi_n \xrightarrow{P} \xi \Rightarrow \xi_n \rightrightarrows \xi\)
+
+              \[\xi_n \xrightarrow{P} \xi \Rightarrow \xi_n - \xi \xrightarrow{P} 0\]
+              \[\xi_n = \underbrace{(\xi_n - \xi)}_{ \to 0} + \xi \rightrightarrows \xi\]
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Если \(\xi_n \rightrightarrows C\), то \(\xi_n \xrightarrow{P} C\)
+\end{theorem}
+\begin{proof}
+    Пусть \(\xi_n \rightrightarrows C \Rightarrow F_{\xi_n}(x) \to F_C(x) = \begin{cases}
+        0, & x \leq C \\
+        1, & x > C
+    \end{cases} \ \ \forall x\), где непрерывна \(F_C(x)\), т.е. \(\forall x \neq C\).
+
+    Докажем, что \(P(|\xi_n - C| < \varepsilon) \to 1 \forall \varepsilon > 0\).
+    \begin{align}
+        P(|\xi_n - C| < \varepsilon) & = P( - \varepsilon < \xi_n - C < \varepsilon)                                                  \\
+                                     & = P(C - \varepsilon < \xi_n < C + \varepsilon)                                                 \\
+                                     & \geq P(C - \frac{\varepsilon}{2} < \xi_n < C + \varepsilon)                                    \\
+                                     & = F_{\xi_n}(\varepsilon + C) - F_{\xi_n}\left( C - \frac{\varepsilon}{2} \right)               \\
+                                     & \xrightarrow{n \to +\infty} F_C(C + \varepsilon) - F_C\left( C - \frac{\varepsilon}{2} \right) \\
+                                     & = 1 - 0                                                                                        \\
+                                     & = 1
+    \end{align}
+\end{proof}
+
+\begin{remark}
+    В общем случае бессмысленно утверждение \(\xi_n \rightrightarrows \xi \Rightarrow \xi_n \xrightarrow{P} \xi\), т.к. слабая сходимость это сходимость распределений, а не случайных величин и одинаковые величины могут иметь разные распределения.
+\end{remark}
+
+\begin{example}
+    \(\xi \in U( - 1, 1), \eta = - \xi \in U( - 1, 1)\)
+\end{example}
+
+\subsection{Математическое ожидание преобразованной случайной величины}
+
+\begin{theorem}
+    Для произвольной борелевской функции \(g(x)\):
+    \begin{enumerate}
+        \item \(\mathbb{E} g(\xi) = \sum_{n = 1}^{+\infty} g(x_k) \cdot P(\xi = x_k)\), если \(\xi\) --- дискретная случайная величина и если ряд абсолютно сходится.
+        \item \(\mathbb{E} g(\xi) = \int_{ -\infty}^{+\infty} g(x) f_\xi(x) dx\), если \(\xi\) --- абсолютно непрерывная случайная величина.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Свойства моментов}
+
+\begin{enumerate}
+    \item Если случайная величина \(\xi\) неотрицательна почти наверное, то и \(\mathbb{E}\xi \geq 0\)
+          \begin{proof}
+              \[A : = \{w \in \Omega\ |\ g(w) \geq 0\}\]
+              \[\mathbb{E}\xi = \int_\Omega \xi(w) d P(w) = \int_A \xi(w) d P(w) + \int_{\overline A} \xi(w) \underbrace{d P(w)}_{0} = \int_A \xi(w) d P(w)\]
+          \end{proof}
+    \item Если \(\xi \geq \eta\) почти наверное, то \(\mathbb{E}\xi \geq \mathbb{E}\eta\) \label{брух}
+          \begin{proof}
+              \[\mathbb{E}(\xi - \eta) = \mathbb{E}\xi - \mathbb{E}\eta \geq 0 \Rightarrow \mathbb{E}\xi \geq \mathbb{E}\eta\]
+          \end{proof}
+
+    \item Если \(|\xi| \geq |\eta|\), то \(\mathbb{E}|\xi|^k \geq \mathbb{E}|\eta|^k\)
+    \item Если существует момент \(M_t\) случайной величины \(\xi\), то существуют и её моменты меньшего порядка. В частности, если \(\exists \mathbb{D}\), то и \(\exists \mathbb{E}\).
+          \begin{proof}
+              Пусть \(s < t\). Заметим, что \(|x|^s \leq \max(|x|^t, 1) \leq |x|^t + 1\) при \(|x| \geq 1\) \(|x|^s \leq |x|^t\), а при \(|x| \leq 1\), \(|x|^s \leq 1\).
+              \[|\xi(w)|^s \leq |\xi(w)|^t + 1 \ \ \forall w \in \Omega\]
+              По свойству \ref{брух}:
+              \[\mathbb{E}|\xi|^s \leq \mathbb{E}|\xi|^t + 1 \Rightarrow \mathbb{E}|\xi|^s < +\infty\]
+              т.к. по условию \(\mathbb{E}|\xi|^t < +\infty\).
+          \end{proof}
+\end{enumerate}
+
+\subsection{Ключевые неравенства}
+
+В этом разделе \(\xi\) --- случайная величина с \(\mathbb{E}|\xi| < +\infty\) и \(\mathbb{D}\xi < +\infty\).
+
+\subsubsection{Неравенство Йенсена}
+
+\begin{theorem}[неравенство Йенсена]
+    Пусть функция \(g\) выпукла вниз. Тогда \(\mathbb{E}g|\xi| \geq g(\mathbb{E}\xi)\).
+
+    Если \(g\) выпукла вверх, то \(\mathbb{E}g|\xi| \leq g(\mathbb{E}\xi)\)
+
+    \begin{remark}
+        Если функция выпукла, то в любой точке её графика можно провести прямую, лежащую ниже графика.
+    \end{remark}
+\end{theorem}
+\begin{proof}
+    \(\forall x_0 \ \ \exists k(x_0) \ \ g(x) \geq g(x_0) + k(x_0) \cdot (x - x_0)\). Положим \(x_0 = \mathbb{E}\xi\)
+    \[g(x) \geq g(\mathbb{E}\xi) + k(\mathbb{E}\xi) \cdot (x - \mathbb{E}\xi)\]
+    \[\mathbb{E}(g(\xi)) \geq \mathbb{E}(g(\mathbb{E}\xi)) + k(\mathbb{E}x_0) \cdot \mathbb{E}(\xi - \mathbb{E}\xi)\]
+    \[\mathbb{E}(g(\xi)) \geq g(\mathbb{E}\xi)\]
+\end{proof}
+
+\begin{corollary}
+    Если \(\mathbb{E}|\xi|^t < +\infty\), то \(\forall 0 < s < t\):
+    \[\sqrt[s]{\mathbb{E}|\xi|^s} \leq \sqrt[t]{\mathbb{E}|\xi|^t}\]
+\end{corollary}
+\begin{proof}
+    Т.к. \(s < t\), то \(g(x) = x^{\frac{t}{s}}\) --- выпуклая. По неравенству Йенсена при \(\eta = \xi^s\):
+    % \[(\mathbb{E}||)\]
+    \unfinished
+\end{proof}
+
+\subsubsection{Неравенство Маркова}
+
+\begin{theorem}
+    \[P(|\xi| \geq \varepsilon) \leq \frac{\mathbb{E}|\xi|}{\varepsilon} \quad \forall \varepsilon > 0\]
+\end{theorem}
+\begin{proof}
+    \[I_A(w) = \begin{cases}
+            0, & w \notin A \\
+            1, & w \in A
+        \end{cases}\]
+
+    Дано: \(I_A \in B_p\), где \(p = P(A)\), \(\mathbb{E}I_A = p\) и \(I(A) + I(\overline A) = 1\)
+
+    \begin{align}
+        |\xi|                     & = |\xi| \cdot I(|\xi| \geq \varepsilon) + |\xi| I(|\xi| < \varepsilon) \\
+                                  & \geq |\xi| I(|\xi| \geq \varepsilon)                                   \\
+                                  & \geq \xi I(|\xi| \geq \varepsilon)                                     \\
+                                  & \Downarrow                                                             \\
+        \mathbb{E}|\xi|           & \geq \mathbb{E}(\varepsilon I(|\xi| \geq \varepsilon))                 \\
+                                  & = \varepsilon \mathbb{E}(I(|\xi| \geq \varepsilon))                    \\
+                                  & = \varepsilon P(|\xi| \geq \varepsilon)                                \\
+                                  & \Downarrow                                                             \\
+        P(|\xi| \geq \varepsilon) & \leq \frac{\mathbb{E}\xi}{\varepsilon}
+    \end{align}
+\end{proof}
+
+\subsubsection{Неравенство Чебышева}
+
+\begin{theorem}
+    \[P(|\xi - \mathbb{E}\xi| \geq \varepsilon) \leq \frac{\mathbb{D}\xi}{\varepsilon^2} \quad \forall \varepsilon > 0\]
+\end{theorem}
+\begin{proof}
+    \[P(|\xi - \mathbb{E}\xi| \geq \varepsilon) = P((\xi - \mathbb{E}\xi)^2 \geq \varepsilon) \leq \frac{\mathbb{E}(\xi - \mathbb{E}\xi)^2}{\varepsilon^2} = \frac{\mathbb{D}\xi}{\varepsilon^2}\]
+\end{proof}
+
+\subsubsection{Обобщенное неравенство Чебышева}
+
+\begin{theorem}
+    Пусть имеется возрастающая функция \(g(x) \geq 0\). Тогда:
+    \[P(\xi \geq \varepsilon) \leq \frac{\mathbb{E} g(\xi)}{g(x)} \quad \forall \varepsilon \in \R\]
+\end{theorem}
+\begin{proof}
+    \unfinished
+\end{proof}
+
+\subsubsection{Правило трёх сигм}
+
+\begin{theorem}
+    \[P(|\xi - \mathbb{E}\xi| \geq 3 \sigma) \leq \frac{1}{9}\]
+\end{theorem}
+\begin{proof}
+    \[P(|\xi - \mathbb{E}\xi| \geq 3 \sigma) \leq \frac{\mathbb{D}\xi}{(3\sigma)^2} = \frac{1}{9}\]
+\end{proof}
+\begin{remark}
+    Можем заметить, что правило трёх сигм дает нам куда большую точность. Таким образом, неравенство Чебышева грубо.
+\end{remark}
+
+\subsubsection{Среднее арифметическое случайных величин}
+
+Можем изменить модель с \(n\) экспермиентами так, что проходит 1 эксперимент с \(n\) переменными.
+
+Пусть \(\xi_1 \dots \xi_n\) --- независимые одинаково распределенные случайные величины с конечным вторым моментом. Обозначим \(a = \mathbb{E}\xi_i, d = \mathbb{D}\xi_i, \sigma = \sigma_{\xi_i}, S_n = \xi_1 + \dots + \xi_n\)
+
+\[\mathbb{E}\left( \frac{S_n}{n} \right) = \frac{1}{n} an = a\]
+\[\mathbb{D}\left( \frac{S_n}{n} \right) = \frac{1}{n^2} dn = \frac{d}{n}\]
+\[\sigma\left( \frac{S_n}{n} \right) = \frac{\sigma}{\sqrt{n}}\]
+
+\subsection{Законы больших чисел}
+
+\subsubsection{Закон больших чисел Чебышева}
+
+\begin{theorem}
+    \(\xi_1 \dots \xi_n\) --- последовательность независимых одинаково распределенных случайных величин с конечным вторым моментом. Тогда \(\frac{\xi_1 + \dots + \xi_n}{n} \xrightarrow{P} \mathbb{E}\xi_i\)
+\end{theorem}
+\begin{proof}
+    Пусть \(a = \mathbb{E}\xi_i, d = \mathbb{D}\xi_i, S_n = \xi_1 + \dots + \xi_n\)
+    \begin{align*}
+        P\left( \left|\frac{S_n}{n} - a\right| \geq \varepsilon \right) =
+    \end{align*}
+    \unfinished
+\end{proof}
+
+\subsubsection{Закон больших чисел Бернулли}
+
+\begin{theorem}
+    Пусть \(v_A\) --- число появлений события \(A\) в серии из \(n\) независимых экспериментов, \(p\) --- вероятность события \(A\). Тогда частота \(\frac{v_A}{n} \xrightarrow{P} p\).
+\end{theorem}
+\begin{remark}
+    Эта теорема обосновывает определение статистической вероятности.
+\end{remark}
+\begin{proof}
+    \unfinished
+\end{proof}
+
+\subsubsection{Закон больших чисел Хинчина}
+
+\begin{theorem}
+    \(\xi_1 \dots \xi_n\) --- последовательность независимых одинаково распределенных случайных величин с конечным \underline{первым} моментом. Тогда \(\frac{\xi_1 + \dots + \xi_n}{n} \xrightarrow{P} \mathbb{E}\xi_i\)
+\end{theorem}
+\begin{proof}
+    Будет на последней лекции, т.к. требуется преобразование Фурье.
+\end{proof}
+
+\subsubsection{Усиленный закон больших чисел Колмогорова}
+
+Теорема Хинчина, но для сходимости ``почти наверное''.
+
+\subsubsection{Закон больших чисел Маркова}
+
+\begin{theorem}
+    Последовательность случайных величин \(\xi_1 \dots \xi_n\) с конечными вторыми моментами, причём \(\mathbb{D}S_n = \smallO(n^2)\). Тогда \(\frac{S_n}{n} \xrightarrow{P} \mathbb{E}\left( \frac{S_n}{n} \right)\) или \(\frac{\xi_1 + \dots + \xi_n}{n} - \frac{\mathbb{E}\xi_1 + \dots + \mathbb{E}\xi_n}{n} \xrightarrow{P} 0 \)
+\end{theorem}
+\begin{proof}
+    \unfinished
+\end{proof}
+
+\begin{theorem}[центральная предельная теорема Ляпунова, 1901 г.]
+    Пусть \(\xi_1 \dots \xi_n\) --- последовательность независимых одинаково распределенных случайных величин с конечной дисперсией, \(S_n = \xi_1 + \dots \xi_n\). Тогда имеет место слабая сходимость:'
+    \[\frac{S_n - n \mathbb{E}\xi_1}{\sqrt{n \mathbb{D}\xi_1}} \rightrightarrows N(0, 1)\]
+\end{theorem}
+\begin{remark}
+    Представим эту теорему в другом виде. Пусть \(a = \mathbb{E}\xi_i, \sigma = \sigma_{\xi_i}\). Тогда \(\sigma\left( \frac{S_n}{n} \right) = \frac{\sigma}{\sqrt{n}}\) и поделим на \(n\):
+    \[\frac{\frac{S_n}{n} - a}{\sigma\left( \frac{S_n}{n} \right)} \rightrightarrows N(0, 1)\]
+    , то есть стандартизованное среднее арифметическое слабо сходится к стандартному нормальному распределению.
+\end{remark}

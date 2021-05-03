@@ -1,0 +1,143 @@
+\chapter{14 апреля}
+
+Прямые методы основаны на разложениях матрицы \(L\), например:
+\begin{itemize}
+    \item \(LU\), где \(L\) --- нижнетреугольная матрица, а \(U\) --- верхнетреугольная матрица.
+    \item \(LL^T\) --- метод квадратного корня
+    \item \(LDL^T\), где \(L_{ii} = 1\), \(D\) --- диагональная матрица.
+\end{itemize}
+
+Мы рассмотрим первый.
+
+\section{\(LU\)-метод}
+
+\begin{align}
+    A X & = b                    \\
+    LUx & = b                    \\
+    y : = Ux   \label{y через x} \\
+    Ly  & = b \label{LUmain}
+\end{align}
+
+Таким образом, решение задачи сводится к трём этапам:
+\begin{enumerate}
+    \item По \(A\) получить \(L, U\).
+    \item Решить \eqref{LUmain} прямым ходом метода Гаусса, тем самым найти \(y\).
+    \item Решить \eqref{y через x} обратным ходом метода Гаусса, тем самым найти \(x\).
+\end{enumerate}
+
+Основные временные затраты происходят на первом этапе метода.
+
+\[L = \begin{bmatrix}
+        L_{11} & 0      & 0      & \cdots \\
+        L_{21} & L_{22} & 0      & \cdots \\
+        L_{31} & L_{32} & L_{33} & \cdots \\
+        \vdots & \vdots & \vdots & \ddots
+    \end{bmatrix}
+    \quad U = \begin{bmatrix}
+        1      & U_{12} & U_{13} & \cdots \\
+        0      & 1      & U_{23} & \cdots \\
+        0      & 0      & 1      & \cdots \\
+        \vdots & \vdots & \vdots & \ddots
+    \end{bmatrix}  \]
+\begin{example}
+    Красным отмечены вычисляемые на данной итерации элементы:
+    \begin{align*}
+        A_{11} & = \textcolor{red}{L_{11}}                                             \\
+        A_{21} & = \textcolor{red}{L_{21}}                                             \\
+        A_{12} & = L_{11} \cdot \textcolor{red}{U_{12}}                                \\
+        A_{22} & = L_{21} \cdot U_{12} + \textcolor{red}{L_{22}}                       \\
+        A_{31} & = \textcolor{red}{L_{31}}                                             \\
+        A_{13} & = L_{11} \cdot \textcolor{red}{U_{13}}                                \\
+        A_{32} & = L_{31} \cdot U_{12} + \textcolor{red}{L_{32}}                       \\
+        A_{23} & = L_{21} \cdot U_{13} + L_{22} \cdot \textcolor{red}{U_{23}}          \\
+        A_{33} & = L_{31} \cdot U_{13} + L_{32} \cdot U_{23} + \textcolor{red}{L_{33}} \\
+    \end{align*}
+\end{example}
+
+\subsection{Алгоритм разложения}
+\(L_{11} = A_{11}\), для \(i\) от 2 до \(n\):
+\begin{equation}
+    L_{ij} = A_{ij} - \sum_{k = 1}^{j - 1} L_{ik} \cdot U_{kj} \quad j \in \overline{1, i - 1}
+    \label{Lij}
+\end{equation}
+\begin{equation}
+    U_{ji} = \frac{1}{L_{jj}} \left( A_{ji} - \sum_{k = 1}^{j - 1} L_{jk} \cdot U_{ki}\right) \quad j \in \overline{1, i - 1}
+    \label{Uij}
+\end{equation}
+\begin{equation}
+    L_{ii} = A_{ii} - \sum_{k = 1}^{i - 1} L_{ik} \cdot U_{ki}
+    \label{Lii}
+\end{equation}
+\begin{equation}
+    U_{ii} = 1
+    \label{Uii}
+\end{equation}
+
+\section{Дополнительные рассуждения о точности получаемого численного решения}
+
+\subsection{Близкие к нулю главные элементы}
+
+\begin{example}
+    \[\begin{pmatrix}
+            10  & - 7   & 0 \\
+            - 3 & 2.099 & 6 \\
+            5   & - 1   & 5
+        \end{pmatrix} \begin{pmatrix}
+            x_1 \\ x_2 \\ x_3
+        \end{pmatrix} = \begin{pmatrix}
+            7 \\ 3.901 \\ 6
+        \end{pmatrix} \]
+
+    Точное решение: \(x = (0, - 1, 1)^T\).
+
+    Предположим, что мы решаем эту задачу на ЭВМ с десятичной пятиразрядной арифметикой с плавающей точкой.
+
+    Решим обычным методом Гаусса без модификаций.
+    \[\begin{pmatrix}
+            10 & - 7              & 0 \\
+            0  & - 1.0 \cdot 10^3 & 6 \\
+            0  & 2.5              & 5
+        \end{pmatrix} \begin{pmatrix}
+            x_1 \\ x_2 \\ x_3
+        \end{pmatrix} = \begin{pmatrix}
+            7 \\ 6.001 \\ 2.5 \end{pmatrix}\]
+
+    \[
+        6.001 \cdot 2.5  \cdot 10^3 = 1.5002 \cdot 10^4 \approx 1.5003 \cdot 10^4
+    \]
+    \[1.5005 \cdot 10^4 \cdot x_3 = 1.5004 \cdot 10^4\]
+    \[x_3 = \frac{1.5004 \cdot 10^4}{1.5005 \cdot 10^4} = 0.99993\]
+    \[x_2 = \frac{1.5 \cdot 10^{ - 3}}{ - 1.0 \cdot 10^{ - 3}} = - 1.5\]
+    \[x_1 = - 0.35\]
+
+    Итого ошибка очень крупная, \(0.5\) для одного из элементов. Ошибка возникла на шаге исключения, т.к. не использовалась модификация метода.
+\end{example}
+
+\subsection{Вектор ошибки и невязка}
+
+\[\begin{pmatrix}
+        0.78  & 0.563 \\
+        0.457 & 0.330
+    \end{pmatrix}
+    \begin{pmatrix}
+        x_1 \\
+        x_2
+    \end{pmatrix} =
+    \begin{pmatrix}
+        0.217 \\
+        0.127
+    \end{pmatrix} \]
+\[x^* \]
+
+Арифметика трёхразрядная.
+
+\textcolor{red}{Вычисления опущены.}
+
+\[x = (1.71, - 1.98)^T\]
+
+\begin{definition}
+    \textbf{Невязка} \(r = b - Ax\).
+\end{definition}
+\[r = ( - 0.00206, - 0.00107)^T\]
+
+\unfinished

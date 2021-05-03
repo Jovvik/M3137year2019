@@ -1,0 +1,186 @@
+\chapter{30 апреля}
+
+\section{Арифметизация математики}
+
+Это идея того, все содержательное в математике может быть выражено как арифметика. Мы к ней подойдём издалека
+
+\subsection{Рекурсивные функции}
+
+Рассмотрим следующие примитивы, чтобы определить рекурсивные функции:
+\begin{enumerate}
+    \item \(Z : \N \to \N : Z(x) = 0\)
+    \item \(N : \N \to \N : N(x) = x + 1\)
+    \item \(S_k : \N^m \to \N\) --- подстановка
+          \[S_k \langle g, f_1 \dots f_k \rangle(x_1 \dots x_m) = g(f_1(\overline{x}), f_2(\overline{x}) \dots f_k(\overline x))\], где \(\overline x \equiv x_1 \dots x_m\) и если \(f_1 \dots f_k : \N^m \to \N\) и \(g : \N^k \to \N\)
+    \item \(P_k^l : \N^k \to \N : P_k^l(x_1 \dots x_k) = x_l\) при \(l \leq k\) --- проекция
+    \item \(R\langle f, g \rangle : \N^{m + 1} \to \N\), если \(f : \N^m \to \N, g : \N^{m + 2} \to \N\)
+          \[R \langle f, g \rangle (y, x_1 \dots x_m) = \begin{cases}
+                  f(x_1 \dots x_m),                                               & y = 0 \\
+                  g(y - 1, R \langle f, g \rangle(x_1 \dots x_m), x_1 \dots x_m), & y > 0
+              \end{cases} \]
+
+          \(R\) называется \textbf{примитивной рекурсией}.
+
+          \(R\) можно воспринимать как цикл \texttt{for} с переменной цикла \(y\).
+
+          \begin{example}\itemfix
+              \begin{enumerate}
+                  \item \(R\ev{f,g} x = f(x)\)
+                  \item \(R\ev{f,g} x = g(0, f(x), x)\)
+                  \item \(R\ev{f,g} x = g(1, g(0, f(x), x), x)\)
+              \end{enumerate}
+          \end{example}
+\end{enumerate}
+
+\begin{definition}
+    \(f : \N^m \to \N\) --- \textbf{примитивно-рекурсивная}, если найдётся выражение \(f \) через примитивы \(Z, N, S, P, R\).
+\end{definition}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item \(1(x) = 1\)
+              \[1 = S\ev{N, Z}\]
+        \item \(( + 2)(x) = x + 2\)
+              \[( + 2) = S\ev{N, N}\]
+              \[S\ev{N, N}(x) = g(f(x)) = N(N(x)) = x + 2\]
+        \item \[( + 3) = S\ev{N, S\ev{N, N}}\]
+        \item \(( \times 2)\)
+
+              Промежуточная функция:
+              \[( \times 2_a) = R\ev{P_1^1, S\ev{N, P_3^2}}\]
+              \[( \times 2) = S\ev{( \times 2_a), P_1^1, P_1^1}\]
+    \end{enumerate}
+\end{example}
+
+Добавим новый примитив ``минимизация'':
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item \(M\ev{f} : \N^m \to N\) при \(f : \N^{m + 1} \to \N\)
+
+          \(M\ev{f}(x_1 \dots x_m) = y\) --- минимальный \(y\) такой, что \(f(y, x_1 \dots x_m) = 0\). Если \(f(y, x_1 \dots x_m) > 0\) при всех \(y\), результат неопределён.
+\end{enumerate}
+
+\begin{theorem}
+    \(( +), (\cdot), (x^y), (:), (\sqrt{})\), деление с остатком, числа Фибоначчи --- примитивно-рекурсивные функции.
+\end{theorem}
+
+Пусть \(p_1, p_2 \dots \) --- простые числа.
+
+\begin{statement}
+    \(p(i) : \N \to \N, p(i) = p_i\) --- примитивно-рекурсивная функция.
+\end{statement}
+
+\(2^{k_1} \cdot 3^{k_2} \cdot 5^{k_3} \cdot \ldots \cdot p_i^{k_i}\) --- примитивно-рекурсивно
+
+\[\text{plog}_n k = \max t : k \equiv 0 \mod n^t\]
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item \(\text{plog}_5 120 = 1\)
+        \item \(\text{plog}_2 120 = 3\)
+    \end{enumerate}
+\end{example}
+
+\(\text{plog}_k p\) --- примитивно-рекурсивная функция.
+
+Тогда мы можем кодировать \(\ev{k_1 \dots k_n}\) как \(2^{k_1} \cdot 3^{k_2} \cdot 5^{k_3} \cdot \ldots \cdot p_i^{k_i}\) и перевод в любую сторону примитивно-рекурсивен. С помощью такого подхода проще создавать примитивно-рекурсивные функции.
+
+\begin{definition}[Функция Аккермана]
+    \[A(m, n) = \begin{cases}
+            n + 1,                 & m = 0        \\
+            A(m - 1, 1),           & m > 0, n = 0 \\
+            A(m - 1, A(m, n - 1)), & n > 0, n > 0
+        \end{cases}\]
+\end{definition}
+\begin{statement}
+    \(A(m, n)\) не примитивно-рекурсивно.
+\end{statement}
+\begin{proof}
+    Общая идея: если некоторый текст длины \(n\) задал число \(k\), то добавление одного символа не позволяет получить число больше, чем \(k^k\), т.к \(R\) не может совершить больше \(R\) итераций.
+\end{proof}
+
+\begin{theorem}
+    \(f\) --- рекурсивная функция. Тогда \(f\) представима в формальной арифметике.
+    \label{рекурсивная -> ФА}
+\end{theorem}
+\begin{theorem}
+    \(f\) представима в формальной арифметике. Тогда \(f\) рекурсивна.
+\end{theorem}
+
+\begin{proof}
+    Пусть \(\vdash \varphi\) и \(\delta_1 \dots \delta_n \equiv \varphi\) --- доказательство \(\varphi\) в формальной арифметике.
+
+    Пусть \(C\) --- рекурсивная функция, проверяющая доказательство в формальной арифметике, т.е. \(C(p, x) = \begin{cases} 0, & \text{доказательство корректно} \\ \neq 0, & \text{доказательство некорректно} \end{cases} \), где \(x\) --- запись доказательства формулы \(p\).
+
+    По теореме \ref{рекурсивная -> ФА} получим формулу \(\sigma\), для которой верно \(\vdash \sigma(p, x, 0)\), если \(p\) --- доказательство формулы \(x\).
+\end{proof}
+
+\subsection{Проблема останова}
+
+Пусть есть программа \(P(p, x) = \begin{cases}
+    0, & \text{если } p(x) \text{ останавливается}    \\
+    1, & \text{если } p(x) \text{ не останавливается}
+\end{cases}\)
+
+Рассмотрим программу \texttt{Q}:
+\begin{minted}{c}
+Q(p)
+    if P(p) = 1
+        return 0
+    else
+        while true do;
+\end{minted}
+
+Чему равно \(Q(Q)\)? Ни 0, ни 1. Это противоречие.
+
+Мы аналогичным образом сломаем наше доказательство --- создадим формулу ``для меня нет доказательства''.
+
+\setcounter{theorem}{24}
+\begin{subtheorem}{theorem}
+    \begin{theorem}
+        Примитивы \(Z, N, S, P\) представимы в формальной арифметике.
+    \end{theorem}
+    \begin{proof}\itemfix
+        \begin{enumerate}
+            \item \(Z : \xi : = x_1 = x_1 \with x_2 = 0\)
+            \item \(N : \nu : = x_2 = x_1'\)
+            \item \(P_k^l : \pi_k^l : = x_1 = x_1 \with x_2 = x_2 \with \dots \with x_l = x_{k+1} \with \dots \with x_k = x_k\)
+            \item \(S\ev{g, f_1 \dots f_k} : g \leftrightarrow \gamma, f_i \leftrightarrow \varphi_i\).
+                  \[\exists r_1.\exists r_2.\dots \exists r_k.\varphi_1(x_1 \dots x_m, r_1) \with \varphi_2(x_1\dots x_m, r_2) \with \dots \with \varphi_k(x_1 \dots x_m, r_k) \with \gamma(r_1 \dots r_k, x_{m+1})\]
+                  \setcounter{enumi}{5}
+            \item \(M\ev{f}\)
+                  \[\varphi(x_{m+1}, x_1 \dots x_m, \overline 0) \with \forall y.y < x_{m+1} \to \neg \varphi(y, x_1 \dots x_m, \overline 0)\]
+                  \setcounter{enumi}{4}
+            \item \(\beta\)-функция Гёделя:
+                  \[\beta(b, c, i) = b \% (1 + c \cdot (i + 1))\]
+                  \begin{theorem}
+                      \(a_0 \dots a_n\) --- некоторые значения \(\in \N\). Тогда найдутся \(b \) \(c\) такие, что \(\beta(b, c, i) = a_i\)
+                  \end{theorem}
+                  \begin{proof}
+                      \begin{statement}
+                          Если \(i \neq j\), то \(1 + c(i + 1)\) взаимно просто с \(1 + c(j + 1)\).
+                      \end{statement}
+
+                      \begin{proof}
+                          \(c : = \max(a_0 \dots a_n, n)!\).
+
+                          Пусть есть некоторый простой \(p\): \(1 + c(i + 1) \equiv 0 \mod p\) и \(1 + c(j + 1) \equiv 0 \mod p\). Тогда \(c(i + 1 - j - 1) \equiv 0 \mod p\) и \(c(i - j) \equiv 0 \mod p\) --- противоречие.
+                      \end{proof}
+
+                      \begin{statement}
+                          По китайской теореме об остатках найдётся \(b\) с нужными свойствами.
+                      \end{statement}
+                  \end{proof}
+
+                  \(\beta\) примитивно-рекурсивна и представима в формальной арифметике:
+                  \[B(b, c, i, q) = (\exists p.b = p\cdot(1 + c \cdot (1 + i)) + q) \with q < b\]
+
+                  Тогда для \(R\ev{f, g}\), если \(f \leftrightarrow \varphi, g \leftrightarrow \gamma\):
+                  \begin{align*}
+                      \exists b.\exists c.\exists f.\varphi(x_1 \dots x_n, f) & \with B(b, c, \overline 0, f) \with \forall y.y < x_{n+1} \to \exists r_{y - 1}.B(b, c, y - 1, r_{y - 1}) \\
+                                                                              & \with \exists r_{y+1}.B(b,c,y + 1,r_{y+1}) \with \varphi(y, r_y, x_1 \dots x_n, r_{y+1})                  \\
+                                                                              & \with B(b, c, x_{n+1}, x_{n + 2})
+                  \end{align*}
+        \end{enumerate}
+    \end{proof}
+\end{subtheorem}
+\setcounter{theorem}{26}

@@ -129,6 +129,23 @@
 \newtheorem*{prop}{Свойства}
 \newtheorem*{obozn}{Обозначение}
 
+% subtheorem
+\makeatletter
+\newenvironment{subtheorem}[1]{%
+    \def\subtheoremcounter{#1}%
+    \refstepcounter{#1}%
+    \protected@edef\theparentnumber{\csname the#1\endcsname}%
+    \setcounter{parentnumber}{\value{#1}}%
+    \setcounter{#1}{0}%
+    \expandafter\def\csname the#1\endcsname{\theparentnumber.\Alph{#1}}%
+    \ignorespaces
+}{%
+    \setcounter{\subtheoremcounter}{\value{parentnumber}}%
+    \ignorespacesafterend
+}
+\makeatother
+\newcounter{parentnumber}
+
 \newtheorem{manualtheoreminner}{Теорема}
 \newenvironment{manualtheorem}[1]{%
     \renewcommand\themanualtheoreminner{#1}%

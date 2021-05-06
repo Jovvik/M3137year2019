@@ -15,8 +15,8 @@
     \item \(P_k^l : \N^k \to \N : P_k^l(x_1 \dots x_k) = x_l\) при \(l \leq k\) --- проекция
     \item \(R\langle f, g \rangle : \N^{m + 1} \to \N\), если \(f : \N^m \to \N, g : \N^{m + 2} \to \N\)
           \[R \langle f, g \rangle (y, x_1 \dots x_m) = \begin{cases}
-                  f(x_1 \dots x_m),                                               & y = 0 \\
-                  g(y - 1, R \langle f, g \rangle(x_1 \dots x_m), x_1 \dots x_m), & y > 0
+                  f(x_1 \dots x_m),                                                      & y = 0 \\
+                  g(y - 1, R \langle f, g \rangle(y - 1, x_1 \dots x_m), x_1 \dots x_m), & y > 0
               \end{cases} \]
 
           \(R\) называется \textbf{примитивной рекурсией}.

@@ -50,7 +50,7 @@
     \begin{itemize}
         \item \(f, g\) --- измеримо
     \end{itemize}
-    Тогда \(fg\) --- измеримо, если \(0\cdot \infty = 0\).
+    Тогда \(fg\) --- измеримо (пусть \(0\cdot \infty = 0\)).
 \end{corollary}
 \begin{proof}
     \[\underbrace{f_n}_{\text{ступ.}} \to f, \underbrace{g_n}_{\text{ступ.}} \to g\]
@@ -146,7 +146,7 @@
 \begin{exercise}
     \(f : \R \to \R\) --- измеримо.
 
-    Доказать: \(\R^2 \to \R : (x, y) \mapsto f(x, y)\) --- измеримо.
+    Доказать: \(\R^2 \to \R : (x, y) \mapsto f(x - y)\) --- измеримо.
 \end{exercise}
 
 \begin{exercise}
@@ -183,7 +183,8 @@
     \begin{enumerate}
         \item \begin{itemize}
                   \item \(\mu\) --- полная
-                  \item \(f_n, f : X \to \overline R\) п.в. \(X\)
+                  \item \(f_n, f : X \to \overline R\)
+                  \item \(f_n \to f\) п.в. \(X\)
                   \item \(f_n\) измеримо
               \end{itemize}
 
@@ -192,7 +193,7 @@
               \begin{proof}
                   \(f_n \to f\) на \(X'\), где \(e = X\setminus X', \mu e = 0\)
 
-                  \(f\) --- измеримо на \(X\)
+                  \(f\) --- измеримо на \(X'\)
 
                   \(\mu\) --- полная \( \Rightarrow \) \(f\) измеримо на \(X\), т.к. \(X(f < a) = \underbrace{X'(f < a)}_{\text{изм.}} \cup \underbrace{e(f < a)}_{\subset e}\)
               \end{proof}

@@ -2,32 +2,38 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 159,
+    "count": 172,
     "uniques": 62
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 107,
-    "uniques": 42
+    "count": 142,
+    "uniques": 45
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 32,
-    "uniques": 11
+    "count": 34,
+    "uniques": 12
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/matlog/4sem",
     "title": "M3137year2019/matlog/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 18,
-    "uniques": 13
+    "count": 22,
+    "uniques": 14
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "Jovvik/M3137year2019 at pdfs",
-    "count": 18,
-    "uniques": 11
+    "count": 21,
+    "uniques": 12
+  },
+  {
+    "path": "/Jovvik/M3137year2019/issues",
+    "title": "Issues · Jovvik/M3137year2019",
+    "count": 13,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/main.pdf",
@@ -36,16 +42,10 @@
     "uniques": 5
   },
   {
-    "path": "/Jovvik/M3137year2019/issues",
-    "title": "Issues · Jovvik/M3137year2019",
-    "count": 12,
-    "uniques": 5
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
     "count": 12,
-    "uniques": 4
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/analysis/4sem/1.tex",
@@ -54,9 +54,9 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/analysis",
-    "title": "M3137year2019/analysis at master · Jovvik/M3137year2019 · GitHub",
-    "count": 6,
-    "uniques": 6
+    "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
+    "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019",
+    "count": 7,
+    "uniques": 5
   }
 ]

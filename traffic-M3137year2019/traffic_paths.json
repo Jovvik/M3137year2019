@@ -2,42 +2,48 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 195,
-    "uniques": 57
+    "count": 208,
+    "uniques": 63
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 45,
-    "uniques": 23
+    "count": 48,
+    "uniques": 25
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 44,
-    "uniques": 23
+    "count": 45,
+    "uniques": 24
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 20,
-    "uniques": 10
+    "count": 19,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 17,
-    "uniques": 9
+    "count": 18,
+    "uniques": 10
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "Jovvik/M3137year2019 at pdfs",
-    "count": 8,
-    "uniques": 8
+    "count": 9,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/issues",
     "title": "Issues · Jovvik/M3137year2019 · GitHub",
+    "count": 7,
+    "uniques": 5
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/matlog/4sem",
+    "title": "M3137year2019/matlog/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 7,
     "uniques": 5
   },
@@ -50,12 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/tree/master/analysis",
     "title": "M3137year2019/analysis at master · Jovvik/M3137year2019",
-    "count": 5,
-    "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/matlog/4sem",
-    "title": "M3137year2019/matlog/4sem at pdfs · Jovvik/M3137year2019",
     "count": 4,
     "uniques": 4
   }

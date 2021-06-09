@@ -197,19 +197,21 @@
 
 \section{Плотность одной меры по отношению к другой. Замена переменных в интеграле.}
 
+%<*образприотображении>
 \(\sphericalangle (X, \mathfrak{A}, \mu)\) --- пространство с мерой, \((Y, \mathfrak{B}, \text{\textvisiblespace}), \Phi : X \to Y\)
 
 Пусть \(\Phi\) --- измеримо в следующем смысле:
-\[\Phi^{ - 1}(\mathfrak{B})\subset \mathfrak{A}\]
+\[\Phi^{ - 1}(\mathfrak{B}) \subset \mathfrak{A}\]
 
 \begin{exercise}
     Проверить, что \(\Phi^{-1}\) --- \(\sigma\)-алгебра. % TODO #89
 \end{exercise}
 
 Для \(E\in \mathfrak{B}\) положим \(\nu(E) = \mu\Phi^{-1}(E)\). Тогда \(\nu\) --- мера:
-\[\nu\left(\bigsqcup E_n\right) = \mu(\Phi^{-1}\left(\bigsqcup E_n\right)) = \mu\left(\bigsqcup \Phi^{-1}(E_n)\right) = \sum \mu \Phi^{-1} E_n = \sum \nu E_n\]
+\[\nu\left(\bigsqcup E_n\right) = \mu\left(\Phi^{-1}\left(\bigsqcup E_n\right)\right) = \mu\left(\bigsqcup \Phi^{-1}(E_n)\right) = \sum \mu \Phi^{-1} E_n = \sum \nu E_n\]
 
 Мера \(\nu\) называется \textbf{образом} \(\mu\) при отображении \(\Phi\) и \(\nu E = \int_{\Phi^{-1}(E)} 1 d\mu\)
+%</образприотображении>
 
 \begin{observation}
     \label{об измеримости}
@@ -220,9 +222,11 @@
 \blfootnote{\eqref{брух}: т.к. \(Y(f < a)\in \mathfrak{B}\)}
 
 \begin{definition}
+    %<*взвешенныйобразмеры>
     \(\omega : X \to \overline\R, \omega \geq 0\), измеримо на \(X\).
     \[\forall B\in \mathfrak{B} \ \ \nu(B) : = \int_{\Phi^{-1}(B)}\omega(x)d\mu(x)\]
     Тогда \(\nu\) называется ``\textbf{взвешенный образ меры \(\mu\)}'', \(\omega\) называется \textbf{весом}.
+    %</взвешенныйобразмеры>
 \end{definition}
 
 \begin{theorem}[о вычислении интеграла по взвешенному образу меры]\itemfix
@@ -238,9 +242,9 @@
 
     Тогда \(\forall\) измеримой относительно \(\mathfrak{B}\) \(f\) на \(Y, f \geq 0\) выполнено следующее:
     \begin{enumerate}
-        \item \(f\circ \Phi\) измеримо на \(X\) относительно \(\mathfrak{A}\)
+        \item \(f \circ \Phi\) измеримо на \(X\) относительно \(\mathfrak{A}\)
         \item \begin{equation}
-                  \int_Y f(y) d \nu(y) = \int_X f(\Phi(x))\cdot \omega(x) d\mu(x) \label{доказываемый интеграл}
+                  \int_Y f(y) d \nu(y) = \int_X f(\Phi(x)) \cdot \omega(x) d\mu(x) \label{доказываемый интеграл}
               \end{equation}
     \end{enumerate}
 
@@ -248,14 +252,14 @@
 \end{theorem}
 
 \begin{proof}
-    Измеримость \(f\circ \Phi\) выполнена по наблюдению~\ref{об измеримости}.
+    Измеримость \(f \circ \Phi\) выполнена по наблюдению~\ref{об измеримости}.
 
     \begin{enumerate}
         \setcounter{enumi}{-1}
         \item Пусть \(f = \chi_B, B \in \mathfrak{B}\)
 
               \[(f \circ \Phi)(x) = f(\Phi(x)) = \begin{cases}
-                      1, & \Phi(x) \in B     \\
+                      1, & \Phi(x) \in B    \\
                       0, & \Phi(x) \notin B
                   \end{cases} = \chi_{\Phi^{-1}(B)}\]
 
@@ -298,8 +302,10 @@
 
 \begin{definition}
     Рассмотрим частный случай: \(X = Y, \mathfrak{A} = \mathfrak{B}, \Phi = \text{id}\). Кажется, что мы убили всю содержательность, но это не так --- есть ещё \(\omega\).
+    %<*плотностьмеры>
     \[\nu(B) = \int_B \omega(x)d\mu\]
     В этой ситуации \(\omega\) называется \textbf{плотностью} меры \(\nu\) относительно меры \(\mu\) и тогда по теореме~\nameref{о вычислении интеграла по взвешенному образу меры}:
     \[\int_X f d\nu = \int_X f(x) \omega(x) d\mu\]
+    %</плотностьмеры>
 \end{definition}
 

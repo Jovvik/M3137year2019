@@ -1,7 +1,9 @@
 \chapter{22 февраля}
 
 \begin{definition}
+    %<*суммируемаяфункция>
     Если оказалось, что \(\int_X f^{ +}, \int_X f^{ -}\) оба конечны, то \(f\) называется \textbf{суммируемой}.
+    %</суммируемаяфункция>
 \end{definition}
 
 \begin{remark}\itemfix
@@ -27,6 +29,7 @@
 \end{remark}
 
 \begin{prop}\itemfix
+    %<*свойстваинтегралалебега>
     \((X, \mathfrak{A}, \mu)\) --- пространство с мерой, \(E\subset X\) --- измеримо, \(g, f\) --- измеримо.
     \begin{enumerate}
         \item Монотонность \(f \leq g : \int_E f \leq \int_E g\)
@@ -91,17 +94,21 @@
                   \end{enumerate}
               \end{proof}
     \end{enumerate}
+    %</свойстваинтегралалебега>
 \end{prop}
 
 \begin{lemma}\itemfix
+    %<*счётнаяадиитивностьинтеграла>
     \begin{itemize}
         \item \(A = \bigsqcup\limits_{i = 1}^{+\infty} A_i\) --- измеримо
         \item \(g\) --- ступенчато
         \item \(g \geq 0\)
     \end{itemize}
     Тогда \[\int_A g d\mu = \sum_{i = 1}^{+\infty} \int_{A_i} g d\mu\]
+    %</счётнаяадиитивностьинтеграла>
 \end{lemma}
 \begin{proof}
+    %<*счётнаяадиитивностьинтегралаproof>
     \begin{align*}
         \int_A g d\mu & = \sum_{\text{кон.}} \alpha_k \mu(E_k\cap A)                     \\
                       & = \sum_k \sum_i \underbrace{\alpha_k \mu(E_k\cap A_i)}_{ \geq 0} \\
@@ -110,6 +117,7 @@
     \end{align*}
 
     \blfootnote{\eqref{переставлять можно}: переставлять можно, т.к. члены суммы \( \geq 0\).}
+    %</счётнаяадиитивностьинтегралаproof>
 \end{proof}
 
 \begin{theorem}\itemfix
@@ -175,6 +183,7 @@
 \end{example}
 
 \begin{theorem}[Леви]\itemfix
+    %<*леви>
     \label{леви}
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
@@ -187,7 +196,9 @@
     \begin{remark}
         \(f\) задано везде, кроме множества \(e\) меры \(0\). Считаем, что \(f = 0\) на \(e\). Тогда \(f\) измеримо на \(X\).
     \end{remark}
+    %</леви>
 \end{theorem}
+%<*левиproof>
 \begin{proof}\itemfix
     \begin{itemize}
         \item [ \( \leq \)] очевидно, т.к. \(\int f_n \leq f\) почти везде, таким образом:
@@ -204,6 +215,7 @@
 
     \blfootnote{\eqref{непрерывность снизу}: по непрерывности снизу меры \(\nu : E \mapsto \int_E g\)}
 \end{proof}
+%</левиproof>
 
 \begin{theorem}\itemfix
     \begin{itemize}

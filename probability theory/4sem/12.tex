@@ -1,0 +1,130 @@
+\chapter{1 мая}
+
+Пусть \(\xi_1\) и \(\xi_2\) --- случайные величины с плотностью \(f(x, y)\) и \(g : \R^2 \to \R\). Что мы можем сказать про случайную величину \(g(\xi_1, \xi_2)\)?
+
+\begin{theorem}
+    Пусть \(z \in \R, D_z = \{(x, y)\ |\ g(x, y) < z\}\). Тогда случайная величина \(\eta = g(x, y)\) имеет функцию распределения:
+    \[F_\eta(z) = \iint_{D_z} f(x, y) dx dy\]
+\end{theorem}
+
+\section{Формула свертки}
+
+\begin{theorem}
+    Пусть \(\xi_1, \xi_2\) --- независимые, абсолютно непрерывные случайные величины с плотностями \(f_{\xi_1}(x)\) и \(f_{\xi_2}(x)\) \\
+    Тогда \(\xi_1 + \xi_2\) имеет абсолютно непрерывное распределение с плотностью
+    \[ f_{\xi_1 + \xi_2}(t) = \int_{-\infty}^\infty f_{\xi_1}(t)\cdot f_{\xi_2}(t - x)\,dx \]
+\end{theorem}
+\begin{proof}
+    Т.к. случайные величины \(\xi_1\) и \(\xi_2\) независимы, то плотность совместного распределения равна произведению плотностей: \(f_{\xi_1\xi_2}(x, y) = f_{\xi_1}(x)f_{\xi_2}(y)\). Применим предыдущую теорему для \(\eta = g(\xi_1, \xi_2) = \xi_1 + \xi_2\). Тогда \(D_z = \{(x, y) \in \R^2 \big| x + y < z\}\)
+    \[ F_{\xi_1 + \xi_2}(z) = \iint_{D_z} f_{\xi_1\xi_2}(x, y)\,dx\,dy = \int_{-\infty}^\infty \,dx \int_{-\infty}^{t - x} f_{\xi_1}(x) f_{\xi_2}(y)\,dy = \]
+    \[ \left[\begin{matrix}
+                y = t - x            & t = y + x    & dy = dy \\
+                y(-\infty) = -\infty & t(z - x) = z &
+            \end{matrix}\right] = \int_{\-\infty}^\infty\,dx\int_{-\infty}^z f_{\xi_1}(x)f_{\xi_2}(t - x)\,dt = \]
+    \[ = \int_{-\infty}^z \underbrace{\int_{-\infty}^\infty f_{\xi_1}(x)f_{\xi_2}(t - x)\,dx}_{f_{\xi_1 + \xi_2}(t)} \,dt \implies f_{\xi_1 + \xi_2}(t) = \int_{-\infty}^\infty f_{\xi_1}(x)f_{\xi_2}(t - x)\,dx \]
+\end{proof}
+
+\section{Сумма стандартных распределений}
+
+\begin{definition}
+    Если сумма двух независимых случайных величин одного типа распределений также будет этого типа, то говорят что это распределение *устойчиво* относительно суммирования
+\end{definition}
+\begin{example}
+    Независимые случайные величины:
+    \begin{itemize}
+        \item \(\xi_1 \in B_{n, p}\)
+        \item \(\xi_2 \in B_{m, p}\)
+    \end{itemize}
+    Тогда \(\xi_1 + \xi_2 \in B_{n + m, p}\)
+\end{example}
+\begin{proof}
+    \(\xi_1 + \xi_2\) --- число успехов в серии из \(m + n\) испытаний, где \(p\) --- вероятность успеха при одном испытании. \(\xi_1 + \xi_2 \in B_{n + m, p}\)
+\end{proof}
+\begin{example}
+    Независимые случайные величины:
+    \begin{itemize}
+        \item \(\xi_1 \in \Pi_\lambda\)
+        \item \(\xi_2 \in \Pi_\mu\)
+    \end{itemize}
+    Тогда \(\xi_1 + \xi_2 \in \Pi_{\lambda + \mu}\)
+\end{example}
+\begin{proof}
+    \[ P(\xi_1 + \xi_2 = k) = \sum_{i = 0}^k P(\xi_1 = i, \xi_2 = k - i) = \sum_{i = 0}^k p(\xi_1 = i)\cdot p(\xi_2 = k - i) = \]
+    \[ = \sum_{i = 0}^k \]
+    \unfinished
+\end{proof}
+\begin{example}
+    \(\xi_1, \xi_2 \in N(0, 1)\) --- независимые случайные величины. Тогда \(\xi_1 + \xi_2 \in N(0, 2)\)
+\end{example}
+\begin{proof}
+    \unfinished
+\end{proof}
+\begin{example}\itemfix
+    \begin{itemize}
+        \item \(\xi_1 \in N(a_1, \sigma_1^2)\)
+        \item \(\xi_2 \in N(a_2, \sigma_2^2)\)
+    \end{itemize}
+    Тогда \(\xi_1 + \xi_2 \in N(a_1 + a_2, \sigma_1^2 + \sigma_2^2)\)
+\end{example}
+\begin{example}
+    \(\xi_1, \dots, \xi_n \in E_\alpha\) --- независимые случайные величины. Тогда \(\xi_1 + \dots + \xi_n \in \Gamma_{\alpha, n}\)
+\end{example}
+\begin{proof}
+    По индукции:
+    \begin{itemize}
+        \item \item База: \(E_\alpha = \Gamma_{\alpha, 1}\)
+        \item Переход: Пусть \(\xi_1 + \dots + \xi_{k - 1} = \Gamma_{\alpha, k - 1}\), тогда:
+              \[ f_{\xi_{k - 1}}(x) = \begin{cases}
+                      0                                                     & x \le 0 \\
+                      \frac{\alpha^{k - 1}}{(x - 2)!}x^{k - 1}e^{-\alpha x} & x \ge 0
+                  \end{cases} \]
+              По формуле свертки
+              \[ \unfinished \]
+    \end{itemize}
+\end{proof}
+\begin{example}\itemfix
+    \begin{itemize}
+        \item \(\xi_1 \in \Gamma_{\alpha, \lambda_1}\)
+        \item \(\xi_2 \in \Gamma_{\alpha, \lambda_2}\)
+    \end{itemize}
+    Тогда \(\xi_1 + \xi_2 \in \Gamma_{\alpha, \lambda_1 + \lambda_2}\)
+\end{example}
+\begin{proof}
+    \unfinished
+\end{proof}
+\begin{example}
+    \(\xi_1, \xi_2 \in U(0, 1)\)
+\end{example}
+
+\section{Условное распределение}
+
+\begin{definition}
+    \textbf{Условным распределением} случайной величины из системы случайных величин \((\xi, \eta)\) называется ее распределение найденное при условии, что другая случайная величина приняла определенное значение
+\end{definition}
+\begin{obozn}
+    \(\xi | \eta = y\) --- \(\xi\) при условии что \(\eta\) приняла значение \(y\)
+\end{obozn}
+\begin{definition}
+    Условным математическим ожиданием \(E(\xi | \eta = y)\) называется математическое ожидание случайной величины \(\xi\) при соответствующем условном распределении:
+    \begin{enumerate}
+        \item Условное распределение в дискретной системе двух случайных величин
+
+              \unfinished
+        \item Условное распределение в непрерывной системе двух случайных величин
+
+              Пусть двумерная абсолютно непрерывная случайная величина \((\xi, \eta)\) задана плотностью \(f_{\xi, \eta}(x, y)\). Тогда плотность условного распределения \(\xi | \eta = y\) будет равна:
+              \[ f(x|y) = \frac{f_{\xi, \eta}(x, y)}{f_{\eta}(y)} \]
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    Функция \(f(x|y)\) называется \textbf{условной плотностью}. Аналогично \(f(y | x) = \frac{f_{\xi, \eta}(x, y)}{f_{\xi}(x)}\)
+\end{definition}
+\begin{lemma}
+    Условное математическое ожидание вычисляется по формуле:
+    \[ E(\xi | \eta = y) = \int_{-\infty}^\infty x\cdot f(x |y)\,dx \]
+    Аналогично
+    \[ E(\eta | \xi = x) = \int_{-\infty}^\infty y\cdot f(y | x)\,dy \]
+\end{lemma}
+\begin{remark}
+    При фиксированном значении переменной \(x\) \(f(y | x)\) будет функцией зависящей только от \(y\), а условное математическое ожидание будет числом. Если считать \(x\) переменной, то условное математическое ожидание является функцией зависящей от \(x\) и называется функцией \textbf{регрессии} \(\eta\) на \(\xi\). Т.к. \(\eta\) --- случайная величина, то \(E(\xi | \eta)\) можно рассматривать как случайную величину.
+\end{remark}

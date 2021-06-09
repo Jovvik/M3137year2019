@@ -1,0 +1,163 @@
+\chapter{15 мая}
+
+\section{Комплексная случайная величина}
+\[ \xi + i\eta \]
+\[ \mathbb{E}(\xi + i \eta) = \mathbb{E}\xi + iE\eta \]
+\begin{definition}
+    Характеристической функцией случайной величины \(\xi\) называется функция \[\varphi_{\xi}(t) = \mathbb{E} e^{it\xi}\quad t \in \R\]
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item
+              Характеристическая функция существует для любой случайной величины, при чем
+              \[ |\varphi_\xi(t)| \le 1 \]
+
+              \begin{proof}
+                  \[ \mathbb{D}\eta  = \mathbb{E}\eta^2 - (\mathbb{E}\eta)^2 \ge 0 \implies (\mathbb{E}\eta)^2 \le \mathbb{E}\eta^2 \]
+                  \[ |\varphi_\xi(t)|^2 = |\mathbb{E} e^{it\xi}|^2 = |\mathbb{E}\cos t\xi + iE\sin t\xi|^2 = (\mathbb{E}\cos t\xi)^2 + (\mathbb{E}\sin t\xi)^2 \le   \]
+                  \[ \le \mathbb{E}\cos^2t\xi + \mathbb{E}\sin^2 t\xi = \mathbb{E}(\cos^2t\xi + \sin^2t\xi) = E1 = 1 \]
+              \end{proof}
+        \item
+              Пусть \(\varphi_\xi(t)\) --- характеристическая функция случайной величины \(\xi\), тогда характеристическая функция случайной величины \(\eta = a + b\xi\):
+              \[ \varphi_{a + b\xi}(t) = e^{ita}\cdot\varphi_\xi(bt)\]
+
+              \begin{proof}
+                  \[ \varphi_{a + b\xi}(t) = Ee^{it(a + b\xi)} = Ee^{ita}\cdot e^{itb\xi} = e^{ita}\cdot Ee^{i(tb)\xi} = e^{ita} \cdot \varphi_\xi(bt) \]
+              \end{proof}
+        \item
+              Пусть случайная величины \(\xi\) и \(\eta\) независимы, тогда
+              \[ \varphi_{\xi + \eta}(t) = \varphi_\xi(t) \cdot \varphi_\eta(t) \]
+
+              \begin{proof}
+                  \[ \varphi_{\xi + \eta}(t)  = Ee^{it(\xi + \eta)} = Ee^{it\xi}\cdot e^{it\eta} = Ee^{it\xi}\cdot Ee^{it\eta} = \varphi_\xi(t)\cdot \varphi_\eta(t) \]
+              \end{proof}
+        \item
+              Пусть существует \(k\)-тый момент случайной величины \(\xi\), тогда характеристическая функция \(\varphi_\xi(t)\) непрерывно дифференцируема \(k\) раз и \[\varphi_\xi^{(k)}(0) = i^k\cdot \mathbb{E}\xi^k\]
+
+              \begin{proof}
+                  Доказательство существования непрерывности опустим
+                  \[ \varphi_\xi^{(k)}(0) = \left(\frac{\partial^k}{\partial t^k} Ee^{it\xi}\right) = \mathbb{E}\left(\frac{\partial^k}{\partial t^k} e^{it\xi}\right) = \mathbb{E}(i^k\xi^ke^{it\xi}) \xlongequal[t = 0]{} \mathbb{E}(i^k \xi^k e^0) = i^k\cdot \mathbb{E}\xi^k \]
+              \end{proof}
+        \item
+              Пусть \(\mathbb{E}|\xi|^k < \infty\). Тогда
+              \[ \varphi_\xi(t) = \varphi_\xi(0) + it \mathbb{E}\xi - \frac{t^2}{2}\mathbb{E}\xi^2 + \dots + \frac{i^kt^k}{k!}\mathbb{E}\xi^2 + o(|t|^k) \]
+
+              \begin{proof}
+                  По формуле Тейлора в точке \(t = 0\)
+                  \[ \varphi_\xi(t) = \varphi_\xi(0) + \frac{\varphi_\xi'(0)}{1!}t + \frac{\varphi_\xi''(0)}{2!}t^2 + \dots + \frac{\varphi_\xi^{(k)}}{k!}t^k + o(|t|^2) = \]
+                  \[ = \varphi_\xi(0) + itE\xi - \frac{t^2}{2}\mathbb{E}\xi^2 + \dots + \frac{i^k t^k}{k!} \mathbb{E}\xi^k + o(|t|^2) \]
+              \end{proof}
+        \item
+              \label{свойство 6 эксп СВ}
+              Распределение случайной величины восстанавливается по характеристической функции, т.е. существует взаимно однозначное соответствие между распределениями и характеристическими функциями. В частности если \(\xi\) --- абсолютно непрерывная случайная величина, то плотность:
+              \[ f_\xi(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty e^{-itx}\cdot \varphi_\xi(t)\,dt \]
+
+    \end{enumerate}
+\end{prop}
+\begin{theorem}[о непрерывном соответсвии]
+    Последовательность случайных величин \(\xi_n\) слабо сходится к случайной величине \(\xi\), тогда и только тогда, когда соответствующая последовательность характеристических функций поточечно сходится к характеристической функции \(\varphi_\xi(t)\)
+    \[ \xi_n \rightrightarrows \xi \Leftrightarrow \forall t \in \R\ \varphi_{\xi_n}(t) \to \varphi_\xi(t)  \]
+\end{theorem}
+
+\subsection{Характеристические функции стандартных распределений}
+
+\subsubsection{Распределение Бернулли}
+
+\(\xi \in B_p\)
+\begin{tabular}{C|C|C}
+    \xi  & 0     & 1 \\
+    \eta & 1 - p & p
+\end{tabular}{C|C|C}
+\[ \varphi_\xi(t) = \mathbb{E} e^{it\xi} = e^{it\cdot 0} p(\xi = 0)  + e^{it1}\cdot p(\xi = 1) = 1 - p + pe^{it}\]
+\subsubsection{Биномиальное распределение}
+\(\xi \in B_{n,p}\) --- число успехов при \(n\) независимых испытаниях
+\[ \xi = \xi_1 + \dots + \xi_n \]
+, где \(\xi_i = B_{p}\) --- число успехов при одном испытании
+\[ \varphi_\xi(t) = (1 - p + e^{it})^n \]
+\subsubsection{Распределение Пуассона}
+\(\xi \in \Pi_\lambda\)
+\[ p(\xi = k) = \frac{\lambda^k}{k!}e^{-\lambda}\]
+\[ \varphi_\xi(t) = Ee^{it\xi} = \sum_{n = 0}^\infty e^{itk} \cdot p(\xi = k) = \sum_{n = 0}^\infty e^{itk} \frac{\lambda^k}{k!}e^{-\lambda} =  \]
+\[ = e^{-\lambda} \sum_{n = 0}^\infty \frac{(\lambda e^{it})^k}{k!} = e^{-\lambda}e^{\lambda e^{it}} = \exp(\lambda(e^{it} - 1))\quad \?\]
+
+\begin{prop}
+    \begin{enumerate}
+        \item
+              Если \(\xi \in \Pi_\lambda\), \(\eta \in \Pi_\mu\) --- независимые случайные величины, то \(\xi + \eta = \Pi_{\lambda + \mu}\)
+
+              \begin{proof}
+                  \[ \varphi_{\xi + \eta}(t) = \varphi_\xi(t)\cdot \varphi_\eta(t) = \exp(\lambda(it - 1))\cot \exp(\mu(it - 1)) = \exp((\lambda + \mu)(it - 1)) \]
+                  По свойству \ref{свойство 6 эксп СВ}
+              \end{proof}
+    \end{enumerate}
+\end{prop}
+\subsubsection{Гамма распределение}
+\(\xi \in \Gamma_{\alpha, \lambda}\)
+\[ f_\xi(x) = \frac{\alpha^\lambda}{\Gamma(\lambda)}x^{\lambda - 1}e^{-\alpha x}\quad x > 0 \]
+\[ \varphi_\xi(t) = \mathbb{E} e^{it\xi} = \? = \left(\frac{\alpha}{\alpha - it}\right)^\lambda \]
+
+\subsubsection{Экспоненциальное распределение}
+\(\xi \in E_\alpha = \Gamma_{\alpha, \lambda}\)
+\[ \varphi_\xi(t) = \frac{\alpha}{\alpha - it} \]
+\begin{corollary}
+    Пусть \(\xi \in \Gamma_{\alpha, \lambda_1}\), \(\eta \in \Gamma_{\alpha, \lambda_2}\) --- независимые случайные величины. Тогда \(\xi + \eta \in \Gamma_{\alpha, \lambda_1 + \lambda_2}\)
+\end{corollary}
+
+\subsubsection{Стандартное нормальное распределение}
+\(\xi \in N_{0,1}\)
+\[ f_\xi(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \]
+\[ \varphi_\xi(t) = \? = e^{-\frac{t^2}{2}} \]
+
+\subsubsection{Нормальное распределение}
+\(\xi \in N_{a,\sigma^2}\)
+\[ \eta = \frac{\xi - a}{\sigma} \in N(0, 1)\quad \xi = a + \sigma\eta \]
+\[ \varphi_\xi(t) = \varphi_{a + \sigma\eta}(t) = e^{ita}\cdot \varphi_\eta(\sigma t) = e^{ita}\cdot e^{-\frac{(\sigma t)^2}{2}} \]
+\begin{corollary}
+    \(\xi \in N(a_1, \sigma_1^2)\), \(\eta \in N(a_2, \sigma_2^2)\) --- независимые случайные величин. Тогда
+    \[ \xi + \eta N(a_1 + a_2, \sigma_1^2 + \sigma_2^2) \]
+\end{corollary}
+
+\subsection{Доказательство основных теорем}
+\begin{lemma}
+    \[ \left(1 + \frac{x}{n} + o\left(\frac{1}{n}\right)\right)^n \xrightarrow[n \to \infty]{} e^x \]
+\end{lemma}
+\begin{theorem}
+    Пусть \(\xi_1, \xi_2, \dots\) --- последовательность независимых одинаково распределенных случайных величин с конечным первым моментом \(a\).
+    Тогда
+    \[ \frac{S_n}{n} = \frac{\xi_1 + \dots + \xi_n}{n} \xrightarrow{p} a \]
+\end{theorem}
+\begin{theorem}
+    Пусть \(\xi_1, \xi_2, \dots\) --- последовательность независимых одинаково распределенных случайных величин с конечной дисперсией. \(a = \mathbb{E}\xi_1\), \(\sigma^2 = \mathbb{D}\xi_1\). \\
+    Тогда
+    \[ \frac{S_n - na}{\sigma\sqrt{n}} \rightrightarrows N_{0, 1} \]
+\end{theorem}
+\begin{proof}
+    \unfinished
+\end{proof}
+
+\subsubsection{Предельная теорема Муавра-Лапласа}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(\nu_n(A)\) --- число появления события \(A\) при \(n\) испытаниях
+        \item \(p\) --- вероятность одного испытания
+        \item \(q = 1 - p\)
+    \end{itemize}
+    Тогда
+    \[ \frac{\nu_n(A) - np}{\sqrt{npq}}\rightrightarrows N_{0,1} \]
+\end{theorem}
+\begin{corollary}[формула Муавра-Лапласа]
+    \[p(x_1 \le \nu_n \le x_2) = p\left(\frac{x_1 - np}{\sqrt{npq}} \le \underbrace{\frac{\nu_n - np}{\sqrt{npq}}}_\eta \le \frac{x_2 - np}{\sqrt{npq}} \right) = \]
+    \[ = F_\eta\left(\frac{x_1 - np}{\sqrt{npq}}\right)\cdot F_\eta\left(\frac{x_2 - np}{\sqrt{npq}}\right) \xrightarrow[n \to \infty]{} \Phi_0\left(\frac{x_1 - np}{\sqrt{npq}}\right) \cdot \Phi_0\left(\frac{x_2 - np}{\sqrt{npq}}\right)\]
+\end{corollary}
+\begin{remark}
+    Аналогичным образом ЦПТ(центральная предельная теорема) применяется при приближенных оценках вероятностей связанных с суммами большого числа независимых случайных величин. Какова погрешность?
+\end{remark}
+\begin{theorem}
+    В условиях ЦПТ, \? с конечным третьим моментом
+    \[ \left| p\left( \frac{S_n - \mathbb{E}\xi_1}{\sqrt{nD\xi_1}} \right) - \Phi_0(x) \right| \le C \frac{\mathbb{E}|\xi_1 - \mathbb{E}\xi_1|^2}{\sqrt{n}(\sqrt{\mathbb{D}\xi_1})^2} \quad \forall x \in \R \]
+\end{theorem}
+\begin{remark}
+    Можно взять \(C = 0.4\)
+\end{remark}

@@ -162,9 +162,11 @@
 \end{corollary}
 \begin{proof}
     Т.к. \(s < t\), то \(g(x) = x^{\frac{t}{s}}\) --- выпуклая. По неравенству Йенсена при \(\eta = \xi^s\):
-    % \[(\mathbb{E}||)\]
-    \unfinished
+    \[(\mathbb{E}|\xi|^s)^{\frac{t}{s}} = \mathbb{E}|\eta|^{\frac{t}{s}} = g(\mathbb{E}|\eta|) \leq \mathbb{E} g(\eta) = \mathbb{E}(|\xi|^s)^{\frac{t}{s}} = \mathbb{E}|\xi|^t\]
+    Возьмём корень степени \(t\):
+    \[(\mathbb{E}|\xi|^s)^{\frac{1}{s}} \leq (\mathbb{E}|\xi|^{t})^{\frac{1}{t}}\]
 \end{proof}
+В частности, если \(s = 1\), то \(\mathbb{E}|\xi| \leq \sqrt[t]{|\xi|^t}\)
 
 \subsubsection{Неравенство Маркова}
 
@@ -205,10 +207,11 @@
 
 \begin{theorem}
     Пусть имеется возрастающая функция \(g(x) \geq 0\). Тогда:
-    \[P(\xi \geq \varepsilon) \leq \frac{\mathbb{E} g(\xi)}{g(x)} \quad \forall \varepsilon \in \R\]
+    \[P(\xi \geq \varepsilon) \leq \frac{\mathbb{E} g(\xi)}{g(\xi)} \quad \forall \varepsilon \in \R\]
 \end{theorem}
 \begin{proof}
-    \unfinished
+    Т.к. \(g(x)\) возрастает, по неравенству Маркова:
+    \[P(\xi \geq \varepsilon) = P(g(\xi) \geq g(\varepsilon)) \leq \frac{\mathbb{E} g(\xi)}{g(\xi)}\]
 \end{proof}
 
 \subsubsection{Правило трёх сигм}
@@ -242,10 +245,8 @@
 \end{theorem}
 \begin{proof}
     Пусть \(a = \mathbb{E}\xi_i, d = \mathbb{D}\xi_i, S_n = \xi_1 + \dots + \xi_n\)
-    \begin{align*}
-        P\left( \left|\frac{S_n}{n} - a\right| \geq \varepsilon \right) =
-    \end{align*}
-    \unfinished
+    \[P\left( \left|\frac{S_n}{n} - a\right| \geq \varepsilon \right) = P\left( \left|\frac{S_n}{n} - \mathbb{E}\left( \frac{S_n}{n} \right) \right| \geq \varepsilon \right) \leq \frac{\mathbb{D}\left( \frac{S_n}{n} \right)}{\varepsilon^2} = \frac{\frac{d}{n}}{\varepsilon^2} = \frac{d}{\varepsilon^2} \cdot \frac{1}{n} \xrightarrow{n \to +\infty} 1\]
+    \[P\left( \left|\frac{S_n}{n} - a\right| \geq \varepsilon \right) \xrightarrow{n \to +\infty} 1 \Rightarrow \frac{S_n}{n} \xrightarrow{P} a\]
 \end{proof}
 
 \subsubsection{Закон больших чисел Бернулли}
@@ -257,8 +258,12 @@
     Эта теорема обосновывает определение статистической вероятности.
 \end{remark}
 \begin{proof}
-    \unfinished
+    Заметим, что \(v_A = \xi_1 + \xi_2 + \dots \xi_n\), где \(\xi_i\) есть число появления \(A\) при \(i\)-том испытании. \(\xi_i \in B_p \Rightarrow \mathbb{E}\xi_i = p, \mathbb{D}\xi_i = pq\). Поэтому по закону больших чисел Чебышева \(\frac{v_A}{n} = \frac{S_n}{n} \xrightarrow{P} E \xi_i = p\).
 \end{proof}
+
+При этом:
+\[P\left( \left|\frac{v_A}{n} - p\right| \geq \varepsilon \right) \leq \frac{pq}{n\varepsilon^2}\]
+Этот факт можно можно использовать для грубой оценки.
 
 \subsubsection{Закон больших чисел Хинчина}
 
@@ -279,7 +284,9 @@
     Последовательность случайных величин \(\xi_1 \dots \xi_n\) с конечными вторыми моментами, причём \(\mathbb{D}S_n = \smallO(n^2)\). Тогда \(\frac{S_n}{n} \xrightarrow{P} \mathbb{E}\left( \frac{S_n}{n} \right)\) или \(\frac{\xi_1 + \dots + \xi_n}{n} - \frac{\mathbb{E}\xi_1 + \dots + \mathbb{E}\xi_n}{n} \xrightarrow{P} 0 \)
 \end{theorem}
 \begin{proof}
-    \unfinished
+    \[\mathbb{E}\left( \frac{S_n}{n} \right) = \frac{\mathbb{E} \xi_1 + \dots + \mathbb{E} \xi_n}{n}\]
+    По неравенству Чебышева:
+    \[P\left( |\frac{S_n}{n} - \mathbb{E}\left( \frac{S_n}{n} \right)| \geq \varepsilon \right) \leq \frac{\mathbb{D}\left( \frac{S_n}{n} \right)}{\varepsilon^2} = \frac{\mathbb{D}(S_n)}{n^2 \varepsilon^2} = \frac{\smallO(n^2)}{n^2 \varepsilon^2} = \frac{1}{\varepsilon^2} \cdot \underbrace{\frac{\smallO(n^2)}{n^2}}_{ \to 0} \xrightarrow{n \to +\infty} 0\]
 \end{proof}
 
 \begin{theorem}[центральная предельная теорема Ляпунова, 1901 г.]

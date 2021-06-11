@@ -30,9 +30,16 @@
     \[g_n \geq 0\]
     \[\lim\limits_{n \to +\infty} g_n(x) = f(x) : g_n(x) \leq f(x)\]
 
-    \textcolor{red}{Не дописано.}
+    \[\lim\limits_{n \to +\infty} g_n(x) = f(x) :
+	\begin{cases}
+    	g_n(x) \le f(x) \vspace{0.25cm} \\
+    	f(x) = +\infty: \;\forall n\;\; x\in e_{n^2 + 1}^{(n)} \Rightarrow g_n(x) = n \vspace{0.25cm} \\
+    	f(x) < +\infty: \;|g_n(x) - f(x)|\le \frac{1}{n} \\
+	\end{cases}\]
 
-    % TODO: #66 дописать
+    \[f_n = max(g_1, ..., g_n)\]
+    \[g_n(x) \le f_n(x) \le f(x)\]
+	\[f_n(x) \xrightarrow[n\to+\infty]{} f(x)\]
     %</характеризацияизмеримыхфункцийспомощьюступенчатыхproof>
 \end{proof}
 
@@ -40,7 +47,7 @@
     \begin{itemize}
         \item \(f\) --- измеримо
     \end{itemize}
-    Тогда \(\exists f_n\) --- измеримые : \(f_n \xrightarrow[n \to +\infty]{} f\) всюду и \(|f_n| \leq |f|\)
+    Тогда \(\exists f_n\) --- ступенчатые : \(f_n \xrightarrow[n \to +\infty]{} f\) всюду и \(|f_n| \leq |f|\)
 \end{corollary}
 \begin{proof}
     Рассмотрим срезки \(f^{+}, f^{-}\), дальше очевидно.
@@ -121,7 +128,7 @@
         \const, x\in e
     \end{cases}\)
 
-    \[E(\tilde{f} < a) = \underbrace{E'(\tilde{f} < a)}_{E'(f < a)} \subset \underbrace{e(\tilde{f} < a)}_{\emptyset \text{ или } e}\]
+    \[E(\tilde{f} < a) = \underbrace{E'(\tilde{f} < a)}_{E'(f < a)} \cup \underbrace{e(\tilde{f} < a)}_{\emptyset \text{ или } e}\]
 \end{proof}
 
 \begin{corollary}
@@ -165,7 +172,7 @@
         \item \(W(x)\) --- высказывание \((x \in X)\)
     \end{itemize}
 
-    \(W(x)\) --- верно при почти всех из \(E\) = почти всюду на \(E\) = почти везде на \(E\) = п.в. \(E\), если:
+    \(W(x)\) --- верно при почти всех x из \(E\) = почти всюду на \(E\) = почти везде на \(E\) = п.в. \(E\), если:
 
     \(\exists e\in E : \mu e = 0 \ \ W(x)\) --- истинно при \(x\in E\setminus e\)
     %</свойствопочтивезде>
@@ -201,13 +208,19 @@
         \item \? % TODO #68
         \item Пусть \(\forall n \ \ W_n(x)\) истинно при почти всех \(x\).
 
-              Тогда утверждение `` \(\forall n \ \ W_n\) истинно'' --- верно при почти всех \(X\)
+              Тогда утверждение `` \(\forall n \ \ W_n(x)\) истинно'' --- верно при почти всех \(X\)
 
               \begin{proof}
                   \(\sphericalangle e_n : \mu(e_n) = 0\). Искомое высказывание верно при \(x\in X \setminus \left( \bigcup\limits_{i = 1}^{+\infty} e_i \right), \mu(\bigcup e_i) = 0\)
               \end{proof}
     \end{enumerate}
 \end{prop}
+
+\begin{definition}
+	%<*эквивалентность>
+	Будем говорить, что \(f\) эквивалентна \(g\) если \(f = g\) почти всюду.
+	%</эквивалентность>
+\end{definition}
 
 \begin{definition}
     %<*сходимостьпомере>
@@ -277,7 +290,7 @@
 
     Таким образом, по теореме о непрерывности меры сверху, \(\mu X(f_n \geq \varepsilon) \to 0\)
 
-    Рассмотрим общий случай: \(f_n \to f\), \(\varphi(x) : = \sup\limits_{k \geq n} |f_k(x) - f(x)|\)
+    Рассмотрим общий случай: \(f_n \to f\), \(\varphi_n(x) : = \sup\limits_{k \geq n} |f_k(x) - f(x)|\)
 
     Тогда \(\varphi_n \to 0, \varphi_n \geq 0\) и монотонно, таким образом мы попали в частный случай.
 
@@ -290,6 +303,7 @@
     %<*рисса>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
+        \item \(f_n, f\) --- измеримо, п.в. конечно
         \item \(f_n \longarrow{\mu} f\).
     \end{itemize}
     Тогда \(\exists n_k : f_{n_k} \to f\) почти везде.
@@ -315,7 +329,7 @@
 
     \[x\notin E \ \ \exists N \ \ x\notin E_k \text{ при } k > N \ \ |f_{n_k}(x) - f(x)|< \frac{1}{k}\]
 
-    То есть \(f_{n_k}(x) \to f(a)\).
+    То есть \(f_{n_k}(x) \to f(x)\).
 
     Т.к. \(\mu E = 0\), искомое выполнено.
 \end{proof}
@@ -338,6 +352,7 @@
         \item \(X, \mathfrak{A}, \mu\)
         \item \(\mu X < +\infty\)
         \item \(f_n, f\) --- почти везде конечно, измеримо
+        \item \(f_n \to n\) почти везде
     \end{itemize}
 
     Тогда
@@ -396,7 +411,7 @@
     \begin{itemize}
         \item Если \(f\) ступенчатая, то определение 2 = определение 1.
         \item \(0 \leq \int_X f \leq +\infty\)
-        \item \(g \leq f, f\) --- измеримая, \(g\) --- измеримая \( \Rightarrow \int_X g \leq \int_X f\)
+        \item \(g \leq f, f\) --- измеримая, \(g\) --- ступенчатая \( \Rightarrow \int_X g \leq \int_X f\)
     \end{itemize}
 \end{prop}
 
@@ -421,7 +436,7 @@
     \end{itemize}
 
     \begin{obozn}
-        \[\forall x\in\R^{m + n} \ \ E_x : = \{y\in\R^n : (x, y)\in E\} \]
+        \[\forall x\in\R^m \ \ E_x : = \{y\in\R^n : (x, y)\in E\} \]
         % TODO: #71 иллюстрация
     \end{obozn}
 

@@ -1,14 +1,14 @@
 \chapter{2 апреля}
 
 \begin{definition}
-    Будем говорить, что \(\Gamma \models \alpha\), т.е. \(\alpha\) следует из \(\Gamma\), если при всех оценках, таких что все \(\gamma \in \Gamma \ \ \llbracket \gamma \rrbracket = \text{И}\), выполнено \(\llbracket \alpha \rrbracket = \text{И}\)
+    Будем говорить, что \(\Gamma \vDash \alpha\), т.е. \(\alpha\) следует из \(\Gamma\), если при всех оценках, таких что все \(\gamma \in \Gamma \ \ \llbracket \gamma \rrbracket = \text{И}\), выполнено \(\llbracket \alpha \rrbracket = \text{И}\)
 \end{definition}
 
 \begin{example}[странный случай]
-    \(x = 0 \vdash \forall x.x = 0\), но \(x = 0 \nVdash \forall x.x = 0\)
+    \(x = 0 \vdash \forall x.x = 0\), но \(x = 0 \nvDash \forall x.x = 0\)
 \end{example}
 
-Условие для корректности: правила для кванторов по свободным переменным из \(\Gamma\) запрещены. Тогда \(\Gamma \vdash \alpha\) влечёт \(\Gamma \models \alpha\) и \(\llbracket \alpha [x: = \Theta] \rrbracket = \llbracket \alpha \rrbracket^{x: = \llbracket \Theta \rrbracket}\)
+Условие для корректности: правила для кванторов по свободным переменным из \(\Gamma\) запрещены. Тогда \(\Gamma \vdash \alpha\) влечёт \(\Gamma \vDash \alpha\) и \(\llbracket \alpha [x: = \Theta] \rrbracket = \llbracket \alpha \rrbracket^{x: = \llbracket \Theta \rrbracket}\)
 
 \begin{remark}
     Здесь и далее мы предполагаем условие корректности.
@@ -141,10 +141,10 @@
 \end{proof}
 
 \begin{corollary}
-    Пусть \(\models \alpha\) и \(\alpha\) замкнута, тогда \(\vdash \alpha\).
+    Пусть \(\vDash \alpha\) и \(\alpha\) замкнута, тогда \(\vdash \alpha\).
 \end{corollary}
 \begin{proof}
-    Пусть \(\models \alpha\), но не \(\nvdash \alpha\). Значит, \(\{\neg \alpha\} \) --- непротиворечивое множество замкнутых формул.
+    Пусть \(\vDash \alpha\), но не \(\nvdash \alpha\). Значит, \(\{\neg \alpha\} \) --- непротиворечивое множество замкнутых формул.
 
     Почему непротиворечиво? \(\neg \alpha \vdash \beta \with \neg \beta, \beta \with \neg \beta \vdash \alpha\), следовательно \(\neg \alpha \vdash \alpha\), но ещё и \(\alpha \vdash \alpha\). Таким образом, \(\vdash \alpha\).
 
@@ -158,4 +158,3 @@
     \(\Gamma^*\) непротиворечиво.
 \end{theorem}
 \(\Gamma^\Delta = \Gamma^*\) без формул с \(\forall , \exists \)
-

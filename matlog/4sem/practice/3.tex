@@ -9,15 +9,15 @@
 \begin{document}
 
 \begin{enumerate}
-    \item Покажите, что если $\Gamma \vdash \alpha$, то $\Gamma \models \alpha$.
+    \item Покажите, что если $\Gamma \vdash \alpha$, то $\Gamma \vDash \alpha$.
 
           Вспомним доказательство этой теоремы без \(\Gamma\), которое было на лекции. Мы фиксировали оценку и рассматривали доказательство \(\alpha\). По индукции мы доказывали, что каждый шаг доказательства \(\llbracket \delta_n \rrbracket =\) И, и в частности последний шаг, т.е. \(\alpha\) тоже истиннен в данной подстановке. С добавлением \(\Gamma\) у нас в индукционном переходе добавился случай \(\delta_n \in \Gamma\). Но т.к. мы фиксируем оценку такую, что \(\forall \gamma \in \Gamma \ \ \llbracket \gamma \rrbracket =\) И, индукционный переход работает.
 
-    \item Покажите, что если $\Gamma \models \alpha$, то $\Gamma \vdash \alpha$.
+    \item Покажите, что если $\Gamma \vDash \alpha$, то $\Gamma \vdash \alpha$.
 
           \begin{enumerate}
               \item \(\llbracket \gamma_1 \to \gamma_2 \to \dots \gamma_n \to \alpha \rrbracket =\) И.
-              \item \(\models \gamma_1 \to \gamma_2 \to \dots \gamma_n \to \alpha\)
+              \item \(\vDash \gamma_1 \to \gamma_2 \to \dots \gamma_n \to \alpha\)
               \item \(\vdash \gamma_1 \to \gamma_2 \to \dots \gamma_n \to \alpha\) по теореме о полноте
               \item \(\Gamma \vdash \alpha\) по теореме о дедукции
           \end{enumerate}

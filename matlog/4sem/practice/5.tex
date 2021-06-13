@@ -7,239 +7,239 @@
 \begin{document}
 
 \begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
-      \item Рассмотрим табличную модель $\mathfrak{V}$ с $n$ истинностными значениями,
-            и с выделенным значением $T$ для истины.
-            Покажите, что $$\models\bigvee_{1 \le i\ne j \le n+1} (P_i \rightarrow P_j)\with(P_j\rightarrow P_i)$$
-            В частности, покажите, что в любой корректной модели если $\llbracket\alpha\rrbracket = \llbracket\beta\rrbracket$, то
-            $\llbracket\alpha\rightarrow\beta\rrbracket = T$; если $\llbracket\gamma\rrbracket = \llbracket\delta\rrbracket = T$, то
-            $\llbracket\gamma\with\delta\rrbracket = T$;
-            если $\llbracket\gamma\rrbracket = T$, то $\llbracket\gamma\vee\eta\rrbracket = \llbracket\eta\vee\gamma\rrbracket = T$.
+    \item Рассмотрим табличную модель $\mathfrak{V}$ с $n$ истинностными значениями,
+          и с выделенным значением $T$ для истины.
+          Покажите, что $$\vDash\bigvee_{1 \le i\ne j \le n+1} (P_i \rightarrow P_j)\with(P_j\rightarrow P_i)$$
+          В частности, покажите, что в любой корректной модели если $\llbracket\alpha\rrbracket = \llbracket\beta\rrbracket$, то
+          $\llbracket\alpha\rightarrow\beta\rrbracket = T$; если $\llbracket\gamma\rrbracket = \llbracket\delta\rrbracket = T$, то
+          $\llbracket\gamma\with\delta\rrbracket = T$;
+          если $\llbracket\gamma\rrbracket = T$, то $\llbracket\gamma\vee\eta\rrbracket = \llbracket\eta\vee\gamma\rrbracket = T$.
 
-            \begin{enumerate}
-                  \item \(\llbracket\alpha\rrbracket = \llbracket\beta\rrbracket \Rightarrow \llbracket\alpha\rightarrow\beta\rrbracket = T\)
+          \begin{enumerate}
+              \item \(\llbracket\alpha\rrbracket = \llbracket\beta\rrbracket \Rightarrow \llbracket\alpha\rightarrow\beta\rrbracket = T\)
 
-                        Предпололжим обратное, т.е. \(\exists \alpha, \beta : \llbracket \alpha \rrbracket = \llbracket \beta \rrbracket = A, \llbracket \alpha \to \beta \rrbracket \neq T\).
+                    Предпололжим обратное, т.е. \(\exists \alpha, \beta : \llbracket \alpha \rrbracket = \llbracket \beta \rrbracket = A, \llbracket \alpha \to \beta \rrbracket \neq T\).
 
-                        \(\llbracket \alpha \to \beta \rrbracket = f_\to (\llbracket \alpha \rrbracket, \llbracket \beta \rrbracket) = f_{\to}(A, A) \neq T\). Но \(\vdash \alpha \to \alpha\), следовательно по корректности \(\models \alpha \to \alpha\), следовательно \(f_\to (A, A) = T\). Противоречие.
+                    \(\llbracket \alpha \to \beta \rrbracket = f_\to (\llbracket \alpha \rrbracket, \llbracket \beta \rrbracket) = f_{\to}(A, A) \neq T\). Но \(\vdash \alpha \to \alpha\), следовательно по корректности \(\vDash \alpha \to \alpha\), следовательно \(f_\to (A, A) = T\). Противоречие.
 
-                  \item \(\llbracket\gamma\rrbracket = \llbracket\delta\rrbracket = T \Rightarrow \llbracket\gamma\with\delta\rrbracket = T\)
+              \item \(\llbracket\gamma\rrbracket = \llbracket\delta\rrbracket = T \Rightarrow \llbracket\gamma\with\delta\rrbracket = T\)
 
-                        \(f_{\with}(T, T) = T\), т.к. \(\vdash (\alpha \to \alpha) \with (\alpha \to \alpha) \Rightarrow \models (\alpha \to \alpha) \with (\alpha \to \alpha) \Rightarrow T = f_{\with}(\llbracket \alpha \to \alpha \rrbracket, \llbracket \alpha \to \alpha \rrbracket) = f_\with (T, T)\)
+                    \(f_{\with}(T, T) = T\), т.к. \(\vdash (\alpha \to \alpha) \with (\alpha \to \alpha) \Rightarrow \vDash (\alpha \to \alpha) \with (\alpha \to \alpha) \Rightarrow T = f_{\with}(\llbracket \alpha \to \alpha \rrbracket, \llbracket \alpha \to \alpha \rrbracket) = f_\with (T, T)\)
 
-                  \item \(T = f_\lor(\llbracket \alpha \to \alpha \rrbracket, \llbracket \beta \rrbracket) = f_\lor(T, A)\), т.к. \(\vdash (\alpha \to \alpha) \lor \beta\). Аналогично для симметричного случая.
-            \end{enumerate}
+              \item \(T = f_\lor(\llbracket \alpha \to \alpha \rrbracket, \llbracket \beta \rrbracket) = f_\lor(T, A)\), т.к. \(\vdash (\alpha \to \alpha) \lor \beta\). Аналогично для симметричного случая.
+          \end{enumerate}
 
-            По принципу Дирихле \(\exists i \neq j : \llbracket P_i \rrbracket = \llbracket P_j \rrbracket \Rightarrow \llbracket P_i \to P_j \rrbracket = T \Rightarrow \llbracket \varphi \rrbracket = T\)
+          По принципу Дирихле \(\exists i \neq j : \llbracket P_i \rrbracket = \llbracket P_j \rrbracket \Rightarrow \llbracket P_i \to P_j \rrbracket = T \Rightarrow \llbracket \varphi \rrbracket = T\)
 
-      \item Покажите, что какая бы ни была формула $\alpha$ и модель Крипке,
-            если $W_i \Vdash \alpha$ и $W_i \preceq W_j$, то $W_j \Vdash \alpha$.
+    \item Покажите, что какая бы ни была формула $\alpha$ и модель Крипке,
+          если $W_i \Vdash \alpha$ и $W_i \preceq W_j$, то $W_j \Vdash \alpha$.
 
-            Докажем это по индукции по количеству операторов в \(\alpha\)
+          Докажем это по индукции по количеству операторов в \(\alpha\)
 
-            \begin{itemize}
-                  \item [База:] \(n = 0\), т.е. \(\alpha = P_i\) --- переменная. Искомое верно по определению \(W\).
-                  \item [Переход:] 4 случая:
-                        \begin{enumerate}
-                              \item \(\alpha = \neg \beta\)
+          \begin{itemize}
+              \item [База:] \(n = 0\), т.е. \(\alpha = P_i\) --- переменная. Искомое верно по определению \(W\).
+              \item [Переход:] 4 случая:
+                    \begin{enumerate}
+                        \item \(\alpha = \neg \beta\)
 
-                                    \(W_i \Vdash \alpha \Rightarrow \forall W_k: W_i \leq W_k \ \ W_k \nVdash \beta \Rightarrow \forall W_k: W_j \leq W_k \ \ W_k \nVdash \beta \Rightarrow W_j \Vdash \alpha\)
+                              \(W_i \Vdash \alpha \Rightarrow \forall W_k: W_i \leq W_k \ \ W_k \nVdash \beta \Rightarrow \forall W_k: W_j \leq W_k \ \ W_k \nVdash \beta \Rightarrow W_j \Vdash \alpha\)
 
-                              \item \(\alpha = \beta \with \gamma\)
+                        \item \(\alpha = \beta \with \gamma\)
 
-                                    \(W_i \Vdash \alpha \Rightarrow W_i \Vdash \beta, W_i \Vdash \gamma\), по индукционному предположению \(W_j \Vdash \beta, W_j \Vdash \gamma \Rightarrow W_j \Vdash \alpha\)
+                              \(W_i \Vdash \alpha \Rightarrow W_i \Vdash \beta, W_i \Vdash \gamma\), по индукционному предположению \(W_j \Vdash \beta, W_j \Vdash \gamma \Rightarrow W_j \Vdash \alpha\)
 
-                              \item \(\alpha = \beta \lor \gamma\)
+                        \item \(\alpha = \beta \lor \gamma\)
 
-                                    \(W_i \Vdash \alpha \Rightarrow W_i \Vdash \beta\) или \(W_i \Vdash \gamma\), пусть это \(\beta\) \textit{(иначе переименуем)}. Тогда \(W_j \Vdash \beta\) по индукционному предположению \(W_j \Vdash \beta \Rightarrow W_j \Vdash \alpha\)
+                              \(W_i \Vdash \alpha \Rightarrow W_i \Vdash \beta\) или \(W_i \Vdash \gamma\), пусть это \(\beta\) \textit{(иначе переименуем)}. Тогда \(W_j \Vdash \beta\) по индукционному предположению \(W_j \Vdash \beta \Rightarrow W_j \Vdash \alpha\)
 
-                              \item \(\alpha = \beta \to \gamma\)
+                        \item \(\alpha = \beta \to \gamma\)
 
-                                    \(W_i \Vdash \alpha \Rightarrow \forall W_j : W_i \leq W_j \ \ W_j \Vdash \beta \Rightarrow W_j \Vdash \gamma\), по транзитивности \( \leq \) выполняется \(W_j \Vdash \alpha\)
-                        \end{enumerate}
-            \end{itemize}
+                              \(W_i \Vdash \alpha \Rightarrow \forall W_j : W_i \leq W_j \ \ W_j \Vdash \beta \Rightarrow W_j \Vdash \gamma\), по транзитивности \( \leq \) выполняется \(W_j \Vdash \alpha\)
+                    \end{enumerate}
+          \end{itemize}
 
-      \item Общезначимы ли следующие высказывания в ИИВ? Опровергните, построив модель Крипке, или докажите, построив натуральный вывод.
-            \begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
-                  \item $P \vee \neg P$;
+    \item Общезначимы ли следующие высказывания в ИИВ? Опровергните, построив модель Крипке, или докажите, построив натуральный вывод.
+          \begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+              \item $P \vee \neg P$;
 
-                        Пусть \(P\) --- одна переменная и модель Крипке \(W_1 \nVdash P\), а \(W_2 \Vdash P\) и \(W_1 \leq W_2\). Тогда несложно заметить, что \(W_1 \nVdash \neg P\), т.к. \(\exists W_2 : W_1 \leq W_2, W_2 \Vdash P\). Т.к. \(W_1 \nVdash P, W_1 \nVdash \neg P\), получаем, что \(W_1 \nVdash P \lor \neg P\)
+                    Пусть \(P\) --- одна переменная и модель Крипке \(W_1 \nVdash P\), а \(W_2 \Vdash P\) и \(W_1 \leq W_2\). Тогда несложно заметить, что \(W_1 \nVdash \neg P\), т.к. \(\exists W_2 : W_1 \leq W_2, W_2 \Vdash P\). Т.к. \(W_1 \nVdash P, W_1 \nVdash \neg P\), получаем, что \(W_1 \nVdash P \lor \neg P\)
 
-                  \item $\neg\neg P \rightarrow P$;
+              \item $\neg\neg P \rightarrow P$;
 
-                        \[W_1 \nVdash \neg\neg P \rightarrow P \Leftarrow \begin{cases}
-                                    W_1 \Vdash \neg \neg P \\
-                                    W_1 \nVdash P
-                              \end{cases} \Leftarrow \begin{cases}
-                                    W_1 \nVdash \neg P \\
-                                    W_1 \nVdash P
-                              \end{cases}\]
+                    \[W_1 \nVdash \neg\neg P \rightarrow P \Leftarrow \begin{cases}
+                            W_1 \Vdash \neg \neg P \\
+                            W_1 \nVdash P
+                        \end{cases} \Leftarrow \begin{cases}
+                            W_1 \nVdash \neg P \\
+                            W_1 \nVdash P
+                        \end{cases}\]
 
-                        Пусть \(W_2 \Vdash P\) и \(W_1 \leq W_2\), тогда искомое выполнено.
+                    Пусть \(W_2 \Vdash P\) и \(W_1 \leq W_2\), тогда искомое выполнено.
 
-                  \item $P \vee \neg P \vee \neg\neg P \vee \neg\neg\neg P$;
+              \item $P \vee \neg P \vee \neg\neg P \vee \neg\neg\neg P$;
 
-                        \(W_1 \nVdash P, W_2 \Vdash P, W_3 \Vdash \neg P, W_4 \neg \neg P\), все упорядочены
+                    \(W_1 \nVdash P, W_2 \Vdash P, W_3 \Vdash \neg P, W_4 \neg \neg P\), все упорядочены
 
-                  \item $((P \rightarrow Q) \rightarrow P) \rightarrow P$;
+              \item $((P \rightarrow Q) \rightarrow P) \rightarrow P$;
 
-                        \(W_1 \Vdash (P \to Q) \to P, W_1 \nVdash P\). Второе выполнено по построению; придумаем, как выполнить первое.
+                    \(W_1 \Vdash (P \to Q) \to P, W_1 \nVdash P\). Второе выполнено по построению; придумаем, как выполнить первое.
 
-                        \(W_1 \nVdash P \to Q \Leftarrow \begin{cases}
-                              W_2 \Vdash P \\
-                              W_2 \nVdash Q
-                        \end{cases}\). Противоречий не возникло.
+                    \(W_1 \nVdash P \to Q \Leftarrow \begin{cases}
+                        W_2 \Vdash P \\
+                        W_2 \nVdash Q
+                    \end{cases}\). Противоречий не возникло.
 
-                        Ответ: \(W = \{W_1, W_2\}, \leq = \{(W_1, W_2)\}\) \textit{(плюс рефлексивность)}, \(W_2 \Vdash P\)
+                    Ответ: \(W = \{W_1, W_2\}, \leq = \{(W_1, W_2)\}\) \textit{(плюс рефлексивность)}, \(W_2 \Vdash P\)
 
-                  \item $(A \rightarrow B) \vee (B \rightarrow C) \vee (C \rightarrow A)$;
+              \item $(A \rightarrow B) \vee (B \rightarrow C) \vee (C \rightarrow A)$;
 
-                        \(W_1 \nVdash (A \to B), W_1 \nVdash (B \to C), W_1 \nVdash (C \to A) \Rightarrow \exists W_2, W_3, W_4 : W_2 \Vdash A, W_2 \nVdash B, W_3 \Vdash B, W_3 \nVdash C, W_4 \Vdash C, W_4 \nVdash A\). Если \( \leq = \{(W_1, W_2), (W_1, W_3), (W_1, W_4)\} \) \textit{(плюс рефлексивность)}, то противоречий нет.
+                    \(W_1 \nVdash (A \to B), W_1 \nVdash (B \to C), W_1 \nVdash (C \to A) \Rightarrow \exists W_2, W_3, W_4 : W_2 \Vdash A, W_2 \nVdash B, W_3 \Vdash B, W_3 \nVdash C, W_4 \Vdash C, W_4 \nVdash A\). Если \( \leq = \{(W_1, W_2), (W_1, W_3), (W_1, W_4)\} \) \textit{(плюс рефлексивность)}, то противоречий нет.
 
-                  \item $\neg(\neg A \with \neg B) \rightarrow A \vee B$;
+              \item $\neg(\neg A \with \neg B) \rightarrow A \vee B$;
 
-                        \(W_1 \Vdash \neg (\neg A \with \neg B), W_1 \nVdash A\lor B \Rightarrow W_1 \nVdash A, W_1 \nVdash B\)
+                    \(W_1 \Vdash \neg (\neg A \with \neg B), W_1 \nVdash A\lor B \Rightarrow W_1 \nVdash A, W_1 \nVdash B\)
 
-                        Попробуем выполнить первое утверждение. \(W_1 \nVdash \neg A \with \neg B \Rightarrow W_1 \nVdash \neg A\) или \(W_1 \nVdash \neg B\). Пусть \(W_1 \nVdash \neg A\) без потери общности. \(W_1 \nVdash \neg A \Leftrightarrow \exists W_2 : W_2 \Vdash A\) и \(W_1 \leq W_2\)
+                    Попробуем выполнить первое утверждение. \(W_1 \nVdash \neg A \with \neg B \Rightarrow W_1 \nVdash \neg A\) или \(W_1 \nVdash \neg B\). Пусть \(W_1 \nVdash \neg A\) без потери общности. \(W_1 \nVdash \neg A \Leftrightarrow \exists W_2 : W_2 \Vdash A\) и \(W_1 \leq W_2\)
 
-                        Ответ: \(W = \{W_1, W_2\}, \leq = \{(W_1, W_2)\}\) \textit{(плюс рефлексивность)}, \(W_1 \nVdash A, W_1 \nVdash B, W_2 \Vdash A\).
+                    Ответ: \(W = \{W_1, W_2\}, \leq = \{(W_1, W_2)\}\) \textit{(плюс рефлексивность)}, \(W_1 \nVdash A, W_1 \nVdash B, W_2 \Vdash A\).
 
-                  \item $(\neg A \vee B) \rightarrow (A \rightarrow B)$;
+              \item $(\neg A \vee B) \rightarrow (A \rightarrow B)$;
 
-                        \begin{prooftree}
-                              \infer0{\neg A \lor B, A, \neg A \vdash A \to \perp}
-                              \infer0{\neg A \lor B, A, \neg A \vdash A}
-                              \infer2{\neg A \lor B, A, \neg A \vdash \perp}
-                              \infer1[(удаление \(\perp\))]{\neg A \lor B, A, \neg A \vdash B}
-                              \infer0{\neg A \lor B, A, B \vdash B}
-                              \infer0{\neg A \lor B, A \vdash \neg A \lor B}
-                              \infer3{\neg A \lor B, A \vdash B}
-                              \infer1[(введение \( \to \))]{\neg A \lor B \vdash A \to B}
-                              \infer1[(введение \( \to \))]{\neg A \lor B \to A \to B}
-                        \end{prooftree}
+                    \begin{prooftree}
+                        \infer0{\neg A \lor B, A, \neg A \vdash A \to \perp}
+                        \infer0{\neg A \lor B, A, \neg A \vdash A}
+                        \infer2{\neg A \lor B, A, \neg A \vdash \perp}
+                        \infer1[(удаление \(\perp\))]{\neg A \lor B, A, \neg A \vdash B}
+                        \infer0{\neg A \lor B, A, B \vdash B}
+                        \infer0{\neg A \lor B, A \vdash \neg A \lor B}
+                        \infer3{\neg A \lor B, A \vdash B}
+                        \infer1[(введение \( \to \))]{\neg A \lor B \vdash A \to B}
+                        \infer1[(введение \( \to \))]{\neg A \lor B \to A \to B}
+                    \end{prooftree}
 
-                  \item $(A \rightarrow B) \rightarrow (\neg A \vee B)$;
+              \item $(A \rightarrow B) \rightarrow (\neg A \vee B)$;
 
-                        \[W_1 \nVdash (A \rightarrow B) \rightarrow (\neg A \vee B) \Leftarrow \begin{cases}
-                                    W_1 \Vdash A \to B \\
-                                    W_1 \nVdash \neg A \lor B
-                              \end{cases} \Leftarrow \begin{cases}
-                                    W_1 \nVdash A      \\
-                                    W_1 \nVdash \neg A \\
-                                    W_1 \nVdash B
-                              \end{cases}\]
+                    \[W_1 \nVdash (A \rightarrow B) \rightarrow (\neg A \vee B) \Leftarrow \begin{cases}
+                            W_1 \Vdash A \to B \\
+                            W_1 \nVdash \neg A \lor B
+                        \end{cases} \Leftarrow \begin{cases}
+                            W_1 \nVdash A      \\
+                            W_1 \nVdash \neg A \\
+                            W_1 \nVdash B
+                        \end{cases}\]
 
-                        Пусть \(W_2 \Vdash A\), \(W_2 \Vdash B\) и \(W_1 \leq W_2\), тогда \(W_2 \Vdash A \to B, W_1 \Vdash A \to B\) пустотно и искомое выполнено.
+                    Пусть \(W_2 \Vdash A\), \(W_2 \Vdash B\) и \(W_1 \leq W_2\), тогда \(W_2 \Vdash A \to B, W_1 \Vdash A \to B\) пустотно и искомое выполнено.
 
-                  \item $\neg\bot$.
+              \item $\neg\bot$.
 
-                        \begin{prooftree}
-                              \infer0{\perp \vdash \perp}
-                              \infer1{\vdash \perp \to \perp}
-                              \infer1{\vdash \neg \perp}
-                        \end{prooftree}
-            \end{enumerate}
+                    \begin{prooftree}
+                        \infer0{\perp \vdash \perp}
+                        \infer1{\vdash \perp \to \perp}
+                        \infer1{\vdash \neg \perp}
+                    \end{prooftree}
+          \end{enumerate}
 
-      \item Рассмотрим некоторую модель Крипке $\langle\mathfrak{W},\preceq,\Vdash\rangle$.
-            Пусть $\Omega = \{ \mathcal{W} \subseteq \mathfrak{W}\ |\ \text{если }W_i \in \mathcal{W}\text{ и }W_i \preceq W_j\text{, то } W_j \in \mathcal{W}\}$.
-            Пусть $\mathcal{W}_\alpha := \{ W_i \in \mathfrak{W}\ |\ W_i \Vdash \alpha \}$ (множество миров, где вынуждена формула $\alpha$).
-            \begin{enumerate}
-                  \item На лекции формулировалась теорема без доказательства, что пара $\langle\mathfrak{W}, \Omega\rangle$ --- топологическое пространство. Докажите её.
+    \item Рассмотрим некоторую модель Крипке $\langle\mathfrak{W},\preceq,\Vdash\rangle$.
+          Пусть $\Omega = \{ \mathcal{W} \subseteq \mathfrak{W}\ |\ \text{если }W_i \in \mathcal{W}\text{ и }W_i \preceq W_j\text{, то } W_j \in \mathcal{W}\}$.
+          Пусть $\mathcal{W}_\alpha := \{ W_i \in \mathfrak{W}\ |\ W_i \Vdash \alpha \}$ (множество миров, где вынуждена формула $\alpha$).
+          \begin{enumerate}
+              \item На лекции формулировалась теорема без доказательства, что пара $\langle\mathfrak{W}, \Omega\rangle$ --- топологическое пространство. Докажите её.
 
-                        Покажем, что выполняются три аксиомы топологии:
-                        \begin{enumerate}
-                              \item \(\mathcal{W} = \bigcup_\alpha \mathcal{W}_\alpha \in \Omega\), где \(\mathcal{W}_\alpha\in\Omega\)
+                    Покажем, что выполняются три аксиомы топологии:
+                    \begin{enumerate}
+                        \item \(\mathcal{W} = \bigcup_\alpha \mathcal{W}_\alpha \in \Omega\), где \(\mathcal{W}_\alpha\in\Omega\)
 
-                                    \(\sphericalangle W_i \in \mathcal{W}\) и при этом \(W_i\in \mathcal{W}_\alpha\). Если \(W_i \leq W_j\), то т.к. \(W_i \in \mathcal{W}_\alpha\), то \(W_j \in \mathcal{W}_\alpha\), а следовательно \(W_j \in \mathcal{W}\).
+                              \(\sphericalangle W_i \in \mathcal{W}\) и при этом \(W_i\in \mathcal{W}_\alpha\). Если \(W_i \leq W_j\), то т.к. \(W_i \in \mathcal{W}_\alpha\), то \(W_j \in \mathcal{W}_\alpha\), а следовательно \(W_j \in \mathcal{W}\).
 
-                              \item \(\bigcap_{i = 1}^{n} \mathcal{W}_i \in \Omega\), где \(\mathcal{W}_i \in\Omega\)
+                        \item \(\bigcap_{i = 1}^{n} \mathcal{W}_i \in \Omega\), где \(\mathcal{W}_i \in\Omega\)
 
-                                    \(\sphericalangle W_i \in \mathcal{W} \Rightarrow W_i \in \mathcal{W}_\alpha \ \ \forall \alpha\). Если \(W_i \leq W_j\), то \(W_j \in \mathcal{W}_\alpha \ \ \forall \alpha\) и следовательно \(W_j \in \mathcal{W}\).
+                              \(\sphericalangle W_i \in \mathcal{W} \Rightarrow W_i \in \mathcal{W}_\alpha \ \ \forall \alpha\). Если \(W_i \leq W_j\), то \(W_j \in \mathcal{W}_\alpha \ \ \forall \alpha\) и следовательно \(W_j \in \mathcal{W}\).
 
-                              \item \(\emptyset\in\Omega, \mathfrak{W}\in \Omega\)
+                        \item \(\emptyset\in\Omega, \mathfrak{W}\in \Omega\)
 
-                                    Первое выполнено в силу пустотности утверждения \textit{(vacuous, не знаю, как по-русски)}. Второе очевидно выполнено.
-                        \end{enumerate}
+                              Первое выполнено в силу пустотности утверждения \textit{(vacuous, не знаю, как по-русски)}. Второе очевидно выполнено.
+                    \end{enumerate}
 
-                  \item Пусть $\mathcal{W}_\alpha$ и $\mathcal{W}_\beta$ --- открытые множества. Выразите $\mathcal{W}_{\alpha\with\beta}$ и $\mathcal{W}_{\alpha\vee\beta}$
-                        через $\mathcal{W}_\alpha$ и $\mathcal{W}_\beta$ и покажите, что они также открыты.
+              \item Пусть $\mathcal{W}_\alpha$ и $\mathcal{W}_\beta$ --- открытые множества. Выразите $\mathcal{W}_{\alpha\with\beta}$ и $\mathcal{W}_{\alpha\vee\beta}$
+                    через $\mathcal{W}_\alpha$ и $\mathcal{W}_\beta$ и покажите, что они также открыты.
 
-                        \(\mathcal{W}_{\alpha \with \beta} = \{W_i \in \mathfrak{W} : W_i \Vdash \alpha \with \beta\} = \{W_i \in \mathfrak{W} : W_i \Vdash \alpha\} \cap \{W_i \in \mathfrak{W} : W_i \Vdash \beta\} = \mathcal{W}_\alpha \cap \mathcal{W}_\beta\).
+                    \(\mathcal{W}_{\alpha \with \beta} = \{W_i \in \mathfrak{W} : W_i \Vdash \alpha \with \beta\} = \{W_i \in \mathfrak{W} : W_i \Vdash \alpha\} \cap \{W_i \in \mathfrak{W} : W_i \Vdash \beta\} = \mathcal{W}_\alpha \cap \mathcal{W}_\beta\).
 
-                        \(\mathcal{W}_{\alpha \lor \beta} = \mathcal{W}_\alpha \cup \mathcal{W}_\beta\)
+                    \(\mathcal{W}_{\alpha \lor \beta} = \mathcal{W}_\alpha \cup \mathcal{W}_\beta\)
 
-                        Открытость тривиальна из того, что \((\mathfrak{W}, \Omega)\) --- топологическое пространство.
+                    Открытость тривиальна из того, что \((\mathfrak{W}, \Omega)\) --- топологическое пространство.
 
-                  \item Пусть $\mathcal{W}_\alpha$ и $\mathcal{W}_\beta$ --- открытые множества. Выразите $\mathcal{W}_{\alpha\rightarrow\beta}$ через
-                        них и покажите, что оно также открыто.
+              \item Пусть $\mathcal{W}_\alpha$ и $\mathcal{W}_\beta$ --- открытые множества. Выразите $\mathcal{W}_{\alpha\rightarrow\beta}$ через
+                    них и покажите, что оно также открыто.
 
-                        \(\mathcal{W}_{\alpha \to \beta} = (\mathfrak{W} \setminus (\mathcal{W}_\alpha \setminus \mathcal{W}_\beta))^\circ\)
+                    \(\mathcal{W}_{\alpha \to \beta} = (\mathfrak{W} \setminus (\mathcal{W}_\alpha \setminus \mathcal{W}_\beta))^\circ\)
 
-                  \item Покажите, что $\Omega$ --- в точности множество всех множеств миров, на которых может быть вынуждена какая-либо формула.
-                        А именно, покажите, что для любой формулы $\alpha$ множество миров $\mathcal{W}_\alpha$, где она вынуждена, всегда открыто
-                        ($\mathcal{W}_\alpha \in \Omega$) --- и что для любого открытого множества найдётся формула, которая вынуждена ровно на нём
-                        (для $Q \in \Omega$ существует формула $\alpha$, что $\mathcal{W}_\alpha = Q$).
+              \item Покажите, что $\Omega$ --- в точности множество всех множеств миров, на которых может быть вынуждена какая-либо формула.
+                    А именно, покажите, что для любой формулы $\alpha$ множество миров $\mathcal{W}_\alpha$, где она вынуждена, всегда открыто
+                    ($\mathcal{W}_\alpha \in \Omega$) --- и что для любого открытого множества найдётся формула, которая вынуждена ровно на нём
+                    (для $Q \in \Omega$ существует формула $\alpha$, что $\mathcal{W}_\alpha = Q$).
 
-                        Покажем, что \(\mathcal{W}_\alpha \in \Omega \ \ \forall \alpha\) по индукции.
+                    Покажем, что \(\mathcal{W}_\alpha \in \Omega \ \ \forall \alpha\) по индукции.
 
-                        \begin{itemize}
-                              \item [База:] \(\alpha\) есть одна переменная. Искомое выполнено по монотонности вынужденности.
-                              \item [Переход:] 4 случая, разобранных в пунктах a,b,c.
-                        \end{itemize}
+                    \begin{itemize}
+                        \item [База:] \(\alpha\) есть одна переменная. Искомое выполнено по монотонности вынужденности.
+                        \item [Переход:] 4 случая, разобранных в пунктах a,b,c.
+                    \end{itemize}
 
-                        Покажем, что \(\forall Q\in \Omega \ \ Q = \mathcal{W}_\alpha\)
+                    Покажем, что \(\forall Q\in \Omega \ \ Q = \mathcal{W}_\alpha\)
 
-                        \textcolor{red}{Не покажем :(}
-            \end{enumerate}
+                    \textcolor{red}{Не покажем :(}
+          \end{enumerate}
 
-      \item Постройте топологическое пространство, соответствующее (в смысле предыдущего задания) модели Крипке, опровергающей
-            высказывание $\neg\neg P\rightarrow P$.
-            Постройте соответствующую ему табличную модель.
+    \item Постройте топологическое пространство, соответствующее (в смысле предыдущего задания) модели Крипке, опровергающей
+          высказывание $\neg\neg P\rightarrow P$.
+          Постройте соответствующую ему табличную модель.
 
-            \(\mathfrak{W} = \{W_1\}, \Omega = \{\emptyset, \{W_1\}\} \)
+          \(\mathfrak{W} = \{W_1\}, \Omega = \{\emptyset, \{W_1\}\} \)
 
-      \item Назовём \emph{древовидной} моделью Крипке модель, в которой множество
-            миров $\mathfrak{W}$ упорядочено как дерево: (a) существует наименьший мир
-            $W_0$; (b) для любого $W_i \ne W_0$ существует единственный предшествующий мир
-            $W_k: W_k \prec W_i$.
-            \begin{enumerate}
-                  \item Докажите, что любое высказывание, опровергаемое моделью Крипке, может
-                        быть опровергнуто древовидной моделью Крипке.
+    \item Назовём \emph{древовидной} моделью Крипке модель, в которой множество
+          миров $\mathfrak{W}$ упорядочено как дерево: (a) существует наименьший мир
+          $W_0$; (b) для любого $W_i \ne W_0$ существует единственный предшествующий мир
+          $W_k: W_k \prec W_i$.
+          \begin{enumerate}
+              \item Докажите, что любое высказывание, опровергаемое моделью Крипке, может
+                    быть опровергнуто древовидной моделью Крипке.
 
-                  \item Найдите высказывание, которое не может быть опровергнуто древовидной моделью Крипке
-                        высотой менее 2.
-                  \item Покажите, что для любого натурального $n$ найдётся опровержимое в моделях Крипке высказывание,
-                        неопровергаемое никакой моделью с $n$ мирами.
-            \end{enumerate}
+              \item Найдите высказывание, которое не может быть опровергнуто древовидной моделью Крипке
+                    высотой менее 2.
+              \item Покажите, что для любого натурального $n$ найдётся опровержимое в моделях Крипке высказывание,
+                    неопровергаемое никакой моделью с $n$ мирами.
+          \end{enumerate}
 
-      \item Будем говорить, что топологическое пространство $\langle X, \Omega\rangle$ \emph{связно}, если нет таких
-            открытых множеств $A$ и $B$, что $X = A \cup B$, но $A \cap B = \varnothing$. Пусть задана некоторая модель Крипке.
-            Докажите, что соответствующее модели Крипке топологическое пространство связно тогда и только тогда, когда её граф
-            миров связен в смысле теории графов.
+    \item Будем говорить, что топологическое пространство $\langle X, \Omega\rangle$ \emph{связно}, если нет таких
+          открытых множеств $A$ и $B$, что $X = A \cup B$, но $A \cap B = \varnothing$. Пусть задана некоторая модель Крипке.
+          Докажите, что соответствующее модели Крипке топологическое пространство связно тогда и только тогда, когда её граф
+          миров связен в смысле теории графов.
 
-            Если граф не связен, то выберем одну КС, все миры в ней будут \(A\), а остальные миры \(B\). Несложно заметить, что \(X = A\cup B, A\cap B = \emptyset\).
+          Если граф не связен, то выберем одну КС, все миры в ней будут \(A\), а остальные миры \(B\). Несложно заметить, что \(X = A\cup B, A\cap B = \emptyset\).
 
-            Если пространство не связно, то рассмотрим \(A\) и \(B\) из условия. Предположим, что граф связен, в частности есть ребро \(a \to b\), где \(a\in A, b\in B\) \textit{(или наоборот)}. Т.к. \(a \leq b\), то \(b\in A\), что противоречит \(A\cap B =\emptyset\).
+          Если пространство не связно, то рассмотрим \(A\) и \(B\) из условия. Предположим, что граф связен, в частности есть ребро \(a \to b\), где \(a\in A, b\in B\) \textit{(или наоборот)}. Т.к. \(a \leq b\), то \(b\in A\), что противоречит \(A\cap B =\emptyset\).
 
-      \item Покажите, что модель Крипке с единственным миром задаёт классическую модель (в ней выполнены
-            все доказуемые в КИВ высказывания).
+    \item Покажите, что модель Крипке с единственным миром задаёт классическую модель (в ней выполнены
+          все доказуемые в КИВ высказывания).
 
-      \item Пусть заданы алгебры Гейтинга $\mathcal{A},\mathcal{B}$, гомоморфизм $\varphi: \mathcal{A} \rightarrow \mathcal{B}$
-            и согласованные оценки $\llbracket\rrbracket_\mathcal{A}$ и $\llbracket\rrbracket_\mathcal{B}$:
-            $\varphi(\llbracket\alpha\rrbracket_\mathcal{A}) = \llbracket\alpha\rrbracket_\mathcal{B}$.
-            \begin{enumerate}
-                  \item Покажите, что гомоморфизм сохраняет порядок: если $a_1\preceq a_2$, то $\varphi(a_1) \preceq \varphi(a_2)$.
-                  \item Покажите, что если $\llbracket \alpha \rrbracket_\mathcal{A} = 1_\mathcal{A}$, то $\llbracket\alpha\rrbracket_\mathcal{B} = 1_\mathcal{B}$.
+    \item Пусть заданы алгебры Гейтинга $\mathcal{A},\mathcal{B}$, гомоморфизм $\varphi: \mathcal{A} \rightarrow \mathcal{B}$
+          и согласованные оценки $\llbracket\rrbracket_\mathcal{A}$ и $\llbracket\rrbracket_\mathcal{B}$:
+          $\varphi(\llbracket\alpha\rrbracket_\mathcal{A}) = \llbracket\alpha\rrbracket_\mathcal{B}$.
+          \begin{enumerate}
+              \item Покажите, что гомоморфизм сохраняет порядок: если $a_1\preceq a_2$, то $\varphi(a_1) \preceq \varphi(a_2)$.
+              \item Покажите, что если $\llbracket \alpha \rrbracket_\mathcal{A} = 1_\mathcal{A}$, то $\llbracket\alpha\rrbracket_\mathcal{B} = 1_\mathcal{B}$.
 
-                        \(\llbracket \alpha \rrbracket_{\mathcal{B}} = \varphi(\llbracket \alpha \rrbracket_{\mathcal{A}}) = \varphi(1_{\mathcal{A}}) = 1_{\mathcal{B}}\)
-            \end{enumerate}
+                    \(\llbracket \alpha \rrbracket_{\mathcal{B}} = \varphi(\llbracket \alpha \rrbracket_{\mathcal{A}}) = \varphi(1_{\mathcal{A}}) = 1_{\mathcal{B}}\)
+          \end{enumerate}
 
-      \item Пусть заданы алгебры Гейтинга $\mathcal{A},\mathcal{B}$. Всегда ли можно построить гомоморфизм $\varphi: \mathcal{A}\rightarrow\mathcal{B}$?
+    \item Пусть заданы алгебры Гейтинга $\mathcal{A},\mathcal{B}$. Всегда ли можно построить гомоморфизм $\varphi: \mathcal{A}\rightarrow\mathcal{B}$?
 
-      \item Пусть $\mathcal{A}$ --- алгебра Гейтинга. Покажите, что $\Gamma(\mathcal{A})$ --- алгебра Гейтинга и гёделева алгебра.
+    \item Пусть $\mathcal{A}$ --- алгебра Гейтинга. Покажите, что $\Gamma(\mathcal{A})$ --- алгебра Гейтинга и гёделева алгебра.
 
-      \item Пусть $\mathcal{A}$ --- булева алгебра. Всегда ли (возможно ли, что) $\Gamma(\mathcal{A})$ будет булевой алгеброй?
+    \item Пусть $\mathcal{A}$ --- булева алгебра. Всегда ли (возможно ли, что) $\Gamma(\mathcal{A})$ будет булевой алгеброй?
 
-            Не всегда, например в алгебре \(\Gamma(1 \to 0)\) выполняется следующее: \(1 + (1 \to 0) = 1\), а должно быть \(1_\Gamma\)
+          Не всегда, например в алгебре \(\Gamma(1 \to 0)\) выполняется следующее: \(1 + (1 \to 0) = 1\), а должно быть \(1_\Gamma\)
 \end{enumerate}
 
 \end{document}

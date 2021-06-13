@@ -5,19 +5,19 @@
 \end{obozn}
 
 \begin{definition}[следование]
-    \(\alpha\) следует из \(\Gamma\) \textit{(обозначается \(\Gamma\models\alpha\))}, если \(\Gamma = \gamma_1 \dots \gamma_n\) и всегда, когда все \(\llbracket \gamma_i \rrbracket = \text{ И}\), то \(\llbracket \alpha \rrbracket = \text{ И}\).
+    \(\alpha\) следует из \(\Gamma\) \textit{(обозначается \(\Gamma\vDash\alpha\))}, если \(\Gamma = \gamma_1 \dots \gamma_n\) и всегда, когда все \(\llbracket \gamma_i \rrbracket = \text{ И}\), то \(\llbracket \alpha \rrbracket = \text{ И}\).
 \end{definition}
 
 \begin{example}
-    \(\models \alpha\) --- \(\alpha\) общезначимо.
+    \(\vDash \alpha\) --- \(\alpha\) общезначимо.
 \end{example}
 
 \begin{definition}
-    \sout{Теория} Исчисление высказываний \textbf{корректно}, если при любом \(\alpha\) из \(\vdash \alpha\) следует \(\models \alpha\).
+    \sout{Теория} Исчисление высказываний \textbf{корректно}, если при любом \(\alpha\) из \(\vdash \alpha\) следует \(\vDash \alpha\).
 \end{definition}
 
 \begin{definition}
-    Исчисление \textbf{полно}, если при любом \(\alpha\) из \(\models \alpha\) следует \(\vdash \alpha\).
+    Исчисление \textbf{полно}, если при любом \(\alpha\) из \(\vDash \alpha\) следует \(\vdash \alpha\).
 \end{definition}
 
 \begin{theorem}[о дедукции]
@@ -72,7 +72,7 @@
 \end{proof}
 
 \begin{theorem}
-    Пусть \(\vdash \alpha\). Тогда \(\models \alpha\).
+    Пусть \(\vdash \alpha\). Тогда \(\vDash \alpha\).
 \end{theorem}
 \begin{proof}
     Индукция по длине доказательства: каждая \(\llbracket \delta_i \rrbracket = \text{ И}\), если \(\delta_1 \dots \delta_n\) --- доказательство \(\alpha\)
@@ -120,7 +120,7 @@
 \end{proof}
 
 \begin{theorem}[о полноте]
-    Пусть \(\models \alpha\). Тогда \(\vdash \alpha\).
+    Пусть \(\vDash \alpha\). Тогда \(\vdash \alpha\).
 \end{theorem}
 
 Фиксируем набор переменных из \(\alpha\): \(P_1 \dots P_n\).
@@ -171,7 +171,7 @@
 \end{proof}
 
 \begin{proof}[Доказательство теоремы о полноте]
-    \(\models \alpha\), т.е. \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash {}_{[\alpha]} \alpha\). Но \(\llbracket \alpha \rrbracket = \text{П}\) при любой оценке. Тогда \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash \alpha\) при все \(x_i\).
+    \(\vDash \alpha\), т.е. \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash {}_{[\alpha]} \alpha\). Но \(\llbracket \alpha \rrbracket = \text{П}\) при любой оценке. Тогда \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash \alpha\) при все \(x_i\).
 
     \begin{lemma}[об исключении допущения]
         Если \({}_{[x_1]} P_1 \dots {}_{[x_n]} P_n \vdash \alpha\) и \({}_{[x_1]} P_1 \dots {}_{[x_n]} \neg P_n \vdash \alpha\), то \({}_{[x_1]} P_1 \dots {}_{[x_{n - 1}]} P_{n - 1} \vdash \alpha\)

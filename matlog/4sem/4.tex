@@ -26,7 +26,7 @@
     \end{itemize}
     И \(\llbracket P_i \rrbracket = f_{\mathcal{P}}(P_i)\), \(\llbracket \alpha \star \beta \rrbracket = f_\star(\llbracket \alpha \rrbracket, \llbracket \beta \rrbracket)\), \(\llbracket \neg \alpha \rrbracket = f_\neg(\llbracket \alpha \rrbracket)\)
 
-    \(\models \alpha\) означает, что \(\llbracket \alpha \rrbracket = T\) при любой \(f_{\mathcal{P}}\)
+    \(\vDash \alpha\) означает, что \(\llbracket \alpha \rrbracket = T\) при любой \(f_{\mathcal{P}}\)
 \end{definition}
 \begin{definition}
     \textbf{Конечная} табличная модель --- табличная модель с конечным \(V\).
@@ -66,7 +66,7 @@
 \end{theorem}
 
 \begin{definition}
-    Если \(W_i \Vdash \alpha\) при всех \(W_i\in W\), то \(\models \alpha\)
+    Если \(W_i \Vdash \alpha\) при всех \(W_i\in W\), то \(\vDash \alpha\)
 \end{definition}
 
 \begin{theorem}
@@ -89,16 +89,17 @@
     \[\varphi_n = \bigvee_{\substack{ 1 \leq i, j \leq n + 1 \\ i \neq j}} (P_i \to P_j \with P_j \to P_i)\]
 
     \begin{enumerate}
-        \item \(\nvdash\varphi_n\). Почему? Рассмотрим последовательность миров, таких что \(W_i \Vdash P_i\), состоящую из \(n + 1\) мира. Тогда \(W_i \nVdash (P_i \to P_j) \with (P_k \to P_j)\), таким образом \(\nVdash (P_i \to P_j) \with (P_k \to P_j)\) и \(\nVdash \bigvee (P_i \to P_j) \with (P_k \to P_j)\), а значит \(\nvdash \varphi_n\)
-        \item \(\models \varphi_n\) в \(V\) по принципу Дирихле: \(\exists i \neq j : \llbracket P_i \rrbracket = \llbracket P_j \rrbracket\), а значит \(\llbracket P_i \to P_j \rrbracket = \) И, и соответственно \(\llbracket \varphi_n \rrbracket =\) И.
+        \item \(\nvdash \varphi_n\). Почему? Рассмотрим последовательность миров, таких что \(W_i \Vdash P_i\), состоящую из \(n + 1\) мира. Тогда \(W_i \nVdash (P_i \to P_j) \with (P_j \to P_i)\), т.к. \(W_i \nVdash P_j\), но \(W_i \Vdash P_i\), таким образом \(\nVdash (P_i \to P_j) \with (P_j \to P_i)\) и \(\nVdash \bigvee (P_i \to P_j) \with (P_j \to P_i)\), а значит \(\nvdash \varphi_n\)
+        \item \(\vDash \varphi_n\) в \(V\) по принципу Дирихле: \(\exists i \neq j : \llbracket P_i \rrbracket = \llbracket P_j \rrbracket\), а значит \(\llbracket P_i \to P_j \rrbracket = \) И, и соответственно \(\llbracket \varphi_n \rrbracket =\) И.
     \end{enumerate}
 
-    Т.к. \(\models \varphi_n\), то \(\vdash \varphi_n\), но это не так --- противоречие.
+    Т.к. \(\vDash \varphi_n\), то \(\vdash \varphi_n\), но это не так --- противоречие.
 \end{proof}
 
-\begin{definition}
-    Дизъюнктинвость ИИВ: \(\vdash \alpha \lor \beta\) влечет \(\vdash \alpha\) или \(\vdash \beta\)
-\end{definition}
+\begin{theorem}[Дизъюнктинвость ИИВ]
+    \label{Дизъюнктинвость ИИВ}
+    \(\vdash \alpha \lor \beta\) влечет \(\vdash \alpha\) или \(\vdash \beta\)
+\end{theorem}
 
 \begin{definition}
     \textbf{Алгебра Гёделя} --- алгебра Гейтинга, в которой из \(a + b = 1\) следует \(a = 1\) или \(b = 1\)
@@ -132,7 +133,7 @@
     Если \(\varphi : \mathcal{A} \to \mathcal{B}\) согласована с \(f, g\) и \(\llbracket \alpha \rrbracket_g \neq 1_{\mathcal{B}}\), то \(\llbracket \alpha \rrbracket_f \neq 1_{\mathcal{A}}\)
 \end{theorem}
 
-\begin{proof}
+\begin{proof}[Доказательство теоремы \ref{Дизъюнктинвость ИИВ}]
     Рассмотрим алгебру Линденбаума \(\mathcal{L}\), \(\Gamma(\mathcal{L})\) и \(\varphi : \Gamma(\mathcal{L}) \to \mathcal{L}\) --- гомоморфизм.
     \[\varphi(x) = \begin{cases}
             1_\mathcal{L}, x = \omega                  \\

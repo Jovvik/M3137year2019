@@ -1,0 +1,68 @@
+\chapter{7 мая}
+
+\section{Гёделева нумерация}
+
+Это кодировка для строк.
+
+\begin{definition}[\(\godel{}\)]\itemfix
+	\begin{center}
+		\begin{tabular}{|C|C|}
+			\hline
+			x       & \godel{x}                  \\ \hline
+			(       & 3                          \\
+			)       & 5                          \\
+			,       & 7                          \\
+			\with   & 9                          \\
+			\lor    & 11                         \\
+			\neg    & 13                         \\
+			\to     & 15                         \\
+			\forall & 17                         \\
+			\exists & 19                         \\
+			.       & 21                         \\
+			f_n^k   & 23 + 6 \cdot 2^n \cdot 3^k \\
+			P_n^k   & 23 + 6 \cdot 2^n \cdot 3^k \\
+			x_k     & 23 + 6 \cdot 2^k           \\ \hline
+		\end{tabular}
+	\end{center}
+\end{definition}
+
+\begin{example}
+	Для формальной арифметики: \((=) = P_0^2, (0) = f_0^0, (') = f_0^1, (+) = f_0^2, (\cdot) = f_1^2\)
+\end{example}
+
+\begin{definition}
+	\(\godel{a_0 a_1 \dots a_{n - 1}} = 2^{\godel{a_0}} \cdot 3^{\godel{a_1}} \cdots p_n^{\godel{a_{n - 1}}}\), где \(p_i\) --- \(i\)-тое простое число.
+\end{definition}
+
+\begin{definition}
+	\(\godel{S_0 \dots S_n} = 2^{\godel{S_0}} \cdots p_n^{\godel{S_{n - 1}}}\), где \(S_i\) --- некоторая строка.
+\end{definition}
+
+Несложно заметить, что символы всегда нечетные, а строки всегда чётные, что упрощает жизнь. Это не содержательно и сделано только для удобства вычисления ``руками'', т.к. это было сделано до компьютеров.
+
+Таким образом, мы можем взять любую формулу или доказательство и закодировать.
+
+\begin{example}
+	\(\godel{a = 0} = 2^{27 + 6} \cdot 3^{25 + 6 \cdot 4} \cdot 5^{23 + 6}\)
+\end{example}
+
+\begin{theorem}
+	Рассмотрим функцию \[Proof(\underbrace{x}_{\godel{\chi}}, p) = \begin{cases}
+			0, & \text{если \(p\) --- гёделев номер доказательства \(\chi\)} \\
+			1, & \text{иначе}
+		\end{cases} \]
+	\(Proof\) рекурсивна.
+\end{theorem}
+
+\begin{theorem}
+	Если функция представима в формальной арифметике, то она рекурсивна.
+\end{theorem}
+\begin{proof}
+	Рассмотрим \(f : \N \to \N\), представимую в формальной арифметике. Тогда существует \(\varphi\) с \(n + 1\) свободной переменной \((x_1 \dots x_{n+1})\)\footnote{и т.д., см. определение представимой в формальной арифметике функции}.
+
+	Если \(f(k_1 \dots k_n) = k_{n+1}\), то \(\vdash \varphi(\overline{k_1} \dots \overline{k_{n+1}})\), т.е. существует доказательство \(\delta = \delta_1 \dots \delta_t\).
+	\[Proof(\godel{\varphi(\overline{k_1} \dots \overline{k_{n+1}})}, \godel{\delta}) = 0\]
+	Найдём \(\delta\) и \(\overline{k_{n+1}}\). Переберем \(y\) и будем подставлять \(\text{plog}_2 y\) вместо \(\overline{k_{n+1}}\) и \(\text{plog}_3 y\) вместо \(\delta\). Таким образом, мы переберем все возможные комбинации:
+	\unfinished
+	% \[M\ev{S\ev{}}\]
+\end{proof}

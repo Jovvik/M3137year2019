@@ -2,61 +2,61 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 269,
-    "uniques": 77
+    "count": 322,
+    "uniques": 90
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 216,
-    "uniques": 79
+    "count": 264,
+    "uniques": 92
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 27,
-    "uniques": 15
+    "count": 28,
+    "uniques": 17
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 21,
-    "uniques": 9
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs",
-    "title": "Jovvik/M3137year2019 at pdfs",
-    "count": 20,
-    "uniques": 16
+    "count": 26,
+    "uniques": 10
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/matlog/4sem",
     "title": "M3137year2019/matlog/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 20,
-    "uniques": 16
+    "count": 24,
+    "uniques": 19
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "Jovvik/M3137year2019 at pdfs",
+    "count": 23,
+    "uniques": 19
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
-    "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019",
-    "count": 14,
-    "uniques": 9
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 12,
-    "uniques": 5
+    "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019 · GitHub",
+    "count": 19,
+    "uniques": 13
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 10,
-    "uniques": 7
+    "count": 17,
+    "uniques": 10
   },
   {
-    "path": "/Jovvik/M3137year2019/issues",
-    "title": "Issues · Jovvik/M3137year2019 · GitHub",
-    "count": 10,
+    "path": "/Jovvik/M3137year2019/pulls",
+    "title": "Pull requests · Jovvik/M3137year2019 · GitHub",
+    "count": 17,
+    "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/main.pdf",
+    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 13,
     "uniques": 6
   }
 ]

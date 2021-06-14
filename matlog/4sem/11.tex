@@ -92,4 +92,65 @@
 \begin{definition}
 	Теория \textbf{\(\omega\)-непротиворечива}, если для любой \(\varphi(x)\): если \(\vdash \varphi(\overline{0}), \vdash \varphi(\overline{1}) \dots \), то \(\nvdash \exists x.\neg \varphi(x)\)
 \end{definition}
-\unfinished
+
+\begin{theorem}
+	Если теория \(\omega\)-непротиворечива, то она непротиворечива.
+\end{theorem}
+\begin{proof}
+	Рассмотрим \(\varphi(x) : = x = x\). Т.к. \(\vdash \overline 0 = \overline 0, \vdash \overline 1 = \overline 1 \dots\), то по \(\omega\)-непротиворечивости \(\nvdash \exists x.\neg (x = x)\).
+\end{proof}
+
+\begin{theorem}[Гёделя о неполноте арифметики №1]\itemfix
+	\label{гёдель1}
+	\begin{enumerate}
+		\item Если формальная арифметика непротиворечива, то \(\nvdash \sigma(\overline{\godel{\sigma}})\)
+		\item Если формальная арифметика \(\omega\)-непротиворечива, то \(\nvdash \neg \sigma(\overline{\godel{\sigma}})\)
+	\end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+	\begin{enumerate}
+		\item Пусть \(\vdash \sigma(\overline{\godel{\sigma}})\), т.е. существует \(p\) --- гёделев номер доказательства \(\vdash \sigma(\overline{\godel{\sigma}})\). Тогда \(\vdash \forall p.\neg \omega_1(\overline{\godel{\sigma}}, p)\). С другой стороны, \(W_1(\godel{\sigma}, p) = 0\), т.е. \(\vdash \omega_1(\overline{\godel{\sigma}}, \overline p)\) --- противоречие.
+		\item Пусть \(\vdash \neg \sigma(\overline{\godel{\sigma}})\). Тогда \(\vdash \exists p.\omega_1(\overline{\godel{\sigma}}, p)\), но при этом \(\vdash \neg \omega_1(\overline{\godel{\sigma}}, \overline 0)\) и то же самое для любого числа, т.к. иначе \(\vdash \sigma(\overline{\godel{\sigma}})\) и получается противоречие.
+
+		      Но по \(\omega\)-непротиворечивости \(\vdash \sigma(\overline{\godel{\sigma}})\) --- противоречие.
+	\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+	Формальная арифметика со стандартной интерпретацией неполна.
+\end{corollary}
+\begin{proof}
+	По определению \(\vdash \omega_1(x, p)\) тогда и только тогда, когда \(p\) --- доказательство \(x(x)\). Ясно, что \(\nvdash \omega_1(\godel{\sigma}, p)\) для любого \(p\). Тогда \(\llbracket \omega_1(\overline{\godel{\sigma}}, p) \rrbracket = \text{Л}\), следовательно \(\llbracket \forall p.\neg \omega_1(\overline{\godel{\sigma}}, p) \rrbracket = \text{И}\). Но \(\nvdash \sigma(\overline{\godel{\sigma}})\) --- противоречие.
+\end{proof}
+
+Есть формулировка этой теоремы без \(\omega\)-непротиворечивости.
+\begin{theorem}[Гёделя о неполноте арифметики №1 в форме Россера]
+	\[W_2(x, p) = \begin{cases} 0, & p \text{ --- доказательство } \neg x(\godel{x}) \\
+              1, & \text{иначе}\end{cases} \]
+	\[\rho(x) = \forall p.\omega_1(x, p) \to \exists q.q < p \with \omega_2(x, q)\]
+	То есть \(\rho\) гласит, что если мы найдём доказательство самоприменения \(x\), то мы найдём доказательство отрицания самоприменения \(x\), при этом данное доказательство будет иметь меньший номер.
+	\begin{enumerate}
+		\item Если формальная арифметика непротиворечива, то \(\nvdash \rho(\overline{\godel{\rho}})\)
+		\item Если формальная арифметика непротиворечива, то \(\nvdash \neg \rho(\overline{\godel{\rho}})\)
+	\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+	Эта теорема формализована на \texttt{Coq} в 18 тысяч строк.
+\end{remark}
+
+\begin{definition}
+	\(Consis \equiv \forall p. \neg \pi(\overline{\godel{1 = 0}}, p)\), где \(\pi\) есть арифметизированное \(Proof\). Неформально \(Consis\) эквивалентно тому, что арифметика непротиворечива.
+\end{definition}
+
+\begin{theorem}[Гёделя о неполноте арифметики №2]
+	\(\vdash Consis \to \sigma(\overline{\godel{\sigma}})\)
+\end{theorem}
+\begin{remark}
+	Теорема гласит, что если доказать \(Consis\), то докажется \(\sigma(\overline{\godel{\sigma}})\), из чего следует противоречивость формальной арифметики. Следовательно, внутри Ф.А. доказать непротиворечивость Ф.А. невозможно.
+\end{remark}
+\begin{proof}
+	Полного доказательства не будет, оно убийственное\footnote{Это цитата.}.
+
+	Если вдуматься, то доказывать нечего, т.к. теорема гласит, что если формальная арифметика непротиворечива, то не существует доказательства самоприменения \(\sigma\), т.е. \(\forall p.\neg \omega_1(\overline{\godel{\sigma}}, p)\). Таким образом, это просто первый пункт теоремы \nameref{гёдель1}, но формализованный.
+\end{proof}

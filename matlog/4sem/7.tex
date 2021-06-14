@@ -126,14 +126,14 @@
             \Gamma^\Delta \arrow{r}{\text{теорема}}      & M^\Delta \arrow{u}{id}
         \end{tikzcd}\]
 
-    Рассмотрим \(\Gamma_0 \subset \Gamma_1 \dots \Gamma_i \dots \subset \Gamma^*\) и \(\Gamma^* = \bigcup_i \Gamma_i\), а также \(\Gamma_0 = \Gamma_1\), где все формулы в предварённой нормальной форме. Определим переход \(\Gamma_i \to \Gamma_{i + 1}\).
+    Рассмотрим \(\Gamma_0 \subset \Gamma_1 \dots \Gamma_i \dots \subset \Gamma^*\) и \(\Gamma^* = \bigcup_i \Gamma_i\), а также \(\Gamma_0 = \Gamma\), где все формулы в предварённой нормальной форме. Определим переход \(\Gamma_i \to \Gamma_{i + 1}\).
 
     Построим семейство функциональных символов \(d^i_j\), которые нигде ранее не использовались.
 
     Рассмотрим случаи того, чем является \(\varphi_j \in \Gamma_i\).
     \begin{enumerate}
         \item \(\varphi_j\) без кванторов --- не трогаем.
-        \item \(\varphi_j \equiv \forall x.\psi\) --- добавим все формулы вида \(\psi[x : = \theta]\), где \(\theta\) --- терм, состваленный из \(f, d_0^l, d_1^l, \dots d_{i - 1}^l\)
+        \item \(\varphi_j \equiv \forall x.\psi\) --- добавим все формулы вида \(\psi[x : = \theta]\), где \(\theta\) --- терм, составленный из \(f, d_0^l, d_1^{l'}, \dots d_{i - 1}^{l^{\prime \dots \prime}}\)
         \item \(\varphi_j \equiv \exists x.\psi\) --- добавим формулу \(\psi[x: = d_i^j]\)
     \end{enumerate}
 

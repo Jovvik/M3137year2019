@@ -136,11 +136,11 @@
 \begin{proof}[Доказательство теоремы \ref{Дизъюнктинвость ИИВ}]
     Рассмотрим алгебру Линденбаума \(\mathcal{L}\), \(\Gamma(\mathcal{L})\) и \(\varphi : \Gamma(\mathcal{L}) \to \mathcal{L}\) --- гомоморфизм.
     \[\varphi(x) = \begin{cases}
-            1_\mathcal{L}, x = \omega                  \\
-            1_\mathcal{L}, x = 1_{\Gamma(\mathcal{L})} \\
+            1_{\mathcal{L}}, x = \omega                  \\
+            1_{\mathcal{L}}, x = 1_{\Gamma(\mathcal{L})} \\
             x, \text{иначе}
         \end{cases}\]
     Пусть \(\vdash \alpha \lor \beta\). Тогда \(\llbracket \alpha \lor \beta \rrbracket_{\Gamma(\mathcal{L})} = 1_{\Gamma(\mathcal{L})}\), но по Гёделевости \(\Gamma(\mathcal{L})\) \(\llbracket \alpha \rrbracket = 1\) или \(\llbracket \beta \rrbracket = 1\).
 
-    Пусть \(\nvdash \alpha\) и \(\nvdash \beta\). Тогда \(\varphi(\llbracket \alpha \rrbracket) \neq 1_{\mathcal{L}}\) и \(\varphi(\llbracket \beta \rrbracket) \neq 1_{\mathcal{L}}\). Тогда \(\llbracket \alpha \rrbracket_{\Gamma(\mathcal{L})} \neq 1_\mathcal{L}, \llbracket \beta \rrbracket \neq 1_\mathcal{L}\) --- противоречие.
+    Пусть \(\nvdash \alpha\) и \(\nvdash \beta\). Тогда \(\varphi(\llbracket \alpha \rrbracket) \neq 1_{\mathcal{L}}\) и \(\varphi(\llbracket \beta \rrbracket) \neq 1_{\mathcal{L}}\). Тогда \(\llbracket \alpha \rrbracket_{\Gamma(\mathcal{L})} \neq 1_{\mathcal{L}}, \llbracket \beta \rrbracket \neq 1_{\mathcal{L}}\) --- противоречие.
 \end{proof}

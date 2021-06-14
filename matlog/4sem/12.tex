@@ -1,0 +1,200 @@
+\chapter{14 мая}
+
+\section{Теория множеств}
+
+\begin{remark}
+    Обычно фокус в курсе матлогики делается именно на теории множеств, т.к. она более полезна для математики.
+\end{remark}
+
+\begin{definition}
+    \textbf{Теория множеств} --- теория первого порядка с нелогическим предикатом ``принадлежность'' \((\in)\) и нижеуказанными схемами аксиом.
+\end{definition}
+
+\begin{definition}
+    \(a \subseteq b\), если \(\forall x.x \in a \to x \in b\)
+\end{definition}
+
+\begin{remark}
+    Моделью для теории множеств является конструкция в стиле алгебры Линденбаума.
+\end{remark}
+
+\begin{definition}[пара]
+    \[\ev{a, b} = \{\{a\}, \{a, b\}\}\]
+    \[fst\ev{a, b} = \bigcup \left(\bigcap \ev{a, b}\right)\]
+    \[snd\ev{a, b} = \bigcup \left(\bigcup \ev{a, b} \setminus \bigcap \ev{a, b}\right)\]
+\end{definition}
+
+\begin{definition}
+    \(B \subseteq X^2\) --- бинарное отношение на \(X\).
+\end{definition}
+
+Что такое равенство?
+\begin{itemize}
+    \item Принцип Лейбница \textit{(неразличимость)}: \(A = B\), если для любого ``предиката''\footnote{Множество \(\{x\ |\ P(x)\}\)} \(P\) выполнено \(P(A) \leftrightarrow P(B)\)
+    \item Принцип объёмности: \(A\) и \(B\) состоит из одинаковых элементов.
+\end{itemize}
+
+Сокращение: \(a \leftrightarrow b\), если \((a \to b) \with (b \to a)\)
+
+\begin{definition}
+    \(a = b\), если \(a \subseteq b \with b \subseteq a\)
+\end{definition}
+
+\begin{remark}
+    То есть мы используем принцип объемности. Из него следует принцип Лейбница.
+\end{remark}
+
+\begin{axiom}[равенства]
+    Равные множества содержатся в одних и тех же множествах.
+    \[\forall abc.a = b \with a \in c \to b \in c\]
+\end{axiom}
+
+\begin{axiom}[пустого множества]
+    Существует \(\emptyset : \forall x.\neg x \in \emptyset\)
+\end{axiom}
+
+\begin{remark}
+    Также можно определить пустое множество как константу теории.
+\end{remark}
+
+\begin{axiom}[пары]
+    \label{пары}
+    Если \(a \neq b\), то \(\{a, b\}\) --- множество.
+
+    В формальном виде:
+    \[\forall a.\forall b. a \neq b \to \exists p.a \in p \with b \in p \with \forall t.t \in p \to t = a \lor t = b\]
+\end{axiom}
+
+\begin{remark}
+    Иначе мы можем получать нечто похожее на открытые множества в топологии стрелки, где у нас нет конечного множества, содержащего некоторый элемент.
+\end{remark}
+
+\begin{axiom}[объединения]
+    Если \(x\) --- непустое множество, то \(y = \bigcup x\) --- множество.
+
+    В формальном виде:
+    \[\forall x.\underbrace{\exists(y.y \in x)}_{x \text{непустое}} \to \exists p. \forall y.y \in p \leftrightarrow \exists s.y \in s \with s \in x\]
+\end{axiom}
+
+\begin{axiom}[степени]
+    Для множества \(x\) существует \(\mathcal{P}(x)\) --- множество всех подмножеств.
+
+    В формальном виде:
+    \[\forall x.\exists p.\forall y.y \in p \leftrightarrow y \subseteq x\]
+\end{axiom}
+
+\begin{example}
+    \[\mathcal{P}(\{a, b\}) = \{\emptyset, \{a\}, \{b\}, \{a, b\}\}\]
+\end{example}
+
+\begin{axiom}[выделения]
+    Если \(a\) --- множество, \(\varphi(x)\) --- формула, в которую не входит свободно \(b\), то \(\{x\ |\ x \in a \with \varphi(x)\}\) --- множество.
+
+    В формальном виде:
+    \[\forall x.\exists b.\forall y.y \in b \leftrightarrow y \in x \with \varphi(y)\]
+
+    \begin{remark}
+        Это схема аксиомы, т.к. здесь присутствует метапеременная \(\varphi\).
+    \end{remark}
+\end{axiom}
+
+\begin{axiom}[бесконечности]
+    Существует множество \(N\) такое, что:
+    \[\emptyset \in N \with \forall x.x \in N \to x \cup \{x\} \in N\]
+\end{axiom}
+
+\begin{theorem}
+    \label{множество x}
+    Если \(x\) --- множество, то \(\{x\}\) --- множество, т.е. \(\exists t.a \in t \leftrightarrow a = x\)
+\end{theorem}
+\begin{proof}
+    Рассмотрим случаи:
+    \begin{enumerate}
+        \item \(x = \emptyset\). Тогда \(t = \mathcal{P}(x)\).
+        \item \(x \neq \emptyset\). Тогда \(s = \{x, \emptyset\}\) --- существует по аксиоме пары, \(t = \{z\ |\ z \in s \with z \neq \emptyset\}\).
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Если \(a, b\) --- множества, то \(a \cup b\) --- множество.
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим случаи:
+    \begin{enumerate}
+        \item \(a = b\). Тогда \(a \cup b = a\)
+        \item \(a \neq b\). Тогда \(a \cup b = \{a, b\}\) --- существует по аксиоме \nameref{пары}
+    \end{enumerate}
+\end{proof}
+
+\begin{obozn}
+    \(a, b\) --- множества. Тогда \(a \cup b\) --- такое \(c\), что:
+    \[a \subseteq c \with b \subseteq c \with \forall t.t \in c \to t \in a \lor t \in b\]
+\end{obozn}
+
+\begin{definition}
+    \(a' = a \cup \{a\}\)
+\end{definition}
+
+\begin{obozn}[ординальные числа]\itemfix
+    \begin{itemize}
+        \item \(\overline 0 = \emptyset\)
+        \item \(\overline 1 = \emptyset' = \{\emptyset\}\)
+        \item \(\overline 2 = \emptyset'' = \{\emptyset, \{\emptyset\}\}\)
+        \item \(\overline 3 = \emptyset''' = \{\emptyset, \{\emptyset\}, \{\emptyset, \{\emptyset\}\}\}\)
+    \end{itemize}
+\end{obozn}
+
+\begin{definition}
+    Множество \(S\) \textbf{транзитивно}, если:
+    \[\forall a.\forall b.a \in b \with b \in S \to a \in S\]
+\end{definition}
+
+\begin{definition}
+    Множество \(s\) \textbf{вполне упорядоченно} отношением ``\(\in\)'', если:
+    \begin{enumerate}
+        \item \(\forall a.\forall b.a \in s \with b \in s \to a \in b \lor b \in a \lor a = b\) --- линейность
+        \item \(\forall t.t \subseteq s \to \exists a. a \in t \with \forall b.b \in t \to b = a \lor a \in b\) --- в любом подмножестве есть наименьший элемент
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    \textbf{Ординал} --- вполне упорядоченное отношением ``\(\in\)'' транзитивное множество.
+\end{definition}
+
+\begin{definition}
+    \textbf{Предельный ординал} --- непустой ординал, не имеющий предшественника:
+    \[\forall p.p' \neq s\]
+\end{definition}
+
+\begin{example}
+    \[\omega = \{\emptyset, 1, 2 \dots \}\]
+
+    Очевидно, что \(\omega \subseteq N\)
+\end{example}
+\begin{theorem}
+    \(\omega\) --- множество.
+\end{theorem}
+\begin{definition}
+    \[a + b = \begin{cases}
+            a,                            & b = 0                    \\
+            (a + c)',                     & b = c'                   \\
+            \sup\limits_{c \in b}(a + c), & b \text{ --- предельный}
+        \end{cases} \]
+\end{definition}
+
+\begin{definition}
+    \(\sup t\) --- минимальный ординал, содержащий все элементы \(t\).
+\end{definition}
+
+\begin{example}
+    \(a = \{0, 1, 3\}\) --- не ординал, т.к. транзитивность не выполнена, т.к. \(2 \in 3\), но \(2 \notin a\). \(\sup \{0, 1, 3\} = \{0, 1, 2, 3\} \)
+\end{example}
+
+\begin{example}
+    \[1 + \omega = \sup_{c \in \omega} (1 + c) = \sup \{0 + 1, 1 + 1 \dots \} = \sup \{1, 2 \dots \} = \omega\]
+\end{example}
+
+\begin{example}
+    \[\omega + 1 = \omega' = \{0, 1, 2, \dots \omega\}\]
+\end{example}

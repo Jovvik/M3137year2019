@@ -63,6 +63,33 @@
 	Если \(f(k_1 \dots k_n) = k_{n+1}\), то \(\vdash \varphi(\overline{k_1} \dots \overline{k_{n+1}})\), т.е. существует доказательство \(\delta = \delta_1 \dots \delta_t\).
 	\[Proof(\godel{\varphi(\overline{k_1} \dots \overline{k_{n+1}})}, \godel{\delta}) = 0\]
 	Найдём \(\delta\) и \(\overline{k_{n+1}}\). Переберем \(y\) и будем подставлять \(\text{plog}_2 y\) вместо \(\overline{k_{n+1}}\) и \(\text{plog}_3 y\) вместо \(\delta\). Таким образом, мы переберем все возможные комбинации:
-	\unfinished
-	% \[M\ev{S\ev{}}\]
+
+	\[
+		S\ev{\text{plog}_2, M\ev{S\ev{Proof, S\ev{Subst_{n + 1}, \godel{\varphi}, P_{n+1}^2, P_{n+1}^3 \dots P_{n+1}^{n + 1}, S\ev{\text{plog}_2, P^1_{n+1}}}, S\ev{\text{plog}_3, P^1_{n+1}}}}}
+	\]
+	\begin{itemize}
+		\item \(S\ev{\text{plog}_2, P^1_{n+2}}\) --- то же самое, что и \(\text{plog}_2 y\).
+		\item \(Subst_i\) берёт \(i\)-тый аргумент \(x_i\) и заменяет все вхождения \(x_i\) в во всех аргументах, кроме последнего, на значение последнего аргумента.
+	\end{itemize}
+
+	Объяснение: \(M\) найдёт минимальное\footnote{что нам не нужно, но пусть будет} \(y\), такое что при вышеуказанной подстановке \(Proof = 0\). Т.к. нам нужно получить \(k_{n+1}\), то мы берём \(\text{plog}_2\).
 \end{proof}
+
+\subsection{Самоприменение}
+
+\begin{definition}
+	\(W_1(\godel{\chi}, \godel{p}) = 0\) тогда и только тогда, когда \(p\) --- доказательство самоприменения \(\chi\), т.е. доказательство \(\chi[x_0 : = \godel{\chi}]\); иначе \(W_1 = 1\).
+\end{definition}
+
+Представление \(W_1\) в формальной арифметике через \(Subst\) очевидно, обозначим его \(\omega_1\).
+
+Формула \(\sigma(x) = \forall p.\neg \omega_1(x, p)\) утверждает ``самоприменение \(x\) недоказуемо''. Доказуемо ли \(\sigma(\overline{\godel{\sigma}})\)?
+
+\begin{remark}
+	Эта тема несколько архаична.
+\end{remark}
+
+\begin{definition}
+	Теория \textbf{\(\omega\)-непротиворечива}, если для любой \(\varphi(x)\): если \(\vdash \varphi(\overline{0}), \vdash \varphi(\overline{1}) \dots \), то \(\nvdash \exists x.\neg \varphi(x)\)
+\end{definition}
+\unfinished

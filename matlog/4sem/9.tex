@@ -140,15 +140,15 @@
 \begin{definition}
     Пусть \(W \subset \N_0^n\). \(W\) --- \textbf{выразимое в формальной арифметике отношение, если}: (пусть \(k_1 \dots k_n \in \N\))
     \begin{enumerate}
-        \item \((k_1\dots k_n)\in W\), тогда \(\vdash w[x_1: = \overline k_1 \dots x_n: = \overline k_n]\)
-        \item \((k_1\dots k_n)\notin W\), тогда \(\vdash \neg w[x_1: = \overline k_1 \dots x_n: = \overline k_n]\)
+        \item \((k_1\dots k_n)\in W\), тогда \(\vdash w[x_1: = \overline{k_1} \dots x_n: = \overline{k_n}]\)
+        \item \((k_1\dots k_n)\notin W\), тогда \(\vdash \neg w[x_1: = \overline{k_1} \dots x_n: = \overline{k_n}]\)
     \end{enumerate}
 \end{definition}
 
 \begin{definition}
-    \(f : \N^n \to \N\) \textbf{представима в формальное арифметике}, если найдётся \(\varphi\) --- формула с \(n + 1\) свободной переменной \(k_1 \dots k_{n+1} \in \N\)
+    \(f : \N^n \to \N\) \textbf{представима в формальной арифметике}, если найдётся \(\varphi\) --- формула с \(n + 1\) свободной переменной \(k_1 \dots k_{n+1} \in \N\)
     \begin{enumerate}
-        \item \(f(k_1\dots k_n) = k_{n+1}\), то \(\vdash \varphi(\overline k_1 \dots \overline k_{n+1})\)
+        \item \(f(k_1\dots k_n) = k_{n+1}\), то \(\vdash \varphi(\overline{k_1} \dots \overline{k_{n+1}})\)
         \item \(\vdash \exists ! x.\varphi(k_1 \dots k_n, x)\)
     \end{enumerate}
 \end{definition}

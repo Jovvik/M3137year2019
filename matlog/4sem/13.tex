@@ -1,0 +1,117 @@
+\chapter{21 мая}
+
+\subsection{Аксиома выбора}
+
+\begin{axiom}
+    Эквивалентны следующие формулировки:
+    \begin{itemize}
+        \item На любом семействе\footnote{Это синоним слову ``множество''.} непустых множеств \(\{A_S\}_{S \in \mathbb{S}}\) можно определить функцию \(f : \mathbb{S} \to \bigcup_S A_S\), которая мо множеству возвращает его элемент.
+        \item Любое множество можно вполне упорядочить.
+        \item Для любой сюрьективной функции \(f : A \to B\) найдётся частично обратная \(g : B \to A\), т.е. \(g(f(x)) = x\).
+    \end{itemize}
+\end{axiom}
+
+\begin{remark}
+    Эта аксиома странная, т.к. по третьей формулировке любую хеш-функцию можно сломать. Конечно, они все ломаются перебором, но это не относится к реальному миру.
+\end{remark}
+
+\begin{remark}
+    Эта аксиома не конструктивна --- сказано, что можно построить функцию/порядок, но не сказано, как.
+\end{remark}
+
+\begin{remark}
+    Аксиома выбора не даёт парадоксов.
+\end{remark}
+
+\begin{remark}
+    Можно рассматривать теорию множеств без этой аксиомы, она тоже часто используется и обозначается \textbf{ZF}\footnote{Zermelo–Fraenkel}, а с аксиомой выбора обозначается \textbf{ZFC}\footnote{Zermelo–Fraenkel-Choice}.
+\end{remark}
+
+\begin{definition}
+    \textbf{Дизъюнктное семейство множеств} --- семейство непересекающихся подмножеств.\footnote{Кажется, в формализации ошибка, т.к. если \(p = q\), то всё ломается. Нужно в конец добавить \({}\lor p = q\).}
+    \[D(y) : \forall p.\forall q.p \in y \with q \in y \to p \cap q = \emptyset\]
+\end{definition}
+
+\begin{definition}[прямое произведение дизъюнктного множества]
+    \[\bigtimes S = \{t\ |\ \forall p.p \in S \leftrightarrow \exists! c.c \in p \with c \in t\}\]
+\end{definition}
+
+Формулировка аксиомы выбора, которую мы будем использовать:
+
+\begin{axiom*}[выбора]
+    Если \(D(y) \with \forall t.t \in y \to t \neq \emptyset\), то \(\bigtimes y \neq \emptyset\)
+\end{axiom*}
+
+\begin{remark}
+    В матанализе аксиома выбора используется для эквивалентности предела по Коши и по Гейне.
+\end{remark}
+
+\begin{theorem}[Диаконеску]
+    Рассмотрим ZF поверх ИИП\footnote{а не КИП}. Если добавить аксиому выбора, то \(\vdash \alpha \lor \neg \alpha\).
+\end{theorem}
+
+\begin{axiom}[фундирования]
+    \label{фундирования}
+    \[\forall x.x = \emptyset \lor \exists y.y \in x \with y \cap x = \emptyset\]
+    Иными словами, в каждом непустом множестве есть элемент, не пересекающийся с ним.
+\end{axiom}
+
+\begin{remark}
+    Эта аксиома запрещает самосодержащие множества.
+\end{remark}
+
+\begin{remark}
+    Без аксиомы \nameref{фундирования} нельзя определить \(\{a, \{a, b\}\}\) как пару, но можно \(\{\{a\}, \{a, b\}\}\).
+\end{remark}
+
+\begin{axiom}[схема подстановки, Френкеля]
+    Если \(S\) --- множество, \(f\) --- функция, т.е. существует формула \(\varphi(x, y) : \forall x \in S.\exists!y.\varphi(x, y)\), то \(f(S)\) --- множество.
+\end{axiom}
+
+\subsection{Мощность множеств}
+
+\begin{definition}
+    Множества \(a\) и \(b\) \textbf{равномощны}, если существует биекция \(a \to b\) и обозначается \(|a| = |b|\).
+\end{definition}
+
+\begin{definition}
+    \textbf{Кардинальное число \(t\)} --- ординал \(x\), такой что для всех \(y \in x\) \(|y| \neq |x|\)
+\end{definition}
+
+\begin{definition}
+    \textbf{Мощность} \(|x|\) --- такое кардинальное число \(t\), что \(|t| = |x|\).
+\end{definition}
+
+\begin{definition}[строго большая мощность]
+    \(|a| > |b|\), если существует \(f : a \to b\) --- инъективно, но нет биекции.
+\end{definition}
+
+\begin{statement}
+    Если \(a, b\) --- кардиналы и \(|a| = |b|\), то \(a = b\).
+\end{statement}
+
+\begin{itemize}
+    \item \(\overline 0, \overline 1, \dots \) --- конечные кардиналы.
+    \item \(\aleph_0 = |\omega|\)
+    \item \(\aleph_1\) --- следующий кардинал за \(\aleph_0\).
+    \item \(\vdots\)
+\end{itemize}
+
+\begin{example}
+    \(|\omega| = |\omega + 1|\), следовательно \(|\omega + 1|\) не кардинал, т.к. \(\omega \in \omega + 1\).
+\end{example}
+
+\begin{theorem}[Кантора]
+    Рассмотрим множество \(S\) и \(\mathcal{P}(S)\). Тогда \(|\mathcal{P}(S)| > |S|\)
+\end{theorem}
+\begin{proof}
+    Пусть \(f : S \to \mathcal{P}(S)\) --- биекция. Построим \(x \in \mathcal{P}(S)\), не имеющий прообраза. Это можно сделать диагональным методом: \(t = \{s_k \in S\ |\ s_k \notin f(s_k)\}\).
+\end{proof}
+
+Напоминание: \(\aleph_1\) --- наименьший кардинал такой, что \(\aleph_1 > \aleph_0\). Существует ли он? Да, т.к. \(|\mathcal{P}(\aleph_0)| > \aleph_0\) по теореме кантора.
+
+Является ли \(\aleph_1\) \(\mathcal{P}(\aleph_0)\)? Это континуум-гипотеза, и её отрицание нельзя доказать.
+
+\begin{theorem}[Кантора-Бернштейна]
+    Если \(a, b\) --- множества, \(f : a \to b\) и \(g : b \to a\) инъективны, то существует биекция \(a \to b\).
+\end{theorem}

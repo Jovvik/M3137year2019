@@ -10,7 +10,7 @@
 \end{corollary}
 
 \begin{proof}
-    Рассмотрим случай \(f > 0\). \(\text{ПГ}\footnote{подграфик}(f_{\?}[a, b])\) --- измеримое в \(\R^2\) множество. Доказать это --- упражнение. % TODO
+    Рассмотрим случай \(f > 0\). \(C = \text{ПГ}\footnote{подграфик}(f, [a, b])\) --- измеримое в \(\R^2\) множество. Доказать это --- упражнение. % TODO
 
     \(C_x = [0, f(x)]\), \(\lambda_1(C_x) = f(x)\)
 
@@ -118,7 +118,7 @@
     \begin{enumerate}
         \item \(f_x\) --- суммируема на \(Y\) при почти всех \(x\)
         \item \(x \mapsto \varphi(x) = \int_Y f_x d\nu = \int_Y f(x, y) d\nu(y)\) --- суммируема на \(Y\)
-        \item \(\int_{X \times Y} f dm = \int_X \varphi d \mu = \int_X \left( \int_y f(x, y) d\nu(y) \right) d\mu(x)\)
+        \item \(\int_{X \times Y} f dm = \int_X \varphi d \mu = \int_X \left( \int_Y f(x, y) d\nu(y) \right) d\mu(x)\)
     \end{enumerate}
 \end{theorem}
 \begin{proof}

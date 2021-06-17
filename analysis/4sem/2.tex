@@ -31,18 +31,19 @@
     \[\lim\limits_{n \to +\infty} g_n(x) = f(x) : g_n(x) \leq f(x)\]
 
     \[\lim\limits_{n \to +\infty} g_n(x) = f(x) :
-	\begin{cases}
-    	g_n(x) \le f(x) \vspace{0.25cm} \\
-    	f(x) = +\infty: \;\forall n\;\; x\in e_{n^2 + 1}^{(n)} \Rightarrow g_n(x) = n \vspace{0.25cm} \\
-    	f(x) < +\infty: \;|g_n(x) - f(x)|\le \frac{1}{n} \\
-	\end{cases}\]
+        \begin{cases}
+            g_n(x) \le f(x) \vspace{0.25cm}                                                               \\
+            f(x) = +\infty: \;\forall n\;\; x\in e_{n^2 + 1}^{(n)} \Rightarrow g_n(x) = n \vspace{0.25cm} \\
+            f(x) < +\infty: \;|g_n(x) - f(x)|\le \frac{1}{n}                                              \\
+        \end{cases}\]
 
     \[f_n = max(g_1, ..., g_n)\]
     \[g_n(x) \le f_n(x) \le f(x)\]
-	\[f_n(x) \xrightarrow[n\to+\infty]{} f(x)\]
+    \[f_n(x) \xrightarrow[n\to+\infty]{} f(x)\]
     %</характеризацияизмеримыхфункцийспомощьюступенчатыхproof>
 \end{proof}
 
+%<*характеризацияизмеримыхфункцийспомощьюступенчатыхcorollary>
 \begin{corollary}\itemfix
     \begin{itemize}
         \item \(f\) --- измеримо
@@ -80,6 +81,7 @@
 \begin{proof}
     \[f_n + g_n \to f + g\]
 \end{proof}
+%</характеризацияизмеримыхфункцийспомощьюступенчатыхcorollary>
 
 \begin{theorem}[об измеримости функций, непрерывных на множестве полной меры]
     %<*обизмеримостифункцийнепрерывныхнамножествеполноймеры>
@@ -217,9 +219,9 @@
 \end{prop}
 
 \begin{definition}
-	%<*эквивалентность>
-	Будем говорить, что \(f\) эквивалентна \(g\) если \(f = g\) почти всюду.
-	%</эквивалентность>
+    %<*эквивалентность>
+    Будем говорить, что \(f\) эквивалентна \(g\) если \(f = g\) почти всюду.
+    %</эквивалентность>
 \end{definition}
 
 \begin{definition}
@@ -453,4 +455,3 @@
 \begin{remark}
     Неформально говоря, можно разбить \(\R^{m + n}\) на \(\R^{m}\) и \(\R^n\) и интегрировать сначала по одной переменной, потом по другой.
 \end{remark}
-

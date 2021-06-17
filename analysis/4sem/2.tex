@@ -174,9 +174,9 @@
         \item \(W(x)\) --- высказывание \((x \in X)\)
     \end{itemize}
 
-    \(W(x)\) --- верно при почти всех x из \(E\) = почти всюду на \(E\) = почти везде на \(E\) = п.в. \(E\), если:
+    \(W(x)\) --- верно \textbf{при почти всех} \(x\) из \(E\) = \textbf{почти всюду} на \(E\) = \textbf{почти везде} на \(E\) = \textbf{п.в.} \(E\), если:
 
-    \(\exists e\in E : \mu e = 0 \ \ W(x)\) --- истинно при \(x\in E\setminus e\)
+    \(\exists e \in E : \mu e = 0\) и \(W(x)\) истинно при \(\forall x \in E \setminus e\)
     %</свойствопочтивезде>
 \end{definition}
 
@@ -186,7 +186,7 @@
 
 \begin{definition}
     %<*сходимостьпочтивезде>
-    \(f_n(x) \xrightarrow[x \to +\infty]{} f(x)\) при п.в. \(x\in E\)
+    Если \(f_n(x) \xrightarrow[x \to +\infty]{} f(x)\) при п.в. \(x \in E\), тогда говорят, что \(f_n\) \textbf{сходится на \(E\) почти везде}.
     %</сходимостьпочтивезде>
 \end{definition}
 
@@ -306,7 +306,7 @@
 \begin{theorem}[Рисс]\itemfix
     %<*рисса>
     \begin{itemize}
-        \item \((X, \mathfrak{A}, \mu)\)
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
         \item \(f_n, f\) --- измеримо, п.в. конечно
         \item \(f_n \longarrow{\mu} f\).
     \end{itemize}
@@ -353,19 +353,35 @@
 \begin{theorem}[Егорова]\itemfix
     %<*теоремаегорова>
     \begin{itemize}
-        \item \(X, \mathfrak{A}, \mu\)
+        \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
         \item \(\mu X < +\infty\)
         \item \(f_n, f\) --- почти везде конечно, измеримо
         \item \(f_n \to f\) почти везде
     \end{itemize}
 
     Тогда
-    \[\forall \varepsilon > 0 \ \ \exists e\subset X : \mu e < \varepsilon \quad f_n \xrightrightarrows[X\setminus e]{} f\]
+    \[\forall \varepsilon > 0 \ \ \exists e \subset X : \mu e < \varepsilon \quad f_n \xrightrightarrows[X\setminus e]{} f\]
     %</теоремаегорова>
 \end{theorem}
+%<*теоремаегороваproof>
 \begin{proof}
-    Упражнение. % TODO: #70 доказать
+    \begin{remark}
+        Кажется, доказательство знать не нужно, т.к. нам его не давали.
+    \end{remark}
+
+    Зафиксируем \(\varepsilon > 0\). Рассмотрим следующее семейство множеств:
+    \[E_{n, k} = \bigcup_{m \geq n} \left\{ x \in X\ \Big|\ |f_m(x) - f(x)| \geq \frac{1}{k} \right\} \]
+    Т.к. \(f_n \to f\) почти везде:
+    \[\mu\left(\bigcap_{n \in \N} E_{n, k}\right) = 0\]
+    Т.к. \(\mu X < +\infty\), то \(\mu\) непрерывно сверху, т.е.
+    \[\lim\limits_{n \to +\infty} \mu E_{n, k} = \mu \left(\bigcap_{n \in \N} E_{n, k}\right) = 0\]
+    Тогда по определению предела \(\exists (n_k):\)
+    \[\mu E_{n_k, k} < \frac{\varepsilon}{2^k}\]
+    Пусть \(e = \bigcup_{k \in \N} E_{n_k, k}\). По \(\sigma\)-аддитивности \(\mu\):
+    \[\mu(e) \leq \sum_{k \in \N} \mu(E_{n_k, k}) < \sum_{k \in \N} \frac{\varepsilon}{2^k} = \varepsilon\]
+    Кроме того, \(f_n \xrightrightarrows[X\setminus e]{} f\).
 \end{proof}
+%</теоремаегороваproof>
 
 \section{Интеграл}
 

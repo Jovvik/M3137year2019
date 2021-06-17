@@ -247,8 +247,9 @@
 \end{definition}
 \begin{corollary}[следствия]
     \(\mathcal{L}(X)\) --- линейное пространство, а отображение \(f \mapsto \int_X f\) это линейный функционал\footnote{т.е. функция функций} на \(\mathcal{L}(X)\)
-    , т.е. \(\forall f_1 \dots f_n \in \mathcal{L}(X) \ \ \forall \alpha_1 \dots \alpha_n \in\R\) \\
-    \(\sum\limits_{k = 1}^n\alpha_k f_k \in \mathcal{L}(X)\)\: и \:\(\int_X\sum\limits_{k = 1}^n\alpha_k f_k = \sum\limits_{k = 1}^n\alpha_k\int_X f_k\)
+    , т.е.:
+    \[\forall f_1 \dots f_n \in \mathcal{L}(X) \ \ \forall \alpha_1 \dots \alpha_n \in\R \quad
+        \sum\limits_{k = 1}^n\alpha_k f_k \in \mathcal{L}(X) \text{ и } \int_X\sum\limits_{k = 1}^n\alpha_k f_k = \sum\limits_{k = 1}^n\alpha_k\int_X f_k\]
 \end{corollary}
 
 \begin{theorem}[об интегрировании положительных рядов]\itemfix
@@ -267,8 +268,7 @@
     По теореме Леви:
 
     \[S_n : = \sum_{k = 1}^n u_k \quad 0 \leq S_n \leq S_{n+1} \leq \dots \]
-    \(S_n \to S = \sum\limits_{k = 1}^{+\infty}u_k\)  \\
-    Тогда \(\int_E S_n \to \int_E S\)
+    \(S_n \to S = \sum\limits_{k = 1}^{+\infty}u_k\), тогда \(\int_E S_n \to \int_E S\)
 \end{proof}
 
 \begin{corollary}
@@ -294,7 +294,7 @@
          & = |a_n|\int_{ - N - x_n}^{N - x_n} \frac{dx}{\sqrt{|x|}} \\
          & \leq |a_n|\int_{ - N}^{N} \frac{dx}{\sqrt{|x|}}          \\
          & = 4 \sqrt{N} |a_n|                                       \\
-         \sum_n\int_{[ - N, N]} \frac{|a_n|}{\sqrt{|x - x_n|}}
+        \sum_n\int_{[ - N, N]} \frac{|a_n| d\lambda}{\sqrt{|x - x_n|}}
          & \leq 4 \sqrt{N} \sum|a_n| < +\infty
     \end{align*}
 \end{proof}

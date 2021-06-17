@@ -206,13 +206,13 @@
 
               Это очевидно, т.к. \(A = \bigsqcup Q_j, Q_j\) --- кубическая ячейка, \(Q_j \subset \overline Q_j \subset A\)
               \begin{equation}
-                  \nu A = \sum \lambda Q_j \leq \sum \mu Q_j \sup_{Q_j} J_\Phi \leq \sup_A J_\Phi \cdot \sum \mu Q_j = \sup_A J_\Phi \cdot \lambda A \label{доказательство для открытых}
+                  \nu A = \sum \lambda Q_j \leq \sum \lambda Q_j \sup_{Q_j} J_\Phi \leq \sup_A J_\Phi \cdot \sum \lambda Q_j = \sup_A J_\Phi \cdot \lambda A \label{доказательство для открытых}
               \end{equation}
 
         \item По лемме~\ref{лемма без имени} неравенство~\eqref{искомое неравенство} выполнено для всех измеримых \(A\):
 
               \(O = \bigsqcup Q_j\) --- кубы \(Q_j \subset \overline Q_j \subset O\), \(A = \bigsqcup \underbrace{A \cap Q_j}_{A_j}\)
-              \[\nu A_j \leq \nu G \leq \sup_G J_\Phi \cdot \lambda G \Rightarrow \nu A_j \leq \inf_G (\sup J_\Phi \cdot \lambda G) = \sup_{A_j} f \cdot \lambda A_j\]
+              \[\nu A_j \leq \nu G \leq \sup_G J_\Phi \cdot \lambda G \Rightarrow \nu A_j \leq \inf_G (\sup J_\Phi \cdot \lambda G) = \sup_{A_j} J_\Phi \cdot \lambda A_j\]
 
               Аналогично формуле~\eqref{доказательство для открытых} получаем \(\nu A \leq \sup_A f \cdot \lambda A\)
     \end{enumerate}
@@ -221,7 +221,7 @@
 \begin{theorem}\itemfix
     \begin{itemize}
         \item \(\Phi : O \subset \R^m \to \R^m\)
-        \item \(\Phi\) дифференцируемо
+        \item \(\Phi\) - диффеоморфизм
     \end{itemize}
 
     Тогда \(\forall\) измеримой \(f \geq 0\), заданной на \(O' = \Phi(O)\):
@@ -233,7 +233,7 @@
     Применяем теорему~\nameref{о вычислении интеграла по взвешенному образу меры} при \(X = Y = \R^m, \mathfrak{A} = \mathfrak{B} = \mathfrak{M}^m, \mu = \lambda, \nu(A) = \lambda(\Phi(A))\):
     \[\int_B f d\nu = \int_{\Phi^{-1}B} f(\Phi(x)) \omega(x) d\mu\]
 
-    По теореме~\ref{мера лебега при диффеоморфизме} \(\lambda(B) = \int_{\Phi^{-1}(O)} J_\Phi d \lambda\), т.е. \(\lambda\) --- взвешенный образ исходной меры по отношению к \(\Phi\).
+    По теореме~\ref{мера лебега при диффеоморфизме} \(\lambda(B) = \int_{\Phi^{-1}(B)} J_\Phi d \lambda\), т.е. \(\lambda\) --- взвешенный образ исходной меры по отношению к \(\Phi\).
 \end{proof}
 
 \begin{example}\itemfix

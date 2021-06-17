@@ -201,9 +201,9 @@
 %<*левиproof>
 \begin{proof}\itemfix
     \begin{itemize}
-        \item [ \( \leq \)] очевидно, т.к. \(\int f_n \leq f\) почти везде, таким образом:
+        \item [ \( \leq \)] очевидно, т.к. \(f_n \leq f\) почти везде, таким образом:
               \[\int_X f_n = \int_{X\setminus e} f_n + \underbrace{\int_e f_n}_0 = \int_{X\setminus e} f_n \leq \int_{X\setminus e} f \leq \int_{X} f\]
-        \item [ \( \geq \)] достаточно проверить, что \(\forall \) ступенчатой \(g : 0 \leq g < f\) выполняется следующее \(\lim \int_X f_n \geq \int_X g\)
+        \item [ \( \geq \)] достаточно проверить, что \(\forall \) ступенчатой \(g : 0 \leq g \leq f\) выполняется следующее \(\lim \int_X f_n \geq \int_X g\)
 
               Сильный трюк: достаточно проверить, что \(\forall c\in(0, 1) \ \ \lim \int_X f_n \geq c \int_X g\)
 
@@ -236,7 +236,7 @@
               \begin{align*}
                   f_n + g_n               & \to f + g                                 \\
                   \int_E f_n + g_n        & \xrightarrow{\text{т. Леви}} \int_E f + g \\
-                  \int_E f_n + \int_E g_n & \to \int_E f + \int_e g                   \\
+                  \int_E f_n + \int_E g_n & \to \int_E f + \int_E g                   \\
               \end{align*}
     \end{enumerate}
 \end{proof}
@@ -251,17 +251,17 @@
         h^{ +} - h^{ -}                                & = f^{ +} - f^{ -} + g^{ +} - g^{ -}                               \\
         h^{ +} + f^{ -} + g^{ - }                      & = f^{ + } + g^{ +} + h^{ -}                                       \\
         \int_E h^{ +} + \int_E f^{ -} + \int_E g^{ - } & = \int_E f^{ +} + \int_E g^{ +} + \int_E h^{ - }                  \\
-        \int_E h^{ +} - \int_E f^{ - }                 & = \int_E f^{ +} + \int_E g^{ +} - \int_E f^{ - } - \int_E g^{ - } \\
+        \int_E h^{ +} - \int_E h^{ - }                 & = \int_E f^{ +} - \int_E f^{ -} + \int_E g^{ + } - \int_E g^{ - } \\
     \end{align*}
 \end{proof}
 \begin{definition}
-    \(\mathcal{L}(X)\) --- множество суммируемых функций на \(X\)
+    \(\mathcal{L}(X)\) --- множество суммируемых на \(X\) функций
 \end{definition}
 \begin{corollary}[следствия]
     \(\mathcal{L}(X)\) --- линейное пространство, а отображение \(f \mapsto \int_X f\) это линейный функционал\footnote{т.е. функция функций} на \(\mathcal{L}(X)\)
-    , т.е. \(\forall f_1 \dots f_n \in \mathcal{L}(X) \ \ \forall \alpha_1 \dots \alpha_n \in\R\)
-
-    \? % TODO: #76 дописать
+    , т.е.:
+    \[\forall f_1 \dots f_n \in \mathcal{L}(X) \ \ \forall \alpha_1 \dots \alpha_n \in\R \quad
+        \sum\limits_{k = 1}^n\alpha_k f_k \in \mathcal{L}(X) \text{ и } \int_X\sum\limits_{k = 1}^n\alpha_k f_k = \sum\limits_{k = 1}^n\alpha_k\int_X f_k\]
 \end{corollary}
 
 \begin{theorem}[об интегрировании положительных рядов]\itemfix
@@ -280,9 +280,7 @@
     По теореме Леви:
 
     \[S_n : = \sum_{k = 1}^n u_k \quad 0 \leq S_n \leq S_{n+1} \leq \dots \]
-    Пусть \(S_n \to S\). Тогда \(\int_E S_n \to \int_E S\)
-
-    % TODO: #77 обосновать
+    \(S_n \to S = \sum\limits_{k = 1}^{+\infty}u_k\), тогда \(\int_E S_n \to \int_E S\)
 \end{proof}
 
 \begin{corollary}
@@ -307,7 +305,8 @@
          & = \int_{ - N}^N \frac{|a_n|}{\sqrt{|x - x_n|}} dx        \\
          & = |a_n|\int_{ - N - x_n}^{N - x_n} \frac{dx}{\sqrt{|x|}} \\
          & \leq |a_n|\int_{ - N}^{N} \frac{dx}{\sqrt{|x|}}          \\
-         & 4 \sqrt{N} |a_n|
+         & = 4 \sqrt{N} |a_n|                                       \\
+        \sum_n\int_{[ - N, N]} \frac{|a_n| d\lambda}{\sqrt{|x - x_n|}}
+         & \leq 4 \sqrt{N} \sum|a_n| < +\infty
     \end{align*}
 \end{proof}
-

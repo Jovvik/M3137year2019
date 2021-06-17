@@ -22,7 +22,7 @@
     \blfootnote{\eqref{непрерывность сверху меры}: По непрерывности сверху меры \(A \mapsto \int_A |f| d\mu\)}
 
     Пусть \(\delta : = \frac{\varepsilon}{2n_\varepsilon} \). Тогда при \(\mu E < \delta\):
-    \[\left|\int_E f\right| \leq \int_E |f| \symrefeq{оценка f} \int_{E\cap X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} |f| \leq \int_{X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} n_\varepsilon < \frac{\varepsilon}{2} + \underbrace{\mu E}_{\delta} \cdot n_\varepsilon \leq \varepsilon\]
+    \[\left|\int_E f\right| \leq \int_E |f| \symrefeq{оценка f} \int_{E\cap X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} |f| \leq \int_{X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} n_\varepsilon < \frac{\varepsilon}{2} + \underbrace{\mu E}_{< \delta} \cdot n_\varepsilon < \varepsilon\]
     \blfootnote{\eqref{оценка f}: Т.к. \(|f|\) на \(E \cap X_{n_\varepsilon}^c\) не превосходит \(n_\varepsilon\) по построению \(X_{n_\varepsilon}\)}
 \end{proof}
 
@@ -70,16 +70,19 @@
               \begin{equation}
                   |f_n - f| \leq |f_n| + |f| \leq 2g \label{|f_n - f| < 2g}
               \end{equation}
-              \[\int_X |f_n - f| = \int_{X_n} + \int_{X_n^c} = \underbrace{\int_{X_n} 2g}_{\xrightarrow[\text{сл. т. об абс. непр.}]{n \to +\infty} 0} + \int_{X_n^c} \varepsilon d\mu < \varepsilon + \varepsilon \mu X\]
+              \[\int_X |f_n - f| = \int_{X_n} + \int_{X_n^c} \leq \underbrace{\int_{X_n} 2g}_{\xrightarrow[\text{сл. т. об абс. непр.}]{n \to +\infty} 0} + \int_{X_n^c} \varepsilon d\mu < \varepsilon + \varepsilon \mu X\]
 
         \item \(\mu X = +\infty\)
 
               Утверждение: \(\forall \varepsilon > 0 \ \ \exists A \subset X, \text{изм., конечной меры}, \mu A \text{ конечно : } \int_{X\setminus A} g < \varepsilon\). Докажем его.
 
               \[\int_X g = \sup \left\{\int g_n, 0 \leq g_n \leq g, g_n \text{ --- ступ.}\right\} \]
+              Возьмём достаточно большое n и положим:
               \[A : = \{x : g_n(x) > 0\}\]
               \[0 \leq \int_X g - \int_X g_n = \int_A g - g_n + \int_{X\setminus A} g < \varepsilon\]
+              Вернёмся к теореме. Зафиксируем \(\varepsilon\) > 0:
               \[\int_X |f_n - f| d\mu = \int_A + \int_{X\setminus A} \leq \underbrace{\int_A |f_n - f|}_{\substack{ \to 0 \\ \text{по случаю 1}}} + \underbrace{\int_{X\setminus A} 2g}_{ < 2\varepsilon} < 3 \varepsilon\]
+              {X\setminus A} 2g}_{ < 2\varepsilon} < 3 \varepsilon\]
     \end{enumerate}
 \end{proof}
 
@@ -166,14 +169,14 @@
         \item \(f_n, f \geq 0\)
         \item \(f_n, f\) измеримы
         \item \(f_n, f\) почти везде конечны
-        \item \(f_n \Rightarrow f\)
+        \item \(f_n \xRightarrow{\mu} f\)
         \item \(\exists C > 0 \ \ \forall n \ \ \int_X f_n \leq C\)
     \end{itemize}
 
     Тогда \(\int_X f \leq C\)
 \end{corollary}
 \begin{proof}
-    \[f_n \Rightarrow f \implies \exists n_k : f_{n_k} \to f \text{ п.в.}\]
+    \[f_n \xRightarrow{\mu} f \xRightarrow[Th Рисса] \exists n_k : f_{n_k} \to f \text{ п.в.}\]
     По теореме \nameref{фату} получим искомое.
 \end{proof}
 
@@ -225,7 +228,7 @@
     %<*взвешенныйобразмеры>
     \(\omega : X \to \overline\R, \omega \geq 0\), измеримо на \(X\).
     \[\forall B\in \mathfrak{B} \ \ \nu(B) : = \int_{\Phi^{-1}(B)}\omega(x)d\mu(x)\]
-    Тогда \(\nu\) называется ``\textbf{взвешенный образ меры \(\mu\)}'', \(\omega\) называется \textbf{весом}.
+    Тогда \(\nu\) называется ``\textbf{взвешенный образ меры \(\mu\)} при отображении \(\Phi\)'', \(\omega\) называется \textbf{весом}.
     %</взвешенныйобразмеры>
 \end{definition}
 
@@ -264,8 +267,8 @@
                   \end{cases} = \chi_{\Phi^{-1}(B)}\]
 
               Тогда~\eqref{доказываемый интеграл} это:
-              \[\mu B \stackrel{?}{ =} \int_X \chi_{\Phi^{-1}(B)} \cdot \omega d\mu = \int_{\Phi^{-1}(B)} \omega d\mu\]
-              Это выполнено по определению \(\mu B\)
+              \[\nu B \stackrel{?}{ =} \int_X \chi_{\Phi^{-1}(B)} \cdot \omega d\mu = \int_{\Phi^{-1}(B)} \omega d\mu\]
+              Это выполнено по определению \(\nu B\)
 
         \item Пусть \(f\) --- ступенчатая
 
@@ -301,8 +304,8 @@
 \end{proof}
 
 \begin{definition}
-    Рассмотрим частный случай: \(X = Y, \mathfrak{A} = \mathfrak{B}, \Phi = \text{id}\). Кажется, что мы убили всю содержательность, но это не так --- есть ещё \(\omega\).
     %<*плотностьмеры>
+    Рассмотрим частный случай: \(X = Y, \mathfrak{A} = \mathfrak{B}, \Phi = \text{id}\) - тождественное отображение. Кажется, что мы убили всю содержательность, но это не так --- есть ещё \(\omega\).
     \[\nu(B) = \int_B \omega(x)d\mu\]
     В этой ситуации \(\omega\) называется \textbf{плотностью} меры \(\nu\) относительно меры \(\mu\) и тогда по теореме~\nameref{о вычислении интеграла по взвешенному образу меры}:
     \[\int_X f d\nu = \int_X f(x) \omega(x) d\mu\]

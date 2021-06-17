@@ -159,7 +159,9 @@
 
                   \item Для \(n \in \N : A = \bigsqcup_{i = 1}^n A_i\) тривиально по индукции.
                   \item \(A = \bigsqcup_{i = 1}^n A_i \cup B_n\), где \(B_n = \bigsqcup_{i > n} A_i\)
-                        \[\int_A f = \sum_{i = 1}^n \int_{A_i} f + \int_{B_n} f \geq \sum_{i = 1}^n \int A_i f\]
+
+                        \(\int_{B_n} f \geq 0\), т.к. \(f \geq 0\). Таким образом:
+                        \[\int_A f = \sum_{i = 1}^n \int_{A_i} f + \int_{B_n} f \geq \sum_{i = 1}^n \int_{A_i} f\]
               \end{enumerate}
     \end{itemize}
 \end{proof}
@@ -169,6 +171,7 @@
     \(f \geq 0\) --- измеримо. Пусть \(\nu : \mathfrak{A} \to \overline \R_{ +}\) и \(\nu E : = \int_E f d\mu\). Тогда \(\nu\) --- мера.
 \end{corollary}
 
+%<*счётнаяадиитивностьинтегралаcorollary>
 \begin{corollary}[Счётная аддитивность интеграла]
     \(f\) суммируема на \(A = \bigsqcup A_i\) --- измеримо. Тогда
     \[\int_A f = \sum \int_{A_i} f\]
@@ -176,6 +179,7 @@
 \begin{proof}
     Очевидно, если рассмотреть срезки.
 \end{proof}
+%</счётнаяадиитивностьинтегралаcorollary>
 \begin{corollary}
     \(A\subset B, f \geq 0 \Rightarrow \int_A f \leq \int_B f\)
 \end{corollary}

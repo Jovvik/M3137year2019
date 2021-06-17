@@ -97,18 +97,19 @@
     %</свойстваинтегралалебега>
 \end{prop}
 
+%<*счётнаяадиитивностьинтегралалемма>
 \begin{lemma}\itemfix
-    %<*счётнаяадиитивностьинтеграла>
+    \label{лемма об интеграле}
     \begin{itemize}
         \item \(A = \bigsqcup\limits_{i = 1}^{+\infty} A_i\) --- измеримо
         \item \(g\) --- ступенчато
         \item \(g \geq 0\)
     \end{itemize}
     Тогда \[\int_A g d\mu = \sum_{i = 1}^{+\infty} \int_{A_i} g d\mu\]
-    %</счётнаяадиитивностьинтеграла>
 \end{lemma}
+%</счётнаяадиитивностьинтегралалемма>
+%<*счётнаяадиитивностьинтегралалеммаproof>
 \begin{proof}
-    %<*счётнаяадиитивностьинтегралаproof>
     \begin{align*}
         \int_A g d\mu & = \sum_{\text{кон.}} \alpha_k \mu(E_k\cap A)                     \\
                       & = \sum_k \sum_i \underbrace{\alpha_k \mu(E_k\cap A_i)}_{ \geq 0} \\
@@ -117,9 +118,10 @@
     \end{align*}
 
     \blfootnote{\eqref{переставлять можно}: переставлять можно, т.к. члены суммы \( \geq 0\).}
-    %</счётнаяадиитивностьинтегралаproof>
 \end{proof}
+%</счётнаяадиитивностьинтегралалеммаproof>
 
+%<*счётнаяадиитивностьинтеграла>
 \begin{theorem}\itemfix
     \begin{itemize}
         \item \(A = \bigsqcup A_i\) --- измеримо
@@ -129,34 +131,39 @@
 
     Тогда \[\int_A f d\mu = \sum_{i = 1}^{+\infty} \int_{A_i} f d\mu\]
 \end{theorem}
+%</счётнаяадиитивностьинтеграла>
+%<*счётнаяадиитивностьинтегралаproof>
 \begin{proof}\itemfix
     Докажем, что части равенства \( \leq \) и \( \geq \), тогда равенство выполнено.
 
     \begin{itemize}
-        \item [ \( \leq \)] \(\sphericalangle g : 0 \leq g \leq f\)
+        \item [ \( \leq \)] \(\sphericalangle\) ступенчатую \(g : 0 \leq g \leq f\)
               \[\int_A g \symrefeq{по лемме об интеграле} \sum\int_{A_i} g \leq \sum \int_{A_i} f\]
+              \[\int_A f d = \sup_g \int_A g \leq \sum \int_{A_i} f\]
+              \blfootnote{\eqref{по лемме об интеграле}: по лемме \ref{лемма об интеграле}.}
 
         \item [ \( \geq \)]
               \begin{enumerate}
                   \item \(A = A_1 \sqcup A_2\)
 
-                        \(\sphericalangle 0 \leq g_1 \leq f \chi_{A_1}, 0 \leq g_2 \leq f \chi_{A_2}\). Пусть \(E_k\) --- совместное разбиение, у \(g_1\) коэффициенты \(\alpha_k\), у \(g_2\) : \(\beta_k\).
+                        \(\sphericalangle\) ступенчатые \(g_1, g_2 : 0 \leq g_1 \leq f \cdot \chi_{A_1}, 0 \leq g_2 \leq f \cdot \chi_{A_2}\). Пусть \(E_k\) --- совместное разбиение, у \(g_1\) коэффициенты \(\alpha_k\), у \(g_2\) --- \(\beta_k\).
 
                         \begin{align*}
-                            0 \leq g_1 + g_2                                     & \leq f \chi_A \\
-                            \int_{A_1} g_1 + \int_{A_2} g_2 = \int_A (g_1 + g_2) & \leq \int_A f \\
-                            \int_{A_1} f + \int_{A_2} g_2                        & \leq \int_A f \\
-                            \int_{A_1} f + \int_{A_2} f                          & \leq \int_A f \\
+                            0 \leq g_1 + g_2                                     & \leq f \cdot \chi_A                     \\
+                            \int_{A_1} g_1 + \int_{A_2} g_2 = \int_A (g_1 + g_2) & \leq \int_A f                           \\
+                            \int_{A_1} f + \int_{A_2} g_2                        & \symref{переход к sup}{\leq} \int_A f   \\
+                            \int_{A_1} f + \int_{A_2} f                          & \symref{переход к sup 2}{\leq} \int_A f \\
                         \end{align*}
 
-                  \item \(A = \bigsqcup A_i\) тривиально по индукции.
+                        \blfootnote{\eqref{переход к sup} и \eqref{переход к sup 2}: переход к \(\sup\)}
+
+                  \item Для \(n \in \N : A = \bigsqcup_{i = 1}^n A_i\) тривиально по индукции. \textcolor{red}{Почему этого не достаточно?}
                   \item \(A = \bigsqcup_{i = 1}^n A_i \cup B_n\), где \(B_n = \bigsqcup_{i > n} A_i\)
                         \[\int_A f = \sum_{i = 1}^n \int_{A_i} f + \int_{B_n} f \geq \sum_{i = 1}^n \int A_i f\]
               \end{enumerate}
     \end{itemize}
-
-    \blfootnote{\eqref{по лемме об интеграле}: по лемме об интеграле.}
 \end{proof}
+%</счётнаяадиитивностьинтегралаproof>
 
 \begin{corollary}
     \(f \geq 0\) --- измеримо. Пусть \(\nu : \mathfrak{A} \to \overline \R_{ +}\) и \(\nu E : = \int_E f d\mu\). Тогда \(\nu\) --- мера.

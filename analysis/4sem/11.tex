@@ -29,10 +29,10 @@
 
 \begin{theorem}[о непрерывности сдвига]\itemfix
     \begin{enumerate}
-        \item \(f\) --- равномерно непрерывно на \(\R^m\). Тогда \(||f_n - f||_{\infty} \xrightarrow[h \to 0]{} 0\)\footnote{Т.е. \(\sup_x |f(x + h) - f(x)| \to 0\)}
-        \item \(f \in L^p(\R^m), 1 \leq p < +\infty\). Тогда \(||f_n - f||_p \xrightarrow[h \to 0]{} 0\)
-        \item \(f \in \widetilde{C}[0, T]\). Тогда \(||f_n - f||_{\infty} \xrightarrow[h \to 0]{} 0\)\footnote{Или \(||f_n - f||_{\widetilde{C}} \to 0\)}
-        \item \(1 \leq p < +\infty, f \in L^p[0, T] \Rightarrow ||f_n - f||_p \to 0\)
+        \item \(f\) --- равномерно непрерывно на \(\R^m\). Тогда \(||f_h - f||_{\infty} \xrightarrow[h \to 0]{} 0\)\footnote{Т.е. \(\sup_x |f(x + h) - f(x)| \to 0\)}
+        \item \(f \in L^p(\R^m), 1 \leq p < +\infty\). Тогда \(||f_h - f||_p \xrightarrow[h \to 0]{} 0\)
+        \item \(f \in \widetilde{C}[0, T]\). Тогда \(||f_h - f||_{\infty} \xrightarrow[h \to 0]{} 0\)\footnote{Или \(||f_n - f||_{\widetilde{C}} \to 0\)}
+        \item \(1 \leq p < +\infty, f \in L^p[0, T] \Rightarrow ||f_h - f||_p \to 0\)
     \end{enumerate}
 \end{theorem}
 
@@ -101,7 +101,7 @@
 \end{example}
 
 \begin{definition}
-    \textbf{Сходящийся ряд}: \(\sum a_n, a_n \in \mathcal{H}\): \(S_N := \sum_{1 \leq n \leq N}\), если \(\exists S \in \mathcal{H} : S_N \xrightarrow[\text{в } \mathcal{H}]{} S\)
+    \textbf{Сходящийся ряд}: \(\sum a_n, a_n \in \mathcal{H}\): \(S_N := \sum_{1 \leq n \leq N} a_n\), если \(\exists S \in \mathcal{H} : S_N \xrightarrow[\text{в } \mathcal{H}]{} S\)
 \end{definition}
 
 \begin{definition}
@@ -212,7 +212,7 @@
         \item \(\{e_k\}\) --- ортогональное семейство в \(\mathcal{H}\)
         \item \(x \in \mathcal{H}\)
     \end{itemize}
-    \(c_k := \frac{\ev{x, e_k}}{||e_k||^2}\) --- называется \textbf{коэффициентом Фурье} по системе \(\{e_k\}\).w
+    \(c_k := \frac{\ev{x, e_k}}{||e_k||^2}\) --- называется \textbf{коэффициентом Фурье} по системе \(\{e_k\}\).
 
     \(\sum_{k = 1}^{+\infty} c_k(x) e_k\) --- ряд Фурье вектора \(x\) по системе \(e_k\).
 \end{definition}

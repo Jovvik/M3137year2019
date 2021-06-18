@@ -68,7 +68,7 @@
 
 \begin{proof}\itemfix
     \begin{enumerate}
-        \item \(f = \chi_C, C \subset X \times Y, \) измеримо. Тогда \(f_x(y) = \chi_C(y)\)
+        \item \(f = \chi_{C_x}, C \subset X \times Y, \) измеримо. Тогда \(f_x(y) = \chi_{C_x}(y)\)
 
               \(C_x\) измеримо при почти всех \(x\) по \nameref{принцип Кавальери} \( \Rightarrow f_x\) измеримо при почти всех \(x\)
 
@@ -135,13 +135,13 @@
 
 \begin{proof}
     \begin{align*}
-        \Gamma(s)\Gamma(t) & = \int_0^{+\infty} x^{s - 1}e^{ - x}\left( \int_0^{+\infty} y^{t - 1}e{ - y}dy \right)dx         \\
+        \Gamma(s)\Gamma(t) & = \int_0^{+\infty} x^{s - 1}e^{ - x}\left( \int_0^{+\infty} y^{t - 1}e^{- y}dy \right)dx         \\
                            & = \int_0^{+\infty} \left( \int_0^{+\infty} x^{s - 1}y^{t - 1} e^{ - x}e^{ - y} dy \right) dx     \\
         y : = u - x                                                                                                           \\
-                           & = \int_0^{+\infty} \left( \int_0^{+\infty} x^{s - 1}(u - x)^{t - 1} e^{ - u} du \right) dx       \\
+                           & = \int_0^{+\infty} \left( \int_x^{+\infty} x^{s - 1}(u - x)^{t - 1} e^{ - u} du \right) dx       \\
                            & = \int \dots d\lambda_2                                                                          \\
                            & = \int_0^{+\infty} \left( \int_0^u x^{s - 1}(u - x)^{t - 1} e^{ - u} dx \right) du               \\
-        x : = u\cdot v
+        x : = u\cdot v                                                                                                        \\
                            & = \int_0^{+\infty} \left( \int_0^1 (uv)^{s - 1}(u - uv)^{t - 1} e^{ - u} \cdot u dv \right) du   \\
                            & = \int_0^{+\infty} u^{s + t - 1} e^{ - u} \left( \int_0^1 v^{s - 1}(1 - v)^{t - 1} dv \right) du \\
                            & = B(s, t) \Gamma(s + t)
@@ -272,7 +272,7 @@
             j & y'_u & y'_v \\
             k & z'_u & z'_v
         \end{vmatrix}\]
-    \[ |\varphi'_u \times \varphi'_v| = |\varphi'_u| |\varphi'_v| \sin \alpha = \sqrt{ |\varphi'_u|^2 |\varphi'_v|^2 (1 - \cos^2\alpha) } = \sqrt{EG - F^2} \]
+    \[ |\varphi'_u \times \varphi'_v| = |\varphi'_u| \cdot |\varphi'_v| \sin \alpha = \sqrt{ |\varphi'_u|^2 |\varphi'_v|^2 (1 - \cos^2\alpha) } = \sqrt{EG - F^2} \]
     \[F = \ev{\varphi'_u, \varphi'_v} = x'_u x'_v + y'_u y'_v + z'_u z'_v\]
 \end{remark}
 

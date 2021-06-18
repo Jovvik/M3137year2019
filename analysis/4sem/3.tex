@@ -229,12 +229,15 @@
 %</левиproof>
 
 \begin{theorem}\itemfix
+    %<*линейностьинтеграла>
     \begin{itemize}
         \item \(f, g \geq 0\)
         \item \(f, g\) измеримо на \(E\)
     \end{itemize}
     Тогда \(\int_E f + g = \int_E f + \int_E g\)
+    %</линейностьинтеграла>
 \end{theorem}
+%<*линейностьинтегралаproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item \(f, g\) --- ступенчатые, т.е. \(f = \sum \alpha_k \chi_{E_k}, g = \sum \beta_k \chi_{E_k}\)
@@ -244,18 +247,19 @@
 
               \(g \geq 0\), измеримо. \(\exists \text{ступ. } g_n : 0 \leq g_n \leq g_{n+1} \leq \dots \ \ \lim g_n = g\)
 
-              \begin{align*}
-                  f_n + g_n               & \to f + g                                 \\
-                  \int_E f_n + g_n        & \xrightarrow{\text{т. Леви}} \int_E f + g \\
-                  \int_E f_n + \int_E g_n & \to \int_E f + \int_E g                   \\
-              \end{align*}
+              \[f_n + g_n \to f + g\]
+              \[\int_E f + \int_E g \xleftarrow{\text{т. Леви}} \int_E f_n + \int_E g_n \xlongequal{\text{пункт 1}} \int_E f_n + g_n \xrightarrow{\text{т. Леви}} \int_E f + g\]
     \end{enumerate}
 \end{proof}
+%</линейностьинтегралаproof>
 
+%<*линейностьинтегралаcorollary>
 \begin{corollary}
     \(f, g\) суммируемы на \(E\). Тогда \(f + g\) суммируемо и \(\int_{E} f + g = \int_E f + \int_E g\). Таким образом, доказано~\ref{доказано позже}.
 \end{corollary}
+%</линейностьинтегралаcorollary>
 
+%<*линейностьинтегралаcorollaryproof>
 \begin{proof}[Доказательство суммируемости]
     \(|f + g| \leq |f| + |g|\). Пусть \(h = f + g\). Тогда
     \begin{align*}
@@ -265,6 +269,7 @@
         \int_E h^{ +} - \int_E h^{ - }                 & = \int_E f^{ +} - \int_E f^{ -} + \int_E g^{ + } - \int_E g^{ - } \\
     \end{align*}
 \end{proof}
+%</линейностьинтегралаcorollaryproof>
 \begin{definition}
     \(\mathcal{L}(X)\) --- множество суммируемых на \(X\) функций
 \end{definition}

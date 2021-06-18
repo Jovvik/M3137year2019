@@ -1,6 +1,7 @@
 \chapter{1 марта}
 
 \begin{theorem}[об абсолютной непрерывности интеграла]\itemfix
+    %<*обабсолютнойнепрерывностиинтеграла>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
         \item \(f : X \to \overline \R\)
@@ -8,10 +9,14 @@
     \end{itemize}
 
     Тогда \(\forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall E \text{ --- изм., } \mu E < \delta : \left|\int_E f\right|< \varepsilon\)
+    %</обабсолютнойнепрерывностиинтеграла>
 \end{theorem}
+%<*обабсолютнойнепрерывностиинтегралаcorollary>
 \begin{corollary}
     \(f\) суммируемо на \(X\), \(E_n \subset X\), тогда \(\mu E_n \to 0 \Rightarrow \int_{E_n} f \to 0\)
 \end{corollary}
+%</обабсолютнойнепрерывностиинтегралаcorollary>
+%<*обабсолютнойнепрерывностиинтегралаproof>
 \begin{proof}\footnote{Теоремы, не следствия}
     \[X_n : = X(|f| \geq n)\]
     \[X_n \supset X_{n+1} \supset \dots \Rightarrow \mu\left( \bigcap X_n \right) \symrefeq{почти везде конечна} 0\]
@@ -22,9 +27,10 @@
     \blfootnote{\eqref{непрерывность сверху меры}: По непрерывности сверху меры \(A \mapsto \int_A |f| d\mu\)}
 
     Пусть \(\delta : = \frac{\varepsilon}{2n_\varepsilon} \). Тогда при \(\mu E < \delta\):
-    \[\left|\int_E f\right| \leq \int_E |f| \symrefeq{оценка f} \int_{E\cap X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} |f| \leq \int_{X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} n_\varepsilon < \frac{\varepsilon}{2} + \underbrace{\mu E}_{< \delta} \cdot n_\varepsilon < \varepsilon\]
+    \[\left|\int_E f\right| \leq \int_E |f| = \int_{E\cap X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} |f| \symref{оценка f}{\leq} \int_{X_{n_\varepsilon}} |f| + \int_{E\cap X_{n_\varepsilon}^c} n_\varepsilon < \frac{\varepsilon}{2} + \underbrace{\mu E}_{< \delta} \cdot n_\varepsilon < \varepsilon\]
     \blfootnote{\eqref{оценка f}: Т.к. \(|f|\) на \(E \cap X_{n_\varepsilon}^c\) не превосходит \(n_\varepsilon\) по построению \(X_{n_\varepsilon}\)}
 \end{proof}
+%</обабсолютнойнепрерывностиинтегралаproof>
 
 \begin{remark}
     Следующие два свойства не эквивалентны:
@@ -40,6 +46,7 @@
 \end{remark}
 
 \begin{theorem}[Лебега о предельном переходе под знаком интеграла]\itemfix
+    %<*лебега1>
     \label{лебега}
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
@@ -53,10 +60,12 @@
     \end{itemize}
 
     Тогда: \(f_n, f\) --- суммируемы и \(\int_X |f_n - f| d\mu \xrightarrow{n \to +\infty} 0\), и тем более \(\int_X f_n d\mu \to \int_X f d\mu\)
+    %</лебега1>
 \end{theorem}
 \begin{remark}
     Почти везде конечность \(f_n\) и \(f\) следует из~\eqref{``1''}, поэтому в условии этого можно не требовать.
 \end{remark}
+%<*лебега1proof>
 \begin{proof}
     \(f_n\) --- суммируемы в силу неравенства~\eqref{``1''}, \(f\) суммируемо в силу следствия теоремы Рисса, тем более \(|\int_X f_n - \int_X f| \leq  \int_X |f_n - f| \to 0\)
 
@@ -74,18 +83,20 @@
 
         \item \(\mu X = +\infty\)
 
-              Утверждение: \(\forall \varepsilon > 0 \ \ \exists A \subset X, \text{изм., конечной меры}, \mu A \text{ конечно : } \int_{X\setminus A} g < \varepsilon\). Докажем его.
+              Утверждение: \(\forall \varepsilon > 0 \ \ \exists A \subset X, \text{изм., конечной меры} : \int_{X\setminus A} g < \varepsilon\). Докажем его.
 
-              \[\int_X g = \sup \left\{\int g_n, 0 \leq g_n \leq g, g_n \text{ --- ступ.}\right\} \]
-              Возьмём достаточно большое n и положим:
+              \[\int_X g = \sup \left\{\int g_n\ \Big|\ 0 \leq g_n \leq g, g_n \text{ --- ступ.}\right\} \]
+              Возьмём достаточно большое \(n\) и положим:
               \[A : = \{x : g_n(x) > 0\}\]
               \[0 \leq \int_X g - \int_X g_n = \int_A g - g_n + \int_{X\setminus A} g < \varepsilon\]
               Вернёмся к теореме. Зафиксируем \(\varepsilon\) > 0:
               \[\int_X |f_n - f| d\mu = \int_A + \int_{X\setminus A} \leq \underbrace{\int_A |f_n - f|}_{\substack{ \to 0 \\ \text{по случаю 1}}} + \underbrace{\int_{X\setminus A} 2g}_{ < 2\varepsilon} < 3 \varepsilon\]
     \end{enumerate}
 \end{proof}
+%</лебега1proof>
 
 \begin{theorem}[Лебега]\itemfix
+    %<*лебега2>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
         \item \(f_n, f\) --- измеримо
@@ -98,8 +109,10 @@
     \end{itemize}
 
     Тогда \(f_n, f\) --- суммируемы, \(\int_X |f_n - f| d\mu \to 0\), и тем более \(\int_X f_n \to \int_X f\)
+    %</лебега2>
 \end{theorem}
 
+%<*лебега2proof>
 \begin{proof}
     Суммируемость \(f_n, f\), а также утверждение ``и тем более'' доказываются так же, как в теореме \nameref{лебега}.
 
@@ -117,6 +130,7 @@
     \[\int_X 2g - h_n \to \int_X 2g \Rightarrow \int_X h_n \to 0\]
     \[\int_X |f_n - f| \leq \int_X h_n \to 0\]
 \end{proof}
+%</лебега2proof>
 
 \begin{example}
     \(\sphericalangle x > 0, x_0 > 0\)

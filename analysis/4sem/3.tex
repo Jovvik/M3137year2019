@@ -281,6 +281,7 @@
 \end{corollary}
 
 \begin{theorem}[об интегрировании положительных рядов]\itemfix
+    %<*обинтегрированииположительныхрядов>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
         \item \(E\in \mathfrak{A}\)
@@ -291,22 +292,30 @@
 
     Тогда
     \[\int_E \left( \sum_{n = 1}^{+\infty} u_n(x) \right) d\mu = \sum_{n = 1}^{+\infty} \int_E u_n d\mu\]
+    %</обинтегрированииположительныхрядов>
 \end{theorem}
+%<*обинтегрированииположительныхрядовproof>
 \begin{proof}
     По теореме Леви:
 
     \[S_n : = \sum_{k = 1}^n u_k \quad 0 \leq S_n \leq S_{n+1} \leq \dots \]
     \(S_n \to S = \sum\limits_{k = 1}^{+\infty}u_k\), тогда \(\int_E S_n \to \int_E S\)
+    \[\int_E \left( \sum_{n = 1}^{+\infty} u_n(x) \right) = \int_E S \leftarrow \int_E S_n \xlongequal{\text{линейность } \int} \sum_{k = 1}^n \int_E u_k\]
 \end{proof}
+%</обинтегрированииположительныхрядовproof>
 
+%<*обинтегрированииположительныхрядовcorollary>
 \begin{corollary}
     \(u_n\) измеримо и
     \(\sum\limits_{n = 1}^{+\infty} \int_E |u_n| < +\infty\). Тогда ряд \(\sum u_n(x)\) абсолютно сходится при почти всех \(x\).
 \end{corollary}
+%</обинтегрированииположительныхрядовcorollary>
+%<*обинтегрированииположительныхрядовcorollaryproof>
 \begin{proof}
     \[S(x) : = \sum |u_n(x)|\]
     \[\int_E S(X) = \sum \int_E |u_n|< +\infty \Rightarrow S \text{ суммируемо} \Rightarrow S \text{ почти везде конечно}\]
 \end{proof}
+%</обинтегрированииположительныхрядовcorollaryproof>
 
 \begin{example}
     \(x_n\in\R\) --- произвольная последовательность, \(\sum a_n\) абсолютно сходится.

@@ -212,21 +212,27 @@
 \subsection{Поверхностный интеграл I рода}
 
 \begin{definition}\itemfix
+    %<*измеримоемножествонадвумернойповерхности>
     \begin{itemize}
         \item \(M \subset \R^3\) --- простое двумерное гладкое многообразие
-        \item \(\varphi : G \subset \R^2 \to \R^3\) --- параметризация \(M\)
+        \item \(\varphi : G \subset \R^2 \to \R^3\) --- параметризация \(M\), т.е. \(\varphi(G) = M\)
     \end{itemize}
 
     \(E \subset M\) --- \textbf{измеримо по Лебегу}, если \(\varphi^{-1}(E)\) измеримо в \(\R^2\) по Лебегу.
+    %</измеримоемножествонадвумернойповерхности>
 \end{definition}
 
+%<*алгебраповерхностей>
 \begin{obozn}
     \(\mathfrak{A}_M = \{E \subset M : E \text{ изм.}\} = \{\varphi(A), A \in \mathfrak{M}^2, A \subset G\} \)
 \end{obozn}
+%</алгебраповерхностей>
 
 \begin{definition}[Мера на \(\mathfrak{A}_M\)]
+    %<*мераповерхности>
     \[S(E) : = \iint_{\varphi^{-1}(E)} |\varphi'_u \times \varphi'_v| du dv\]
     т.е. это взвешенный образ меры Лебега при отображении \(\varphi\).
+    %</мераповерхности>
 \end{definition}
 
 \begin{remark}\itemfix

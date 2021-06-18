@@ -88,7 +88,8 @@
               \[\int_X g = \sup \left\{\int g_n\ \Big|\ 0 \leq g_n \leq g, g_n \text{ --- ступ.}\right\} \]
               Возьмём достаточно большое \(n\) и положим:
               \[A : = \{x : g_n(x) > 0\}\]
-              \[0 \leq \int_X g - \int_X g_n = \int_A g - g_n + \int_{X\setminus A} g < \varepsilon\]
+              \[0 \leq \int_X g - \int_X g_n < \varepsilon\]
+              \[\int_A g - g_n + \int_{X\setminus A} g = \int_X g - \int_X g_n < \varepsilon \implies \int_{X \setminus A} g < \varepsilon\]
               Вернёмся к теореме. Зафиксируем \(\varepsilon\) > 0:
               \[\int_X |f_n - f| d\mu = \int_A + \int_{X\setminus A} \leq \underbrace{\int_A |f_n - f|}_{\substack{ \to 0 \\ \text{по случаю 1}}} + \underbrace{\int_{X\setminus A} 2g}_{ < 2\varepsilon} < 3 \varepsilon\]
     \end{enumerate}
@@ -140,6 +141,7 @@
 \end{example}
 
 \begin{theorem}[Фату]\itemfix
+    %<*фату>
     \label{фату}
     \begin{itemize}
         \item \(X, \mathfrak{A}, \mu\) --- пространство с мерой
@@ -150,6 +152,7 @@
     \end{itemize}
 
     Тогда \(\int_X f \leq C\)
+    %</фату>
 \end{theorem}
 
 \begin{remark}
@@ -165,6 +168,7 @@
     \[f_n = -\frac{1}{n}\chi_{[0, n]} \to 0 = f \text{ п.в.} \quad \int_\R f_n = - 1 \leq -1 \text{, но } \int_\R f = 0 \not \leq - 1\]
 \end{example}
 
+%<*фатуproof>
 \begin{proof}
     \[g_n : = \inf (f_n, f_{n+1}, \dots)\]
     \[0 \leq g_n \leq g_{n+1}\]
@@ -176,7 +180,9 @@
     \blfootnote{\eqref{по леви}: по теореме \nameref{леви}}
     Значит \(\int_X f \leq C\) по предельному переходу в~\eqref{неравенство}
 \end{proof}
+%</фатуproof>
 
+%<*фатуcorollary>
 \begin{corollary}\itemfix
     \begin{itemize}
         \item \(f_n, f \geq 0\)
@@ -189,7 +195,7 @@
     Тогда \(\int_X f \leq C\)
 \end{corollary}
 \begin{proof}
-    \[f_n \xRightarrow{\mu} f \xRightarrow[Th Рисса] \exists n_k : f_{n_k} \to f \text{ п.в.}\]
+    \[f_n \xRightarrow{\mu} f \xRightarrow[\text{Т. Рисса}]{} \exists (n_k) : f_{n_k} \to f \text{ п.в.}\]
     По теореме \nameref{фату} получим искомое.
 \end{proof}
 
@@ -202,7 +208,7 @@
     Тогда \(\int_X \underline\lim f_n \leq \underline\lim \int_X f_n\)
 \end{corollary}
 \begin{proof}
-    Возьмём~\eqref{неравенство} как в теореме. Выберем \(n_k : \int_X f_{n_k} \xrightarrow{n \to +\infty} \underline\lim \int_X f_n\)
+    Возьмём \(g_n\) как в теореме, тогда выполняется неравенство \(\int_X g_n \leq \int_X f_n\). Выберем \((n_k) : \int_X f_{n_k} \xrightarrow{n \to +\infty} \underline\lim \int_X f_n\)
     \[
         \begin{tikzcd}[ampersand replacement=\&, column sep=small]
             \int_X g_{n_k} \arrow[swap,shift right=2em]{d}{} \leq \int_X f_{n_k} \\
@@ -211,6 +217,7 @@
     \]
 \end{proof}
 
+%</фатуcorollary>
 \section{Плотность одной меры по отношению к другой. Замена переменных в интеграле.}
 
 %<*образприотображении>
@@ -229,10 +236,12 @@
 Мера \(\nu\) называется \textbf{образом} \(\mu\) при отображении \(\Phi\) и \(\nu E = \int_{\Phi^{-1}(E)} 1 d\mu\)
 %</образприотображении>
 
+%<*овычисленииинтегралаповзвешенномуобразумерынаблюдение>
 \begin{observation}
     \label{об измеримости}
     \(f : Y \to \overline\R\) --- измеримо относительно \(\mathfrak{B}\). Тогда \(f \circ \Phi\) --- измеримо относительно \(\mathfrak{A}\).
 \end{observation}
+%</овычисленииинтегралаповзвешенномуобразумерынаблюдение>
 
 \[X(f(\Phi(x)) < a) = \Phi^{-1}(Y(f < a)) \symref{брух}{\in} \mathfrak{A}\]
 \blfootnote{\eqref{брух}: т.к. \(Y(f < a)\in \mathfrak{B}\)}
@@ -246,6 +255,7 @@
 \end{definition}
 
 \begin{theorem}[о вычислении интеграла по взвешенному образу меры]\itemfix
+    %<*овычисленииинтегралаповзвешенномуобразумеры>
     \label{о вычислении интеграла по взвешенному образу меры}
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
@@ -265,8 +275,10 @@
     \end{enumerate}
 
     То же самое верно для суммируемой \(f\).
+    %</овычисленииинтегралаповзвешенномуобразумеры>
 \end{theorem}
 
+%<*овычисленииинтегралаповзвешенномуобразумерыproof>
 \begin{proof}
     Измеримость \(f \circ \Phi\) выполнена по наблюдению~\ref{об измеримости}.
 
@@ -280,7 +292,7 @@
                   \end{cases} = \chi_{\Phi^{-1}(B)}\]
 
               Тогда~\eqref{доказываемый интеграл} это:
-              \[\nu B \stackrel{?}{ =} \int_X \chi_{\Phi^{-1}(B)} \cdot \omega d\mu = \int_{\Phi^{-1}(B)} \omega d\mu\]
+              \[\int_Y \chi_B d\nu = \int_B 1 \cdot d\nu = \nu B \stackrel{?}{ =} \int_X \chi_{\Phi^{-1}(B)} \cdot \omega d\mu = \int_{\Phi^{-1}(B)} \omega d\mu\]
               Это выполнено по определению \(\nu B\)
 
         \item Пусть \(f\) --- ступенчатая
@@ -301,7 +313,9 @@
               Таким образом, искомое выполнено для \(f_+\) и \(f_-\), а следовательно и для \(f\).
     \end{enumerate}
 \end{proof}
+%</овычисленииинтегралаповзвешенномуобразумерыproof>
 
+%<*овычисленииинтегралаповзвешенномуобразумерыcorollary>
 \begin{corollary}[об интегрировании по подмножеству]
     В условиях теоремы пусть:
     \begin{itemize}
@@ -312,9 +326,12 @@
     Тогда
     \[\int_B f d \nu = \int_{\Phi^{-1}(B)} f(\Phi(x)) \omega d\mu\]
 \end{corollary}
+%</овычисленииинтегралаповзвешенномуобразумерыcorollary>
+%<*овычисленииинтегралаповзвешенномуобразумерыcorollaryproof>
 \begin{proof}
     В условие теоремы подставим \(f \cdot \chi_B\)
 \end{proof}
+%</овычисленииинтегралаповзвешенномуобразумерыcorollaryproof>
 
 \begin{definition}
     %<*плотностьмеры>

@@ -258,14 +258,14 @@
 
               \(f_n \longarrow{\mu} f\)
 
-              \[X(|f_n - f| \geq \varepsilon) = X\left(\frac{1}{nx} \geq \varepsilon\right) = X(x \leq \frac{1}{\varepsilon n})\]
-              \[\lambda(\dots ) = \frac{1}{\varepsilon n} \to 0\]
+              \[X(|f_n - f| \geq \varepsilon) = X\left(\frac{1}{nx} \geq \varepsilon\right) = X\left(x \leq \frac{1}{\varepsilon n}\right)\]
+              \[\lambda(\dots) = \frac{1}{\varepsilon n} \to 0\]
 
         \item \(f_n(x) : = e^{ -(n - x)^2}, x\in\R\)
 
               \(f_n(x) \to 0\) при всех \(x\)
 
-              \(f_n(x) \longarrow{} 0\)
+              \(f_n(x) \nRightarrow 0\)
 
               \[\mu(\R(e^{ -(n - x)^2} \geq \varepsilon)) = \const \not\to 0\]
 
@@ -273,7 +273,7 @@
 
               \[f_n(x) : = \chi_{[\frac{l}{2^k}, \frac{l + 1}{2^k} ]}\]
 
-              \(\lim f_n(x)\) не существует ни при каком \(x\)!
+              \(\lim f_n(x)\) не существует ни при каком \(x\)!\footnote{Это восклицательный знак, а не факториал.}
 
               \[X(f_n \geq \varepsilon) = \frac{1}{2^k} \to 0 \Rightarrow f_n \longarrow{\lambda} 0\]
     \end{enumerate}
@@ -296,7 +296,7 @@
 \begin{proof}
     Переопределим \(f_n, f\) на множестве меры \(0\), чтобы сходимость была всюду.
 
-    Рассмотрим частный случай: \(\forall x\) последовательность \(f_n(x)\) монотонно убывает к \(0\), то есть \(f\equiv 0\)
+    Рассмотрим частный случай: \(\forall x\) последовательность \(f_n(x)\) монотонно убывает к \(0\), то есть \(f \equiv 0\)
     \[X(|f_n| \geq \varepsilon) = X(f_n \geq \varepsilon) \supset X(f_{n+1} \geq \varepsilon)\]
     \[\bigcap X(f_n \geq \varepsilon) = \emptyset\]
 
@@ -462,12 +462,15 @@
         \item \(f \geq 0\)
         \item \(f\) измерима
         \item Записывается как \(f(x, y)\), где \(x\in\R^m, y\in\R^n\)
-        \item \(E\subset \R^{m + n}\)
+        \item \(E \subset \R^{m + n}\)
     \end{itemize}
 
     \begin{obozn}
         \[\forall x\in\R^m \ \ E_x : = \{y\in\R^n : (x, y)\in E\} \]
-        % TODO: #71 иллюстрация
+        \begin{figure}[h]
+            \centering
+            \includesvg[]{images/сечение.svg}
+        \end{figure}
     \end{obozn}
 
     Тогда:

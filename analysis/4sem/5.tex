@@ -11,6 +11,7 @@
 \end{definition}
 
 \begin{theorem}[критерий плотности]\itemfix
+    %<*критерийплотности>
     \label{критерий плотности}
     \begin{itemize}
         \item \(X, \mathfrak{A}, \mu\) --- пространство с мерой
@@ -23,8 +24,10 @@
     Тогда \(\omega\) --- плотность \(\nu\) относительно \(\mu \Leftrightarrow\):
     \[\forall A\in \mathfrak{A} \ \ \mu A \cdot \inf_A \omega \leq \nu(A) \leq \mu A \sup_A \omega\]
     При этом \(0\cdot \infty\) считается \( = 0\).
+    %</критерийплотности>
 \end{theorem}
 
+%<*критерийплотностиexample>
 \begin{example}[отсутствие плотности]
     \(X = \R, \mathfrak{A} = \mathfrak{M}^1, \mu = \lambda_1\)
 
@@ -37,7 +40,9 @@
 
     Это и достаточное условие по теореме Радона-Никодима\footnote{Возможно, мы разберём её в конце семестра.}.
 \end{example}
+%</критерийплотностиexample>
 
+%<*критерийплотностиproof>
 \begin{proof}[Доказательство теоремы~\nameref{критерий плотности}]\itemfix
     \begin{itemize}
         \item [``\( \Rightarrow \)''] Очевидно.
@@ -67,6 +72,7 @@
               Тогда предельный переход при \(q \to 1 - 0\) дает искомое.
     \end{itemize}
 \end{proof}
+%</критерийплотностиproof>
 
 \begin{lemma}\itemfix
     \begin{itemize}

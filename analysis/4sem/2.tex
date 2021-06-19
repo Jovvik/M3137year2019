@@ -209,10 +209,10 @@
                   \(\mu\) --- полная \( \Rightarrow \) \(f\) измеримо на \(X\), т.к. \(X(f < a) = \underbrace{X'(f < a)}_{\text{изм.}} \cup \underbrace{e(f < a)}_{\subset e}\)
               \end{proof}
 
-        \item \? % TODO #68
+        \item В условии пункта один можно переопределить \(f\) на множестве \(e\). Тогда получится \(\tilde{f}\) и \(f_n(x) \to \tilde{f}(x)\) почти везде и \(\tilde{f}\) измеримо.
         \item Пусть \(\forall n \ \ W_n(x)\) истинно при почти всех \(x\).
 
-              Тогда утверждение `` \(\forall n \ \ W_n(x)\) истинно'' --- верно при почти всех \(X\)
+              Тогда утверждение `` \(\forall n \ \ W_n(x)\) истинно'' --- верно при почти всех \(x\)
 
               \begin{proof}
                   \(\sphericalangle e_n : \mu(e_n) = 0\). Искомое высказывание верно при \(x\in X \setminus \left( \bigcup\limits_{i = 1}^{+\infty} e_i \right), \mu(\bigcup e_i) = 0\)
@@ -238,9 +238,17 @@
     \(f_n\) и \(f\) можно изменить на множестве меры \(0\), т.е. предел не задан однозначно.
 \end{remark}
 
-\begin{exercise} % TODO: #69 доказать
+\begin{exercise}
     \(f_n \longarrow{\mu} f; f_n \longarrow{\mu} g\). Тогда \(f\) и \(g\) эквивалентны.
 \end{exercise}
+\begin{proof}
+    Пусть существует множество \(X(|f - g| > \varepsilon)\) положительной меры.
+    \[X(|f - g| > \varepsilon) \subset X(|f - f_n| > \varepsilon) \cup X(|g - f_n| > \varepsilon)\]
+    \[\mu X(|f - g| > \varepsilon) \leq \underbrace{\mu X(|f - f_n| > \varepsilon) + \mu X(|g - f_n| > \varepsilon)}_{ \to 0}\]
+    Следовательно предположение неверно. Но тогда \(\mu(\bigcup X(|f - g| > \varepsilon)) = 0\), а следовательно \(f \sim g\).
+
+    Аналогичное доказательство есть в более подробном виде по следующей \href{https://math.stackexchange.com/questions/1994185/proving-for-a-lebesgue-measure-the-convergence-in-measure-is-equivalent-to-the-c}{ссылке}
+\end{proof}
 
 \begin{example}\itemfix
     \begin{enumerate}

@@ -7,13 +7,13 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg5"
-   sodipodi:docname="срезка.svg"
+   sodipodi:docname="сечение.svg"
    inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns:ns2="http://www.iki.fi/pav/software/textext/">
+   xmlns:ns1="http://www.iki.fi/pav/software/textext/">
   <sodipodi:namedview
      id="namedview7"
      pagecolor="#ffffff"
@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="2.6761223"
-     inkscape:cx="258.02258"
-     inkscape:cy="329.02083"
+     inkscape:cx="258.02259"
+     inkscape:cy="329.02084"
      inkscape:window-width="3416"
      inkscape:window-height="1384"
      inkscape:window-x="12"
@@ -93,14 +93,14 @@
        sodipodi:nodetypes="cc" />
     <g
        transform="matrix(0.352778,0,0,0.352778,140.18107,109.55759)"
-       ns2:version="1.3.0"
-       ns2:texconverter="pdflatex"
-       ns2:pdfconverter="inkscape"
-       ns2:text="$\\mathbb{R}^m$"
-       ns2:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
-       ns2:scale="1.0"
-       ns2:alignment="middle center"
-       ns2:jacobian_sqrt="0.352778"
+       ns1:version="1.3.0"
+       ns1:texconverter="pdflatex"
+       ns1:pdfconverter="inkscape"
+       ns1:text="$\\mathbb{R}^m$"
+       ns1:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
+       ns1:scale="1.0"
+       ns1:alignment="middle center"
+       ns1:jacobian_sqrt="0.352778"
        id="g1254">
       <defs
          id="id-843392b4-69bc-4f19-b418-ad1a7c783081">
@@ -171,14 +171,14 @@
     </g>
     <g
        transform="matrix(0.352778,0,0,0.352778,27.480173,50.298357)"
-       ns2:version="1.3.0"
-       ns2:texconverter="pdflatex"
-       ns2:pdfconverter="inkscape"
-       ns2:text="$\\mathbb{R}^n$"
-       ns2:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
-       ns2:scale="1.0"
-       ns2:alignment="middle center"
-       ns2:jacobian_sqrt="0.352778"
+       ns1:version="1.3.0"
+       ns1:texconverter="pdflatex"
+       ns1:pdfconverter="inkscape"
+       ns1:text="$\\mathbb{R}^n$"
+       ns1:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
+       ns1:scale="1.0"
+       ns1:alignment="middle center"
+       ns1:jacobian_sqrt="0.352778"
        id="g1367">
       <defs
          id="id-637da6ae-ca51-47ba-ac1d-685e43c76ea2">
@@ -248,23 +248,19 @@
       </g>
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 63.246751,61.988093 c -2.762663,0.975778 -5.467599,2.065139 -8.168392,3.205859 -1.68148,0.710197 -3.517003,1.453012 -4.965107,2.607349 -0.761013,0.606632 -1.288248,1.452089 -1.579176,2.36388 -0.286983,0.89942 0.07237,0.775806 -0.517067,1.57144 -0.395663,0.534077 -1.011658,0.984001 -1.619811,1.237536 -0.233659,0.09741 -1.013039,0.132302 -1.273699,0.455797 -0.194575,0.241478 0.3923,0.515128 0.676966,0.638154 1.60102,0.691931 3.336898,1.054203 4.911463,1.804387 1.002535,0.477647 3.446187,1.962502 3.837937,3.108664 0.225073,0.658508 -0.06763,1.325221 0.108945,1.957438 0.381767,1.366922 1.391912,2.029856 2.655488,2.479211 2.660385,0.946087 5.080896,0.784993 7.681086,2.14707 0.431427,0.225997 1.638203,0.969463 1.989881,1.258046 1.546921,1.269389 0.272762,0.648978 2.146835,1.833992 2.12974,1.346676 5.116025,1.780823 7.55283,1.473192 3.518744,-0.444217 5.135983,-1.243912 7.817368,-3.111992 0.930402,-0.648201 1.706703,-1.510906 2.673388,-2.103636 1.444257,-0.885558 3.694792,-1.472983 5.302384,-1.900381 1.601592,-0.425804 2.965643,-0.644736 4.607592,-0.518504 0.761,0.05851 1.244134,0.587685 2.063366,0.570164 1.521322,-0.03254 4.391902,-0.872059 5.751702,-1.621012 0.75676,-0.416814 1.43125,-0.968089 2.14869,-1.449448 0.826,-0.554199 3.57832,-1.966402 3.98621,-3.320357 0.0662,-0.219781 -0.27984,-0.239932 -0.4176,-0.297206 -1.06103,-0.441119 -3.77041,-1.412653 -4.64312,-2.203204 -0.44153,-0.399958 -0.55552,-1.054077 -0.83069,-1.582463 -0.70018,-1.344451 -1.46213,-2.657051 -2.13068,-4.017504 -0.25394,-0.51675 -0.46023,-1.05559 -0.68674,-1.584939 -0.16053,-0.37515 -0.2107,-0.817089 -0.47437,-1.128517 -0.80605,-0.952037 -2.77014,-1.823418 -3.76954,-2.21271 -3.707966,-1.44434 -4.707824,-1.445438 -8.729895,-2.57669 -1.250839,-0.351811 -1.530266,-1.224306 -2.525848,-1.943804 -0.558617,-0.403709 -1.194041,-0.68903 -1.798973,-1.01932 -1.401482,-0.765207 -2.049727,-0.857967 -3.620357,-0.857967 -0.264317,0 -0.54088,-0.07953 -0.792949,0 -0.260194,0.08209 -0.441092,0.322479 -0.674904,0.463084 -0.452507,0.272119 -0.901354,0.555641 -1.382139,0.773938 -1.479362,0.671695 -3.034747,1.162299 -4.565062,1.70802 -0.927018,0.330581 -1.940031,0.667187 -2.931951,0.74998 -1.745742,0.145714 0.140718,-0.199906 -1.801241,0.100127 -0.679556,0.104989 -1.361197,0.201387 -2.056379,0.236222 -0.415827,0.02085 -0.834649,-0.04028 -1.249045,0 -0.490151,0.04764 -0.972587,0.173141 -1.441516,0.323554 -0.300016,0.09623 -0.30103,0.337008 -0.712716,0.383011 -0.402873,0.04502 -0.810763,-2.65e-4 -1.216144,0"
-       id="path2049" />
-    <path
        style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.54663622;stroke-miterlimit:4;stroke-dasharray:0.795, 0.795;stroke-dashoffset:0;marker-start:url(#DotM)"
        d="M 75.882192,108.10842 V 43.328711"
        id="path2263" />
     <g
        transform="matrix(0.352778,0,0,0.352778,75.256968,110.80697)"
-       ns2:version="1.3.0"
-       ns2:texconverter="pdflatex"
-       ns2:pdfconverter="inkscape"
-       ns2:text="$x$"
-       ns2:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
-       ns2:scale="1.0"
-       ns2:alignment="middle center"
-       ns2:jacobian_sqrt="0.352778"
+       ns1:version="1.3.0"
+       ns1:texconverter="pdflatex"
+       ns1:pdfconverter="inkscape"
+       ns1:text="$x$"
+       ns1:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
+       ns1:scale="1.0"
+       ns1:alignment="middle center"
+       ns1:jacobian_sqrt="0.352778"
        id="g2825">
       <defs
          id="id-87647bcd-d709-4783-8daf-81940aa4dc06">
@@ -307,14 +303,14 @@
     </g>
     <g
        transform="matrix(0.352778 0 0 0.352778 67.6456 85.2923)"
-       ns2:version="1.3.0"
-       ns2:texconverter="pdflatex"
-       ns2:pdfconverter="inkscape"
-       ns2:text="$\\{$"
-       ns2:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
-       ns2:scale="1.0"
-       ns2:alignment="middle center"
-       ns2:jacobian_sqrt="0.352778"
+       ns1:version="1.3.0"
+       ns1:texconverter="pdflatex"
+       ns1:pdfconverter="inkscape"
+       ns1:text="$\\{$"
+       ns1:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
+       ns1:scale="1.0"
+       ns1:alignment="middle center"
+       ns1:jacobian_sqrt="0.352778"
        id="g4462">
       <defs
          id="id-342e5c2e-a31a-471b-bf4b-5d95159aaa14">
@@ -357,14 +353,14 @@
     </g>
     <g
        transform="matrix(0.352778,0,0,0.352778,82.830044,73.159972)"
-       ns2:version="1.3.0"
-       ns2:texconverter="pdflatex"
-       ns2:pdfconverter="inkscape"
-       ns2:text="$E_x$"
-       ns2:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
-       ns2:scale="1.0"
-       ns2:alignment="middle center"
-       ns2:jacobian_sqrt="0.352778"
+       ns1:version="1.3.0"
+       ns1:texconverter="pdflatex"
+       ns1:pdfconverter="inkscape"
+       ns1:text="$E_x$"
+       ns1:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
+       ns1:scale="1.0"
+       ns1:alignment="middle center"
+       ns1:jacobian_sqrt="0.352778"
        id="g4737">
       <defs
          id="id-ed785da9-81f4-4ced-8711-be0c94385f16">
@@ -435,14 +431,14 @@
     </g>
     <g
        transform="matrix(0.352778,0,0,0.352778,53.435279,57.708869)"
-       ns2:version="1.3.0"
-       ns2:texconverter="pdflatex"
-       ns2:pdfconverter="inkscape"
-       ns2:text="$E$"
-       ns2:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
-       ns2:scale="1.0"
-       ns2:alignment="middle center"
-       ns2:jacobian_sqrt="0.352778"
+       ns1:version="1.3.0"
+       ns1:texconverter="pdflatex"
+       ns1:pdfconverter="inkscape"
+       ns1:text="$E$"
+       ns1:preamble="/usr/share/inkscape/extensions/textext/default_packages.tex"
+       ns1:scale="1.0"
+       ns1:alignment="middle center"
+       ns1:jacobian_sqrt="0.352778"
        id="g4966">
       <defs
          id="id-2ced94c4-4fd3-4f67-8395-357dfe9307da">
@@ -483,5 +479,10 @@
         </g>
       </g>
     </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 75.708041,58.776941 C 49.304093,66.790117 51.286526,72.025737 51.096793,76.566794 50.907058,81.10785 59.743196,80.078672 63.39923,87.0822 c 3.656034,7.003529 2.240888,-0.243725 18.122481,3.801303 17.070521,4.347848 9.900889,1.685539 19.341099,-8.540191 9.44021,-10.225731 17.9677,-6.471084 9.78359,-14.597679 -8.1841,-8.126592 -2.60425,3.078583 -12.445633,-11.200574 C 90.325588,45.118727 87.373293,52.49956 84.833565,53.866255 Z"
+       id="path2144"
+       sodipodi:nodetypes="csssssssc" />
   </g>
 </svg>

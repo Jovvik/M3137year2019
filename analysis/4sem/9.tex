@@ -10,7 +10,7 @@
         \item \(\exists \Phi'_1 \dots \Phi'_k\)
     \end{itemize}
 
-    \(\lambda_k(\text{ПРЛП}\footnote{Площадь параллелипипеда}(\Phi_1' \dots \Phi_k'))\) --- это и будет плотность меры.
+    \(\lambda_k(\text{ПРЛП}(\Phi_1' \dots \Phi_k'))\)\footnote{Объём параллелепипеда} --- это и будет плотность меры.
 \end{definition}
 
 \section{Формула Грина}
@@ -85,7 +85,7 @@
 \end{remark}
 
 \begin{proof}
-    Ограничимся случаем \(\Omega \subset C^2\). % TODO: что такое C?
+    Ограничимся случаем \(\Omega \subset C^2\).
 
     Достаточно показать, что:
     \[\int_{\partial \Omega^{ +}} P dx = \iint_\Omega \frac{\partial P}{\partial z} dz dx - \frac{\partial P}{\partial y} dx dy\]
@@ -93,8 +93,8 @@
     Пусть \(\Phi = (x(u, v), y(u, v), z(u, v))\).
 
     \begin{align*}
-        \int_{\partial \Omega^{ +}} P dx & =\int_a^b P \left( \frac{\partial x}{\partial u} u' + \frac{\partial x}{\partial v} v' \right) dt \\
-                                         & =\int_a^b P \frac{\partial x}{\partial u} du + \frac{\partial x}{\partial v} dv
+        \int_{\partial \Omega^{ +}} P dx & =\int_{L^+} P \left( \frac{\partial x}{\partial u} u' + \frac{\partial x}{\partial v} v' \right) dt \\
+                                         & =\int_{L^+} P \frac{\partial x}{\partial u} du + \frac{\partial x}{\partial v} dv
     \end{align*}
 
     \begin{align*}
@@ -111,7 +111,7 @@
 \begin{theorem}\itemfix
     \begin{itemize}
         \item \(\mu E < +\infty\)
-        \item \(1 \leq s < r < +\infty\)
+        \item \(1 \leq s < r \leq +\infty\)
     \end{itemize}
 
     Тогда:
@@ -150,14 +150,22 @@
     Тогда
     \begin{enumerate}
         \item \(f \in L^p, f_n \xrightarrow{L^p} f \Rightarrow f_n \xRightarrow{\mu} f\)
-        \item \unfinished % TODO: дописать
+        \item \begin{itemize}
+        	  	\item \(f_n \xRightarrow{\mu} f\) (либо \(f_n \to f\) п.в.)
+        	  	\item \(|f_n| \leq g\)
+        	  	\item \(g \in L^p\)
+        	  \end{itemize}
+        	  Тогда \(f \in L^p\) и \(f_n \to f\) в \(L^p\)
     \end{enumerate}
 \end{theorem}
+\begin{proof}
+	\unfinished % TODO: дописать
+\end{proof}
 
 \subsection{Напоминание}
 
 \begin{itemize}
-    \item Фундаментальная последовательность : \(\forall \varepsilon > 0 \ \ \exists N \ \ \forall k, n > N \ \ ||f_n - f_k|| < \varepsilon\), т.е. \(||f_n - f_k|| \xrightarrow{n,m \to +\infty} 0\)
+    \item Фундаментальная последовательность : \(\forall \varepsilon > 0 \ \ \exists N \ \ \forall k, n > N \ \ ||f_n - f_k|| < \varepsilon\), т.е. \(||f_n - f_k|| \xrightarrow{n,k \to +\infty} 0\)
     \item \(f_n \to f \Rightarrow  (f_n)\) --- фундаментальная, \(||f_n - f_k|| \leq  ||f_n - f|| + ||f - f_k||\)
     \item \(C(K)\) --- пространство непрерывных функций на компакте \(K\).
 
@@ -190,10 +198,10 @@
     Это выполнено при всех достаточно больших \(k\). Тогда по теореме Фату \(\int_X |f_n - f|^p d\mu < \varepsilon^p\), т.е. \(||f_n - f||_p < \varepsilon\).
 \end{proof}
 
-\begin{theorem}
+\begin{definition}
     \(Y\) --- метрическое пространство, \(A \subset Y\), \(A\) --- \textbf{\textit{(всюду)} плотно} в \(Y\), если:
     \[\forall y\in Y \ \ \forall U(y) \ \ \exists a \in A : a\in U(y)\]
-\end{theorem}
+\end{definition}
 \begin{example}
     \(\Q\) плотно в \(\R\).
 \end{example}
@@ -219,7 +227,7 @@
 
         \item \(p < +\infty\). Пусть \(f \geq 0\).
 
-              \(\exists \varphi_{n \geq 0}\) ступенчатая : \(\varphi \uparrow f\)
+              \(\exists \varphi_{n} \geq 0\) ступенчатые : \(\varphi_n \uparrow f\)
               \[||\varphi_n - f||_p^p = \int_X |\varphi_n - f|^p \xrightarrow{\text{т. Лебега}} 0\]
     \end{enumerate}
 \end{proof}

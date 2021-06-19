@@ -31,13 +31,13 @@
 \begin{itemize}
     \item [1 шаг] \begin{align*}
               x_m       & = \rho_{m - 1} \sin \varphi_{m - 1} \\
-              x_{m - 1} & = \rho_{m - 1} \cos \varphi_{m - 1} \\
+              x_{m - 1} & = \rho_{m - 1} \cos \varphi_{m - 1}
           \end{align*}
           \[(x_1 \dots x_m) \rightsquigarrow (x_1 \dots x_{m - 2}, \rho_{m - 1}, \varphi_{m - 1})\]
           \[J = \begin{vmatrix} E & 0 \\ 0 & J_2 \end{vmatrix} = \rho_{m - 1}\]
     \item [2 шаг] \begin{align*}
               \rho_{m - 1} & = \rho_{m - 2} \sin \varphi_{m - 2} \\
-              x_{m - 2}    & = \rho_{m - 2} \cos \varphi_{m - 2} \\
+              x_{m - 2}    & = \rho_{m - 2} \cos \varphi_{m - 2}
           \end{align*}
           \[(x_1 \dots x_{m - 2}, \rho_{m - 1}, \varphi_{m - 1}) \rightsquigarrow (x_1 \dots x_{m - 3}, \rho_{m - 2}, \varphi_{m - 2}, \varphi_{m - 1})\]
 
@@ -50,11 +50,11 @@
 \end{itemize}
 
 \begin{align*}
-    \lambda_m(\Omega) & = \int_\Omega 1 d\lambda_m                                                                                        \\
-                      & \stackrel{\text{1 шаг}}{=} \int_{\Omega_1} \rho_{m - 1}                                                           \\
-                      & \stackrel{\text{2 шаг}}{=} \int_{\Omega_2} \rho^2_{m - 2} \sin \varphi_{m - 2}                                    \\
-                      & \stackrel{\text{3 шаг}}{=} \int_{\Omega_3} \rho^3_{m - 3} \sin^2 \varphi_{m - 3} \sin \varphi_{m - 2}             \\
-                      & = \dots                                                                                                           \\
+    \lambda_m(\Omega) & = \int_\Omega 1 d\lambda_m                                                                                                                                                                                                     \\
+                      & \stackrel{\text{1 шаг}}{=} \int_{\Omega_1} \rho_{m - 1}                                                                                                                                                                        \\
+                      & \stackrel{\text{2 шаг}}{=} \int_{\Omega_2} \underbrace{\rho_{m - 2} \sin \varphi_{m - 2}}_{\text{замена } \rho_{m - 1}} \cdot \underbrace{\rho_{m_2}}_J                                                                        \\
+                      & \stackrel{\text{3 шаг}}{=} \int_{\Omega_3} \underbrace{\rho^2_{m - 3} \sin^2 \varphi_{m - 3}}_{\text{замена } \rho_{m - 2}^2} \cdot \underbrace{\sin \varphi_{m - 2}}_{\text{с прошлого шага}} \cdot \underbrace{\rho_{m_3}}_J \\
+                      & = \dots                                                                                                                                                                                                                        \\
                       & = \int_{\Omega_{m - 1}} r^{m - 1} \sin^{m - 2}\varphi_1 \sin^{m - 3}\varphi_2 \dots \sin \varphi_{m - 2} d\lambda
 \end{align*}
 
@@ -77,11 +77,14 @@
     \(m_0(A \times B) = \mu(A) \cdot \nu(B)\), при этом \(0 \cdot \infty\) принимаем за \(0\).
 \end{obozn}
 \begin{theorem}\itemfix
+    %<*опроизведениимер>
     \begin{enumerate}
         \item \(m_0\) --- мера на \(\mathcal{P}\)
-        \item \(\mu, \nu\) --- \(\sigma\)-конечны \( \Rightarrow m_0\) тоже \(\sigma\)-конечно.
+        \item \(\mu, \nu\) --- \(\sigma\)-конечны \( \Rightarrow m_0\) тоже \(\sigma\)-конечно\footnote{Т.е. пространство можно представить в виде счётного объединения множеств конечной меры.}.
     \end{enumerate}
+    %</опроизведениимер>
 \end{theorem}
+%<*опроизведениимерproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item Проверим счётную аддитивность \(m_0\), т.е. \(m_0 P = \sum_{k = 1}^{+\infty} m_0 P_k\)\footnote{Прочие суммы/объединения также счётны в рамках данного доказательства.}, если \(A \times B = P = \bigsqcup P_k\), где \(P_k = A_k \times B_k\)
@@ -108,6 +111,7 @@
               Тогда \(X \times Y = \bigcup X_k \times Y_n, m_0(X_k \times Y_n) = \mu X_k \nu Y_n\). Конечное произведение конечных конечно, поэтому \(m_0\) \(\sigma\)-конечно.
     \end{enumerate}
 \end{proof}
+%</опроизведениимерproof>
 
 \begin{definition}\itemfix
     \begin{itemize}
@@ -127,7 +131,7 @@
 \begin{remark}\itemfix
     \begin{itemize}
         \item Это произведение ассоциативно.
-        \item \(\sigma\)-конечность нужна для единственности произведения.
+        \item \(\sigma\)-конечность нужна для единственности произведения, которая выполняется по теореме о продолжении меры.
     \end{itemize}
 \end{remark}
 
@@ -135,7 +139,7 @@
     \(\lambda_m \times \lambda_n = \lambda_{m + n}\)
 \end{theorem}
 \begin{proof}
-    Не будет.
+    Не будет. % и не надо пытаться доказать, это страшно.
 \end{proof}
 
 \begin{definition}
@@ -152,6 +156,7 @@
 \end{remark}
 
 \begin{theorem}[принцип Кавальери\footnote{Кавальери имеет к этой теореме косвенное отношение, т.к. он жил за пару веков до появления теории меры.}]\itemfix
+    %<*кавальери>
     \label{принцип Кавальери}
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
@@ -159,7 +164,7 @@
         \item \(\mu, \nu\) --- \(\sigma\)-конечны.
         \item \(\mu, \nu\) --- полные.
         \item \(m = \mu \times \nu\)
-        \item \(C \in A \otimes B\)
+        \item \(C \in \mathfrak{A} \otimes \mathfrak{B}\)
     \end{itemize}
 
     Тогда:
@@ -170,23 +175,24 @@
     \end{enumerate}
 
     Аналогичное верно для \(C^y\).
+    %</кавальери>
 \end{theorem}
 
 \begin{example}
     \? % TODO #93
 \end{example}
 
+%<*кавальериproof>
 \begin{proof}
     Пусть \(\mathfrak{D}\) --- система множеств, для которых выполнено 1.-3.
 
     \begin{enumerate}
-        \item \(C = A \times B \Rightarrow C\in \mathfrak{D}\)
-
+        \item \(C = A \times B\), где \(A\) и \(B\) измеримы в соответствующих пространствах \(\Rightarrow C \in \mathfrak{D}\), так как:
               \begin{enumerate}
                   \item \(C_x = \begin{cases}
                             \emptyset, x\notin A \\
                             B, x\in A
-                        \end{cases}\)
+                        \end{cases}\) и оба случая очевидно \(\in \mathfrak{B}\)
                   \item \(x \mapsto \nu(C_x)\) --- функция \(\nu B \cdot \chi_A\)
                   \item \(\int \nu(C_x) d\mu = \int_X \nu B \cdot \chi_A d \mu = \nu B \cdot \mu A = mC\)
               \end{enumerate}
@@ -251,6 +257,7 @@
               \(C = \bigsqcup (\underbrace{C \cap (X_k \times Y_j)}_{\mu < +\infty})\) --- используем случай 2
     \end{enumerate}
 \end{proof}
+%</кавальериproof>
 
 \begin{corollary}
     \(C\) измеримо в \(X \times Y\). Пусть \(P_1(C) = \{x\in X, C_x \neq \emptyset\}\) --- проекция~\(C\) на~\(X\).
@@ -268,6 +275,6 @@
         \item \(C\) измеримо \(\nRightarrow \forall x \ \ C_x\) измеримо.
         \item \(\forall x, \forall y \ \ C_x, C^y\) измеримо \(\nRightarrow C\) измеримо.
 
-              Пример Серпинского.
+              Пример Серпинского. \unfinished % TODO
     \end{enumerate}
 \end{remark}

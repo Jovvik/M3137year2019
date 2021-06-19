@@ -45,8 +45,8 @@
                                                       & = -\int_a^b P(x, \varphi_3(x)) - P(x, \varphi_1(x)) dx
     \end{align*}
     \begin{align*}
-        \int_{\partial D^{ +}} Pdx + 0 dy & = \int_{\varphi_1} + \underbrace{\int_{\varphi_2}}_0 + \int_{\varphi_3} + \underbrace{\int_{\varphi_4}}_0 \\
-                                          & = \int_a^b P(x, \varphi_1(x)) dx - \int_a^b P(x, \varphi_3(x)) dx
+        \int_{\partial D^{ +}} Pdx + 0 dy & = \int_{\gamma_1} + \underbrace{\int_{\gamma_2}}_0 + \int_{\gamma_3} + \underbrace{\int_{\gamma_4}}_0 \\
+                                          & = \int_a^b P(x, \gamma_1(x)) dx - \int_a^b P(x, \gamma_3(x)) dx
     \end{align*}
 
     Таким образом, искомое доказано.
@@ -85,7 +85,7 @@
 \end{remark}
 
 \begin{proof}
-    Ограничимся случаем \(\Omega \subset C^2\). % TODO: что такое C?
+    Ограничимся случаем \(\Omega \in C^2\). % TODO: что такое C?
 
     Достаточно показать, что:
     \[\int_{\partial \Omega^{ +}} P dx = \iint_\Omega \frac{\partial P}{\partial z} dz dx - \frac{\partial P}{\partial y} dx dy\]
@@ -94,7 +94,7 @@
 
     \begin{align*}
         \int_{\partial \Omega^{ +}} P dx & =\int_a^b P \left( \frac{\partial x}{\partial u} u' + \frac{\partial x}{\partial v} v' \right) dt \\
-                                         & =\int_a^b P \frac{\partial x}{\partial u} du + \frac{\partial x}{\partial v} dv
+                                         & =\int_a^b P \frac{\partial x}{\partial u} du + P \frac{\partial x}{\partial v} dv
     \end{align*}
 
     \begin{align*}
@@ -212,7 +212,7 @@
 
               \(\sphericalangle f\in L^{\infty}\). Изменив \(f\) на множестве меры \(0\), считаем, что \(|f| \leq ||f||_\infty\).
 
-              Тогда \(\exists \) ступенчатые функции \(0 \leq \varphi \rightrightarrows f^{ +}\) и \(0 \leq \psi_n \rightrightarrows f^{ -}\)
+              Тогда \(\exists \) ступенчатые функции \(0 \leq \varphi_n \rightrightarrows f^{ +}\) и \(0 \leq \psi_n \rightrightarrows f^{ -}\)
 
 
               Тогда сколь угодно близко к \(f\) можно найти ступенчатую функцию вида \(\varphi_n + \psi_n\).
@@ -241,7 +241,7 @@
     Топологическое пространство \(X\) \textbf{нормальное}, если:
     \begin{enumerate}
         \item Точки \(X\) суть замкнутые множества
-        \item \(\forall F_1, F_2 \subset X\) -- замкнуты \(\exists U(F_1), U(F_2)\) --- открыты, \(U(F_1) \cap U(f_2) = \emptyset\)
+        \item \(\forall F_1, F_2 \subset X\) -- замкнуты \(\exists U(F_1), U(F_2)\) --- открыты, \(U(F_1) \cap U(F_2) = \emptyset\)
     \end{enumerate}
 \end{definition}
 

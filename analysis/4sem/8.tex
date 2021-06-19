@@ -44,7 +44,7 @@
         \item \(n_0\) --- сторона \(M\)
         \item \(F : M \to \R^3\) --- непрерывное векторное поле
     \end{itemize}
-    Тогда \(\int_M \ev{V, n_0} dS\) --- интеграл II рода векторного поля \(F\) по поверхности \(M\).
+    Тогда \(\int_M \ev{F, n_0} dS\) --- интеграл II рода векторного поля \(F\) по поверхности \(M\).
 \end{definition}
 
 \begin{remark}\itemfix
@@ -52,7 +52,7 @@
         \item Смена стороны = смена знака
         \item Не зависит от параметризации
         \item \(F = (P, Q, R)\), тогда интеграл обозначается \(\iint P dy dz + Q dz dx + R dx dy\)
-        \item \(\Phi, n = \Phi'_u \times \Phi'_v \rightsquigarrow n_0\) % ??
+        \item \(\Phi\) - параметризация, \(n = \Phi'_u \times \Phi'_v \rightsquigarrow n_0\) - нормирование
 
               Пусть \(\Phi(u, v) = (x(u, v), y(u, v), z(u, v))\)
 
@@ -128,7 +128,7 @@
           \begin{proof}
               Не будет, но общая идея следующая:
               \begin{enumerate}
-                  \item Для ступенчатых функций --- из неравенства Гёльдера\footnote{Мы его рассматривали во втором семестре.}
+                  \item Для ступенчатых функций --- из неравенства Гёльдера для сумм\footnote{Мы его рассматривали во втором семестре.}
                   \item Для суммируемых функций --- по теореме \nameref{леви}.
               \end{enumerate}
           \end{proof}
@@ -141,6 +141,9 @@
               Не будет, можно вывести аналогично выводу во втором семестре.
           \end{proof}
 
+          \begin{remark}
+          	Для \(p = 1\) тоже верно
+          \end{remark}
     \item Определение пространства \(L^p, 1 \leq p < +\infty\)
 
           \begin{itemize}
@@ -148,7 +151,7 @@
               \item \(E \subset X\) --- измеримо.
           \end{itemize}
 
-          \(\mathcal{L}^p(E, \mu) : = \{f : \text{почти везде } E \to \overline{\R}(\overline{\mathbb C}\footnote{ \(\overline{\mathbb C} = \mathbb C \cup \{\infty\} \)}), f \text{ --- изм.}, \int_E |f|^p d\mu < +\infty\} \) --- это линейное пространство по неравенству Минковского.
+          \(\mathcal{L}^p(E, \mu) : = \{f : \text{почти везде } E \to \overline{\R}(\overline{\mathbb C}\footnote{ \(\overline{\mathbb C} = \mathbb C \cup \{\infty\} \)}), f \text{ --- изм.}\footnote{Или измерима почти везде.}, \int_E |f|^p d\mu < +\infty\} \) --- это линейное пространство по неравенству Минковского.
 
           Зададим отношение эквивалентности \(\sim\) на \(\mathcal{L}^p(E, \mu)\): \(f \sim g \Leftrightarrow f = g\) почти везде.
 
@@ -161,7 +164,7 @@
           \begin{itemize}
               \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой.
               \item \(E \subset X\) --- измеримо.
-              \item \(f : \) почти везде \(\to \overline{\R}\) --- измеримо
+              \item \(f : \) почти везде на \(E \to \overline{\R}\) --- измеримо
           \end{itemize}
 
           \begin{definition}[существенный супремум]
@@ -172,7 +175,7 @@
           \begin{prop}\itemfix
               \begin{itemize}
                   \item \(\esup f \leq \sup f\) --- очевидно.
-                  \item \(f \leq \esup f \leq\) почти везде --- пусть \(B = \esup f\), тогда \(\forall n \ \ f \leq B + \frac{1}{n}\) почти везде.
+                  \item \(f \leq \esup f\) почти везде --- пусть \(B = \esup f\), тогда \(\forall n \ \ f \leq B + \frac{1}{n}\) почти везде.
                   \item \(f\) --- суммируемо, \(\esup_E |g| < +\infty\). Тогда \(|\int_E fg| \leq \esup |g| \cdot \int_E |f|\)
                         \begin{proof}
                             \begin{equation}

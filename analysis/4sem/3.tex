@@ -327,11 +327,12 @@
 
     \begin{align*}
         \int_{[ - N, N]} \frac{|a_n| d\lambda}{\sqrt{|x - x_n|}}
-         & = \int_{ - N}^N \frac{|a_n|}{\sqrt{|x - x_n|}} dx        \\
-         & = |a_n|\int_{ - N - x_n}^{N - x_n} \frac{dx}{\sqrt{|x|}} \\
-         & \leq |a_n|\int_{ - N}^{N} \frac{dx}{\sqrt{|x|}}          \\
-         & = 4 \sqrt{N} |a_n|                                       \\
+         & = \int_{ - N}^N \frac{|a_n|}{\sqrt{|x - x_n|}} dx                     \\
+         & = |a_n|\int_{ - N - x_n}^{N - x_n} \frac{dx}{\sqrt{|x|}}              \\
+         & \symref{по чётности}{\leq} |a_n|\int_{ - N}^{N} \frac{dx}{\sqrt{|x|}} \\
+         & = 4 \sqrt{N} |a_n|                                                    \\
         \sum_n\int_{[ - N, N]} \frac{|a_n| d\lambda}{\sqrt{|x - x_n|}}
          & \leq 4 \sqrt{N} \sum|a_n| < +\infty
     \end{align*}
+    \blfootnote{\eqref{по чётности}: Т.к. \(\frac{1}{\sqrt{|x|}}\) чётна и при этом для \(x \geq 0\) убывает, площадь под симметричным относительно \(0\) отрезком максимальна среди всех отрезков такой же длины.}
 \end{proof}

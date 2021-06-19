@@ -34,7 +34,7 @@
     \(\nu\) --- одноточечная мера: \(\nu(A) =\begin{cases}
         1, & 0\in A    \\
         0, & 0\notin A
-    \end{cases}\)
+    \end{cases}\). Тогда \(\nu(\{0\}) = 1\), но \(\int_{\{0\}} \omega d\mu = 0\) --- несостыковка.
 
     Необходимое условие существования плотности --- \(\mu A = 0 \Rightarrow \nu A = 0\)
 
@@ -55,11 +55,11 @@
               \[\mu A_j \cdot q^j  \symref{неравенство 21}{\leq} \int_{A_j} \omega d\mu \symref{неравенство 22}{\leq} \mu A_j q^{j - 1}\]
               Тогда:
               \begin{align*}
-                  q\cdot \int_A \omega d\mu & \leq q\cdot \sum \int_{A_j} \omega d\mu                            \\
+                  q\cdot \int_A \omega d\mu & = q \cdot \sum \int_{A_j} \omega d\mu                              \\
                                             & \symref{по неравенство 22}{\leq} \sum q^j \mu A_j                  \\
                                             & \symref{по неравенство 11}{\leq} \underbrace{\sum \nu A_j}_{\nu A} \\
                                             & \symref{по неравенство 12}{\leq} \frac{1}{q} \sum q^j \mu A_j      \\
-                                            & \symref{по неравенство 21}{\leq} \frac{1}{q}\sum \int_{A_j}        \\
+                                            & \symref{по неравенство 21}{\leq} \frac{1}{q} \sum \int_{A_j}       \\
                                             & = \frac{1}{q}\int_A \omega d\mu
               \end{align*}
               \blfootnote{\eqref{по неравенство 11}: по~\eqref{неравенство 11}}

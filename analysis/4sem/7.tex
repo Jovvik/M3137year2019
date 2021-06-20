@@ -40,6 +40,7 @@
 \end{definition}
 
 \begin{theorem}[Тонелли]\itemfix
+    %<*тонелли>
     \label{тонелли}
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
@@ -64,20 +65,22 @@
         \item \(y \mapsto \psi(y) = \int_X f^y d\mu\) --- измерима\footnote{почти везде} на \(Y\)
         \item \(\int_{X \times Y} f dm = \int_Y \psi d\mu = \int_Y \left( \int_X f(x, y) d \mu(x) \right) d\nu(y)\)
     \end{enumerate}
+    %</тонелли>
 \end{theorem}
 
+%<*тонеллиproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item \(f = \chi_{C_x}, C \subset X \times Y, \) измеримо. Тогда \(f_x(y) = \chi_{C_x}(y)\)
 
               \(C_x\) измеримо при почти всех \(x\) по \nameref{принцип Кавальери} \( \Rightarrow f_x\) измеримо при почти всех \(x\)
 
-              \(\varphi(x) = \int_Y f_x d\nu = \nu C_x\) --- измерима\footnote{почти везде} функция по \nameref{принцип Кавальери}
+              \(\varphi(x) = \int_Y f_x d\nu = \nu C_x\) --- измеримая\footnote{почти везде} функция по \nameref{принцип Кавальери}
 
               \[\int_X \varphi(x) d\mu = \int_X \nu C_x d\mu \symrefeq{по кавальери} mC = \int_{X \times Y} f dm\]
               \blfootnote{\eqref{по кавальери}: по \nameref{принцип Кавальери}}
 
-        \item \(f\) --- ступенчатая, \(f \geq 0, f = \sum_{\text{кон.}} \alpha_k \chi_{c_k}, f_x = \sum \alpha_k \chi_{(C_k)_x}\) --- измеримо почти везде.
+        \item \(f\) --- ступенчатая, \(f \geq 0, f = \sum_{\text{кон.}} \alpha_k \chi_{C_k}, f_x = \sum \alpha_k \chi_{(C_k)_x}\) --- измеримо почти везде.
 
               \(\varphi(x) = \int_Y f_x d\nu = \sum \alpha_k \nu (C_k)_x\) --- измерима\footnote{почти везде}
 
@@ -87,16 +90,17 @@
 
               \(f = \lim g_n, g_n \uparrow f, g_n \geq 0\), ступенчатые
 
-              \(f_x = \lim\limits_{n \to +\infty} (g_n)_x \Rightarrow f_x\) --- измеримо на \(y\).
+              \(f_x = \lim\limits_{n \to +\infty} (g_n)_x \Rightarrow f_x\) --- измеримо на \(y\) по теореме об измеримости пределов.
 
               \[\varphi(x) = \int_Y f_x d\nu \symrefeq{по леви 2} \lim \underbrace{\int_Y (g_n)_x d\nu}_{\varphi_n(x)} \implies \varphi \text{ --- измерима\footnote{почти везде}}\]
 
-              \(\varphi_n(x)\) измерима почти везде, поэтому \(\varphi\) измерима почти везде.
+              \(\varphi_n(x)\) измерима почти везде по пункту 2, поэтому \(\varphi\) измерима почти везде.
 
               \[\int_X \varphi(x) \symrefeq{по леви 3} \lim \int_X \varphi_n = \lim \int_{X \times Y} g_n \symrefeq{по леви 4} \int_{X \times Y} f dm\]
               \blfootnote{\eqref{по леви 2},~\eqref{по леви 3},~\eqref{по леви 4}: по теореме \nameref{леви}}
     \end{enumerate}
 \end{proof}
+%</тонеллиproof>
 
 \begin{corollary}
     Если в условиях теоремы \nameref{тонелли} \(C \subset X \times Y, P_1(C)\) измеримо, то \(\int_C f dm = \int_{P_1(C)}\left( \int_{C_x} f(x, y) d\nu(y) \right) d\mu(x)\)
@@ -106,6 +110,7 @@
 \end{proof}
 
 \begin{theorem}[Фубини]\itemfix
+    %<*фубини>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
         \item \((Y, \mathfrak{B}, \nu)\)
@@ -120,6 +125,7 @@
         \item \(x \mapsto \varphi(x) = \int_Y f_x d\nu = \int_Y f(x, y) d\nu(y)\) --- суммируема на \(Y\)
         \item \(\int_{X \times Y} f dm = \int_X \varphi d \mu = \int_X \left( \int_Y f(x, y) d\nu(y) \right) d\mu(x)\)
     \end{enumerate}
+    %</фубини>
 \end{theorem}
 \begin{proof}
     Слишком неинтересно.
@@ -128,11 +134,14 @@
 \end{proof}
 
 \begin{example}
+    %<*формулабетафункции>
     \(B(s, t) \defeq \int_0^1 x^{s - 1} (1 - x)^{t - 1} dx,\ s, t > 0\).
 
     Тогда \(B(s, t) = \cfrac{\Gamma(s)\Gamma(t)}{\Gamma(s + t)}\), где \(\Gamma(s) = \int_0^{+\infty} x^{s - 1}e^{ - x}dx\)
+    %</формулабетафункции>
 \end{example}
 
+%<*формулабетафункцииproof>
 \begin{proof}
     \begin{align*}
         \Gamma(s)\Gamma(t) & = \int_0^{+\infty} x^{s - 1}e^{ - x}\left( \int_0^{+\infty} y^{t - 1}e^{- y}dy \right)dx         \\
@@ -147,19 +156,21 @@
                            & = B(s, t) \Gamma(s + t)
     \end{align*}
 \end{proof}
+%</формулабетафункцииproof>
 
 \begin{example}[Объём\footnote{на самом деле мера} шара в \(\R^m\)]
+    %<*объемшара>
     \(\alpha_m : = \lambda_m(B(0, 1)), \lambda_m(B(0, r)) = r^m \cdot \alpha_m\) --- получается заменой координат.
 
     \[B(0, 1) \defeq \left\{x\in \R^m : \sum_{i = 1}^m x_i^2 \leq 1\right\} \]
     \[B(0, 1)_{x_m} = \left\{x\in \R^{m - 1} : \sum_{i = 1}^{m - 1} x_i^2 \leq 1 - x_m^2 \right\}\]
     \begin{align*}
         \alpha_m
-         & = \int_{ - 1}^{1} \lambda_{m - 1} \left(B\left( 0, \sqrt{1 - y^2} \right)\right)                                                   \\
+         & = \int_{ - 1}^{1} \lambda_{m - 1} \left(B\left( 0, \sqrt{1 - y^2} \right)\right) dy                                                \\
          & = \int_{ - 1}^{1} \alpha_{m - 1} (1 - y^2)^{\frac{m - 1}{2}} dy                                                                    \\
          & = 2\alpha_{m - 1} \int_{0}^{1} (1 - t)^{\frac{m - 1}{2}} \frac{1}{2} t^{ - \frac{1}{2}} dt                                         \\
          & = B\left(\frac{m + 1}{2}, \frac{1}{2}\right) \alpha_{m - 1}                                                                        \\
-         & = \frac{\Gamma\left( \frac{m + 1}{2} \right)\Gamma\left( \frac{1}{2} \right)}{\Gamma\left( \frac{m + 2}{2} \right)} \alpha_{m - 1} \\
+         & = \frac{\Gamma\left( \frac{m + 1}{2} \right)\Gamma\left( \frac{1}{2} \right)}{\Gamma\left( \frac{m + 2}{2} \right)} \alpha_{m - 1}
     \end{align*}
 
     \begin{align*}
@@ -192,10 +203,10 @@
     \end{align*}
 
     \begin{align*}
-        \lambda_m (B(0, R)) & = \int_{B(0, R)} 1 d\lambda_m                                                                                                                                                                                \\
-                            & = \int_0^R dr \int_0^{\pi} d\varphi_1 \int_0^{\pi} d\varphi_2 \dots \int_0^{\pi} d\varphi_{m - 2} \int_0^{2\pi} d\varphi_{m - 1} \cdot r^{m - 1} \cdot \sin^{m - 2} \varphi_1 \dots \sin \varphi_{m - 2}     \\
-                            & \stackrel{\eqref{интеграл синуса в степени}}{ = } 2\pi \frac{R^m}{m} \prod_{k = 1}^{m - 2} \frac{\Gamma\left( \frac{k + 1}{2} \right)\Gamma\left( \frac{1}{2} \right)}{\Gamma\left( \frac{k + 2}{2} \right)} \\
-                            & = \pi \frac{R^m}{m}\frac{\pi^{\frac{m - 2}{2} }}{\Gamma\left( \frac{m - 2}{2} + 1 \right)}                                                                                                                   \\
+        \lambda_m (B(0, R)) & = \int_{B(0, R)} 1 d\lambda_m                                                                                                                                                                                           \\
+                            & = \int_0^R dr \int_0^{\pi} d\varphi_1 \int_0^{\pi} d\varphi_2 \dots \int_0^{\pi} d\varphi_{m - 2} \int_0^{2\pi} d\varphi_{m - 1} \cdot r^{m - 1} \cdot \sin^{m - 2} \varphi_1 \dots \sin \varphi_{m - 2}                \\
+                            & \stackrel{\text{по } \eqref{интеграл синуса в степени}}{ = } 2\pi \frac{R^m}{m} \prod_{k = 1}^{m - 2} \frac{\Gamma\left( \frac{k + 1}{2} \right)\Gamma\left( \frac{1}{2} \right)}{\Gamma\left( \frac{k + 2}{2} \right)} \\
+                            & = \pi \frac{R^m}{m}\frac{\pi^{\frac{m - 2}{2} }}{\Gamma\left( \frac{m - 2}{2} + 1 \right)}                                                                                                                              \\
                             & \symrefeq{потеряли двойку} \frac{\pi^{\frac{m}{2} R^m}}{\Gamma\left( \frac{m - 2}{2} + 1 \right)}
     \end{align*}
     \blfootnote{Мы потеряли двойку в~\eqref{потеряли двойку}.}
@@ -203,6 +214,7 @@
     \begin{equation}
         \int_0^\pi \sin^k \alpha d\alpha = 2 \int_0^{\frac{\pi}{2}} = \begin{bmatrix} t = \sin^2\alpha \\ dt = \frac{1}{2}t^{ - \frac{1}{2}} (1 - t)^{ - \frac{1}{2}} dt \end{bmatrix} = B\left( \frac{k}{2} + \frac{1}{2}, \frac{1}{2} \right) \label{интеграл синуса в степени}
     \end{equation}
+    %</объемшара>
 \end{example}
 
 \pagebreak
@@ -238,9 +250,9 @@
 \begin{remark}\itemfix
     \begin{enumerate}
         \item \(\mathfrak{A}_m\) --- \(\sigma\)-алебра, \(S\) --- мера.
-        \item \(E\subset M\) --- компакт \( \Rightarrow \varphi^{-1}(E)\) --- компакт \( \Rightarrow \) измерим \( \Rightarrow \) замкнутые множества измеримы \( \Rightarrow \) открытые относительно себя множества измеримы.
-        \item \(\mathfrak{A}_m\) не зависит от параметризации \(\varphi\) по теореме о двух параметризациях.
-        \item \(S\) не зависит от \(\varphi\)!
+        \item \(E \subset M\) --- компакт \( \Rightarrow \varphi^{-1}(E)\) --- компакт, т.к. непрерывный образ компакта компактен \( \Rightarrow \) измерим \( \Rightarrow \) замкнутые множества измеримы \( \Rightarrow \) открытые относительно \(M\) множества измеримы, т.к. их дополнения замкнуты и следовательно измеримы, а также \(\sigma\)-алгебра замкнута по дополнению.
+        \item \(\mathfrak{A}_m\) не зависит от параметризации \(\varphi\) по теореме о двух параметризациях\footnote{Которая гласит, что треугольник коммутирует.}.
+        \item \(S\) не зависит от \(\varphi\)!\footnote{Это восклицательный знак, а не факториал.}
 
               \begin{align*}
                   |\vv{\varphi}'_s \times \vv{\varphi}'_t| & = |(\vv{\varphi}'_u \cdot u'_s + \vv{\varphi}'_v \cdot v'_s) \times (\vv{\varphi}'_i \cdot u'_t + \vv{\varphi}'_v \cdot v'_t)| \\
@@ -255,6 +267,7 @@
 \end{remark}
 
 \begin{definition}[поверхностный интеграл первого рода]\itemfix
+    %<*поверхностныйинтегралпервогорода>
     \begin{itemize}
         \item \(M\) --- простое гладкое двумерное многообразие в \(\R^3\)
         \item \(\varphi\) --- параметризация \(M\)
@@ -262,6 +275,7 @@
     \end{itemize}
 
     Тогда \(\iint_M f dS = \iint_M f(x, y, z) dS\) называется \textbf{интегралом первого рода} от \(f\) по многообразию \(M\).
+    %</поверхностныйинтегралпервогорода>
 \end{definition}
 
 \begin{remark}

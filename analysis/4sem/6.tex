@@ -219,18 +219,16 @@
 
               \(\int_x \nu E_x d\mu = \lim \int_X \nu(E_i)_x d\mu = \lim m E_i = m E\) --- это 3.
 
-              По теореме Лебега % какой?
+              По теореме Лебега о предельном переходе под знаком интеграла
               \(|\nu(E_i) x| \leq \nu(E_i)x\) суммируемо.
 
-              Итого: Если \(A_{ij}\in \mathcal{P}  = \mathfrak{A} \times \mathfrak{B}\), то \(\bigcap \bigcup A_{ij} \in \mathfrak{D}\)
+              Итого: Если \(A_{ij} \in \mathcal{P} = \mathfrak{A} \times \mathfrak{B}\), то \(\bigcap \bigcup A_{ij} \in \mathfrak{D}\). Строго говоря, мы это не доказали, т.к. ещё нужно упомянуть процесс дизъюнктнизации в полукольце и то, что пересечение множеств лежит в полукольце, следовательно любое пересечение можно свести к тому, которое мы рассматривали.
 
-        \item \(m E = 0 \Rightarrow E \in \mathfrak{D}\)
+        \item \(E \subset X \times Y, m E = 0 \Rightarrow E \in \mathfrak{D}\)
 
               \(m E = \inf \left\{\sum m_0 P_k : E \subset \bigcup P_k, P_k \in \mathcal{P}\right\} \) --- из пункта 5 теоремы о лебеговском продолжении.
 
-              \(\exists\) множество \(H\) вида \(\bigcap_l \bigsqcup_k P_{kl}\), т.е. \(H \in \mathfrak{D}\).
-
-              \(E\subset H, m H = m E = 0\)
+              \(\exists\) множество \(H\) вида \(\bigcap_l \bigcup_k P_{kl}\), т.е. пересечение аппроксимаций. По пункту 3 \(H \in \mathfrak{D}\). При этом \(E \subset H, m H = m E = 0\).
 
               \(0 = mH = \int_X \underbrace{\nu H_x}_{ \geq 0} d\mu \Rightarrow \nu H_x = 0\) про почти всех \(x\).
 
@@ -238,43 +236,57 @@
 
               \(\int \nu E_x d\mu = 0 = m E\) --- это 3.
 
-        \item \(C\) --- измеримо, \(mC < +\infty\). Тогда \(C\in \mathfrak{D}\).
+        \item \(C\) --- \(m\)-измеримо, \(mC < +\infty\). Тогда \(C\in \mathfrak{D}\).
 
-              \(C = H \setminus e\), где \(H\) имеет вид \(\bigcap \bigcup P_{k_l}, me = 0\)
+              \(C = H \setminus e\), где \(H\) имеет вид \(\bigcap \bigcup P_{kl}, me = 0\). Почему? Из предыдущих соображений \(C \subset H\), а нулевая мера \(H \setminus C\) следует из того, что мера \(C\) конечна. \textcolor{red}{Как оно следует?}
 
-              \(mC = mH\)
+              \(mC = mH - 0 = mH\)
 
               \begin{enumerate}
-                  \item \(C_x = H_x \setminus e_x\) --- измеримо при почти всех \(x\) --- полнота \(\nu\)
+                  \item \(C_x = H_x \setminus e_x\) --- оба ``слагаемых'' измеримы при почти всех \(x\), т.к. \(H_x\) по третьему пункту \(\in \mathfrak{B}\), а \(e_x\) измеримы по полноте \(\nu\). В силу замкнутости по вычитанию \(C_x \in \mathfrak{B}\) п.в.
                   \item \(\nu e_x = 0\) при почти всех \(x\) \( \Rightarrow \nu C_x = \nu H_x - \nu E_x = \nu H_x\) п.в. \(\Rightarrow \) измеримо.
                   \item \(\int_X \nu C_x d\mu = \int_X \nu H_x d\mu = mH = mC\)
               \end{enumerate}
 
         \item \(C\) --- произвольное измеримое множество в \(X \times Y \Rightarrow C \in \mathfrak{D}\)
 
-              \(X = \bigsqcup X_k, \mu X_k < +\infty, Y = \bigsqcup Y_j, \nu Y_j < +\infty\)
+              \(X = \bigsqcup X_k, \mu X_k < +\infty, Y = \bigsqcup Y_j, \nu Y_j < +\infty\) по полноте обеих мер.
 
-              \(C = \bigsqcup (\underbrace{C \cap (X_k \times Y_j)}_{\mu < +\infty})\) --- используем случай 2
+              \(C = \bigsqcup (\underbrace{C \cap (X_k \times Y_j)}_{m(\dots) < +\infty})\), тогда по пункту 5 все элементы объединения \(\in \mathfrak{D}\) и по пункту 2 объединение лежит в \(\mathfrak{D}\).
     \end{enumerate}
 \end{proof}
 %</кавальериproof>
 
+%<*кавальериcorollary>
 \begin{corollary}
     \(C\) измеримо в \(X \times Y\). Пусть \(P_1(C) = \{x\in X, C_x \neq \emptyset\}\) --- проекция~\(C\) на~\(X\).
 
     Если \(P_1(C)\) измеримо, то:
     \[mC = \int_{P_1(C)} \nu(C_x) d\mu\]
+
+    Аналогично для проекции на \(y\).
 \end{corollary}
+%</кавальериcorollary>
+%<*кавальериcorollaryproof>
 \begin{proof}
     При \(x\notin P_1(C) \ \ \nu(C_x) = 0\)
 \end{proof}
 
+%</кавальериcorollaryproof>
 \begin{remark}\itemfix
     \begin{enumerate}
         \item \(C\) измеримо \(\nRightarrow P_1(C)\) измеримо.
+
+              \begin{example}
+                  Пусть \(C = (\) неизмеримое множество в \(X) \times \{y\}\), где \(y\) --- фиксированный элемент в \(Y\). Тогда \(C\) измеримо в \(X \times Y\) и имеет меру \(0\).
+              \end{example}
         \item \(C\) измеримо \(\nRightarrow \forall x \ \ C_x\) измеримо.
+
+              \begin{example}
+                  Пусть \(C = \{\tilde{x}\} \times (\) неизмеримое множество в \(y)\), где \(\tilde{x}\) --- фиксированный элемент в \(X\). Тогда \(C\) измеримо в \(X \times Y\) и имеет меру \(0\), но при этом \(C_{\tilde{x}}\) неизмеримо.
+              \end{example}
         \item \(\forall x, \forall y \ \ C_x, C^y\) измеримо \(\nRightarrow C\) измеримо.
 
-              Пример Серпинского. \unfinished % TODO
+              Пример Серпинского.
     \end{enumerate}
 \end{remark}

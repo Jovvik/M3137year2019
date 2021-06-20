@@ -1,8 +1,10 @@
 \chapter{12 апреля}
 
-% \begin{remark}
-%     Начало лекции не записано, но, кажется, оно и не нужно.
-% \end{remark}
+В третьем семестре у нас был криволинейный интеграл функции и векторного поля вдоль кривой \(\gamma : [a, b] \to \R^m\):
+\[\int_\gamma f \underbrace{dS}_{|\gamma'| dt} \quad \int \ev{F, \gamma'} dt\]
+Мера на кривой, т.е. гладком одномерном многообразии, с параметризацией \(\gamma\), является мерой Лебега в \(\R^1\) с весом \(|\gamma'|\). Такой интеграл --- первого рода.
+
+В общем случае интеграл II рода по \(m - 1\)-мерной поверхности в \(\R^m\) от векторного поля \(F\) есть: \(\int \ev{F, n_0} dS_{m - 1}\)
 
 \begin{definition}[мера Лебега на \(k\)-мерном многообразии в \(\R^m\)]\itemfix
     \begin{itemize}
@@ -10,12 +12,14 @@
         \item \(\exists \Phi'_1 \dots \Phi'_k\)
     \end{itemize}
 
-    \(\lambda_k(\text{ПРЛП}(\Phi_1' \dots \Phi_k'))\)\footnote{Объём параллелепипеда} --- это и будет плотность меры.
+    \(\lambda_k(\text{ПРЛП}(\Phi_1' \dots \Phi_k'))\)\footnote{Объём параллелепипеда на этих векторах} --- это и будет плотность меры.
 \end{definition}
 
 \section{Формула Грина}
 
-\begin{theorem}\itemfix
+\begin{theorem}[формула грина]\itemfix
+    %<*формулагрина>
+    \label{формула грина}
     \begin{itemize}
         \item \(D\subset \R^2\) --- компактное, связное, односвязное\footnote{Любая петля стягиваема}, ограниченное множество.
         \item \(D\) ограничено кусочно-гладкой кривой \(\partial D\)
@@ -24,7 +28,9 @@
 
     Пусть \(\partial D\) ориентирована согласованно с ориентацией \(D\) \textit{(против часовой стрелки)} --- обозначим \(\partial D^{ +}\). Тогда:
     \[\iint_D \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} dx dy = \int_{\partial D^{ +}} Pdx + Qdy\]
+    %</формулагрина>
 \end{theorem}
+%<*формулагринаproof>
 \begin{proof}
     Ограничимся случаем \(D\) --- ``криволинейный четырёхугольник''.
 
@@ -51,6 +57,7 @@
 
     Таким образом, искомое доказано.
 \end{proof}
+%</формулагринаproof>
 
 \begin{remark}
     Теорема верна для любой области \(D\) с кусочно-гладкой границей, которую можно разрезать на криволинейные четырёхугольники.
@@ -65,6 +72,7 @@
 \end{remark}
 
 \begin{theorem}[формула Стокса]\itemfix
+    %<*формуластокса>
     \begin{itemize}
         \item \(\Omega\) --- простое гладкое двумерное многообразие в \(\R^3\) \textit{(двустороннее)}
         \item \(\Phi : G \subset \R^2 \to \R^3\) --- параметризация \(\Omega\)
@@ -77,6 +85,7 @@
 
     Тогда:
     \[\int_{\partial \Omega^{ +}} P dx + Q dy + R dz = \iint_\Omega \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right) dy dz + \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right) dz dx + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dx dy\]
+    %</формуластокса>
 \end{theorem}
 
 \begin{remark}
@@ -84,31 +93,34 @@
     \[d P dx + dQ dy + dR dz = (P'_x dx + P'_y dy + P'_z dz) dx + \dots \]
 \end{remark}
 
+%<*формуластоксаproof>
 \begin{proof}
-    Ограничимся случаем \(\Omega \in C^2\). 
+    Ограничимся случаем \(\Omega \in C^2\), т.е. параметризация \(\Omega\) дважды гладко дифференцируема.
 
     Достаточно показать, что:
     \[\int_{\partial \Omega^{ +}} P dx = \iint_\Omega \frac{\partial P}{\partial z} dz dx - \frac{\partial P}{\partial y} dx dy\]
 
     Пусть \(\Phi = (x(u, v), y(u, v), z(u, v))\).
 
-    \begin{align*}
-        \int_{\partial \Omega^{ +}} P dx & =\int_{L^+} P \left( \frac{\partial x}{\partial u} u' + \frac{\partial x}{\partial v} v' \right) dt \\
-                                         & =\int_{L^+} P \frac{\partial x}{\partial u} du + P \frac{\partial x}{\partial v} dv
-    \end{align*}
+    Запараметризуем \(L^+\) как \(\gamma : [a, b] \to \R^2, t \mapsto (u(t), v(t))\). Тогда \(\Phi \circ \gamma\) --- параметризация \(\partial\Omega^+\). Тогда \((\Phi \circ \gamma)' = \Phi' \cdot \gamma'\)
 
     \begin{align*}
-        \int_{\partial \Omega^{ +}} P dx & = \int_{L^{ +}} P \left( \frac{\partial x}{\partial u} du + \frac{\partial x}{\partial v} dv \right)                                                                    \\
-                                         & = \iint_G \frac{\partial}{\partial u} \left( P \frac{\partial x}{\partial v} \right) - \frac{\partial}{\partial v} \left( P \frac{\partial x}{\partial u} \right) du dv \\
-                                         & = \iint_G (P'_x x'_u + P'_y y'_u + P'_z z'_u)x'_v + P \cdot x''_{uv} - (P'_x x'_v + P'_y y'_v + P'_z z'_v) x'_u - P x''_{uv} du dv                                      \\
-                                         & = \iint_G \frac{\partial P}{\partial z} (z'_u x'_v - z'_v x'_u) - \frac{\partial P}{\partial y} (x'_u y'_v - x'_v y'_u) du dv                                           \\
+        \int_{\partial \Omega^{ +}} P dx & = \int_{L^+} P \left( \frac{\partial x}{\partial u} u' + \frac{\partial x}{\partial v} v' \right) dt                                                                                                           \\
+                                         & = \int_{L^{ +}} P \left( \frac{\partial x}{\partial u} du + \frac{\partial x}{\partial v} dv \right)                                                                                                           \\
+                                         & \symrefeq{по грину} \iint_G \frac{\partial}{\partial u} \left( P \frac{\partial x}{\partial v} \right) - \frac{\partial}{\partial v} \left( P \frac{\partial x}{\partial u} \right) du dv                      \\
+                                         & \symrefeq{дифференцирование произведения} \iint_G (\cancel{P'_x x'_u} + P'_y y'_u + P'_z z'_u)x'_v + \cancel{P \cdot x''_{uv}} - (\cancel{P'_x x'_v} + P'_y y'_v + P'_z z'_v) x'_u - \cancel{P x''_{uv}} du dv \\
+                                         & = \iint_G \frac{\partial P}{\partial z} (z'_u x'_v - z'_v x'_u) - \frac{\partial P}{\partial y} (x'_u y'_v - x'_v y'_u) du dv                                                                                  \\
                                          & = \iint_G \frac{\partial P}{\partial z} dz dx - \frac{\partial P}{\partial x} dx dy
     \end{align*}
+    \blfootnote{\eqref{по грину}: по \nameref{формула грина}}
+    \blfootnote{\eqref{дифференцирование произведения}: это дифференцирование произведения}
 \end{proof}
+%</формуластоксаproof>
 
 \section{Ряды Фурье \textit{(возвращение)}}
 
 \begin{theorem}\itemfix
+    %<*овложении>
     \begin{itemize}
         \item \(\mu E < +\infty\)
         \item \(1 \leq s < r \leq +\infty\)
@@ -117,11 +129,13 @@
     Тогда:
     \begin{enumerate}
         \item \(L^r(E, \mu) \subset L^s(E, \mu)\)
-        \item \(||f||_S \leq \mu E^{\frac{1}{s} - \frac{1}{r}} \cdot ||f||_r\)
+        \item \(||f||_s \leq \mu E^{\frac{1}{s} - \frac{1}{r}} \cdot ||f||_r\)
     \end{enumerate}
+    %</овложении>
 \end{theorem}
+%<*овложенииproof>
 \begin{proof}
-    1 следует из 2. Докажем 2.
+    1 следует из 2, т.к. если \(f \in L^r(E, \mu)\), то \(||f||_s\) конечно. Докажем 2.
 
     При \(r = \infty\) очевидно:
     \[\left(\int_E |f|^S d\mu \right)^{\frac{1}{s}} \leq \esup |f| \cdot \mu E^{\frac{1}{s}}\]
@@ -135,6 +149,7 @@
                   & \leq ||f||_r^s \mu E^{1 - \frac{s}{r}}
     \end{align*}
 \end{proof}
+%</овложенииproof>
 \begin{corollary}
     \(\mu E < +\infty, 1 \leq s, r \leq +\infty, f_n \xrightarrow{L^r} f\). Тогда \(f_n \xrightarrow{L^s} f\)
 \end{corollary}
@@ -143,6 +158,7 @@
 \end{proof}
 
 \begin{theorem}[о сходиомсти в \(L^p\) и по мере]\itemfix
+    %<*осходимостивlpипомере>
     \begin{itemize}
         \item \(1 \leq p < +\infty\)
         \item \(f_n \in L^p(X, \mu)\)
@@ -151,25 +167,33 @@
     \begin{enumerate}
         \item \(f \in L^p, f_n \xrightarrow{L^p} f \Rightarrow f_n \xRightarrow{\mu} f\)
         \item \begin{itemize}
-        	  	\item \(f_n \xRightarrow{\mu} f\) (либо \(f_n \to f\) п.в.)
-        	  	\item \(|f_n| \leq g\)
-        	  	\item \(g \in L^p\)
-        	  \end{itemize}
-        	  Тогда \(f \in L^p\) и \(f_n \to f\) в \(L^p\)
+                  \item \(f_n \xRightarrow{\mu} f\) (либо \(f_n \to f\) п.в.)
+                  \item \(|f_n| \leq g\)
+                  \item \(g \in L^p\)
+              \end{itemize}
+              Тогда \(f \in L^p\) и \(f_n \to f\) в \(L^p\)
     \end{enumerate}
+    %</осходимостивlpипомере>
 \end{theorem}
-\begin{proof}
-	\unfinished % TODO: дописать
+%<*осходимостивlpипомереproof>
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item Пусть \(X_n(\varepsilon) = X(|f_n - f| \geq \varepsilon)\)
+              \[\mu X_n(\varepsilon) = \int_{X_n(\varepsilon)} 1 d\mu \leq \frac{1}{\varepsilon^p} \int_{X_n(\varepsilon)} |f_n - f|^p d\mu \leq \frac{1}{\varepsilon^p} ||f_n - f||_p^p \to 0\]
+        \item Пусть \(f_n \Rightarrow f\). Тогда по теореме Рисса \(\exists n_k : f_{n_k} \to f\) почти везде. \(|f| \leq g\) почти везде. \(|f_n - f|^p \leq (2g)^p\) --- суммируема, т.к. \(g \in L^p\).
+              \[||f_n - f||_p^p = \int_X |f_n - f|^p \xrightarrow{\text{т. Лебега}} 0\]
+    \end{enumerate}
 \end{proof}
+%</осходимостивlpипомереproof>
 
 \subsection{Напоминание}
 
 \begin{itemize}
     \item Фундаментальная последовательность : \(\forall \varepsilon > 0 \ \ \exists N \ \ \forall k, n > N \ \ ||f_n - f_k|| < \varepsilon\), т.е. \(||f_n - f_k|| \xrightarrow{n,k \to +\infty} 0\)
-    \item \(f_n \to f \Rightarrow  (f_n)\) --- фундаментальная, \(||f_n - f_k|| \leq  ||f_n - f|| + ||f - f_k||\)
+    \item \(f_n \to f \Rightarrow  (f_n)\) --- фундаментальная, т.к. \(||f_n - f_k|| \leq \underbrace{||f_n - f||}_{ \to 0} + \underbrace{||f - f_k||}_{ \to 0}\)
     \item \(C(K)\) --- пространство непрерывных функций на компакте \(K\).
 
-          \(||f|| = \max_K |f|\). Утверждение: \(C(K)\) --- полное.
+          \(||f|| = \max_K |f|\). Утверждение: \(C(K)\) --- полное, т.е. любая фундаментальная последовательность сходится.
 \end{itemize}
 
 \begin{exercise}
@@ -177,8 +201,11 @@
 \end{exercise}
 
 \begin{theorem}
+    %<*полнотаlp>
     \(L^p(X, \mu), 1 \leq p < +\infty\) --- полное.
+    %</полнотаlp>
 \end{theorem}
+%<*полнотаlpproof>
 \begin{proof}
     Рассмотрим \(f_n\) --- фундаментальную. Куда бы она могла сходиться?
 
@@ -186,7 +213,7 @@
 
     Аналогично для \(\varepsilon = \frac{1}{4}\).
 
-    В общем случае \(\sum_k ||f_{n_{k+1}} - f_{n_k}||_p \leq \sum_k \frac{1}{2^k} = 1\). Рассмотрим ряд \(S(x) = \sum |f_{n_{k+1}}(x) - f_{n_k}(x)|, S(x) \in [0, +\infty]\) и его частичный суммы \(S_N\).
+    В общем случае \(\sum_k ||f_{n_{k+1}} - f_{n_k}||_p \leq \sum_k \frac{1}{2^k} = 1\). Рассмотрим ряд \(S(x) = \sum |f_{n_{k+1}}(x) - f_{n_k}(x)|, S(x) \in [0, +\infty]\) и его частичные суммы \(S_N\).
     \[||S_N||_p \leq \sum_{k = 1}^N ||f_{n_{k+1}} - f_{n_k}||_p < 1\]
     Таким образом, \(\int_X S_N^p < 1\). По теореме Фату \(\int_X S^p d\mu < 1\), т.е. \(S^p\) --- суммируемо \( \Rightarrow S\) почти везде конечно.
 
@@ -197,6 +224,7 @@
 
     Это выполнено при всех достаточно больших \(k\). Тогда по теореме Фату \(\int_X |f_n - f|^p d\mu < \varepsilon^p\), т.е. \(||f_n - f||_p < \varepsilon\).
 \end{proof}
+%</полнотаlpproof>
 
 \begin{definition}
     \(Y\) --- метрическое пространство, \(A \subset Y\), \(A\) --- \textbf{\textit{(всюду)} плотно} в \(Y\), если:
@@ -207,32 +235,38 @@
 \end{example}
 
 \begin{lemma}\itemfix
+    %<*плотностьступенчатых>
     \begin{itemize}
         \item \((X, \mathfrak{A}, \mu)\)
         \item \(1 \leq p \leq +\infty\)
     \end{itemize}
 
     Множество ступенчатых функций \textit{(из \(L^p\))} плотно в \(L^p\).
+    %</плотностьступенчатых>
 \end{lemma}
+%<*плотностьступенчатыхproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item \(p = \infty\)
 
-              \(\sphericalangle f\in L^{\infty}\). Изменив \(f\) на множестве меры \(0\), считаем, что \(|f| \leq ||f||_\infty\).
+              \(\sphericalangle f\in L^{\infty}\). Изменив \(f\) на множестве меры \(0\), считаем, что \(|f| \leq ||f||_\infty\), т.к. \(f > A\) на множестве меры \(0\).
 
-              Тогда \(\exists \) ступенчатые функции \(0 \leq \varphi_n \rightrightarrows f^{ +}\) и \(0 \leq \psi_n \rightrightarrows f^{ -}\)
+              Тогда из доказательство теоремы о характеризации неотрицательных функций с помощью ступенчатых \(\exists\) ступенчатые функции \(\varphi_n\), такие что \(0 \leq \varphi_n \rightrightarrows f^{ +}\) и \(\psi_n\), такие что \(0 \leq \psi_n \rightrightarrows f^{ -}\)
 
-
-              Тогда сколь угодно близко к \(f\) можно найти ступенчатую функцию вида \(\varphi_n + \psi_n\).
+              Тогда сколь угодно близко к \(f\) можно найти ступенчатую функцию вида \(\varphi_n + \psi_n\), т.е. \(|f - \varphi_n - \psi_n| \leq \frac{1}{n}\), что и требовалось показать.
 
         \item \(p < +\infty\). Пусть \(f \geq 0\).
 
               \(\exists \varphi_{n} \geq 0\) ступенчатые : \(\varphi_n \uparrow f\)
-              \[||\varphi_n - f||_p^p = \int_X |\varphi_n - f|^p \xrightarrow{\text{т. Лебега}} 0\]
+              \[||\varphi_n - f||_p^p = \int_X \underbrace{|\varphi_n - f|^p}_{ \leq |f|^p \text{ --- мажоранта}} \xrightarrow{\text{т. Лебега}} 0\]
+
+              Если \(f\) любого знака, то при рассмотрении срезок искомое очевидно.
     \end{enumerate}
 \end{proof}
+%</плотностьступенчатыхproof>
+
 \begin{remark}
-    \(\varphi \in L^p\) --- ступенчатая \( \Rightarrow \mu X (\varphi \neq 0) < +\infty\)
+    \(\varphi \in L^p\) --- ступенчатая \(\Rightarrow \mu X (\varphi \neq 0) < +\infty\)
 \end{remark}
 
 \begin{definition}
@@ -249,9 +283,8 @@
     Топологическое пространство \(X\) \textbf{нормальное}, если:
     \begin{enumerate}
         \item Точки \(X\) суть замкнутые множества
-        \item \(\forall F_1, F_2 \subset X\) -- замкнуты \(\exists U(F_1), U(F_2)\) --- открыты, \(U(F_1) \cap U(F_2) = \emptyset\)
+        \item \(\forall F_1, F_2 \subset X\) --- замкнутых\footnote{И непересекающихся, но это не было сказано на лекции.}, тогда \(\exists U(F_1), U(F_2)\) --- открыты, \(U(F_1) \cap U(F_2) = \emptyset\)
     \end{enumerate}
 \end{definition}
 
-Загадка: \(\R^m\) --- нормальные.
-
+Загадка: \(\R^m\) --- нормальные.\footnote{Если очень хочется, то \href{https://math.stackexchange.com/questions/2872410/proof-that-every-metric-space-is-normal}{здесь} можно почитать доказательство того, что все метрические пространства \textit{(коим \(\R^m\) является)} нормальные.}

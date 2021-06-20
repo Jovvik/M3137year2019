@@ -45,7 +45,9 @@
 %<*критерийплотностиproof>
 \begin{proof}[Доказательство теоремы~\nameref{критерий плотности}]\itemfix
     \begin{itemize}
-        \item [``\( \Rightarrow \)''] Очевидно.
+        \item [``\( \Rightarrow \)'']
+              \[\nu(A) \defeq \int_A \omega(x) d\mu(x)\]
+              \[\inf \omega \cdot \mu A = \int_A \inf \omega d\mu \leq \int_A \omega(x) d\mu(x) \leq \int_A \sup \omega d\mu = \sup \omega \cdot \mu A\]
         \item [``\( \Leftarrow \)''] Рассмотрим \(\omega > 0\). Общность не умаляется, т.к. пусть \(e = X(\omega = 0)\), тогда \(\nu(e) \defeq \int_e \omega d\mu = 0\), поэтому в случае \(A\cap e \neq \emptyset\) всё ещё только лучше.
 
               Фиксируем число \(q\in(0, 1)\).

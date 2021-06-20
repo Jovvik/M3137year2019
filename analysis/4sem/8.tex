@@ -23,28 +23,59 @@
 \end{obozn}
 
 \begin{definition}
+    %<*сторонаповерхости>
     \textbf{Сторона поверхности} есть непрерывное семейство единичных нормалей к этой поверхности.
+
+    Для поверхности \(M \subset \R^3\) сторона есть отображение
+    \[W : M \to \R^3 \quad \forall x \ \ |W(x)|= 1, W(x) \perp \Phi'_u, \Phi'_v\]
+    %</сторонаповерхости>
 \end{definition}
 
+\begin{remark}
+    Локально каждая поверхность двусторонняя. В общем случае сторон либо две, либо одна \textit{(лента Мёбиуса)}. Для поверхностей с одной стороной нельзя задать сторону поверхности. Формально мы это не доказали и это требует трюков с топологией. В \(\R^4\) можно сделать дырку в окружности и заткнуть её лентой Мёбиуса и тогда всё станет совсем странно.
+\end{remark}
+
+\begin{example}
+    График функции \(z(x, y)\).
+    \[\Phi : (x, y) \mapsto \begin{pmatrix} x \\ y \\ z(x, y) \end{pmatrix}\]
+    \[\Phi'_x = \begin{pmatrix} 1 \\ 0 \\ z'_x \end{pmatrix} \quad \Phi'_y = \begin{pmatrix} 0 \\ 1 \\ z'_y \end{pmatrix}\]
+    \[n : = \Phi'_x \times \Phi'_y = \begin{pmatrix} - z'_x \\ - z'_y \\ 1 \end{pmatrix}\]
+    \[n_0 = \pm \begin{pmatrix} - \frac{z'_x}{\sqrt{1 + z_x^{\prime 2} + z_y^{\prime 2}}} \\ - \frac{z'_y}{\sqrt{1 + z_x^{\prime 2} + z_y^{\prime 2}}}  \\ \frac{1}{\sqrt{1 + z_x^{\prime 2} + z_y^{\prime 2}}} \end{pmatrix}\]
+\end{example}
+
+Другие способы задания стороны:
+\begin{enumerate}
+    \item
+          %<*реперы>
+          \(u, v\) --- касательные непараллельные вектора к \(M\). Тогда \((u, v)\) будем называть \textbf{касательным реп\'ером}. Нормаль в таком случае можно восстановить векторным произведением \(u \times v\). После нормировки по полю реперов мы получаем поле единичных нормалей, т.е. сторону поверхности.
+          %</реперы>
+    \item Пусть задана петля и задано направление движения, то бишь \textbf{ориентированный контур}. Тогда с помощью гомотопий его можно стянуть в любую точку нашего многообразия \(M\). Заметим, что направление движения на самом деле задаёт два вектора --- касательный вектор и вектор нормали ``внутрь'' петли. Тогда мы по ориентированному контуру получим поле касательных реперов, а следовательно зададим и сторону поверхности.
+\end{enumerate}
+
 \begin{definition}\itemfix
+    %<*согласованнаяориентация>
     \begin{itemize}
         \item \(M\) --- поверхность в \(\R^3\)
-        \item \(n_0\) --- сторона % чья?
+        \item \(n_0\) --- сторона
         \item \(\gamma\) --- контур \textit{(петля)} в \(M\), ориентированная
+        \item \(N_{\text{внутр.}}\) --- вектор нормали, направленный внутрь петли
     \end{itemize}
 
     Говорят, что сторона поверхности \(n_0\) согласована с ориентацией \(\gamma\), если:
     \[(\gamma' \times N_{\text{внутр.}}) \parallel n_0\]
     Т.е. если ориентация \(\gamma\) задаёт сторону \(n_0\).
+    %</согласованнаяориентация>
 \end{definition}
 
 \begin{definition}[интеграл II рода]\itemfix
+    %<*интегралвторогорода>
     \begin{itemize}
         \item \(M\) --- простое двумерное гладкое многообразие
         \item \(n_0\) --- сторона \(M\)
         \item \(F : M \to \R^3\) --- непрерывное векторное поле
     \end{itemize}
-    Тогда \(\int_M \ev{F, n_0} dS\) --- интеграл II рода векторного поля \(F\) по поверхности \(M\).
+    Тогда \(\int_M \ev{F, n_0} dS\) --- \textbf{интеграл II рода} векторного поля \(F\) по поверхности \(M\).
+    %</интегралвторогорода>
 \end{definition}
 
 \begin{remark}\itemfix
@@ -57,8 +88,8 @@
               Пусть \(\Phi(u, v) = (x(u, v), y(u, v), z(u, v))\)
 
               \begin{align*}
-                  \int_M \ev{F, n_0} ds & = \int_O \ev{F, \frac{\Phi'_u \times \Phi'_v}{|\Phi'_u \times \Phi'_v|}} |\Phi'_u \times \Phi'_v| du dv                  \\
-                                        & = \int_O \underbrace{\ev{F, \Phi'_u \times \Phi'_v}}_{\substack{\text{смешанное}                                         \\ \text{произведение}:~\eqref{смешанное произведение}}} du dv \\
+                  \int_M \ev{F, n_0} ds & = \int_O \ev{F, \frac{\Phi'_u \times \Phi'_v}{|\Phi'_u \times \Phi'_v|}} |\Phi'_u \times \Phi'_v| du dv                     \\
+                                        & = \int_O \underbrace{\ev{F, \Phi'_u \times \Phi'_v}}_{\substack{\text{смешанное}                                            \\ \text{произведение}:~\eqref{смешанное произведение}}} du dv \\
                                         & = \int_O P \cdot \begin{vmatrix} y'_u & y'_v \\ z'_u & z'_v \end{vmatrix} + Q \cdot \begin{vmatrix} z'_u & z'_v \\ x'_u & x'_v \end{vmatrix} + R \cdot \begin{vmatrix} x'_u & x'_v \\ y'_u & y'_v \end{vmatrix} du dv
               \end{align*}
 
@@ -84,7 +115,7 @@
 \end{example}
 
 \begin{corollary*}
-    \(V \subset \R^3, M = \partial V\) --- гладкая двумерная поверхность, \(n_0\) --- внешняя нормаль.
+    \(V \subset \R^3, M = \partial\footnote{Это не дифференциал, а граница.} V\) --- гладкая двумерная поверхность, \(n_0\) --- внешняя нормаль.
 
     \[\lambda_3 V = \iint_{\partial V} z dx dy = \frac{1}{3} \iint_{\partial V} x dy dz + y dz dx + z dx dy\]
 \end{corollary*}
@@ -103,9 +134,10 @@
 \subsection{Пространства \(L^p\)}
 
 \begin{enumerate}
-    \item \begin{itemize}
+    \item %<*интегралкомплекснозначнойфункции>
+          \begin{itemize}
               \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой
-              \item \(f : X \to \mathbb C\), т.е. \(x = f(x) = u(x) + iv(x), u = \Re f, v = \Im f\)
+              \item \(f : X \to \mathbb{C}\), т.е. \(x = f(x) = u(x) + iv(x), u = \Re f, v = \Im f\)
           \end{itemize}
 
           \(f\) \textbf{измеримо}, если \(u\) и \(v\) измеримы\footnote{Или измеримы почти везде.}.
@@ -113,14 +145,20 @@
           \(f\) \textbf{суммируемо}, если \(u\) и \(v\) суммируемы.
 
           Если \(f\) суммируемо, то \(\int_E f = \int_E u + i \int_E v\)
+          %</интегралкомплекснозначнойфункции>
 
-    \item Неравенство Гёльдера.
+          \begin{exercise}
+              \[\left|\int_E f\right| \leq \int_E |f| d\mu\]
+          \end{exercise}
+
+    \item %<*неравенствогёльдера>
+          Неравенство Гёльдера.
 
           \begin{itemize}
-              \item \(p, q, > 1, \frac{1}{p} + \frac{1}{q} = 1\)
+              \item \(p, q > 1, \frac{1}{p} + \frac{1}{q} = 1\)
               \item \((X, \mathfrak{A}, \mu)\)
               \item \(E\) --- измеримо
-              \item \(f, g : E \to \mathbb C\)
+              \item \(f, g : E \to \mathbb{C}\)
               \item \(f, g\) --- измеримы
           \end{itemize}
 
@@ -132,8 +170,10 @@
                   \item Для суммируемых функций --- по теореме \nameref{леви}.
               \end{enumerate}
           \end{proof}
+          %</неравенствогёльдера>
 
-    \item Неравенство Минковского.
+    \item %<*неравенствоминеовского>
+          Неравенство Минковского.
 
           В тех же условиях \(\left( \int_E |f + g|^p \right)^{\frac{1}{p}} \leq \left( \int_E |f|^p \right)^{\frac{1}{p}} + \left( \int_E |g|^p \right)^{\frac{1}{p}}\)
 
@@ -142,16 +182,19 @@
           \end{proof}
 
           \begin{remark}
-          	Для \(p = 1\) тоже верно
+              Для \(p = 1\) тоже верно.
           \end{remark}
-    \item Определение пространства \(L^p, 1 \leq p < +\infty\)
+          %</неравенствоминеовского>
+
+    \item %<*пространствоlp>
+          Определение пространства \(L^p, 1 \leq p < +\infty\)
 
           \begin{itemize}
               \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой.
               \item \(E \subset X\) --- измеримо.
           \end{itemize}
 
-          \(\mathcal{L}^p(E, \mu) : = \{f : \text{почти везде } E \to \overline{\R}(\overline{\mathbb C}\footnote{ \(\overline{\mathbb C} = \mathbb C \cup \{\infty\} \)}), f \text{ --- изм.}\footnote{Или измерима почти везде.}, \int_E |f|^p d\mu < +\infty\} \) --- это линейное пространство по неравенству Минковского.
+          \(\mathcal{L}^p(E, \mu) : = \{f : \text{почти везде } E \to \overline{\R}(\overline{\mathbb{C}}\footnote{ \(\overline{\mathbb{C}} = \mathbb C \cup \{\infty\} \)}), f \text{ --- изм.}\footnote{Или измерима почти везде.}, \int_E |f|^p d\mu < +\infty\} \) --- это линейное пространство по неравенству Минковского.
 
           Зададим отношение эквивалентности \(\sim\) на \(\mathcal{L}^p(E, \mu)\): \(f \sim g \Leftrightarrow f = g\) почти везде.
 
@@ -159,16 +202,26 @@
 
           Задаём норму на \(L^p\): \(||f||_{L^p(E, \mu)} = \left( \int_E |f|^p \right)^{\frac{1}{p}}\), обозначается \(||f||_p\)
 
+          Эта функция корректно определена, т.к. для \(f \sim g : ||f||_p = ||g||_p\). Кроме того, она является нормой, т.к.:
+          \begin{enumerate}
+              \item \(||f||_p \geq 0\) --- очевидно, т.к. \(\int |f|^p \geq 0\)
+              \item \(||f||_p = 0 \Rightarrow \int |f|^p = 0 \Rightarrow \int |f| = 0 \Rightarrow f = 0\) п.в. \( \Rightarrow f \sim 0\).
+              \item \(||f \cdot \alpha||_p = \left( \int |f \cdot \alpha|^p \right)^{\frac{1}{p}} = \alpha \cdot ||f||_p\)
+              \item \(||f + g||_p = ||f||_p + ||g||_p\) по неравенству Минковского.
+          \end{enumerate}
+          %</пространствоlp>
+
     \item \(L^{\infty}(E, \mu)\)
 
+          %<*существенныйсупремум>
           \begin{itemize}
               \item \((X, \mathfrak{A}, \mu)\) --- пространство с мерой.
               \item \(E \subset X\) --- измеримо.
               \item \(f : \) почти везде на \(E \to \overline{\R}\) --- измеримо
           \end{itemize}
 
-          \begin{definition}[существенный супремум]
-              \[\esup_{x\in E} f = \inf \{A \in \overline\R, f \leq A \text{ почти везде}\} \]
+          \begin{definition}[существенный супремум\footnote{Также называется истинным супремумом}]
+              \[\esup_{x \in E} f = \inf \{A \in \overline\R, f \leq A \text{ почти везде}\}\]
               При этом \(A\) называется существенной вещественной границей.
           \end{definition}
 
@@ -176,24 +229,26 @@
               \begin{itemize}
                   \item \(\esup f \leq \sup f\) --- очевидно.
                   \item \(f \leq \esup f\) почти везде --- пусть \(B = \esup f\), тогда \(\forall n \ \ f \leq B + \frac{1}{n}\) почти везде.
-                  \item \(f\) --- суммируемо, \(\esup_E |g| < +\infty\). Тогда \(|\int_E fg| \leq \esup |g| \cdot \int_E |f|\)
+                  \item \(f\) --- суммируемо, \(f,g\) --- почти везде \(E \to \overline\R(\mathbb{C})\), \(\esup_E |g| < +\infty\). Тогда \(|\int_E fg| \leq \esup |g| \cdot \int_E |f|\)
                         \begin{proof}
                             \begin{equation}
-                                \left|\int_E fg\right| \leq \int_E |fg| \leq \int_E \esup |g| \cdot |f| \label{брух 2}
+                                \left|\int_E fg\right| \leq \int_E |fg| \leq \int_E \esup |g| \cdot |f| = \esup |g| \cdot \int_E |f| \label{брух 2}
                             \end{equation}
                         \end{proof}
               \end{itemize}
           \end{prop}
+          %</существенныйсупремум>
 
+          %<*пространствоlinfty>
           \(L^{\infty}(E, \mu) = \{f : \text{почти везде } E \to \overline\R(\overline{\mathbb C}), \text{ изм.}, \esup |f| < +\infty\}/_\sim \) --- линейное пространство.
 
           \(||f||_{L^{\infty}(E, \mu)}: = \esup_E |f| = ||f||_{\infty}\)
+          %</пространствоlinfty>
 
           \begin{remark}\itemfix
               \begin{enumerate}
                   \item В новых обозначениях неравенство Гёльдера: \(||fg||_1 \leq ||f||_p \cdot ||g||_q\) --- здесь можно брать \(p = 1, q = +\infty\) --- это~\eqref{брух 2}.
-                  \item \(f\in L^p \Rightarrow f\) --- почти везде конечно, если \(1 \leq p \leq +\infty \Rightarrow \) можно считать, что \(f\) задана всюду на \(E\) и всюду конечна. % почему, как интерполировать?
+                  \item \(f \in L^p \Rightarrow f\) --- почти везде конечно, если \(1 \leq p \leq +\infty \Rightarrow \) можно считать, что \(f\) задана всюду на \(E\) и всюду конечна.
               \end{enumerate}
           \end{remark}
 \end{enumerate}
-

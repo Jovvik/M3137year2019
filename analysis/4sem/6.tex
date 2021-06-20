@@ -197,13 +197,13 @@
                   \item \(\int \nu(C_x) d\mu = \int_X \nu B \cdot \chi_A d \mu = \nu B \cdot \mu A = mC\)
               \end{enumerate}
 
-        \item \(E_i \in \mathfrak{D}\), дизъюнктны \( \Rightarrow \bigsqcup E_i\in \mathfrak{D}\). Обозначим \(E = \bigsqcup E_i\)
+        \item \(E_i \in \mathfrak{D}\), дизъюнктны \( \xRightarrow{?} \bigsqcup E_i\in \mathfrak{D}\). Обозначим \(E = \bigsqcup E_i\)
 
               \(E_i \in \mathfrak{D} \Rightarrow (E_i)_x\) измеримы почти везде \( \Rightarrow \) при почти всех \(x\) все \((E_i)_x\) измеримы.
 
-              Тогда при этих \(x\) \(E_x = \bigsqcup (E_i)_x \in \mathfrak{B}\) --- это 1.
+              Тогда при этих \(x\) \(E_x = \bigsqcup (E_i)_x \in \mathfrak{B}\) по определению \(\sigma\)-алгебры --- это 1.
 
-              \(\nu E_x = \sum \underbrace{\nu(E_i)_x}_{\substack{\text{измеримая} \\ \text{функция}}} \Rightarrow\) Функция \(x \mapsto \nu E_x\) измеримо --- это 2.
+              \(\nu E_x = \sum \underbrace{\nu(E_i)_x}_{\substack{\text{измеримая} \\ \text{функция}}} \Rightarrow\) Функция \(x \mapsto \nu E_x\) измерима --- это 2.
 
               \(\int_X \nu E_x d\mu = \sum_i \int_X \nu(E_i) x = \sum_i m E_i = m E\) --- это 3.
 
@@ -222,13 +222,13 @@
               По теореме Лебега % какой?
               \(|\nu(E_i) x| \leq \nu(E_i)x\) суммируемо.
 
-              Итого: Если \(A_{ij}\in \mathcal{P}  = \mathfrak{A} \times \mathfrak{B}\), то \(\bigsqcap \bigcup A_{ij} \in \mathfrak{D}\)
+              Итого: Если \(A_{ij}\in \mathcal{P}  = \mathfrak{A} \times \mathfrak{B}\), то \(\bigcap \bigcup A_{ij} \in \mathfrak{D}\)
 
         \item \(m E = 0 \Rightarrow E \in \mathfrak{D}\)
 
               \(m E = \inf \left\{\sum m_0 P_k : E \subset \bigcup P_k, P_k \in \mathcal{P}\right\} \) --- из пункта 5 теоремы о лебеговском продолжении.
 
-              \(\exists \) множество \(H\) вида \(\bigcap_l \bigsqcup_k P_{kl}\), т.е. \(H\in \mathfrak{D}\).
+              \(\exists\) множество \(H\) вида \(\bigcap_l \bigsqcup_k P_{kl}\), т.е. \(H \in \mathfrak{D}\).
 
               \(E\subset H, m H = m E = 0\)
 
@@ -240,7 +240,7 @@
 
         \item \(C\) --- измеримо, \(mC < +\infty\). Тогда \(C\in \mathfrak{D}\).
 
-              \(C = H \setminus e\), где \(H\) имеет вид \(\bigsqcap \bigcup P_{k_l}, me = 0\)
+              \(C = H \setminus e\), где \(H\) имеет вид \(\bigcap \bigcup P_{k_l}, me = 0\)
 
               \(mC = mH\)
 

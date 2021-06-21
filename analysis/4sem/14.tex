@@ -1,0 +1,101 @@
+\chapter{17 мая}
+
+\begin{obozn}
+    \([ - \pi, \pi] \setminus [ - \delta, \delta] = E_\delta\)
+\end{obozn}
+
+\begin{definition}[аппроксимативная единица]\itemfix
+    %<*аппроксимативнаяединица>
+    \begin{itemize}
+        \item \(D \subset \R\)
+        \item \(h_0\) --- предельная точка \(D\) в \(\overline\R\)
+    \end{itemize}
+
+    Семейство функций \(\{K_h\}_{h \in D}\), удовлетворяющее нижеуказанным аксиомам, называется \textbf{аппроксимативной единицей}.
+
+    \begin{axiom}
+        \(\forall h \in D \ \ K_h \in L^1[ - \pi, \pi], \int_{ - \pi}^\pi K_h = 1\)
+    \end{axiom}
+
+    \begin{axiom}
+        \(L_1\) нормы функций \(K_h\) ограничены в совокупности:
+        \[ \exists M \ \ \forall h \ \ \int_{[-\pi, \pi]} |K_h| \le M \]
+    \end{axiom}
+
+    \begin{axiom}
+        \(\forall \delta \in (0, \pi)\)
+        \[ \int_{E_\delta} |K_h|\,dx \xrightarrow[h \to h_0]{} 0 \]
+    \end{axiom}
+    %</аппроксимативнаяединица>
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item Если \(K_h \geq 0 \ \ \forall h\), то аксиома 1 \( \Rightarrow \) аксиома 2.
+        \item %<*усиленнаяаппроксимативнаяединица>
+              Рассмотрим аксиому 3': \(K_h \in L^{+\infty}[ - \pi, \pi]\) и \(\forall \delta \in (0, \pi) \ \ \esup_{t \in E_\delta} |K_h(t)| \xrightarrow{h \to h_0} 0\)
+
+              \begin{statement}
+                  Аксиома 3' \( \Rightarrow \) аксиома 3.
+              \end{statement}
+
+              \begin{definition}
+                  Семейство функций, удовлетворяющее аксиомам 1, 2 и 3' называется \textbf{усиленной аппроксимативной единицей}.
+              \end{definition}
+              %</усиленнаяаппроксимативнаяединица>
+        \item Если \(K_h\) --- \textit{(возможно усиленная)} аппроксимативная единица, то \(\frac{|K_h|}{\norm{K_h}_1}\) --- тоже \textit{(возможно усиленная)} аппроксимативная единица.
+              \begin{proof}
+                  Первая аксиома очевидна.
+
+                  Вторая аксиома следует из того, что \(\norm{K_h}_1 \geq 1\), т.к. \(\int K_n = 1\). Аксиомы 3 и 3' тоже следуют из этого соображения.
+              \end{proof}
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}\itemfix
+    %<*свойстваединицы>
+    \begin{itemize}
+        \item \(K_h\) --- аппроксимативная единица
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item \(f \in \widetilde{C}[ - \pi, \pi] \Rightarrow f * K_h \xrightrightarrows[h \to h_0]{[-\pi, \pi]} f\)
+        \item \(f \in L^1[ - \pi, \pi] \Rightarrow \norm{f * K_h - f}_1 \xrightarrow{h \to +\infty} 0\)
+        \item \(K\) --- усиленная аппроксимативная единица, \(f \in L^1[ - \pi, \pi], f\) непрерывно в \(x\).
+
+              Тогда \(f * K_h\) непрерывно в \(x\) и \(f * K_h(x) \xrightarrow{h \to h_0} f(x)\)
+    \end{enumerate}
+    %</свойстваединицы>
+\end{theorem}
+%<*свойстваединицыproof>
+\begin{proof}
+    \[ f*K_h(x) - f(x) = \int_{-\pi}^\pi (f(x - t) - f(x))K_h(t)\,dt \]
+    \begin{enumerate}
+        \item \(\sphericalangle \varepsilon > 0, f\) --- равномерно непрерывна, т.к. \([ - \pi, \pi]\) --- компакт.
+              \[ \exists \delta > 0 \ \ \forall t : |t| < \delta \ \ \forall x \ \ |f(x - t) - f(x)| < \frac{\varepsilon}{2M} \]
+              \(M\) взято из аксиомы 2.
+              \[ |f*K_h(x) - f(x)| \le \int_{-\pi}^\pi |f(x - t) - f(x)| |K_h(t)| \,dt = \int_{-\delta}^\delta + \int_{E_\delta}  = I_1 + I_2 \color{gray} < \varepsilon ? \]
+              \[I_1 \leq \frac{\varepsilon}{2M} \cdot \int_{ - \delta}^\delta |K_h| \leq \frac{\varepsilon}{2M}\int_{ - \pi}^\pi |K_h| \leq \frac{\varepsilon}{2}\]
+              \[I_2 \leq 2 \cdot \norm{f}_{\infty} \cdot \int_{E_\delta} |K_h| \xrightarrow[\text{акс. 3}]{h \to h_0} 0\]
+              Тогда \(\exists V(h_0) \ \ \forall h \in V(h_0) \ \ I_2 \leq \frac{\varepsilon}{2}\).
+
+        \item [3.] \(f \in L^1\), \(K_h \in L^\infty \Rightarrow f*K_h\) --- непрерывна  \textit{(в том числе и в \(x\))}.
+
+              Для данного \(x\) проверим утверждение \(\varepsilon > 0;\ I_1 + I_2 < \varepsilon;\ \exists V(h_0)\ \forall h\in V(h_0)\)
+
+              \(f\) непрерывна в \(x\):
+              \[ \forall \varepsilon > 0 \ \ \exists \delta > 0 \ \ \forall t : |t| < \delta \quad |f(x - t) - f(x)| < \frac{\varepsilon}{2M} \]
+              Как в пункте 1:
+              \[ I_1 \le \frac{\varepsilon}{2} \]
+              \[ I_2 \le \int_{E_\delta} |f(x - t)|\cdot |K_h(t)|\,dt + |f(x)| \int_{E_\delta} |K_h(t)|\,dt \]
+              \[ \le \esup_{E_\delta}|K_h|\cdot \left(\norm{f}_1 + 2\pi |f(x)|\right) \xrightarrow[h \to h_0]{\text{акс. 3'}} 0 \]
+              Тогда \(\exists V(h_0) \ \ \forall h \in V(h_0) \ \ I_2 \leq \frac{\varepsilon}{2}\).
+        \item [2.] \[ \norm{f * K_h - f}_1 = \int_{-\pi}^\pi \left| \int_{-\pi}^\pi(f(x - t) - f(x)) K_h \,dt\right|\,dx \le \]
+              \[ \le \int_{-\pi}^\pi \int_{-\pi}^\pi |f(x - t) - f(x)| \cdot |K_h(t)|\,dx\,dt = \]
+              \[ = \norm{K_h}_1 \cdot \int_{-\pi}^\pi g(-t) \frac{|K_h(t)|}{\norm{K_h}_1}\,dt \]
+              , где \(g(t) = \int_{-\pi}^\pi |f(x + t) - f(x)|\) --- непрерывна (по теореме о непрерывности сдвига)
+              \[ \defeq \norm{K_h}_1 \underbrace{\left(g * \frac{|K_h|}{\norm{K_h}}\right)(0)}_{ \to g(0) = 0 \text{ по п.1}} \]
+    \end{enumerate}
+\end{proof}
+%</свойстваединицыproof>

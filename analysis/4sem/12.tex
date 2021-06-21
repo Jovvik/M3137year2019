@@ -1,0 +1,283 @@
+\chapter{3 мая}
+
+%<*неравенствобесселя>
+Неравенство Бесселя:
+\[\sum_{k = 1}^{+\infty} |c_k(x)|^2 \cdot ||e_k||^2 \leq ||x||^2\]
+%</неравенствобесселя>
+
+\begin{theorem}[Рисс, Фишер]\itemfix
+    %<*риссфишер>
+    \begin{itemize}
+        \item \(\{e_k\}\) --- ортогональная система в \(\mathcal{H}\)
+        \item \(x \in \mathcal{H}\)
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item Ряд Фурье вектора \(x\) сходится в \(\mathcal{H}\).
+        \item \(x = \sum\limits_{k = 1}^{+\infty} c_k(x) e_k + z, z \perp e_k \ \ \forall k\)
+        \item \(x = \sum\limits_{k = 1}^{+\infty} c_k(x) e_k \Leftrightarrow \sum |c_k(x)|^2 \cdot ||e_k||^2 = ||x||^2\)
+    \end{enumerate}
+    %</риссфишер>
+\end{theorem}
+%<*риссфишерproof>
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item Ряд Фурье ортогонален. Тогда по теореме о свойствах сходимости сходимость ряда Фурье \(\Leftrightarrow\) сходимость \(\sum |c_k(x)|^2 ||e_k||^2\), что выполнено по неравенству Бесселя.
+        \item \(z = x - \sum\limits_{k = 1}^{+\infty} c_k(x) e_k\)
+              \[\ev{z, e_n} = \ev{x, e_n} - \ev{\sum\limits_{k = 1}^{+\infty} c_k(x) e_k, e_n} = \ev{x, e_n} - \sum\limits_{k = 1}^{+\infty}\ev{c_k(x) e_k, e_n} = \ev{x, e_n} - c_n(x) ||e_n||^2 = 0\]
+        \item \begin{itemize}
+                  \item [\( \Rightarrow \)] по теореме о свойствах сходимости, пункт 3.
+                  \item [ \( \Leftarrow \)] из пункта 2:
+                        \[||x||^2 = ||\sum c_k(x) e_k||^2 + ||z||^2 = \sum |c_k(x)|^2 ||e_k||^2 + ||z||^2\]
+
+                        Дано: \(||x||^2 = \sum |c_k(x)|^2 ||e_k||^2 \Rightarrow z = 0 \Rightarrow x = \sum c_k(x) e_k\)
+              \end{itemize}
+    \end{enumerate}
+\end{proof}
+%</риссфишерproof>
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item \(\mathcal{L} : = \text{Cl}(\text{Lin}(e_1, e_2 \dots ))\)
+        \item \(\mathcal{H}, e_k\) --- ортонормированная система. Тогда последовательность \((c_k(x))_{k \in \N} \in l_2\). Обратное тоже верно:
+              \[\forall (c_k) \in l_2 \ \ \exists x \in \mathcal{H} \ \ c_k = c_k(x)\]
+              \begin{proof}
+                  Берём в качестве \(x\) ряд \(\sum c_k e_k\), который сходится по теореме.
+              \end{proof}
+        \item \begin{exercise}
+                  Если ортогональный ряд сходится, то он является рядом Фурье своей суммы.
+              \end{exercise}
+    \end{enumerate}
+\end{remark}
+
+%<*равенствоперсиваля>
+Равенство \(\sum_k |c_k(x)|^2 ||e_k||^2 = ||x||^2\) называется уравнением замкнутости или \textbf{равенством Персиваля}.
+%</равенствоперсиваля>
+
+%<*базис>
+\begin{definition}
+    Ортогональная система \(\{e_k\}\) --- \textbf{базис} \(\mathcal{H}\), если \(\forall x \in \mathcal{H} \ \ x = \sum c_k(x) e_k\)
+\end{definition}
+
+\begin{definition}
+    Ортогональная система \textbf{полная} \textit{(нечего добавить)}, если \(\nexists z \neq 0 : z \perp c_k \ \ \forall k\).
+\end{definition}
+
+\begin{definition}
+    Ортогональная система \textbf{замкнутая}, если \(\forall x \ \ \sum |c_k(x)|^2 ||e_k||^2 = ||x||^2\)
+\end{definition}
+%</базис>
+
+\begin{theorem}[о характеристике базиса]\itemfix
+    %<*охарактеристикебазиса>
+    \begin{itemize}
+        \item \(\{e_k\}\) --- ортогональная система в \(\mathcal{H}\).
+    \end{itemize}
+
+    Тогда эквивалентно следующее:
+    \begin{enumerate}
+        \item \(\{e_k\}\) --- базис
+        \item \(\forall x, y\) выполняется обобщенное уравнение замкнутости:
+              \[\ev{x, y} = \sum_{k = 1}^{+\infty} c_k(x) \overline{c_k(y)} \cdot ||e_k||^2\]
+        \item \(\{e_k\}\) замкнуто
+        \item \(\{e_k\}\) полно
+        \item \(\text{Lin}(e_1, e_2 \dots)\) плотна в \(\mathcal{H}\), т.е. \(\text{Cl}(\text{Lin}(e_1, e_2 \dots)) = \mathcal{H}\).
+    \end{enumerate}
+    %</охарактеристикебазиса>
+\end{theorem}
+%<*охарактеристикебазисаproof>
+\begin{proof}\itemfix
+    \begin{itemize}
+        \item [1\( \Rightarrow \)2] Берём \(x\), раскладываем его по базису и скалярно умножаем на \(y\):
+              \[\ev{e_k, y} = \overline{\ev{y, e_k}} = \overline{c_k(y) \cdot ||e_k||^2} = \overline{c_k(y)} \cdot ||e_k||^2\]
+              \[\ev{x, y} = \sum_k c_k(x) \overline{c_k(y)} \cdot ||e_k||^2\]
+        \item [2\( \Rightarrow \)3] Из обобщенного следует частное при подстановке \(y\) вместо \(x\).
+        \item [3\( \Rightarrow \)4] Если \(\exists z : \forall n \ \ \ev{z, e_n} = 0\), то \(c_n(z) = 0\), но тогда по уравнению замкнутости для \(z\) выполняется \(||z||^2 = \sum |c_k(z)|^2 \cdot ||e_k||^2 = 0\), а следовательно \(z = 0\).
+        \item [4\( \Rightarrow \)1] По теореме Рисса-Фишера \(x = \sum c_k(x) e_k + z\), где \(z \perp\) всем \(e_k\). По полноте \(z = 0\).
+        \item [4\( \Rightarrow \)5] \(\mathcal{L} : = \text{Cl}(\text{Lin}(e_1, e_2 \dots))\). Надо проверить, что \(\mathcal{L} = \mathcal{H}\). Если \(\exists x \in \mathcal{H} \setminus \mathcal{L}\), то по теореме Рисса-Фишера \(\exists z : \forall k \ \ z \perp e_k\).
+        \item [5\( \Rightarrow \)4] Если \(z \perp e_k \ \ \forall k\), то \(z \perp \text{Lin}(e_1, e_2 \dots) \Rightarrow z \perp \mathcal{L}\), но \(\mathcal{L} = \mathcal{H} \Rightarrow z \perp z\), т.е. \(\ev{z, z} = 0\), но тогда \(z = 0\).
+    \end{itemize}
+\end{proof}
+%</охарактеристикебазисаproof>
+
+\begin{remark}
+    В \(\mathcal{H}\) существование ортогональной системы \(\Leftrightarrow\) \(\mathcal{H}\) сепарабельно, т.е. ``счётномерно'', т.е. имеет счётное плотное подмножество.
+\end{remark}
+
+\section{Тригонометрические ряды Фурье}
+
+\begin{definition}\itemfix
+    %<*тригонометрическийряд>
+    \begin{itemize}
+        \item \(T_n(x) = \frac{a_0}{2} + \sum\limits_{n = 1}^n a_k \cos kx + b_k \sin kx\) --- \textbf{тригонометрический полином степени не выше \(n\)}.
+
+        \item \(\frac{a_0}{2} + \sum\limits_{n = 1}^n a_k \cos kx + b_k \sin kx\) --- \textbf{тригонометрический ряд}, где \(a_k, b_k \) --- коэффициенты тригонометрического ряда.
+
+        \item \[\cos kx = \frac{e^{ikx} + e^{ - ikx}}{2} \quad \sin kx = \frac{e^{ikx} - e^{ - ikx}}{2i}\]
+              Тогда при подстановке этих формул в \(T_n(x)\) получается \(T_n(x) = \sum_{k =- n}^n c_k e^{ikx}\) --- \textbf{тригонометрический полином в комплексной записи}.
+
+        \item \(\sum_{k \in \Z} c_k e^{ikx}\) --- \textbf{тригонометрический ряд в комплексной записи}, понимается как \(\lim_{n \to +\infty} T_n(x)\).
+    \end{itemize}
+    %</тригонометрическийряд>
+\end{definition}
+\begin{lemma}\itemfix
+    %<*овычислениикоэффициентов>
+    \begin{itemize}
+        \item Дан тригонометрический ряд \textit{(вещественный или комплексный)}
+        \item Пусть \(S_n \to f\) в \(L^1[ - \pi, \pi]\), т.е. \(||S_n - f||_1 = \int_{ - \pi, \pi} |S_n - f| \to 0\)
+    \end{itemize}
+
+    Тогда:
+    \begin{itemize}
+        \item \(a_k = \frac{1}{\pi} \int_{ - \pi}^\pi f(t) \cos kt dt\), в том числе при \(k = 0\)
+        \item \(b_k = \frac{1}{\pi} \int_{ - \pi}^\pi f(t) \sin kt dt\)
+        \item \(c_k = \frac{1}{2\pi} \int_{ -\pi}^\pi f(t) e^{ - ikt} dt\)
+    \end{itemize}
+    %</овычислениикоэффициентов>
+\end{lemma}
+%<*овычислениикоэффициентовproof>
+\begin{proof}
+    Докажем для \(a_k\). Пусть \(n \geq k\).
+    \[\int_{ - \pi}^{\pi} S_n(t) \cos kt dt = 0 + \int_{ - \pi}^{\pi} a_k \cos^2 kt = \pi a_k\]
+    \[\left|\pi a_k - \int_{ - \pi}^{\pi} f(t) \cos kt dt\right| = \left|\int_{ - \pi}^{\pi} (S_n(t) - f(t)) \cos kt\right| \leq \int_{ - \pi}^{\pi} |S_n(t) - f(t)|dt = ||S_n - f||_1 \to 0\]
+\end{proof}
+%</овычислениикоэффициентовproof>
+
+\begin{definition}
+    %<*коэффициентыфурье>
+    \(f \in L^1[ - \pi, \pi]\). \(a_k(f), b_k(f), c_k(f)\), заданные в лемме, называются \textbf{коэффициентами Фурье} функции \(f\), а ряд \(\frac{a_0}{2} + \sum\limits_{n = 1}^n a_k \cos kx + b_k \sin kx\) или \(\sum_{k \in \Z} c_k e^{ikx}\) называется \textbf{рядом Фурье} этой функции.
+    %</коэффициентыфурье>
+\end{definition}
+
+\begin{remark}
+    В \(L^1[0, 2\pi]\) всё то же самое.
+\end{remark}
+
+\begin{remark}
+    \(\sphericalangle f \in L^1[ - \pi, \pi]\)
+    \begin{itemize}
+        \item \(f\) --- чётная \( \Rightarrow \forall k \ \ b_k(f) = 0, a_k(f) = \frac{2}{\pi} \int_0^{\pi} f(t) \cos kt dt\)
+        \item \(f\) --- нечётная \( \Rightarrow \forall k \ \ a_k(f) = 0, b_k(f) = \frac{2}{\pi} \int_0^{\pi} f(t) \sin kt dt\)
+    \end{itemize}
+\end{remark}
+
+\begin{remark}
+    \(\sphericalangle f \in L^1[0, \pi]\) --- для таких функций рассматриваются два ряда Фурье --- для чётного и нечётного продолжения \(f\):
+    \[f \sim \frac{a_0}{2} + \sum a_k(f) \cos kx \quad f \sim \sum b_k(f) \sin kx\]
+\end{remark}
+
+\begin{obozn}
+    \(A_k(f, x) : = \begin{cases} \frac{1}{2} a_0(f) & k = 0 \\ a_k(f) \cos kx + b_k(f) \sin kx & k = 1, 2\dots \end{cases}\)
+\end{obozn}
+
+Тогда:
+\begin{lemma}
+    \[A_k(f, x) = \begin{cases}
+            \frac{1}{2\pi} \int_{ - \pi}^\pi f(x + t) dt,       & k = 0        \\
+            \frac{1}{\pi} \int_{ - \pi}^\pi f(x + t) \cos kt dt & k = 1,2\dots
+        \end{cases} \]
+\end{lemma}
+\begin{proof}
+    \begin{align*}
+        A_k(f, x) & = \frac{1}{\pi} \int_{ - \pi}^\pi f(t) \cos kt \cos kx + f(t) \sin kt \sin kx dx \\
+                  & = \frac{1}{\pi} \int_{ - \pi}^\pi f(t) \cos (k(t - x)) dt                        \\
+        t : = x + \tau                                                                               \\
+                  & = \frac{1}{\pi} \int_{ - \pi}^{\pi} f(x + \tau) \cos k\tau d\tau
+    \end{align*}
+
+    При сдвиге промежуток интегрирования не изменился, т.к. функция периодична.
+\end{proof}
+
+\unfinished
+
+Несколько ``контрпримеров'', где ряд Фурье ведёт себя странно:
+
+\begin{center}
+    \begin{tabular}{l|C|l}
+        Чей            & \text{Какое пространство} & Что странно                  \\ \hline
+        До Буа Реймонд & \widetilde{C}             & Расходится в некоторой точке \\
+        Лебег          & \widetilde{C}             & Сходится неравномерно        \\
+        Колмогоров     & L^1                       & Расходится в каждой точке    \\
+        Карлесон       & L^2                       & Сходится почти везде         \\
+        Хант           & L^p, 1 < p < +\infty      & Сходится почти везде
+    \end{tabular}
+\end{center}
+
+\begin{theorem}[Римана-Лебега]\itemfix
+    %<*риманалебега>
+    \begin{itemize}
+        \item \(E \subset \R^1\)
+        \item \(f \in L^1(E)\)
+    \end{itemize}
+
+    Тогда
+    \[\int_E f(t) e^{i \lambda t} dt \xrightarrow{\lambda \to 0} 0\]
+    \[\int_E f(t) \cos \lambda t dt \to 0\]
+    \[\int_E f(t) \sin \lambda t dt \to 0\]
+    В частности для \(f \in L^1[ - \pi, \pi] : a_k(f), b_k(f), c_k(f) \xrightarrow{k \to +\infty} 0\).
+    %</риманалебега>
+\end{theorem}
+%<*риманалебегаproof>
+\begin{proof}
+    Не умаляя общности \(E = \R\), т.к. иначе дополним \(f\) до \(\R\) так, что \(f = 0\) вне \(E\).
+
+    \[\int_\R f(t) e^{i\lambda t} dt \stackrel{t := \tau + \frac{\pi}{\lambda}}{=} \int_\R f\left(\tau + \frac{\pi}{\lambda}\right) e^{i\lambda \tau} \cdot e^{i\pi} = - \int_\R f\left(\tau + \frac{\pi}{\lambda}\right) e^{i\lambda \tau}\]
+    \[\int_\R f(t) e^{i\lambda t} dt = \frac{1}{2} \left(\int + \int\right) = \frac{1}{2} \int_\R \left( f(t) - f\left(t + \frac{\pi}{\lambda}\right) \right) e^{i\lambda t} dt\]
+    \[\left|\int_\R f(t) e^{i\lambda t} dt\right| = \frac{1}{2} \int_\R \left| f(t) - f\left(t + \frac{\pi}{\lambda}\right) \right| \underbrace{|e^{i\lambda t}|}_{ = 1} dt \to 0\]
+    , что выполнено по лемме о непрерывности сдвига.
+\end{proof}
+%</риманалебегаproof>
+
+%<*corollaries>
+\begin{corollary}
+    Пусть \(\omega(f, h) = \sup_{\substack{x, y \in E \\ |x - y| \leq h}} |f(x) - f(y)|\) --- модуль непрерывности. Если \(f \in \widetilde{C}[ - \pi, \pi]\), то \(|a_k(f)|, |b_k(f)|, |2c_k(f)| \leq \omega\left( f, \frac{\pi}{k} \right)\) при \(k \neq 0\).
+\end{corollary}
+\begin{proof}
+    \[ |2c_{-k}(f)| = \left| \frac{1}{\pi} \int_{-\pi}^\pi f(t) e^{ikt} dt\right| \le \frac{1}{2\pi} \cdot\int_{-\pi}^\pi \left|f(t) - f \left(t + \frac{\pi}{k}\right) \right| dt \leq \]
+    \[ \le \frac{1}{2\pi} \int_{-\pi}^\pi \omega \left(f, \frac{\pi}{k}\right) dt = \omega \left(f, \frac{\pi}{k}\right) \]
+\end{proof}
+
+\begin{remark}
+    \(\omega(f, h) \xrightarrow{h \to 0} 0\). Тогда \(f\) равномерно непрерывна.
+\end{remark}
+
+\begin{corollary}
+    \(E \subset \R, E = \ev{a, b}\)\footnote{Промежуток с любым видом скобки, а не скалярное произведение.}
+
+    %<*класслипшица>
+    \begin{definition}
+        \textbf{Класс Липшица} для \(M > 0\), \(\alpha \in \R,\ \alpha \in (0, 1]\):
+        \[\text{Lip}_M \alpha(E) = \{f : E \to \R : \forall x, y \ \ |f(x) - f(y)| \leq M |x - y|^{\alpha}\} \]
+    \end{definition}
+    %</класслипшица>
+
+    Пусть \(f \in \text{Lip}_M \alpha\), тогда при \(k \neq 0\) \(|a_k(f)|, |b_k(f)| , |2 c_k(f)| \leq \frac{M \pi^\alpha}{|k|^\alpha}\)
+\end{corollary}
+\begin{proof}
+    Аналогично.
+\end{proof}
+
+\begin{remark}
+    \(f \in \text{Lip}_M \alpha \Rightarrow \omega(f, h) \leq M \cdot h^\alpha\)
+\end{remark}
+
+\begin{observation}
+    \(f \in \widetilde{C}^1[ - \pi, \pi]\). Тогда при \(k \neq 0\) \(a_k(f') = k b_k(f), b_k(f') = - k a_k(f), c_k(f') = ik c_k(f)\)
+\end{observation}
+\begin{proof}
+    Интегрирование по частям:
+    \[c_k(f')\ = \frac{1}{2\pi} \int_{ - \pi}^\pi f'(t) e^{ - ikt} dt = \frac{1}{2\pi}\left( \underbrace{f(t) e^{ - ikt} \Big|_{ - \pi}^\pi}_0 + \int_{ - \pi}^{\pi} f(t) \cdot ik e^{ - ikt} dt \right) = ik c_k(f)\]
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{enumerate}
+        \item \(f \in \widetilde{C}^{(r)}[ - \pi, \pi]\). Тогда \(|a_k(f)|, |b_k(f)|, |c_k(f)| \leq \frac{\const}{|k|^r}\).
+        \item \(f \in \widetilde{C}^{(r)}[ - \pi, \pi], f^{(r)} \in \text{Lip}_m \alpha, 0 < \alpha \leq 1\). Тогда \(|a_k(f)|, |b_k(f)|, |2c_k(f)| \leq \frac{M \pi^\alpha}{|k|^{r + \alpha}}\).
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    Очевидно из наблюдения выше.
+\end{proof}
+
+%</corollaries>

@@ -189,13 +189,16 @@
 %</урысонаproof>
 
 \begin{theorem}\itemfix
+    %<*плотностьнепрерывныхфинитных>
     \begin{itemize}
         \item \((\R^m, \mathfrak{M}, \lambda_m)\)
         \item \(E \subset \R^m\) --- измеримое
     \end{itemize}
 
     Тогда в \(L^p(E, \lambda_m)\), \(1 \le p < +\infty\) множество непрерывных финитных функция плотно.
+    %</плотностьнепрерывныхфинитных>
 \end{theorem}
+%<*плотностьнепрерывныхфинитныхproof>
 \begin{proof}
     По уже доказанной теореме множество ступенчатых функций плотно в \(L^p(E, \lambda_m)\). Достаточно научиться приближать характеристические функции финитными, т.е.:
     \[\forall A \text{ --- огр.} \ \ \exists f \text{  --- финитная непрерывная} : ||f - \chi_A||_p < \varepsilon\]
@@ -208,6 +211,7 @@
 
     \[||f - \chi_A||_p^p = \int_{\R^m} |f - \chi_A|^p d\lambda_m = \int_{G \setminus F} |f - \chi_A|^p \leq 1 \cdot \lambda_m(G \setminus F) = \varepsilon\]
 \end{proof}
+%</плотностьнепрерывныхфинитныхproof>
 
 \begin{remark}
     При \(p = +\infty\) утверждение теоремы неверно!

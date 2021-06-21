@@ -112,7 +112,7 @@
     \begin{itemize}
         \item \(T_n(x) = \frac{a_0}{2} + \sum\limits_{n = 1}^n a_k \cos kx + b_k \sin kx\) --- \textbf{тригонометрический полином степени не выше \(n\)}.
 
-        \item \(\frac{a_0}{2} + \sum\limits_{n = 1}^n a_k \cos kx + b_k \sin kx\) --- \textbf{тригонометрический ряд}, где \(a_k, b_k \) --- коэффициенты тригонометрического ряда.
+        \item \(\frac{a_0}{2} + \sum\limits_{n = 1}^{+\infty} a_k \cos kx + b_k \sin kx\) --- \textbf{тригонометрический ряд}, где \(a_k, b_k \) --- коэффициенты тригонометрического ряда.
 
         \item \[\cos kx = \frac{e^{ikx} + e^{ - ikx}}{2} \quad \sin kx = \frac{e^{ikx} - e^{ - ikx}}{2i}\]
               Тогда при подстановке этих формул в \(T_n(x)\) получается \(T_n(x) = \sum_{k =- n}^n c_k e^{ikx}\) --- \textbf{тригонометрический полином в комплексной записи}.
@@ -146,7 +146,7 @@
 
 \begin{definition}
     %<*коэффициентыфурье>
-    \(f \in L^1[ - \pi, \pi]\). \(a_k(f), b_k(f), c_k(f)\), заданные в лемме, называются \textbf{коэффициентами Фурье} функции \(f\), а ряд \(\frac{a_0}{2} + \sum\limits_{n = 1}^n a_k \cos kx + b_k \sin kx\) или \(\sum_{k \in \Z} c_k e^{ikx}\) называется \textbf{рядом Фурье} этой функции.
+    \(f \in L^1[ - \pi, \pi]\). \(a_k(f), b_k(f), c_k(f)\), заданные в лемме, называются \textbf{коэффициентами Фурье} функции \(f\), а ряд \(\frac{a_0}{2} + \sum\limits_{n = 1}^{+\infty} a_k \cos kx + b_k \sin kx\) или \(\sum_{k \in \Z} c_k e^{ikx}\) называется \textbf{рядом Фурье} этой функции.
     %</коэффициентыфурье>
 \end{definition}
 

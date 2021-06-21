@@ -1,0 +1,238 @@
+\chapter{10 мая}
+
+\begin{definition}
+    %<*ядра>
+    \begin{enumerate}
+        \item Ядро Дирихле:
+              \[D_n(t) = \frac{1}{\pi} \left( \frac{1}{2}t + \sum_{k = 1}^n \cos kt \right)\]
+        \item Ядро Фейера:
+              \[\Phi_n(t) = \frac{1}{n + 1} \sum_{k = 0}^n D_k(t)\]
+    \end{enumerate}
+    %</ядра>
+\end{definition}
+
+\begin{lemma}\itemfix
+    \begin{enumerate}
+        \item \[D_n(t) = \frac{\sin \left( n + \frac{1}{2} \right)t}{2 \pi \cdot \sin \frac{t}{2}} = \color{cyan}\frac{1}{2\pi} \left( \ctg \frac{t}{2} \sin nt + \cos nt \right)\]
+        \item \[\Phi_n = \frac{1}{2\pi (n + 1)} \frac{\sin^2 \frac{n + 1}{2} t}{\sin^2 \frac{t}{2}}\]
+        \item \(D_n, \Phi_n\) --- чётные, \(\Phi_n \geq 0, \int_{ - \pi}^{\pi} D_n = \int_{ - \pi}^\pi \Phi_n = 1\)
+        \item \(\sphericalangle f \in L^1[ - \pi, \pi]\)
+              \[S_n(f, x) = \int_{ - \pi}^\pi f(x + t) D_n(t) dt\]
+              , где \(S_n\) --- частичная сумма ряда Фурье.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \[2 \sin \frac{t}{2} \cos kt = \sin \left( k + \frac{1}{2} \right)t - \sin \left( k - \frac{1}{2} \right)t\]
+              Тогда при домножении \(D_n\) на \(\sin \frac{t}{2}\) благодаря телескопической сумме получается искомое.
+        \item Достаточно проверить, что
+              \[\sum \sin \left( k + \frac{1}{2} \right)t = \frac{\sin^2 \frac{n + 1}{2} t}{\sin \frac{t}{2}}\]
+              Это очевидно из того факта, что:
+              \[\sin \frac{t}{2} \sin \left( k + \frac{1}{2} \right)t = \frac{1}{2}\left(\cos kt - \cos (k + 1)t\right)\]
+              И по телескопической сумме получается \(\frac{1}{2}(1 - \cos (n + 1)t) = \sin^2 \frac{n + 1}{2} t\).
+        \item Очевидно, т.к. чётные функции замкнуты по линейной комбинации, по пункту 2 ядро Фейера неотрицательно и \(\int_{ - \pi}^\pi \cos kt = 0\), поэтому \(\int D_n = \int \frac{1}{2\pi} = 1\). Арифметическое среднее единиц равно единице, поэтому это выполнено и для \(\Phi_n\) тоже.
+        \item \[S_n(f, x) \defeq \sum_{k = 0}^n A_k(f, x) \xlongequal{\text{по лемме}} \int_{ - \pi}^\pi f(x + t) D_n(t)\]
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[принцип локализации Римана]\itemfix
+    %<*локализацияримана>
+    \begin{itemize}
+        \item \(f, g \in L^1[ - \pi, \pi]\)
+        \item \(x_0 \in \R\)
+        \item \(\delta > 0\)
+        \item \(\forall x \in (x_0 - \delta, x_0 + \delta) \ \ f(x) = g(x)\)\footnote{С оговоркой, что либо почти везде, либо существуют такие представители данного класса эквивалентности.}
+    \end{itemize}
+
+    Тогда ряды Фурье \(f\) и \(g\) ведут себя одинаково в точке \(x_0\):
+    \[S_n(f, x_0) - S_n(g, x_0) \xrightarrow{n \to +\infty} 0\]
+
+    Переформулировка:
+    \begin{itemize}
+        \item \(h : = f - g, h \in L^1[ - \pi, \pi]\)
+        \item \(h \equiv 0\) на \((x_0 - \delta, x_0 + \delta)\)
+    \end{itemize}
+    Тогда \(S_n(h, x_0) \to 0\)
+    %</локализацияримана>
+\end{theorem}
+%<*локализацияриманаproof>
+\begin{proof}[Доказательство переформулировки]
+    \[S_n(h, x_0) = \frac{1}{2\pi} \int_{ - \pi}^\pi h(x_0 + t) \left( \ctg \frac{t}{2} \sin nt + \cos nt \right) = b_n(h_1) + a_n(h_2)\]
+    , где:
+    \[h_1(t) = \frac{1}{2} h(x_0 + t) \cdot \ctg \frac{t}{2} \quad h_2(t) = \frac{1}{2} h(x_0 + t)\]
+    Так можно сказать, если \(h_1, h_2 \in L^1[ - \pi, \pi]\).
+    \begin{itemize}
+        \item Для \(h_2\) это очевидно.
+        \item Для \(h_1\): \(h_1 \equiv 0\) при \(t \in ( - \delta, \delta)\), поэтому:
+              \[|h_1(t)| \leq |h(x_0 + t)| \cdot \frac{1}{2} \cdot \ctg \frac{\delta}{2} \in L^1\]
+    \end{itemize}
+
+    Тогда \(b_n(h_1) \to 0, a_n(h_2) \to 0\) по теореме Римана-Лебега.
+\end{proof}
+%</локализацияриманаproof>
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item Если \([a, b] \subset (x_0 - \delta, x_0 + \delta)\), то \(S_n(h, x) \rightrightarrows 0\) на \([a, b]\).
+        \item Для определения ряда Фурье нужен весь \([ - \pi, \pi]\) по лемме о вычислении коэффициентов Фурье, а его поведение в точке \(x_0\) зависит лишь от его окрестности.
+        \item \(f \in L^1[0, \pi]\) --- можно разложить по \(\sin\) или по \(\cos\). Фокус: эти разложения в \((0, \pi)\) ведут себя одинаково.
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[признак Дини]\itemfix
+    %<*признакдини>
+    \begin{itemize}
+        \item \(f \in L^1 [ - \pi, \pi]\)
+        \item \(x_0 \in \R\)
+        \item \(S \in \R\) или \(\mathbb{C}\)
+        \item \begin{equation}
+                  \label{условие дини}
+                  \int_0^\pi \frac{|f(x_0 + t) - 2s + f(x_0 - t)|}{t} dt < +\infty
+              \end{equation}
+    \end{itemize}
+
+    Тогда ряд Фурье \(f\) сходится к \(S\) в точке \(x_0\), т.е. \(S_n(f, x_0) \to S\).
+    %</признакдини>
+\end{theorem}
+%<*признакдиниproof>
+\begin{proof}
+    Пусть \(\varphi(t) = f(x_0 + t) - 2s + f(x_0 - t)\).
+    \[ S_n(f, x_0) - S \symrefeq{по интегралу ядра дирихле} \int_{-\pi}^\pi (f(x_0 + t) -S)D_n(t) dt = \int_0^\pi + \int_{-\pi}^0 \dots =  \]
+    \[ = \int_0^\pi \varphi(t) D_n(t) = \frac{1}{\pi} \int_0^\pi \frac{1}{2}\varphi(t) \cdot \left(\ctg \frac{t}{2}\sin nt + \cos nt\right) = b_n(h_1) + a_n(h_2) \]
+    \blfootnote{\eqref{по интегралу ядра дирихле}: т.к. \(\int_{ - \pi}^\pi D_n = 1\)}
+    , где
+    \[ h_1 = \begin{cases}
+            0,                                     & t \in [-\pi, 0] \\
+            \frac{1}{2}\varphi(t)\ctg \frac{t}{2}, & t \in [0, \pi]
+        \end{cases} \quad h_2 = \begin{cases}
+            0,                     & t \in [-\pi, 0] \\
+            \frac{1}{2}\varphi(t), & t \in [0, \pi]
+        \end{cases}\]
+
+    Искомое следует из теоремы Римана-Лебега, если \(h_1\) и \(h_2 \in L^1[ - \pi, \pi]\).
+    \begin{itemize}
+        \item Для \(h_2\) это очевидно.
+        \item Для \(h_1\): по формуле \eqref{условие дини}:
+              \[\ctg \frac{t}{2} = \frac{1}{\tg \frac{t}{2}} < \frac{1}{\frac{t}{2}} = \frac{2}{t}\]
+              при \(\frac{t}{2} \in \left[0, \frac{\pi}{2}\right]\)
+              \[\int_{ - \pi}^\pi |h_1| = \int_0^\pi |h_1| = \frac{1}{2} \int_0^\pi |\varphi(t)| \cdot \ctg \frac{t}{2} < \int_0^\pi \frac{|\varphi(t)|}{t} \symref{по условию дини}{<} +\infty\]
+    \end{itemize}
+    \blfootnote{\eqref{по условию дини}: по условию дини}
+\end{proof}
+%</признакдиниproof>
+
+\begin{remark}\itemfix
+    \begin{enumerate}
+        \item \eqref{условие дини} \(\Leftrightarrow \forall \delta > 0 \ \ \int_0^\delta \frac{|\varphi(t)|}{t} < +\infty\)
+        \item \(\sphericalangle f(x) = \frac{1}{\ln |x|}, x \in [ - \pi, \pi]\). Тогда \(\forall S\) интеграл \eqref{условие дини} расходится при \(x_0 = 0\).
+    \end{enumerate}
+\end{remark}
+
+%<*признакдиниcorollary>
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f \in L^1\)
+        \item \(x_0 \in [ - \pi, \pi]\)
+        \item Существуют четыре конечных предела: \(f(x_0 + 0), f(x_0 - 0), \alpha_\pm : = \lim\limits_{t \to \pm 0} \frac{f(x_0 + t) - f(x_0 \pm 0)}{t}\)
+    \end{itemize}
+
+    Тогда ряд Фурье в точке \(x_0\) сходится к \(S = \frac{1}{2}(f(x_0 + 0) + f(x_0 - 0))\)
+\end{corollary}
+\begin{proof}
+    \[ \frac{\varphi(t)}{t} = \frac{f(x_0 + t) - f(x_0 + 0) + f(x_0 - t) - f(x_0 - 0)}{t} \xrightarrow[t \to + 0]{} \alpha_+ - \alpha_-  \]
+    , т.е. \(\frac{\varphi(t)}{t}\) --- ограничена вблизи \(0\) на \([0, \pi] \implies\) по замечанию 1, интеграл \eqref{условие дини} сходится.
+\end{proof}
+
+\begin{corollary}\itemfix
+    \begin{itemize}
+        \item \(f \in L^1[ - \pi, \pi]\)
+        \item \(f\) --- непрерывно в точке \(x_0\).
+        \item \(\exists\) конечные односторонние производные в точке \(x_0\)
+    \end{itemize}
+
+    Тогда \(S_n(f, x_0) \to f(x_0)\).
+\end{corollary}
+\begin{proof}
+    Следует из следствия 1.
+\end{proof}
+%</признакдиниcorollary>
+
+\section{Свертки и аппроксимационные единицы}
+
+\begin{definition}
+    %<*свертка>
+    \(f, K \in L^1[ - \pi, \pi]\). \((f * K)(x) = \int_{ - \pi}^\pi f(x - t) K(t) dt\) называется \textbf{сверткой} функций \(f, K\).
+    %</свертка>
+\end{definition}
+\begin{lemma}
+    Свертка корректно задана.
+\end{lemma}
+\begin{proof}
+    %<*корректностьсвертки>
+    \[ g(x, t) := f(x - t) \cdot k(t)\]
+    \begin{enumerate}
+        \item Проверим, что \(\varphi(x, y) : = f(x - t)\) измерима как функция \(\R^2 \to \overline\R\). Если это так, то \(g\) тоже измерима как произведение измеримых.
+
+              Обозначим \(\forall a \in \R \ \ E_a : = \R(f(x) < a), v(x, t) = \ev{x - t, t}\). Тогда \(V(\R^2(\varphi < a)) = E_a \times \R\) измеримо в \(\R^2\), т.к. это декартово произведение измеримых множеств. Следовательно \(\R^2(\varphi < a)\) тоже измеримо в \(\R^2\).
+
+        \item Лежит ли \(g \in L^1([ - \pi, \pi] \times [ - \pi, \pi])\)?
+              \[ \iint_{[-\pi, \pi]^2} |g(x, t)| = \int_{-\pi}^\pi dt |k(t)| \int_{-\pi}^\pi |f(x - t)| dx = \norm{f}_1\cdot \norm{k}_1 < +\infty\]
+              Тогда по теореме Фубини для интеграла:
+              \[ \int_{-\pi}^\pi dx \int_{-\pi}^\pi f(x - t)k(t) dt \]
+              --- при почти всех \(x \in [-\pi, \pi]\) этот интеграл сходится и задает по \(x\) функцию из \(L^1[-\pi, \pi]\), т.е. \(f*k\) определен при почти всех \(x\), и при этом \(\in L^1[-\pi, \pi]\)
+    \end{enumerate}
+    %</корректностьсвертки>
+\end{proof}
+
+%<*свойствасвертки>
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(f * K = K * f\)
+              \begin{proof}
+                  Очевидно после замены \(t\) на \( - t\) под интегралом.
+              \end{proof}
+
+        \item \(c_k(f * K) = 2\pi c_k(f) \cdot c_k(K)\)
+              \begin{proof}
+                  \[2 \pi c_k(f * K) = \int_{-\pi}^\pi \int_{-\pi}^\pi f(x - t)K(t)\cdot e^{-inx} dt dx = \]
+                  \[ = \int_{-\pi}^\pi K(t) e^{-int}\int_{-\pi}^\pi f(x - t)e^{-in(x - t)} dx dt = 2\pi c_n(f)\cdot 2\pi c_n(K) \]
+              \end{proof}
+
+        \item \begin{itemize}
+                  \item \(f \in L^p[-\pi, \pi]\)
+                  \item \(K \in L^q[-\pi, \pi]\)
+                  \item \(\frac{1}{p} + \frac{1}{q} = 1 \quad 1 \le p \le +\infty\)
+              \end{itemize}
+              Тогда \(f*K\) --- непрерывная функция и \(\norm{f * K}_\infty \le \norm{K}_q \cdot \norm{f}_p\)
+              \begin{proof}
+                  Неравенство очевидно, т.к. это неравенство Гёльдера:
+                  \[ \left| \int_{-\pi}^\pi f(x - t)K(t)\,dt \right| \le \int_{-\pi}^\pi |f(x - t)|\cdot |K(t)| \,dt \le \]
+                  \[ \le \left( \int_{-\pi}^\pi |f(x - t)|^p \right)^{\frac{1}{p}} \cdot \left( \int_{-\pi}^\pi |K(t)|^q \right)^{\frac{1}{q}} = \norm{f}_p \cdot \norm{K}_q \]
+                  Если \(p\) или \(q = +\infty\), то это неравенство надо модифицировать.
+
+                  Непрерывность:
+                  \[ | f*K(x + h) - f*K(x)| = \left|\int_{-\pi}^\pi \left(f(x + h - t) - f(x - t)\right)K(t)\,dt\right| \le \norm{K}_q\cdot \underbrace{\norm{f_h(x) - f(x)}_p}_{ \to 0 \text{ по т. о непр. сдвига}} \]
+                  Это всё верно, если \(p < +\infty\). Если же \(p = +\infty\), то поменяем местами \(f\) и \(K\).
+              \end{proof}
+
+        \item \begin{itemize}
+                  \item \(1 \leq p \leq +\infty\)
+                  \item \(f \in L^p[ - \pi, \pi]\)
+                  \item \(K \in L^1[ - \pi, \pi]\)
+              \end{itemize}
+
+              Тогда \(f * K \in L^p[ - \pi, \pi]\) и
+              \(\norm{f*K}_p \leq \norm{K}_1 \cdot \norm{f}_p\)
+    \end{enumerate}
+\end{prop}
+%</свойствасвертки>
+
+\begin{remark}
+    \(*\) похоже на умножение, т.к. \((f_1 + f_2) * g = f_1 * g + f_2 * g\) и можно сделать вывод, что \(L^1\) --- алгебра.
+\end{remark}
+
+\begin{remark}
+    Линейный оператор \(A : L^p \to L^p, f \mapsto f * K\):
+    \[\forall f \ \ \norm{Af} \leq C \cdot \norm{f}\]
+    Это значит, что оператор ограничен: \(\norm{A} \leq C\).
+\end{remark}

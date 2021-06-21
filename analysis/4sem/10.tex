@@ -1,39 +1,57 @@
 \chapter{19 апреля}
 
-\begin{theorem}[Формула Остроградского для \dots]\itemfix
+\begin{theorem}[Формула Остроградского]\itemfix
+    %<*формулаостроградского>
     \begin{itemize}
         \item \(V = \{(x, y, z) : (x, y)\in G \subset \R^2 \ \ f(x, y) \leq z \leq F(x, y) \} \)
         \item \(G\) --- компакт
         \item \(\partial G\) --- кусочно-гладкая кривая в \(\R^2\)
         \item \(f, F\in C^1\)
+        \item Фиксируем внешнюю сторону поверхности
+        \item \(R :\) окрестность \(V \to \R, R \in C^1\)
     \end{itemize}
-
-    Фиксируем внешнюю сторону поверхности, \(\mathbb R :\) окрестность \(V \to \R, \mathbb R \in C^1\)
 
     Тогда
     \[\iiint_V \frac{\partial R}{\partial z} dxdydz = \iint_{\partial V_\text{внешн.}} R dx dy = \iint_{\partial V} 0 dy dz + 0 dz dx + R dx dy\]
+    %</формулаостроградского>
 \end{theorem}
+%<*формулаостроградскогоproof>
 \begin{proof}
-    % TODO: иллюстрация
-
     \begin{align*}
-        \iiint_V \frac{\partial R}{\partial z} & = \iint_G dx dy \int_{f(x, y)}^{F(x, y)} \frac{\partial R}{\partial z} dz                              \\
-                                               & = \iint_G R(x, y, F(x, y)) dx dy - \iint_G R(x, y, f(x, y)) dx dy                                      \\
-                                               & = \iint_{\Omega_F} R(x, y, z) dx dy + \iint_{\Omega_f} R dx dy + \underbrace{\iint_{\Omega} R dx dy}_0
+        \iiint_V \frac{\partial R}{\partial z} & = \iint_G dx dy \int_{f(x, y)}^{F(x, y)} \frac{\partial R}{\partial z} dz                                                 \\
+                                               & = \iint_G R(x, y, F(x, y)) dx dy - \iint_G R(x, y, f(x, y)) dx dy                                                         \\
+                                               & = \iint_{\Omega_F} R(x, y, z) dx dy \symref{спрятали}{+} \iint_{\Omega_f} R dx dy + \underbrace{\iint_{\Omega} R dx dy}_0 \\
+                                               & = \iint_{\partial V} R dx dy
     \end{align*}
-\end{proof}
 
+    \blfootnote{\eqref{спрятали}: ``-'' спрятан в нормали, направленной вниз.}
+
+    \begin{figure}[h]
+        \centering
+        \includesvg{images/остроградского.svg}
+    \end{figure}
+\end{proof}
+%</формулаостроградскогоproof>
+
+%<*формулаостроградскогоcorollary>
 \begin{corollary}[обощенная формула Остроградского]
     \[\iiint_V \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} dx dy dz = \iint_{\partial V_{\text{внеш.}}} P dy dz + Q dz dx + R dx dy\]
 \end{corollary}
+%</формулаостроградскогоcorollary>
 
 \begin{definition}
+    %<*дивергенция>
     \(V\) --- гладкое векторное поле. Тогда \textbf{дивергенция} \(\div V = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\)
+    %</дивергенция>
 \end{definition}
 
+%<*бескоординатнаядивергенция>
 Наблюдение:
-\[\div V(a) = \lim_{\varepsilon \to 0} \frac{1}{\frac{4}{3}\pi \varepsilon^3} \iiint_{B(a, \varepsilon)} \div V dx dy dz = \lim_{\varepsilon \to 0} \frac{1}{\frac{4}{3}\pi \varepsilon^3} \iint_{S(a, \varepsilon)} \ev{V, \pi_0} dS\]
-, не зависит от координат.
+\[\div V(a) \symrefeq{по непрерывности} \lim_{\varepsilon \to 0} \frac{1}{\frac{4}{3}\pi \varepsilon^3} \iiint_{B(a, \varepsilon)} \div V dx dy dz \symrefeq{по стоксу} \lim_{\varepsilon \to 0} \frac{1}{\frac{4}{3}\pi \varepsilon^3} \iint_{S(a, \varepsilon)} \ev{V, n_0} dS\]
+--- не зависит от координат.
+\blfootnote{\eqref{по непрерывности}: по непрерывности \(\div\)}
+\blfootnote{\eqref{по стоксу}: по формуле Стокса}
+%</бескоординатнаядивергенция>
 
 Физический смысл --- мы измеряем поток воды и обнаруживаем, что поток по замкнутой поверхности пропадает или же появляется. Тогда \(\div V\) --- мера\footnote{Не та, что в теории меры; ``измерение''} интенсивности стока/истока.
 
@@ -46,19 +64,29 @@
 \end{proof}
 
 \begin{definition}
+    %<*ротор>
     \textbf{Ротор \textit{(вихрь)}}
     \[\rot V = \begin{pmatrix} \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} & \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} & \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \end{pmatrix}\]
+    %</ротор>
 \end{definition}
+
+Аналогично можно определить ротор:
+%<*бескоординатныйротор>
+\[\rot F(a) = \lim_{r \to 0} \frac{1}{\pi r^2} \int_{\partial S(a, r)} F_l dl\]
+%</бескоординатныйротор>
 
 \begin{remark}
     Поле \(V = (P, Q, R)\) --- потенциально \(\Leftrightarrow \exists f : V = \nabla f\). По теореме Пуанкаре при \(\Omega\) --- односвязной: \(V\) --- потенциально \(\Leftrightarrow \rot V = 0\), т.к. \(\rot(\nabla f)\equiv 0\)
 \end{remark}
 
 \begin{definition}
+    %<*соленоидальноеполе>
     Векторное поле \(A = (A_1,A_2,A_3)\) \textbf{соленоидально} в области \(\Omega \subset \R^3\), если \(\exists \) гладкое векторное поле \(B\) в \(\Omega\), такое что \(A = \rot B\).
+    %</соленоидальноеполе>
 \end{definition}
 
 \begin{theorem}[Пуанкаре\({}'\)]\itemfix
+    %<*пуанкаре>
     \begin{itemize}
         \item \(\Omega\) --- открытый параллелепипед
         \item \(A\) --- векторное поле в \(\Omega\)
@@ -66,11 +94,18 @@
     \end{itemize}
 
     Тогда \(A\) --- соленоидально \(\Leftrightarrow \div A = 0\)
+    %</пуанкаре>
 \end{theorem}
-\begin{proof}
+%<*пуанкареproof>
+\begin{proof}\itemfix
     \begin{itemize}
-        \item [\( \Rightarrow \)] \(\div \rot B \equiv 0\)
-        \item [\( \Leftarrow \)] Дано: \(A_{1}'{}_x + A_2'{}_y + A_3'{}_z = 0\). Найдём векторный потенциал \(B = (B_1, B_2, B_3)\), где \(A = \rot B\).
+        \item [\( \Rightarrow \)] \(\div \rot B \equiv 0\), что всегда выполнено.
+        \item [\( \Leftarrow \)] Дано:
+              \begin{equation}
+                  A_{1}'{}_x + A_2'{}_y + A_3'{}_z = 0
+                  \label{дано}
+              \end{equation}
+              Найдём векторный потенциал \(B = (B_1, B_2, B_3)\), где \(A = \rot B\).
 
               Пусть \(B_3 \equiv 0\).
               \[\begin{cases} B_3'{}_y - B_2'{}_z = A_1 \\ B_1'{}_z - B_3'{}_x = A_2 \\ B_2'{}_x - B_1'{}_y = A_3 \end{cases}\]
@@ -81,18 +116,25 @@
               \end{align}
 
               \begin{align*}
-                  \eqref{штука1} \quad B_2 & = - \int_{z_0}^z A_1 dz + \varphi(x, y)                           \\
-                  \eqref{штука2} \quad B_1 & = \int_{z_0}^z A_2 dz                                             \\
-                  \eqref{штука3} \quad A_3 & =  -\int_{z_0}^z A_1'x dz + \varphi'_x - \int_{z_0}^z A_2'{}_y dz \\
+                  \eqref{штука2} \quad B_1 & = \int_{z_0}^z A_2 dz                                                \\
+                  \eqref{штука1} \quad B_2 & = - \int_{z_0}^z A_1 dz + \varphi(x, y)                              \\
+                  \eqref{штука3} \quad A_3 & =  -\int_{z_0}^z A_1'{}_x dz + \varphi'_x - \int_{z_0}^z A_2'{}_y dz \\
               \end{align*}
 
-              \[\int_{z_0}^z A_3'{}_z + \varphi'_x = A_3 \Leftrightarrow A_3(x, y, z) - A_3(x, y, z_0) + \varphi'_x = A_3(x, y, z) \Leftrightarrow \varphi'_x = A_3(x, y, z_0)\]
+              По \eqref{дано}:
+              \begin{align*}
+                  \int_{z_0}^z A_3'{}_z + \varphi'_x         & = A_3            \\
+                  A_3(x, y, z) - A_3(x, y, z_0) + \varphi'_x & = A_3(x, y, z)   \\
+                  \varphi'_x                                 & = A_3(x, y, z_0)
+              \end{align*}
 
               Отсюда найдём \(\varphi = \int_{x_0}^x A_3(x, y, z_0)dx\)
     \end{itemize}
 \end{proof}
+%</пуанкареproof>
 
 \begin{lemma}[Урысона]\itemfix
+    %<*урысона>
     \begin{itemize}
         \item \(X\) нормальное
         \item \(F_0, F_1 \subset X\) --- замкнутые
@@ -100,17 +142,19 @@
     \end{itemize}
 
     Тогда \(\exists f : X \to \R\) непрерывное, \(0 \leq f \leq 1\), \(f\Big|_{F_0} \equiv 0, f\Big|_{F_1}\equiv 1\)
+    %</урысона>
 \end{lemma}
+%<*урысонаproof>
 \begin{proof}
-    Переформулируем нормальность: если \(F\subset G\), \(F\) замкнутое, \(G\) открытое, то \(\exists U(F)\) --- открытое, такое что \(F \subset U(F) \subset \overline{U(F)} \subset G\)
+    Переформулируем нормальность: если \(F\subset G\), \(F\) замкнутое, \(G\) открытое, то \(\exists U(F)\) --- открытое, такое что \(F \subset U(F) \subset \overline{U(F)} \subset G\). Почему это нормальность? Первое замкнутое множество --- \(F\), а второе замкнутое --- \(G^c\).
 
     \[F \leftrightarrow F_0 \quad G \leftrightarrow (F_1)^c \quad F_0 \subset \underbrace{U(F_0)}_{G_0} \subset \underbrace{\overline{U(F_0)}}_{\overline{G_0}} \subset \underbrace{F_1^c}_{G_1}\]
 
     Строим \(G_{\frac{1}{2}}\):
     \[G_0 \subset \overline{G_0} \subset \underbrace{U(\overline{G_0})}_{G_\frac{1}{2}} \subset \underbrace{\overline{U(\overline{G_0})}}_{\overline{G_{\frac{1}{2}}}}\]
 
-    Строим \(G_{\frac{1}{4}}\):
-    \[\overline{G_{\frac{1}{2}}} \subset \underbrace{U(\overline{G_{\frac{1}{2}}})}_{G_\frac{1}{4}} \subset \overline{U(\overline{G_{\frac{1}{2}}})}\]
+    Строим \(G_{\frac{1}{4}}, G_{\frac{3}{4}}\):
+    \[\overline{G_{\frac{1}{2}}} \subset \underbrace{U(\overline{G_{\frac{1}{2}}})}_{G_\frac{3}{4}} \subset \overline{U(\overline{G_{\frac{1}{2}}})} \subset G_1\]
 
     Таким образом, \(\forall \) двоично рациональной \(\alpha \in [0, 1]\) задаётся открытое множество \(G_\alpha\).
 
@@ -123,15 +167,64 @@
         \item \(\forall b \ \ f^{ - 1}( -\infty, b)\) --- открыто
         \item \(\forall a \ \ f^{ - 1}( -\infty, a]\) --- замкнуто
     \end{enumerate}
+    , так как:
+    \[f^{ - 1}(a, b) = f^{ - 1}(-\infty, b) \setminus f^{ - 1}(-\infty, a]\]
 
     \begin{enumerate}
         \item \(f^{ - 1}( - \infty, b) = \bigcup\limits_{\substack{q < b \\ q \text{ дв. рац.}}} G_q\) --- открыто. Почему это так?
 
               \(f^{ - 1}( - \infty, b) \subset \bigcup\), т.к. \(f(x) = b_0 < b\). Возьмём \(q : b_0 < q < b\). Тогда \(x\in G_q\)
 
-              \(f^{ - 1}( - \infty, b) \supset \bigcup\) очевидно, т.к. при \(x\in G_q \ \ f(x \leq q < b)\).
+              \(f^{ - 1}( - \infty, b) \supset \bigcup\) очевидно, т.к. при \(x\in G_q \ \ f(x) \leq q < b\).
 
-        \item \unfinished
+        \item \(f^{-1}(-\infty, a] = \bigcap_{q > a} G_q = \bigcap_{q > a}\overline{G_q}\) --- замкнуто
+
+              \((\supset)\) --- тривиально
+
+              \((\subset)\) Для двоично рациональных \(q, r\):
+              \[ \bigcap_{\substack{q > a \\ \text{всех}}} G_q \supset \bigcap_{\substack{r > a \\ \text{некоторых}}} \overline{G_r} \supset \bigcap_{\substack{r > a \\ \text{всех}}} \overline{G_r}\]
+              , так как \(\forall \alpha < \beta : G_\alpha \subset \overline{G_\alpha} \subset G_\beta\) по построению.
     \end{enumerate}
 \end{proof}
+%</урысонаproof>
 
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \((\R^m, \mathfrak{M}, \lambda_m)\)
+        \item \(E \subset \R^m\) --- измеримое
+    \end{itemize}
+
+    Тогда в \(L^p(E, \lambda_m)\), \(1 \le p < +\infty\) множество непрерывных финитных функция плотно.
+\end{theorem}
+\begin{proof}
+    По уже доказанной теореме множество ступенчатых функций плотно в \(L^p(E, \lambda_m)\). Достаточно научиться приближать характеристические функции финитными, т.е.:
+    \[\forall A \text{ --- огр.} \ \ \exists f \text{  --- финитная непрерывная} : ||f - \chi_A||_p < \varepsilon\]
+    Тогда можно будет приближать ступенчатые функции финитными, а следовательно искомое будет верно.
+
+    По регулярности меры лебега:
+    \[\forall \varepsilon > 0 \ \ \exists \underbrace{F}_{\text{замкн.}} \subset A \subset \underbrace{G}_{\text{откр.}} \ \ \lambda_m(G \setminus F) < \varepsilon\]
+
+    По лемме Урысона \(\exists\) непрерывное \(f : \R^m \to \R\): \(f\Big|_F \equiv 1, f\Big|_{G^c} \equiv 0\)
+
+    \[||f - \chi_A||_p^p = \int_{\R^m} |f - \chi_A|^p d\lambda_m = \int_{G \setminus F} |f - \chi_A|^p \leq 1 \cdot \lambda_m(G \setminus F) = \varepsilon\]
+\end{proof}
+
+\begin{remark}
+    При \(p = +\infty\) утверждение теоремы неверно!
+\end{remark}
+\begin{exercise}
+    \(\sphericalangle L^{+\infty}(\R, \lambda), B(\chi_{[a, b]}, \frac{1}{2})\) не содержит непрерывных функций, т.к. \(\sup_\R |f - \chi_A| \geq \max (\lim_{x \to a + 0} |f(x) - \chi_A|, \lim_{x \to a - 0} |f(x) - \chi_A|) \geq \frac{1}{2}\).
+\end{exercise}
+
+В \(L^p(E, \lambda_m)\) плотны:
+\begin{itemize}
+    \item Линейные комбинации характеристических функций ячеек
+    \item Гладкие финитные функции
+    \item Рациональные линейные комбинации характеристических функций рациональных ячеек, а это множество счётно.
+    \item Непрерывные функции
+\end{itemize}
+
+Вопрос: что-либо из упомянутого плотно ли в \(L^{\infty}(\R, \lambda)\)?
+
+Ответ не совсем на этот вопрос: в \(L^{+\infty}\) нет счётного плотного множества, зато конечные линейные комбинации характеристических функций плотны.
+% https://math.stackexchange.com/questions/2633755/dense-subspaces-of-l-infty-omega-times-omega

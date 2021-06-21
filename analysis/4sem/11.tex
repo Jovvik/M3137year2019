@@ -2,20 +2,17 @@
 
 \textit{Соглашение}. \(L^p[0, T], T\in\R\) можно понимать как пространство \(T\)-периодических функций, т.е. \(\forall x \ \ f(x) = f(x + T)\).
 
-\? % TODO
-
 Удобство: \(\int_0^T f = \int_a^{a + T} f\).
 
 \textit{Соглашение}. \(f \in C[a, b] \Rightarrow ||f|| = \max_{x\in[a,b]} |f(x)|\).
 
 \(\widetilde{C}[0, T]\) --- непрерывные \(T\)-периодические функции.
 \begin{itemize}
-    \item \(f \in C[0, T], f \in \widetilde{C}[0, T] \Rightarrow f\) равномерно непрерывна.
+    \item \(f \in C[0, T]\) или \(f \in \widetilde{C}[0, T] \Rightarrow f\) равномерно непрерывна по теореме Кантора о непрерывной на компакте функции.
     \item В \(L^p[0, T]\) функции из \(\widetilde{C}\) образуют плотное множество.
 \end{itemize}
 
-Линейная функция на \(L^p(X, \mu), \frac{1}{p} + \frac{1}{q} = 1\). Берём \(g \in L^q(x, \mu)\) и строим отображение \(L^p \to \R\), \(\alpha : f \mapsto \int_X fg d\mu\). Нам известно неравенство \(|\int_X fg| \leq (\int |f|^p)^{\frac{1}{p}} (\int |g|^p)^{\frac{1}{q}}\). Непрерывно ли \(\alpha\)? Сходится ли \(\alpha(f_n)\)?
-
+Линейная функция на \(L^p(X, \mu), \frac{1}{p} + \frac{1}{q} = 1\). Берём \(g \in L^q(x, \mu)\) и строим отображение \(L^p \to \R\), \(\alpha : f \mapsto \int_X fg d\mu\). Нам известно неравенство \(|\int_X fg| \leq (\int |f|^p)^{\frac{1}{p}} (\int |g|^p)^{\frac{1}{q}}\), поэтому интеграл конечен. Несложно заметить, что \(\alpha\) действительно линейно. Непрерывно ли \(\alpha\)? Сходится ли \(\alpha(f_n)\) к \(\alpha(f)\)? Да, т.к.:
 \[|\alpha(f_n) - \alpha(f)| = \left|\int_X (f_n - f) \cdot g\right| \leq ||f_n - f||_p \cdot ||g||_q\]
 
 \begin{definition}\itemfix
@@ -28,27 +25,34 @@
 \end{definition}
 
 \begin{theorem}[о непрерывности сдвига]\itemfix
+    %<*непрерывностьсдвига>
     \begin{enumerate}
         \item \(f\) --- равномерно непрерывно на \(\R^m\). Тогда \(||f_h - f||_{\infty} \xrightarrow[h \to 0]{} 0\)\footnote{Т.е. \(\sup_x |f(x + h) - f(x)| \to 0\)}
         \item \(f \in L^p(\R^m), 1 \leq p < +\infty\). Тогда \(||f_h - f||_p \xrightarrow[h \to 0]{} 0\)
         \item \(f \in \widetilde{C}[0, T]\). Тогда \(||f_h - f||_{\infty} \xrightarrow[h \to 0]{} 0\)\footnote{Или \(||f_n - f||_{\widetilde{C}} \to 0\)}
         \item \(1 \leq p < +\infty, f \in L^p[0, T] \Rightarrow ||f_h - f||_p \to 0\)
     \end{enumerate}
+    %</непрерывностьсдвига>
 \end{theorem}
 
 \begin{remark}\itemfix
     \begin{enumerate}
         \item Для \(L^{\infty}\) непрерывности сдвига нет: \(f = \chi_{[0, 1]}, f_n = \chi_{[ - h, 1 - h]}, \esup |f - f_n| = 1\)
-        \item Во всех упомянутых случаях 2 и 4 \(h \mapsto ||f_n - f||_p\) непрерывно в нуле \( \Rightarrow \) непрерывно всюду.
+        \item В случаях 2 и 4 \(h \mapsto ||f_h - f||_p\) непрерывно в нуле \( \Rightarrow \) непрерывно всюду.
               \[| ||f_n - f||_p - ||f_{h_0} - f||_p | \leq  ||f_n - f_{h_0}||_p = ||f_{h - h_0} - f||_p \xrightarrow[h \to h_0]{} 0\]
     \end{enumerate}
 \end{remark}
 
+%<*непрерывностьсдвигаproof>
 \begin{proof}
     Пункты 1 и 3 очевидны по определению равномерной непрерывности.
 
-    Докажем пункты 2 и 4:
+    Докажем пункты 2 и 4.
+
+    По плотности непрерывных функций в \(L^p\):
     \[\forall \varepsilon > 0 \ \ \forall f \in L^p[0, T] \ \ \exists g \text{ --- непр. } \in \widetilde{C}[0, T] \ \ ||f - g||_p < \frac{\varepsilon}{3}\]
+    \[||f_h - f||_p \leq ||f - g||_p + ||g - g_h||_p + ||g_h - f_h||_p \leq \frac{\varepsilon}{3} + ||g - g_h||_p + \frac{\varepsilon}{3}\]
+    Покажем, что \(||g - g_h||_p \leq \frac{\varepsilon}{3}\)
 
     4:
     \begin{align*}
@@ -56,16 +60,18 @@
                       & \leq \left( ||g_h - g||_{\infty}^p \cdot \int_0^T 1 dx \right)^{\frac{1}{p}} \\
                       & = T^{\frac{1}{p}} ||g_h - g||_{\infty}
     \end{align*}
+    , что \( < \frac{\varepsilon}{3}\) для достаточно малых \(h\).
 
-    2: \(g\) --- финитное, носитель\footnote{Множество точек, где \(g \neq 0\)} \(g \subset B(0, R)\)
+    2: \(g\) --- финитное, носитель\footnote{Множество точек, где \(g \neq 0\)} \(g \subset B(0, R)\), пусть \(|h| < 1\).
     \begin{align*}
-        ||g_h - g||_p \leq ||g_h - g||_{L^p(B(0, R + 1), \lambda_m)} \leq ||g_n - g||_{\infty} (\lambda_m(B))^{\frac{1}{p}}
+        ||g_h - g||_p = ||g_h - g||_{L^p(B(0, R + 1), \lambda_m)} \leq ||g_n - g||_{\infty} (\lambda_m(B))^{\frac{1}{p}}
     \end{align*}
 \end{proof}
+%</непрерывностьсдвигаproof>
 
 \section{Гильбертово пространство}
 
-Пусть \(X\) --- линейное пространство над \(\R\)\footnote{или над \(\mathbb{C}\)} со скалярным произведением \(X \times X \to \R\)\footnote{или \(\mathbb{C}\)} со следующими свойствами:
+Пусть \(X\) --- линейное пространство над \(\R\) (или \(\mathbb{C}\)) со скалярным произведением \(X \times X \to \R\) (или \(\mathbb{C}\)) со следующими свойствами:
 \begin{enumerate}
     \item \(\ev{x, x} \geq 0\)
     \item \(\ev{x, x} = 0 \Leftrightarrow x = 0\)
@@ -78,7 +84,9 @@
 \(||x|| \defeq \sqrt{\ev{x, x}}\) --- норма порожденная, скалярным произведением.
 
 \begin{definition}
+    %<*гильбертовопространство>
     \(\mathcal{H}\) --- линейное пространство, в котором задано скалярное произведение и соответствующая норма. Если при этом \(\mathcal{H}\) --- полное, то оно называется \textbf{Гильбертовым}.
+    %</гильбертовопространство>
 \end{definition}
 
 \begin{example}\itemfix
@@ -91,7 +99,7 @@
               Это скалярное произведение:
               \[\ev{g, f} = \int_X g \overline f = \overline{\left( \int_X fg \right)}\]
 
-              \(||f|| = \left( \int_X |f|^2 d\mu \right)^{\frac{1}{2}}\) --- норма порожденная, скалярным произведением. Именно эту норму мы и рассматривали с самого начала.
+              \(||f|| = \left( \int_X |f|^2 d\mu \right)^{\frac{1}{2}}\) --- норма, порожденная скалярным произведением. Именно эту норму мы и рассматривали с самого начала.
 
         \item Антипример: \(L^p, p \neq 2\) не Гильбертово. % TODO: доказать
         \item \(l^2 = \{(x_n)_{n = 1}^{+\infty}, x_j \in \R (\text{или } \mathbb{C})\} : \sum |x_j|^2 < +\infty\)
@@ -101,7 +109,9 @@
 \end{example}
 
 \begin{definition}
+    %<*сходящийсяряд>
     \textbf{Сходящийся ряд}: \(\sum a_n, a_n \in \mathcal{H}\): \(S_N := \sum_{1 \leq n \leq N} a_n\), если \(\exists S \in \mathcal{H} : S_N \xrightarrow[\text{в } \mathcal{H}]{} S\)
+    %</сходящийсяряд>
 \end{definition}
 
 \begin{definition}
@@ -113,7 +123,9 @@
 \end{definition}
 
 \begin{definition}
+    %<*ортогональныйряд>
     Ряд \(\sum a_k\) \textbf{ортогональный}, если \(\forall k, l \ \ a_k \perp a_l\).
+    %</ортогональныйряд>
 \end{definition}
 
 \begin{example}
@@ -121,6 +133,7 @@
 \end{example}
 
 \begin{theorem}[свойства сходимости в Гильбертовом пространстве]\itemfix
+    %<*свойствасходимости>
     \begin{enumerate}
         \item \(x_n \to x, y_n \to y\) в \(\mathcal{H}\). Тогда \(\ev{x_n, y_n} \to \ev{x, y}\), т.е. скалярное произведение непрерывно в \(\mathcal{H} \times \mathcal{H}\).
         \item \(\sum x_k\) сходится. Тогда:
@@ -130,7 +143,9 @@
               \end{equation}
         \item \(\sum x_k\) --- ортогональный ряд. Тогда \(\sum x_k\) сходится \(\Leftrightarrow \sum ||x_k||^2\) сходится.
     \end{enumerate}
+    %</свойствасходимости>
 \end{theorem}
+%<*свойствасходимостиproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item \begin{align*}
@@ -149,12 +164,16 @@
                   \item [\(\Rightarrow\)] Очевидно
                   \item [\(\Leftarrow\)] Аналогично формуле выше: \(||S_M - S_N||^2 = |C_M - C_N|\). Таким образом, если \(C_N\) сходится, то \(C_N\) фундаментально \( \Rightarrow S_N\) фундаментально в \(\mathcal{H}\).
               \end{itemize}
-
-              \unfinished, возможно. % TODO
     \end{enumerate}
 \end{proof}
+%</свойствасходимостиproof>
+
+\begin{remark}
+    Равенство \(||S_N||^2 = \sum ||x_k||^2\) --- теорема Пифагора.
+\end{remark}
 
 \begin{definition}
+    %<*ортогональноесемейство>
     \(\{e_k\} \subset \mathcal{H}\) --- \textbf{ортогональное семейство}, если:
     \begin{enumerate}
         \item \(\forall k, l \ \ e_k \perp e_l\)
@@ -162,6 +181,7 @@
     \end{enumerate}
 
     Если потребовать \(||e_k|| = 1\), то такое семейство называется \textbf{ортонормированным}.
+    %</ортогональноесемейство>
 \end{definition}
 
 \begin{remark}
@@ -188,10 +208,11 @@
 \end{example}
 
 \begin{theorem}\itemfix
+    %<*окоэффициентах>
     \begin{itemize}
         \item \(\{e_k\}\) --- ортогональное семейство в \(\mathcal{H}\)
         \item \(x \in \mathcal{H}\)
-        \item \(x = \sum_{k = 1}^{\overline{\infty}} c_k e_k\), где \(c_k \in \R\) или \(\mathbb{C}\)
+        \item \(x = \sum_{k = 1}^{\infty} c_k e_k\), где \(c_k \in \R\) или \(\mathbb{C}\)
     \end{itemize}
 
     Тогда:
@@ -200,14 +221,20 @@
         \item \(c_k = \frac{\ev{x, e_k}}{||e_k||^2}\)
         \item \(c_k e_k\) --- проекция \(x\) на прямую \(\{t e_k, t \in \R (\mathbb{C})\}\). \(x = c_k e_k + z, z \perp e_k\).
     \end{enumerate}
+    %</окоэффициентах>
 \end{theorem}
+%<*окоэффициентахproof>
 \begin{proof}\itemfix
     \begin{enumerate}
-        \item \(\sum_{k = 1}^N\) \unfinished % TODO
+        \item \(\sum_{k = 1}^N \alpha_k e_k = 0 \Rightarrow \alpha_n ||e_n||^2 = 0\)
+        \item \(\ev{x, e_k} = \ev{\sum c_j e_j, e_k} = c_k \cdot ||e_k||^2\)
+        \item \(\ev{z, e_k} = \ev{x, e_k} - \ev{c_k e_k, e_k} = 0\)
     \end{enumerate}
 \end{proof}
+%</окоэффициентахproof>
 
 \begin{definition}\itemfix
+    %<*коэффициентфурье>
     \begin{itemize}
         \item \(\{e_k\}\) --- ортогональное семейство в \(\mathcal{H}\)
         \item \(x \in \mathcal{H}\)
@@ -215,17 +242,19 @@
     \(c_k := \frac{\ev{x, e_k}}{||e_k||^2}\) --- называется \textbf{коэффициентом Фурье} по системе \(\{e_k\}\).
 
     \(\sum_{k = 1}^{+\infty} c_k(x) e_k\) --- ряд Фурье вектора \(x\) по системе \(e_k\).
+    %</коэффициентфурье>
 \end{definition}
 
 \begin{remark}
     При замене ортогонального семейства на ортонормированное семейство \(\{\frac{e_k}{||e_k||} = \tilde{e}_k\}\) ряд Фурье не изменится.
 
-    \[\tilde{c}_k = \frac{\ev{x, \tilde{e}_k}}{||\tilde{e}_k||^2} = \frac{\ev{x, \frac{e_k}{||e_k||}}}{1} = \frac{x, e_k}{||e_k||}\]
+    \[\tilde{c}_k = \frac{\ev{x, \tilde{e}_k}}{||\tilde{e}_k||^2} = \frac{\ev{x, \frac{e_k}{||e_k||}}}{1} = \frac{\ev{x, e_k}}{||e_k||}\]
 
     \[\tilde{c}_k \cdot \tilde{e}_k = \frac{\ev{x, e_k}}{||e_k||} \cdot \frac{e_k}{||e_k||} = \frac{\ev{x, e_k}}{||e_k||^2} \cdot e^k = c_k(x) \cdot e_k\]
 \end{remark}
 
 \begin{theorem}[о свойствах частичных сумм ряда Фурье]\itemfix
+    %<*частсумм>
     \begin{itemize}
         \item \(\{e_k\} \) --- ортогональное семейство в \(\mathcal{H}\)
         \item \(x \in \mathcal{H}\)
@@ -237,11 +266,13 @@
     Тогда:
     \begin{enumerate}
         \item \(S_n\) --- проекция \(x\) на \(\mathcal{L}_n\), т.е. \(x = S_n + z \Rightarrow z \perp \mathcal{L}_n\)
-        \item \(S_n\) --- элеменрт наилучшего приближения дял \(x\) в \(\mathcal{L}_n\):
+        \item \(S_n\) --- элемент наилучшего приближения дял \(x\) в \(\mathcal{L}_n\):
               \[||x - S_n|| = \min_{y \in \mathcal{L}_n} ||x - y||\]
         \item \(||S_n|| \leq ||x||\)
     \end{enumerate}
+    %</частсумм>
 \end{theorem}
+%<*частсуммproof>
 \begin{proof}\itemfix
     \begin{enumerate}
         \item \(k = 1\dots n\)
@@ -251,3 +282,4 @@
         \item \(||x||^2 = ||S_n||^2 + ||z||^2 \geq ||S_n||^2\)
     \end{enumerate}
 \end{proof}
+%</частсуммproof>

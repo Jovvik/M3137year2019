@@ -99,3 +99,65 @@
     \end{enumerate}
 \end{proof}
 %</свойстваединицыproof>
+
+\begin{remark}[модификация пункта 2]
+    \(f \in L^p[ - \pi, \pi] \Rightarrow ||f * K_h - f||_p \xrightarrow{h \to h_0} 0\)
+\end{remark}
+\begin{proof}
+    Аналогично пункту 2, но хуже.
+\end{proof}
+
+\begin{remark}[модификация пункта 3]
+    \(f \in L^1, \exists f(x - 0), f(x + 0)\). \(K_h\) --- усиленная аппроксимативная единица, \(\forall h \ \ K_h\) чётная. Тогда \((f * K_h)(x) \to \frac{1}{2} (f(x - 0) + f(x + 0))\)
+\end{remark}
+
+\section{Суммирование рядов Фурье}
+
+\subsection{Метод средних арифметических \textit{(Чезаро)}}
+
+\begin{definition}
+    %<*среднихарифметических>
+    \[ \sum a_n \quad S_n \coloneqq \sum_{k = 0}^n a_k \]
+    \[ \sigma_n \coloneqq \frac{1}{n + 1} (S_0 + S_1 + \dots + S_n) \]
+    \[ \sum a_n \xlongequal{\text{сред. арифм.}} S \]
+    , если \(\sigma_n \to S\)
+    %</среднихарифметических>
+\end{definition}
+
+\begin{theorem}[о перманентности метода средних арифметических]
+    %<*оперманентности>
+    \[\sum a_n = S \Rightarrow \sum a_n \xlongequal{\text{сред. арифм.}} S\]
+    %</оперманентности>
+\end{theorem}
+
+\begin{definition}[суммы Фейера]
+    %<*суммафейера>
+    \(f \in L^1 [ - \pi, \pi], S_n(f)\) --- част. сумма ряда Фурье.
+    \[\sigma_n(f) = \frac{1}{n + 1} \sum_{k = 0}^n S_k(f)\]
+    %</суммафейера>
+\end{definition}
+\begin{remark}
+    \[S_n(f) = \int_{ - \pi}^\pi f(x + t) D_n(t) dt\]
+    \[\sigma_n(f, x) = \int_{ - \pi}^\pi f(x + t) \Phi_n(t) dt \xlongequal{\Phi_n \text{ чётно}} \int_{ - \pi}^\pi f(x - t) \Phi_n(t) dt\]
+\end{remark}
+
+\begin{example}
+    Для расходящегося факта \(1 - 1 + 1 - 1\dots \) \(\sigma_n \to \frac{1}{2}\)
+\end{example}
+
+%<*оперманентностиproof>
+\begin{proof}[Доказательство теоремы]
+    \[\forall \varepsilon > 0 \ \ \exists N_1 \ \ \forall n > N_1 \ \ |S_n - S| < \frac{\varepsilon}{2}\]
+    \[|\sigma_n - S| = \left|\frac{1}{n + 1} \sum_{k = 0}^n (S_k - S)\right| \leq \frac{1}{n + 1} \sum |S_k - S| = \underbrace{\frac{\sum_{k = 0}^{N_1} |S_k - S|}{n + 1}}_{\xrightarrow{n \to +\infty} 0} + \underbrace{\frac{\sum_{k = N_1 + 1}^{n} |S_k - S|}{n + 1}}_{ < \frac{\varepsilon}{2}} \]
+\end{proof}
+%</оперманентностиproof>
+
+\begin{theorem}[Фейера]\itemfix
+    %<*теоремафейера>
+    \begin{enumerate}
+        \item \(f \in \widetilde{C}[ - \pi, \pi]\). Тогда \(\sigma_n(f) \xrightrightarrows{[ - \pi, \pi]} f\)
+        \item \(f \in L^p[ - \pi, \pi], 1 \leq p \leq +\infty\). Тогда \(\norm{\sigma_n(f) - f}_{\infty} \to 0\)
+        \item \(f \in L^1, f\) непрерывно в \(x\). Тогда \(\sigma_n(f, x) \xrightarrow{n \to +\infty} f(x)\)
+    \end{enumerate}
+    %</теоремафейера>
+\end{theorem}

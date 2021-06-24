@@ -2,26 +2,26 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 559,
+    "count": 563,
     "uniques": 100
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 293,
-    "uniques": 94
+    "count": 278,
+    "uniques": 92
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 168,
-    "uniques": 32
+    "count": 183,
+    "uniques": 33
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 146,
-    "uniques": 37
+    "count": 155,
+    "uniques": 40
   },
   {
     "path": "/Jovvik/M3137year2019/pulls",
@@ -32,31 +32,31 @@
   {
     "path": "/Jovvik/M3137year2019/commits/master",
     "title": "Commits · Jovvik/M3137year2019",
-    "count": 50,
+    "count": 52,
     "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs",
-    "title": "Jovvik/M3137year2019 at pdfs",
-    "count": 41,
-    "uniques": 25
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/4sem",
     "title": "M3137year2019/analysis/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 41,
+    "count": 42,
     "uniques": 15
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "Jovvik/M3137year2019 at pdfs",
+    "count": 40,
+    "uniques": 25
   },
   {
     "path": "/Jovvik/M3137year2019/issues",
     "title": "Issues · Jovvik/M3137year2019 · GitHub",
-    "count": 32,
+    "count": 33,
     "uniques": 7
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
-    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 30,
-    "uniques": 16
+    "path": "/Jovvik/M3137year2019/tree/master/analysis/2sem",
+    "title": "M3137year2019/analysis/2sem at master · Jovvik/M3137year2019",
+    "count": 32,
+    "uniques": 14
   }
 ]

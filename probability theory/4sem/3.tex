@@ -2,6 +2,7 @@
 
 \section{Условная вероятность}
 
+%<*8>
 \begin{obozn}
     \(P(A|B)\) --- вероятность наступления события \(A\), вычисленная в предположении, что событие \(B\) уже произошло.
 \end{obozn}
@@ -25,7 +26,7 @@
 \begin{proof}
     По индукии.
     \begin{itemize}
-        \item [\textbf{База}] \(n = 2\) --- по определению полной вероятности.
+        \item [\textbf{База}] \(n = 2\) --- по определению условной вероятности.
         \item [\textbf{Переход}] \[P(A_1 \dots A_n) = P(A_1\dots A_{n - 1}) P(A_n | A_1 \dots A_{n - 1}) = P(A_1)\cdot P(A_2 | A_1) \dots P(A_n | A_{n - 1}\dots A_1)\]
     \end{itemize}
 \end{proof}
@@ -36,15 +37,17 @@
 \begin{proof}
     \[P(A|B) = \frac{P(AB)}{P(B)} = P(A) \Leftrightarrow P(AB) = P(A)P(B)\]
 \end{proof}
+%</8>
 
 \subsection{Полная группа событий}
 
+%<*9>
 \begin{definition}
     События \(H_1\dots H_n\dots \) образуют \textbf{полную группу событий}, если они попарно несовместны и содержат все элементарные исходы.
 \end{definition}
 
-\begin{theorem}
-    Пусть \(H_1 \dots H_n\) --- полная группа событий. Тогда \(P(A) = \sum_{k = 1}^{+\infty} P(H_i)P(A | H_i)\)
+\begin{theorem}[формула полной вероятности]
+    Пусть \(H_1 \dots H_n\dots\) --- полная группа событий. Тогда \(P(A) = \sum_{k = 1}^{+\infty} P(H_i)P(A | H_i)\)
 \end{theorem}
 \begin{proof}
     \begin{align*}
@@ -67,4 +70,4 @@
 \begin{proof}
     \[P(H_i | A) = \frac{P(H_i A)}{P(A)} = \frac{P(H_i)P(A | H_i)}{\sum_{k = 1}^{n} P(H_k)P(A|H_k)}\]
 \end{proof}
-
+%</9>

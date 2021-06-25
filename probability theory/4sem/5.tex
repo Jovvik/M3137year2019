@@ -4,6 +4,7 @@
     Конспект этой лекции написан по другому конспекту, т.к. записи лекции нет.
 \end{remark}
 
+%<*13.2>
 \begin{definition}
     Отображение \(k \mapsto \binom{n}{k} q^{n - k}p^k\), где \(0 \leq k \leq n\) называется \textbf{биноминальным распределением} с параметрами \(n\) и \(p\).
 \end{definition}
@@ -11,7 +12,9 @@
 \begin{obozn}
     \(B(n,p)\) или \(B_{n, p}\)
 \end{obozn}
+%</13.2>
 
+%<*13.1>
 \subsection{Схема до первого успешного испытания}
 
 Пусть проводится бесконечная серия испытаний, которая заканчивается после первого успеха. Номер такого успеха обозначается \(\tau\).
@@ -22,7 +25,9 @@
 \begin{proof}
     \[P(\tau = k) = P(\underbrace{\text{НН}\dots\text{Н}}_{k - 1}\text{У}) = q^{k-1}p\]
 \end{proof}
+%</13.1>
 
+%<*13.3>
 \begin{definition}
     Отображение \(k \mapsto q^{k - 1}p\) при \(1 \leq k < +\infty\) называется \textbf{геометрическим распределением} с параметром \(p\).
 \end{definition}
@@ -30,7 +35,9 @@
 \begin{obozn}
     \(G_p\) или \(G(p)\)
 \end{obozn}
+%</13.3>
 
+%<*13.4>
 \begin{remark}
     Это распределение обладает свойством ``отсутствие последействия'' или нестарения, т.е. знание о том, что у вас не было успеха в течение \(n\) испытаний, никак не влияет на распределение оставшегося числа испытаний.
 \end{remark}
@@ -40,7 +47,7 @@
     \[\forall n,k\in\N \ \ P(\tau > k + n\ |\ \tau > n) = p(\tau > k)\]
 \end{theorem}
 \begin{proof}
-    \[P(\tau > n) = P(\underbrace{\text{НН}\dots\text{Н}}_{m})= q^m\]
+    \[P(\tau > n) = P(\underbrace{\text{НН}\dots\text{Н}}_{n})= q^n\]
 
     По формуле полной вероятности:
     \begin{align*}
@@ -55,6 +62,7 @@
 \begin{remark}
     Аналогично \(P(\tau = n + k\ |\ \tau > n) = P(\tau = k)\)
 \end{remark}
+%</13.4>
 
 \subsection{Испытания с несколькими исходами}
 
@@ -83,6 +91,7 @@
 
 \subsection{Урновая схема}
 
+%<*14>
 В урне \(N\) шаров, из них \(K\) белых и \(N - K\) чёрных. Из неё выбрали \(n\) шаров без учета порядка.
 
 \begin{enumerate}
@@ -126,9 +135,11 @@
                        & \xrightarrow{N \to +\infty} \binom{n}{k} p^k (1 - p)^{n - k}
     \end{align*}
 \end{proof}
+%</14>
 
 \subsection{Теорема Пуассона для схемы Бернулли}
 
+%<*15>
 \begin{theorem}[Формула Пуассона]
     Пусть \(n \to +\infty, p_n \to 0\) так, что \(n p_n \to \lambda =\const > 0\). Тогда вероятность успеха при \(n\) испытаниях:
     \[P_n(k) = \binom{n}{k}p_n^k (1 - p_n)^{n - k} \xrightarrow{n \to +\infty} \frac{\lambda^k}{k!}e^{ - \lambda} \]
@@ -155,3 +166,5 @@
     Тогда:
     \[\left|P(v_n\in A) - \sum \frac{\lambda^k}{k!} e^{ - \lambda}\right| \leq \min (p, np^2) = \min (p, \lambda p) = \min\left(p, \frac{\lambda^2}{n}\right)\]
 \end{theorem}
+%</15>
+% TODO: доказательство?

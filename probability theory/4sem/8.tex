@@ -4,20 +4,23 @@
 
 \subsubsection{Равномерное распределение}
 
+%<*23>
 \(\xi\) равномерно распределена на \([a, b]\), если её плотность постоянна на этом отрезке и такая величина обозначается \(\xi \in U_{a, b}\) или \(\xi \in U(a; b)\).
 
 \[f_\xi(x) = \begin{cases} 0, & x < a \\ \frac{1}{b - a}, & a \leq x \leq b \\ 0, & x > b \end{cases} \]
 
 \[F(x) = \int_{ -\infty}^{+\infty} f_\xi(x) dx\]
-\[F(X) = \begin{cases} 0, & x < a \\ \frac{x - a}{b - a}, & a \leq x \leq b \\ 1, & x > b \end{cases} \]
+\[F(x) = \begin{cases} 0, & x < a \\ \frac{x - a}{b - a}, & a \leq x \leq b \\ 1, & x > b \end{cases} \]
 \[\mathbb{E}\xi = \int_{ -\infty}^{+\infty} x f_\xi(x) dx = \int_a^b x \frac{1}{b - a}dx = \frac{b^2 - a^2}{2(b - a)} = \frac{a + b}{2} \]
 \[\mathbb{E}\xi^2 = \int_{ -\infty}^{+\infty} x^2 f_\xi(x) dx = \int_a^b x^2 \frac{dx}{b - a} = \frac{a^2 + ab + b^2}{3}\]
 \[\mathbb{D}\xi = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2 = \frac{a^2 + ab + b^2}{2} - \left( \frac{a + b}{2} \right)^2 = \frac{a^2 + b^2 - 2ab}{12} = \frac{(b - a)^2}{12}\]
 \[\sigma = \sqrt{\mathbb{D}\xi} = \frac{b - a}{2\sqrt{3}} \]
 \[P(\alpha < q < \beta) = \frac{\beta - \alpha}{b - a}, \quad \alpha, \beta \in [a, b]\]
+%</23>
 
 \subsubsection{Показательное \textit{(экспоненциальное)} распределение}
 
+%<*24>
 \(\xi\) показательно распределена с параметром \(\alpha > 0\) на \([a, b]\), если \(f_\xi(x) = \begin{cases}
     0,                      & x < 0    \\
     \alpha e^{ - \alpha x}, & x \geq 0
@@ -58,6 +61,7 @@
                                    & = P(\xi > y)
     \end{align*}
 \end{proof}
+%</24>
 
 \begin{example}\itemfix
     \begin{enumerate}
@@ -68,6 +72,7 @@
 
 \subsubsection{Нормальное распределение}
 
+%<*25>
 \(\xi\) имеет нормальное распределение с параметрами \(a\) и \(\sigma > 0\), если её плотность имеет вид \(f_\xi(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{ - \frac{(x - a)^2}{2\sigma^2}}, x\in\R\), обозначается \(\xi \in N_{a, \sigma^2}\) или \(\xi \in N(\alpha, \sigma^2)\)
 
 Смысл параметров распределения:
@@ -115,9 +120,11 @@
                   & = \frac{1}{\sqrt{2\pi}} (0 + \sqrt{2\pi})                                                                                                     \\
                   & = 1
 \end{align*}
+%</25>
 
 \subsubsection{Связь между нормальным и стандартным нормальным распределениями и её следствия}
 
+%<*26>
 \begin{enumerate}
     \item Пусть \(\xi \in N(a, \sigma^2)\). Тогда \(F_\xi(x) = \Phi_0\left( \frac{x - a}{\sigma} \right)\)
           \begin{proof}
@@ -185,6 +192,7 @@
 
           Смысл этого правила: нормальная случайная величина почти гарантировано попадает в интервал \((a - 3\sigma, a + 3\sigma)\)
 \end{enumerate}
+%</26>
 
 \subsubsection{Коэффициенты асимметрии и эксцесса}
 
@@ -200,8 +208,9 @@
 
 \subsection{\(\Gamma\)-функция и \(\Gamma\)-распределение}
 
+%<*27>
 \begin{definition}
-    \textbf{Гамма-фукнция Эйлера} \(G(\lambda) = \int_0^{+\infty} t^{\lambda - 1} e^{ - t}dt\). При \(\lambda \in \N\) \(\Gamma(\lambda + 1) = \lambda!\)
+    \textbf{Гамма-функция Эйлера} \(G(\lambda) = \int_0^{+\infty} t^{\lambda - 1} e^{ - t}dt\). При \(\lambda \in \N\) \(\Gamma(\lambda + 1) = \lambda!\)
 \end{definition}
 
 \begin{prop}\itemfix
@@ -221,7 +230,7 @@
     обозначается \(\xi \in \Gamma_{\alpha, \lambda}\)
 \end{definition}
 
-\[F_\xi(x) = \frac{\lambda^k}{\Gamma(\lambda)} \int_0^x t^{\lambda - 1} e^{ - \alpha t} dt , \quad x \geq 0\]
+\[F_\xi(x) = \frac{\alpha^\lambda}{\Gamma(\lambda)} \int_0^x t^{\lambda - 1} e^{ - \alpha t} dt , \quad x \geq 0\]
 Если \(\lambda\in\N\), то:
 \[F_\xi(x) = \sum_{k = \lambda}^{+\infty} \frac{(\lambda x)^k}{k!} e^{ - \alpha x}\]
 
@@ -233,3 +242,4 @@
         \item Если \(\xi \in N(0, 1)\), то \(\xi^2 \in \Gamma_{\frac{1}{2}, \frac{1}{2}}\)
     \end{enumerate}
 \end{prop}
+%</27>

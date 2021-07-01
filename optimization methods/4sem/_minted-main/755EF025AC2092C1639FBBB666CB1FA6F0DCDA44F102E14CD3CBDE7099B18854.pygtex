@@ -1,4 +1,4 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
 \PYG{k}{for} \PYG{esc}{$k = 1 \dots n-1$}\PYG{p}{:}
     \PYG{k}{for} \PYG{esc}{$i = k+1 \dots n$}\PYG{p}{:}
         \PYG{esc}{$t_{ik} = a_{ik}/a_{kk}$}

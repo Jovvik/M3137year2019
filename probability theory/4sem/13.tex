@@ -1,7 +1,8 @@
 \chapter{8 мая}
 
+%<*44>
 \begin{remark}
-    Если \(\xi = \eta\) почти наверное, т.е. \(p(\xi = \eta) = 1\), то ..., что \(\xi = \eta\)
+    Если \(\xi = \eta\) почти наверное, т.е. \(p(\xi = \eta) = 1\), то говорят, что \(\xi = \eta\)
 \end{remark}
 \((\Omega, \mathfrak{F}, p)\) --- вероятностное пространство \\
 Введем \(L_2(\Omega, \mathfrak{F}, p) = \{\xi \big| \mathbb{E}\xi^2 < \infty\}\)
@@ -34,7 +35,7 @@
     Пусть случайные величины \(\xi, \eta\) имеют конечные вторые моменты \\
     Тогда
     \[ |\mathbb{E}\xi\eta| \le \sqrt{\mathbb{E}\xi^2 \cdot \mathbb{\mathbb{E}}\eta^2} \]
-    Причем \( |\mathbb{E}\xi\eta| \le \sqrt{\mathbb{E}\xi^2 \cdot \mathbb{E}\eta^2} \Leftrightarrow \eta = C\xi\), почти наверное, \(C = \const\)
+    Причем \( |\mathbb{E}\xi\eta| = \sqrt{\mathbb{E}\xi^2 \cdot \mathbb{E}\eta^2} \Leftrightarrow \eta = C\xi\), почти наверное, \(C = \const\)
 \end{theorem}
 \begin{proof}
     \[ P_2(x) = \mathbb{\mathbb{E}}(x\xi - \eta)^2 = \mathbb{E}(x^2\xi^2 - 2x\xi\eta + \eta^2) = x^2E\xi^2 - 2xE\xi\eta + \mathbb{E}\eta^2 \ge 0 \]
@@ -48,6 +49,7 @@
     \[ \le \mathbb{E}\xi^2 + 2\sqrt{\mathbb{E}\xi^2}\cdot\sqrt{\mathbb{E}\eta^2} = \norm{\xi}^2 + 2\norm{\xi}\norm{\eta} + \norm{\eta}^2 = (\norm{\xi} + \norm{\eta})^2 \implies \]
     \[ \implies \norm{\xi + \eta} \le \norm{\xi} + \norm{\eta} \]
 \end{proof}
+%</44>
 
 \section{Условное математическое ожидание (УМО)}
 Рассмотрим линейное подпространство:
@@ -153,6 +155,7 @@
 \end{remark}
 
 \subsection{Коэффициент линейной ковариации}
+%<*46>
 \[ r_{\xi, \eta} = \frac{\cov(\xi, \eta)}{\sqrt{D\xi}\sqrt{D\eta}} = \frac{\mathbb{E}\xi\eta - \mathbb{E}\xi\cdot \mathbb{E}\eta}{\sigma_\xi\cdot \sigma_\eta} \]
 
 \begin{prop}\itemfix
@@ -201,6 +204,7 @@
 \begin{remark}
     Если \(r(\xi_1, \xi_2) > 0\) и \(r(\xi_2, \xi_3) > 9\) \(\not\Rightarrow\) \(r(\xi_1, \xi_3) > 0\) --- нет транзитивности
 \end{remark}
+%</46>
 \begin{example}
     \begin{center}
         \begin{tabular}{R|C|C|C}

@@ -1,13 +1,17 @@
 \chapter{1 мая}
 
+%<*41>
 Пусть \(\xi_1\) и \(\xi_2\) --- случайные величины с плотностью \(f(x, y)\) и \(g : \R^2 \to \R\). Что мы можем сказать про случайную величину \(g(\xi_1, \xi_2)\)?
 
 \begin{theorem}
     Пусть \(z \in \R, D_z = \{(x, y)\ |\ g(x, y) < z\}\). Тогда случайная величина \(\eta = g(x, y)\) имеет функцию распределения:
     \[F_\eta(z) = \iint_{D_z} f(x, y) dx dy\]
 \end{theorem}
+\begin{proof}
+    \[F_\eta = P(\eta < z) = P(g(\xi_1, \xi_2) < z) = P((\xi_1, \xi_2) \in D_z) = \iint_{D_z} f(x, y) dx dy\]
+\end{proof}
 
-\section{Формула свертки}
+\subsection{Формула свертки}
 
 \begin{theorem}
     Пусть \(\xi_1, \xi_2\) --- независимые, абсолютно непрерывные случайные величины с плотностями \(f_{\xi_1}(x)\) и \(f_{\xi_2}(x)\) \\
@@ -16,18 +20,20 @@
 \end{theorem}
 \begin{proof}
     Т.к. случайные величины \(\xi_1\) и \(\xi_2\) независимы, то плотность совместного распределения равна произведению плотностей: \(f_{\xi_1\xi_2}(x, y) = f_{\xi_1}(x)f_{\xi_2}(y)\). Применим предыдущую теорему для \(\eta = g(\xi_1, \xi_2) = \xi_1 + \xi_2\). Тогда \(D_z = \{(x, y) \in \R^2 \big| x + y < z\}\)
-    \[ F_{\xi_1 + \xi_2}(z) = \iint_{D_z} f_{\xi_1\xi_2}(x, y)\,dx\,dy = \int_{-\infty}^\infty \,dx \int_{-\infty}^{t - x} f_{\xi_1}(x) f_{\xi_2}(y)\,dy = \]
+    \[ f_{\xi_1 + \xi_2}(z) = \iint_{D_z} f_{\xi_1\xi_2}(x, y)\,dx\,dy = \int_{-\infty}^\infty \,dx \int_{-\infty}^{t - x} f_{\xi_1}(x) f_{\xi_2}(y)\,dy = \]
     \[ \left[\begin{matrix}
                 y = t - x            & t = y + x    & dy = dy \\
                 y(-\infty) = -\infty & t(z - x) = z &
             \end{matrix}\right] = \int_{\-\infty}^\infty\,dx\int_{-\infty}^z f_{\xi_1}(x)f_{\xi_2}(t - x)\,dt = \]
     \[ = \int_{-\infty}^z \underbrace{\int_{-\infty}^\infty f_{\xi_1}(x)f_{\xi_2}(t - x)\,dx}_{f_{\xi_1 + \xi_2}(t)} \,dt \implies f_{\xi_1 + \xi_2}(t) = \int_{-\infty}^\infty f_{\xi_1}(x)f_{\xi_2}(t - x)\,dx \]
 \end{proof}
+%</41>
 
 \section{Сумма стандартных распределений}
 
+%<*42>
 \begin{definition}
-    Если сумма двух независимых случайных величин одного типа распределений также будет этого типа, то говорят что это распределение *устойчиво* относительно суммирования
+    Если сумма двух независимых случайных величин одного типа распределений также будет этого типа, то говорят что это распределение \textbf{устойчиво} относительно суммирования.
 \end{definition}
 \begin{example}
     Независимые случайные величины:
@@ -50,15 +56,20 @@
 \end{example}
 \begin{proof}
     \[ P(\xi_1 + \xi_2 = k) = \sum_{i = 0}^k P(\xi_1 = i, \xi_2 = k - i) = \sum_{i = 0}^k p(\xi_1 = i)\cdot p(\xi_2 = k - i) = \]
-    \[ = \sum_{i = 0}^k \]
-    \unfinished
+    \[ = \sum_{i = 0}^k \frac{\lambda^i}{i!} e^{ - \lambda} \frac{\mu^{k - i}}{(k - i)!} e^{ - \mu} = e^{ - \lambda - \mu} \sum_{i = 0}^k \frac{\lambda^i}{i!} \frac{\mu^{k - i}}{(k - i)!} = \frac{(\lambda + \mu)^k}{k!} e^{ - (\lambda + \mu)} \]
 \end{proof}
 \begin{example}
     \(\xi_1, \xi_2 \in N(0, 1)\) --- независимые случайные величины. Тогда \(\xi_1 + \xi_2 \in N(0, 2)\)
 \end{example}
 \begin{proof}
-    \unfinished
+    \begin{align*}
+        f_{\xi_1 + \xi_2}(t) & = \int_{ -\infty}^{+\infty} \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} \frac{1}{\sqrt{2\pi}} e^{ - \frac{(t - x)^2}{2}}               \\
+                             & = \frac{1}{2\pi} \int_{ -\infty}^{+\infty} e^{ -(x^2 - tx + \frac{t^2}{2})} dx                                                        \\
+                             & = \frac{1}{2\pi} e^{ - \frac{t^2}{4}} \int_{ -\infty}^{+\infty} e^{ - \left(x - \frac{t}{2}\right)^2} d\left( x - \frac{t}{2} \right) \\
+                             & = \frac{1}{2\pi} e^{ - \frac{t^2}{4}} \sqrt{\pi}
+    \end{align*}
 \end{proof}
+%</42>
 \begin{example}\itemfix
     \begin{itemize}
         \item \(\xi_1 \in N(a_1, \sigma_1^2)\)
@@ -72,7 +83,7 @@
 \begin{proof}
     По индукции:
     \begin{itemize}
-        \item \item База: \(E_\alpha = \Gamma_{\alpha, 1}\)
+        \item База: \(E_\alpha = \Gamma_{\alpha, 1}\)
         \item Переход: Пусть \(\xi_1 + \dots + \xi_{k - 1} = \Gamma_{\alpha, k - 1}\), тогда:
               \[ f_{\xi_{k - 1}}(x) = \begin{cases}
                       0                                                     & x \le 0 \\
@@ -98,6 +109,7 @@
 
 \section{Условное распределение}
 
+%<*43>
 \begin{definition}
     \textbf{Условным распределением} случайной величины из системы случайных величин \((\xi, \eta)\) называется ее распределение найденное при условии, что другая случайная величина приняла определенное значение
 \end{definition}
@@ -109,7 +121,7 @@
     \begin{enumerate}
         \item Условное распределение в дискретной системе двух случайных величин
 
-              \unfinished
+              \[P(\xi = x_i|\eta = y_j) = \frac{P(\xi = x_i, \eta = y_j)}{P(\eta = y_j)} \]
         \item Условное распределение в непрерывной системе двух случайных величин
 
               Пусть двумерная абсолютно непрерывная случайная величина \((\xi, \eta)\) задана плотностью \(f_{\xi, \eta}(x, y)\). Тогда плотность условного распределения \(\xi | \eta = y\) будет равна:
@@ -125,6 +137,7 @@
     Аналогично
     \[ E(\eta | \xi = x) = \int_{-\infty}^\infty y\cdot f(y | x)\,dy \]
 \end{lemma}
+%</43>
 \begin{remark}
     При фиксированном значении переменной \(x\) \(f(y | x)\) будет функцией зависящей только от \(y\), а условное математическое ожидание будет числом. Если считать \(x\) переменной, то условное математическое ожидание является функцией зависящей от \(x\) и называется функцией \textbf{регрессии} \(\eta\) на \(\xi\). Т.к. \(\eta\) --- случайная величина, то \(E(\xi | \eta)\) можно рассматривать как случайную величину.
 \end{remark}

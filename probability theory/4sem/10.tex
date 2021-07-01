@@ -2,6 +2,7 @@
 
 \subsection{Сходимость случайных величин}
 
+%<*32>
 \subsubsection{Сходимость почти наверное}
 
 \begin{definition}
@@ -91,6 +92,7 @@
                                      & = 1
     \end{align}
 \end{proof}
+%</32>
 
 \begin{remark}
     В общем случае бессмысленно утверждение \(\xi_n \rightrightarrows \xi \Rightarrow \xi_n \xrightarrow{P} \xi\), т.к. слабая сходимость это сходимость распределений, а не случайных величин и одинаковые величины могут иметь разные распределения.
@@ -102,6 +104,7 @@
 
 \subsection{Математическое ожидание преобразованной случайной величины}
 
+%<*33>
 \begin{theorem}
     Для произвольной борелевской функции \(g(x)\):
     \begin{enumerate}
@@ -133,6 +136,7 @@
               т.к. по условию \(\mathbb{E}|\xi|^t < +\infty\).
           \end{proof}
 \end{enumerate}
+%</33>
 
 \subsection{Ключевые неравенства}
 
@@ -140,10 +144,11 @@
 
 \subsubsection{Неравенство Йенсена}
 
+%<*34>
 \begin{theorem}[неравенство Йенсена]
     Пусть функция \(g\) выпукла вниз. Тогда \(\mathbb{E}g|\xi| \geq g(\mathbb{E}\xi)\).
 
-    Если \(g\) выпукла вверх, то \(\mathbb{E}g|\xi| \leq g(\mathbb{E}\xi)\)
+    Если \(g\) выпукла вверх, то \(\mathbb{E}g(\xi) \leq g(\mathbb{E}\xi)\)
 
     \begin{remark}
         Если функция выпукла, то в любой точке её графика можно провести прямую, лежащую ниже графика.
@@ -162,12 +167,14 @@
 \end{corollary}
 \begin{proof}
     Т.к. \(s < t\), то \(g(x) = x^{\frac{t}{s}}\) --- выпуклая. По неравенству Йенсена при \(\eta = \xi^s\):
-    \[(\mathbb{E}|\xi|^s)^{\frac{t}{s}} = \mathbb{E}|\eta|^{\frac{t}{s}} = g(\mathbb{E}|\eta|) \leq \mathbb{E} g(\eta) = \mathbb{E}(|\xi|^s)^{\frac{t}{s}} = \mathbb{E}|\xi|^t\]
+    \[(\mathbb{E}|\xi|^s)^{\frac{t}{s}} = \mathbb{E}|\eta|^{\frac{t}{s}} = g(\mathbb{E}|\eta|) \leq \mathbb{E} g(|\eta|) = \mathbb{E}(|\xi|^s)^{\frac{t}{s}} = \mathbb{E}|\xi|^t\]
     Возьмём корень степени \(t\):
     \[(\mathbb{E}|\xi|^s)^{\frac{1}{s}} \leq (\mathbb{E}|\xi|^{t})^{\frac{1}{t}}\]
 \end{proof}
-В частности, если \(s = 1\), то \(\mathbb{E}|\xi| \leq \sqrt[t]{|\xi|^t}\)
+В частности, если \(s = 1\), то \(\mathbb{E}|\xi| \leq \sqrt[t]{\mathbb{E}|\xi|^t}\)
+%</34>
 
+%<*35>
 \subsubsection{Неравенство Маркова}
 
 \begin{theorem}
@@ -184,13 +191,13 @@
     \begin{align}
         |\xi|                     & = |\xi| \cdot I(|\xi| \geq \varepsilon) + |\xi| I(|\xi| < \varepsilon) \\
                                   & \geq |\xi| I(|\xi| \geq \varepsilon)                                   \\
-                                  & \geq \xi I(|\xi| \geq \varepsilon)                                     \\
+                                  & \geq \varepsilon I(|\xi| \geq \varepsilon)                             \\
                                   & \Downarrow                                                             \\
         \mathbb{E}|\xi|           & \geq \mathbb{E}(\varepsilon I(|\xi| \geq \varepsilon))                 \\
                                   & = \varepsilon \mathbb{E}(I(|\xi| \geq \varepsilon))                    \\
                                   & = \varepsilon P(|\xi| \geq \varepsilon)                                \\
                                   & \Downarrow                                                             \\
-        P(|\xi| \geq \varepsilon) & \leq \frac{\mathbb{E}\xi}{\varepsilon}
+        P(|\xi| \geq \varepsilon) & \leq \frac{\mathbb{E}|\xi|}{\varepsilon}
     \end{align}
 \end{proof}
 
@@ -200,7 +207,7 @@
     \[P(|\xi - \mathbb{E}\xi| \geq \varepsilon) \leq \frac{\mathbb{D}\xi}{\varepsilon^2} \quad \forall \varepsilon > 0\]
 \end{theorem}
 \begin{proof}
-    \[P(|\xi - \mathbb{E}\xi| \geq \varepsilon) = P((\xi - \mathbb{E}\xi)^2 \geq \varepsilon) \leq \frac{\mathbb{E}(\xi - \mathbb{E}\xi)^2}{\varepsilon^2} = \frac{\mathbb{D}\xi}{\varepsilon^2}\]
+    \[P(|\xi - \mathbb{E}\xi| \geq \varepsilon) = P((\xi - \mathbb{E}\xi)^2 \geq \varepsilon^2) \leq \frac{\mathbb{E}(\xi - \mathbb{E}\xi)^2}{\varepsilon^2} = \frac{\mathbb{D}\xi}{\varepsilon^2}\]
 \end{proof}
 
 \subsubsection{Обобщенное неравенство Чебышева}
@@ -225,7 +232,9 @@
 \begin{remark}
     Можем заметить, что правило трёх сигм дает нам куда большую точность. Таким образом, неравенство Чебышева грубо.
 \end{remark}
+%</35>
 
+%<*36>
 \subsubsection{Среднее арифметическое случайных величин}
 
 Можем изменить модель с \(n\) экспермиентами так, что проходит 1 эксперимент с \(n\) переменными.
@@ -248,7 +257,9 @@
     \[P\left( \left|\frac{S_n}{n} - a\right| \geq \varepsilon \right) = P\left( \left|\frac{S_n}{n} - \mathbb{E}\left( \frac{S_n}{n} \right) \right| \geq \varepsilon \right) \leq \frac{\mathbb{D}\left( \frac{S_n}{n} \right)}{\varepsilon^2} = \frac{\frac{d}{n}}{\varepsilon^2} = \frac{d}{\varepsilon^2} \cdot \frac{1}{n} \xrightarrow{n \to +\infty} 1\]
     \[P\left( \left|\frac{S_n}{n} - a\right| \geq \varepsilon \right) \xrightarrow{n \to +\infty} 1 \Rightarrow \frac{S_n}{n} \xrightarrow{P} a\]
 \end{proof}
+%</36>
 
+%<*37>
 \subsubsection{Закон больших чисел Бернулли}
 
 \begin{theorem}
@@ -288,6 +299,7 @@
     По неравенству Чебышева:
     \[P\left( |\frac{S_n}{n} - \mathbb{E}\left( \frac{S_n}{n} \right)| \geq \varepsilon \right) \leq \frac{\mathbb{D}\left( \frac{S_n}{n} \right)}{\varepsilon^2} = \frac{\mathbb{D}(S_n)}{n^2 \varepsilon^2} = \frac{\smallO(n^2)}{n^2 \varepsilon^2} = \frac{1}{\varepsilon^2} \cdot \underbrace{\frac{\smallO(n^2)}{n^2}}_{ \to 0} \xrightarrow{n \to +\infty} 0\]
 \end{proof}
+%</37>
 
 \begin{theorem}[центральная предельная теорема Ляпунова, 1901 г.]
     Пусть \(\xi_1 \dots \xi_n\) --- последовательность независимых одинаково распределенных случайных величин с конечной дисперсией, \(S_n = \xi_1 + \dots \xi_n\). Тогда имеет место слабая сходимость:'

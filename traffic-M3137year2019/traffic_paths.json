@@ -2,8 +2,14 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 13,
-    "uniques": 8
+    "count": 12,
+    "uniques": 7
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
+    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 4,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/final.pdf",
@@ -18,12 +24,6 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 2,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/tree/master/analysis/1sem",
     "title": "M3137year2019/analysis/1sem at master · Jovvik/M3137year2019",
     "count": 2,
@@ -32,12 +32,6 @@
   {
     "path": "/Jovvik/M3137year2019/find/master",
     "title": "File Finder",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/123",
-    "title": "Теория моделей у исчисления предикатов · Issue #123 · Jovvik/M3137year2019",
     "count": 1,
     "uniques": 1
   },
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "GitHub - Jovvik/M3137year2019 at pdfs",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/matlog",
+    "title": "M3137year2019/matlog at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 1,
     "uniques": 1
   }

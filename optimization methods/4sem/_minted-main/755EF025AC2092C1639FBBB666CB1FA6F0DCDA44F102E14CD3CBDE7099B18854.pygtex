@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{for} \PYG{esc}{$k = 1 \dots n-1$}\PYG{p}{:}
+    \PYG{k}{for} \PYG{esc}{$i = k+1 \dots n$}\PYG{p}{:}
+        \PYG{esc}{$t_{ik} = a_{ik}/a_{kk}$}
+        \PYG{esc}{$b_i = b_i - t_{ik} b_k$}
+        \PYG{k}{for} \PYG{esc}{$j = k+1 \dots n $}
+            \PYG{esc}{$a_{ij} = a_{ij} - t_{ik} \cdot a_{kj}$}
+\PYG{esc}{$x_n = b_n/a_{nn}$}
+\PYG{k}{for} \PYG{esc}{$k = n - 1 \dots 1$}
+    \PYG{esc}{$x_k = \left( b_k - \sum_{j = k + 1}^n a_{kj} \cdot x_j \right) / a_{kk}$}
+\end{Verbatim}

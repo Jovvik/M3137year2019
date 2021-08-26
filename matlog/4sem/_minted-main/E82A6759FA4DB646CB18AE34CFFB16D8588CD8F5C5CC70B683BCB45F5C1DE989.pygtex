@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{let} \PYG{n}{rec} \PYG{n}{string\PYGZus{}of\PYGZus{}list} \PYG{n}{l} \PYG{o+ow}{=}
+    \PYG{n}{match} \PYG{n}{l} \PYG{n}{with}
+        \PYG{k+kt}{Nil} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{l+s}{\PYGZdq{}Nil\PYGZdq{}}
+        \PYG{k+kt}{Cons}\PYG{p}{(}\PYG{n}{head}\PYG{p}{,} \PYG{n}{tail}\PYG{p}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{n}{head} \PYG{o}{\PYGZca{}} \PYG{l+s}{\PYGZdq{}:\PYGZdq{}} \PYG{o}{\PYGZca{}} \PYG{n}{string\PYGZus{}of\PYGZus{}list} \PYG{n}{tail}
+\end{Verbatim}

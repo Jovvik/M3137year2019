@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{struct} \PYG{n+nc}{tree} \PYG{p}{\PYGZob{}}
+    \PYG{n}{tree}\PYG{o}{*} \PYG{n}{left}\PYG{p}{;}
+    \PYG{n}{tree}\PYG{o}{*} \PYG{n}{right}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{value}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

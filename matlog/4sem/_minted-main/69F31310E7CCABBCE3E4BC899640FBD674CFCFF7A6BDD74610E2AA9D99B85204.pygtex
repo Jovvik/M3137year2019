@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{type} \PYG{n}{list} \PYG{o}{:} \PYG{k}{record}
+    \PYG{n}{nul} \PYG{o}{:} \PYG{k+kt}{boolean}\PYG{o}{;}
+    \PYG{k}{case} \PYG{n}{nul} \PYG{k}{of}
+        \PYG{k}{true}\PYG{o}{:} \PYG{o}{;}
+        \PYG{k}{false}\PYG{o}{:} \PYG{n}{next} \PYG{o}{\PYGZca{}}\PYG{n}{list}
+    \PYG{k}{end}
+\PYG{k}{end}\PYG{o}{;}
+\end{Verbatim}

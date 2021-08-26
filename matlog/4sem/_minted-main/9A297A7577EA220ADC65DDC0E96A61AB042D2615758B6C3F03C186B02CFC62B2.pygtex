@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Q}\PYG{p}{(}\PYG{n}{p}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{P}\PYG{p}{(}\PYG{n}{p}\PYG{p}{)} \PYG{o}{=} \PYG{l+m+mi}{1}
+        \PYG{k}{return} \PYG{l+m+mi}{0}
+    \PYG{k}{else}
+        \PYG{k}{while} \PYG{n+nb}{true} \PYG{k}{do}\PYG{p}{;}
+\end{Verbatim}

@@ -6,6 +6,12 @@
 
 Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм @aeriu. Пулл реквесты приветствуются.
 
+## 5 семестр
+
+### Методы трансляции
+
+- [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/translation%20methods/5sem/main.pdf)
+
 ## 4 семестр
 
 ### Матанализ

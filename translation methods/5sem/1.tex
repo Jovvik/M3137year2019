@@ -1,0 +1,161 @@
+\chapter{2 сентября}
+
+\section{Введение}
+
+Этот курс --- про парсеры. Рассмотрим их работу в общем случае.
+
+\begin{enumerate}
+    \item На вход подается строка.
+    \item Строка разбивается на неделимые блоки \textit{(лексемы или токены)} лексическим анализом.
+    \item Последовательность токенов с учетом синтаксиса языка переводится в дерево разбора путем синтаксического разбора \textit{(парсинга)}.
+    \item Дерево разбора не есть самоцель, дерево переводится с учетом семантики языка в искомый результат.
+\end{enumerate}
+
+Адепты architecture-driven подхода могут захотеть разделить семантику и синтаксис, однако это проблематично. Рассмотрим арифметические выражения как пример.
+
+Токены арифметических выражений это \( + , \cdot, (, ), n\), где \(n\) --- число. Синтаксис задается следующей контекстно-свободной грамматикой:
+\begin{itemize}
+    \item \(E \to n\) 
+    \item \(E \to (E)\)
+    \item \(E \to E + E\)
+    \item \(E \to E \cdot E\)
+\end{itemize}
+
+Однако, эта грамматика не однозначна, и выражение \(2 + 2 \cdot 2\) можно разобрать по-разному, из-за чего невозможно навесить семантику. Таким образом, синтаксис нужно задавать с учетом семантики:
+\begin{itemize}
+    \item \(E \to T\)
+    \item \(E \to T + E\)
+    \item \(T \to F\)
+    \item \(T \to F \cdot T\)
+    \item \(F \to n\)
+    \item \(F \to (E)\)
+\end{itemize}
+
+Но с такой грамматикой операции правоассоциативные и семантику не получится навесить с добавлением вычитания. В правильной грамматике нужно переставить местами аргументы второго правила.
+
+Рассмотрим, как мы будем писать калькулятор арифметических выражений по дереву разбора. Наивный подход --- обойти дерево DFS-ом и рассматривать детей вершины, в которой мы находимся. Однако, таким образом информация о синтаксисе описывается в двух сущностях --- в парсере и в калькуляторе. Это неудобно, поэтому часто парсинг и вычисления комбинируются в один шаг без построения дерева разбора. На примере арифметических выражений:
+\begin{itemize}
+    \item \(E_0.val = T.val\)
+    \item \(E_0.val = E_1.val + T.val\)
+    \item \(E_0.val = E_1.val - T.val\)
+    \item \(\vdots\)
+\end{itemize}
+
+Такой подход называется \textbf{синтаксически управляемая трансляция}.
+
+Итого существуют четыре подхода дизайну систем парсинга в зависимости от сложности задачи:
+\begin{enumerate}
+    \item Ad hoc: без теории, наивно.
+    \item Parser + walker: Парсер производит дерево разбора и walker его обходит.
+    \item Синтаксически управляемая трансляция.
+    \item Декомпозиция задач.
+\end{enumerate}
+
+Этот курс рассматривает второй и третий подходы.
+
+\section{Нисходящие парсеры}
+
+Рассмотрим пример калькулятора арифметических выражений:
+\begin{minted}{python}
+int expr():
+    r = term()
+    nexttoken()
+    while token == '+':
+        nexttoken()
+        t = term()
+        r += t
+
+int term():
+    r = factor()
+    nexttoken()
+    while token == '*':
+        nexttoken()
+        f = factor()
+        r += f
+
+int factor():
+    if token == '('
+        nexttoken()
+        r = expr()
+        assert token == ')'
+        nexttoken()
+    else # token = 'n'
+        r = tokenval()
+        nexttoken()
+\end{minted}
+
+Какая связь между этим кодом и грамматикой арифметических выражений? Оказывается, весьма близкая и код можно получить из нее.
+
+
+\begin{definition}[контекстно-свободная грамматика]\itemfix
+    \begin{itemize}
+        \item Алфавит \(\Sigma\) --- множество токенов
+        \item Нетерминалы \(N\)
+        \item Стартовый нетерминал \(S \in N\)
+        \item Правила \(P \subset N \times (N \cup \sum)^*\)
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    \(\ev{A, \alpha} \in P \Leftrightarrow A \to \alpha\)
+\end{definition}
+\begin{definition}
+    \(\alpha \Rightarrow \beta\) --- из \(\alpha\) выводится за один шаг \(\beta\), если:
+    \begin{itemize}
+        \item \(\alpha = \alpha_1 A \alpha_2\)
+        \item \(\beta = \alpha_1 \xi \alpha_2\)
+        \item \(A \to \xi \in P\)
+    \end{itemize}
+\end{definition}
+\begin{definition}[язык грамматики]\itemfix
+    \(L(\Gamma) = \{x \mid S \Rightarrow^* x\}, x \in \Sigma^*\), где \( \Rightarrow^*\) есть замыкание отношения \( \Rightarrow \).
+\end{definition}
+
+\begin{definition}
+    Грамматика \textbf{однозначна}, если для любого слова из языка есть только одно дерево разбора и \textbf{неоднозначна} иначе.
+\end{definition}
+
+\begin{remark}
+    Здесь и далее буквы из конца латинского алфавита обозначают нетерминалы, а буквы греческого алфавита --- строки из терминалов и/или нетерминалов.
+\end{remark}
+\begin{definition}
+    \(\Gamma \in LL(1)\), если из выполнения следующих двух условий:
+    \begin{itemize}
+        \item \(S \Rightarrow^* xA\alpha \Rightarrow x\xi\alpha \Rightarrow^* xcy\)
+        \item \(S \Rightarrow^* xA\beta \Rightarrow x\eta\beta \Rightarrow^* xcz\)
+    \end{itemize}
+    следует \(c \in \Sigma\), или \(c = \varepsilon\), или \(y = \varepsilon\), или \(z = \varepsilon\), тогда \(\xi = \eta\).
+\end{definition}
+
+\begin{definition}
+    \(\Gamma \in LL(k)\), если из выполнения следующих двух условий:
+    \begin{itemize}
+        \item \(S \Rightarrow^* xA\alpha \Rightarrow x\xi\alpha \Rightarrow^* xcy\)
+        \item \(S \Rightarrow^* xA\beta \Rightarrow x\eta\beta \Rightarrow^* xcz\)
+    \end{itemize}
+    следует \(c \in \Sigma^k\), или \(c \in \Sigma^{ \leq k}\), или \(y = \varepsilon\), или \(z = \varepsilon\), тогда \(\xi = \eta\).
+\end{definition}
+
+В частности, \(LL(0)\) --- линейные программы.
+
+\(LL(1)\) грамматики есть класс всех грамматик, которые можно разобрать рекурсивным спуском.
+
+Определение \(LL(1)\) грамматик не конструктивно, т.к. проверка определения может длиться бесконечно \textit{(по количеству всех выводов)}. Определим конструктивный критерий принадлежности \(LL(1)\), для этого мы рассмотрим две вспомогательные функции:
+
+\begin{itemize}
+    \item FIRST: \((N \cup \Sigma)^* \to 2^{\Sigma \cup \{\varepsilon\}}\)
+    \item FOLLOW: \(N \to 2^{\Sigma \cup \{\$\}}\)
+\end{itemize}
+\[\mathrm{FIRST}(\alpha) \coloneqq \{c \mid \alpha \Rightarrow^* c \beta\} \cup \{\varepsilon \mid \alpha \Rightarrow^* \varepsilon\}\]
+\[\mathrm{FOLLOW}(A) \coloneqq \{c \mid S \Rightarrow^* \alpha Ac\beta\} \cup \{\$ \mid S \Rightarrow^* \alpha A\}\]
+
+\begin{remark}
+    Мы считаем, что в грамматике нет нетерминалов, из которых нельзя вывести строку из терминалов. Это допущение не теряет общности, т.к. существует алгоритм удаления ``бесполезных'' нетерминалов, см. курс дискретной математики.
+\end{remark}
+
+\begin{theorem}
+    \(\Gamma \in LL(1) \Leftrightarrow A \to \alpha, A \to \beta\):
+    \begin{enumerate}
+        \item \(\mathrm{FIRST}(\alpha) \cap \mathrm{FIRST}(\beta) = \emptyset\)
+        \item \(\varepsilon \in \mathrm{FIRST}(\alpha) \Rightarrow \mathrm{FIRST}(\beta) \cap \mathrm{FOLLOW}(A) = \emptyset\)
+    \end{enumerate}
+\end{theorem}

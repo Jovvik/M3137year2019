@@ -7,3 +7,5 @@
 *.xdv
 *.fls
 *.fdb_latexmk
+_minted-*/
+*.toc

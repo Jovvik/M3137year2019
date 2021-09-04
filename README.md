@@ -12,6 +12,10 @@
 
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/translation%20methods/5sem/main.pdf)
 
+### Теория чисел (алгоритмы в математике)
+
+- [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/main.pdf)
+
 ### Функциональное программирование
 
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/functional%20programming/5sem/main.pdf)

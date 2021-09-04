@@ -3,5 +3,15 @@
     "referrer": "github.com",
     "count": 8,
     "uniques": 5
+  },
+  {
+    "referrer": "Google",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "referrer": "away.vk.com",
+    "count": 1,
+    "uniques": 1
   }
 ]

@@ -100,16 +100,6 @@
 
 По такой таблице можно построить \textbf{гистограмму}. На координатной плоскости построим прямоугольники c основаниями \(l_i\) и высотами \(\frac{m_i}{n l_i}\). В результате получаем ступенчатую фигуру площади \(1\), которая и называется гистограммой.
 
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[ybar interval]
-            \addplot coordinates { (0, 2) (5, 5) (10, 6) (15, 4) (20, 2) (25, 2) };
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Пример гистограммы.}
-\end{figure}
-
 \begin{theorem}
     При \(n \to \infty, k(n) \to \infty\), причем \(\frac{k(n)}{n} \to 0\), гистограмма будет стремиться к плотности распределения:
     \[\frac{m_i}{n} \xrightarrow{P} P(X_i \in l_i) = \int_{l_i} f(x)dx\]
@@ -118,13 +108,28 @@
 
 \begin{remark}
     Иногда выборка изображается в виде \textbf{полигона}: отображаются точки, соответствующие серединам интервалов и ставим точки на высоте \(\frac{m_i}{n}\).
-    \begin{figure}[H]
+\end{remark}
+
+\begin{figure}
+    \centering
+    \begin{minipage}{.5\textwidth}
         \centering
-        \begin{tikzpicture}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[ybar interval]
+                \addplot coordinates { (0, 2) (5, 5) (10, 6) (15, 4) (20, 2) (25, 2) };
+            \end{axis}
+        \end{tikzpicture}
+        \captionof{figure}{Пример гистограммы}
+        \label{fig:test1}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.8]
             \begin{axis}
                 \addplot coordinates { (0, 2) (5, 5) (10, 6) (15, 4) (20, 1) };
             \end{axis}
         \end{tikzpicture}
-        \caption{Пример полигона.}
-    \end{figure}
-\end{remark}
+        \captionof{figure}{Пример полигона}
+        \label{fig:test2}
+    \end{minipage}
+\end{figure}

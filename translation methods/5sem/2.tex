@@ -1,0 +1,208 @@
+\chapter{9 сентября}
+
+\subsection{Вычисление \(\mathrm{FIRST}\)}
+
+Определим массив \textit{(или map)} \(\mathrm{FIRST[]} : N \to 2^{\Sigma \cup \{\varepsilon\}}\), который будет возвращать \(\mathrm{FIRST}\) от нетерминалов.
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(\alpha = c\beta \Rightarrow \mathrm{FIRST}(\alpha) = \{c\}\)
+        \item \(\alpha = \varepsilon \Rightarrow \mathrm{FIRST}(\alpha) = \{\varepsilon\}\)
+        \item \(\alpha = A\beta \Rightarrow \mathrm{FIRST}(\alpha) = \mathrm{FIRST}[A] \setminus \varepsilon \cup (\mathrm{FIRST}(\beta)\ \mathrm{if}\ \varepsilon \in \mathrm{FIRST}[A])\)
+    \end{itemize}
+\end{lemma}
+\begin{proof}
+    Очевидно.
+\end{proof}
+
+По лемме мы можем найти \(\mathrm{FIRST}[]\) следующим алгоритмом:
+
+% \begin{minted}[escapeinside=||,mathescape=true]{python}
+% while (change):
+%     for |$A \to \alpha \in \Gamma$|:
+%         FIRST[A] |$\cup$|= FIRST(|$\alpha$|)
+% \end{minted}
+
+Докажем, что итоговый массив \(\mathrm{FIRST}[]\) как функция от \(N\) равен функции \(\mathrm{FIRST}\).
+\begin{proof}
+    Очевидно, что \(\mathrm{FIRST}[A] \subset \mathrm{FIRST}(A)\), т.к. мы не добавляем лишнего \textit{(по лемме)}.
+
+    Докажем, что \(\mathrm{FIRST}[A] \supset \mathrm{FIRST}(A)\) от противного --- пусть \(\exists c : c \in \mathrm{FIRST}(A), c \notin \mathrm{FIRST}[A]\). Среди всех таких \(c\) найдем такое, что вывод \(A \Rightarrow^k c\xi\) имеет минимальную длину, т.е. \(k \to \min\). Можем расписать \(A \Rightarrow^k c\xi\) как \(A \Rightarrow \alpha \Rightarrow^{k - 1} c\xi\) для некоторого \(\alpha\).
+
+    Рассмотрим структуру \(\alpha\). Это некоторая строка \(x_1 x_2 \dots x_k\), при этом все символы с \(x_1\dots x_{i - 1}\)\footnote{Эта последовательность может быть пустой.} породили пустые строки, и \(x_i\) породил строку, начинающуюся с \(c\). Т.к. \(k \to \min\), то \(c \in \mathrm{FIRST}[x_i]\), т.к. \(c \in \mathrm{FIRST}(x_i)\). Но тогда на последней итерации алгоритма, когда рассматривается правило \(A \to \alpha\), в \(\mathrm{FIRST}[A]\) должно было добавиться \(\mathrm{FIRST}(A)\), в котором лежит \(c\). Противоречие.
+\end{proof}
+
+По массиву \(\mathrm{FIRST}[]\) можно восстановить \(\mathrm{FIRST}(\alpha)\) для любого \(\alpha\) по лемме.
+
+\subsection{Вычисление \(\mathrm{FOLLOW}\)}
+
+% \begin{minted}[escapeinside=||,mathescape=true]{python}
+% FOLLOW[S] = |$\{\$\}$|
+% while (change):
+%     for |$A \to \alpha \in \Gamma$|:
+%         for |$B : \alpha = \beta B \gamma$|:
+%             FOLLOW(B) |$\cup$|= FIRST(|$\gamma$|)|$\setminus \varepsilon \cup{}$|(FOLLOW(|$A$|) if |$\varepsilon \in{}$| FIRST(|$\gamma$|))
+% \end{minted}
+
+\begin{proof}
+    Аналогично \(\mathrm{FIRST}\).
+\end{proof}
+
+
+\begin{example}
+    Вспомним грамматику арифметических выражений с прошлой лекции:
+    \begin{itemize}
+        \item \(E \to E + T\)
+        \item \(E \to T\)
+        \item \(T \to T * F\)
+        \item \(T \to F\)
+        \item \(F \to (E)\)
+        \item \(F \to n\)
+    \end{itemize}
+
+    \begin{center}
+        \begin{tabular}{C|C|C}
+              & \mathrm{FIRST} & \mathrm{FOLLOW} \\ \hline
+            E & (n             & \$\ +\ )        \\
+            T & (n             & \$\ +\ *\ )     \\
+            F & (n             & \$\ +\ *\ )
+        \end{tabular}
+    \end{center}
+\end{example}
+
+Для правил \(E \to E + T, E \to T\) множества \(\mathrm{FIRST}\) от правых частей пересекаются, следовательно эта грамматика не \(LL(1)\). Это вызвано простой проблемой --- эти два правила образуют левую рекурсию и очевидно условие 1 теоремы не выполнено.
+
+\subsection{Доказательство теоремы о характеризации \(LL(1)\)}
+
+\begin{proof}\itemfix
+    Предположим, что \(\Gamma \notin LL(1)\).
+    \begin{enumerate}
+        \item \(\xi\) не породил \(\varepsilon\), \(\eta\) не породил \(\varepsilon\)
+
+              Тогда \(c \in \mathrm{FIRST}(\xi)\) и \(c \in FIRST(\eta)\)
+
+        \item \(\xi\) породил \(\varepsilon\), \(\eta\) породил \(\varepsilon\)
+
+              Тогда \(\varepsilon \in \mathrm{FIRST}(\xi)\) и \(\varepsilon \in \mathrm{FIRST}(\eta)\)
+
+        \item \(\xi\) породил \(\varepsilon\), \(\eta\) не породил \(\varepsilon\)
+
+              Тогда \(\varepsilon \in \mathrm{FIRST}(\xi), c \in \mathrm{FOLLOW}(A)\) и \(c \in \mathrm{FIRST}(\eta)\)
+    \end{enumerate}
+
+    Таким образом, если \(\Gamma \notin LL(1)\), то условие теоремы не выполнено.
+
+    \textcolor{red}{В обратную сторону доказательство не написано.} % TODO
+\end{proof}
+
+\subsection{Проблемы грамматик}
+
+В этой части мы обсудим типичные причины, по которым грамматика может быть \(\notin LL(1)\).
+
+\subsubsection{Левая рекурсия}
+
+\begin{definition}
+    \(A \Rightarrow^{ +} A\alpha\) --- \textbf{левая рекурсия}
+\end{definition}
+
+\begin{statement}
+    Левая рекурсия \(\notin LL(1)\). \textit{(почти всегда)}
+\end{statement}
+\begin{proof}
+    Рассмотрим непосредственную левую рекурсию: \(A \to A\alpha\). Пусть ещё есть правило \(A \to \beta\).\footnote{Мы не теряем общности, т.к. иначе \(A\) --- бесполезный нетерминал. Мы не рассматриваем грамматики с такими нетерминалами, т.к. их можно убрать.} Рассмотрим \(c \in \mathrm{FIRST}(\beta)\), тогда ещё \(c \in \mathrm{FIRST}(A\alpha)\), следовательно \(\Gamma \notin LL(1)\). Если же \(\nexists c \in \mathrm{FIRST}(\beta)\) для любого \(\beta\), то \(\Gamma \in LL(1)\).
+\end{proof}
+
+От левой рекурсии можно избавиться следующим преобразованием для всех \(A \to A\alpha, A \to \beta\):
+\begin{itemize}
+    \item \(A \to \beta A'\)
+    \item \(A' \to \alpha A'\)
+    \item \(A' \to \varepsilon\)
+\end{itemize}
+
+Никто не гарантирует, что после такого преобразования \(\Gamma' \in LL(1)\), т.к. у грамматики могут быть другие проблемы.
+
+\subsubsection{Правое ветвление}
+
+\begin{definition}[правое ветвление]
+    \(A \to \alpha \beta, A \to \alpha \gamma\)
+\end{definition}
+
+\begin{statement}
+    Правое ветвление \(\notin LL(1)\). \textit{(почти всегда)}
+\end{statement}
+
+Преобразование, удаляющее правое ветвление:
+\begin{itemize}
+    \item \(A \to \alpha A'\)
+    \item \(A' \to \beta\)
+    \item \(A' \to \gamma\)
+\end{itemize}
+
+\subsubsection{Пример}
+
+Преобразуем грамматику арифметических выражений:
+
+\begin{itemize}
+    \item \(E \to TE'\)
+    \item \(E' \to + TE'\)
+    \item \(E' \to \varepsilon\)
+    \item \(T \to FT'\)
+    \item \(T' \to *FT'\)
+    \item \(T' \to \varepsilon\)
+    \item \(F \to (E)\)
+    \item \(F \to n\)
+\end{itemize}
+
+Посчитаем \(\mathrm{FIRST}\) и \(\mathrm{FOLLOW}\):
+\begin{center}
+    \begin{tabular}{C|L|L}
+           & \mathrm{FIRST} & \mathrm{FOLLOW} \\ \hline
+        E  & n\ (           & \$\  )          \\
+        E' & \varepsilon\ + & \$\  )          \\
+        T  & n\ (           & +\ \$\ )        \\
+        T' & \varepsilon\ * & +\ \$\  )       \\
+        F  & n\ (           & *\  +\  \$\ )   \\
+    \end{tabular}
+\end{center}
+
+Ура, эта грамматика \(\in LL(1)\)!
+
+\section{Построение парсеров}
+
+Есть два метода построения деревьев разбора --- сверху и снизу. Для \(LL\) грамматик используется сверху, для \(LR\) \textit{(определим позже)} --- снизу.
+
+Для каждого нетерминала определим функцию, которая возвращает дерево разбора с корнем в этом нетерминале.
+
+Также у нас есть контекст, в котором есть \texttt{token} --- рассматриваемый токен и функция \texttt{nextToken()} --- достает новый токен. Для каждой функции инвариант --- при вызове функции \(f\) \texttt{token} есть нетерминал \(f\).
+
+\begin{example}
+    Пусть есть правила \(A \to \alpha_1, A \to \alpha_2 \dots A \to \alpha_k\).
+
+    \[\mathrm{FIRST1}(\alpha) \coloneqq \mathrm{FIRST}(\alpha) \setminus \varepsilon \cup (\mathrm{FOLLOW}(A)\ \mathrm{if}\ \varepsilon \in \mathrm{FIRST}(\alpha))\]
+
+    \begin{minted}[escapeinside=||,mathescape=true]{cpp}
+A(): Tree
+    r = Tree(A)
+    switch (token)
+        case FIRST1(|$\alpha_1$|)
+            f|$\alpha_1$|
+        case FIRST1(|$\alpha_2$|)
+            f|$\alpha_2$|
+        |$\vdots$|
+    return r
+    \end{minted}
+    , где \(f\alpha_i\) --- блок обработки \(\alpha_i\).
+
+    Пусть \(\alpha_i = X_1X_2\dots X_t\). Тогда \(f\alpha_i\):
+    \begin{minted}[escapeinside=||,mathescape=true]{cpp}
+f|$\alpha_i$|:
+    |$\vdots$|
+    // $X_i$ = c --- terminal
+    assert |$X_i$| == token
+    nextToken()
+    r.addChild(|$X_i$|)
+
+    // $X_j$ = A --- nonterminal
+    r.addChild(|$X_j$|)
+    \end{minted}
+\end{example}

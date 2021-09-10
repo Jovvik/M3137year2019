@@ -15,7 +15,7 @@
 
 Токены арифметических выражений это \( + , \cdot, (, ), n\), где \(n\) --- число. Синтаксис задается следующей контекстно-свободной грамматикой:
 \begin{itemize}
-    \item \(E \to n\) 
+    \item \(E \to n\)
     \item \(E \to (E)\)
     \item \(E \to E + E\)
     \item \(E \to E \cdot E\)
@@ -53,8 +53,6 @@
 
 Этот курс рассматривает второй и третий подходы.
 
-\section{Нисходящие парсеры}
-
 Рассмотрим пример калькулятора арифметических выражений:
 \begin{minted}{python}
 int expr():
@@ -86,6 +84,7 @@ int factor():
 
 Какая связь между этим кодом и грамматикой арифметических выражений? Оказывается, весьма близкая и код можно получить из нее.
 
+\section{\(LL(k), \mathrm{FIRST}, \mathrm{FOLLOW}\)}
 
 \begin{definition}[контекстно-свободная грамматика]\itemfix
     \begin{itemize}
@@ -153,7 +152,7 @@ int factor():
 \end{remark}
 
 \begin{theorem}
-    \(\Gamma \in LL(1) \Leftrightarrow A \to \alpha, A \to \beta\):
+    \(\Gamma \in LL(1) \Leftrightarrow \forall A \to \alpha, A \to \beta\):
     \begin{enumerate}
         \item \(\mathrm{FIRST}(\alpha) \cap \mathrm{FIRST}(\beta) = \emptyset\)
         \item \(\varepsilon \in \mathrm{FIRST}(\alpha) \Rightarrow \mathrm{FIRST}(\beta) \cap \mathrm{FOLLOW}(A) = \emptyset\)

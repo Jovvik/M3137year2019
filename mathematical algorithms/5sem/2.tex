@@ -1,0 +1,129 @@
+\chapter{11 сентября}
+
+План курса:
+\begin{itemize}
+    \item Полугруппа
+    \item Группа
+          \begin{itemize}
+              \item Гомоморфизм
+              \item Фактор-группа
+              \item Теорема о ядре
+              \item Произведение групп
+          \end{itemize}
+    \item Кольцо
+          \begin{itemize}
+              \item \(\mathbb{Z}\)
+              \item Остатки
+              \item Китайская теорема об остатках
+              \item Алгоритм Евклида
+              \item Кольцо многочленов
+              \item Алгебра многочленов
+          \end{itemize}
+    \item Поле
+          \begin{itemize}
+              \item Поля Галуа
+              \item Расширения Галуа
+              \item Алгебраические кривые
+              \item Диофантовы уравнения
+          \end{itemize}
+\end{itemize}
+
+Начиная с групп мы будем использовать формализм теории категорий.
+
+\section{Алгебраические структуры}
+
+\subsection{Структуры с одним законом композиции}
+
+Пусть \(M\) --- множество с законом композиции \(T : \forall x, y \in M \ \ \exists xTy \in M\).
+
+\begin{remark}
+    Такой закон называется \textbf{внутренним}, т.к. оба его аргумента \(\in M\).
+\end{remark}
+
+\begin{obozn}
+    \(x \cdot y, x \circ y, x + y, x^y, x * y\)
+\end{obozn}
+
+Закон задает структуру на множестве.
+
+\begin{definition}
+    \(e_L \in M : \forall x \in M \ \ e_L \cdot x = x\) --- \textbf{левый нейтральный} элемент
+
+    \(e_R \in M : \forall x \in M \ \ x \cdot e_R = x\) --- \textbf{правый нейтральный} элемент
+\end{definition}
+
+\begin{lemma}
+    \(\exists e_L, e_R \in M \Rightarrow e_L = e_R \defeq e\)
+\end{lemma}
+\begin{proof}
+    \(e_L = e_L \cdot e_R = e_R\)
+\end{proof}
+
+\begin{lemma}
+    \(e, e'\) --- нейтральные элементы \( \Rightarrow e = e'\).
+\end{lemma}
+\begin{proof}
+    \(e = e \cdot e' = e'\)
+\end{proof}
+
+\begin{definition}
+    \(p \in M : p \cdot p = p\) --- \textbf{идемпотент}
+\end{definition}
+
+\begin{definition}
+    \(z \in M : z \cdot x = z \cdot y \Rightarrow x = y\) --- \textbf{регулярный} элемент \textit{(левый)}
+\end{definition}
+
+\begin{definition}
+    \(x \in M, \exists e \in M\). Элемент \(z \in M : z \cdot x = e\) --- \textbf{левый обратный} элемент к \(x\).
+
+    \(y \in M : x \cdot y = e\) --- \textbf{правый обратный} элемент к \(x\).
+\end{definition}
+
+\begin{lemma}
+    Если \(\exists y, z\), то \(y = z \defeq x^{-1}\) --- \textbf{обратный} элемент.
+\end{lemma}
+\begin{proof}
+    \(z = z \cdot e = z \cdot (x \cdot y) = (z \cdot x) \cdot y = e \cdot y = y\). Здесь мы воспользовались \textbf{ассоциативностью} закона композиции.
+\end{proof}
+
+\begin{definition}
+    \(\Theta_L : \forall x \in M \ \ \Theta_L \cdot x = \Theta_L\) --- \textbf{поглощающий} \textit{(слева)} элемент
+
+    \(\Theta_R : \forall x \in M \ \ x \cdot \Theta_R = \Theta_R\) --- \textbf{поглощающий} \textit{(справа)} элемент
+\end{definition}
+
+\begin{lemma}
+    \(\exists \Theta_L, \Theta_R \Rightarrow \Theta_L = \Theta_R \defeq \Theta\)
+\end{lemma}
+\begin{proof}
+    \(\Theta_L = \Theta_L \cdot \Theta_R = \Theta_R\)
+\end{proof}
+
+\(\sphericalangle x,y,z \in M, x \cdot y \cdot z = (x \cdot y) \cdot z\) или \(x \cdot (y \cdot z)\). Какое выбрать? Без ассоциативности непонятно. Поэтому мы требуем ассоциативность в рамках этого курса.
+
+То же самое можно сказать для семейства элементов.
+
+\begin{theorem}[об ассоциативном законе]
+    \(1 \leq k \leq n \Rightarrow T_{i = 1}^n x_i = \left( T_{i = 1}^k x_i \right) T \left( T_{i = k + 1}^n x_i \right)\)
+\end{theorem}
+
+\begin{definition}
+    \(\sphericalangle \forall x, y \in M \ \ xTy = yTx\). Тогда \(T\) называется \textbf{коммутативным}.
+\end{definition}
+
+\begin{definition}
+    \(\exists x, y \in M : xTy = yTx\). Тогда \(x, y\) называются \textbf{перестановочными} относительно закона.
+\end{definition}
+
+\begin{theorem}[об ассоциативном, коммутативном законе]
+    Аргументы ассоциативного, коммутативного закона можно переставлять как угодно.
+\end{theorem}
+
+\subsection{Структуры с двумя законами композиции}
+
+Пусть \(M\) --- множество с законами композиции \(*, \circ\). Нас интересует случай, когда эти два закона взаимосвязаны.
+
+Как воспринимать \(x * y \circ z\)? Может иметь место \textbf{дистрибутивность} \(*\) относительно \(\circ\) \textit{(слева)}: \(x * (y \circ z) = (x * y) \circ (x * z)\)
+
+\(\sphericalangle e\) --- нейтральный элемент по \(\circ\). \(\sphericalangle x * y = x * (e \circ y) = (x * e) \circ (x * y) \Rightarrow x * e = e\). Поэтому из поля нельзя убрать ноль.

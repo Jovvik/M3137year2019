@@ -1,0 +1,221 @@
+\chapter{13 сентября}
+
+\section{Точечные оценки}
+
+
+Пусть имеется выборка объема \(n\): \(X = \begin{pmatrix}
+    X_1 & \dots & X_n
+\end{pmatrix}\)
+\begin{definition}
+    \textbf{Статистикой} называется измеримая функция \(\theta^* = \theta^*(X_1, \dots, X_n)\).
+\end{definition}
+
+Пусть требуется найти значение параметра \(\theta\) случайной величины \(X\) по данной выборке. Оценку будем считать с помощью некоторой статистики \(\theta^*\).
+
+\subsection{Свойства статистических оценок}
+
+\subsubsection{Состоятельность}
+
+\begin{definition}
+    Статистика \(\theta^* = \theta^*(X_1, \dots, X_n)\) называется \textbf{состоятельной оценкой} параметра \(\theta\), если:
+    \[\theta^* \xrightarrow[n \to \infty]{P} \theta\]
+\end{definition}
+
+\subsubsection{Несмещённость}
+
+\begin{definition}
+    Статистика \(\theta^* = \theta^*(X_1, \dots, X_n)\) называется \textbf{несмещенной оценкой} параметра \(\theta\), если
+    \[\mathbb{E} \theta^* = \theta\]
+\end{definition}
+
+\begin{remark}
+    То есть с равной вероятностью можем ошибиться как в меньшую, так и в большую сторону. Нет систематической ошибки.
+\end{remark}
+
+\begin{definition}
+    Статистика \(\theta^* = \theta^*(X_1, \dots, X_n)\) называется \textbf{асимптотически несмещенной оценкой} параметра \(\theta\), если
+    \[\mathbb{E} \theta^* \xrightarrow[n \to \infty ]{} \theta\]
+\end{definition}
+
+\begin{remark}
+    То есть при достаточно большом объеме выборки ошибка исчезает, но при малом она может существовать.
+\end{remark}
+
+\subsubsection{Эффективность}
+
+\begin{definition}
+    Оценка \(\theta_1^*\) \textbf{не хуже} оценки \(\theta_2^*\), если
+    \[\mathbb{E} (\theta_1^* - \theta)^2 \leq \mathbb{E} (\theta_2^* - \theta)^2\]
+    или, если оценки несмещенные,
+    \[\mathbb{D} \theta_1^* \leq \mathbb{D} \theta_2^*\]
+\end{definition}
+
+\begin{definition}
+    Оценка \(\theta^*\) называется \textbf{эффективной}, если она не хуже всех остальных оценок.
+\end{definition}
+
+\begin{theorem}
+    Не существует эффективной оценки в классе всех возможных оценок.
+\end{theorem}
+% TODO: написать план доказательства, возможно доказать.
+
+\begin{theorem}
+    В классе \? оценок существует эффективная оценка.
+\end{theorem}
+
+\subsection{Точечные оценки моментов}
+
+\begin{definition}
+    \textbf{Выборочным средним} \(\overline{X_B}\) называется величина
+    \[\overline{X_B} = \frac{1}{n} \sum_{i=1}^{n} X_i\]
+\end{definition}
+
+\begin{definition}
+    Выборочной дисперсией \(\mathbb{D}_B\) называется величина
+    \[\mathbb{D}_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X_B})^2\]
+\end{definition}
+
+\begin{definition}
+    \? \(S^2\) называется величина
+    \[S^2 = \frac{n}{n - 1} \mathbb{D}_B\]
+    или
+    \[S^2 = \frac{1}{n - 1} \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X_B})^2\]
+\end{definition}
+
+\begin{definition}
+    \textbf{Выборочным средним квадратическим отклонением} называется величина
+    \[\sigma_B = \sqrt{\mathbb{D}_B}\]
+\end{definition}
+
+\begin{definition}
+    \textbf{Исправленным выборочным средним квадратическим отклонением} называется величина
+    \[S = \sqrt{S^2}\]
+\end{definition}
+
+\begin{definition}
+    \textbf{Выборочным \(k\)-тым моментом} называется величина
+    \[\overline{X^k} = \frac{1}{n}\sum_{i=1}^{n} X_i^k\]
+\end{definition}
+
+\begin{definition}
+    \textbf{Модой} вариационного ряда \(M_0^*\) называется варианта с наибольшей частотой:
+    \[M_0^* = X_i : n_i = \max_{1 \leq j < n} n_j\]
+\end{definition}
+
+\begin{definition}
+    \textbf{Медианой} \(M_e^*\) называется \?
+    \begin{enumerate}
+        \item Если \(n = 2k - 1\), то \(M_e^* = X_k\)
+        \item Если \(n = 2k\), то \(M_e^* = \frac{X_k + X_{k + 1}}{2}\)
+    \end{enumerate}
+\end{definition}
+
+% TODO: переписать в таблицу, добавить английские названия
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item \(\overline{X_B} = \mathrm{СРЗНАЧ}\)
+        \item \(\mathbb{D}_B = \mathrm{ДИСПР}\)
+        \item \(S^2 = \mathrm{ДИСП}\)
+        \item \(\sigma_n = \mathrm{СТАНДОТКЛОНП}\)
+        \item \(S = \mathrm{СТАНДОТКЛОН}\)
+        \item \(M_0^* = \mathrm{МОДА}\)
+        \item \(M_e^* = \mathrm{МЕДИАНА}\)
+    \end{itemize}
+\end{remark}
+
+\begin{theorem}
+    Выборочное среднее \(\overline{X_B}\) является несмещенной состоятельной оценкой для математического ожидания, то есть:
+    \begin{enumerate}
+        \item \(\mathbb{E} \overline{X_B} = \mathbb{E} X = a\) --- несмещенность
+        \item \(\overline{X_B} \xrightarrow[n \to \infty ]{P} \mathbb{E} X\)
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \[\mathbb{E} \overline{X} = \mathbb{E} \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) = \frac{1}{n} \sum_{i=1}^{n} \mathbb{E} X_i = \frac{1}{n} \cdot n \mathbb{E} X_i = \mathbb{E} X\]
+        \item \[\overline{X} = \frac{\sum_{i=1}^{n} X_i}{n} \xrightarrow[n \to \infty ]{P} \mathbb{E} X\]
+              Это верно по закону больших чисел.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Выборочный \(k\)-тый момент является несмещенной состоятельной оценкой для теоретического \(k\)-того момента, то есть:
+    \begin{enumerate}
+        \item \(\mathbb{E} \overline{X^k} = X^k\)
+        \item \(\overline{X^k} \xrightarrow[]{P} \mathbb{E} X^k\)
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Следует из предыдущей теоремы, если в качестве случайной величины взять \(X^k\).
+\end{proof}
+
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(\mathbb{D}_B\) --- смещённая состоятельная оценка дисперсии
+        \item \(S^2\) --- несмещённая состоятельная оценка дисперсии
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    \[\mathbb{D}_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2 = \overline{X^2} - (\overline{X})^2\]
+    \begin{align*}
+        \mathbb{E} \mathbb{D}_B                                                  & =                 \\ \mathbb{E} (\overline{X^2} - (\overline{X})^2) & = \\ \mathbb{E} \overline{X^2} - \mathbb{E} (\overline{X})^2 & = \\ \mathbb{E} X^2 - \mathbb{E} (\overline{X})^2 & = \\ \mathbb{D} \overline{X} & = \\ \mathbb{E} (\overline{X})^2 - (\mathbb{E} \overline{X})^2 & = \\
+        \mathbb{E} X^2 - (\mathbb{D} \overline{X} + (\mathbb{E} \overline{X})^2) & =                 \\
+        \mathbb{E} X^2 - (\mathbb{E} X)^2 - \mathbb{D} \overline{X}              & =                 \\
+        (\mathbb{E} X^2 - (\mathbb{E} X)^2) - \mathbb{D} \overline{X}            & =                 \\
+        \mathbb{D} X - \mathbb{D} \overline{X}                                   & =                 \\
+        \mathbb{D} X - \mathbb{D} \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right)  & =                 \\
+        \mathbb{D} X - \frac{1}{n^2} \sum_{i=1}^{n} \mathbb{D} X_i               & =                 \\
+        \mathbb{D} X - \frac{1}{n^2} \cdot n \mathbb{D} X                        & =                 \\
+        \mathbb{D} X - \frac{1}{n} \mathbb{D} X                                  & =                 \\
+        \frac{n - 1}{n} \mathbb{D} X                                             & \neq \mathbb{D} X
+    \end{align*}
+    \[\mathbb{E} S^2 = \mathbb{E} \left( \frac{n}{n -1} \mathbb{D}_B \right) = \frac{n}{n - 1} \cdot \frac{n - 1}{n} \mathbb{D} X = \mathbb{D} X\]
+    \[\mathbb{D}_B = \overline{X^2} - (\overline{X})^2 \xrightarrow[]{P} \mathbb{E} X^2 - (\mathbb{E} X)^2 = \mathbb{D} X\]
+    \[S^2 = \frac{n}{n - 1} \mathbb{D}_B \xrightarrow[]{P} \underbrace{\frac{n}{n - 1}}_{ \to 1} \mathbb{D} X\]
+\end{proof}
+
+\begin{remark}
+    \(\mathbb{D}_B\) --- асимптотически несмещённая оценка, т.к. при \(n \to \infty\), \(\frac{n - 1}{n} \to 1\). Таким образом, при большой\footnote{\(n \geq 100\), например.} выборке можно игнорировать смещённость.
+\end{remark}
+
+\subsection{Метод моментов}
+
+Изобретен Карлом Пирсоном.
+
+Пусть имеется выборка \((X_1 \dots X_n)\) неизвестного распределения, при этом известен тип\footnote{Нормальное, показательное и т.д.} распределения. Пусть этот тип определяется \(k\) неизвестными параметрами \(\theta_1 \dots \theta_k\). Теоретическое распределение задает теоретические \(k\)-тые моменты. Например, если распределение непрерывное, то оно задается плотностью \(f(X, \theta_1 \dots \theta_k)\) и \(m_k = \int_{ - \infty}^{ +\infty} X^k f(x, \theta_1 \dots \theta_k) dx = h_k(\theta_1 \dots \theta_k)\). Метод моментов состоит в следующем: вычисляем выборочные моменты и подставляем их в эти равенства вместо теоретических. В результате получаем систему уравнений:
+\[\begin{cases}
+        \overline{X} = h_1(\theta_1 \dots \theta_k)   \\
+        \overline{X^2} = h_2(\theta_1 \dots \theta_k) \\
+        \vdots                                        \\
+        \overline{X^k} = h_k(\theta_1 \dots \theta_k)
+    \end{cases}\]
+Решив эту систему, мы получим оценки на \(\theta_1 \dots \theta_k\). Эти оценки будут состоятельными\footnote{Если не придумывать специально плохие примеры}, но смещёнными.
+
+\begin{example}
+    Пусть \(X \in U(a, b), a < b\). Обработав статданные, получили оценки первого и второго момента: \(\overline{X} = 2.25; \overline{X^2} = 6.75\)
+\end{example}
+\begin{solution}
+    Плотность \(f(x) = \begin{cases}
+        0,               & x < a           \\
+        \frac{1}{b - a}, & a \leq x \leq b \\
+        0,               & x > b
+    \end{cases}\)
+    \[\mathbb{E} X = \int_a^b x f(x) dx = \int_a^b \frac{x}{b - a} = \frac{1}{b - a} \cdot \frac{x^2}{2}\Big|_a^b = \frac{b^2 - a^2}{2(b - a)} = \boxed{\frac{a + b}{2}}\]
+    \[\mathbb{E} X^2 = \int_a^b x^2 \cdot \frac{1}{b - a} dx = \frac{1}{b - a} \cdot \frac{x^3}{3} \Big|_a^b = \frac{b^3 - a^3}{3(b - a)} = \boxed{\frac{a^2 + ab + b^2}{3}}\]
+    \[\begin{cases}
+            2.25 = \frac{a + b}{2} \\
+            6.75 = \frac{a^2 + ab + b^2}{3}
+        \end{cases}\]
+    \[\begin{cases}
+            a + b = 4.5 \\
+            a^2 + ab + b^2 = 20.25
+        \end{cases}\]
+    \[\begin{cases}
+            a + b = 4.5 \\
+            ab = 0
+        \end{cases}\]
+    \[\begin{cases}
+            a = 0 \\
+            b = 4.5
+        \end{cases}\]
+\end{solution}

@@ -36,7 +36,10 @@
 \captionsetup{justification=centering,margin=2cm}
 \usepackage{catchfilebetweentags}
 \usepackage{enumitem}
+\usepackage{environ}
+\usepackage{empheq}
 \usepackage{etoolbox}
+\usepackage{fancybox}\cornersize{.2}
 \usepackage{float}
 \usepackage{forest}
 \usepackage{lastpage}
@@ -45,6 +48,8 @@
 \usepackage{wrapfig}
 \usepackage{xcolor}
 \usepackage[makeroom]{cancel}
+
+\NewEnviron{myemph}{\begin{empheq}[box=\Ovalbox]{equation*}\BODY\end{empheq}}
 
 \newcolumntype{L}{>{$}l<{$}}
     \newcolumntype{C}{>{$}c<{$}}

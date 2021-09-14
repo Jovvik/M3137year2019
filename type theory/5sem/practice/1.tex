@@ -1,0 +1,327 @@
+\input{../../../preamble.sty}
+
+\lhead{Теория типов \textit{(практика)}}
+\cfoot{}
+\rfoot{14.9.2021}
+
+\begin{document}
+
+\section*{Домашнее задание №1: <<вводная лекция>>}
+
+\begin{enumerate}
+
+    \item Напомним правила расстановки скобок в лямбда-выражениях. Лямбда-абстракция ведёт себя жадно:
+          включает всё, что может. Пример: $\lambda z.(\lambda x.a\ b\ c\ \lambda y.d\ e)\ f$
+          эквивалентно $\lambda z.((\lambda x.(a\ b\ c\ (\lambda y.(d\ e))))\ f)$.
+          В аппликациях скобки расставляются слева направо:
+          $\lambda z.(\lambda x.(a\ b\ c\ (\lambda y.(d\ e))))\ f$ можно преобразовать в
+          $(\lambda z.((\lambda x.((((a\ b)\ c)\ (\lambda y.(d\ e)))))\ f))$.
+
+          \begin{enumerate}
+              \item Расставьте скобки в выражении:
+                    $\lambda z.\lambda x.a\ b\ c\ \lambda y.d\ e\ f$
+                    \begin{solution}
+                        \[\lambda z.(\lambda x.(((a\ b)\ c)\ (\lambda y.((d\ e)\ f))))\]
+                    \end{solution}
+
+              \item Уберите все <<лишние>> скобки из выражения:
+                    $(\lambda f.((\lambda x.(f\ (f\ (x\ (\lambda z.(z\ x))))))\ z))$
+                    \begin{solution}
+                        \[\lambda f.\lambda x.(f\ f\ x\ (\lambda z.z\ x))\ z\]
+                        Почему \(z\) не под \(\lambda z\)?
+                    \end{solution}
+              \item Всегда ли лишние скобки можно убрать единственным образом (когда из результирующего
+                    выражения нельзя больше убрать ни одной пары скобок)? Докажите или опровергните.
+          \end{enumerate}
+
+    \item Напомним определения с лекций:
+
+          \begin{tabular}{lll}
+              Обозначение & лямбда-терм                   & название   \\\hline
+              $T$         & $\lambda a.\lambda b.a$       & истина     \\
+              $F$         & $\lambda a.\lambda b.b$       & ложь       \\
+              $Not$       & $\lambda x.x\ F\ T$           & отрицание  \\
+              $And$       & $\lambda x.\lambda y.x\ y\ F$ & конъюнкция
+          \end{tabular}
+
+          Проредуцируйте следующие выражения и найдите нормальную форму:
+
+          \begin{enumerate}
+              \item $T\ F$
+                    \begin{solution}
+                        \[T\ F \to_\beta (\lambda a.\lambda b.a)\ F \to_\beta \lambda b.F\]
+                    \end{solution}
+              \item $(T\ Not\ (\lambda t.t))\ F$
+                    \begin{solution}
+                        \begin{align*}
+                            (T\ Not\ (\lambda t.t))\ F          & \to_\beta   \\
+                            ((\lambda b.Not)\ (\lambda t.t))\ F & \to_\beta   \\
+                            Not\ F                              & \to_\beta   \\
+                            F\ F\ T                             & \to_\beta   \\
+                            (\lambda b.b)\ T                    & \to_\beta T \\
+                        \end{align*}
+                    \end{solution}
+              \item $And\ (And\ F\ F)\ T$
+                    \begin{solution}
+                        \begin{align*}
+                            And\ (And\ F\ F)\ T                       & \to_\beta   \\
+                            And\ ((\lambda y.F\ y\ F)\ F)\ T          & \to_\beta   \\
+                            And\ ((\lambda y.(\lambda b.b)\ F)\ F)\ T & \to_\beta   \\
+                            And\ ((\lambda y.F)\ F)\ T                & \to_\beta   \\
+                            And\ F\ T                                 & \to_\beta   \\
+                            (\lambda y.F\ y\ F)\ T                    & \to_\beta   \\
+                            F\ T\ F                                   & \to_\beta   \\
+                            (\lambda b.b)\ F                          & \to_\beta F \\
+                        \end{align*}
+                    \end{solution}
+          \end{enumerate}
+
+    \item Постройте лямбда-выражения для следующих булевских выражений:
+          \begin{enumerate}
+              \item Дизъюнкция
+                    \begin{solution}
+                        \(\lambda a.\lambda b.a\ T\ b\)
+                    \end{solution}
+              \item Штрих Шеффера (<<и-не>>)
+                    \begin{solution}
+                        \(\lambda a.\lambda b.a\ (Not\ b)\ T\)
+                    \end{solution}
+              \item Исключающее или
+                    \begin{solution}
+                        \(\lambda a.\lambda b.a\ (Not\ b)\ b\)
+                    \end{solution}
+          \end{enumerate}
+
+    \item Напомним определения с лекций:
+
+          $$f^{(n)}\ X ::= \left\{\begin{array}{ll} X,            & n=0 \\
+             f^{(n-1)}\ (f\ X), & n>0\end{array}\right.$$
+
+          \begin{center}\begin{tabular}{lll}
+                  Обозначение    & лямбда-терм                                     & название           \\\hline
+                  $\overline{n}$ & $\lambda f.\lambda x.f^{(n)}\ x$                & чёрчевский нумерал \\
+                  $(+1)$         & $\lambda n.\lambda f.\lambda x.n\ f\ (f\ x)$    & прибавление 1      \\
+                  $(+)$          & $\lambda a.\lambda b.a\ (+1)\ b$                & сложение           \\
+                  $(\cdot)$      & $\lambda a.\lambda b.a\ ((+)\ b)\ \overline{0}$ & умножение
+              \end{tabular}\end{center}
+
+          Используя данные определения, постройте выражения для следующих операций над числами:
+
+          \begin{enumerate}
+              \item Умножение на 2 ($Mul2$)
+                    \begin{solution}
+                        \(\lambda a.((+)\ a\ a)\)
+                    \end{solution}
+              \item Возведение в степень
+                    \begin{solution}
+                        \(\lambda a.\lambda b.b\ ((\cdot)\ a)\ \overline{1}\)
+                    \end{solution}
+              \item Проверка на чётность
+                    \begin{solution}
+                        \(\lambda a.a\ \mathrm{Not}\ T\)
+                    \end{solution}
+              \item IsZero: возвращает $T$, если аргумент равен нулю, иначе $F$
+                    \begin{solution}\itemfix
+                        \begin{itemize}
+                            \item \(\mathrm{Flip} \coloneqq \lambda a.a\ ((\cdot)\ \overline{0})\ \overline{1}\). \(\mathrm{Flip}(a) = \begin{cases}
+                                      1, & a = 0    \\
+                                      0, & a \neq 0
+                                  \end{cases}\)
+                            \item \(\mathrm{IsZero} \coloneqq \lambda a.(\mathrm{Flip}\ a)\ \mathrm{Not}\ T\)
+                        \end{itemize}
+                    \end{solution}
+          \end{enumerate}
+
+    \item Напомним определения с лекций:
+
+          \begin{tabular}{lll}
+              Обозначение & лямбда-терм                               & название        \\\hline
+              $MkPair$    & $\lambda a.\lambda b.(\lambda x.x\ a\ b)$ & создание пары   \\
+              $PrL$       & $\lambda p.p\ T$                          & левая проекция  \\
+              $PrR$       & $\lambda p.p\ F$                          & правая проекция \\\hline
+          \end{tabular}
+
+          \begin{enumerate}
+              \item Убедитесь, что $PrL\ (MkPair\ a\ b) \twoheadrightarrow_\beta a$.
+                    \begin{solution}
+                        \begin{align*}
+                            \mathrm{PrL}\ (\mathrm{MkPair}\ a\ b) & \to_\beta   \\
+                            \mathrm{PrL}\ (\lambda x.x\ a\ b)     & \to_\beta   \\
+                            (\lambda p.p\ T)\ (\lambda x.x\ a\ b) & \to_\beta   \\
+                            (\lambda x.x\ a\ b)\ T                & \to_\beta   \\
+                            T\ a\ b                               & \to_\beta a \\
+                        \end{align*}
+                    \end{solution}
+              \item Постройте операцию вычитания 1 из числа
+                    \begin{solution}
+                        \(\lambda a.a\ (\mathrm{PrL}\ (\lambda p.(\mathrm{MkPair}\ (\mathrm{PrR}\ p)\ ((+1)\ (\mathrm{PrR}\ p))))\ (\mathrm{MkPair}\ \overline{0}\ \overline{0}))\)
+                    \end{solution}
+              \item Постройте операцию вычитания чисел
+                    \begin{solution}
+                        \(\lambda a.\lambda b.b\ (-1)\ a\)
+                    \end{solution}
+              \item Постройте операцию деления на 3 (могут потребоваться пары и/или вычитания)
+                    \begin{solution}
+                    \end{solution}
+              \item Постройте операцию деления чисел
+                    \begin{solution}
+                        Пусть дробь \(\frac{n}{m}\) есть применение коллбека \(f\) к \(m\) аргументам \(n\) раз \textit{(распределенных равномерно)} с комбинирующим коллбеком \(g\):
+                        \[\frac{4}{3} \leftrightarrow \lambda f.\lambda g.\lambda a_1.\lambda a_2.\lambda a_3.g\ (f\ (f\ a_1))\ (f\ a_2)\ (f\ a_3)\]
+                        Определим конвертер \(\N \to \N \to \mathrm{FRAC}\):
+                        \[\mathrm{Frac} = \lambda n.\lambda m.\lambda f.\lambda g.n\ (m\ (\lambda t.\lambda z.\lambda v.t\ (\lambda q.z\ q\ v))\ (\lambda x.x)\ (\lambda a.\lambda b.b\ (f\ a)))\ g\]
+                        \[t_1 = \lambda z.\lambda v.(\lambda x.x)\ (\lambda q.z\ q\ v) \to_\beta \lambda z.\lambda v.\lambda q.z\ q\ v\]
+                        \[t_2 = \lambda z_1.\lambda v_1.(\lambda z_2.\lambda v_2.\lambda q_2.z_2\ q_2\ v_2)\ (\lambda q_1.z_1\ q_1\ v_1) \to_\beta \lambda z_1.\lambda v_1.\lambda v_2.\lambda q_2.z_1\ q_2\ v_1\ v_2\]
+                        \[t_m = \lambda z.\lambda v_1\dots v_m.\lambda q.z\ q\ v_1\ v_2 \dots v_m\]
+                        \[r_m \coloneqq t_m (\lambda a.\lambda b.b\ (f\ a)) = \lambda v_1\dots v_m.\lambda q.(\lambda a.\lambda b.b\ (f\ a))\ q\ v_1\ v_2 \dots v_m\]
+                        \[ = \lambda v_1\dots v_m.\lambda q.(\lambda b.b\ (f\ q))\ v_1\ v_2 \dots v_m\]
+                        \[ = \lambda v_1\dots v_m.\lambda q.v_1\ (f\ q)\ v_2 \dots v_m\]
+                        \[r_m\ g = \lambda v_2 \dots v_m.\lambda q.g\ (f\ q)\ v_2 \dots v_m\]
+                        \[r_m\ (r_m\ g) = \lambda v_2 \dots v_m.\lambda q_1.(r_m\ g)\ (f\ q_1)\ v_2 \dots v_m\]
+                        \[= \lambda v_2 \dots v_m.\lambda q_1.(\lambda v_3 \dots v_m.\lambda q_2.g\ (f\ q_2)\ (f\ q_1)\ v_3 \dots v_m)\ v_2 \dots v_m\]
+                        \[= \lambda v_2 \dots v_m.\lambda q_1.(\lambda q_2.g\ (f\ q_2)\ (f\ q_1)\ v_2 \dots v_{m - 1})\ v_m\]
+                        \[= \lambda v_2 \dots v_m.\lambda q.g\ (f\ v_m)\ (f\ q)\ v_2 \dots v_{m - 1}\]
+                        Если \(n < m\):
+                        \[r_m^n\ g = \lambda v_2 \dots \lambda v_m.\lambda q.g\ (f\ v_{m - n + 1}) \dots (f\ v_m)\ (f\ q)\ v_2 \dots v_{m - n}\]
+                        Если \(n \geq m\), то мы начинаем строить новый слой в скобках. Это то, что нам нужно.
+
+                        Если не верится, то в \texttt{lci} можно вбить следующее: \texttt{(\textbackslash n.\textbackslash m.\textbackslash f.\textbackslash g.n (m (\textbackslash t.\textbackslash z.\textbackslash v.t (\textbackslash q.z q v)) (\textbackslash x.x) (\textbackslash a.\textbackslash b.b (f a))) g) (\textbackslash f.\textbackslash x.f(f(f(f(x))))) (\textbackslash f.\textbackslash x.f(f(f(x))))} и получить \(\frac{4}{3}\) из примера выше.
+
+                        Из дроби легко получить результат \textit{(с округлением вверх)} подстановкой вместо \(g\) функции, которая берет первый из \(m\) аргументов, \(f\) оставить свободной, вынести все \(a_i\) как \(x\). Для округления вниз надо вместо \(g\) подставить функцию, которая берёт последний аргумент.
+
+                        % TODO: написать первый проектор \(\N^n \to \N\).
+
+                        \[\mathrm{Call} = \lambda f.\lambda n.\lambda x.n\ (\lambda g.g\ x)\ f \leftrightarrow f \underbrace{x \dots x}_{n}\]
+                        \[\mathrm{Last} = \lambda n.n\ (\lambda x.\lambda t.x)\ (\lambda x.x)\ (\lambda x.x) \leftrightarrow \lambda t_1 \dots t_n.t_n\]
+                        \[\mathrm{Floor} = \lambda m.\lambda z.\lambda f.\lambda x.\mathrm{Call}\ (z\ f\ \mathrm{Last})\ m\ x\]
+                        \[\mathrm{Div} = \lambda n.\lambda m.\lambda f.\lambda x.\mathrm{Floor}\ m\ (\mathrm{Frac}\ n\ m)\ f\ x\]
+
+                        % \(t_m = \lambda z.\lambda v.t_{m - 1}\ (\lambda q.z\ q\ v)\), а \(t_1 = \lambda z.\lambda v.\lambda q.z\ q\ v\)
+
+                        % \[r_n = t_m\ (t_m\ \dots (t_m\ (\lambda a.\lambda b.b\ (f\ a)))))\]
+                        % \[r_n = t_m\ r_{n - 1} = \lambda v.t_{m - 1}\ (\lambda q.r_{n - 1}\ q\ v)\]
+                        % \[r_1 = \lambda v.t_{m - 1}\ (\lambda q.(\lambda a.\lambda b.b\ (f\ a))\ q\ v) = \lambda v.t_{m - 1}\ (\lambda q.v\ (f\ q))\]
+
+                        % Под воздействием достаточно сильных веществ можно заметить, что \(\mathrm{Frac}\) делает то, что от него требуется.
+                    \end{solution}
+              \item Сравнение двух чисел ($IsLess$) — истина, если первый аргумент меньше второго.
+                    \begin{solution}
+                        \(\mathrm{IsLess} = \lambda a.\lambda b.\mathrm{IsZero}\ ( -\ b\ a)\)
+                    \end{solution}
+          \end{enumerate}
+
+    \item Существует ли выражение $A$, что существуют такие выражения $B$ и $C$, что
+          $A \rightarrow_\beta B$ и $A \rightarrow_\beta C$, но $B$ и $C$ различны?
+
+          \begin{solution}
+
+          \end{solution}
+
+    \item Будем говорить, что лямбда-выражение находится в нормальной форме, если в нём невозможно
+          провести бета-редукции. Нормальной формой выражения называется результат (возможно, многократной)
+          его бета-редукции, находящийся в нормальной форме.
+          Проредуцируйте выражение и найдите его нормальную форму:
+          \begin{enumerate}
+              \item $\overline{2}\ \overline{2}$
+              \item $\overline{2}\ \overline{2}\ \overline{2}$
+              \item $\overline{2}\ \overline{2}\ \overline{2}\ \overline{2}\ \overline{2}\ \overline{2}\ \overline{2}$
+          \end{enumerate}
+
+          \begin{solution}
+              \begin{enumerate}
+                  \item \begin{align*}
+                            \overline{2}\ \overline{2}                                            & \to_\beta              \\
+                            (\lambda f.\lambda x.f\ (f\ x))\ \overline{2}                         & \to_\beta              \\
+                            \lambda x.\overline{2}\ (\overline{2}\ x)                             & \to_\beta              \\
+                            \lambda x.\overline{2}\ ((\lambda g.\lambda y.g\ (g\ y))\ x)          & \to_\beta              \\
+                            \lambda x.\overline{2}\ (\lambda y.x\ (x\ y))                         & \to_\beta              \\
+                            \lambda x.(\lambda h.\lambda z.h\ (h\ z))\ (\lambda y.x\ (x\ y))      & \to_\beta              \\
+                            \lambda x.\lambda z.(\lambda y.x\ (x\ y))\ ((\lambda y.x\ (x\ y))\ z) & \to_\beta              \\
+                            \lambda x.\lambda z.(\lambda y.x\ (x\ y))\ (x\ (x\ z))                & \to_\beta              \\
+                            \lambda x.\lambda z.x\ (x\ (x\ (x\ z)))                               & \to_\beta \overline{4} \\
+                        \end{align*}
+              \end{enumerate}
+          \end{solution}
+
+    \item Напомним определение Y-комбинатора: $\lambda f.(\lambda x.f\ (x\ x))\ (\lambda x.f\ (x\ x))$.
+          Напомним, что отношение бета-эквивалентности $(=_\beta)$ есть транзитивное, рефлексивное и симметричное
+          замыкание отношения бета-редукции. Будем говорить, что выражение не имеет нормальной формы, если
+          никакая конечная последовательность его бета-редукций не приводит к выражению в нормальной форме.
+          \begin{enumerate}
+              \item Покажите, что $Y\ f =_\beta f\ (Y\ f)$.
+                    \begin{solution}
+                        \begin{align*}
+                            Y\ f                                                                     & \to_\beta                    \\
+                            (\lambda f.(\lambda x.f\ (x\ x))\ (\lambda x.f\ (x\ x)))\ f              & \to_\beta                    \\
+                            (\lambda x.f\ (x\ x))\ (\lambda x.f\ (x\ x))                             & \to_\beta                    \\
+                            \underbrace{f\ ((\lambda x.f\ (x\ x))\ (\lambda x.f\ (x\ x)))}_{\varphi} & \leftarrow_\beta   f\ (Y\ f) \\
+                        \end{align*}
+                        \(Y\ f \twoheadrightarrow_\beta \varphi \Rightarrow Y\ f =_\beta \varphi\) и \(f\ (Y\ f) \to_\beta \varphi \Rightarrow f\ (Y\ f) =_\beta \varphi\), следовательно \(Y\ f =_\beta \varphi = _\beta f\ (Y\ f)\).
+                    \end{solution}
+              \item Покажите, что выражение $Y\ f$ не имеет нормальной формы;
+              \item Покажите, что выражение $Y\ (\lambda f.\overline{0})$ имеет нормальную форму.
+                    \begin{solution}
+                        \begin{align*}
+                            Y\ (\lambda f.\overline{0})                             & \to_\beta              \\
+                            (\lambda f.\overline{0})\ (Y\ (\lambda f.\overline{0})) & \to_\beta \overline{0} \\
+                        \end{align*}
+                    \end{solution}
+              \item Покажите, что выражение $Y\ (\lambda f.\lambda x.(IsZero\ x)\ \overline{0}\ (f\ Minus1\ x))\ 2$ имеет нормальную форму.
+              \item Какова нормальная форма выражения $Y\ (\lambda f.\lambda x.(IsZero\ x)\ \overline{0}\ ((+1)\ (f\ Minus1\ x)))\ \overline{n}$?
+              \item Какова нормальная форма выражения $Y\ (\lambda f.\lambda x.(IsZero\ x)\ \overline{1}\ (Mul2\ (f\ Minus1\ x)))\ \overline{n}$?
+              \item Определите с помощью $Y$-комбинатора функцию для вычисления $n$-го числа Фибоначчи.
+                    \begin{solution}
+                        \[(Y \lambda f.\lambda a.\lambda b.\lambda n.(\mathrm{IsZero}\ n)\ a\ (f\ b\ (a + b)\ (n - 1)))\ 1\]
+                    \end{solution}
+          \end{enumerate}
+
+    \item Определим на языке Хаскель следующую функцию: \verb!show_church n = show (n (+1) 0)!
+          Убедитесь, что \verb!show_church (\f -> \x -> f (f x))! вернёт 2.
+          Пользуясь данным определением и его идеей, реализуйте следующие функции:
+
+          \begin{enumerate}
+              \item \verb!int_to_church! --- возвращает чёрчевский нумерал (т.е. функцию от двух аргументов) по целому числу.
+                    Каков точный тип результата этой функции?
+              \item сложение двух чёрчевских нумералов.
+              \item умножение двух чёрчевских нумералов.
+              \item можно ли определить функцию вычитания 1 и вычитания двух чисел? Что получается, а что --- нет?
+          \end{enumerate}
+
+    \item Бесконечное количество комбинаторов неподвижной точки. Дадим следующие определения
+          $$\begin{array}{l}
+                  L := \lambda abcdefghijklmnopqstuvwxyzr.r(thisisafixedpointcombinator) \\
+                  R := LLLLLLLLLLLLLLLLLLLLLLLLLL\end{array}$$
+          В данном определении терм $R$ является комбинатором неподвижной точки: каков бы ни был терм
+          $F$, выполнено $R\ F =_\beta F\ (R\ F)$.
+          \begin{enumerate}
+              \item Докажите, что данный комбинатор --- действительно комбинатор неподвижной точки.
+              \item Пусть в качестве имён переменных разрешены русские буквы. Постройте аналогичное выражение
+                    по-русски: с 32 параметрами (без ё) и осмысленной русской фразой в терме $L$; покажите, что оно является
+                    комбинатором неподвижной точки.
+          \end{enumerate}
+
+    \item Дадим определение: комбинатор --- лямбда-выражение без свободных переменных.
+
+          Также напомним определение:
+          $$\begin{array}{l}
+                  S := \lambda x.\lambda y.\lambda z.x\ z\ (y\ z) \\
+                  K := \lambda x.\lambda y.x                      \\
+                  I := \lambda x.x
+              \end{array}$$
+
+          Известна теорема о том, что для любого комбинатора $X$ можно найти выражение $P$
+          (состоящее только из скобок, пробелов и комбинаторов $S$ и $K$), что $X =_\beta P$.
+          Будем говорить, что комбинатор $P$ \emph{выражает} комбинатор $X$ в базисе $SK$.
+
+          Выразите в базисе $SK$:
+          \begin{enumerate}
+              \item $F = \lambda x.\lambda y.y$
+              \item $\overline{1}$
+              \item $Not$
+              \item $Xor$
+              \item $InL$
+              \item $\overline{n}$
+          \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

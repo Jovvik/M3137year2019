@@ -1,4 +1,4 @@
-# Конспекты М3237
+Конспекты М3*37 2019 года поступения, кафедра КТ, университет ИТМО.
 
 ![views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views_per_week.svg)
 
@@ -18,6 +18,12 @@
 ### Теория типов
 
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/type%20theory/5sem/main.pdf)
+
+#### Практика
+
+Содержит условия всех задач и решения некоторых.
+
+- [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/type%20theory/5sem/practice/main.pdf)
 
 ### Теория чисел (алгоритмы в математике)
 

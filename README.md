@@ -23,7 +23,7 @@
 
 Содержит условия всех задач и решения некоторых.
 
-- [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/type%20theory/5sem/practice/main.pdf)
+- [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/type%20theory/5sem/practice/1.pdf)
 
 ### Теория чисел (алгоритмы в математике)
 

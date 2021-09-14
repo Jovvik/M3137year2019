@@ -60,76 +60,94 @@
 % TODO: #149 написать план доказательства, возможно доказать.
 
 \begin{theorem}
-    % TODO #150
-    В классе \? оценок существует эффективная оценка.
+    В классе несмещённых оценок существует эффективная оценка.
 \end{theorem}
 
 \subsection{Точечные оценки моментов}
 
 \begin{definition}
     \textbf{Выборочным средним} \(\overline{X_B}\) называется величина
-    \[\overline{X_B} = \frac{1}{n} \sum_{i=1}^{n} X_i\]
+    \begin{myemph}
+        \overline{X_B} = \frac{1}{n} \sum_{i=1}^{n} X_i
+    \end{myemph}
 \end{definition}
 
 \begin{definition}
     \textbf{Выборочной дисперсией} \(\mathbb{D}_B\) называется величина
-    \[\mathbb{D}_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X_B})^2\]
+    \begin{myemph}
+        \mathbb{D}_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X_B})^2
+    \end{myemph}
 \end{definition}
 
 \begin{definition}
     \textbf{Исправленной выборочной дисперсией} \(S^2\) называется величина
-    \[S^2 = \frac{n}{n - 1} \mathbb{D}_B\]
+    \begin{myemph}
+        S^2 = \frac{n}{n - 1} \mathbb{D}_B
+    \end{myemph}
     или
-    \[S^2 = \frac{1}{n - 1} \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X_B})^2\]
+    \begin{myemph}
+        S^2 = \frac{1}{n - 1} \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X_B})^2
+    \end{myemph}
 \end{definition}
 
 \begin{definition}
     \textbf{Выборочным средним квадратическим отклонением} называется величина
-    \[\sigma_B = \sqrt{\mathbb{D}_B}\]
+    \begin{myemph}
+        \sigma_B = \sqrt{\mathbb{D}_B}
+    \end{myemph}
 \end{definition}
 
 \begin{definition}
     \textbf{Исправленным выборочным средним квадратическим отклонением} называется величина
-    \[S = \sqrt{S^2}\]
+    \begin{myemph}
+        S = \sqrt{S^2}
+    \end{myemph}
 \end{definition}
 
 \begin{definition}
     \textbf{Выборочным \(k\)-тым моментом} называется величина
-    \[\overline{X^k} = \frac{1}{n}\sum_{i=1}^{n} X_i^k\]
+    \begin{myemph}
+        \overline{X^k} = \frac{1}{n}\sum_{i=1}^{n} X_i^k
+    \end{myemph}
 \end{definition}
 
 \begin{definition}
-    \textbf{Модой} вариационного ряда \(M_0^*\) называется варианта с наибольшей частотой:
-    \[M_0^* = X_i : n_i = \max_{1 \leq j < n} n_j\]
+    \textbf{Модой} \(M_0^*\) вариационного ряда называется варианта с наибольшей частотой:
+    \begin{myemph}
+        M_0^* = X_i : n_i = \max_{1 \leq j < n} n_j
+    \end{myemph}
 \end{definition}
 
 \begin{definition}
-    % TODO #151
-    \textbf{Медианой} \(M_e^*\) называется \?
+    \textbf{Медианой} \(M_e^*\) вариационного ряда называется значение варианты в середине ряда:
     \begin{enumerate}
         \item Если \(n = 2k - 1\), то \(M_e^* = X_k\)
         \item Если \(n = 2k\), то \(M_e^* = \frac{X_k + X_{k + 1}}{2}\)
     \end{enumerate}
 \end{definition}
 
-% TODO: #152 переписать в таблицу, добавить английские названия
-\begin{remark}\itemfix
-    \begin{itemize}
-        \item \(\overline{X_B} = \mathrm{СРЗНАЧ}\)
-        \item \(\mathbb{D}_B = \mathrm{ДИСПР}\)
-        \item \(S^2 = \mathrm{ДИСП}\)
-        \item \(\sigma_n = \mathrm{СТАНДОТКЛОНП}\)
-        \item \(S = \mathrm{СТАНДОТКЛОН}\)
-        \item \(M_0^* = \mathrm{МОДА}\)
-        \item \(M_e^* = \mathrm{МЕДИАНА}\)
-    \end{itemize}
-\end{remark}
+\begin{center}
+    \begin{tabular}{Lll}\toprule
+        \multirow{2}{*}{Величина} & \multicolumn{2}{c}{Команда в Excel}              \\
+        \cmidrule{2-3}
+                                  & Русский                             & Английский \\
+        \midrule
+        \overline{X_B}            & СРЗНАЧ                              & AVERAGE    \\
+        \mathbb{D}_B              & ДИСПР                               & VARP       \\
+        S^2                       & ДИСП                                & VAR        \\
+        \sigma_n                  & СТАНДОТКЛОНП                        & STDEVP     \\
+        S                         & СТАНДОТКЛОН                         & STDEV      \\
+        M_0^*                     & МОДА                                & MODE       \\
+        M_e^*                     & МЕДИАНА                             & MEDIAN     \\
+        \bottomrule
+    \end{tabular}
+\end{center}
 
 \begin{theorem}
     Выборочное среднее \(\overline{X_B}\) является несмещенной состоятельной оценкой для математического ожидания, то есть:
     \begin{enumerate}
         \item \(\mathbb{E} \overline{X_B} = \mathbb{E} X = a\) --- несмещенность
-        \item \(\overline{X_B} \xrightarrow[n \to \infty ]{P} \mathbb{E} X\)
+        \item \(\overline{X_B} \xrightarrow[n \to \infty ]{P} \mathbb{E} X\) --- состоятельность
     \end{enumerate}
 \end{theorem}
 \begin{proof}\itemfix

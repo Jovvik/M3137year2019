@@ -1,0 +1,38 @@
+\input{../../../preamble.sty}
+
+\lhead{Матстат \textit{(практика)}}
+\cfoot{}
+\rfoot{15.9.2021}
+
+\begin{document}
+
+\section*{Метод моментов}
+
+\begin{exercise}
+    Из теории известно, что величина \(X\) имеет показательное распределение (\(X \in E_\alpha\)), \(\overline{X} = 2.54\). Дать оценку параметра \(\alpha\) распределения. Будет ли эта оценка смещённой? Если да, то в какую сторону.
+\end{exercise}
+\begin{solution}
+    \(\E X = \alpha^{ -1}\). \((\alpha^*)^{ - 1} = \overline{X} = 2.54 \Rightarrow \alpha^* \approx 0.394\).
+
+    \(\overline{X}\) --- несмещённая оценка. Тогда \(\frac{1}{\overline{X}}\) очевидно смещённая:
+    \[\E \alpha^* = \E \frac{1}{\overline{X}} \symref{йенсена}{\geq} \frac{1}{\E \overline{X}} = \frac{1}{\E X} = \alpha\]
+    \blfootnote{\eqref{йенсена}: Неравенство Йенсена, \(f\) выпуклая вниз.}
+
+    Таким образом, систематическая ошибка есть, смещение вверх.
+\end{solution}
+
+\begin{exercise}
+    Из теории известно, что \(X \in \Gamma_{\alpha, \lambda}\), по статданным \(\overline{X} = 5.4, \overline{X^2} = 32.25\). Найти оценки параметров \(\alpha\) и \(\lambda\).
+\end{exercise}
+\begin{solution}
+    \[\begin{cases}
+            \E \overline{X} = \frac{\lambda}{\alpha} = \overline{X} \\
+            \D \overline{X} = \frac{\lambda}{\alpha^2} = \overline{X^2} - (\overline{X})^2
+        \end{cases}\]
+    \[\begin{cases}
+            \alpha^* = \frac{\overline{X}}{\overline{X^2} - (\overline{X})^2} \approx 1.75 \\
+            \lambda^* = \overline{X} \cdot \alpha^* \approx 9.44
+        \end{cases}\]
+\end{solution}
+
+\end{document}

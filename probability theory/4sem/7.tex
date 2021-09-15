@@ -8,8 +8,8 @@
               \xi & 0   & 1 \\ \hline
               p   & 1-p & p
           \end{tabular}
-          \[\mathbb{E}\xi = 0(1 - p) + 1 \cdot p = p\]
-          \[\mathbb{D}\xi = 0^2(1 - p) + 1^2 p - p^2 = p - p^2 = pq\]
+          \[\E\xi = 0(1 - p) + 1 \cdot p = p\]
+          \[\D\xi = 0^2(1 - p) + 1^2 p - p^2 = p - p^2 = pq\]
 
     \item Биномиальное распределение \(B_{n, p}\) с параметрами \(n\) и \(p\). \(\xi\) --- число успехов при \(n\) испытаниях, \(p\) --- вероятность успеха при одном испытании.
           \[\xi \in B_{n, p} \Leftrightarrow P(\xi = x) = \binom{n}{k} p^k q^{n - k},\quad 0 \leq k \leq n, q = 1 - p\]
@@ -18,24 +18,24 @@
               \(B_p = B_{1, p}\)
           \end{remark}
 
-          \(\xi = \xi_1 + \dots \xi_n\), где \(\xi_i \in B_p\), \(\mathbb{E}\xi_i = p, \mathbb{D}\xi_i = pq\).
-          \[\mathbb{E}\xi = \sum_{i = 1}^n \mathbb{E}\xi_i = np\]
-          \[\mathbb{D}\xi = \sum_{i = 1}^n \mathbb{D}\xi_i = npq\]
+          \(\xi = \xi_1 + \dots \xi_n\), где \(\xi_i \in B_p\), \(\E\xi_i = p, \D\xi_i = pq\).
+          \[\E\xi = \sum_{i = 1}^n \E\xi_i = np\]
+          \[\D\xi = \sum_{i = 1}^n \D\xi_i = npq\]
           \[\sigma \xi = \sqrt{npq}\]
 
     \item Геометрическое распределение \(G_p\). \(\xi\) --- номер первого успешного испытания.
           \[\xi \in G_p \Leftrightarrow P(\xi = k) = (1 - p)^{k - 1} p,\quad 1 \leq k < +\infty\]
 
-          \[\mathbb{E} \xi = \sum_{i = 1}^{+\infty} k \cdot q^{k - 1} \cdot p = p \left(\sum_{i = 1}^{+\infty} q^k\right)' = p \left( \frac{1}{1 - q} \right)' = p \frac{1}{(1 - q)^2} = \frac{p}{p^2} = \frac{1}{p}\]
-          \[\mathbb{E} \xi^2 = \sum_{k = 1}^{+\infty} k^2 \cdot q^{k - 1} \cdot p = p \sum_{k = 1}^{+\infty} k(k - 1) \cdot q^{k - 1} + k \cdot q^{k - 1} = pq \cdot \left( \frac{1}{1 - q} \right)' + \frac{1}{p} = \frac{2q}{p^2} + \frac{1}{p} \]
-          \[\mathbb{D}\xi = \mathbb{E}\xi^2 - (E\xi)^2 = \frac{2q}{p^2} + \frac{1}{p} = \frac{q}{p^2}\]
+          \[\E \xi = \sum_{i = 1}^{+\infty} k \cdot q^{k - 1} \cdot p = p \left(\sum_{i = 1}^{+\infty} q^k\right)' = p \left( \frac{1}{1 - q} \right)' = p \frac{1}{(1 - q)^2} = \frac{p}{p^2} = \frac{1}{p}\]
+          \[\E \xi^2 = \sum_{k = 1}^{+\infty} k^2 \cdot q^{k - 1} \cdot p = p \sum_{k = 1}^{+\infty} k(k - 1) \cdot q^{k - 1} + k \cdot q^{k - 1} = pq \cdot \left( \frac{1}{1 - q} \right)' + \frac{1}{p} = \frac{2q}{p^2} + \frac{1}{p} \]
+          \[\D\xi = \E\xi^2 - (E\xi)^2 = \frac{2q}{p^2} + \frac{1}{p} = \frac{q}{p^2}\]
 
     \item Распределение Пуассона \(\Pi_\lambda\) с параметром \(\lambda > 0\).
           \[\xi \in \Pi_\lambda \Leftrightarrow P(\xi = k) = \frac{\lambda^k}{k!} e^{ - \lambda}, \quad 0 \leq k < +\infty \]
 
-          \[\mathbb{E}\xi = \sum_{k = 0}^{+\infty} k \cdot \frac{\lambda^k}{k!} e^{ - \lambda} = e^{ - \lambda} \sum_{k = 0}^{\infty} \frac{\lambda^k}{(k - 1)!} = \lambda e^{ - \lambda} \sum_{k = 0}^{+\infty} \frac{\lambda^k}{k!} = \lambda e^{ - \lambda} e^{ \lambda} = \lambda \]
-          \[\mathbb{E}\xi^2 = \sum_{k = 0}^{+\infty} k^2 \cdot \frac{\lambda^k}{k!} e^{ - \lambda} = \sum_{k = 0}^{+\infty} (k(k - 1) + k) \cdot \frac{\lambda^k}{k!} e^{ - \lambda} = \lambda^2 + \lambda \]
-          \[\mathbb{D}\xi = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2 = \lambda^2 + \lambda - \lambda^2 = \lambda\]
+          \[\E\xi = \sum_{k = 0}^{+\infty} k \cdot \frac{\lambda^k}{k!} e^{ - \lambda} = e^{ - \lambda} \sum_{k = 0}^{\infty} \frac{\lambda^k}{(k - 1)!} = \lambda e^{ - \lambda} \sum_{k = 0}^{+\infty} \frac{\lambda^k}{k!} = \lambda e^{ - \lambda} e^{ \lambda} = \lambda \]
+          \[\E\xi^2 = \sum_{k = 0}^{+\infty} k^2 \cdot \frac{\lambda^k}{k!} e^{ - \lambda} = \sum_{k = 0}^{+\infty} (k(k - 1) + k) \cdot \frac{\lambda^k}{k!} e^{ - \lambda} = \lambda^2 + \lambda \]
+          \[\D\xi = \E\xi^2 - (\E\xi)^2 = \lambda^2 + \lambda - \lambda^2 = \lambda\]
           \[\sigma \xi = \sqrt{\lambda}\]
 \end{enumerate}
 %</19>
@@ -156,18 +156,18 @@
 
 %<*22>
 \begin{definition}
-    \textbf{Математическим ожиданием} абсолютно непрерывной случайной величины \(\xi\) называется число \(\mathbb{E}\xi = \int_{ -\infty}^{+\infty} x f(x) dx\) при условии, что данный интеграл сходится абсолютно.
+    \textbf{Математическим ожиданием} абсолютно непрерывной случайной величины \(\xi\) называется число \(\E\xi = \int_{ -\infty}^{+\infty} x f(x) dx\) при условии, что данный интеграл сходится абсолютно.
 \end{definition}
 
 \begin{definition}
-    \(\mathbb{D}\xi = \mathbb{E}(\xi - \mathbb{E}\xi)^2 = \int_{ -\infty}^{+\infty} (x - \mathbb{E}\xi)^2 f(x) dx\) --- \textbf{дисперсия}
+    \(\D\xi = \E(\xi - \E\xi)^2 = \int_{ -\infty}^{+\infty} (x - \E\xi)^2 f(x) dx\) --- \textbf{дисперсия}
 \end{definition}
 
 \begin{remark}
-    Удобная формула: \(\mathbb{D}\xi = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2 = \int_{ -\infty}^{+\infty} x^2 f(x) dx - (\mathbb{E}\xi)^2\)
+    Удобная формула: \(\D\xi = \E\xi^2 - (\E\xi)^2 = \int_{ -\infty}^{+\infty} x^2 f(x) dx - (\E\xi)^2\)
 \end{remark}
 
-\[\sigma = \sqrt{\mathbb{D}\xi}\]
+\[\sigma = \sqrt{\D\xi}\]
 
 \begin{remark}
     Смысл и свойства характеристик идентичны таковым для дискретной величины.

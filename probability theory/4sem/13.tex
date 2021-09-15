@@ -5,18 +5,18 @@
     Если \(\xi = \eta\) почти наверное, т.е. \(p(\xi = \eta) = 1\), то говорят, что \(\xi = \eta\)
 \end{remark}
 \((\Omega, \mathfrak{F}, p)\) --- вероятностное пространство \\
-Введем \(L_2(\Omega, \mathfrak{F}, p) = \{\xi \big| \mathbb{E}\xi^2 < \infty\}\)
+Введем \(L_2(\Omega, \mathfrak{F}, p) = \{\xi \big| \E\xi^2 < \infty\}\)
 \begin{definition}
     \textbf{Скалярным произведением} случайных величин \(\xi,\eta \in L_2(\Omega, \mathfrak{F}, p)\), называется число
-    \[ \ev{\xi,\eta} = \mathbb{E}(\xi\eta) \]
+    \[ \ev{\xi,\eta} = \E(\xi\eta) \]
 \end{definition}
 \begin{remark}
     \(\ev{\xi, \eta}\) --- фиксированная двумерная случайная величина с ... законом распределения \(p(\xi = x_i, \eta = y_i) = p_{ij}\), то
-    \[ \mathbb{E}\xi\eta = \sum_{i, j} x_i y_j p_{ij} \]
+    \[ \E\xi\eta = \sum_{i, j} x_i y_j p_{ij} \]
 \end{remark}
 \begin{remark}
     Если \(\ev{\xi, \eta}\) --- обе непрерывно дифф. случайные величины с плотностью \(f_{\xi,\eta}(x, y)\), то
-    \[ \mathbb{E}\xi\eta = \iint_{\R^2} xyf_{\xi,\eta}(x, y)\,dx\,dy \]
+    \[ \E\xi\eta = \iint_{\R^2} xyf_{\xi,\eta}(x, y)\,dx\,dy \]
 \end{remark}
 \begin{prop}\itemfix
     \begin{enumerate}
@@ -29,78 +29,78 @@
     Т.е. это скалярное произведение.
 \end{prop}
 \begin{definition}
-    \(\norm{\xi} = \sqrt{\mathbb{E}\xi^2}\) и \(\rho(\xi, \eta) = \norm{\xi - \eta}\), получаем \(L_2(\Omega, \mathfrak{F}, p)\)
+    \(\norm{\xi} = \sqrt{\E\xi^2}\) и \(\rho(\xi, \eta) = \norm{\xi - \eta}\), получаем \(L_2(\Omega, \mathfrak{F}, p)\)
 \end{definition}
 \begin{theorem}[неравенство Коши-Буняковсого-Шварца]
     Пусть случайные величины \(\xi, \eta\) имеют конечные вторые моменты \\
     Тогда
-    \[ |\mathbb{E}\xi\eta| \le \sqrt{\mathbb{E}\xi^2 \cdot \mathbb{\mathbb{E}}\eta^2} \]
-    Причем \( |\mathbb{E}\xi\eta| = \sqrt{\mathbb{E}\xi^2 \cdot \mathbb{E}\eta^2} \Leftrightarrow \eta = C\xi\), почти наверное, \(C = \const\)
+    \[ |\E\xi\eta| \le \sqrt{\E\xi^2 \cdot \mathbb{\E}\eta^2} \]
+    Причем \( |\E\xi\eta| = \sqrt{\E\xi^2 \cdot \E\eta^2} \Leftrightarrow \eta = C\xi\), почти наверное, \(C = \const\)
 \end{theorem}
 \begin{proof}
-    \[ P_2(x) = \mathbb{\mathbb{E}}(x\xi - \eta)^2 = \mathbb{E}(x^2\xi^2 - 2x\xi\eta + \eta^2) = x^2E\xi^2 - 2xE\xi\eta + \mathbb{E}\eta^2 \ge 0 \]
-    \[ \forall x \in \R \Leftrightarrow D = (\mathbb{E}\xi\eta)^2 - \mathbb{E}\xi^2\cdot \mathbb{E}\eta^2 < 0 \Leftrightarrow |\mathbb{E}\xi\eta| \le \sqrt{\mathbb{E}\xi^2\cdot \mathbb{E}\eta^2} \]
+    \[ P_2(x) = \mathbb{\E}(x\xi - \eta)^2 = \E(x^2\xi^2 - 2x\xi\eta + \eta^2) = x^2E\xi^2 - 2xE\xi\eta + \E\eta^2 \ge 0 \]
+    \[ \forall x \in \R \Leftrightarrow D = (\E\xi\eta)^2 - \E\xi^2\cdot \E\eta^2 < 0 \Leftrightarrow |\E\xi\eta| \le \sqrt{\E\xi^2\cdot \E\eta^2} \]
 \end{proof}
 \begin{corollary}[неравенство треугольника]
     \[ \norm{\xi + \eta} \le \norm{\xi} + \norm{\eta} \]
 \end{corollary}
 \begin{proof}
-    \[ \norm{\xi + \eta}^2 = \mathbb{E}(\xi + \eta)^2 = \mathbb{E}\xi^2 + 2E\xi\eta + \mathbb{E}\eta^2 \le \]
-    \[ \le \mathbb{E}\xi^2 + 2\sqrt{\mathbb{E}\xi^2}\cdot\sqrt{\mathbb{E}\eta^2} = \norm{\xi}^2 + 2\norm{\xi}\norm{\eta} + \norm{\eta}^2 = (\norm{\xi} + \norm{\eta})^2 \implies \]
+    \[ \norm{\xi + \eta}^2 = \E(\xi + \eta)^2 = \E\xi^2 + 2E\xi\eta + \E\eta^2 \le \]
+    \[ \le \E\xi^2 + 2\sqrt{\E\xi^2}\cdot\sqrt{\E\eta^2} = \norm{\xi}^2 + 2\norm{\xi}\norm{\eta} + \norm{\eta}^2 = (\norm{\xi} + \norm{\eta})^2 \implies \]
     \[ \implies \norm{\xi + \eta} \le \norm{\xi} + \norm{\eta} \]
 \end{proof}
 %</44>
 
 \section{Условное математическое ожидание (УМО)}
 Рассмотрим линейное подпространство:
-\[ L(\eta) = \{g(\eta) \big| \mathbb{D}g(\eta) < \infty\} \]
+\[ L(\eta) = \{g(\eta) \big| \D g(\eta) < \infty\} \]
 --- множество случайных величин вида \(g(\eta), g(x)\) --- борелевская функция с конечным вторым моментом \\
 Ясно, что \(L(\eta) \subset L_2(\Omega,\mathfrak{F}, p)\)
 \begin{definition}
     \textbf{Условное математическое ожидание} случайной величины \(\xi\) относительно случайной величины \(\eta\) --- ортогональная проекция \(\xi\) на подпространство \(L(\eta)\)
 \end{definition}
 \begin{obozn}
-    \(\hat{\xi} = \mathbb{E}(\xi | \eta)\)
+    \(\hat{\xi} = \E(\xi | \eta)\)
 \end{obozn}
 
 \begin{prop}
     \begin{enumerate}
-        \item \[ \hat{\xi} = \mathbb{E}(\xi | \eta) \Leftrightarrow \mathbb{E}(\xi \cdot g(\eta)) = \mathbb{E}(\hat{\xi}\cdot g(\eta)) \quad \forall g(\eta) \in L(\eta)\]
+        \item \[ \hat{\xi} = \E(\xi | \eta) \Leftrightarrow \E(\xi \cdot g(\eta)) = \E(\hat{\xi}\cdot g(\eta)) \quad \forall g(\eta) \in L(\eta)\]
               \begin{proof}
-                  \[ \hat{\xi} = \mathbb{E}(\xi | \eta) \Leftrightarrow \mathbb{E}((\xi - \hat{\xi})\cdot g(\eta)) = 0 \Leftrightarrow \mathbb{E}(\xi \cdot g(\eta)) = \mathbb{E}(\hat{\xi}\cdot g(\eta)) \]
+                  \[ \hat{\xi} = \E(\xi | \eta) \Leftrightarrow \E((\xi - \hat{\xi})\cdot g(\eta)) = 0 \Leftrightarrow \E(\xi \cdot g(\eta)) = \E(\hat{\xi}\cdot g(\eta)) \]
               \end{proof}
-        \item \[ \min_{L(\eta)} \mathbb{E}(\xi g(\eta))^2 = \mathbb{E}(\xi - \hat{\xi})^2 \]
-        \item \[ \mathbb{E}(C_1\xi_1 + C_2\xi_2 | \eta) = C_1 \mathbb{E}(\xi_1|\eta) + C_2 \mathbb{E}(\xi_2|\eta) \]
+        \item \[ \min_{L(\eta)} \E(\xi g(\eta))^2 = \E(\xi - \hat{\xi})^2 \]
+        \item \[ \E(C_1\xi_1 + C_2\xi_2 | \eta) = C_1 \E(\xi_1|\eta) + C_2 \E(\xi_2|\eta) \]
         \item Пусть \(f\) --- ограниченная функция, тогда
-              \[ \mathbb{E}(f(\eta)\cdot\xi | \eta) = f(\eta)\cdot \mathbb{E}(\xi | \eta) \]
+              \[ \E(f(\eta)\cdot\xi | \eta) = f(\eta)\cdot \E(\xi | \eta) \]
               \begin{proof}
                   \(g(\eta), f(\eta)\) --- ограниченные функции и \(Eg(\eta) < \infty\), то
                   \[h(\eta) = f(\eta)\cdot g(\eta) \in L(\eta)\]
                   --- также имеет конечный второй момент
-                  \[ \mathbb{E}(f(\eta)\cdot \xi \cdot g(\eta)) = \mathbb{E}(f(\eta)\cdot \mathbb{E}(\xi | \eta) \cdot g(\eta))? \]
-                  \[ \mathbb{E}(f(\eta)\cdot \xi \cdot g(\eta)) = \mathbb{E}(\xi \cdot h(\eta)) = \mathbb{E}(\hat{\xi}\cdot h(\eta)) = \mathbb{E}(\hat{\xi}\cdot f(\eta)g(\eta)) =  \]
-                  \[ = \mathbb{E}(f(\eta)\cdot \mathbb{E}(\xi | \eta)\cdot g(\eta)) \]
+                  \[ \E(f(\eta)\cdot \xi \cdot g(\eta)) = \E(f(\eta)\cdot \E(\xi | \eta) \cdot g(\eta))? \]
+                  \[ \E(f(\eta)\cdot \xi \cdot g(\eta)) = \E(\xi \cdot h(\eta)) = \E(\hat{\xi}\cdot h(\eta)) = \E(\hat{\xi}\cdot f(\eta)g(\eta)) =  \]
+                  \[ = \E(f(\eta)\cdot \E(\xi | \eta)\cdot g(\eta)) \]
               \end{proof}
-        \item Пусть \(f(\eta) \in L(\eta)\), тогда \(\mathbb{E}(f(\eta) | \eta) = f(\eta)\)
+        \item Пусть \(f(\eta) \in L(\eta)\), тогда \(\E(f(\eta) | \eta) = f(\eta)\)
               \begin{proof}
                   из \? при \(\xi \le 1\)
               \end{proof}
-        \item \(\mathbb{E}\xi = \mathbb{E}(\mathbb{E}(\xi | \eta))\) или \(\mathbb{E}\xi = \mathbb{E}\hat{\xi}\)
+        \item \(\E\xi = \E(\E(\xi | \eta))\) или \(\E\xi = \E\hat{\xi}\)
               \begin{proof}
                   при \(g(\eta) = 1\)
               \end{proof}
         \item Если случайные величины \(\xi, \eta\) независимы
-              \[ \mathbb{E}(\xi | \eta) = \mathbb{E}\xi \]
+              \[ \E(\xi | \eta) = \E\xi \]
               \begin{proof}
-                  \[ \mathbb{E}(\mathbb{E}\xi \cdot g(\eta)) = \mathbb{E}\xi \cdot Eg(\eta) = \mathbb{E}(\xi \cdot g(\eta)) \]
+                  \[ \E(\E\xi \cdot g(\eta)) = \E\xi \cdot Eg(\eta) = \E(\xi \cdot g(\eta)) \]
                   , т.к. \(\xi, g(\eta)\) независимы
               \end{proof}
               \begin{remark}
-                  т.е. \(\xi\) и \(\eta\) --- независимы, если \((\xi - \mathbb{E}\xi) \perp L(\eta)\) и \((\xi - \mathbb{E}\xi)\perp \eta\)
+                  т.е. \(\xi\) и \(\eta\) --- независимы, если \((\xi - \E\xi) \perp L(\eta)\) и \((\xi - \E\xi)\perp \eta\)
               \end{remark}
               \begin{remark}
-                  \[ \mathbb{E}(\eta | \eta) = f(\eta) \]
-                  , где \(f(g) = \mathbb{E}(\xi | \eta = g)\)
+                  \[ \E(\eta | \eta) = f(\eta) \]
+                  , где \(f(g) = \E(\xi | \eta = g)\)
               \end{remark}
               \begin{proof}
                   \unfinished
@@ -112,13 +112,13 @@
 
 \begin{definition}
     \textbf{Ковариацией} \(\cov(\xi, \eta)\) называется число
-    \[ \cov(\xi, \eta) =\mathbb{E}((\xi -\mathbb{E}\xi)\cdot(\eta - \mathbb{E}\eta)) \]
+    \[ \cov(\xi, \eta) =\E((\xi -\E\xi)\cdot(\eta - \E\eta)) \]
 \end{definition}
 
 \begin{prop}
     \begin{enumerate}
         \item
-              \(\cov(\xi, \eta) = \mathbb{E}\xi\eta - \mathbb{E}\xi\cdot \mathbb{E}\eta\)
+              \(\cov(\xi, \eta) = \E\xi\eta - \E\xi\cdot \E\eta\)
 
         \item
               \(\cov(\xi, \xi) = D\xi\)
@@ -156,7 +156,7 @@
 
 \subsection{Коэффициент линейной ковариации}
 %<*46>
-\[ r_{\xi, \eta} = \frac{\cov(\xi, \eta)}{\sqrt{D\xi}\sqrt{D\eta}} = \frac{\mathbb{E}\xi\eta - \mathbb{E}\xi\cdot \mathbb{E}\eta}{\sigma_\xi\cdot \sigma_\eta} \]
+\[ r_{\xi, \eta} = \frac{\cov(\xi, \eta)}{\sqrt{D\xi}\sqrt{D\eta}} = \frac{\E\xi\eta - \E\xi\cdot \E\eta}{\sigma_\xi\cdot \sigma_\eta} \]
 
 \begin{prop}\itemfix
     \begin{enumerate}
@@ -179,8 +179,8 @@
               \(|r_{\xi, \eta}| = 1 \Leftrightarrow \eta = a\xi + b\) почти наверное
 
               \begin{proof}
-                  По неравенству Шварца: \(|r_{\xi ,\eta}| = 1 \Leftrightarrow \eta - \mathbb{E}\eta = C\cdot(\xi - \mathbb{E}\xi)\) \
-                  \(\eta = \underbrace{C}_a\xi + \underbrace{(\mathbb{E}\eta - CE\xi)}_b\)
+                  По неравенству Шварца: \(|r_{\xi ,\eta}| = 1 \Leftrightarrow \eta - \E\eta = C\cdot(\xi - \E\xi)\) \
+                  \(\eta = \underbrace{C}_a\xi + \underbrace{(\E\eta - CE\xi)}_b\)
               \end{proof}
         \item
               \begin{enumerate}
@@ -213,7 +213,7 @@
             2                  & 0.2 & 0.3 & 0.1
         \end{tabular}
     \end{center}
-    \[ \mathbb{E}\xi = 0.8 \quad \mathbb{E}\eta = -0.1 \quad \sigma_\xi = 1.47 \quad \sigma_\eta = 0.7 \]
+    \[ \E\xi = 0.8 \quad \E\eta = -0.1 \quad \sigma_\xi = 1.47 \quad \sigma_\eta = 0.7 \]
     \[ E_\xi\eta = \sum_{i, j} x_i \cdot y_j p_{ij} = -1\cdot(-1)\cdot 0.1 + (-1)\cdot 0 \cdot 0.2 + (-1)\cdot 1 \cdot 0.1 + 2\cdot(-1)\cdot 0.2 + 2\cdot 0 \cdot 0.3 + 2\cdot 1 \cdot 0.1 = -0.2 \]
-    \[ r_{\xi,\eta} = \frac{\mathbb{E}\xi\eta - \mathbb{E}\xi \cdot \mathbb{E}\eta}{\sigma_\xi \cdot \sigma_\eta} = \frac{-0.2 - 0.8\cdot(-0.1)}{1.47\cdot 0.7} \approx -0.12 \]
+    \[ r_{\xi,\eta} = \frac{\E\xi\eta - \E\xi \cdot \E\eta}{\sigma_\xi \cdot \sigma_\eta} = \frac{-0.2 - 0.8\cdot(-0.1)}{1.47\cdot 0.7} \approx -0.12 \]
 \end{example}

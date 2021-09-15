@@ -38,7 +38,7 @@
 \begin{definition}
     \textbf{Математическим ожиданием} случайной величины \(\xi\) называется:
     \begin{equation}
-        \mathbb{E}\xi = \int_\Omega \xi(w) dP(w)
+        \E\xi = \int_\Omega \xi(w) dP(w)
         \label{матожидание лебега}
     \end{equation}
     При условии, что данный интеграл существует.
@@ -47,26 +47,26 @@
 \begin{remark}
     Используя интеграл Стилтьеса эту формулу можно записать в виде:
     \begin{equation}
-        \mathbb{E}\xi = \int_{ -\infty}^{+\infty} x dF_\xi(x)
+        \E\xi = \int_{ -\infty}^{+\infty} x dF_\xi(x)
         \label{матожидание стильтеса}
     \end{equation}
 
     Из определения интеграла Стилтьеса можно получить геометрическую интерпретацию математического ожидания: разность площади подграфика на \(x < 0\) и площади надграфика, ограниченной \(y = 1\), для \(x > 0\):
-    \[\mathbb{E}\xi = \int_0^{+\infty} (1 - F(x)) dx - \int_{-\infty}^0 F(x)dx\]
+    \[\E\xi = \int_0^{+\infty} (1 - F(x)) dx - \int_{-\infty}^0 F(x)dx\]
 \end{remark}
 
 Рассмотрим две ситуации:
 \begin{enumerate}
     \item Вероятностное пространство \((\Omega, \mathfrak{F}, P)\) --- дискретное, т.е. \(\Omega\) состоит из не более, чем счётного числа точек. Тогда из формулы \eqref{матожидание лебега} получаем:
-          \[\mathbb{E}\xi = \sum_{i = 1}^{+\infty} \xi(w_i) P(w_i)\]
+          \[\E\xi = \sum_{i = 1}^{+\infty} \xi(w_i) P(w_i)\]
 
           \begin{example}[``орлянка'']
               \(\Omega = \{\text{Г}, \text{Р}\}, P(\text{Г}) = \frac{1}{2} = P(\text{Р}), \xi(\text{Г}) = 1, \xi(\text{Р}) =- 1\)
-              \[\mathbb{E}\xi = \xi(\text{Г}) \cdot P(\text{Г}) + \xi(\text{Р}) \cdot P(\text{Р})= \frac{1}{2} - \frac{1}{2} = 0\]
+              \[\E\xi = \xi(\text{Г}) \cdot P(\text{Г}) + \xi(\text{Р}) \cdot P(\text{Р})= \frac{1}{2} - \frac{1}{2} = 0\]
           \end{example}
 
     \item Вероятностное пространство абсолютно непрерывное. \(\Omega \subset \R^n, w = (x_1 \dots x_n)\). Тогда из формулы \eqref{матожидание стильтеса} получаем:
-          \[\mathbb{E}\xi = \idotsint\limits_\Omega \xi(x_1 \dots x_n) \rho(x_1 \dots p_n) dx_1 \dots dx_n\]
+          \[\E\xi = \idotsint\limits_\Omega \xi(x_1 \dots x_n) \rho(x_1 \dots p_n) dx_1 \dots dx_n\]
 
           \begin{example}
               Круг радиуса 3, наугад бросается точка. \(\xi =\) расстояние от центра круга до выбранной точки.
@@ -74,7 +74,7 @@
               \[\Omega = \{(x, y)\ |\ x^2 + y^2 \leq 9\} \quad \xi = \sqrt{x^2 + y^2}\]
               Т.к. бросаем наугад, то плотность \(\rho(x, y) = \const\). Из условия нормировки:
               \[\int_\Omega dP(w) = 1 \quad \iint_\Omega \rho dx dy = 1 \Rightarrow \rho = \frac{1}{S_\Omega} = \frac{1}{9\pi}\]
-              \[\mathbb{E}\xi = \iint_\Omega \xi(x, y) \rho dx dy = \iint_\Omega \sqrt{x^2 + y^2} \frac{1}{9\pi}dx dy = \frac{1}{9\pi} \int_0^{2\pi} d\varphi \int_0^3 \rho \rho d\rho = 2\]
+              \[\E\xi = \iint_\Omega \xi(x, y) \rho dx dy = \iint_\Omega \sqrt{x^2 + y^2} \frac{1}{9\pi}dx dy = \frac{1}{9\pi} \int_0^{2\pi} d\varphi \int_0^3 \rho \rho d\rho = 2\]
           \end{example}
 \end{enumerate}
 
@@ -99,12 +99,12 @@
 \subsubsection{Стандартизация случайных величин}
 
 \begin{definition}
-    \textbf{Стандартной} случайной величиной, соответствующей случайной величине \(\xi\), называется величина \(\frac{\xi - \mathbb{E}\xi}{\sigma_\xi} \)
+    \textbf{Стандартной} случайной величиной, соответствующей случайной величине \(\xi\), называется величина \(\frac{\xi - \E\xi}{\sigma_\xi} \)
 \end{definition}
 \begin{prop}\itemfix
     \begin{itemize}
-        \item \(\mathbb{E}\xi = 0\)
-        \item \(\mathbb{D}\xi = 1\)
+        \item \(\E\xi = 0\)
+        \item \(\D\xi = 1\)
     \end{itemize}
 \end{prop}
 \begin{proof}

@@ -102,7 +102,7 @@
 \subsubsection{Математическое ожидание \textit{(среднее значение)}}
 
 \begin{definition}
-    \textbf{Математическим ожиданием} \(\mathbb{E}\xi\) называется число \(\mathbb{E}\xi = \sum_i x_ip_i\) при условии, что данный ряд сходится абсолютно. В противном случае говорят, что матожидания не существует.
+    \textbf{Математическим ожиданием} \(\E\xi\) называется число \(\E\xi = \sum_i x_ip_i\) при условии, что данный ряд сходится абсолютно. В противном случае говорят, что матожидания не существует.
 \end{definition}
 
 \begin{remark}
@@ -112,11 +112,11 @@
 \subsubsection{Дисперсия}
 
 \begin{definition}
-    \textbf{Дисперсией} \(\mathbb{D}\xi\) случайной величины \(\xi\) называется среднее квадратов отклонений этой величины от математического ожидания: \(\mathbb{D}\xi = \mathbb{E}(\xi - \mathbb{E}x)^2\) или \(\mathbb{D}\xi = \sum_i (x_i - \mathbb{E}\xi)^2 - p_i\) при условии, что данное значение существует \textit{(конечно)}.
+    \textbf{Дисперсией} \(\D\xi\) случайной величины \(\xi\) называется среднее квадратов отклонений этой величины от математического ожидания: \(\D\xi = \E(\xi - \E x)^2\) или \(\D\xi = \sum_i (x_i - \E\xi)^2 - p_i\) при условии, что данное значение существует \textit{(конечно)}.
 \end{definition}
 
 \begin{remark}
-    Вычислять дисперсию удобнее по формуле \(\mathbb{D}\xi = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2 = \sum_i x_i^2 p_i - (\mathbb{E}\xi)^2\)
+    Вычислять дисперсию удобнее по формуле \(\D\xi = \E\xi^2 - (\E\xi)^2 = \sum_i x_i^2 p_i - (\E\xi)^2\)
 \end{remark}
 
 \begin{remark}
@@ -126,7 +126,7 @@
 \subsubsection{Среднеквадратическое отклонение}
 
 \begin{definition}
-    \textbf{Среднеквадратическим отклонением} \(\sigma_\xi\) случайной величины \(\xi\) называется число \(\sigma = \sqrt{\mathbb{D}\xi}\)
+    \textbf{Среднеквадратическим отклонением} \(\sigma_\xi\) случайной величины \(\xi\) называется число \(\sigma = \sqrt{\D\xi}\)
 \end{definition}
 
 \begin{remark}
@@ -142,8 +142,8 @@
         P   & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6}
     \end{tabular}
 
-    \[\mathbb{E}\xi = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + 3 \cdot \frac{1}{6} + 4 \cdot \frac{1}{6} + 5 \cdot \frac{1}{6} + 6 \cdot \frac{1}{6} = 3.5\]
-    \[\mathbb{D}\xi = 1^2 \cdot \frac{1}{6} + 2^2 \cdot \frac{1}{6} + 3^2 \cdot \frac{1}{6} + 4^2 \cdot \frac{1}{6} + 5^2 \cdot \frac{1}{6} + 6^2 \cdot \frac{1}{6} - 3.5^2 \approx 2.32\]
+    \[\E\xi = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + 3 \cdot \frac{1}{6} + 4 \cdot \frac{1}{6} + 5 \cdot \frac{1}{6} + 6 \cdot \frac{1}{6} = 3.5\]
+    \[\D\xi = 1^2 \cdot \frac{1}{6} + 2^2 \cdot \frac{1}{6} + 3^2 \cdot \frac{1}{6} + 4^2 \cdot \frac{1}{6} + 5^2 \cdot \frac{1}{6} + 6^2 \cdot \frac{1}{6} - 3.5^2 \approx 2.32\]
     \[\sigma \approx \sqrt{2.32} \approx 1.71\]
 \end{example}
 
@@ -156,33 +156,33 @@
 %<*18>
 \begin{prop}\itemfix
     \begin{enumerate}
-        \item \(\mathbb{E}C = C, \mathbb{D}C = 0\)
+        \item \(\E C = C, \D C = 0\)
               \begin{proof}
-                  \[\mathbb{E}C = C \cdot 1 = C\]
-                  \[\mathbb{D}C = \mathbb{E}(\underbrace{C - \mathbb{E}C}_0) = 0\]
+                  \[\E C = C \cdot 1 = C\]
+                  \[\D C = \E(\underbrace{C - \E C}_0) = 0\]
               \end{proof}
 
-        \item \(\mathbb{E}(\xi + C) = \mathbb{E}\xi + C, \mathbb{D}(\xi + C) = \mathbb{D}\xi\)
+        \item \(\E(\xi + C) = \E\xi + C, \D(\xi + C) = \D\xi\)
               \begin{proof}
-                  \[\mathbb{E}(\xi + C) = \sum_i (x_i + C)p_i = \sum_i x_i p_i + C \underbrace{\sum_i p_i}_1 = \mathbb{E}\xi + C\]
-                  \[\mathbb{D}(\xi + C) =  \mathbb{E}(\xi + C - \mathbb{E}(\xi + C))^2 = \mathbb{E}(\xi + C - \mathbb{E}\xi - C)^2 = \mathbb{E}(\xi - \mathbb{E}\xi)^2 = \mathbb{D}\xi\]
+                  \[\E(\xi + C) = \sum_i (x_i + C)p_i = \sum_i x_i p_i + C \underbrace{\sum_i p_i}_1 = \E\xi + C\]
+                  \[\D(\xi + C) =  \E(\xi + C - \E(\xi + C))^2 = \E(\xi + C - \E\xi - C)^2 = \E(\xi - \E\xi)^2 = \D\xi\]
               \end{proof}
 
-        \item Растяжение: \(\mathbb{E}(C\xi) = C \mathbb{E}\xi, \mathbb{D}(C\xi) = C^2 \mathbb{D}\xi\)
+        \item Растяжение: \(\E(C\xi) = C \E\xi, \D(C\xi) = C^2 \D\xi\)
               \begin{proof}
-                  \[\mathbb{E}(C\xi) = \sum_i C x_i p_i = C \sum_i x_i p_i = C \mathbb{E}\xi\]
-                  \[\mathbb{D}(C\xi) = \mathbb{E}(C\xi - \mathbb{E}C\xi)^2 = C^2 \mathbb{E}(\xi - \mathbb{E}\xi)^2 = C^2 \mathbb{D}\xi\]
+                  \[\E(C\xi) = \sum_i C x_i p_i = C \sum_i x_i p_i = C \E\xi\]
+                  \[\D(C\xi) = \E(C\xi - \E C\xi)^2 = C^2 \E(\xi - \E\xi)^2 = C^2 \D\xi\]
               \end{proof}
 
-        \item \(\mathbb{E}(\xi + \eta) = \mathbb{E}\xi + \mathbb{E}\eta\)
+        \item \(\E(\xi + \eta) = \E\xi + \E\eta\)
               \begin{proof}
                   Пусть \(x_i, y_j\) --- соответствующие значения случайных величин \(\xi\) и \(\eta\).
 
                   \begin{align*}
-                      \mathbb{E}(\xi + \eta) & = \sum_{i, j} (x_i + y_j)P(\xi = x_i, \eta = y_j)                                         \\
-                                             & = \sum_i x_i \sum_j P(\xi = x_i, \eta = y_j) + \sum_j y_j \sum_i P(\xi = x_j, \eta = y_i) \\
-                                             & = \sum_i x_i P(\xi = x_i) + \sum_j y_j P(\eta = y_j)                                      \\
-                                             & = \mathbb{E} \xi + \mathbb{E} \eta
+                      \E(\xi + \eta) & = \sum_{i, j} (x_i + y_j)P(\xi = x_i, \eta = y_j)                                         \\
+                                     & = \sum_i x_i \sum_j P(\xi = x_i, \eta = y_j) + \sum_j y_j \sum_i P(\xi = x_j, \eta = y_i) \\
+                                     & = \sum_i x_i P(\xi = x_i) + \sum_j y_j P(\eta = y_j)                                      \\
+                                     & = \E \xi + \E \eta
                   \end{align*}
 
               \end{proof}
@@ -191,55 +191,55 @@
                   Дискретные случайные величины \(\xi\) и \(\eta\) \textbf{независимы}, если \(P(\xi = x_i, \eta = y_j) = P(\xi = x_i)P(\eta = y_j) \ \ \forall i,j\), т.е. случайные величины принимают свои значения независимо друг от друга.
               \end{definition}
 
-        \item Если \(\xi\) и \(\eta\) независимы, то \(\mathbb{E}(\xi\cdot\eta) = \mathbb{E}\xi\cdot\mathbb{E}\eta\)
+        \item Если \(\xi\) и \(\eta\) независимы, то \(\E(\xi\cdot\eta) = \E\xi\cdot\E\eta\)
               \begin{proof}
                   \begin{align*}
-                      \mathbb{E}(\xi\cdot\eta) & = \sum_{i, j} x_i y_j P(\xi = x_i, \eta = y_j)     \\
-                                               & = \sum_i x_i \sum_j y_j P(\xi = x_i, \eta = y_j)   \\
-                                               & = \sum_i x_i \sum_j y_j P(\xi = x_i) P(\eta = y_j) \\
-                                               & = \sum_i x_i P(\xi = x_i) \sum_j y_j P(\eta = y_j) \\
-                                               & = \sum_i x_i P(\xi = x_i) \mathbb{E}\eta           \\
-                                               & = \mathbb{E}\xi \mathbb{E}\eta                     \\
+                      \E(\xi\cdot\eta) & = \sum_{i, j} x_i y_j P(\xi = x_i, \eta = y_j)     \\
+                                       & = \sum_i x_i \sum_j y_j P(\xi = x_i, \eta = y_j)   \\
+                                       & = \sum_i x_i \sum_j y_j P(\xi = x_i) P(\eta = y_j) \\
+                                       & = \sum_i x_i P(\xi = x_i) \sum_j y_j P(\eta = y_j) \\
+                                       & = \sum_i x_i P(\xi = x_i) \E\eta                   \\
+                                       & = \E\xi \E\eta                                     \\
                   \end{align*}
               \end{proof}
 
               В обратную сторону это утверждение не верно.
 
-        \item \(\mathbb{D}\xi = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2\)
+        \item \(\D\xi = \E\xi^2 - (\E\xi)^2\)
               \begin{proof}
                   \begin{align*}
-                      \mathbb{D}\xi & = \mathbb{E}(\xi - \mathbb{E}\xi^2)                                             \\
-                                    & = \mathbb{E}(\xi^2 - 2\xi\mathbb{E}\xi + (\mathbb{E}\xi)^2)                     \\
-                                    & = \mathbb{E}\xi^2 - 2 \mathbb{E}\xi \mathbb{E}\xi + \mathbb{E}(\mathbb{E}\xi^2) \\
-                                    & = \mathbb{E}\xi^2 - 2(\mathbb{E}\xi)^2 + (\mathbb{E}\xi)^2                      \\
-                                    & = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2
+                      \D\xi & = \E(\xi - \E\xi^2)                     \\
+                            & = \E(\xi^2 - 2\xi\E\xi + (\E\xi)^2)     \\
+                            & = \E\xi^2 - 2 \E\xi \E\xi + \E(\E\xi^2) \\
+                            & = \E\xi^2 - 2(\E\xi)^2 + (\E\xi)^2      \\
+                            & = \E\xi^2 - (\E\xi)^2
                   \end{align*}
               \end{proof}
 
-        \item \(\mathbb{D}(\xi + \eta) = \mathbb{D}\xi + \mathbb{D}\eta + 2 \cdot \cov(\xi, \eta)\), где \(\cov(\xi, \eta) = \mathbb{E}(\xi \cdot \eta) - \mathbb{E}\xi \cdot \mathbb{E} \eta\) --- ковариация.
+        \item \(\D(\xi + \eta) = \D\xi + \D\eta + 2 \cdot \cov(\xi, \eta)\), где \(\cov(\xi, \eta) = \E(\xi \cdot \eta) - \E\xi \cdot \E \eta\) --- ковариация.
 
               \begin{proof}
                   \begin{align*}
-                      \mathbb{D}(\xi + \eta) & = \mathbb{E}(\xi + \eta)^2 - (\mathbb{E}(\xi + \eta))^2                                                                                 \\
-                                             & = \mathbb{E}(\xi^2 + 2\xi\eta + \eta^2) - (\mathbb{E}\xi + \mathbb{E}\eta)^2                                                            \\
-                                             & = \mathbb{E} \xi^2 + 2 \mathbb{E} \xi\eta + \mathbb{E} \eta^2 - (\mathbb{E} \xi)^2 - (\mathbb{E} \eta)^2 - 2\mathbb{E}\xi\mathbb{E}\eta \\
-                                             & = \mathbb{D}\xi + \mathbb{D}\eta + 2 (\mathbb{E} \xi\eta - \mathbb{E}\xi\mathbb{E}\eta)                                                 \\
+                      \D(\xi + \eta) & = \E(\xi + \eta)^2 - (\E(\xi + \eta))^2                                         \\
+                                     & = \E(\xi^2 + 2\xi\eta + \eta^2) - (\E\xi + \E\eta)^2                            \\
+                                     & = \E \xi^2 + 2 \E \xi\eta + \E \eta^2 - (\E \xi)^2 - (\E \eta)^2 - 2\E\xi\E\eta \\
+                                     & = \D\xi + \D\eta + 2 (\E \xi\eta - \E\xi\E\eta)                                 \\
                   \end{align*}
               \end{proof}
 
-        \item Если случайные величины \(\xi\) и \(\eta\) независимы, то \(\mathbb{D}(\xi + \eta) = \mathbb{D} \xi + \mathbb{D} \eta\)
+        \item Если случайные величины \(\xi\) и \(\eta\) независимы, то \(\D(\xi + \eta) = \D \xi + \D \eta\)
 
               \begin{proof}
                   \(\cov(\xi, \eta) = 0\)
               \end{proof}
 
-        \item Среднеквадратическое отклонение --- минимум отклонения случайной величины от точек вещественной прямой: \(\mathbb{D} = \min_a (\xi - a)^2\)
+        \item Среднеквадратическое отклонение --- минимум отклонения случайной величины от точек вещественной прямой: \(\D = \min_a (\xi - a)^2\)
 
               \begin{proof}
                   \begin{align*}
-                      \mathbb{E}(\xi - a)^2 & = \mathbb{E}((\xi - \mathbb{E}\xi) + (\mathbb{E}\xi - a))^2                                                               \\
-                                            & = \mathbb{E}(\xi - \mathbb{E}\xi)^2 + 2\mathbb{E}(\xi - \mathbb{E}\xi) \cdot (\mathbb{E} \xi - a) + (\mathbb{E}\xi - a)^2 \\
-                                            & = \mathbb{D}\xi + (\mathbb{E}\xi - a)^2 \leq \mathbb{D}\xi
+                      \E(\xi - a)^2 & = \E((\xi - \E\xi) + (\E\xi - a))^2                                       \\
+                                    & = \E(\xi - \E\xi)^2 + 2\E(\xi - \E\xi) \cdot (\E \xi - a) + (\E\xi - a)^2 \\
+                                    & = \D\xi + (\E\xi - a)^2 \leq \D\xi
                   \end{align*}
               \end{proof}
     \end{enumerate}
@@ -249,10 +249,10 @@
 \subsection{Другие числовые характеристики}
 
 \begin{enumerate}
-    \item \(M_k = \mathbb{E} y^k\) --- момент \(k\)-го порядка. В частности, при \(k = 1\) это матожидание.
-    \item \(\mathbb{E}|y|^k\) --- абсолютный момент \(k\)-го порядка
-    \item \(\mu_k = \mathbb{E}(\xi - \mathbb{E}\xi)^k\) --- центральный момент \(k\)-го порядка. В частности, при \(k = 1\) это дисперсия.
-    \item \(\mathbb{E}(\xi - \mathbb{E}\xi)^k\) --- абсолютный центральный момент \(k\)-го порядка.
+    \item \(M_k = \E y^k\) --- момент \(k\)-го порядка. В частности, при \(k = 1\) это матожидание.
+    \item \(\E|y|^k\) --- абсолютный момент \(k\)-го порядка
+    \item \(\mu_k = \E(\xi - \E\xi)^k\) --- центральный момент \(k\)-го порядка. В частности, при \(k = 1\) это дисперсия.
+    \item \(\E(\xi - \E\xi)^k\) --- абсолютный центральный момент \(k\)-го порядка.
 \end{enumerate}
 
 \begin{remark}

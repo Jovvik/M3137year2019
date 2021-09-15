@@ -11,10 +11,10 @@
 
 \[F(x) = \int_{ -\infty}^{+\infty} f_\xi(x) dx\]
 \[F(x) = \begin{cases} 0, & x < a \\ \frac{x - a}{b - a}, & a \leq x \leq b \\ 1, & x > b \end{cases} \]
-\[\mathbb{E}\xi = \int_{ -\infty}^{+\infty} x f_\xi(x) dx = \int_a^b x \frac{1}{b - a}dx = \frac{b^2 - a^2}{2(b - a)} = \frac{a + b}{2} \]
-\[\mathbb{E}\xi^2 = \int_{ -\infty}^{+\infty} x^2 f_\xi(x) dx = \int_a^b x^2 \frac{dx}{b - a} = \frac{a^2 + ab + b^2}{3}\]
-\[\mathbb{D}\xi = \mathbb{E}\xi^2 - (\mathbb{E}\xi)^2 = \frac{a^2 + ab + b^2}{2} - \left( \frac{a + b}{2} \right)^2 = \frac{a^2 + b^2 - 2ab}{12} = \frac{(b - a)^2}{12}\]
-\[\sigma = \sqrt{\mathbb{D}\xi} = \frac{b - a}{2\sqrt{3}} \]
+\[\E\xi = \int_{ -\infty}^{+\infty} x f_\xi(x) dx = \int_a^b x \frac{1}{b - a}dx = \frac{b^2 - a^2}{2(b - a)} = \frac{a + b}{2} \]
+\[\E\xi^2 = \int_{ -\infty}^{+\infty} x^2 f_\xi(x) dx = \int_a^b x^2 \frac{dx}{b - a} = \frac{a^2 + ab + b^2}{3}\]
+\[\D\xi = \E\xi^2 - (\E\xi)^2 = \frac{a^2 + ab + b^2}{2} - \left( \frac{a + b}{2} \right)^2 = \frac{a^2 + b^2 - 2ab}{12} = \frac{(b - a)^2}{12}\]
+\[\sigma = \sqrt{\D\xi} = \frac{b - a}{2\sqrt{3}} \]
 \[P(\alpha < q < \beta) = \frac{\beta - \alpha}{b - a}, \quad \alpha, \beta \in [a, b]\]
 %</23>
 
@@ -35,10 +35,10 @@
     \textbf{Гамма-фукнция Эйлера} \(G(\lambda) = \int_0^{+\infty} t^{\lambda - 1} e^{ - t}dt\). При \(\lambda \in \N\) \(\Gamma(\lambda + 1) = \lambda!\)
 \end{definition}
 
-\[\mathbb{E}\xi^k = \int_{ -\infty}^{+\infty} x^k f_\xi(x) dx = \int_0^{+\infty} x^k \alpha e^{ - \alpha x} dx = \frac{1}{\alpha^k} \int_0^{+\infty} (\alpha x)^k \alpha e^{ - \alpha k} d(\alpha x) = \frac{k!}{\alpha^k} \]
-\[\mathbb{E}\xi = \frac{1}{\alpha}\]
-\[\mathbb{E}\xi^2 = \frac{2}{\alpha^2}\]
-\[\mathbb{D}\xi = \frac{2}{\alpha^2} - \left( \frac{1}{\alpha} \right)^2 = \frac{1}{\alpha^2}\]
+\[\E\xi^k = \int_{ -\infty}^{+\infty} x^k f_\xi(x) dx = \int_0^{+\infty} x^k \alpha e^{ - \alpha x} dx = \frac{1}{\alpha^k} \int_0^{+\infty} (\alpha x)^k \alpha e^{ - \alpha k} d(\alpha x) = \frac{k!}{\alpha^k} \]
+\[\E\xi = \frac{1}{\alpha}\]
+\[\E\xi^2 = \frac{2}{\alpha^2}\]
+\[\D\xi = \frac{2}{\alpha^2} - \left( \frac{1}{\alpha} \right)^2 = \frac{1}{\alpha^2}\]
 \[\sigma = \frac{1}{\alpha}\]
 \[P(\alpha < \xi < \beta) = e^{ - a\alpha} - e^{ - b\alpha}\]
 \begin{proof}
@@ -76,7 +76,7 @@
 \(\xi\) имеет нормальное распределение с параметрами \(a\) и \(\sigma > 0\), если её плотность имеет вид \(f_\xi(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{ - \frac{(x - a)^2}{2\sigma^2}}, x\in\R\), обозначается \(\xi \in N_{a, \sigma^2}\) или \(\xi \in N(\alpha, \sigma^2)\)
 
 Смысл параметров распределения:
-\[\mathbb{E}\xi = a \quad \sigma \xi = \sigma \quad \mathbb{D}\xi = \sigma^2\]
+\[\E\xi = a \quad \sigma \xi = \sigma \quad \D\xi = \sigma^2\]
 
 \[F_\xi(x) = \frac{1}{\sigma \sqrt{2 \pi}} \int_{-\infty}^{+\infty} e^{ - \frac{(x - a)^2}{2\sigma^2} } dt\]
 
@@ -102,23 +102,23 @@
 \end{remark}
 
 \begin{align*}
-    \mathbb{E}\xi & = \int_{-\infty}^{+\infty} x \varphi(x) dx                                                                                   \\
-                  & = \int_{-\infty}^{+\infty} x \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} dx                                                   \\
-                  & = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{ - \frac{x^2}{2}} d \frac{x^2}{2}                                        \\
-                  & = - \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} \Big|_{-\infty}^{ +\infty}                                                    \\
-                  & = \frac{1}{\sqrt{2\pi}} \left( \lim_{x \to +\infty} e^{ - \frac{x^2}{2}} - \lim_{x \to -\infty} e^{ - \frac{x^2}{2}} \right) \\
-                  & = 0
+    \E\xi & = \int_{-\infty}^{+\infty} x \varphi(x) dx                                                                                   \\
+          & = \int_{-\infty}^{+\infty} x \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} dx                                                   \\
+          & = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} e^{ - \frac{x^2}{2}} d \frac{x^2}{2}                                        \\
+          & = - \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} \Big|_{-\infty}^{ +\infty}                                                    \\
+          & = \frac{1}{\sqrt{2\pi}} \left( \lim_{x \to +\infty} e^{ - \frac{x^2}{2}} - \lim_{x \to -\infty} e^{ - \frac{x^2}{2}} \right) \\
+          & = 0
 \end{align*}
 
 \begin{align*}
-    \mathbb{D}\xi & = \int_{-\infty}^{+\infty} x^2 \varphi(x) dx - (\mathbb{E}\xi)^2                                                                              \\
-                  & = \int_{-\infty}^{+\infty} x^2 \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} dx - 0 = \begin{bmatrix}
+    \D\xi & = \int_{-\infty}^{+\infty} x^2 \varphi(x) dx - (\E\xi)^2                                                                                      \\
+          & = \int_{-\infty}^{+\infty} x^2 \frac{1}{\sqrt{2\pi}} e^{ - \frac{x^2}{2}} dx - 0 = \begin{bmatrix}
         u = x                         & du = dx                  \\
         dv = xe^{ - \frac{x^2}{2}} dx & v = e^{ - \frac{x^2}{2}}
     \end{bmatrix}                                 \\
-                  & = \frac{1}{\sqrt{2\pi}} \left( - xe^{ - \frac{x^2}{2}} \Big|_{ -\infty}^{+\infty} + \int_{ -\infty}^{+\infty} e^{ - \frac{x^2}{2}} dx \right) \\
-                  & = \frac{1}{\sqrt{2\pi}} (0 + \sqrt{2\pi})                                                                                                     \\
-                  & = 1
+          & = \frac{1}{\sqrt{2\pi}} \left( - xe^{ - \frac{x^2}{2}} \Big|_{ -\infty}^{+\infty} + \int_{ -\infty}^{+\infty} e^{ - \frac{x^2}{2}} dx \right) \\
+          & = \frac{1}{\sqrt{2\pi}} (0 + \sqrt{2\pi})                                                                                                     \\
+          & = 1
 \end{align*}
 %</25>
 
@@ -148,11 +148,11 @@
               \[F_\eta(x) = P\left( \frac{\xi - a}{\sigma} < x \right) = P(\xi < \sigma x + a) = F_\xi(\sigma x + a) = \Phi_0\left( \frac{\sigma x + a - a}{\sigma} \right) = \Phi_0(x)\]
           \end{proof}
 
-    \item Пусть \(\xi \in N(a, \sigma^2)\). Тогда \(\mathbb{E}\xi = a, \mathbb{D}\xi = \sigma^2\).
+    \item Пусть \(\xi \in N(a, \sigma^2)\). Тогда \(\E\xi = a, \D\xi = \sigma^2\).
           \begin{proof}
               \[\eta : = \frac{\xi - a}{\sigma} \in N(0, 1)\]
-              \[\mathbb{E}\xi = \sigma \mathbb{E}\xi + a = 0 + a = a\]
-              \[\mathbb{D}\xi = \sigma^2 \cdot 1 = \sigma^2\]
+              \[\E\xi = \sigma \E\xi + a = 0 + a = a\]
+              \[\D\xi = \sigma^2 \cdot 1 = \sigma^2\]
           \end{proof}
 
     \item Вероятность попадания нормальной случайной величины в заданный интервал \(P(\alpha < \xi < \beta) = \Phi\left( \frac{\beta - a}{\sigma} \right) - \Phi\left( \frac{\alpha - a}{\sigma} \right)\)
@@ -197,11 +197,11 @@
 \subsubsection{Коэффициенты асимметрии и эксцесса}
 
 \begin{definition}
-    \textbf{Асимметрией} распределения называется число \(A_s = \mathbb{E}\left( \frac{\xi - a}{\sigma} \right)^3 = \frac{M_3}{\sigma^3}\)
+    \textbf{Асимметрией} распределения называется число \(A_s = \E\left( \frac{\xi - a}{\sigma} \right)^3 = \frac{M_3}{\sigma^3}\)
 \end{definition}
 
 \begin{definition}
-    \textbf{Эксцессом} распределения называется число \(E_k = \mathbb{E}\left( \frac{\xi - a}{\sigma} \right)^4 - 3 = \frac{M_4}{\sigma^4} - 3\)
+    \textbf{Эксцессом} распределения называется число \(E_k = \E\left( \frac{\xi - a}{\sigma} \right)^4 - 3 = \frac{M_4}{\sigma^4} - 3\)
 \end{definition}
 
 Если \(\xi \in N(a, \sigma^2)\), то \(A_s = 0, E_k = 0\). Таким образом, эти коэффициенты показывают, насколько сильно данное распределение отличается от нормального.
@@ -236,7 +236,7 @@
 
 \begin{prop}\itemfix
     \begin{enumerate}
-        \item \(\mathbb{E}\xi = \frac{\lambda}{\alpha}, \mathbb{D}\xi = \frac{\lambda}{\alpha^2}\)
+        \item \(\E\xi = \frac{\lambda}{\alpha}, \D\xi = \frac{\lambda}{\alpha^2}\)
         \item \(\Gamma_{\alpha, 1} = E_\alpha\)
         \item Пусть случайные величины \(\xi_1 \dots \xi_n\) независимы и имеют одинаковое показательное распределение \(E_\alpha\). Тогда \(\sum_{i = 1}^n \xi_i = \Gamma_{\alpha, n}\)
         \item Если \(\xi \in N(0, 1)\), то \(\xi^2 \in \Gamma_{\frac{1}{2}, \frac{1}{2}}\)

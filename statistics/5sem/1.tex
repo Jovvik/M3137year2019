@@ -63,9 +63,9 @@
 \end{theorem}
 \begin{proof}
     Заметим, что
-    \[\mathbb{E} I(X_1 < z) = 1 \cdot P(X_1 < z) + 0 \cdot P(X_1 \geq z) = P(X_1 < z) = F(z)\]
+    \[\E I(X_1 < z) = 1 \cdot P(X_1 < z) + 0 \cdot P(X_1 \geq z) = P(X_1 < z) = F(z)\]
     , где \(F(z)\) --- функция распределения \(X_1\). Заметим, что \(F(z) \leq 1 < \infty\), следовательно применим ЗБЧ Хинчина:
-    \[F_n^*(z) = \frac{\sum_{i = 1}^{n} I(X_i < z)}{n} \xrightarrow{P} \mathbb{E} I(X_1 < z) = F(z)\]
+    \[F_n^*(z) = \frac{\sum_{i = 1}^{n} I(X_i < z)}{n} \xrightarrow{P} \E I(X_1 < z) = F(z)\]
 \end{proof}
 \begin{remark}
     На самом деле имеется даже равномерная сходимость по вероятности --- это теорема Гливенко-Кантелли:

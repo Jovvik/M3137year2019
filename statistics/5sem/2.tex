@@ -25,7 +25,7 @@
 
 \begin{definition}
     Статистика \(\theta^* = \theta^*(X_1, \dots, X_n)\) называется \textbf{несмещенной оценкой} параметра \(\theta\), если
-    \[\mathbb{E} \theta^* = \theta\]
+    \[\E \theta^* = \theta\]
 \end{definition}
 
 \begin{remark}
@@ -34,7 +34,7 @@
 
 \begin{definition}
     Статистика \(\theta^* = \theta^*(X_1, \dots, X_n)\) называется \textbf{асимптотически несмещенной оценкой} параметра \(\theta\), если
-    \[\mathbb{E} \theta^* \xrightarrow[n \to \infty ]{} \theta\]
+    \[\E \theta^* \xrightarrow[n \to \infty ]{} \theta\]
 \end{definition}
 
 \begin{remark}
@@ -45,9 +45,9 @@
 
 \begin{definition}
     Оценка \(\theta_1^*\) \textbf{не хуже} оценки \(\theta_2^*\), если
-    \[\mathbb{E} (\theta_1^* - \theta)^2 \leq \mathbb{E} (\theta_2^* - \theta)^2\]
+    \[\E (\theta_1^* - \theta)^2 \leq \E (\theta_2^* - \theta)^2\]
     или, если оценки несмещенные,
-    \[\mathbb{D} \theta_1^* \leq \mathbb{D} \theta_2^*\]
+    \[\D \theta_1^* \leq \D \theta_2^*\]
 \end{definition}
 
 \begin{definition}
@@ -73,16 +73,16 @@
 \end{definition}
 
 \begin{definition}
-    \textbf{Выборочной дисперсией} \(\mathbb{D}_B\) называется величина
+    \textbf{Выборочной дисперсией} \(\D_B\) называется величина
     \begin{myemph}
-        \mathbb{D}_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X_B})^2
+        \D_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X_B})^2
     \end{myemph}
 \end{definition}
 
 \begin{definition}
     \textbf{Исправленной выборочной дисперсией} \(S^2\) называется величина
     \begin{myemph}
-        S^2 = \frac{n}{n - 1} \mathbb{D}_B
+        S^2 = \frac{n}{n - 1} \D_B
     \end{myemph}
     или
     \begin{myemph}
@@ -93,7 +93,7 @@
 \begin{definition}
     \textbf{Выборочным средним квадратическим отклонением} называется величина
     \begin{myemph}
-        \sigma_B = \sqrt{\mathbb{D}_B}
+        \sigma_B = \sqrt{\D_B}
     \end{myemph}
 \end{definition}
 
@@ -133,7 +133,7 @@
                                   & Русский                             & Английский \\
         \midrule
         \overline{X_B}            & СРЗНАЧ                              & AVERAGE    \\
-        \mathbb{D}_B              & ДИСПР                               & VARP       \\
+        \D_B                      & ДИСПР                               & VARP       \\
         S^2                       & ДИСП                                & VAR        \\
         \sigma_n                  & СТАНДОТКЛОНП                        & STDEVP     \\
         S                         & СТАНДОТКЛОН                         & STDEV      \\
@@ -146,14 +146,14 @@
 \begin{theorem}
     Выборочное среднее \(\overline{X_B}\) является несмещенной состоятельной оценкой для математического ожидания, то есть:
     \begin{enumerate}
-        \item \(\mathbb{E} \overline{X_B} = \mathbb{E} X = a\) --- несмещенность
-        \item \(\overline{X_B} \xrightarrow[n \to \infty ]{P} \mathbb{E} X\) --- состоятельность
+        \item \(\E \overline{X_B} = \E X = a\) --- несмещенность
+        \item \(\overline{X_B} \xrightarrow[n \to \infty ]{P} \E X\) --- состоятельность
     \end{enumerate}
 \end{theorem}
 \begin{proof}\itemfix
     \begin{enumerate}
-        \item \[\mathbb{E} \overline{X} = \mathbb{E} \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) = \frac{1}{n} \sum_{i=1}^{n} \mathbb{E} X_i = \frac{1}{n} \cdot n \mathbb{E} X_i = \mathbb{E} X\]
-        \item \[\overline{X} = \frac{\sum_{i=1}^{n} X_i}{n} \xrightarrow[n \to \infty ]{P} \mathbb{E} X\]
+        \item \[\E \overline{X} = \E \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) = \frac{1}{n} \sum_{i=1}^{n} \E X_i = \frac{1}{n} \cdot n \E X_i = \E X\]
+        \item \[\overline{X} = \frac{\sum_{i=1}^{n} X_i}{n} \xrightarrow[n \to \infty ]{P} \E X\]
               Это верно по закону больших чисел.
     \end{enumerate}
 \end{proof}
@@ -161,8 +161,8 @@
 \begin{theorem}
     Выборочный \(k\)-тый момент является несмещенной состоятельной оценкой для теоретического \(k\)-того момента, то есть:
     \begin{enumerate}
-        \item \(\mathbb{E} \overline{X^k} = X^k\)
-        \item \(\overline{X^k} \xrightarrow[]{P} \mathbb{E} X^k\)
+        \item \(\E \overline{X^k} = X^k\)
+        \item \(\overline{X^k} \xrightarrow[]{P} \E X^k\)
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -171,31 +171,31 @@
 
 \begin{theorem}\itemfix
     \begin{itemize}
-        \item \(\mathbb{D}_B\) --- смещённая состоятельная оценка дисперсии
+        \item \(\D_B\) --- смещённая состоятельная оценка дисперсии
         \item \(S^2\) --- несмещённая состоятельная оценка дисперсии
     \end{itemize}
 \end{theorem}
 \begin{proof}
-    \[\mathbb{D}_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2 = \overline{X^2} - (\overline{X})^2\]
+    \[\D_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2 = \overline{X^2} - (\overline{X})^2\]
     \begin{align*}
-        \mathbb{E} \mathbb{D}_B                                                  & =                 \\ \mathbb{E} (\overline{X^2} - (\overline{X})^2) & = \\ \mathbb{E} \overline{X^2} - \mathbb{E} (\overline{X})^2 & = \\ \mathbb{E} X^2 - \mathbb{E} (\overline{X})^2 & = \\ \mathbb{D} \overline{X} & = \\ \mathbb{E} (\overline{X})^2 - (\mathbb{E} \overline{X})^2 & = \\
-        \mathbb{E} X^2 - (\mathbb{D} \overline{X} + (\mathbb{E} \overline{X})^2) & =                 \\
-        \mathbb{E} X^2 - (\mathbb{E} X)^2 - \mathbb{D} \overline{X}              & =                 \\
-        (\mathbb{E} X^2 - (\mathbb{E} X)^2) - \mathbb{D} \overline{X}            & =                 \\
-        \mathbb{D} X - \mathbb{D} \overline{X}                                   & =                 \\
-        \mathbb{D} X - \mathbb{D} \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right)  & =                 \\
-        \mathbb{D} X - \frac{1}{n^2} \sum_{i=1}^{n} \mathbb{D} X_i               & =                 \\
-        \mathbb{D} X - \frac{1}{n^2} \cdot n \mathbb{D} X                        & =                 \\
-        \mathbb{D} X - \frac{1}{n} \mathbb{D} X                                  & =                 \\
-        \frac{n - 1}{n} \mathbb{D} X                                             & \neq \mathbb{D} X
+        \E \D_B                                                 & =         \\ \E (\overline{X^2} - (\overline{X})^2) & = \\ \E \overline{X^2} - \E (\overline{X})^2 & = \\ \E X^2 - \E (\overline{X})^2 & = \\ \D \overline{X} & = \\ \E (\overline{X})^2 - (\E \overline{X})^2 & = \\
+        \E X^2 - (\D \overline{X} + (\E \overline{X})^2)        & =         \\
+        \E X^2 - (\E X)^2 - \D \overline{X}                     & =         \\
+        (\E X^2 - (\E X)^2) - \D \overline{X}                   & =         \\
+        \D X - \D \overline{X}                                  & =         \\
+        \D X - \D \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) & =         \\
+        \D X - \frac{1}{n^2} \sum_{i=1}^{n} \D X_i              & =         \\
+        \D X - \frac{1}{n^2} \cdot n \D X                       & =         \\
+        \D X - \frac{1}{n} \D X                                 & =         \\
+        \frac{n - 1}{n} \D X                                    & \neq \D X
     \end{align*}
-    \[\mathbb{E} S^2 = \mathbb{E} \left( \frac{n}{n -1} \mathbb{D}_B \right) = \frac{n}{n - 1} \cdot \frac{n - 1}{n} \mathbb{D} X = \mathbb{D} X\]
-    \[\mathbb{D}_B = \overline{X^2} - (\overline{X})^2 \xrightarrow[]{P} \mathbb{E} X^2 - (\mathbb{E} X)^2 = \mathbb{D} X\]
-    \[S^2 = \frac{n}{n - 1} \mathbb{D}_B \xrightarrow[]{P} \underbrace{\frac{n}{n - 1}}_{ \to 1} \mathbb{D} X\]
+    \[\E S^2 = \E \left( \frac{n}{n -1} \D_B \right) = \frac{n}{n - 1} \cdot \frac{n - 1}{n} \D X = \D X\]
+    \[\D_B = \overline{X^2} - (\overline{X})^2 \xrightarrow[]{P} \E X^2 - (\E X)^2 = \D X\]
+    \[S^2 = \frac{n}{n - 1} \D_B \xrightarrow[]{P} \underbrace{\frac{n}{n - 1}}_{ \to 1} \D X\]
 \end{proof}
 
 \begin{remark}
-    \(\mathbb{D}_B\) --- асимптотически несмещённая оценка, т.к. при \(n \to \infty\), \(\frac{n - 1}{n} \to 1\). Таким образом, при большой\footnote{\(n \geq 100\), например.} выборке можно игнорировать смещённость.
+    \(\D_B\) --- асимптотически несмещённая оценка, т.к. при \(n \to \infty\), \(\frac{n - 1}{n} \to 1\). Таким образом, при большой\footnote{\(n \geq 100\), например.} выборке можно игнорировать смещённость.
 \end{remark}
 
 \subsection{Метод моментов}
@@ -220,8 +220,8 @@
         \frac{1}{b - a}, & a \leq x \leq b \\
         0,               & x > b
     \end{cases}\)
-    \[\mathbb{E} X = \int_a^b x f(x) dx = \int_a^b \frac{x}{b - a} = \frac{1}{b - a} \cdot \frac{x^2}{2}\Big|_a^b = \frac{b^2 - a^2}{2(b - a)} = \boxed{\frac{a + b}{2}}\]
-    \[\mathbb{E} X^2 = \int_a^b x^2 \cdot \frac{1}{b - a} dx = \frac{1}{b - a} \cdot \frac{x^3}{3} \Big|_a^b = \frac{b^3 - a^3}{3(b - a)} = \boxed{\frac{a^2 + ab + b^2}{3}}\]
+    \[\E X = \int_a^b x f(x) dx = \int_a^b \frac{x}{b - a} = \frac{1}{b - a} \cdot \frac{x^2}{2}\Big|_a^b = \frac{b^2 - a^2}{2(b - a)} = \boxed{\frac{a + b}{2}}\]
+    \[\E X^2 = \int_a^b x^2 \cdot \frac{1}{b - a} dx = \frac{1}{b - a} \cdot \frac{x^3}{3} \Big|_a^b = \frac{b^3 - a^3}{3(b - a)} = \boxed{\frac{a^2 + ab + b^2}{3}}\]
     \[\begin{cases}
             2.25 = \frac{a + b}{2} \\
             6.75 = \frac{a^2 + ab + b^2}{3}

@@ -2,10 +2,10 @@
 
 \section{Комплексная случайная величина}
 \[ \xi + i\eta \]
-\[ \mathbb{E}(\xi + i \eta) = \mathbb{E}\xi + iE\eta \]
+\[ \E(\xi + i \eta) = \E\xi + iE\eta \]
 %<*47>
 \begin{definition}
-    Характеристической функцией случайной величины \(\xi\) называется функция \[\varphi_{\xi}(t) = \mathbb{E} e^{it\xi}\quad t \in \R\]
+    Характеристической функцией случайной величины \(\xi\) называется функция \[\varphi_{\xi}(t) = \E e^{it\xi}\quad t \in \R\]
 \end{definition}
 
 \begin{prop}\itemfix
@@ -15,9 +15,9 @@
               \[ |\varphi_\xi(t)| \le 1 \]
 
               \begin{proof}
-                  \[ \mathbb{D}\eta  = \mathbb{E}\eta^2 - (\mathbb{E}\eta)^2 \ge 0 \implies (\mathbb{E}\eta)^2 \le \mathbb{E}\eta^2 \]
-                  \[ |\varphi_\xi(t)|^2 = |\mathbb{E} e^{it\xi}|^2 = |\mathbb{E}\cos t\xi + iE\sin t\xi|^2 = (\mathbb{E}\cos t\xi)^2 + (\mathbb{E}\sin t\xi)^2 \le   \]
-                  \[ \le \mathbb{E}\cos^2t\xi + \mathbb{E}\sin^2 t\xi = \mathbb{E}(\cos^2t\xi + \sin^2t\xi) = E1 = 1 \]
+                  \[ \D\eta  = \E\eta^2 - (\E\eta)^2 \ge 0 \implies (\E\eta)^2 \le \E\eta^2 \]
+                  \[ |\varphi_\xi(t)|^2 = |\E e^{it\xi}|^2 = |\E\cos t\xi + iE\sin t\xi|^2 = (\E\cos t\xi)^2 + (\E\sin t\xi)^2 \le   \]
+                  \[ \le \E\cos^2t\xi + \E\sin^2 t\xi = \E(\cos^2t\xi + \sin^2t\xi) = E1 = 1 \]
               \end{proof}
         \item
               Пусть \(\varphi_\xi(t)\) --- характеристическая функция случайной величины \(\xi\), тогда характеристическая функция случайной величины \(\eta = a + b\xi\):
@@ -34,20 +34,20 @@
                   \[ \varphi_{\xi + \eta}(t)  = Ee^{it(\xi + \eta)} = Ee^{it\xi}\cdot e^{it\eta} = Ee^{it\xi}\cdot Ee^{it\eta} = \varphi_\xi(t)\cdot \varphi_\eta(t) \]
               \end{proof}
         \item
-              Пусть существует \(k\)-тый момент случайной величины \(\xi\), тогда характеристическая функция \(\varphi_\xi(t)\) непрерывно дифференцируема \(k\) раз и \[\varphi_\xi^{(k)}(0) = i^k\cdot \mathbb{E}\xi^k\]
+              Пусть существует \(k\)-тый момент случайной величины \(\xi\), тогда характеристическая функция \(\varphi_\xi(t)\) непрерывно дифференцируема \(k\) раз и \[\varphi_\xi^{(k)}(0) = i^k\cdot \E\xi^k\]
 
               \begin{proof}
                   Доказательство существования непрерывности опустим
-                  \[ \varphi_\xi^{(k)}(0) = \left(\frac{\partial^k}{\partial t^k} Ee^{it\xi}\right) = \mathbb{E}\left(\frac{\partial^k}{\partial t^k} e^{it\xi}\right) = \mathbb{E}(i^k\xi^ke^{it\xi}) \xlongequal[t = 0]{} \mathbb{E}(i^k \xi^k e^0) = i^k\cdot \mathbb{E}\xi^k \]
+                  \[ \varphi_\xi^{(k)}(0) = \left(\frac{\partial^k}{\partial t^k} Ee^{it\xi}\right) = \E\left(\frac{\partial^k}{\partial t^k} e^{it\xi}\right) = \E(i^k\xi^ke^{it\xi}) \xlongequal[t = 0]{} \E(i^k \xi^k e^0) = i^k\cdot \E\xi^k \]
               \end{proof}
         \item
-              Пусть \(\mathbb{E}|\xi|^k < \infty\). Тогда
-              \[ \varphi_\xi(t) = \varphi_\xi(0) + it \mathbb{E}\xi - \frac{t^2}{2}\mathbb{E}\xi^2 + \dots + \frac{i^kt^k}{k!}\mathbb{E}\xi^2 + o(|t|^k) \]
+              Пусть \(\E|\xi|^k < \infty\). Тогда
+              \[ \varphi_\xi(t) = \varphi_\xi(0) + it \E\xi - \frac{t^2}{2}\E\xi^2 + \dots + \frac{i^kt^k}{k!}\E\xi^2 + o(|t|^k) \]
 
               \begin{proof}
                   По формуле Тейлора в точке \(t = 0\)
                   \[ \varphi_\xi(t) = \varphi_\xi(0) + \frac{\varphi_\xi'(0)}{1!}t + \frac{\varphi_\xi''(0)}{2!}t^2 + \dots + \frac{\varphi_\xi^{(k)}}{k!}t^k + o(|t|^2) = \]
-                  \[ = \varphi_\xi(0) + itE\xi - \frac{t^2}{2}\mathbb{E}\xi^2 + \dots + \frac{i^k t^k}{k!} \mathbb{E}\xi^k + o(|t|^2) \]
+                  \[ = \varphi_\xi(0) + itE\xi - \frac{t^2}{2}\E\xi^2 + \dots + \frac{i^k t^k}{k!} \E\xi^k + o(|t|^2) \]
               \end{proof}
         \item
               \label{свойство 6 эксп СВ}
@@ -74,7 +74,7 @@
     \eta & 1 - p & p
 \end{tabular}
 
-\[ \varphi_\xi(t) = \mathbb{E} e^{it\xi} = e^{it\cdot 0} p(\xi = 0)  + e^{it1}\cdot p(\xi = 1) = 1 - p + pe^{it}\]
+\[ \varphi_\xi(t) = \E e^{it\xi} = e^{it\cdot 0} p(\xi = 0)  + e^{it1}\cdot p(\xi = 1) = 1 - p + pe^{it}\]
 \subsubsection{Биномиальное распределение}
 \(\xi \in B_{n,p}\) --- число успехов при \(n\) независимых испытаниях
 \[ \xi = \xi_1 + \dots + \xi_n \]
@@ -100,7 +100,7 @@
 \(\xi \in \Gamma_{\alpha, \lambda}\)
 \[ f_\xi(x) = \frac{\alpha^\lambda}{\Gamma(\lambda)}x^{\lambda - 1}e^{-\alpha x}\quad x > 0 \]
 \begin{align*}
-    \varphi_\xi(t) & = \mathbb{E} e^{it\xi}                                                                                          \\
+    \varphi_\xi(t) & = \E e^{it\xi}                                                                                                  \\
                    & = \int_{-\infty}^{+\infty} e^{ - itx} f_\xi(x) dx                                                               \\
                    & = \int_{-\infty}^{+\infty} e^{ - itx} \frac{\alpha^\lambda}{\Gamma(\lambda)} x^{\lambda - 1} e^{ - \alpha x} dx \\
                    & = \frac{\alpha^\lambda}{\Gamma(\lambda)} \int_{-\infty}^{+\infty} x^{\lambda - 1} e^{ - x(it + \alpha)} dx      \\
@@ -147,16 +147,16 @@
 \end{theorem}
 \begin{proof}
     Докажем, что \(\frac{S_n}{n} \rightrightarrows a\), тогда по теореме об эквивалентности сходимости к константе искомое будет верно.
-    \[\frac{S_n}{n} \rightrightarrows a \Leftrightarrow \varphi_{\frac{S_n}{n}}(t) \to \varphi_a(t) = \mathbb{E} e^{ita} = e^{ita} \quad \forall t \in \R\]
+    \[\frac{S_n}{n} \rightrightarrows a \Leftrightarrow \varphi_{\frac{S_n}{n}}(t) \to \varphi_a(t) = \E e^{ita} = e^{ita} \quad \forall t \in \R\]
     \[\varphi_{\frac{S_n}{n}}(t) = \varphi_{S_n}\left( \frac{t}{n} \right) = \left(\varphi_{\xi_1}\left( \frac{t}{n} \right)\right)^n\]
     По свойству 5, т.к. первый момент существует,
-    \[\varphi_{\xi_1}(t) = 1 + it \mathbb{E}\xi_1 + \smallO(t) = 1 + ita + \smallO(t)\]
+    \[\varphi_{\xi_1}(t) = 1 + it \E\xi_1 + \smallO(t) = 1 + ita + \smallO(t)\]
     \[\varphi_{\frac{S_n}{n}}(t) = \left(\varphi_{\xi_1}\left( \frac{t}{n} \right)\right)^n = \left(\varphi_{\xi_1}\left( 1 + \frac{ita}{n} + \smallO\left( \frac{t}{n} \right) \right)\right)^n \to e^{ita}\]
 \end{proof}
 %</49>
 
 \begin{theorem}
-    Пусть \(\xi_1, \xi_2, \dots\) --- последовательность независимых одинаково распределенных случайных величин с конечной дисперсией. \(a = \mathbb{E}\xi_1\), \(\sigma^2 = \mathbb{D}\xi_1\). \\
+    Пусть \(\xi_1, \xi_2, \dots\) --- последовательность независимых одинаково распределенных случайных величин с конечной дисперсией. \(a = \E\xi_1\), \(\sigma^2 = \D\xi_1\). \\
     Тогда
     \[ \frac{S_n - na}{\sigma\sqrt{n}} \rightrightarrows N_{0, 1} \]
 \end{theorem}
@@ -184,7 +184,7 @@
 \end{remark}
 \begin{theorem}
     В условиях ЦПТ, \? с конечным третьим моментом
-    \[ \left| p\left( \frac{S_n - \mathbb{E}\xi_1}{\sqrt{nD\xi_1}} \right) - \Phi_0(x) \right| \le C \frac{\mathbb{E}|\xi_1 - \mathbb{E}\xi_1|^2}{\sqrt{n}(\sqrt{\mathbb{D}\xi_1})^3} \quad \forall x \in \R \]
+    \[ \left| p\left( \frac{S_n - \E\xi_1}{\sqrt{nD\xi_1}} \right) - \Phi_0(x) \right| \le C \frac{\E|\xi_1 - \E\xi_1|^2}{\sqrt{n}(\sqrt{\D\xi_1})^3} \quad \forall x \in \R \]
 \end{theorem}
 \begin{remark}
     Можно взять \(C = 0.4\)

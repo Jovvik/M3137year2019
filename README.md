@@ -11,6 +11,10 @@
 ### Математическая статистика
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf)
 
+#### Практика
+
+- [2 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/2.pdf)
+
 ### Методы трансляции
 
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/translation%20methods/5sem/main.pdf)

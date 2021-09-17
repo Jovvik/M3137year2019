@@ -1,0 +1,170 @@
+\chapter{14 сентября}
+
+\begin{definition}
+    \textbf{Пред-\(\lambda\)-терм} определяется индуктивно как одно из:
+    \begin{enumerate}
+        \item \(x\) --- переменная
+        \item \((L\ L)\) --- применение
+        \item \((\lambda x.L)\) --- абстракция
+    \end{enumerate}
+\end{definition}
+
+Почему \underline{пред}-\(\lambda\)-терм? Мы не хотим различать \(\lambda x.x\) и \(\lambda y.y\).
+
+\begin{definition}
+    \textbf{\(\lambda\)-эквивалентность} --- обозначается \(A =_\alpha B\) и выполняется, если\footnote{И только если.}:
+    \begin{enumerate}
+        \item \(A \equiv x, B \equiv x\) --- одна и та же переменная
+        \item \(A \equiv P\ Q, B \equiv R\ S, P =_\alpha R, Q =_\alpha S\)
+        \item \(A \equiv \lambda x.P, B \equiv \lambda y.Q\) и существует \(t\) --- новая переменная, такая что \(P[x \coloneqq t] =_\alpha Q[y \coloneqq t]\)
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    % Свободное вхождение, свобода для подстановки, замена свободных вхождений
+    Свобода для подстановки: \(A[x \coloneqq B]\), никакое свободное вхождение переменной в \(B\) не станет связанным.
+\end{definition}
+
+\begin{definition}[\(\lambda\)-терм]
+    Множество всех \(\lambda\)-термов это \(\Lambda /_{ =_\alpha}\)
+\end{definition}
+
+\begin{definition}[\(\beta\)-редекс]
+    Выражение вида \((\lambda x.A)\ B\)
+\end{definition}
+
+\begin{definition}[\(\beta\)-редукция]
+    Обозначается \(A \to_\beta B\) и выполняется, если выполняется одно из:
+    \begin{enumerate}
+        \item \(A \equiv P\ Q, B \equiv R\ S\) и либо \(P \to_\beta R\) и \(Q =_\alpha S\), либо \(P =_\alpha R\) и \(Q =_\alpha S\).
+        \item \(A \equiv \lambda x.P, B \equiv \lambda x.Q\) и \(P \to_\beta Q\)
+        \item \(A \equiv (\lambda x.P)\ Q, B \equiv P [x \coloneqq Q]\) и \(Q\) свободно для подстановки.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    Придуман Моисеем Шейнфинкелем.
+
+    \(I \coloneqq \lambda x.x\) --- Identit\"
+    at\footnote{Тождество (с немецкого)}
+\end{definition}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(K = \lambda x.\lambda y.x\)
+        \item \(\Omega = \omega\ \omega\)
+        \item \(\omega = \lambda x.x\ x\)
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkBJAHW4HkAtjADmdEAF9S6TLnyEUAJnJVajFmwAUG3gzoCARlDoACAB4A6HXsMmAnudMBKY52e9BIsZOnY8BImQAjCr0zKyIINrcugZGxvauxu5CohJSIBi+cgGkCiFq4SCcEiowUMLwRKAAZgBOEAJIgdQ4EE3UDBAQaDnVjHAwKrr6MAwACjJ+8iC1WMIAFjgg1KHqEbwjOF7pdQ1IZCCt7aphbBswW2k19Y2IB0eISidrIOeX3iC7t-dtdx1dPRQgQAHGQ+gwBkM6CNxpNshFZgslisCmduJtttc9o8Wr8AMwo07rdEXLwUcRAA
+    \[\begin{tikzcd}[ampersand replacement=\&]
+            KI\Omega \arrow{rr}{\beta} \arrow{d}{\beta} \arrow[loop] \&  \& ((\lambda x.\lambda y.x) I) \Omega \arrow[loop] \\
+            (\lambda y.I) \Omega \arrow[loop left] \arrow{d}{\beta}                                                              \&  \&                                                                                          \\
+            I                                                                                                    \&  \&
+        \end{tikzcd}\]
+\end{example}
+
+\begin{definition}
+    \(R\) обладает \textbf{ромбовидным свойством} \textit{(diamond)}, если для любых \(a,b,c\), таких что:
+    \begin{enumerate}
+        \item \(aRb, aRc\)
+        \item \(b \neq c\)
+    \end{enumerate}
+    существует \(d\): \(bRd\) и \(cRd\).
+
+    \begin{center}
+        \begin{tikzcd}
+            & \arrow{ld} A \arrow{rd} & \\
+            B \arrow{rd} & & \arrow{ld} C \\
+            & D &
+        \end{tikzcd}
+    \end{center}
+\end{definition}
+
+\begin{example}
+    \( > \) на \(\mathbb{Z}\) не ромбовидно: для \(a = 3, b = 2, c = 1\) выполнено условие, но \(\nexists d\).
+
+    \( > \) на \(\R\) ромбовидно.
+\end{example}
+
+\begin{definition}[\(\beta\)-редуцируемость]
+    Рефлексивное, транзитивное замыкание отношения \( \to_\beta\), обозначается \( \twoheadrightarrow_\beta\).
+\end{definition}
+
+\begin{theorem}[Чёрча-Россера]
+    \label{чр}
+    \(\beta\)-редуцируемость обладает ромбовидным свойством.
+\end{theorem}
+
+\begin{definition}
+    \(\rightrightarrows_\beta\) --- параллельная \(\beta\)-редукция, выполняется если:
+    \begin{enumerate}
+        \setcounter{enumi}{-1}
+        \item \(A =_\alpha B\)
+        \item \(A \equiv P\ Q, B \equiv R\ S\) и \(P \rightrightarrows_\beta R\) и \(Q \rightrightarrows_\beta S\).
+        \item Аналогично \(\beta\)-редукции.
+        \item Аналогично \(\beta\)-редукции.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+    \((\rightrightarrows_\beta)\) обладает ромбовидным свойством.
+\end{lemma}
+
+\begin{lemma}
+    Если \(R\) обладает ромбовидным свойством, то \(R^*\) обладает ромбовидным свойством.
+\end{lemma}
+\begin{proof}
+    Две индукции.
+\end{proof}
+
+\begin{lemma}
+    \((\rightrightarrows_\beta) \subseteq ( \twoheadrightarrow_\beta)\)
+\end{lemma}
+
+\begin{proof}[Доказательство теоремы \nameref{чр}]
+    Заметим, что:
+    \begin{enumerate}
+        \item \((\rightrightarrows_\beta)^* \subseteq ( \twoheadrightarrow_\beta)\) --- из леммы
+        \item \(( \twoheadrightarrow_\beta) \subseteq (\rightrightarrows_\beta)^*\) --- из определения
+        \item Т.к. \((\rightrightarrows_\beta)^*\) обладает р.с., то и \(( \twoheadrightarrow_\beta)\) обладает р.с.
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    У \(\lambda\)-выражения существует не более одной нормальной формы.
+\end{corollary}
+\begin{proof}
+    Пусть \(A\) имеет две нормальные формы: \(A \twoheadrightarrow_\beta B, A \twoheadrightarrow_\beta C\) и \(B \neq_\alpha C\). Тогда есть \(D\): \(B \twoheadrightarrow_\beta D\) и \(C \twoheadrightarrow_\beta D\). Противоречие.
+\end{proof}
+
+\begin{definition}
+    \textbf{Нормальный порядок редукции} --- редуцируем самый левый редекс.
+\end{definition}
+
+\begin{theorem}
+    Если нормальная форма существует, она может быть получена нормальным порядком редукции.
+\end{theorem}
+
+\begin{remark}
+    Нижеследующее объяснение --- с практики.
+\end{remark}
+
+Рассмотрим \(Y\ f =_\beta f\ (Y\ f) =_\beta f\ (f\ (Y\ f)) =_\beta \dots \). Можно считать, что у \(f\) сколько угодно аргументов, первый аргумент можно считать указателем на свой рекурсивный вызов.
+
+\begin{example}
+    Числа Фибоначчи:
+    \begin{minted}{haskell}
+fib a b n =
+    if n = 0 then a
+    else fib b (a + b) (n - 1)
+    \end{minted}
+
+    Здесь решение уравнения заметано под ковер, в \(\lambda\)-исчислении оно видно:
+    \[\mathrm{Fib} = \lambda f.\lambda a.\lambda b.\lambda n.(\mathrm{IsZero}\ n)\ a\ (f\ f\ a\ (a + b)\ (n - 1))\]
+    Здесь \(f\) передается само себе, чтобы иметь ссылку на себя для рекурсивного вызова.
+
+    Для работы \(\mathrm{Fib}\) нужно дать его самому себе: \(\mathrm{Fib}\ \mathrm{Fib}\ 1\ 1\ 10\).
+\end{example}

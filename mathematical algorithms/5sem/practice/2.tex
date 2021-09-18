@@ -1,0 +1,90 @@
+\input{../../../preamble.sty}
+
+\lhead{Алгоритмы в математике \textit{(практика)}}
+\cfoot{}
+\rfoot{18.9.2021}
+
+\begin{document}
+
+\section*{Подгруппы в полугруппах}
+
+На прошлой практике мы остановились на моноиде, считающем число строк:
+\[S \coloneqq \{(l, n, r) \mid l, r \in \{0, 1\}, n \in \N_0\}\]
+\[(l_1, n_1, r_1) \cdot (l_2, n_2, r_2) = (l_1, n_1 + n_2 + r_1l_2, r_2)\]
+
+Идемпотенты:
+\begin{enumerate}
+    \item \(x_1 = (0,0,0)\)
+    \item \(x_2 = (1,0,0)\)
+    \item \(x_3 = (0,0,1)\)
+\end{enumerate}
+
+Рассмотрим \(H_2 = x_2 \cdot S \cdot x_2 \defeq \{x_2 \cdot y \cdot x_2 \mid y \in S\} = \{(0, n, 1) \mid n \in \N_0\}\). В \(H_2\) выполняется \(zx = zy \Rightarrow x = y\), т.к. \(H \sim (\N_0, +)\) c изоморфизмом \((0,n,1) \mapsto n\).
+
+Аналогично можно построить \(H_3 \coloneqq x_3 S x_3, H_1 \coloneqq x_1 S x_1\). Такие подмножества являются подполугруппами \(S\):
+\[y, z \in H_1 \quad yz = x_1 \hat{y} x_1 x_1 \hat{z} x_1 = x_1 \underbrace{(\hat{y} x_1 x_1 \hat{z})}_{\in S} x_1\]
+
+В \(H_1\) есть единица --- \(x_1\), т.к. \(y x_1 = x_1 \hat{y} x_1 x_1 x_1 x_1 = x_1 \hat{y} x_1 = y\)
+\[H_1 \cap H_2 = \emptyset\]
+
+Рассмотрим полугруппу \(S\) и некоторый \(a \in S\). Построим подмножество \(H\), называемое \textbf{генератором} \(a\), обозначаемое \(\ev{a}\):
+\[H = \ev{a} \coloneqq \{a, a^2, a^3 \dots \}\]
+
+\begin{example}
+    \(\sphericalangle (\Z, +), a = 2\). Тогда \(H = \{2n \mid n \geq 1\}\).
+\end{example}
+
+Может быть \(|H| < \infty\). Тогда \(a^n = a^m\). Выберем наименьшее такое \(n\). Тогда у нас есть некоторый ``хвост'' \(a^1 \dots a^n\) и цикл \(a^n, a^{n + 1} \dots a^m\). \(n\) называется \textbf{индексом} \textit{(также обозначается \(i\))} \(a\), \(d = m - n\) --- \textbf{периодом}.
+
+\begin{statement}
+    Среди \(\ev{a}\) есть идемпотент, если \(|\ev{a}| < \infty \)
+\end{statement}
+\begin{proof}
+    \[a^k = a^{k + \alpha d} \ \ \forall \alpha \in \N_1\]
+    \[a^k \cdot a^k = a^k \Rightarrow 2k = k + \alpha d \Rightarrow k = \alpha d\]
+\end{proof}
+
+Пусть \(e = a^k, e^2 = e, G = eHe\)
+
+\begin{example}
+    \(i = 5, d = 3\)
+
+    \(G = \{a^6, a^5, a^7\}\).
+\end{example}
+
+\(G\) является подгруппой, т.к. оно содержит все элементы цикла и обратное к \(a^j\) есть \(a^{k - j + d}\)
+
+\section*{Отношения}
+
+\(X = \R\), \(S = \mathbb{B}(X^2) = \{R \mid R \subseteq X \times X\}\)
+
+\(\rho, \tau \in S \quad R = \rho \circ \tau : x R z \Leftrightarrow \exists y : x \rho y, y \tau z\)
+
+Это определение согласовано с композицией функций.
+
+Подполугруппы \(S\):
+\begin{itemize}
+    \item \(H_1 = X \to X\) --- функции
+    \item \(H_2\) --- отношения эквивалентности --- не работает, т.к. есть контрпример:
+
+          \(X = \{a, b, c\}, \rho = \{(a, c), (c, a), (a, a), (b, b), (c, c)\}, \tau = \{(b, c), (c, b), (b, b), (a, a), (c, c)\}\)
+\end{itemize}
+
+\[\rho^{ - 1} \coloneqq \{(b, a) \mid (a, b) \in \rho\}\]
+\[\rho \circ \rho^{ - 1} = R \quad \rho^{-1} \circ \rho = L\]
+
+\(\sphericalangle \rho(x) = x^2, x\rho^{-1}y \Leftrightarrow y = \pm \sqrt{x}\)
+
+\(\rho \circ \rho^{-1} = R \quad aRb \Leftrightarrow a\rho a^2, a^2\rho^{-1}b \Leftrightarrow a = \pm b\)
+
+\section*{Внешние законы}
+
+Рассмотрим плоскость \(\mathbb{E}^2\) и множество трансляций \(T = \{\vec{v}\}\). \(T\) действует на \(\mathbb{E}^2\). Добавим в \(T\) закон сложения\footnote{Обычное сложение векторов.}.
+
+Рассмотрим \(R\) --- множество поворотов плоскости относительно точки \(P\). \(R\) тоже действует на \(\mathbb{E}^2\). Определим композицию в \(R\) --- последовательное действие поворотов. Обозначим эту композицию ``\( \cdot \)''.
+
+\(\sphericalangle \rho \in R, \tau \in T\). Можно делать \(\rho(\tau(P))\), можно \(\tau(\rho(P))\). Это не одно и то же \textit{(пример очевиден)}. Определим \(\hat{\tau}\) как \(\rho(\tau) =\hat{\tau}\). Все эти внешние законы согласованы:
+\[\rho(\tau(P_0)) = \hat{\tau}(\rho(P_0)) = \hat{\tau}(P_0)\]
+\[\rho(\tau_1 + \tau_2) = \rho(\tau_1) + \rho(\tau_2)\]
+
+\end{document}

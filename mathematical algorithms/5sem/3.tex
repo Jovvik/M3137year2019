@@ -1,0 +1,143 @@
+\chapter{18 сентября}
+
+\section{Внешний закон композиции}
+
+Пусть \(\Omega\) --- множество.
+\begin{definition}
+    \textbf{Внешний закон композиции} --- бинарная операция \(g : \Omega \times M \to M\):
+    \[\forall \alpha \in \Omega, x \in M \quad g : (\alpha, x) \mapsto \alpha \perp x \in M\]
+\end{definition}
+\begin{example}
+    \(X\) --- линейное пространство над \(\R\). Тогда \(g(\alpha, x) = \alpha \cdot x\).
+\end{example}
+\begin{obozn}
+    \(g(\alpha, x)\) обозначается как:
+    \begin{itemize}
+        \item \(\alpha(x)\)
+        \item \(\alpha x\)
+        \item \(x^\alpha\)
+    \end{itemize}
+\end{obozn}
+
+\begin{example}
+    \(M = \mathbb{Z}\) --- абелева группа по сложению. \(\sphericalangle z \in \mathbb{Z}\).
+    \[\underbrace{z + z + z + \dots + z}_n = nz\]
+    Слева написано применение внутреннего закона \(n - 1\) раз, а справа --- применение внешнего закона. Не всегда внешний закон можно представить в виде внутреннего, иначе внешний закон был бы не содержательным.
+\end{example}
+
+Пусть \(M\) имеет внутренний закон композиции \(\top\), множество \(\Omega\) имеет внешний\footnote{Относительно \(M\).} закон \(\bot\).
+\begin{obozn}\itemfix
+    \begin{itemize}
+        \item \(\top = \circ\)
+        \item \(\bot(\alpha, x) = \alpha x\)
+    \end{itemize}
+\end{obozn}
+\begin{definition}
+    Внешний закон \textbf{согласован} с внутренним законом, если:
+    \[\alpha(x \circ y) = \alpha(x) \circ \alpha(y)\]
+\end{definition}
+\begin{example}
+    \(\alpha(x + y) = \alpha x + \alpha y\), где \(\alpha \in \R\)
+\end{example}
+
+\(\sphericalangle\) алгебраические структуры \((M, \circ), (\Omega, *)\) и \(\bot\) --- внешний закон \(\Omega\) по \(M\).
+
+\begin{definition}
+    \[\sphericalangle \alpha, \beta \in \Omega, x \in M \quad (\alpha * \beta) x = \alpha(\beta(x))\]
+    Такой способ согласования мы называем \textbf{действием} \(\Omega\) на \(M\).
+\end{definition}
+
+\begin{align*}
+    (\alpha * \beta) (x \circ y) & \,\, \stackrel{\mathrm{согл.}}{=} (\alpha * \beta)(x) \circ (\alpha * \beta)(y)                   \\
+                                 & \stackrel{\mathrm{действ.}}{=} \alpha(\beta(x)) \circ \alpha(\beta(y)) = \alpha(\beta(x \circ y))
+\end{align*}
+
+\begin{example}
+    \((\mathbb{Z}, +), (\N, \cdot)\)
+
+    \(\sphericalangle n(z_1 + z_2) = nz_1 + nz_2\)
+
+    \((n \cdot m)(z_1 + z_2)\)
+\end{example}
+
+\begin{definition}
+    Пусть есть множества \(\{M, N \dots \Omega\}\) со своими внутренними законами композиции. Кроме того, некоторые из них могут являться носителями внешнего закона для других множеств. Этот набор множеств, внутренних и внешних законов есть \textbf{алгебраическая структура}.
+\end{definition}
+
+\subsection{Фактор-структуры}
+
+\(\sphericalangle M\), бинарное отношение\footnote{Над \(M\).} \(R\)
+
+Свойства бинарного отношения:
+\begin{itemize}
+    \item \(\forall x \ \ \exists y : xRy\) --- полнота
+    \item \(\forall x, y \ \ x R y \with x R z \Rightarrow yRz\) --- евклидовость
+\end{itemize}
+
+\begin{definition}
+    \(R\) --- отношение \textbf{эквивалентности}, если оно:
+    \begin{itemize}
+        \item Рефлексивно
+        \item Симметрично
+        \item Транзитивно
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \(\sphericalangle (M, R)\) --- множество с отношением эквивалентности. Тогда \(M / R\) --- \textbf{фактор-множество}, состоящее из классов эквивалентности \(M\) по \(R\). Каждому \(x \in M\) сопоставляется класс эквивалентности \([x] \in M / R\)
+\end{definition}
+
+\begin{example}
+    \(\sphericalangle M = \N\) с операцией сложения, \(x, y \in M, \sphericalangle (x, y) \in M \times M\).
+
+    \[(a_1, b_1) \sim (a_2, b_2) \stackrel{\mathrm{def}}{\Leftrightarrow} a_1 + b_2 = a_2 + b_1\]
+    Несложно заметить, что фактор-множество \((M \times M) / \sim\) соответствует \(\mathbb{Z}\):
+\end{example}
+
+\begin{definition}
+    \(x \in M, y \in M\)
+    \[[x \circ y] \stackrel{?}{=} [x] * [y]\]
+    Здесь \(*\) --- \textbf{фактор-закон} закона \(\circ\).
+\end{definition}
+
+\begin{example}
+    \[(a_1, b_1) \stackrel{\sim}{+} (a_2, b_2) \defeq (a_1 + a_2, b_1 + b_2)\]
+
+    Чтобы рассмотреть \(\stackrel{\wedge}{+}\) --- фактор-закон операции \(\stackrel{\sim}{+}\), нужно показать, что для \(z = [(a_1 + a_2, b_1 + b_2)]\) верно \(z = z_1 \stackrel{\wedge}{+} z_2\)
+\end{example}
+
+\begin{definition}
+    Закон \(\circ\) \textbf{согласован} с отношением \(R\), если:
+    \[\begin{rcases}
+            \forall x, x_1 \in M \ \ xRx_1 \\
+            \forall y, y_1 \in M \ \ yRy_1
+        \end{rcases} \Rightarrow (x \circ y) R (x_1 \circ y_1)\]
+\end{definition}
+
+\begin{theorem}
+    Если закон композиции согласован с отношением эквивалентности, то он совпадает со своим фактор-законом.
+\end{theorem}
+
+\[[x] * [y] \defeq [x \circ y] = [x] \circ [y]\]
+
+\begin{obozn}
+    \[M \cdot N \coloneqq \{m \cdot n \mid m \in M, n \in N\}\]
+\end{obozn}
+
+\begin{example}\itemfix
+    \begin{itemize}
+        \item \((a_1, b_1), (a_2, b_2) \in M \times M\)
+        \item \((c_1, d_1) \sim (a_1, b_1) \Leftrightarrow c_1 + b_1 = d_1 + a_1\)
+        \item \((a_1, b_1) \to [(a_1, b_1)] = z_1 \ni (c_1, d_1)\)
+        \item \((a_2, b_2) \to [(a_2, b_2)] = z_2 \ni (c_2, d_2)\)
+        \item \((a_1, b_1) \stackrel{\sim}{+} (a_2, b_2) = (a_1 + a_2, b_1 + b_2) \to [(a_1 + a_2, b_1 + b_2)] = z\)
+    \end{itemize}
+
+    Выполнено ли \((c_1 + c_2, d_1 + d_2) \in z\)?
+
+    \[c_1 + c_2 + (b_1 + b_2) = d_1 + d_2 + (a_1 + a_2)\]
+    \[a_1 + d_1 = b_1 + c_1\]
+    \[a_2 + d_2 = b_2 + c_2\]
+
+    Таким образом, наша операция согласована.
+\end{example}

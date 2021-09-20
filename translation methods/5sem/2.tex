@@ -17,11 +17,11 @@
 
 По лемме мы можем найти \(\mathrm{FIRST}[]\) следующим алгоритмом:
 
-% \begin{minted}[escapeinside=||,mathescape=true]{python}
-% while (change):
-%     for |$A \to \alpha \in \Gamma$|:
-%         FIRST[A] |$\cup$|= FIRST(|$\alpha$|)
-% \end{minted}
+\begin{minted}[escapeinside=||,mathescape=true]{python}
+while (change):
+    for |$A \to \alpha \in \Gamma$|:
+        FIRST[A] |$\cup$|= FIRST(|$\alpha$|)
+\end{minted}
 
 Докажем, что итоговый массив \(\mathrm{FIRST}[]\) как функция от \(N\) равен функции \(\mathrm{FIRST}\).
 \begin{proof}
@@ -36,13 +36,13 @@
 
 \subsection{Вычисление \(\mathrm{FOLLOW}\)}
 
-% \begin{minted}[escapeinside=||,mathescape=true]{python}
-% FOLLOW[S] = |$\{\$\}$|
-% while (change):
-%     for |$A \to \alpha \in \Gamma$|:
-%         for |$B : \alpha = \beta B \gamma$|:
-%             FOLLOW(B) |$\cup$|= FIRST(|$\gamma$|)|$\setminus \varepsilon \cup{}$|(FOLLOW(|$A$|) if |$\varepsilon \in{}$| FIRST(|$\gamma$|))
-% \end{minted}
+\begin{minted}[escapeinside=||,mathescape=true]{python}
+FOLLOW[S] = |$\{\$\}$|
+while (change):
+    for |$A \to \alpha \in \Gamma$|:
+        for |$B : \alpha = \beta B \gamma$|:
+            FOLLOW(B) |$\cup$|= FIRST(|$\gamma$|)|$\setminus \varepsilon \cup{}$|(FOLLOW(|$A$|) if |$\varepsilon \in{}$| FIRST(|$\gamma$|))
+\end{minted}
 
 \begin{proof}
     Аналогично \(\mathrm{FIRST}\).

@@ -1,0 +1,151 @@
+\chapter{16 сентября}
+
+\begin{example}
+    Напишем парсер для арифметических выражений.
+
+    \begin{minted}{cpp}
+E()
+    res = Node(E)
+    switch (token)
+        case 'n':
+        case 'c':
+            res.add(T())
+            res.add(Eprime())
+    return res
+
+Eprime()
+    res = Node(Eprime)
+    switch (token)
+        case '+':
+            assert(token = '+')
+            res.add(Node(+))
+            nextToken()
+            res.add(T())
+            res.add(Eprime())
+        case '$':
+        case ')':
+            pass
+    return res
+    
+T()
+    res = Node(T)
+    switch (token)
+        case 'n':
+            assert(token = 'n')
+            res.add(Node(n))
+            nextToken()
+        case '('
+            assert(token = '(')
+            res.add(Node('('))
+            nextToken()
+            res.add(E())
+            assert(token = ')')
+            res.add(Node(')'))
+            nextToken()
+    return res
+    \end{minted}
+
+    Вспомним код, который мы сдавали Георгию Александровичу:
+    \begin{minted}{python}
+int E():
+    res = T()
+    while token = '+':
+        nextToken()
+        res += T()
+    return res
+    \end{minted}
+
+    Он мощнее, потому что написан для другой грамматики \textit{(без \(E'\))}, которая не \(LL(1)\).
+\end{example}
+
+\begin{example}
+    \(\sphericalangle A \to A\alpha, A \to \beta_1|\beta_2\dots\), после устранения левой рекурсии мы получим \(A \to \beta A', A' \to \alpha A', A' \to \varepsilon\). Запишем рекурсивный спуск для \(A\) без спуска для \(A'\):
+    \begin{minted}[escapeinside=||,mathescape=true]{cpp}
+A()
+    res = Node(A)
+    switch (token)
+        case FIRST1(|$\beta_1$|)
+            ...
+        case FIRST1(|$\beta_2$|)
+            ...
+        cur = Node(Aprime)
+        res.add(cur)
+        while token |$\in$| FIRST1(|$\alpha_i$|)
+            switch (token)
+                case FIRST(|$\alpha_1$|)
+                    cur.add(...)
+            next = Node(Aprime)
+            cur.add(next)
+            cur = next
+        // assert token $\in$ FOLLOW(A)
+    \end{minted}
+    Таким образом, мы можем не устранять левую рекурсию в грамматике, а делать это при написании парсера.
+\end{example}
+
+Писать парсеры так, как мы сейчас это делали, неудобно. Будем писать по-другому.
+
+\(\sphericalangle \Gamma \in LL(1)\). Запишем информацию в таблицу, называемую \textbf{управляющей таблицей}:
+
+\begin{obozn}\itemfix
+    \begin{itemize}
+        \item \( \to \) --- \texttt{nextToken()}
+        \item \(\bot\) --- дно стека.
+    \end{itemize}
+\end{obozn}
+
+Для каждого \(A \in N\) пусть есть правила \(A \to \alpha_i\). Тогда для каждого \(t \in \mathrm{FIRST1}(\alpha_i)\) впишем в ячейку \((A, t)\) число \(i\):
+\begin{center}
+    \begin{tabular}{llccccc}
+        \toprule
+                                    &       & \multicolumn{4}{c}{\(\Sigma\)}                                & \$                                                                                             \\
+        \midrule
+        \multirow{4}{*}{\(N\)}                                                                                                                                                                               \\
+                                    & \(A\) & \multicolumn{4}{c}{\(\dots i \dots i \dots i \dots i \dots\)}                                                                                                  \\
+        \\
+        \\
+        \cmidrule{3-6}
+        \multirow{4}{*}{\(\Sigma\)} &       & \(\to\)                                                       &         & \multicolumn{2}{c}{ошибка} & \multirow{4}{*}{\rotatebox[origin=c]{-90}{ошибка}}      \\
+                                    &       &                                                               & \(\to\) &                            &                                                         \\
+                                    &       &                                                               &         & \(\ddots\)                 &                                                         \\
+                                    &       & \multicolumn{2}{c}{ошибка}                                    &         & \( \to \)                                                                            \\
+        \cmidrule{3-6}
+        \(\bot\)                    &       &                                                               &         &                            &                                                    & ок \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+Как разборщик пользуется таблицей? На каждой итерации он смотрит на вершину стека\footnote{В котором лежат разбираемые нетерминалы/терминалы.} и на управляющую таблицу.
+\begin{enumerate}
+    \item Если на вершине стека терминал:
+          \begin{enumerate}
+              \item Если терминал совпал с токеном, то с вершины стека снимается терминал и происходит переход к следующему токену.
+              \item Если терминал не совпал с токеном, то ошибка.
+          \end{enumerate}
+    \item Если на вершине стека нетерминал, то в таблице ищется номер правила грамматики, соответствующий данному нетерминалу и токену.
+          \begin{enumerate}
+              \item Если ячейка не пуста, то из вершины стека удаляется элемент и в стек кладется правая часть соответствующего правила.
+              \item Если ячейка пуста, то ошибка.
+          \end{enumerate}
+\end{enumerate}
+
+\begin{example}[арифметические выражения]\itemfix
+    \begin{center}
+        \begin{tabular}{cCCCCCC}
+            \toprule
+            \diagbox{Стек}{Ввод} & n   & +   & *   & (   & )   & \$          \\
+            \midrule
+            \(E\)                & 1   &     &     & 1   &     &             \\
+            \(E'\)               &     & 2   &     &     & 3   & 3           \\
+            \(T\)                & 4   &     &     & 4   &     &             \\
+            \(T'\)               &     & 6   & 5   &     & 6   & 6           \\
+            \(F\)                & 7   &     &     & 8   &     &             \\
+            \(n\)                & \to &     &     &     &     &             \\
+            \(+\)                &     & \to &     &     &     &             \\
+            \(*\)                &     &     & \to &     &     &             \\
+            \((\)                &     &     &     & \to &     &             \\
+            \()\)                &     &     &     &     & \to &             \\
+            \(\bot\)             &     &     &     &     &     & \mathrm{ОК} \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+\end{example}

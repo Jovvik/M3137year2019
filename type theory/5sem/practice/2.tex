@@ -1,0 +1,148 @@
+\input{../../../preamble.sty}
+
+\lhead{Теория типов \textit{(практика)}}
+\cfoot{}
+\rfoot{21.9.2021}
+
+\begin{document}
+
+\section*{Домашнее задание №2: <<формализация лямбда-исчисления>>}
+
+\begin{enumerate}
+    \item Придумайте грамматику для лямбда-выражений, однозначно разбирающую любое выражение
+          (в частности, учитывающую все сокращения скобок в записи).
+          \begin{solution}\itemfix
+              \begin{itemize}
+                  \item \(S \to \lambda T.S\)
+                  \item \(S \to S\ S\)
+                  \item \(S \to T\)
+                  \item \(S \to (S)\)
+                  \item \(T \to \Sigma\)
+              \end{itemize}
+          \end{solution}
+    \item Приведите пример лямбда-выражения, корректная бета-редукция которого невозможна без переименования
+          связанных переменных. Возможно ли, чтобы в этом выражении все переменные в лямбда-абстракциях
+          были различными?
+          \begin{solution}
+              \((\lambda y.\lambda x.y\ x)\ (\lambda x.x)\)
+          \end{solution}
+    \item Два выражения $A$ и $B$ назовём родственными, если существует $C$, что
+          $A \twoheadrightarrow_\beta C$ и $B \twoheadrightarrow_\beta C$.
+          Как соотносится родственность и бета-эквивалентность?
+          \begin{solution}
+              \begin{obozn}
+                  \(A\) родственн. \(B\) \(\Leftrightarrow\) \(A \sim B\)
+              \end{obozn}
+
+              \[A \sim B \Rightarrow \begin{cases}
+                      A \twoheadrightarrow_\beta C \\
+                      B \twoheadrightarrow_\beta C
+                  \end{cases} \Rightarrow \begin{cases}
+                      A =_\beta C \\
+                      B =_\beta C
+                  \end{cases} \Rightarrow A =_\beta B\]
+
+              В обратную сторону тоже верно по ромбовидному свойству.
+          \end{solution}
+
+    \item Рассмотрим представление лямбда-выражений де Брауна (de Bruijn): вместо имени связанной переменной будем
+          указывать число промежуточных лямбда-абстракций между связывающей абстрацией и переменной.
+          Например, $\lambda x.\lambda y.y\ x$ превратится в $\lambda.\lambda.0\ 1$.
+
+          Докажите, что $A =_\alpha B$ тогда и только тогда, когда представления де Брауна для $A$ и $B$ совпадают.
+          Сформулируйте правила (алгоритмы) для подстановки термов и бета-редукции для этого представления.
+
+    \item Как мы знаем, $\Omega \rightarrow_\beta \Omega$. А существуют ли такие лямбда-выражения
+          $A$ и $B$ ($A \ne_\alpha B$), что $A \rightarrow_\beta B$ и $B \rightarrow_\beta A$?
+
+          \begin{solution}
+              \(A = \omega\ (\lambda x.\omega\ x), B = (\lambda x.\omega\ x)\ (\lambda x.\omega\ x)\)
+          \end{solution}
+
+    \item Рассмотрим следующие лямбда-выражения для задания алгебраических типов:
+
+          \begin{tabular}{lll}
+              Обозначение & лямбда-терм                             & название                 \\\hline
+              $Case$      & $\lambda l.\lambda r.\lambda c.c\ l\ r$ & сопоставление с образцом \\
+              $InL$       & $\lambda l.(\lambda x.\lambda y.x\ l)$  & левая инъекция           \\
+              $InR$       & $\lambda r.(\lambda x.\lambda y.y\ r)$  & правая инъекция          \\
+          \end{tabular}
+
+          Сопоставление с образцом --- это функция от значения алгебраического типа и двух действий $l$ и $r$,
+          которая выполняет действие $l$, если значение создано <<левым>> конструктором, и $r$ в случае
+          <<правого>> конструктора. Иными словами, $Case\ l\ r\ c$ --- это аналог
+          \verb!case c { InL x -> l x; InR x -> r x }!.
+
+          Заметим, что список (например, целых чисел) — это алгебраический тип:
+
+          \verb!List = Nil | Cons Integer List!.
+
+          Можно сконструировать значение данного типа: \verb!Cons 3 (Cons 5 Nil)!.
+          Можно, например, вычислить его длину:
+          \begin{verbatim}
+length Nil = 0
+length (Cons _ tail) = length tail + 1
+\end{verbatim}
+
+          Определим $Nil = InL\ 0$, а $Cons\ a\ b = InR\ (MkPair\ a\ b)$. Заметим, что теперь списки могут быть впрямую
+          перенесены в лямбда выражения.
+
+          Определите следующие функции в лямбда-исчислении для списков:
+          \begin{enumerate}
+              \item вычисление длины списка;
+                    \[Y\ \lambda f.\lambda l.\mathrm{Case}\ (\lambda x.0)\ (\lambda p.( + 1)\ (f\ (\mathrm{PrR}\ p)))\ l\]
+              \item построение списка длины $n$ из элементов $0, 1, 2, \dots, n-1$;
+                    \[\lambda n.(Y\ \lambda f.(\lambda n'.\lambda m.(\mathrm{Eq}\ n'\ m)\ \mathrm{Nil}\ (\mathrm{Cons}\ m\ (f\ n'\ (\mathrm{inc}\ m)))))\ n\ 0\]
+              \item разворот списка: из списка $a_1, a_2, \dots, a_n$ сделать список $a_n, a_{n-1}, \dots, a_1$;
+                    \[\mathrm{Add} = \lambda e.Y\ \lambda f.\mathrm{Case}\ (\lambda x.\mathrm{Cons}\ e\ \mathrm{Nil})\ (\lambda p.\mathrm{Cons}\ (\mathrm{PrL}\ p)\ (f\ (\mathrm{PrR}\ p)))\]
+                    \[\mathrm{Reverse} = Y\ \lambda f.\mathrm{Case}\ (\lambda x.\mathrm{Nil})\ (\lambda p.\mathrm{Add}\ (\mathrm{PrR}\ p)\ (f\
+                        (\mathrm{PrL}\ p)))\]
+              \item функцию высшего порядка $map$, которая по функции $f$ и списку $a_1, a_2, \dots, a_n$
+                    строит список $f(a_1), f(a_2), \dots, f(a_n)$.
+                    \[\lambda g.Y\ \lambda f.\mathrm{Case}\ (\lambda x.\mathrm{Nil})\ (\lambda p.\mathrm{Cons}\ (g\ (\mathrm{PrL}\ p))\ (f\ (\mathrm{PrR}\ p)))\]
+          \end{enumerate}
+
+          Решением задачи является полный текст соответствующего лямбда-выражения с объяснениями механизма его работы.
+          Используйте интерпретатор лямбда-выражений $lci$ или аналогичный для демонстрации результата.
+
+    \item Чёрчевские нумералы соответствуют натуральным числам в аксиоматике Пеано.
+          \begin{enumerate}
+              \item Предложите <<двоичные нумералы>> --- способ кодирования чисел, аналогичный двоичной системе
+                    (такой, при котором длина записи числа соответствует логарифму числового значения).
+                    \[\lambda n.\mathrm{Reverse}\ ((Y\ \lambda f.\lambda r.(\mathrm{IsZero}\ r)\ \mathrm{Nil}\ (\mathrm{Cons}\ ((\mathrm{IsEven}\ r)\ 0\ 1)\ (f\ (\mathrm{DivBy2}\ r))))\ n)\]
+              \item Предложите реализацию функции (+1) в данном представлении.
+                    \begin{verbatim}
+BinaryPlus1 = \n.Reverse(
+    (Y \f.\l.\r.Case 
+        (\x.
+            (IsZero r)
+                Nil
+                (Cons 1 Nil))
+        (\p.
+            (IsZero r)
+                (Cons (PrL p) (f (PrR p) 0))
+                ((IsZero (PrL p))
+                    (Cons 1 (f (PrR p) 0))
+                    (Cons 0 (f (PrR p) 1))))
+        l)
+    (Reverse n)
+    1);
+                    \end{verbatim}
+              \item Предложите реализацию лямбда-выражения преобразования числа из двоичного нумерала в чёрчевский.
+                    \begin{verbatim}
+ToChurch = \b.
+(Y \f.\l.\s.Case
+    (\x.s)
+    (\p.f
+        (PrR p)
+        (Plus (Plus s s) (PrL p)))
+    l)
+b 0;
+                    \end{verbatim}
+          \end{enumerate}
+
+          Аналогично прошлому заданию, решение должно содержать полный код лямбда-выражения вместе с объяснением механизма его работы.
+
+\end{enumerate}
+
+\end{document}

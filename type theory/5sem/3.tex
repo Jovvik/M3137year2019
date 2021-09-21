@@ -1,0 +1,146 @@
+\chapter{21 сентября}
+
+В \(\lambda\)-исчислении можно сделать:
+\begin{enumerate}
+    \item Целые числа, где \(\ev{a, b} \leftrightarrow a - b\)
+    \item Рациональные числа в виде дробей
+    \item Матлогику?
+\end{enumerate}
+
+Попытки сделать матлогику всегда приводили к парадоксам.
+
+Оказывается, нельзя относиться к любому выражению как к логическому.
+
+\begin{obozn}
+    \(\supset\) --- импликация
+\end{obozn}
+
+\begin{example}
+    Рассмотрим комбинатор \(\Phi_A =_\beta A \supset \Phi_A\). Это \(Y\ (\lambda f.\lambda a.a \supset f\ a)\).
+
+    Добавим аксиому \((A \supset (A \supset B)) \supset (A \supset B)\). Если такой аксиомы нет, то теория грустная.
+
+    Мы также хотим, чтобы если \(X =_\beta Y\), то \(X \supset Y\).
+
+    Каким-то образом мы получим парадокс.
+    % Тогда для фиксированного \(A\):
+    % \[(A \supset (A \supset \Phi_A)) \supset (A \supset \Phi_A)\]
+    % Так как \(\Phi_A =_\beta A \supset \Phi_A\):
+    % \[(A \supset \Phi_A) \supset (A \supset (A \supset \Phi_A))\]
+    % \[(A \supset \Phi_A) \supset \Phi_A\]
+    % \[(A \supset \Phi_A) \supset (A \supset \Phi_A)\]
+\end{example}
+
+\section{Просто-типизированное \(\lambda\)-исчисление}
+
+\begin{definition}[типовые переменные]\itemfix
+    \begin{itemize}
+        \item \(\alpha, \beta, \gamma\) --- атомарные
+        \item \(\tau, \sigma\) --- составные
+    \end{itemize}
+\end{definition}
+
+2 традиции:
+\begin{enumerate}
+    \item Исчисление по Чёрчу
+    \item Исчисление по Карри
+\end{enumerate}
+
+Мы сначала рассмотрим исчисление по Карри.
+
+\subsection{Исчисление по Карри}
+
+Типизация: \(\Gamma \vdash A : \tau\), \(\Gamma = \{x_1 : \tau_1, x_2 : \tau_2 \dots\}\)
+
+Правила:
+\begin{enumerate}
+    \item \begin{prooftree}
+              \infer0[Ax.]{\Gamma, x_1 : \tau_1 \vdash x_1 : \tau_1}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma \vdash A : \sigma \to \tau}
+              \hypo{\Gamma \vdash B : \sigma}
+              \infer2{\Gamma \vdash A\ B : \tau}
+          \end{prooftree}
+    \item \begin{prooftree}
+              \hypo{\Gamma, x : \tau \vdash A : \sigma}
+              \infer1{\Gamma \vdash \lambda x.A : \tau \to \sigma}
+          \end{prooftree}
+\end{enumerate}
+
+\begin{example}
+    \[\lambda f^{\alpha \to \alpha}.\lambda x^\alpha.f\ (f\ x) : (\alpha \to \alpha) \to \alpha \to \alpha\]
+    Подгоним доказательство под результат:
+    \[\begin{prooftree}
+            \infer0{f : \alpha \to \alpha \vdash f : \alpha \to \alpha}
+            \infer0{\Gamma \vdash f : \alpha \to \alpha}
+            \infer0{\Gamma \vdash x : \alpha}
+            \infer2{\Gamma \vdash f\ x : \alpha}
+            \infer2{f : \alpha \to \alpha, x : \alpha \vdash f\ (f\ x) : \alpha}
+            \infer1{f : \alpha \to \alpha \vdash \lambda x.f\ (f\ x) : \alpha \to \alpha}
+            \infer1{\lambda f.\lambda x.f\ (f\ x) : (\alpha \to \alpha) \to (\alpha \to \alpha)}
+        \end{prooftree}\]
+\end{example}
+
+\begin{theorem}
+    Если \(\Gamma \vdash A : \tau\), то любое подвыражение имеет тип.
+\end{theorem}
+\begin{proof}
+    По индукции по длине.
+
+    \begin{itemize}
+        \item [База.] Это правило 1.
+        \item [Переход.] Пусть любое выражение длиной \( < n\) символов обладает искомым свойством. Покажем искомое для \(A : |A| = n\). Рассмотрим варианты того, по какому правилу доказана типизируемость \(A\):
+              \begin{enumerate}
+                  \item Второе правило: \(B\) и \(C\) короче \(A\), следовательно для них искомое верно.
+                  \item Третье правило: аналогично для \(x, B\)
+              \end{enumerate}
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}[Subject reduction, о редукции]
+    Если \(\Gamma \vdash A : \sigma\) и \(A \twoheadrightarrow_\beta B\), то \(\Gamma \vdash B : \sigma\)
+\end{theorem}
+\begin{proof}
+    Скучно.
+
+    Самая интересная часть: рассмотрим \(A \to_\beta B\). Случаи:
+    \begin{enumerate}
+        \item \(\lambda x.A \to \lambda x.B\) --- индукция
+        \item \(A\ B\) --- индукция
+        \item \((\lambda x.A)\ B \to A[x \coloneqq B]\)
+
+              По теореме о типизации подвыражений, \((\lambda x^{\tau \to \sigma}.A^\sigma)\ B^\tau : \sigma\). Кроме того, доказывается \((A [x \coloneqq B]) : \sigma\).
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    Если \(\Gamma, x : \tau \vdash A : \sigma\),\(\Gamma \vdash B : \tau\), то \(\Gamma \vdash A[x \coloneqq B] : \sigma\)
+\end{lemma}
+
+\begin{theorem}[Чёрча-Россера]
+    Если \(\Gamma \vdash M : \sigma\) и существуют \(N, P : M \twoheadrightarrow_\beta N, M \twoheadrightarrow_\beta P\), то найдется такой \(S\), что \(\Gamma \vdash S : \sigma\) и \(N \twoheadrightarrow_\beta S\) и \(P \twoheadrightarrow_\beta S\)
+\end{theorem}
+
+\subsection{Исчисление по Чёрчу}
+
+Язык:
+\begin{itemize}
+    \item \(x\) --- переменная
+    \item \(A\ B\) --- аппликация
+    \item \(\lambda x^\tau.P\) --- абстракция
+\end{itemize}
+
+\begin{obozn}
+    Когда нужно различить исчисления, будем писать \( \vdash_{\mathrm{Ч}}\) или \( \vdash_{\mathrm{К}}\)
+\end{obozn}
+
+\begin{theorem}
+    Если контекст \(\Gamma\) и выражение \(P\) типизируется, то \(\Gamma \vdash_{\mathrm{Ч}} P : \sigma\)
+\end{theorem}
+
+\begin{example}
+    \[ \vdash_{\mathrm{К}} \lambda x.x : \alpha \to \alpha\]
+    \[ \vdash_{\mathrm{К}} \lambda x.x : \beta \to \beta\]
+    \[ \vdash_{\mathrm{Ч}} \lambda x^\sigma.x : \sigma \to \sigma\]
+\end{example}

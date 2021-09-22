@@ -1,0 +1,86 @@
+\input{../../../preamble.sty}
+
+\lhead{Матстат \textit{(практика)}}
+\cfoot{}
+\rfoot{22.9.2021}
+
+\begin{document}
+
+\[\ln L (\vec{x}, a, \sigma^2) = - n \ln \sigma - \frac{n}{2} \ln (2\pi) - \frac{1}{2\sigma^2} \sum (x_i - a)^2\]
+\[\frac{\partial}{\partial a} = \frac{1}{\sigma^2} (n \overline{x} - na) \quad \frac{\partial}{\partial \sigma} = \frac{1}{\sigma^3} \sum (x_i - a)^2 - \frac{n}{\sigma}\]
+\[\begin{cases}
+        \hat{a} = \overline{x} \\
+        \hat{\sigma^2} = D_B
+    \end{cases} \quad M \coloneqq (\overline{x}, D_B)\]
+\[\frac{\partial^2}{\partial a^2} = -\frac{n}{\sigma^2} = - \frac{n}{D_B}\]
+\[\frac{\partial^2}{\partial \sigma^2} = - \frac{3}{\sigma^4} \sum (x_i - a)^2 + \frac{n}{\sigma^2} = - \frac{3}{D_B^2} \sum (x_i - \overline{x})^2 + \frac{n}{D_B} = - \frac{3n}{D_B} + \frac{n}{D_B} = - \frac{2n}{D_B}\]
+\[\frac{\partial^2}{\partial a \partial \sigma} = - \frac{2}{\sigma^3} (n \overline{x} - na) = 0\]
+\[d^2 L(M) = - \frac{n}{D_B} (da)^2 + 2 \cdot 0 \cdot dad\sigma - \frac{2n}{D_B} (d\sigma)^2 = -\frac{n (da)^2 + 2n (d\sigma)^2}{D_B} < 0\]
+Таким образом, \(M\) --- точка максимума.
+
+\begin{remark}
+    Можно было посчитать по теореме Сильвестра.
+\end{remark}
+
+\begin{exercise}
+    \(X \in B_p\). Найти оценку параметра \(p\) методом максимального правдоподобия.
+\end{exercise}
+
+\begin{solution}
+    \[L(\vec{X}, p) = \prod_{i=1}^{n} (1 - p)^{n - n \overline{x}} \cdot p^{n \overline{x}}\]
+    \[\ln L(\vec{X}, p) = \sum_{i=1}^{n} \ln(1 - p) \cdot \ln p \cdot (n - n \overline{x}) \cdot n \overline{x} = \ln(1 - p) \cdot (n - n \overline{x}) + \ln p \cdot n \overline{x}\]
+    \[\frac{\partial \ln L}{\partial p} = - \frac{n - n \overline{x}}{1 - p} + \frac{n \overline{x}}{p} = 0\]
+    \[n \overline{x} (1 - p) + (n \overline{x} - n)p = 0\]
+    \[p = \overline{x}\]
+\end{solution}
+
+\begin{exercise}
+    \(X \in E_\alpha\). \(E_\alpha\) --- регулярное ли семейство? Найти \(I(\alpha)\).
+\end{exercise}
+\begin{solution}
+    \(f_\alpha(x) = \begin{cases}
+        0,                      & x < 0    \\
+        \alpha e^{ -\alpha x} , & x \geq 0
+    \end{cases}\)
+
+    Носитель \(C = (0, \infty)\). Можно выкинуть точку \(0\), т.к. она имеет меру \(0\).
+
+    \[\frac{\partial}{\partial \alpha} \ln f_\alpha(x) = \frac{\partial}{\partial \alpha} (\ln \alpha - \alpha x) = \frac{1}{\alpha} - x\]
+    Эта функция непрерывна \(\forall \alpha \in C\).
+
+    \[I(\alpha) = \E\left( \frac{\partial}{\partial \alpha} \ln(f_\alpha(X)) \right) = \E \left(X - \frac{1}{\alpha}\right) = \E\left(X - \E X\right) = \D X = \frac{1}{\alpha^2}\]
+\end{solution}
+
+\begin{exercise}
+    То же самое, но для \(X \in E_{\frac{1}{\alpha}}\)
+\end{exercise}
+\begin{solution}
+    \[f_\alpha(x) = \begin{cases}
+            0,                                       & x < 0 \\
+            \frac{1}{\alpha} e^{ -\frac{x}{\alpha}}, & x > 0
+        \end{cases}\]
+    \[\frac{\partial}{\partial \alpha} \ln f_\alpha(x) = \frac{\partial}{\partial \alpha} \left(\ln\frac{1}{\alpha} - \frac{x}{\alpha}\right) = - \frac{1}{\alpha} + \frac{x}{\alpha^2}\]
+    \[I(\alpha) = \E\left(\frac{\partial}{\partial a} \ln f_\alpha(x)\right)^2 = \E\left(\frac{x}{\alpha^2} - \frac{1}{\alpha}\right)^2 = \frac{1}{\alpha^4} \E(X - \alpha)^2 = \frac{1}{\alpha^4} \D X = \frac{1}{\alpha^2}\]
+
+    \[\alpha^* = \overline{x}\]
+    \[\D \alpha^* = \D \overline{x} = \frac{\D x}{n} = \frac{\alpha^2}{n}\]
+    \[\D \alpha^* \geq \frac{1}{n I(\alpha)}\]
+    \[\frac{\alpha^2}{n} = \frac{\alpha^2}{n}\]
+    Таким образом, оценка эффективная.
+\end{solution}
+
+\begin{exercise}
+    Для \(X \in U(0, \theta)\) найти информацию фишера, проверить регулярность.
+
+    \(\theta^* = 2 \overline{X}^*\) --- по м. моменты, \(\tilde \theta = \frac{n + 1}{n} X_{(n)}\) --- ОМП.
+\end{exercise}
+% \begin{solution}
+%     \[f_\theta(x) = \begin{cases}
+%             \frac{1}{\theta}, & x \in [0, \theta] \\
+%             0,                & \text{иначе}
+%         \end{cases}\]
+%     \[C = (0, + \infty)\]
+%     \[\frac{\partial}{\partial \theta} \ln f_\theta(x) = \]
+% \end{solution}
+
+\end{document}

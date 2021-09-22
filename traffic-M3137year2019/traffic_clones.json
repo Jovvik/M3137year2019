@@ -1213,6 +1213,31 @@
       "uniques": 2
     },
     {
+      "timestamp": "2021-09-16T00:00:00Z",
+      "count": 5,
+      "uniques": 3
+    },
+    {
+      "timestamp": "2021-09-17T00:00:00Z",
+      "count": 9,
+      "uniques": 7
+    },
+    {
+      "timestamp": "2021-09-18T00:00:00Z",
+      "count": 13,
+      "uniques": 7
+    },
+    {
+      "timestamp": "2021-09-19T00:00:00Z",
+      "count": 7,
+      "uniques": 5
+    },
+    {
+      "timestamp": "2021-09-20T00:00:00Z",
+      "count": 11,
+      "uniques": 6
+    },
+    {
       "timestamp": "2021-09-09T00:00:00Z",
       "count": 8,
       "uniques": 6
@@ -1246,31 +1271,6 @@
       "timestamp": "2021-09-15T00:00:00Z",
       "count": 9,
       "uniques": 5
-    },
-    {
-      "timestamp": "2021-09-16T00:00:00Z",
-      "count": 5,
-      "uniques": 3
-    },
-    {
-      "timestamp": "2021-09-17T00:00:00Z",
-      "count": 9,
-      "uniques": 7
-    },
-    {
-      "timestamp": "2021-09-18T00:00:00Z",
-      "count": 13,
-      "uniques": 7
-    },
-    {
-      "timestamp": "2021-09-19T00:00:00Z",
-      "count": 7,
-      "uniques": 5
-    },
-    {
-      "timestamp": "2021-09-20T00:00:00Z",
-      "count": 11,
-      "uniques": 6
     }
   ]
 }

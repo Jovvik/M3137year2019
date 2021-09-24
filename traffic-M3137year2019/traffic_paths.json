@@ -2,61 +2,61 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 79,
-    "uniques": 50
+    "count": 274,
+    "uniques": 133
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 10,
-    "uniques": 9
+    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 37,
+    "uniques": 18
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
+    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 30,
+    "uniques": 23
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/opros.pdf",
+    "title": "M3137year2019/opros.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 22,
+    "uniques": 19
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
-    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 6,
-    "uniques": 1
+    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 17,
+    "uniques": 5
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
+    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 16,
+    "uniques": 6
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
+    "count": 12,
+    "uniques": 7
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
+    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 11,
+    "uniques": 10
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/functional%20programming/5sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 5,
-    "uniques": 4
+    "count": 10,
+    "uniques": 6
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 5,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
-    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 5,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 4,
-    "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/type%20theory/5sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 4,
-    "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra",
-    "title": "M3137year2019/linear algebra at master · Jovvik/M3137year2019 · GitHub",
-    "count": 4,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
-    "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019",
-    "count": 4,
-    "uniques": 2
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "Jovvik/M3137year2019 at pdfs",
+    "count": 10,
+    "uniques": 6
   }
 ]

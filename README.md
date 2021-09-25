@@ -38,6 +38,7 @@
 #### Практика
 
 - [2 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/practice/2.pdf)
+- [3 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/practice/3.pdf)
 
 
 #### Дз (мои решения)

@@ -1,0 +1,158 @@
+\input{../../../preamble.sty}
+
+\lhead{Алгоритмы в математике \textit{(практика)}}
+\cfoot{}
+\rfoot{25.9.2021}
+
+\begin{document}
+
+\section*{Теория делимости}
+
+Будем рассматривать \(\Z\).
+
+\begin{definition}
+    \(q \in \Z\) \textbf{делит} \(n \in \Z\), если \(\exists t \in \Z : n = qt\)
+\end{definition}
+\begin{obozn}
+    \(q \mid n, n \divided q\).
+\end{obozn}
+
+\begin{example}
+    \(m^5 - m \divided 5\)
+\end{example}
+\begin{solution}
+    \begin{caseof}
+        \case{\(m = 5k\)}{Тривиально.}
+        \case{\(m = 5k + 1\)}{
+            \begin{align*}
+                (5k + 1)^5 - (5k + 1) & = (5k + 1)((5k + 1)^2 - 1)((5k + 1)^2 + 1)                    \\
+                                      & = (5k + 1)(5k + 1 - 1)(5k + 1 + 1)((5k + 1)^2 + 1) \divided 5 \\
+            \end{align*}
+        }
+        \case{\(m = 5k + 2\)}{
+            \begin{align*}
+                (5k + 2)^5 - (5k + 2) & = (5k + 2)(5k + 2 - 1)(5k + 3)((5k + 2)^2 + 1) \\
+                                      & = \dots (25k + 20k + 4 + 1) \divided 5         \\
+            \end{align*}
+        }
+    \end{caseof}
+    Остальные случаи опущены.
+\end{solution}
+\begin{definition}
+    \(n, m \in Z, d : n \divided d, m \divided d\)
+
+    \(d\) называется \textbf{общим делителем} \(n, m\).
+\end{definition}
+\begin{definition}
+    \(n, m\) \textbf{взаимно простые}, если:
+    \[n \divided d, m \divided d \Rightarrow d = \pm 1\]
+\end{definition}
+\begin{theorem}
+    \(n \divided ab\) \(\Leftrightarrow n \divided a, n \divided b\) и \(a, b\) взаимно простые.
+\end{theorem}
+
+\begin{exercise*}
+    \[m(m + 1)(2m + 1) \divided 6\]
+\end{exercise*}
+\begin{solution}
+    \[m(m + 1) \divided 2\]
+    Докажем \(m(m + 1)(2m + 1) \divided 3\)
+    \begin{caseof}
+        \case{\(m = 3k\)}{Тривиально.}
+        \case{\(m = 3k + 1\)}{
+            \(2m + 1 = 6k + 3 \divided 3\)
+        }
+        \case{\(m = 3k + 2\)}{Тривиально.}
+    \end{caseof}
+\end{solution}
+
+\begin{exercise*}
+    \(\forall n \ \ \exists k : n^2 + (n + 1)^2 = 4k + 1\)
+\end{exercise*}
+\begin{solution}
+    \begin{align*}
+        n^2 + (n + 1)^2                    & = 4k + 1 \\
+        2n^2 + 2n + 1                      & = 4k + 1 \\
+        2n^2 + 2n                          & = 4k     \\
+        n^2 + n                            & = 2k     \\
+        \underbrace{n(n + 1)}_{\divided 2} & = 2k     \\
+    \end{align*}
+\end{solution}
+
+\begin{exercise*}
+    \[n^3(n^2 + 3) \divided 4\]
+\end{exercise*}
+\begin{solution}
+    Для чётных \(n\) \(n^3 \divided 4\). Для \(n = 2k + 1\) \((2k + 1)^2 + 3 = 4k^2 + 4k + 4 \divided 4\).
+\end{solution}
+
+\begin{definition}
+    \(a, b \in \Z\) \textbf{сравнимы} по модулю \(n\), если \(a - b \divided n\).
+\end{definition}
+\begin{obozn}
+    \(a \equiv b \pmod n\)
+\end{obozn}
+\begin{example}
+    \(4 \equiv 1 \pmod 3, 8 \equiv 2 \pmod 3, 151 \equiv 11 \pmod{10}\)
+\end{example}
+
+\[\begin{rcases}
+        a - c \divided n \\
+        b - d \divided n
+    \end{rcases} \Rightarrow \begin{cases}
+        a = nk + c \\
+        b = nj + d
+    \end{cases}\]
+\[\sphericalangle ab = \underbrace{n^2 kj + nkd + njc}_{\divided n} + cd\]
+
+\begin{enumerate}
+    \item \(a \equiv c \pmod n, b \equiv d \pmod n \Rightarrow a + b \equiv c + d \pmod n, ab \equiv cd \pmod n\)
+\end{enumerate}
+
+\begin{exercise*}
+    \(a^7 - a + 56 \divided 7\)
+\end{exercise*}
+\begin{solution}
+    \begin{caseof}
+        \case{\(a \equiv 0\)}{\(0 + 0 + 56 \equiv 0\)}
+        \case{\(a \equiv 1\)}{\(1 - 1 + 56 \equiv 0\)}
+        \case{\(a \equiv 2\)}{\(128 - 2 + 56 \equiv 70 + 56 \equiv 0\)}
+    \end{caseof}
+
+    Остальные случаи опущены.
+\end{solution}
+
+\begin{exercise*}
+    \[m^2 + n^2 \divided 7 \Rightarrow n \divided 7, m \divided 7\]
+\end{exercise*}
+
+\begin{solution}\itemfix
+    \begin{center}
+        \begin{tabular}{CC}
+            \toprule
+            m \equiv & m^2 \equiv \\ \midrule
+            0        & 0          \\
+            1        & 1          \\
+            2        & 4          \\
+            3        & 2          \\
+            4        & 2          \\
+            5        & 4          \\
+            6        & 1          \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+\end{solution}
+
+\begin{definition}
+    \(\{a_1 \dots a_n\}\) называется \textbf{полной системой вычетов} \(\mod n\), если \(\forall a \in \Z \ \ \exists j : a \equiv a_j \mod n\)
+\end{definition}
+\begin{theorem}\itemfix
+    \begin{itemize}
+        \item \(\{a_1 \dots a_n\}\) --- полная система вычетов \(\mod n\)
+        \item \(k\) взаимно просто с \(n\)
+    \end{itemize}
+
+    Тогда \(\{ka_1 \dots k a_n\}\) --- полная система вычетов \(\mod n\).
+\end{theorem}
+
+\end{document}

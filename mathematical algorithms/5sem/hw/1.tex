@@ -1,0 +1,162 @@
+\input{../../../preamble.sty}
+
+\lhead{Алгоритмы в математике \textit{(ДЗ)}}
+\cfoot{}
+\rfoot{25.9.2021}
+
+\begin{document}
+
+\begin{exercise}
+    Рассмотрим множество всех отображений из \(\R\) в \(\R\) \(S = \{f \mid f : \R \to \R\}\). Введём на нём операцию композиции как стандартную композицию функций. Доказать, что регулярные справа алгоритмы это в точности (все) сюръективные отображения.
+\end{exercise}
+\begin{solution}
+    \(\sphericalangle g\) --- правый регулярный, т.е. \(\forall f_1, f_2 \in S \ \ f_1 \circ g = f_2 \circ g \Rightarrow f_1 = f_2\).
+    \[f_1 \circ g = f_2 \circ g \stackrel{\mathrm{def}}{\Leftrightarrow} \forall x \in \R \ \ f_1(g(x)) = f_2(g(x))\]
+    Если \(h\) cюръективно, \(h\) --- правое регулярное, т.к \(h(\R) = \R\) по определению сюръективного отображения и тогда \(\forall x \in \R \ \ f_1(h(x)) = f_2(h(x)) \Rightarrow \forall x \in \R \ \ f_1(x) = f_2(x)\), из чего следует \(f_1 = f_2\) по определению.
+
+    Если \(g\) не сюръективно, то \(\exists y : \nexists x \ \ g(x) = y\) по определению. Тогда рассмотрим произвольную функцию \(f_1 \in S\) и \(f_2 = \begin{cases}
+        f_1(x),     & x \neq y \\
+        f_1(x) + 1, & x = y
+    \end{cases}\). Условие \(f_1(g(x)) = f_2(g(x))\) выполнено, но \(f_1 \neq f_2\).
+
+    Таким образом, все сюръективные отображения являются регулярными справа, а не сюръективные --- нет.
+\end{solution}
+
+\begin{exercise}
+    Рассмотрим множество пар целых чисел \(S = \{(a, b) \mid a, b \in \Z\}\). Зададим на нём операцию композиции:
+    \[(a_1, b_1) * (a_2, b_2) = (a_1a_2, a_1b_2 + a_2b_1)\]
+    Проверить ассоциативность. Найти все (односторонние) нейтральные и поглощающие элементы. Найти все регулярные элементы.
+\end{exercise}
+\begin{solution}
+    \[(a_1, b_1) * ((a_2, b_2) * (a_3, b_3)) = (a_1, b_1) * (a_2a_3, a_2b_3 + a_3b_2) = (a_1a_2a_3, a_1a_2b_3 + a_1a_3b_2 + a_2a_3b_1)\]
+    \[((a_1, b_1) * (a_2, b_2)) * (a_3, b_3) = (a_1a_2, a_1b_2 + a_2b_1) * (a_3, b_3) = (a_1a_2a_3, a_1a_2b_3 + a_1a_3b_2 + a_2a_3b_1)\]
+    Оба результата равны, следовательно операция ассоциативна.
+
+    Операция очевидно коммутативна, поэтому не будем рассматривать отдельно левые и правые элементы.
+
+    \(\sphericalangle (e_a, e_b)\) --- нейтральный элемент
+    \[(e_a, e_b) * (a, b) = (e_a a, e_b \cdot a + e_a \cdot b) = (a, b)\]
+    \[\begin{cases}
+            e_a a = a \\
+            e_b a + e_a b = b
+        \end{cases} \Rightarrow \begin{cases}
+            e_a = 1 \\
+            e_b = 0
+        \end{cases}\]
+
+    \(\sphericalangle (\theta_a, \theta_b)\) --- поглощающий элемент
+    \[(\theta_a, \theta_b) * (a, b) = (\theta_a a, \theta_a b + \theta_b a) = (\theta_a, \theta_b)\]
+    \[\begin{cases}
+            \theta_a a = \theta_a \\
+            \theta_a b + \theta_b a = \theta_b
+        \end{cases} \Rightarrow \begin{cases}
+            \theta_a = 0 \\
+            \theta_b a = \theta_b
+        \end{cases} \Rightarrow \begin{cases}
+            \theta_a = 0 \\
+            \theta_b = 0
+        \end{cases}\]
+
+    \(\sphericalangle (x, y)\) --- регулярный элемент.
+    \[\forall a_1, b_1, a_2, b_2 \ \ (a_1, b_1) * (x, y) = (a_2, b_2) * (x, y) \Rightarrow (a_1, b_1) = (a_2, b_2)\]
+    \[(a_1 x, b_1 x + a_1 y) = (a_2 x, b_2 x + a_2 y)\]
+    \[\begin{cases}
+            a_1 x = a_2x \\
+            b_1 x + a_1 y = b_2 x + a_2 y
+        \end{cases} \Rightarrow \begin{cases}
+            a_1 = a_2 \\
+            b_1 x = b_2 x
+        \end{cases} \Rightarrow \begin{cases}
+            a_1 = a_2 \\
+            b_1 = b_2
+        \end{cases}\]
+    Мы потеряли случай \(x = 0\) \textit{(тогда нельзя сокращать на \(x\))}, рассмотрим его:
+    \[b_1 x + a_1 y = b_2 x + a_2 y \Rightarrow a_1 y = a_2 y \Rightarrow a_1 = a_2\]
+    \(b_1 \neq b_2\) в общем случае.
+
+    Итого:
+    \begin{itemize}
+        \item Нейтральный элемент \((0, 0)\)
+        \item Поглощающий элемент \((0, 0)\)
+        \item Регулярные элементы \(\{(x, y) \mid x \in \R \setminus \{0\}, y \in \R\}\)
+    \end{itemize}
+\end{solution}
+
+\begin{exercise}
+    Пусть есть некоторая конечная полугруппа \(S\) и \(a \in S\) есть некоторый фиксированный элемент. Рассмотрим множество \(M = a \cdot S = \{a \cdot x \mid x \in S\}\). Что можно сказать про \(|M|\), если \(|S| = n\)? Каков будет ответ в случае, если \(a\) регулярен?
+\end{exercise}
+\begin{solution}
+    Если \(a\) произвольный, то ничего \textit{(технически \(|M| \leq n\))}.
+
+    Если \(a\) регулярен, то \(a \cdot x\) пробегает все возможные элементы \(S\), т.к. \(\nexists a_1 \neq a_2 : a_1 \cdot x = a_2 \cdot x\). Таким образом, \(|M| = |S| = n\).
+\end{solution}
+
+\begin{exercise}
+    Пусть \(S\) --- некоторая полугруппа с левым сокращением. Доказать, что любой идемпотент \(e\) (свойство \(e \cdot e = e\)), то \(e\) --- левый нейтральный.
+\end{exercise}
+\begin{solution}
+    Пусть \(e \cdot x\) это некоторое \(a \in S\). Докажем, что \(x = a\).
+    \begin{align*}
+        e \cdot x         & = a         \\
+        e \cdot e \cdot x & = e \cdot a \\
+        e \cdot x         & = e \cdot a \\
+        x                 & = a         \\
+    \end{align*}
+\end{solution}
+
+\begin{exercise}
+    Пусть \(S\) --- некоторая полугруппа со следующим свойством. Из того, что \(ab = cd\) следует либо \(a = c\), либо \(b = d\). Доказать, что \(S\) --- полугруппа левых либо правых нулей.
+\end{exercise}
+\begin{solution}
+    \(\sphericalangle a, b \in S\)
+    \begin{align*}
+        a \cdot b           & \eqqcolon c \\
+        b \cdot a \cdot b   & = b \cdot c \\
+        (b \cdot a) \cdot b & = b \cdot c
+    \end{align*}
+    Либо \(b \cdot a = b\), либо \(b = c\). В первом случае \(b\) --- левый поглощающий. Во втором случае можно подставить в исходное равенство и получить \(a \cdot b = b\) и тогда \(b\) правый поглощающий.
+\end{solution}
+
+\begin{exercise}
+    Рассмотрим некоторую полугруппу \(S\) и некоторую её подполугруппу \(H \subset S\). Будем говорить, что \(a \sim b\) если \(aH = bH\). Проверить, что заданное отношение есть отношение эквивалентности. Построим фактор-множество \(Y = S/R\). Пусть некоторый элемент \(a\) регулярен слева. Что можно сказать про регулярность элемента \(b \in [a]\)?
+\end{exercise}
+\begin{solution}
+    Проверим, что \(R\) --- отношение эквивалентности:
+    \begin{enumerate}
+        \item Рефлексивноcть: \(aH = aH\)
+        \item Транзитивность: по транзитивности равенства множеств
+        \item Симметричность: по симметричности равенства множеств
+    \end{enumerate}
+
+    Если \(a\) регулярен слева, то \(|aH| = |H|\) \textit{(см. задание 3)}. Таким образом, \(|bH| = |aH| = |H|\). Т.к. \(|bH| = |H|\), то \(b \cdot x\) пробегает все элементы \(H\). Из этого следует регулярность слева \textit{(в \(H\))} --- если \(\exists x_1, x_2 \in H : b \cdot x_1 = b \cdot x_2 \with x_1 \neq x_2\), то \(bH \neq H\).
+
+    Регулярности в \(S\) нет в общем случае --- если \(\exists x \in S \setminus H\), то пусть \(b \cdot x = y\), где \(y\) --- произвольный элемент \(bH\) \textit{(и следовательно \(\exists z \in H : b \cdot z = y\))}. Тогда \(b\) не регулярен в \(S\), т.к. \(b \cdot x = y = b \cdot z\).
+\end{solution}
+
+\begin{exercise}
+    Пусть на некотором множестве \(X\) задано отношение частичного порядка
+    \(\rho\) (в смысле \( \leq \)). Определим отношения \(R = \rho \circ \rho^{ - 1}\) и \(L = \rho^{-1} \circ \rho\). Что можно сказать про отношения \(R, L\)?
+
+    Определим для некоторого \(a \in X\) множество \(R(a) = \{b \mid b \in X, aRb\}\), как множество всех элементов, которые состоят в отношении \(R\) с \(a\). Указать процедуру поиска \(R(a)\).
+\end{exercise}
+\begin{solution}
+    \(\sphericalangle R\)
+    \[aRc \stackrel{\mathrm{def}}{\Leftrightarrow} \exists b : (a \rho b) \with (b \rho^{-1} c) \Rightarrow (a \rho b) \with (c \rho b)\]
+    С точки зрения графа это выглядит так: у \(a\) и \(c\) есть общий потомок.
+    \begin{tikzcd}
+        a \arrow{rd}{\rho} & & c \arrow{ld}[swap]{\rho} \\
+        & b &
+    \end{tikzcd}
+
+    \(\sphericalangle L\)
+    \[aLc \stackrel{\mathrm{def}}{\Leftrightarrow} \exists b : (a \rho^{-1} b) \with (b \rho c) \Rightarrow (b \rho a) \with (b \rho c)\]
+    С точки зрения графа это выглядит так: у \(a\) и \(c\) есть общий родитель
+    \begin{tikzcd}
+        & b \arrow{rd}{\rho} \arrow{ld}[swap]{\rho} & \\
+        a & & c
+    \end{tikzcd}
+
+    Поиск \(R(a)\): ищем все \(c \in S\), такие что есть общий \textit{(c \(a\))} потомок \(b\). Переберем всех кандидатов на роль \(b\) --- это все потомки \(a\). Для каждого \(b\) переберем его родителей. Все такие родители образуют \(R(a)\).
+\end{solution}
+
+\end{document}

@@ -39,6 +39,11 @@
 
 - [2 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/practice/2.pdf)
 
+
+#### Дз (мои решения)
+
+- [1 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/1.pdf)
+
 ### Функциональное программирование
 
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/functional%20programming/5sem/main.pdf)

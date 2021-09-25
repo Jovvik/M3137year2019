@@ -174,3 +174,67 @@
             h_j = h_j'
         \end{cases}\]
 \end{proof}
+
+\begin{lemma}[проигранная]
+    Дано: \(G, G'\) --- группы, \(S_G\) --- множество производящих \(G\), \(f : S_G \to G'\).
+
+    Если \(\exists \tilde{f} \in \mathrm{hom}(G\ G')\), то \(\tilde{f}\Big|_{S_G} = f \Rightarrow \tilde{f}\) единственно.
+
+    \[\begin{tikzcd}
+            S_G \arrow{rr}{f} & & G' \\
+            & G \arrow{ru}[swap]{\tilde{f} \in \mathrm{hom}(G\ G')} &
+        \end{tikzcd}\]
+\end{lemma}
+\begin{proof}
+    \(\sphericalangle g \in G, g' \coloneqq \tilde{f}(g)\)
+    \[g = \prod_{i \in I} S_i \quad \tilde{f}(g) = \tilde{f}\left(\prod_{i \in I} S_i\right) = \prod_{i \in I} \tilde{f}(S_i) = \prod_{i \in I} f(S_i)\]
+\end{proof}
+
+\begin{definition}
+    Подгруппа \(H\) группы \(G\) называется \textbf{нормальной} или инвариантной, если \(\forall g \in G \ \ gH = Hg\). Аналогично можно определить через \(H = g^{-1}Hg\)
+\end{definition}
+\begin{obozn}
+    \(H \triangleleft G\)
+\end{obozn}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(G\) --- группа
+        \item \(\sigma \in \mathrm{hom}(G\ G')\)
+    \end{itemize}
+
+    Тогда \(\ker \sigma\) --- нормальная подгруппа \(G\).
+\end{lemma}
+\begin{proof}
+    \(H \coloneqq \ker \sigma\)
+    \[\sigma(e) = \sigma(g^{-1} g) = \sigma(g^{-1}) \sigma(g) = \sigma(g^{-1}) e \sigma(g) = \sigma(g^{-1}) \sigma(H) \sigma(g) = \sigma(g^{-1}Hg) = e_{G'}\]
+    Таким образом, \(g^{-1}Hg \subset H\). Заменим \(g\) на \(g^{-1}\): \(H \subset g^{-1}Hg \Rightarrow H = g^{-1}Hg\).
+\end{proof}
+
+\(\sphericalangle G\) --- группа, \(H\) --- подгруппа \(G\).
+
+Рассмотрим отношение \(\sim\): \(g_1 \sim g_2 \Leftrightarrow g_1 g_2^{ - 1} \in H\). Это отношение эквивалентности:
+\begin{enumerate}
+    \item \(g_1 g_1^{-1} = e \in H\)
+    \item \(g_1 g_2^{-1} \in H \Rightarrow (g_1 g_2^{-1})^{-1} \in H \Rightarrow g_1^{-1} g_2 \in H\)
+    \item \(g_1 g_2^{-1} \in H, g_2 g_3^{-1} \in H \Rightarrow g_1 g_3^{-1} \in H\)
+\end{enumerate}
+
+Кроме того, \(g_1 \sim g_2 \Leftrightarrow g_1H = g_2H\), поэтому \(\sim\) это отношение эквивалентности на смежных классах, будем обозначат фактор-множество как \(G / H\).
+
+Для каких \(H\) выполняется следующее: если \(x_1 \sim y_1\) и \(x_2 \sim y_2\), тогда \((x_1 x_2) \sim (y_1 y_2)\)? \(x_1 H = y_1 H, x_2 H = y_2 H\). Тогда \(H\) --- нормальная подгруппа.
+
+\(\sphericalangle G / H, H \triangleleft G, \cdot : [x] \cdot [y] = [x \cdot y]\).
+Свойства ``\( \cdot \)'':
+\begin{enumerate}
+    \item \([x] \cdot ([y] \cdot [z]) = ([x] \cdot [y]) \cdot [z]\)
+    \item \(\exists [e] : [x][e] = [e][x] = [x], [e] = H\)
+    \item \([x]^{-1} = [x^{-1}]\)
+\end{enumerate}
+\begin{remark}
+    \(G / H\) --- фактор-группа.
+\end{remark}
+
+\(\sphericalangle \sigma : \ker \sigma = H\)
+
+Тогда пусть \(\sigma : G \to G / H, g \mapsto [g]\).

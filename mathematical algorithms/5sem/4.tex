@@ -1,0 +1,176 @@
+\chapter{25 сентября}
+
+\section{Структура групп}
+
+\begin{definition}[группа]
+    \(G\) --- множество с внутренним законом \( \cdot \), таким что:
+    \begin{enumerate}
+        \item \(\forall x, y, z \in G \ \ x \cdot (y \cdot z) = (x \cdot y) \cdot z\)
+        \item \(\exists e \in G : \forall x \in G \ \ e \cdot x = x \cdot e = x\)
+        \item \(\forall x \in G \ \ \exists x^{-1} \in G : x x^{-1} = x^{-1} x = e\)
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Пусть \(S\) --- множество, \(G\) --- группа. Будем обозначать множество отображений \(S \to G\) как \(M(SG)\). Наделим его структурой группы:
+    \[f, g \in M(SG) \Rightarrow \begin{cases}
+            (f \cdot g)(x) = f(x) \cdot g(x) \\
+            f(x^{-1}) = f(x)^{ - 1}          \\
+            f_e(x) = e_G
+        \end{cases}\]
+\end{example}
+
+\begin{definition}
+    \(G, G, \sigma : G \to G'\).
+
+    \(\sigma\) --- \textbf{гомоморфизм} группы \(G\) в группу \(G'\), если:
+    \[\forall x, y \in G \ \ \sigma(xy) = \sigma(x) \sigma(y), \sigma(e_G) = e_{G'}\]
+\end{definition}
+
+\begin{lemma}
+    \(\sigma(x^{-1}) = \sigma(x)^{-1}\)
+\end{lemma}
+\begin{proof}
+    \[e_{G'} = \sigma(e_G) = \sigma(x x^{-1}) = \sigma(x) \sigma(x^{-1})\]
+    \[\sigma(x)^{-1} e_{G'} = \sigma(x)^{-1} \sigma(x) \sigma(x^{-1})\]
+    \[\sigma(x)^{-1} = \sigma(x^{-1})\]
+\end{proof}
+
+\begin{obozn}\itemfix
+    \begin{itemize}
+        \item \(\mathrm{hom}(G\ G')\) --- множество всех гомоморфизмов \(G \to G'\).
+        \item \(\mathrm{End}(G) \coloneqq \mathrm{hom}(G\ G)\).
+    \end{itemize}
+\end{obozn}
+
+\begin{definition}
+    \(\sigma \in \mathrm{hom}(G\ G')\) называется \textbf{изоморфизмом}, если:
+    \[\chi \in \mathrm{hom}(G'\ G) : \sigma \circ \chi = \mathrm{id}_{G'}, \chi \circ \sigma = \mathrm{id}_G\]
+\end{definition}
+
+\begin{obozn}\itemfix
+    \begin{itemize}
+        \item \(\mathrm{Iso}(G\ G')\) --- множество всех изоморфизмов
+        \item \(\mathrm{Aut}(G) \coloneqq \mathrm{Iso}(G\ G)\) --- множество \textbf{автоморфизмов}
+    \end{itemize}
+\end{obozn}
+
+\begin{lemma}
+    \(\sigma \in \mathrm{hom}(G\ G'), \chi \in \mathrm{hom}(G'\ G'') \Rightarrow \zeta = \chi \circ \sigma \in \mathrm{hom}(G\ G'')\)
+\end{lemma}
+\begin{proof}
+    \begin{align*}
+        \forall x, y \in G \ \ \zeta(x \cdot y) & = (\chi \circ \sigma) (x \cdot y)                      \\
+                                                & = \chi(\sigma(x \cdot y))                              \\
+                                                & = \chi(\sigma(x) \cdot \sigma(y))                      \\
+                                                & = (\chi \circ \sigma) (x) \cdot (\chi \circ \sigma)(y) \\
+                                                & = \zeta(x) \cdot \zeta(y)                              \\
+    \end{align*}
+\end{proof}
+
+\begin{remark}
+    \(\mathrm{Aut}(G)\) --- группа относительно \(\circ\).
+\end{remark}
+
+\begin{definition}
+    \(G\) --- группа.
+
+    \(\sphericalangle S_G = \{S_i\}_{i \in I}\):
+    \[\forall g \in G \ \ a = \prod_{j \in J \subseteq I} S_i\]
+    \(S_G\) тогда называется \textbf{множеством образующих группы \(G\)}.
+\end{definition}
+
+\begin{lemma}
+    Мы проиграли, вернемся к этой лемме позже.
+\end{lemma}
+
+\begin{definition}[ядро гомоморфизма]
+    \[\ker \sigma \coloneqq \{g \in G : \sigma(g) = e\}\]
+\end{definition}
+
+\begin{lemma}
+    Если \(\ker \sigma = \{e\}\), то \(\sigma(x) = \sigma(y) \Rightarrow x = y\), т.е. \(\sigma\) иньективно.
+\end{lemma}
+\begin{proof}
+    \[\sigma(x) \sigma(y^{-1}) = \sigma(y) \sigma(y^{-1}) = e_{G'}\]
+    Таким образом, \(x\) есть обратный к \(y^{-1}\), т.е. \(x = y\).
+\end{proof}
+
+\begin{definition}[образ гомоморфизма]
+    \[\im \sigma = \{g' \in G' : \exists g \in G : \sigma(g) = g'\}\]
+\end{definition}
+
+\begin{lemma}
+    \(\im \sigma = G' \Rightarrow \sigma\) сюръективно.
+\end{lemma}
+
+\[\begin{rcases}
+        \im \sigma = G' \\
+        \ker \sigma = \{e\}
+    \end{rcases} \Rightarrow \sigma \text{ --- изоморфизм}\]
+
+\begin{definition}
+    \textbf{Подгруппой} \(H\) группы \(G\) называется подмножество элементов \(G\), на котором групповой закон \(G\) индуцирует структуру группы.
+\end{definition}
+
+\begin{definition}
+    \textbf{Несобственные} подгруппы: \(\{e_G\}, G\).
+
+    Иначе подгруппа \textbf{собственная}.
+\end{definition}
+
+\begin{example}
+    \(\sigma \in \mathrm{hom}(G\ G')\). Тогда \(\ker \sigma\) --- подгруппа \(G\), \(\im \sigma\) --- подгруппа \(G'\).
+\end{example}
+
+\subsection{Смежные классы}
+
+Пусть \(G\) --- группа, \(H\) --- подгруппа \(G\).
+
+\begin{definition}
+    \(gH, g \in G\) --- \textbf{левый смежный класс} группы \(G\) по подгруппе \(H\).
+\end{definition}
+
+\begin{lemma}
+    Пусть \(\exists z : z \in gH, z \in g'H\). Тогда \(gH = g'H\)
+\end{lemma}
+\begin{proof}
+    \(z = gh, z = g'h' \Rightarrow gh = g'h' \Rightarrow g = g'h'h^{-1}\)
+    \[gH = (g'h'h^{-1})H = g'h'h^{-1}H\]
+\end{proof}
+
+\begin{lemma}
+    \[\forall g, g' \in G \ \ |gH| = |g'H|\]
+\end{lemma}
+\begin{proof}
+    Отображение \(h \mapsto gg^{-1} h\) есть биекция между \(gH\) и \(g'H\)
+\end{proof}
+
+\begin{obozn}
+    \((G : H)\) --- индекс группы \(G\) по \(H\) --- количество смежных классов.
+\end{obozn}
+\begin{remark}
+    В общем случае это кардинальное число, но мы будем рассматривать только конечные индексы.
+\end{remark}
+
+\((G : 1)\) --- количество элементов \(G\) \textit{(порядок группы)}.
+
+\begin{lemma}
+    \[(G : 1) \vdots (G : H)\]
+\end{lemma}
+
+\begin{theorem}
+    \(H\) --- подгруппа \(G\), \(K\) --- подгруппа \(H\).
+    \[(G : H) (H : K) = (G : K)\]
+\end{theorem}
+\begin{proof}
+    \[G = \bigcup_i g_i H \quad H = \bigcup_j h_j K\]
+    \[G = \bigcup_i \bigcup_j g_i h_j K\]
+    \[g_i h_j K = g_i' h_j' K \Rightarrow \begin{cases}
+            g_i H = g_i' H \\
+            h_j K = h_j' K
+        \end{cases} \Rightarrow \begin{cases}
+            g_i = g_i' \\
+            h_j = h_j'
+        \end{cases}\]
+\end{proof}

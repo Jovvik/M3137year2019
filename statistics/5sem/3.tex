@@ -1,0 +1,181 @@
+\chapter{20 сентября}
+
+\subsection{Метод максимального правдоподобия}
+
+\textbf{Метод максимального правдоподобия} состоит в том, чтобы подобрать параметры таким образом, чтобы вероятность получения данной выборки была наибольшей. Если распределение дискретное, то вероятность выборки
+\[P_\theta(X_1 = x_1, X_2 = x_2 \dots X_n = x_n) = P_\theta(X_1 = x_1) P_\theta(X_2 = x_2) \dots P_\theta(X_n = x_n)\]
+Для непрерывной величины аналогично.
+
+Поэтому исследуем такую функцию:
+\begin{definition}
+    \textbf{Функцией правдоподобия} называется функция \(L(\overline{X}, \theta)\), зависящая от выборки и неизвестных параметров, равная:
+    \begin{itemize}
+        \item В случае дискретного распределения:
+              \[P_\theta(X_1 = x_1) P_\theta(X_2 = x_2) \dots P_\theta(X_n = x_n)\]
+        \item В случае абсолютно непрерывного распределения:
+              \[f_\theta(x_1) f_\theta(x_2) \dots f_\theta(x_n) = \prod_{i=1}^{n} f_\theta(x_i)\]
+    \end{itemize}
+\end{definition}
+
+Эту функцию неудобно исследовать, поэтому мы используем следующую функцию:
+\begin{definition}
+    \textbf{Логарифмическая функция правдоподобия}:
+    \[M(\overline{X}, \theta) = \ln L(\overline{X}, \theta)\]
+\end{definition}
+
+Т.к. логарифм --- строго возрастающая функция, экстремумы обычной и логарифмической функций правдоподобия совпадают.
+
+\begin{definition}
+    \textbf{Оценкой максимального правдоподобия} \(\hat{\theta}\) называется значение \(\theta\), при котором функция правдоподобия достигает наибольшего значения.
+\end{definition}
+
+\begin{example}
+    Пусть \(X_1\dots X_n\) --- выборка неизвестного распределения Пуассона с параметром \(\lambda\): \(X \in \Pi_\lambda, \lambda > 0\)
+    \[P(X = x_i) = \frac{\lambda^{x_i}}{x_i!} e^{ -\lambda}\]
+    \[L(\overline{X}, \lambda) = \prod_{i=1}^{n} \frac{\lambda^{x_i}}{x_i!} e^{ -\lambda} = \frac{\lambda^{n \cdot \overline{X}}}{\prod_{i=1}^{n} x_i!} e^{ - n\lambda}\]
+    \[\ln L(\overline{X}, \lambda) = n \cdot \overline{X} \cdot \ln \lambda - \ln \prod_{i=1}^{n} x_i! - n\lambda\]
+    \[\frac{\partial \ln L(\overline{X}, \lambda)}{\partial \lambda} = \frac{n \overline{X}}{\lambda} - n\]
+    Приравняем производную к нулю, чтобы найти точки экстремума:
+    \[\frac{n \overline{X}}{\lambda} - n = 0 \Rightarrow \lambda = \overline{X}\]
+    Таким образом \(\hat{\theta} = \overline{X}\) --- ОМП.
+\end{example}
+
+\begin{example}
+    Пусть \(X_1\dots X_n\) --- выборка неизвестного нормального распределения: \(X \in N(a, \sigma^2), a \in \R, \sigma > 0\)
+    \[f_{a, \sigma^2}(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{ -\frac{(x - a)^2}{2\sigma^2}}\]
+    \[L(\overline{X}, a, \sigma^2) = \prod_{i=1}^{n} \frac{1}{\sigma \sqrt{2 \pi}} e^{ -\frac{(x_i - a)^2}{2\sigma^2}} = \frac{1}{\sigma^n \sqrt{2 \pi}^n} e^{ -\frac{\sum (x_i - a)^2}{2\sigma^2}}\]
+    \[\ln L(\overline{X}, a, \sigma^2) = n \ln \sigma - \frac{n}{2} \ln (2 \pi) - \frac{1}{2\sigma^2} \sum (x_i - a)^2\]
+    \unfinished
+\end{example}
+
+\begin{example}
+    Пусть \(X_1 \dots X_n\) --- выборка равномерного распределения вида \(U(0, \theta)\)
+
+    \begin{enumerate}
+        \item Метод моментов.
+              \[\E = \frac{a + b}{2} = \frac{\theta}{2} \Rightarrow \theta = 2 \overline{X}\]
+        \item Метод максимального правдоподобия.
+              \[f_\theta(x) = \begin{cases}
+                      0,                & x < 0             \\
+                      \frac{1}{\theta}, & x \in [0, \theta] \\
+                      0,                & x > \theta
+                  \end{cases}\]
+              \[L(\overline{X}, \theta) = \prod_{i=1}^{n} f_\theta(x_i) = \begin{cases}
+                      0,                  & \theta < \max x_i = X_{(n)} \\
+                      \frac{1}{\theta^n}, & \theta \geq X_{(n)}
+                  \end{cases}\]
+              \(L\) достигает наибольшего значения при \(\theta = X_{(n)}\).
+    \end{enumerate}
+
+    Сравним полученные оценки.
+
+    \begin{enumerate}
+        \item \(\theta^* = 2 \overline{X}\) --- несмещённая оценка, т.к. \(\E \theta^* = \E 2 \overline{X} = 2 \E \overline{X} = \theta\)
+
+              \[\E(\theta^* - \theta) = \D(\theta^*) = \D 2 \overline{X} = 4 \frac{1}{n} \D X = \frac{4}{n} \frac{\theta^2}{12} = \frac{\theta^2}{3n}\]
+
+        \item Изучим случайную величину \(X_{(n)}\). Её функция распределения это
+              \[F_{X_{(n)}}(x) = P(X_{(n)} < x) = P(X_1 < x) \dots P(X_n < x) = (F_X(x))^n\]
+              \[F_X(x) = \begin{cases}
+                      0,                & x < 0 \\
+                      \frac{x}{\theta}, & x > 0
+                  \end{cases} \Rightarrow F_{X_{(n)}}(x) = \begin{cases}
+                      0,                    & x < 0    \\
+                      x^\frac{n}{\theta^n}, & x \geq 0
+                  \end{cases} \Rightarrow f_{X_{(n)}}(x) = \begin{cases}
+                      0,                           & x < 0    \\
+                      \frac{nx^{n - 1}}{\theta^n}, & x \geq 0
+                  \end{cases}\]
+              \[\E X_{(n)} = \int_0^\theta x \frac{nx^{n - 1}}{\theta^n} dx = \frac{n}{\theta^n} \int_0^\theta x^n dx = \frac{n}{\theta^n} \frac{x^{n + 1}}{n + 1} \Big|_0^\theta = \frac{n\theta}{n + 1}\]
+              Таким образом, оценка смещённая, но асимптотически несмещенная.
+
+              Заменим эту оценку на несмещённую оценку \(\tilde{\theta} = \frac{n + 1}{n} \hat{\theta} = \frac{n + 1}{n} X_{(n)}\) --- сходятся к \(\theta\) с одинаковой скоростью.
+
+              \begin{align*}
+                  \E \tilde{\theta}^2                                                            & =                                     \\
+                  \E \left(\frac{n + 1}{n} X_{(n)}\right)^2                                      & =                                     \\
+                  \frac{(n + 1)^2}{n^2} \E X_{(n)}^2                                             & =                                     \\
+                  \frac{(n + 1)^2}{n^2} \int_0^\theta x^2 \frac{nx^{n - 1}}{\theta^n} dx         & =                                     \\
+                  \frac{(n + 1)^2}{n^2} \frac{n}{\theta^n} \frac{x^{n + 2}}{n + 2}\Big|_0^\theta & = \frac{(n + 1)^2}{n(n + 2)} \theta^2
+              \end{align*}
+              \[\D \tilde{\theta}^2 = \E \tilde{\theta}^2 - \E^2 \tilde{\theta} = \frac{(n + 1)^2}{n(n + 2)} \theta^2 - \theta^2 = \theta^2 \left(\frac{n^2 + 2n + 1 - n^2 - 2n}{n^2 + 2n}\right) = \frac{\theta^2}{n(n + 2)}\]
+    \end{enumerate}
+
+    Итак, сравним оценки.
+    \[\D \tilde{\theta} = \frac{\theta^2}{n(n + 2)} < \frac{\theta^2}{3n} = \D \theta^*\]
+    Таким образом, оценка с помощью метода максимального правдоподобия лучше, её дисперсия стремится к нулю со скоростью \(\frac{1}{n^2}\), а дисперсия первой оценки --- со скоростью \(\frac{1}{n}\). \(\tilde{\theta} \to \theta\) со скоростью \(\frac{1}{n}\), а \(\theta^* \to \theta\) со скоростью \(\frac{1}{\sqrt n}\)
+
+    \begin{corollary}
+        Оценка математического ожидания \(\overline{X} = 2\theta\) не будет эффективной оценкой, т.к. можно показать, что в данном случае эффективной оценкой будет
+        \begin{myemph}
+            \E X = \frac{n + 1}{n} \cdot \max \{X_1 \dots X_n\}
+        \end{myemph}
+    \end{corollary}
+\end{example}
+
+\begin{remark}
+    ОМП состоятельны, часто эффективны, но могут быть смещенными.
+\end{remark}
+
+\section{Неравенство Рао-Крамера}
+
+Пусть известно, что случайная величина \(X \in \mathcal{F}_\theta\) --- семейству распределений c \(\theta\).
+
+\begin{definition}
+    \textbf{Носителем} семейства распределений \(\mathcal{F}_\theta\) называется множество \(C \subset \R\), такое что \(\forall \theta \ \ P(X \in C) = 1\).
+\end{definition}
+
+\begin{obozn}
+    \[f_\theta(x) = \begin{cases}
+            f_\theta(x),     & \text{если распределение абсолютно непрерывное} \\
+            P_\theta(X = x), & \text{если распределение дискретное}
+        \end{cases}\]
+\end{obozn}
+
+\begin{definition}
+    \textbf{Информацией Фишера} называется величина
+    \[I(\theta) = \E \left(\frac{\partial \ln f_\theta(x)}{\partial \theta}\right)^2\]
+    , если она существует.
+\end{definition}
+
+\begin{definition}
+    Семейство распределений \(\mathcal{F}_\theta\) называется \textbf{регулярным}, если:
+    \begin{enumerate}
+        \item Существует носитель \(C\) семейства \(\mathcal{F}_\theta\), такой что \(\forall x \in C\) функция \(\ln f_\theta(x)\) непрерывно дифференцируема по \(\theta\).
+        \item \(I(\theta)\) существует и непрерывна по \(\theta\).
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[неравенство Рао-Крамера]
+    Пусть \(X_1 \dots X_n\) --- выборка объема \(n\) из регулярного семейства распределений \(\mathcal{F}_\theta\), \(\theta^*\) --- несмещенная оценка параметра \(\theta\), дисперсия которой ограничена на любом компакте в области \(\theta\).
+
+    Тогда
+    \begin{myemph}
+        \D \theta^* \geq \frac{1}{n I(\theta)}
+    \end{myemph}
+\end{theorem}
+\begin{corollary}
+    Если при условиях выше \(\D \theta^* = \frac{1}{n I(\theta)}\), то \(\theta^*\) --- эффективная оценка. Это не всегда достижимо.
+\end{corollary}
+
+\begin{example}
+    Пусть \(X_1 \dots X_n\) --- выборка нормального распределения \(N(a, \sigma^2), a \in \R, \sigma^2 > 0\). Проверим эффективность оценки \(a^* = \overline{X}\).
+    \[f(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{ - \frac{(x - a)^2}{2 \sigma^2}}\]
+    Рассмотрим носитель \(C = \R\).
+    \[\ln f(x) = - \ln \sigma - \frac{1}{2} \ln(2 \pi) - \frac{(x - a)^2}{2 \sigma^2}\]
+    \[\frac{\partial \ln f(x)}{\partial a} = \frac{1}{2\sigma^2} 2(x - a) = \frac{x - a}{\sigma}\]
+    Производная непрерывна по \(a \ \ \forall a \in \R\)
+    \[I(a) = \E \left(\frac{\partial \ln f(x)}{\partial a}\right)^2 = \E \left(\frac{x - a}{\sigma}\right)^2 = \frac{1}{\sigma^4} \E (X - \E X) = \frac{1}{\sigma^4} \D X = \frac{1}{\sigma^4} \sigma^2 = \frac{1}{\sigma^2}\]
+    Сравним обе части неравенства Рао-Крамера:
+    \[\D a^* = \D \overline{X} = \frac{1}{n} \D X = \frac{1}{n} \sigma^2 = \frac{\sigma^2}{n}\]
+    \[\D a^* = \frac{\sigma^2}{n} \stackrel{?}{ =} \frac{1}{n I(a)} = \frac{1}{n \frac{1}{\sigma^2}} = \frac{\sigma^2}{n}\]
+    Таким образом, оценка эффективна.
+\end{example}
+
+\begin{remark}
+    Исправленная дисперсия \(S^2\) также является эффективной оценкой.
+\end{remark}
+
+\begin{definition}
+    \textbf{BLUE\footnote{Best linear unbiased estimate.}-оценка} --- лучшая оценка из оценок вида \(\theta^* = \alpha_1 X_1 + \dots + \alpha_n X_n\).
+\end{definition}

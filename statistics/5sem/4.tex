@@ -1,0 +1,185 @@
+\chapter{18 сентября}
+
+\section{Распределения в матстатистике}
+
+\setcounter{subsection}{-1}
+
+\subsection{Нормальное распределение}
+
+\(X \in N(a, \sigma^2)\):
+\[\E X = a, \D X = \sigma\]
+\(N(0, 1)\) --- стандартное нормальное распределение
+
+\subsection{Гамма-распределение}
+
+\(X \in \Gamma_{\alpha, \lambda}\), если её плотность равна:
+\[f(x) = \begin{cases}
+        0,                                                                     & x \leq 0 \\
+        \frac{\alpha^\lambda}{\Gamma(\lambda)} x^{\lambda - 1} e^{ -\alpha x}, & x > 0
+    \end{cases}\]
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\E \xi = \frac{\lambda}{\alpha}, \D \xi = \frac{\lambda}{\alpha^2}\)
+        \item Если \(\xi_1 \in \Gamma_{\alpha, \lambda_1}, \xi_2 \in \Gamma_{\alpha, \lambda_2}\), то \(\xi_1 + \xi_2 \in \Gamma_{\alpha, \lambda_1 + \lambda_2}\)
+        \item \(\Gamma_{\alpha, 1} = E_\alpha\) --- показательное распределение.
+        \item Если \(X_i \in E_\alpha\), то \(\sum_{i=1}^{n} X_i \in \Gamma_{\alpha, n}\)
+        \item Если \(X \in N(0, 1)\), то \(X^2 \in \Gamma_{\frac{1}{2},\frac{1}{2}}\)
+    \end{enumerate}
+\end{prop}
+
+\begin{remark}
+    Гамма-распределение возникает в матстатистике как распределение квадрата стандартно нормально распределенной величины. Обобщим эту идею:
+\end{remark}
+
+\subsection{Распределение ``хи-квадрат''}
+
+\begin{definition}
+    Распределение \textbf{хи-квадрат} c \(k\) степенями свободы называется распределение суммы \(k\) квадратов независимых стандартных нормальных величин.
+    \[\chi^2_k = X_1^2 + X_2^2 + \dots + X_k^2, \quad X_i \in N(0, 1)\]
+\end{definition}
+\begin{obozn}
+    \(\chi^2 \in H_k\)
+\end{obozn}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\chi_k^2 \in \Gamma_{\frac{1}{2}, \frac{k}{2}}\)
+        \item \(\chi_n^2 + \chi_m^2 = \chi_{n + m}^2\) --- по определению
+        \item \(\E \chi_k^2 = \frac{\lambda}{\alpha} = \frac{\frac{k}{2}}{\frac{1}{2}} = k, \D \chi_k^2 = \frac{\lambda}{\alpha^2} = \frac{\frac{k}{2}}{\left(\frac{1}{2}\right)^2} = 2k\)
+    \end{enumerate}
+\end{prop}
+
+\subsection{Распределение Стьюдента}
+
+\begin{definition}
+    Пусть случайные величины \(X_0, X_1 \dots X_k\) --- независимы и имеют стандартное нормальное распределение. Распределением \textbf{Стьюдента} с \(k\) степеней свободы называется распределение случайной величины
+    \[t_k = \frac{X_0}{\sqrt{\frac{1}{k}(X_1^2 + \dots + X_k^2)}} = \frac{X_0}{\sqrt{\frac{1}{k} \chi_k^2}}\]
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\E t_k = 0\)
+        \item \(\D t_k = \frac{k}{k - 2}\)
+    \end{enumerate}
+\end{prop}
+
+\subsection{Распределение Фишера-Снедекора}
+
+\begin{definition}
+    Распределение \(F_{m, n}\) называется распределением \textbf{Фишера-Снидекора} \textit{(или \textbf{\(F\)-распределением})} со степенями свободы \(m\) и \(n\) называется распределение случайной величины
+    \[f_{m, n} = \frac{\frac{\chi_m^2}{m}}{\frac{\chi_n^2}{n}}\]
+    , где \(\chi_n^2\) и \(\chi_m^2\) --- независимые случайные величины с распределением \(\chi^2\).
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\E f_{m, n} = \frac{n}{n - 2}\)
+        \item \(\D f_{m, n} = \frac{2n^2(m + n - 2)}{m(n - 2)^2(n - 4)}\)
+        \item \(F_{m, n}(x) = P(f_{m, n} < X) = P\left(\frac{1}{f_{m, n}} > \frac{1}{X}\right) = P\left(f_{m, n} > \frac{1}{X}\right) = 1 - F_{n, m}\left(\frac{1}{X}\right)\)
+    \end{enumerate}
+\end{prop}
+
+При \(n, k, m \to \infty\) эти распределения слабо сходятся к нормальному. При \(n > 30\) они достаточно близки.
+
+\section{Линейные преобразования нормальных выборок}
+
+Пусть \(\vec{X} = (X_1 \dots X_n)\), где \(X_i \in N(0, 1)\) и независимы. Будем рассматривать линейные комбинации этого вектора. Пусть \(A\) --- невырожденная матрица размера \(n \times n\). Рассмотрим случайный вектор \(\vec{Y} = A \vec{X}\), где координаты случайного вектора \(Y_i = a_{i 1} X_1 + \dots + a_{i n} X_n\). Будем исследовать, что из себя представляют \(Y_i\) и их совместное распределение.
+
+\begin{remark}
+    Если \(\eta = a \xi + b\), то \(f_\eta(\xi) = \frac{1}{|a|} f_\xi\left(\frac{\xi - b}{a}\right)\)
+\end{remark}
+
+\begin{theorem}
+    Пусть случайный вектор \(\vec{X}\) имеет плотность распределения \(f_{\vec{X}} (\vec{x})\) и \(A\) невырожденная матрица.
+
+    Тогда случайный вектор \(\vec{Y} = A \vec{X} + \vec{b}\) имеет плотность
+    \[f_{ \vec{Y}}(\vec{y}) = \frac{1}{|\det A|} \cdot f_{ \vec{X}}(A^{ - 1}(\vec{y} - \vec{b}))\]
+\end{theorem}
+
+\begin{remark}
+    \(f_{ \vec{X}}(\vec{x})\) --- плотность \(\vec{X}\), если \(P(\vec{x} \in B) = \idotsint_{B} f_{ \vec{X}}(\vec{x}) d \vec{x}\)
+\end{remark}
+
+\begin{proof}
+    \begin{align*}
+        P(\vec{y} \in B) & = P(A \vec{x} + \vec{b} \in B)                              \\
+                         & = P(\vec{x} \in A^{-1}(\vec{y} - \vec{b}))                  \\
+                         & = \idotsint_{A^{-1}(B - \vec{b})} f_{ \vec{x}}(x) d \vec{x}
+    \end{align*}
+
+    Сделаем замену \(\vec{y} = A \vec{x} + \vec{b}\). Тогда \(A^{-1}(B - \vec{b})\) перейдёт в \(B\), \(\vec{x}\) перейдёт в \(A^{-1}(\vec{y} - \vec{b}), \vec{y} \in B\), \(d \vec{x}\) перейдёт  \(|J| d \vec{y}\), где \(J = |A^{-1}| = |A|^{ - 1}\)
+
+    Итого:
+    \[ = \idotsint_B f(A^{-1}(\vec{y} - \vec{b})) \cdot \frac{1}{|\det A|} d \vec{y} \Rightarrow f_{ \vec{Y}}(\vec{y}) = \frac{1}{|\det A|} f_{ \vec{X}}(A^{-1}(\vec{y} - \vec{b}))\]
+\end{proof}
+
+\begin{definition}
+    \(A = C\) --- \textbf{ортогональна}, т.е. \(C^T = C^{-1}, |\det C| = 1\)
+\end{definition}
+
+\begin{theorem}
+    Пусть дан случайный вектор \(\vec{X} = (X_1 \dots X_n)\), где \(\forall i \ \ X_i \in N(0, 1)\) и \(X_i\) независимы, а \(C\) --- ортогональная матрица.
+
+    Тогда координаты случайного вектора \(\vec{Y} = C \vec{X}\) независимы и также имеют стандартное нормальное распределение.
+\end{theorem}
+\begin{proof}
+    Т.к. координаты \(X_i \in N(0, 1)\) и независимы, то плотность \(\vec{X}\):
+    \[f_{ \vec{X}}(\vec{x}) = \prod_{i=1}^{n} f_i (x_i) = \prod_{i=1}^{n} \frac{1}{\sqrt{2 \pi}} e^{ - \frac{x_i^2}{2}} = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} (X_1^2 + X_2^2 + \dots + X_n^2)} = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} ||\vec{X}||^2}\]
+    По предыдущей теореме:
+    \[f_{ \vec{Y}}(\vec{y}) = f_{ \vec{X}}(C^T \vec{y}) = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} ||C^T \vec{y}||^2} = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} ||\vec{y}||^2} = \prod_{i=1}^{n} \frac{1}{\sqrt{2 \pi}} e^{ - \frac{1}{2} y_i^2} = \prod_{i=1}^{n} f_i(y_i)\]
+    Следовательно, \(Y_i \in N(0, 1)\) и независимы.
+\end{proof}
+
+\begin{lemma}[Фишера]
+    Пусть случайный вектор \(\vec{X}\) состоит из независимых стандартных нормальных случайных величин, \(\vec{Y} = C \vec{X}\), где \(C\) --- ортогональная матрица. Тогда \(\forall k : 1 \leq k \leq n - 1\) случайная величина
+    \[T(\vec{X}) = \left(\sum_{i=1}^{n} X_i^2\right) - Y_1^2 - \dots - Y_k^2\]
+    не зависит от случайного вектора \(Y_1 \dots Y_k\) и имеет распределение \(H_{n - k}\)
+\end{lemma}
+\begin{proof}
+    Т.к. \(C\) ортогональна:
+    \[||\vec{Y}||^2 = ||C \vec{X}||^2 = ||\vec{X}||^2 = X_1^2 + \dots + X_n^2 = Y_1^2 + \dots + Y_n^2\]
+
+    Отсюда
+    \[T(\vec{X}) = \sum_{i=1}^{n} Y_i^2 - Y_1^2 - \dots - Y_k^2 = Y_{k+1}^2 + \dots + Y_n^2\]
+
+    \(Y_{k+1} \dots Y_n\) --- независимы, имеют стандартное нормальное распределение и \(T(\vec{X}) \in H_{n - k}\)
+
+    \(T(\vec{X})\) не зависит от \(Y_1 \dots Y_k\), т.к. \(Y_{k+1} \dots Y_n\) по предыдущей лемме от них не зависит.
+\end{proof}
+
+\begin{theorem}[основная]\itemfix
+    \begin{itemize}
+        \item \(X_1 \dots X_k \)независимы и имеют нормальное распределение с параметрами \(a\) и \(\sigma^2\)
+        \item \(\overline{X}\) --- выборочное среднее
+        \item \(S^2\) --- исправленное выборочное среднее
+    \end{itemize}
+
+    Тогда имеют место следующие распределения:
+    \begin{enumerate}
+        \item \[\sqrt{n} \cdot \frac{\overline{X} - a}{\sigma} \in N(0, 1)\]
+        \item \[\sum_{i=1}^{n} \left(\frac{X_i - a}{\sigma}\right)^2 = \frac{(n - 1) S^2}{\sigma^2} \in H_n\]
+        \item \[\sum_{i=1}^{n} \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 = \frac{(n - 1)S^2}{\sigma^2} \in H_{n-1}\]
+        \item \[\sqrt{n} \cdot \frac{\overline{X} - a}{S} \in T_{n-1}\]
+        \item \(\overline{X}\) и \(S^2\) --- независимые случайные величины
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \[X_i \in N(a, \sigma^2) \Rightarrow \sum_{i=1}^{n} X_i \in N(na, n\sigma^2) \Rightarrow \overline{X} \in N\left(a, \frac{\sigma^2}{n}\right) \Rightarrow \frac{\sqrt{n}}{\sigma}(\overline{X} - a) \in N(0, 1)\]
+        \item Верно, т.к. \(\frac{X_i - a}{\sigma} \in N(0, 1)\)
+        \item \begin{align*}
+                  \sum_{i=1}^{n} \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 & = \sum_{i=1}^{n} \left(\frac{X_i - a}{\sigma} - \frac{ \overline{X} - a}{\sigma}\right)^2 \\
+                                                                                  & = \sum_{i=1}^{n} (z_i - \overline{z})^2                                                   \\
+              \end{align*}
+              , где \[z_i = \frac{X_i - a}{\sigma} \in N(0, 1), \overline{z} = \frac{\sum_{i=1}^{n} z_i}{n} = \frac{\sum x_i - na}{\sigma n}= \frac{ \overline{X} - a}{\sigma}\]
+              Поэтому можем считать, что \(X_i \in N(0, 1)\). Применим лемму Фишера.
+              \[T(\vec{X}) = \sum_{i=1}^{n} \left(X_i - \overline{X}\right) = n (\overline{X^2} - (\overline{X})^2) = \sum_{i=1}^{n} X_i^2 - n (\overline{X})^2 = \sum_{i=1}^{n} X_i^2 - Y_1\]
+              , где
+              \[Y_1 = n(\overline{X})^2 = \sqrt{n} \overline{X} = \frac{1}{\sqrt{n}} X_1 + \dots + \frac{1}{\sqrt{n}} X_n\]
+              Так как длина строки \(\frac{1}{\sqrt{n}}, \dots , \frac{1}{\sqrt{n}}\) равна \(1\), поэтому эту строку можем дополнить до ортогональной матрицы \(C\). Тогда \(Y_1\) --- первая координата случайного вектора \(\vec{Y} = C \vec{X}\) и по лемме Фишера \(T(\vec{X}) \in H_{n - 1}\) \setcounter{enumi}{4}
+        \item \(T(\vec{X}) = \frac{(n - 1)S^2}{\sigma^2}\) не зависит от \(Y_1 = \sqrt{n} \overline{X} \Rightarrow S^2\) и \(\overline{X}\) независимы. \setcounter{enumi}{3}
+        \item \[\sqrt{n} \frac{ \overline{X} - a}{S} = \sqrt{n} \frac{\overline{X} - a}{\sigma} \cdot \frac{1}{\sqrt{\frac{(n - 1)S^2}{\sigma^2} \cdot \frac{1}{n - 1}}} = \frac{X_0}{\sqrt{\chi_{n - 1}^2 (n - 1)}} \in T_{n - 1} \text{ , т.к.:}\]
+              \(X_0 \in N(0, 1)\) по пункту 1, \(\frac{(n - 1)S^2}{\sigma^2} \in H_{n-1}\) по пункту 3 и \(X_0\) не зависит от \(\frac{(n - 1)S^2}{\sigma^2}\) по пунтку 5.
+    \end{enumerate}
+\end{proof}

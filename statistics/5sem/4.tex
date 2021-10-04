@@ -149,8 +149,9 @@
 \end{proof}
 
 \begin{theorem}[основная]\itemfix
+    \label{основная}
     \begin{itemize}
-        \item \(X_1 \dots X_k \)независимы и имеют нормальное распределение с параметрами \(a\) и \(\sigma^2\)
+        \item \(X_1 \dots X_k\) независимы и имеют нормальное распределение с параметрами \(a\) и \(\sigma^2\)
         \item \(\overline{X}\) --- выборочное среднее
         \item \(S^2\) --- исправленное выборочное среднее
     \end{itemize}
@@ -158,8 +159,8 @@
     Тогда имеют место следующие распределения:
     \begin{enumerate}
         \item \[\sqrt{n} \cdot \frac{\overline{X} - a}{\sigma} \in N(0, 1)\]
-        \item \[\sum_{i=1}^{n} \left(\frac{X_i - a}{\sigma}\right)^2 = \frac{(n - 1) S^2}{\sigma^2} \in H_n\]
-        \item \[\sum_{i=1}^{n} \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 = \frac{(n - 1)S^2}{\sigma^2} \in H_{n-1}\]
+        \item \[\sum_{i=1}^{n} \left(\frac{X_i - a}{\sigma}\right)^2 = \frac{(n - 1) S^2}{\sigma^2} \in H_{n-1}\]
+        \item \[\sum_{i=1}^{n} \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 = \frac{n \sigma^{2*}}{\sigma^2} \in H_n\]
         \item \[\sqrt{n} \cdot \frac{\overline{X} - a}{S} \in T_{n-1}\]
         \item \(\overline{X}\) и \(S^2\) --- независимые случайные величины
     \end{enumerate}

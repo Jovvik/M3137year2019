@@ -1,0 +1,168 @@
+\chapter{4 октября}
+
+\section{Квантили распределений}
+
+Для простоты предполагаем, что все распределения непрерывные.
+
+\begin{definition}[1]
+    Число \(t_\gamma\) называется \textbf{квантилем}\footnote{Или квантилью.} уровня \(\gamma\), если \(F(t_\gamma) = \gamma\).
+\end{definition}
+
+С точки зрения геометрии \(P(X \in \text{ область слева от } t_\gamma) = \gamma\).
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item Медиана --- квантиль уровня \(\frac{1}{2}\)
+        \item Квартили --- квантили уровня \(\frac{1}{4}, \frac{2}{4}, \frac{3}{4}\)
+        \item Децили --- квантили уровня \(\frac{1}{10}, \frac{2}{10}, \dots \)
+    \end{itemize}
+\end{remark}
+
+\begin{remark}
+    Квантиль \(t_\gamma\) --- значение обратной функции распределения: \(t_\gamma = F^{-1}(\gamma)\)
+\end{remark}
+
+\begin{definition}[2 (альтернативное)]
+    Число \(t_\alpha\) называется \textbf{квантилем уровня значимости \(\alpha\)}, если \(F(t_\alpha) = 1 - \alpha\).
+\end{definition}
+\begin{remark}
+    \(\alpha = 1 - \gamma\)
+\end{remark}
+
+\subsection{Квантили основных распределений в Excel}
+
+\begin{enumerate}
+    \item НОРМ.СТ.ОБР.
+
+          \[F_0(x) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty
+              }^x e^{-\frac{z^2}{2}} dx \]
+
+          Тогда \(\mathrm{НОРМ.СТ.ОБР.}(x + 0.5)\) --- обратная функция функции Лапласа \(\Phi(x) = \frac{1}{\sqrt{2 \pi}} \int_{ - \infty }^x e^{ - \frac{z^2}{2}} dz\)
+
+    \item \begin{enumerate}
+              \item СТЬЮДЕНТ.ОБР. --- обратная к функции распределения Стьюдента стандартной величины.
+                    \[t_k = \frac{X_0}{\sqrt{\frac{1}{k} \chi_k^2}}\]
+              \item СТЬЮДЕНТ.ОБР.2X
+
+                    Возвращает \(t_\alpha\), такое что \(P(|X| > t_\alpha) = \alpha\). Отсюда \(P(|X| < t_\alpha) = 1 - \alpha\) и применяем СТЬЮДЕНТ.ОБР.2Х\((1 - \alpha, k)\)
+          \end{enumerate}
+
+    \item \begin{enumerate}
+              \item ХИ2.ОБР. --- возвращает квантиль \(t_\gamma\) в первом смысле для распределения \(\chi^2\).
+              \item ХИ2.ОБР.ПХ --- возвращает квантиль \(t_\alpha\)
+          \end{enumerate}
+
+    \item \begin{enumerate}
+              \item F.ОБР. --- возвращает квантиль \(t_\gamma\) \(F\)-распределения
+              \item F.ОБР.ПХ --- возвращает квантиль \(t_\alpha\) \(F\)-распределения
+          \end{enumerate}
+\end{enumerate}
+
+\subsection{Интервальные оценки}
+
+Недостаток точных оценок в том, что мы не знаем, насколько точная наша оценка.
+
+Пусть требуется дать оценку неизвестного параметра \(\theta\).
+\begin{definition}
+    Интервал \((\theta^-_\gamma , \theta^+_\gamma)\) называется \textbf{доверительным интервалом} для параметра \(\theta\) надежности \(\gamma\), если \(P(\theta^-_\gamma < \theta < \theta^+_\gamma) = \gamma\)
+\end{definition}
+\begin{remark}
+    Если \(\theta\) --- параметр дискретного распределения, то будет правильней написать \(P(\theta^-_\gamma < \theta < \theta^+_\gamma) \geq \gamma\).
+\end{remark}
+\begin{remark}
+    Здесь случайные величины --- интервальные оценки, а не \(\theta\). Поэтому более культурно говорить так: интервал \((\theta^-_\gamma, \theta^+_\gamma)\) накрывает неизвестный параметр \(\theta\) с вероятностью \(\gamma\).\footnote{А не ``\(\theta\) попадает в интервал \((\theta^-_\gamma, \theta^+_\gamma)\) с вероятностью \(\gamma\)''}
+\end{remark}
+\begin{remark}
+    В экономике \(\gamma\) берется \(0.95\), но можно брать и меньше --- \(0.9\). Для чего-либо важного берется \(0.99\) или даже \(0.999\). Уровень надёжности выбирается в зависимости от решаемой задачи. Стандартные уровни: \(0.9, 0.95, 0.99, 0.999\).
+\end{remark}
+
+\subsubsection{Интервальные оценки для нормального распеределения}
+
+Пусть \(X = (X_1 \dots X_n)\) из \(N(a, \sigma^2)\).
+
+\begin{enumerate}
+    \item Доверительный интервал для параметра \(a\) при известном значении параметра \(\sigma^2\).
+
+          По пункту 1 теоремы \ref{основная}:
+          \[
+              P\left( - t_\gamma < \sqrt{n} \frac{ \overline{X} - a}{\sigma} < t_\gamma\right) = P\left(\left|\sqrt{n} \frac{ \overline{X} - a}{\sigma}\right| < t_\gamma\right) = 2 \Phi(t_\gamma) = \gamma
+          \]
+          , где \(\Phi(x) = \frac{1}{\sqrt{2 \pi}} \int_{ - \infty }^x e^{ - \frac{z^2}{2}} dz\). Тогда \(t_\gamma\) --- значение обратной к \(\Phi\) в точке \(\frac{\gamma}{2}\). \?
+
+          Осталось решить неравенство относительно \(a\).
+          \begin{align*}
+              - t_\gamma                                           & < \sqrt{n} \frac{ \overline{X} - a}{\sigma} < t_\gamma      \\
+              - t_\gamma \cdot \frac{\sigma}{\sqrt{n}}             & < a - \overline{X} < t_\gamma \cdot \frac{\sigma}{\sqrt{n}} \\
+              \overline{X}- t_\gamma \cdot \frac{\sigma}{\sqrt{n}} & < a < \overline{X} + t_\gamma \cdot \frac{\sigma}{\sqrt{n}} \\
+          \end{align*}
+
+          Итак получили доверительный интервал для параметра \(a\): \(\left(\overline{X} - t_\gamma \cdot \frac{\sigma}{\sqrt{n}}, \overline{X} + t_\gamma \cdot \frac{\sigma}{\sqrt{n}}\right)\)
+
+    \item Доверительный интервал для параметра \(a\) при неизвестном значении параметра \(\sigma^2\).
+
+          По пункту 4 теоремы \ref{основная}:
+          \[
+              P\left( -t_\gamma < \sqrt{n} \cdot \frac{ \overline{X} - a}{S} < t_\gamma\right) = P\left(\left|\sqrt{n} \frac{ \overline{X} - a}{S}\right| < t_\gamma\right) = 2 F_{T_{n-1}}(t_\gamma) - 1 = \gamma
+          \]
+          \(F_{T_{n-1}}(t_\gamma) = \frac{1 + \gamma}{2}\), т.е. \(t_\gamma\) --- квантиль распределения Стьюдента \(T_{n-1}\) уровня \(\frac{1 + \gamma}{2}\).
+
+          \begin{remark}
+              Если \(\xi\) --- симметрично, то \(P(|\xi| < t) = 2 F(t) - 1\)
+          \end{remark}
+          \begin{proof}
+              \[P(|\xi| < t) = 2 P(0 < \xi < t) = 2(F(t) - F(0)) = 2F(t) - 1\]
+          \end{proof}
+
+          \[
+              - t_\gamma < \sqrt{n} \frac{ \overline{X} - a}{S} < t_\gamma
+          \]
+          \[
+              \overline{X} - t_\gamma \cdot \frac{S}{\sqrt{n}} < a < \overline{X} + t_\gamma \cdot \frac{S}{\sqrt{n}}
+          \]
+    \item Доверительный интервал для параметра \(\sigma^2\) при \?.
+
+          По пункту 2 теоремы \ref{основная} \(\frac{(n - 1)S^2}{\sigma^2} \in H_{n-1}\). Пусть \(\chi_1^2\) и \(\chi_2^2\) --- квантили распределения \(H_{n-1}\) уровней \(1 - \frac{\gamma}{2}\) и \(1 + \frac{\gamma}{2}\). Тогда:
+          \[P\left(\chi_1^2 < \frac{(n - 1)S^2}{\sigma^2} < \chi_2^2\right) = F_{H_{n-1}}(\chi_2^2) - F_{H_{n-1}}(\chi_1^2) = \left(1 + \frac{\gamma}{2}\right) - \left(1 - \frac{\gamma}{2}\right) = \gamma\]
+          \[\chi_1^2 < \frac{(n - 1) S^2}{\sigma^2} < \chi_2^2\]
+          \[\frac{1}{\chi_2^2} < \frac{\sigma^2}{(n - 1) S^2} \frac{1}{\chi_1^2}\]
+          \[\frac{(n - 1) S^2}{\chi_2^2} < \sigma^2 < \frac{(n - 1) S^2}{\chi_1^2}\]
+
+          Итак, доверительный интервал для параметра \(\sigma^2\) надежности \(\gamma\) есть \(\left(\frac{(n - 1) S^2}{\chi_2^2}, \frac{(n - 1) S^2}{\chi_1^2}\right)\), где \(\chi_1^2\) и \(\chi_2^2\) --- квантили уровней \(1 - \frac{\gamma}{2}\) и \(1 + \frac{\gamma}{2}\). Следовательно, доверительный интервал для \(\sigma\) это \(\left(\frac{\sqrt{n - 1} S}{\chi_2}, \frac{\sqrt{n - 1} S}{\chi_1}\right)\).
+
+          Этот интервал почти всегда не симметричен, можно его сделать симметричным, но мы этого делать не будем.
+    \item Доверительный интервал для парамтера \(\sigma^2\) при известном параметре \(\sigma^{2*}\)
+
+          По пункту 3 теоремы \(\frac{n \sigma^{2*}}{\sigma^2} \in H_n\), где \(\sigma^{2*} = \frac{1}{n} \sum_{i=1}^{n} (X_i - a)^2\).
+          Пусть \(\chi_1^2\) и \(\chi_2^2\) --- квантили распределения \(H_n\) уровней \(1 - \frac{\gamma}{2}\) и \(1 + \frac{\gamma}{2}\) соответственно.
+          \[P\left(\chi_1^2 < \frac{n \sigma^{2*}}{\sigma^2} < \sigma_2^2\right) = F_{H_n} (\chi_2^2) - F_{H_n}(\chi_1^2) = \gamma\]
+          \[\chi_1^2 < \frac{n \sigma^{2*}}{\sigma^2} < \chi_2^2\]
+          \[\frac{n \sigma^{2*}}{\chi_2^2} < \sigma^2 < \frac{n\sigma^{2*}}{\chi_1^2}\]
+
+          Итак, доверительный интервал для \(\sigma^2\) надежности \(\gamma\) это \(\left(\frac{n \sigma^{2*}}{\chi_2^2}, \frac{n\sigma^{2*}}{\chi_1^2}\right)\), где \(\chi_1^2\) и \(\chi_2^2\) --- квантили \(H_n\) уровней \(1 - \frac{\gamma}{2}\) и \(1 + \frac{\gamma}{2}\), \(\sigma^{2*} = \frac{1}{n} \sum_{i=1}^{n} (X_i - a)^2\).
+\end{enumerate}
+
+Для других распределений при малых объемах выборки нужно выводить формулы для каждой задачи. При больших объемах благодаря ЦПТ можно делать вид, что распределение нормальное.
+
+\begin{example}
+    \(X \in N(a, \sigma^2)\), причём известно, что \(\sigma = 3\). В результате обработки выборки объема \(n = 36\) нашли \(\overline{X} = 4.1\). Найти доверительный интервал параметра \(a\) надежности \(\gamma = 0.95\).
+\end{example}
+\begin{solution}
+    \(t_\gamma : 2 \Phi(t_\gamma) = 0.95, \Phi(t_\gamma) = 0.475, t_\gamma = 1.96\)
+    \[\overline{X} - t_\gamma \cdot \frac{\sigma}{\sqrt{n}} < a < \overline{X} + t_\gamma \cdot \frac{\sigma}{\sqrt{n}}\]
+    \[4.1 - 1.96 \cdot \frac{3}{\sqrt{36}} < a < 4.1 + 1.96 \cdot \frac{3}{\sqrt{36}}\]
+    \[4.1 - 0.98 < a < 4.1 + 0.98\]
+    \[3.12 < a < 5.08\]
+    Ответ: \((3.12, 5.08)\)
+\end{solution}
+
+\begin{example}
+    \(X \in N(a, \sigma^2)\). В результате обработки выборки объема \(n = 25\) нашли \(\overline{X} = 42.32, S = 6.4\). Найти доверительный интервал надежности \(\gamma = 0.95\).
+\end{example}
+\begin{solution}
+    По таблице двустороннего распределения Стьюдента \(T_{n-1}\) \(t_\gamma = 2.064\)
+    \[\overline{X} - t_\gamma \cdot \frac{S}{\sqrt{n}} < a < \overline{X} + t_\gamma \cdot \frac{S}{\sqrt{n}}\]
+    \[42.32 - 2.064 \cdot \frac{6.4}{\sqrt{25}} < a < 42.32 + 2.064 \cdot \frac{6.4}{\sqrt{25}}\]
+    \[42.32 - 2.642 < a < 42.32 + 2.642\]
+    \[39.678 < a < 44.962\]
+    Ответ: \((39.678, 44.962)\)
+\end{solution}

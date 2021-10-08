@@ -1,0 +1,74 @@
+\input{../../../preamble.sty}
+
+\lhead{Алгоритмы в математике \textit{(практика)}}
+\cfoot{}
+\rfoot{2.10.2021}
+
+\begin{document}
+
+\begin{exercise}
+    Доказать, что остаток квадрата нечётного числа на \(8\) равен \(1\).
+\end{exercise}
+\begin{solution}
+    \[(2n + 1)^2 = 4n^2 + 4n + 1 = 4n(n + 1) + 1\]
+    Либо \(n \equiv 0 \pmod 2\), либо \(n + 1 \equiv 0 \pmod 2 \Rightarrow 4n(n + 1) \equiv 0 \pmod 2\). Тогда \(4n(n + 1) + 1 \equiv 1 \pmod 2\).
+\end{solution}
+
+\begin{exercise}
+    Доказать, что \(n(n^2 + 1)(n^2 + 4)\) делится на \(5\).
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{caseof}
+        \case{\(n \equiv 0 \pmod 5\)}{Очевидно.}
+        \case{\(n \equiv 1 \pmod 5\)}{\(n^2 + 4 \equiv 1 + 4 \equiv 0 \pmod 5\)}
+        \case{\(n \equiv 2 \pmod 5\)}{\(n^2 + 1 \equiv 4 + 1 \equiv 0 \pmod 5\)}
+        \case{\(n \equiv 3 \pmod 5\)}{\(n^2 + 1 \equiv 9 + 1 \equiv 0 \pmod 5\)}
+        \case{\(n \equiv 4 \pmod 5\)}{\(n^2 + 4 \equiv 16 + 4 \equiv 0 \pmod 5\)}
+    \end{caseof}
+\end{solution}
+
+\begin{exercise}
+    Найти все натуральные \(n\) для которых \(n^2 + 1 \divided n + 1\)
+\end{exercise}
+\begin{solution}
+    Очевидно для \(n = 0\) и \(n = 1\) искомое верно. \(\sphericalangle n > 1\).
+
+    \[n^2 - 1 = (n - 1)(n + 1) \divided n + 1 \Rightarrow n^2 - 1 \equiv 0 \pmod{n + 1} \Rightarrow n^2 + 1 \equiv 2 \pmod{n + 1}\]
+
+    Для \(n > 1\) выполнено \(2 \not \equiv 0 \pmod{n + 1}\), таким образом ответ \(n = 0\) и \(n = 1\).
+\end{solution}
+
+\begin{exercise}
+    Доказать, что \(n^9 + 17n^3 - 18\) делится на \(3\).
+\end{exercise}
+\begin{solution}
+    \begin{caseof}
+        \case{\(n \equiv 0 \pmod 3\)}{\(n^9 + 17n^3 - 18 \equiv - 18 \equiv 0 \pmod 3\)}
+        \case{\(n \equiv 1 \pmod 3\)}{\(n^9 + 17n^3 - 18 \equiv 1 + 17 - 18 \equiv 0 \pmod 3\)}
+        \case{\(n \equiv 2 \pmod 3\)}{\(n^9 + 17n^3 - 18 \equiv 512 + 136 - 18 \equiv 630 \equiv 0 \pmod 3\)}
+    \end{caseof}
+\end{solution}
+
+\begin{exercise}
+    Доказать, что \(5ab\) делится на \(45\), если \(a^6 + b^6\) делится на \(3\).
+\end{exercise}
+\begin{solution}
+    \(5ab \divided 45 \Leftrightarrow ab \divided 9\)
+
+    \begin{center}
+        \begin{tabular}{CC}
+            \toprule
+            a & a^6 \pmod 3 \\ \midrule
+            0 & 0           \\
+            1 & 1           \\
+            2 & 1           \\ \bottomrule
+        \end{tabular}
+    \end{center}
+    \begin{caseof}
+        \case{\(a \equiv 0 \pmod 3\)}{Тогда \(b^6 \equiv 0 \pmod 3 \Rightarrow b \equiv 0 \pmod 3 \Rightarrow a = 3k, b = 3l \Rightarrow ab = 9l \divided 9\)}
+        \case{\(a \equiv 1 \pmod 3\)}{Тогда \(b^6 \equiv 2 \pmod 3\), но \(\nexists b\). Таким образом, \(a \not \equiv \pmod 3\).}
+        \case{\(a \equiv 2 \pmod 3\)}{Тогда \(b^6 \equiv - a^6 \equiv 2 \pmod 3\), см. случай 2.}
+    \end{caseof}
+\end{solution}
+
+\end{document}

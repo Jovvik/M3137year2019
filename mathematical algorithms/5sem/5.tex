@@ -1,0 +1,179 @@
+\chapter{2 октября}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(G\) --- группа
+        \item \(S \subset G\) --- подмножество элементов \(G\)
+    \end{itemize}
+
+    \textbf{Нормализатор} \(S\): \(N_S \coloneqq \{g \in G : gS = Sg\}\)
+\end{definition}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(G\) --- группа
+        \item \(x \in G\)
+        \item \(S \subset G\)
+    \end{itemize}
+
+    \textbf{Централизатор} \(x\): \(Z_x \coloneqq \{g \in G : gx = xg\}\)
+
+    \(Z_S \coloneqq \{g \in G : \forall y \in S \ \ gy = yg\}\)
+
+    \(Z_G\) --- \textbf{центр} группы \(G\).
+\end{definition}
+
+\begin{example}
+    В группе \(GL(n, \R)\) инвертируемых матриц \(n \times n\) центр --- единичная матрица.
+\end{example}
+
+\subsection{Цепочки гомоморфизмов}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(G, G', G''\) --- группы
+        \item \(\sigma \in \mathrm{hom}(G\ G')\)
+        \item \(\chi \in \mathrm{hom}(G'\ G'')\)
+    \end{itemize}
+    Рассмотрим цепочку \begin{tikzcd}
+        G \arrow{r}{\sigma} & G' \arrow{r}{\chi} & G''
+    \end{tikzcd}. Такая последовательность называется \textbf{точной}, если \(\ker \chi = \im \sigma\).
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\ker (\chi \circ \sigma) = G\)
+        \item Если \(\sigma\) --- сюръекция, то \(\ker \chi = G'\)
+        \item Если \(\chi\) --- инъекция, то \(\ker \sigma = G\)
+    \end{enumerate}
+\end{prop}
+
+\begin{example}
+    \(H \triangleleft G \Rightarrow \begin{tikzcd}
+        H \arrow{r}{j} & G \arrow{r}{\varphi} & G / H
+    \end{tikzcd}\), где \(j\) --- вложение, \(\varphi\) --- канонический гомоморфизм \(g \mapsto gH\). Тогда \(\forall h \in H \ \ (\varphi \circ j)(h) = \varphi(j(h)) = \varphi(h) = hH = 1H = 1_{G / H}\), следовательно эта последовательность точная.
+\end{example}
+
+Также рассматриваются последовательности вида \begin{tikzcd}
+    0 \arrow{r} & G \arrow{r}{\sigma} & G' \arrow{r}{\chi} & G'' \arrow{r} & 0
+\end{tikzcd}, где \(0\) --- группа из одного элемента. Пусть эта последовательность точная. Гомоморфизм \(0 \to G\) сопоставляет этому элементу \(G_e\), следовательно \(\im (0 \to G) = \{G_e\} \Rightarrow \ker \sigma = \{G_e\} \Rightarrow \sigma\) инъективно. Аналогичными рассуждениями \(\chi\) сюръективно.
+
+\begin{definition}
+    \(\sphericalangle\) \begin{tikzcd}
+        0 \arrow{r} & G \arrow{r}{\sigma_1} & G' \arrow{r}{\sigma_2} & G'' \arrow{r}{\sigma_3} & \dots  \arrow{r}{\sigma_{n-1}} & G^{(n)} \arrow{r}{\sigma_n} & \dots
+    \end{tikzcd}. Такая последовательность называется точной, если \(\ker \sigma_i = \im \sigma_{i - 1}\).
+\end{definition}
+
+\(\sphericalangle\) \begin{tikzcd}
+    0 \arrow{r} & H \arrow{r}{j} & G \arrow{r}{\varphi} & G / H \arrow{r}{\tilde{\sigma}} & G'
+\end{tikzcd}
+
+\(\sphericalangle \sigma \in \mathrm{hom}(G\ G'), \sigma = \tilde{\sigma} \circ \varphi : \begin{tikzcd}
+    G \arrow{rr}{\sigma} \arrow{rd}[swap]{\varphi} & & G' \\
+    & G / H \arrow{ur}[swap]{\tilde{\sigma}} &
+\end{tikzcd}\)
+
+Покажем, что \(\tilde{\sigma}\) единственно. \(\tilde{\sigma} : gH \mapsto \sigma(g)\).
+
+Рассмотрим другую цепочку \begin{tikzcd}
+    G \arrow{r}{\varphi} & G / H \arrow{r}{\lambda} \arrow[bend right]{rr}{\tilde{\sigma}} & \im \sigma \arrow{r}{j} & G'
+\end{tikzcd}
+
+\(\lambda : gH \mapsto \sigma(g), \ker \lambda = \{H\}, \lambda\) --- биективно. Таким образом, \(\lambda\) --- изоморфизм и \(G / H \simeq \im \sigma\).
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item \(G\) --- группа
+        \item \(H \triangleleft G, K \triangleleft G\)
+        \item \(K \subset H\) --- подгруппа
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item \(K \triangleleft H\).
+
+              \(\sphericalangle \chi : G / K \to G / H, gK \mapsto gH, \ker \chi = \{hK\}_{h \in H}\), т.к. \(hK \mapsto hH = H\).
+
+              \begin{myemph}
+                  (G / K) / (H / K) = G / H
+              \end{myemph}
+    \end{enumerate}
+\end{remark}
+
+\section{Действие группы}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(G\) --- группа
+        \item \(S\) --- множество
+    \end{itemize}
+
+    \(G\) \textbf{действует} на \(S\), если существует отображение
+    \[T : G \times S \to S\]
+    , при этом \((g_1g_2)s = g_1(g_2s)\)
+\end{definition}
+
+\begin{remark}
+    \[T_{g_1} T_{g_2} = T_{g_1g_2} \quad T_e = \mathrm{id} \quad T_{g^{-1}} = T_g^{-1}\]
+\end{remark}
+
+\(G\) действует на \(S\) как группа перестановок.
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(s \in S\)
+        \item \(G\) --- группа
+    \end{itemize}
+
+    \(G_s \coloneqq \{g \in G : gs = s\}\) --- \textbf{стабилизатор} элемента \(s\).
+\end{definition}
+
+\begin{example}
+    \(\mathbb{Q}\) действует на \(\R^3\) через \(T\).
+\end{example}
+
+\begin{lemma}
+    \(G_s \subset G\) --- подгруппа
+\end{lemma}
+\begin{proof}
+    \(g_1, g_2 \in G_s \Rightarrow g_1 s = s, g_2 s = s\)
+
+    \((g_1g_2) \cdot s = g_1(g_2 s) = g_1s = s\)
+\end{proof}
+
+\(\sphericalangle G / G_s\) --- фактор-множество.
+
+\begin{lemma}
+    \(s, s' \in S, s' = xs, x \in G\). Тогда \(G_{s'} = xG_sx^{-1}\)
+\end{lemma}
+\begin{proof}
+    \[g's' = s' = xs = xgs = xgx^{-1}s'\]
+    \[g' = xgx^{-1}\]
+\end{proof}
+
+\begin{definition}
+    Преобразование вида \(xAx^{-1}\), где \(A \subset G\) --- подгруппа \(G\), называется сопряжением.
+\end{definition}
+
+\begin{lemma}
+    \(gGss, g'G_s \in G / G_s\)
+
+    \[gs = g's \Leftrightarrow g G_s = g' G_s\]
+\end{lemma}
+
+\begin{definition}
+    \(O_G(S) \coloneqq \{gs : g \in G\}\) --- \textbf{орбита}
+\end{definition}
+
+\begin{lemma}
+    \(|O_G(S)| = (G : G_S)\)
+\end{lemma}
+\begin{proof}
+    Из предыдущей леммы.
+\end{proof}
+
+Остаётся на следующую лекцию:
+\begin{enumerate}
+    \item \(S = \bigsqcup_{S \in C} O_G(S)\), где \(C\) --- непересекающиеся орбиты
+    \item Действия группы на себя
+\end{enumerate}

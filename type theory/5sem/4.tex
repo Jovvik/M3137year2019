@@ -9,7 +9,6 @@
     \item Запрещенные выражения
 \end{enumerate}
 
-
 \(Y\) явно нехорошее выражение. \(\Phi_A =_\beta \Phi_A \supset A\)
 
 Добавим очевидные аксиомы:
@@ -22,11 +21,11 @@
 Тогда заметим, что при любом \(A, \vdash A\):
 
 \begin{align*}
-    \Phi_A & \supset \Phi_A \\
-    \Phi_A & \supset (\Phi_A \supset A) \\
+    \Phi_A                              & \supset \Phi_A                  \\
+    \Phi_A                              & \supset (\Phi_A \supset A)      \\
     (\Phi_A \supset (\Phi_A \supset A)) & \supset (\Phi_A \supset \Phi_A) \\
-    \Phi_A & \supset A \\
-    \Phi_A \\
+    \Phi_A                              & \supset A                       \\
+    \Phi_A                                                                \\
     A
 \end{align*}
 
@@ -88,26 +87,26 @@
 \begin{proof}
     Рассмотрим \(\Gamma^*\) --- множество формул, замкнутых по доказуемости.
     \[\tau \in \Gamma^* \Leftrightarrow \Gamma^* \vdash \tau\]
-    
+
     \begin{obozn}
         \(\Gamma\) --- множество формул, тогда \(\Gamma^*\) --- замыкание этого множества по доказуемости, а \(\Gamma^{\stackrel{*}{\to}}\) --- замыкание по доказуемости в ИФИИВ.
     \end{obozn}
-    
+
     \underline{Рассмотрим множество миров}: \(\Gamma^{\stackrel{*}{\to}} \preceq \Delta^{\stackrel{*}{\to}}\), если \(\Gamma^{\stackrel{*}{\to}} \subseteq \Delta^{\stackrel{*}{\to}}, \Delta^{\stackrel{*}{\to}}\) --- замкн., \(\Gamma^* \Vdash \tau\), если \(\tau \in \Gamma^*\)
-    
+
     \begin{statement}
         \(\Gamma^*\) образует модель Крипке.
     \end{statement}
-    
+
     \begin{definition}[модель Крипке]\itemfix
         \begin{enumerate}
             \item Множество миров, упорядоченных отношением \(\preceq\)
             \item \(\Vdash\) такое, что если \(\Gamma \Vdash \alpha\), то \(\Gamma \preceq \Delta\), то \(\Delta \Vdash \alpha\).
         \end{enumerate}
-        
+
         Тогда \(\Gamma \Vdash \tau \to \sigma\) тогда и только тогда, когда в любом \(\Gamma \preceq \Delta\) из \(\Delta \Vdash \tau\), следует \(\Delta \Vdash \sigma\).
     \end{definition}
-    
+
     \begin{statement}
         \(\tau \in \Gamma^{\stackrel{*}{\to}}\) тогда и только тогда, когда \(\Gamma^{\stackrel{*}{\to}} \vdash_{\mathrm{и}} \tau\)
     \end{statement}
@@ -115,44 +114,44 @@
         Индукция по структуре \(\tau\).
         \begin{itemize}
             \item [База.] \(\tau \equiv \alpha\)
-                \begin{itemize}
-                    \item [\( \Rightarrow \)] \(\alpha \in \Gamma^{\stackrel{*}{\to}}\), то \(\alpha \vdash_{\mathrm{и}} \alpha\)
-                    \item [\( \Leftarrow \)] \(\alpha \vdash_{\mathrm{и}} \alpha\), тогда очевидно \(\alpha \in \Gamma^{\stackrel{*}{\to}}\)
-                \end{itemize}
+                  \begin{itemize}
+                      \item [\( \Rightarrow \)] \(\alpha \in \Gamma^{\stackrel{*}{\to}}\), то \(\alpha \vdash_{\mathrm{и}} \alpha\)
+                      \item [\( \Leftarrow \)] \(\alpha \vdash_{\mathrm{и}} \alpha\), тогда очевидно \(\alpha \in \Gamma^{\stackrel{*}{\to}}\)
+                  \end{itemize}
             \item [Переход.] \(\tau \equiv \delta \to \pi\)
-            \begin{itemize}
-                \item [\( \Rightarrow \)] \(\sigma \to \pi \in \Gamma^{\stackrel{*}{\to}}\), то \(\Gamma^{\stackrel{*}{\to}} \vdash_{\to} \sigma \to \pi\) 
-                \item [\( \Leftarrow \)] \(\Gamma^{\stackrel{*}{\to}} \vdash_{\mathrm{и}} (\sigma \to \pi)\). Значит, \(\Gamma^{\stackrel{*}{\to}} \Vdash \sigma \to \pi\).
-            \end{itemize}
+                  \begin{itemize}
+                      \item [\( \Rightarrow \)] \(\sigma \to \pi \in \Gamma^{\stackrel{*}{\to}}\), то \(\Gamma^{\stackrel{*}{\to}} \vdash_{\to} \sigma \to \pi\)
+                      \item [\( \Leftarrow \)] \(\Gamma^{\stackrel{*}{\to}} \vdash_{\mathrm{и}} (\sigma \to \pi)\). Значит, \(\Gamma^{\stackrel{*}{\to}} \Vdash \sigma \to \pi\).
+                  \end{itemize}
         \end{itemize}
     \end{proof}
-        
+
     Рассмотрим \(\Gamma^{\stackrel{*}{\to}} \preceq \Delta : \Delta \Vdash \sigma\), то \(\Delta \Vdash \pi\). Значит, \(\Delta \vdash \sigma\). Значит, \(\sigma \in \Delta\), т.е. \(\Delta \vdash_{\to} \sigma\). Значит, \(\Delta \vdash_{\to} \pi\) по M.P., т.к. \(\Gamma^{\stackrel{*}{\to}} \Vdash \sigma \to \pi \Rightarrow \Delta \Vdash \sigma \to \pi \Rightarrow \Delta \vdash_{\to} \sigma \to \pi\)
-    
+
     \begin{statement}
         \(\Gamma \Vdash \tau \Leftrightarrow \Gamma |_{\to} \tau\)
     \end{statement}
     \begin{proof}\itemfix
         \begin{itemize}
             \item [\( \Rightarrow \)] \(\Gamma \Vdash \tau\).
-                \begin{enumerate}
-                    \item \(\Gamma \Vdash \alpha\), т.е. \(\alpha \in \Gamma\), т.е. \(\alpha \vdash_{ \to } \alpha\)
-                    \item \(\Gamma \Vdash \sigma \to \pi\).
-                    
-                        Рассмотрим \(\Gamma \preceq \Delta\), причём \(\Delta \Vdash \sigma\), тогда \(\Delta \Vdash \pi\). Т.е. по индукционному предположению \(\Delta \vdash_{ \to }\sigma\). Пусть \(\Delta = \{\Gamma, \sigma\}^*\). Тогда \(\Gamma, \sigma \vdash_{ \to } \sigma\).
-                        
-                        Тогда \(\Gamma, \sigma \Vdash \pi\) по индукционному предложил и определению \( \Vdash \). Тогда \(\Gamma, \sigma \vdash_{ \to } \pi\), т.е. \(\Gamma \vdash_{ \to } \sigma \to \pi\)
-                \end{enumerate}
+                  \begin{enumerate}
+                      \item \(\Gamma \Vdash \alpha\), т.е. \(\alpha \in \Gamma\), т.е. \(\alpha \vdash_{ \to } \alpha\)
+                      \item \(\Gamma \Vdash \sigma \to \pi\).
+
+                            Рассмотрим \(\Gamma \preceq \Delta\), причём \(\Delta \Vdash \sigma\), тогда \(\Delta \Vdash \pi\). Т.е. по индукционному предположению \(\Delta \vdash_{ \to }\sigma\). Пусть \(\Delta = \{\Gamma, \sigma\}^*\). Тогда \(\Gamma, \sigma \vdash_{ \to } \sigma\).
+
+                            Тогда \(\Gamma, \sigma \Vdash \pi\) по индукционному предложил и определению \( \Vdash \). Тогда \(\Gamma, \sigma \vdash_{ \to } \pi\), т.е. \(\Gamma \vdash_{ \to } \sigma \to \pi\)
+                  \end{enumerate}
             \item [\( \Leftarrow \)] \(\Gamma \vdash_{ \to } \tau\), тогда \(\Gamma \Vdash \tau\)
-                \begin{enumerate}
-                    \item \(\tau \equiv \alpha\) --- очевидно.
-                    \item \(\tau \equiv \sigma \to \pi\). Дано, что \(\Gamma_{ \to } \vdash \sigma \to \pi\).
-                    
-                        Пусть \(\Delta \Vdash \sigma\). \(\Gamma \preceq \Delta\). Тогда \(\Delta \vdash_{ \to } \sigma\) по индукционному предположению. \(\Gamma \vdash_{ \to } \sigma \to \pi\), т.е. \(\Delta \vdash_{ \to } \sigma \to \pi\). По M.P. \(\Delta \vdash_{ \to } \pi\). По индукционному предположению \(\Delta \Vdash \pi\). Т.е. \(\Gamma \Vdash \sigma \to \pi\). \textcolor{red}{В лекции было \(\models\).}
-                \end{enumerate}
+                  \begin{enumerate}
+                      \item \(\tau \equiv \alpha\) --- очевидно.
+                      \item \(\tau \equiv \sigma \to \pi\). Дано, что \(\Gamma_{ \to } \vdash \sigma \to \pi\).
+
+                            Пусть \(\Delta \Vdash \sigma\). \(\Gamma \preceq \Delta\). Тогда \(\Delta \vdash_{ \to } \sigma\) по индукционному предположению. \(\Gamma \vdash_{ \to } \sigma \to \pi\), т.е. \(\Delta \vdash_{ \to } \sigma \to \pi\). По M.P. \(\Delta \vdash_{ \to } \pi\). По индукционному предположению \(\Delta \Vdash \pi\). Т.е. \(\Gamma \Vdash \sigma \to \pi\). \textcolor{red}{В лекции было \(\models\).}
+                  \end{enumerate}
         \end{itemize}
     \end{proof}
-    
+
     Схема доказательства:
     \begin{enumerate}
         \item \(\tau \in \Gamma^*\), если \(\Gamma^* \vdash_{\text{и}} \tau\)

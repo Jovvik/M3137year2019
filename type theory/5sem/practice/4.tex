@@ -1,0 +1,61 @@
+\input{../../../preamble.sty}
+
+\lhead{Теория типов \textit{(практика)}}
+\cfoot{}
+\rfoot{5.10.2021}
+
+\begin{document}
+
+\section*{Домашнее задание №4: <<просто-типизированное лямбда исчисление>>}
+\begin{enumerate}
+      \item Сформулируйте аксиомы для просто типизированного исчисления по Чёрчу.
+            \emph{Указание:} аксиомы должны быть согласованы с типами аргументов
+            лямбда-абстракций.
+            \begin{solution}\itemfix
+                  \begin{enumerate}
+                        \item \(\begin{prooftree}
+                                    \infer0{\Gamma, x : \tau \vdash x : \tau}
+                              \end{prooftree}\)
+                        \item \(\begin{prooftree}
+                                    \hypo{\Gamma \vdash A : \sigma \to \tau}
+                                    \hypo{\Gamma \vdash B : \sigma}
+                                    \infer2{\Gamma \vdash A\ B : \tau}
+                              \end{prooftree}\)
+                        \item \(\begin{prooftree}
+                                    \hypo{\Gamma, x : \tau \vdash A : \sigma}
+                                    \infer1{\Gamma \vdash \lambda x^\tau.A : \tau \to \sigma}
+                              \end{prooftree}\)
+                  \end{enumerate}
+            \end{solution}
+      \item Рассмотрим типизацию по Чёрчу. Определим стирающее преобразование $|\cdot|: \Lambda \rightarrow \Lambda_\textrm{ч}$:
+
+            $$|A| = \left\{ \begin{array}{ll} \alpha,   & A = \alpha           \\
+             |P| |Q|,       & A = P Q              \\
+             \lambda x.|P|, & A = \lambda x^\tau.P\end{array}  \right.$$
+
+            Верно ли следующее: если $P \rightarrow_\beta Q$ и $|P'|=P$, $|Q'|=Q$, то $P'\rightarrow_\beta Q'$.
+            \begin{solution}
+                  Кажется, преобразование \(| \cdot | : \Lambda_{\mathrm{ч}} \to \Lambda_{\mathrm{к}}\).
+
+                  Нет. Пусть \(Q' = \lambda x^\tau.x, P' = \lambda x^\sigma.(\lambda x^\sigma.x)\ x\). \(|Q'| \equiv \lambda x.x, |P'| \equiv \lambda x.(\lambda x.x)\ x\), тогда \(|P'| \to_\beta \lambda x.x \equiv |Q'|\). Но \(P' \not\to_\beta Q'\), т.к. единственный возможный шаг это \(P' \to_\beta \lambda x^\sigma.x \neq_\alpha \lambda x^\tau.x\)
+
+                  Иначе переберём как было сделано \(P \to_\beta Q\):
+                  \begin{enumerate}
+                        \item \(P \equiv A\ B, Q = C\ D\) и либо \(A \to_\beta C\) и \(B =_\alpha D\) либо \(A =_\alpha C\) и \(B \to_\beta D\). Тогда индукция даёт \(P' \equiv A'\ B'\)
+                  \end{enumerate}
+            \end{solution}
+      \item Покажите, что если $A =_\alpha B$ и $\Gamma\vdash A:\tau$, то $\Gamma\vdash B:\tau$ (или, иными словами, доказательство не зависит от выбора пред-лямбда-терма).
+            \begin{solution}\itemfix
+                  \begin{enumerate}
+                        \item \(A \equiv x, B \equiv x\). Тогда искомое очевидно.
+                        \item \(A \equiv P\ Q, B \equiv R\ S, P =_\alpha R, Q =_\alpha S\) --- индукция:
+
+                              \(\Gamma \vdash P\ Q : \tau\), тогда \(\Gamma \vdash P : \sigma \to \tau, \Gamma \vdash Q : \sigma\). По индукционному предположению будет \(\Gamma \vdash R : \sigma \to \tau, \Gamma \vdash S : \sigma\) и следовательно по второму правилу вывода искомое верно.
+                        \item \(A \equiv \lambda x.P, B \equiv \lambda y.Q\) и существует \(t\) --- новая переменная, такая что \(P[x \coloneqq t] =_\alpha Q[y \coloneqq t]\) --- опять индукция:
+
+                              \(\Gamma \vdash \lambda x.P : \tau \to \sigma\), тогда \(\Gamma, x : \tau \vdash P : \sigma\), но тогда и \(\Gamma, t : \tau \vdash P[x \coloneqq t] : \sigma\), т.к. это просто переименование и следовательно \(\Gamma, t : \tau \vdash Q[y \coloneqq t] : \sigma\) по индукционному предположению. Опять же \(\Gamma, y : \tau \vdash Q : \sigma\) и тогда по правилу вывода \(\Gamma \vdash \lambda y.Q : \tau \to \sigma\).
+                  \end{enumerate}
+            \end{solution}
+\end{enumerate}
+
+\end{document}

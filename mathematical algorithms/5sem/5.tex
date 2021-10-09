@@ -144,7 +144,7 @@
 \(\sphericalangle G / G_s\) --- фактор-множество.
 
 \begin{lemma}
-    \(s, s' \in S, s' = xs, x \in G\). Тогда \(G_{s'} = xG_sx^{-1}\)
+    \(s, s' \in S, s' = xs, x \in G\). Тогда \(G_{s'} = xG_sx^{-1}\) и \(G_{s'}\) вместе с \(G_s\) называются \textbf{сопряженными}
 \end{lemma}
 \begin{proof}
     \[g's' = s' = xs = xgs = xgx^{-1}s'\]
@@ -156,17 +156,19 @@
 \end{definition}
 
 \begin{lemma}
-    \(gGss, g'G_s \in G / G_s\)
+    \(g G_s, g'G_s \in G / G_s\)
 
     \[gs = g's \Leftrightarrow g G_s = g' G_s\]
 \end{lemma}
 
+\subsection{Орбиты}
+
 \begin{definition}
-    \(O_G(S) \coloneqq \{gs : g \in G\}\) --- \textbf{орбита}
+    \(\mathcal{O}_G(S) \coloneqq \{gs : g \in G\}\) --- \textbf{орбита}
 \end{definition}
 
 \begin{lemma}
-    \(|O_G(S)| = (G : G_S)\)
+    \(|\mathcal{O}_G(S)| = (G : G_S)\)
 \end{lemma}
 \begin{proof}
     Из предыдущей леммы.
@@ -174,6 +176,6 @@
 
 Остаётся на следующую лекцию:
 \begin{enumerate}
-    \item \(S = \bigsqcup_{S \in C} O_G(S)\), где \(C\) --- непересекающиеся орбиты
+    \item \(S = \bigsqcup_{S \in C} \mathcal{O}_G(S)\), где \(C\) --- непересекающиеся орбиты
     \item Действия группы на себя
 \end{enumerate}

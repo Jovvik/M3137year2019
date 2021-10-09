@@ -1,0 +1,99 @@
+\chapter{9 октября}
+
+\begin{lemma}
+    Орбиты элементов \(\mathcal{O}_G(s)\) и \(\mathcal{O}_G(s')\) или непересекаются или совпадают.
+\end{lemma}
+\begin{proof}
+    Пусть орбиты пересекаются, т.е. \(\exists s_0 : s_0 \in \mathcal{O}_G(s)\) и \(s_0 \in \mathcal{O}_G(s')\). Тогда \(\exists g \in G : s_0 = gs, \exists g' \in G : s_0 = g's'\)
+
+    \[\mathcal{O}_G(s') = \mathcal{O}_G(g's') = \mathcal{O}_G(s_0) = \mathcal{O}_G(gs) = \mathcal{O}_G(s)\]
+    Таким образом, \(\mathcal{O}_G(s') = \mathcal{O}_G(s)\).
+\end{proof}
+
+\begin{remark}
+    \[S = \bigsqcup_{i \in I} \mathcal{O}_G(S_i)\]
+\end{remark}
+
+\begin{remark}
+    Если \(S\) --- конечно, то
+    \[|S|= \sum_{i \in I} |\mathcal{O}_G(s_i)|\]
+\end{remark}
+
+\section{Действие группы на себя}
+
+Пусть \(S_G = G\), т.е. группа действует сама на себя.
+
+\subsection{Сопряжение}
+
+Пусть \(x \in G\). \(\sigma : x \mapsto \sigma_x : \sigma_x(y) = xyx^{-1}\)
+
+Пусть \(y, y' \in G\).
+\[\sigma_x(y \cdot y') = x yy' x^{-1} = xyx^{-1}xy'x^{-1} = \sigma_x(y)\sigma_x(y')\]
+\[\sigma_x(e) = e\]
+Таким образом, \(\sigma_x\) --- гомоморфизм.
+
+\(\sigma_x^{-1} = \sigma_{x^{-1}}\)
+
+\(\sigma_x^{-1} \circ \sigma_x = \mathrm{id}_G\)
+
+\[\sigma_x^{-1} \circ \sigma_x(y) = G_x^{-1}(xyx^{-1}) = x^{-1}xyx^{-1}x = y \ \ \forall y\]
+\(\sigma_x \in \mathrm{Aut}(G) \ \ \forall x\)
+
+\(\sphericalangle \sigma : G \to \mathrm{Aut}(G)\).
+\[\sigma_x \sigma_y = \sigma_{xy} \quad \sigma_e = \mathrm{id}_G\]
+Таким обрзом, \(\sigma \in \mathrm{hom}(G, \mathrm{Aut}(G))\)
+
+\[\ker \sigma = \{x \in G : \forall y \ \ \sigma_x y = y\}\]
+\[xyx^{-1} = y\]
+\[xy = yx\]
+Таким образом, \(\ker \sigma = Z_G\)
+
+Рассмотрим \(G\) как множество. \(A \subset G\) --- подмножество \(G\).
+
+\(\sphericalangle \sigma_x(A) = xAx^{-1} \subset G\)
+
+\(\sphericalangle \sigma_x(H) = xHx^{-1} \subset G\) --- подгруппа \(G\).
+
+Пусть \(S\) --- множество подгрупп группы \(G\), \(H\) --- подгруппа \(G\), рассмотрим \(G / H\).
+
+Пусть \(x \in G\).
+\[G_x \coloneqq \{g \in G : \sigma_g(x) = x\} = Z_x\]
+\[\mathcal{O}_G(x) = \{\sigma_g(x), g \in G\}\]
+\[|\mathcal{O}_G(x)| = (G : Z_x)\]
+\[G = \bigsqcup_{i \in I} \mathcal{O}_G(x_i)\]
+\begin{myemph}
+    |G| = \sum_{i \in I}(G : Z_{x_i})
+\end{myemph}
+\[G_H = \{g \in G : \sigma_g H = H\} \defeq N_H\]
+\[G = \bigsqcup_{i \in I} \mathcal{O}_G(H_i) \quad |G| = \sum_{i \in I} (G : N_i)\]
+
+\subsection{Левая трансляция}
+
+Пусть \(x \in G\). \(\tau : x \mapsto \tau_x : y \mapsto xy\).
+
+\(\tau_x(yy') = x yy'\) --- не гомоморфизм.
+
+Пусть \(H \subset G\) --- подгруппа \(G\). Сопряжение не определяло действие, а трансляция определяет: \(\sphericalangle G / H : [g] = gH\), тогда \(\tau_x(gH) = xgH = g'H \in G / H\).
+
+\section{Циклические группы}
+
+\begin{definition}
+    Группа \(G\) называется \textbf{циклической}, если \(\exists g : \forall h \in G \ \ h = g^m = \underbrace{g \cdot g \cdots}_m\).
+\end{definition}
+\begin{obozn}
+    \(G = \ev{g}\)
+\end{obozn}
+
+\begin{definition}
+    \textbf{Показатель элемента} \(g\) в \(G = \ev{g}\) это число \(m > 0\), такое что \(g^m = e\).
+\end{definition}
+
+\begin{definition}
+    \textbf{Показатель группы} \(\ev{g}\) --- число \(k > 0\), такое что \(\forall x \in G \ \ x^k = e\).
+\end{definition}
+
+\begin{example}
+    \((\Z, +)\) --- бесконечная циклическая группа.
+
+    \(\sphericalangle H\) --- подгруппа \(\Z : H = \{mz\}_{m \in \Z}, z \coloneqq \min\{t \in \Z \mid t > 0\}\)
+\end{example}

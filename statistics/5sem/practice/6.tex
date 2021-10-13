@@ -1,0 +1,21 @@
+\input{../../../preamble.sty}
+
+\lhead{Матстат \textit{(практика)}}
+\cfoot{}
+\rfoot{15.10.2021}
+
+\begin{document}
+
+\begin{exercise}
+    \(n = 50, \overline{X} = 74.1, S = 39.01, \alpha = 0.05\), распределение нормальное.
+
+    Гипотеза \(H_0 : a = 75\) \textit{(альтернатива: \(H_1 : a \neq 75\))}. Проверить её.
+\end{exercise}
+\begin{solution}
+    \[K = \sqrt{n} \frac{ \overline{X} - a_0}{S} \in T_{n-1}\]
+    \[K = \sqrt{50} \frac{74.1 - 75}{39.01} = - 0.16314\]
+    \[t_k = \text{СТЬЮДЕНТ.ОБР.2Х}(\alpha; n - 1) = \text{СТЬЮДЕНТ.ОБР.2Х}(0.05, 49) = 2.009\]
+    \(|K| < t_k\), поэтому гипотеза принимается.
+\end{solution}
+
+\end{document}

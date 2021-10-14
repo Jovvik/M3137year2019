@@ -1,6 +1,177 @@
 \chapter{11 октября}
 
-\textcolor{red}{Лекция ещё не записана.}
+\section{Гипотезы}
+
+\begin{definition}
+    \textbf{Гипотезой} \(H\) называется предположение о свойствах случайной величины.
+\end{definition}
+
+\begin{definition}
+    Гипотеза называется \textbf{простой}, если она однозначно определяет распределение, т.е. \(H : \mathcal{F} = \mathcal{F}_1\), где \(\mathcal{F}_1\) --- распределение известного типа с известными параметрами.
+\end{definition}
+
+\begin{definition}
+    Все остальные гипотезы называются \textbf{сложными}, т.к. они являются объединением конечного или бесконечного числа простых гипотез.
+\end{definition}
+
+\begin{definition}[основная модель гипотез]
+    Гипотеза \(H_1 = \overline{H_0}\) --- конкурирующая \textit{(альтернативная)} гипотеза, состоящая в том, что основная гипотеза \(H_0\) неверна.
+\end{definition}
+
+\begin{remark}
+    С помощью статистических методов нельзя \underline{доказать} гипотезу, можно только сказать, что она верна с некоторой уверенностью.
+\end{remark}
+
+Основная гипотеза \(H_0\) принимается или отклоняется с помощью \underline{статистики критерия} \(K\):
+\[K(X_0 \dots X_n) \to \R = S \cup\!\footnote{Объединение на самом деле дизъюнктно.} \overline{S} \to (H_0, H_1)\]
+\[\begin{cases}
+        H_0, & \text{если } K \in \overline{S} \\
+        H_1, & \text{если } K \in S
+    \end{cases}\]
+
+\begin{definition}
+    Если точка находится на границе областей \(S\) и \(\overline{S}\), она называется \textbf{критической}.
+\end{definition}
+
+\begin{definition}
+    \textbf{Ошибка I рода} состоит в том, что нулевая гипотеза отвергается, когда она верна.
+\end{definition}
+
+\begin{definition}
+    \textbf{Ошибка II рода} состоит в том, что отвергается альтернативная, когда она верна.
+\end{definition}
+
+\begin{definition}
+    \(\alpha\) --- вероятность ошибки II рода, \(\beta\) --- вероятность ошибки I рода/
+\end{definition}
+
+\begin{example}
+    \(H_0\) --- деталь годная, \(H_1\) --- деталь бракованная.
+
+    Ошибка I рода --- признать годную деталь бракованной.
+
+    Ошибка II рода --- признать бракованную деталь годной.
+\end{example}
+
+\begin{remark}
+    При росте выборки вероятности ошибок уменьшаются, при уменьшении вероятности одной ошибки другая вероятность увеличивается.
+\end{remark}
+
+\subsection{Способы сравнения критериев}
+
+Пусть имеются критерии \(K_1\) и \(K_2, \alpha_1, \beta_1, \alpha_2, \beta_2\) --- вероятности ошибок при соответствующих критериях, \(h_1\) --- потери в результате ошибке I рода, \(h_2\) --- потери в результате ошибки II рода.
+
+Тогда рассмотрим способы сравнения критериев:
+\begin{enumerate}
+    \item Минимакс: \(K_1\) не хуже, чем \(K_2\), если \(\max(\alpha_1 h_1, \beta_1 h_2) \leq \max(\alpha_2 h_1, \beta_2 h_2)\)
+    \item Критерий называется \textbf{баесовским}, если \(U = \alpha k_1 + \beta k_2\) минимально.
+    \item Пусть \(\varepsilon\) --- допустимый уровень ошибки I рода. Обозначим \(K_\varepsilon \coloneqq \{K_i \mid \alpha_i \leq \varepsilon\}\).
+
+          \begin{definition}
+              Критерий \(K \in K_\varepsilon\) называется \textbf{наиболее мощным} критерием уровня \(\varepsilon\), если \(\beta \leq \beta_i \ \ \forall i\).
+          \end{definition}
+\end{enumerate}
+
+\subsection{Критерий согласия}
+
+\begin{definition}
+    Критерий \(K\) называется \textbf{критерием асимптотического уровня \(\varepsilon\)}, если вероятность ошибки первого рода \(\alpha\) стремится к \(\varepsilon\) при \(n \to \infty\).
+\end{definition}
+
+\begin{definition}
+    Критерий \(K\) для проверки гипотезы \(H_0\) против альтернативы \(H_1 = \overline{H_0}\) называется состоятельным, если вероятность ошибки II рода \(\beta \to 0\) при \(n \to \infty\).
+\end{definition}
+
+\begin{definition}
+    Критерием \textbf{согласия} уровня \(\varepsilon\) называются состоятельные критерии асимптотического уровня \(\varepsilon\).
+\end{definition}
+
+\subsection{Построение критериев согласия}
+
+В качестве критериев согласия берётся статистика \(K(X_1 \dots X_n)\) со свойствами:
+\begin{enumerate}
+    \item Если \(H_0\) верна, то \(K(X_1 \dots X_n) \rightrightarrows Z\) --- известное распределение с известными параметрами.
+    \item Если \(H_0\) не верна, то \(K(X_1 \dots X_n) \xrightarrow{P} \infty\)
+\end{enumerate}
+Для заданного уровня значимость \(\varepsilon\) находим константу \(t_k\), такую что \(P(|Z| \geq t_k) = \alpha\). В результате получаем критерий согласия уровня значимости \(\alpha = \varepsilon\):
+\[\begin{cases}
+        H_0, & |K| < t_k    \\
+        H_1, & |K| \geq t_k
+    \end{cases}\]
+\begin{theorem}
+    Этот критерий является критерием согласия.
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item \(K\) --- критерий асимптотического уровня:
+
+              Пусть \(H_0\) верна. Тогда по построению \(K \rightrightarrows Z\), т.е. \(F_K(x) \to F_Z(x)\) и
+              \begin{align*}
+                  \alpha & = P(|K| \geq t_k \mid H_0)                                \\
+                         & = 1 - P(|K| < t_k)                                        \\
+                         & = 1 - (F_K(t_k) - F_K( -t_k))                             \\
+                         & \xrightarrow[n \to \infty ]{} 1 - (F_Z(t_k) - F_Z( -t_k)) \\
+                         & = P(|Z| \geq t_k)                                         \\
+                         & = \varepsilon
+              \end{align*}
+        \item \(K\) --- состоятельный критерий:
+
+              Пусть \(H_1\) верна. Тогда \(K(X_1 \dots X_n) \xrightarrow[]{P} \infty\), т.е.
+              \[\forall C \ \ P(|K| \geq C \mid H_1) \xrightarrow[n \to \infty ]{P} 1 \Rightarrow \beta = P(|K| < t_k \mid H_1) \xrightarrow[n \to \infty ]{P} 0\]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise*}
+    Гипотеза о среднем нормальной совокупности с известной дисперсией.
+
+    Пусть имеется выборка \((X_1 \dots X_n) \in X \in N(a, \sigma^2)\), причём второй параметр известен.\footnote{Например, мы измеряем что-то инструментом заданной точности.}
+
+    \(H_0: a = a_0, H_1 : a \neq a_0\).
+
+    В качестве статистики критерия возьмём \(\sqrt{n} \cdot \frac{ \overline{X} - a_0}{\sigma}\). Проверим, что оно имеет требуемые свойства:
+    \begin{enumerate}
+        \item Если \(H_0\) верна, т.е. \(a = a_0\), то \(\sqrt{n} \frac{ \overline{X} - a_0}{\sigma} = \sqrt{n} \frac{ \overline{X} - a}{\sigma} \in N(0, 1)\)
+        \item Если \(H_0\) неверно, т.е. \(a \neq a_0\), то \(|K| \to \infty \):
+
+              \[|K| = \left|\sqrt{n} \frac{ \overline{X} - a_0}{\sigma}\right|= \underbrace{\sqrt{n}}_{ \to \infty } \left|\underbrace{\frac{ \overline{X} - a}{\sigma}}_{\in N(0, 1)} + \underbrace{\frac{a - a_0}{\sigma}}_{\neq 0}\right| \xrightarrow[n \to \infty ]{P} \infty\]
+    \end{enumerate}
+
+    Таким образом, этот критерий --- критерий согласия. Для уровня значимости \(\alpha = \varepsilon\) выберем \(C\), такую что \(\varepsilon = P(|K| \geq C) \Rightarrow P(|K| < C) = 1 - \varepsilon \Rightarrow 2 \Phi(C) = 1 - \varepsilon \Rightarrow 2 \Phi(C) = \frac{1 - \varepsilon}{2}\)
+
+    Итого:
+    \[\begin{cases}
+            H_0, & |K| = \left|\sqrt{n} \frac{ \overline{X} - a_0}{\sigma}\right| < C    \\
+            H_1, & |K| = \left|\sqrt{n} \frac{ \overline{X} - a_0}{\sigma}\right| \geq C
+        \end{cases}\]
+    Заметим, что если мы решим это неравенство, то получим доверительный интервал для параметра \(a\) нормального распределения при известном \(\sigma\).
+\end{exercise*}
+
+\begin{remark}
+    Аналогично можно проверять для неизвестного \(\sigma\), тогда в критерии \(\sigma\) заменится на \(S\).
+\end{remark}
+
+\subsection{Доверительные интервалы как критерии гипотез о параметрах распределения}
+
+Пусть имеется выборка \((X_1 \dots X_n)\) случайной величины \(X \in \mathcal{F}_\theta\), где \(\mathcal{F}_\theta\) --- распределение известного типа с неизвестным параметром \(\theta\). Проверяется гипотеза: \(H_0 : \theta = \theta_0\) против \(H_1 : \theta \neq \theta_0\). Пусть для \(\theta\) построен доверительный интервал \((\theta^- , \theta^+)\) надежности \(\gamma\). Тогда следующий критерий является критерием согласия уровня \(\alpha = 1 - \gamma\):
+\[\begin{cases}
+        H_0, & \theta_0 \in (\theta^- , \theta^+)    \\
+        H_1, & \theta_0 \notin (\theta^- , \theta^+)
+    \end{cases}\]
+\begin{proof}
+    \[\alpha = P(\theta_0 \notin (\theta^- , \theta^+) \mid X \in \mathcal{F}_\theta) = 1 - P(\theta_0 \in (\theta^- , \theta^+) \mid X \in \mathcal{F}_\theta) = 1 - \gamma = \alpha\]
+
+    Доказывать состоятельность критерия нужно в каждом случае отдельно.
+\end{proof}
+
+\begin{example}
+    По выборке объема \(n = 36\) из нормальной совокупности с известным \(\sigma = 1.44\) найдено выборочное среднее \(\overline{X} = 21.36\). Проверить гипотезу \(H_0 : a = 21\) против \(H_1 : a \neq 21\) при уровне значимости \(\alpha = 0.05\).
+    \[K = \sqrt{n} \frac{ \overline{X} - a_0}{\sigma} = \sqrt{36} \frac{21.6 - 21}{1.44} = 2.5\]
+    \[\Phi(t_k) = \frac{1 - \alpha}{2} = 0.475\]
+    \[t_k = 1.96\]
+    Т.к. \(|K| = 2.5 > 1.96\), гипотеза отклоняется.
+\end{example}
+
+\textcolor{red}{Лекция ещё не дописана.}
 
 \begin{remark}
     Следующий материал был рассказан на практике 13 октября.
@@ -22,7 +193,7 @@
         \draw[->,ultra thick] (0,-2)--(0,5) node[above]{$y$};
         \draw (0, 2) node[left] {1} -- (2, 0);
         \node[below right] at (2, 0) {\(x\)};
-        \draw (0, 2) arc (180:360:0.1);
+        % \draw (0, 2) arc (180:360:0.1);
     \end{tikzpicture}
     \caption{Источник}
 \end{figure}

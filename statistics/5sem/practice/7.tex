@@ -1,0 +1,31 @@
+\input{../../../preamble.sty}
+
+\lhead{Матстат \textit{(практика)}}
+\cfoot{}
+\rfoot{22.10.2021}
+
+\begin{document}
+
+Все вычисления доступны по \href{https://docs.google.com/spreadsheets/d/1lU-0FnVcjXLhWT8c0K_v2xk-lVkF9Ary3zV-o6R1Was/edit?usp=sharing}{ссылке}, листы ``7.1'' и ``7.2''.
+
+\begin{exercise}
+    Проверить, что распределение второй величины нормально с уверенностью \(\alpha = 0.05\).
+\end{exercise}
+
+Мы объединяем интервалы таким образом, чтобы в каждом интервале было хотя бы \(5\) точек.
+
+\[P(a_i < \xi < a_{i+1}) = F(a_{i+1}) - F(a_i) = \Phi\left(\frac{a_{i+1} - a}{\sigma}\right) - \Phi\left(\frac{a_i - a}{\sigma}\right) = \Phi\left(\frac{a_{i+1} - \overline{X}}{S}\right) - \Phi(\frac{a_i - \overline{X}}{S})\]
+Число степеней свободы \(s = k\) \textit{(число интервалов)} \(- m\) \textit{(число параметров распределения)} \(- 1 = 1\)
+Т.к. \(\chi\) практическое \( = 0.49 < \chi\) теоретическое \( = \text{ХИ2.ОБР.2Х}(\alpha, s) = 3.84\), гипотеза принимается.
+
+\begin{exercise}
+    Проверить, что распределение первой величины экспоненциально с уверенностью \(\alpha = 0.05\).
+\end{exercise}
+
+Все так же, но \(F(a_i) = \exp( - \alpha a_i)\) и \(\alpha^* = \frac{1}{\overline{X}}\). \(\chi_{\text{практ.}} = 23.45 > \chi_{\text{теор.}} = 7.81\), гипотеза отклоняется.
+
+\begin{exercise}
+    Среди населения \(1\%\) воров. В комнате из \(10\) человек пропал кошелек. Какова вероятность того, что случайно выбранный из комнаты человек --- вор?
+\end{exercise}
+
+\end{document}

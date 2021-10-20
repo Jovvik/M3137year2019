@@ -18,6 +18,7 @@
 - [4 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/4.pdf)
 - [5 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/5.pdf)
 - [6 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/6.pdf) - большая часть записана в лекции.
+- [7 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/7.pdf), [вычисления](https://docs.google.com/spreadsheets/d/1lU-0FnVcjXLhWT8c0K_v2xk-lVkF9Ary3zV-o6R1Was/edit?usp=sharing).
 
 ### Методы трансляции
 

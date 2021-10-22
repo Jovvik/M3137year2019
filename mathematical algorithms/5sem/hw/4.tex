@@ -1,0 +1,304 @@
+\input{../../../preamble.sty}
+
+\lhead{Алгоритмы в математике \textit{(практика)}}
+\cfoot{}
+\rfoot{16.10.2021}
+
+\begin{document}
+
+\begin{exercise}
+    Всякий ли элемент в \(S_3\) является простым циклом? В \(S_4\)?
+\end{exercise}
+\begin{solution}
+    В \(S_3\) --- да, что проверяется перебором:
+    \begin{center}
+        \begin{tabular}{CC}
+            \toprule
+            \text{Перестановка}       & a_1 \dots a_k \\ \midrule
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                1 & 2 & 3
+            \end{pmatrix} & \emptyset     \\
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                1 & 3 & 2
+            \end{pmatrix} & 2, 3          \\
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                2 & 1 & 3
+            \end{pmatrix} & 1, 2          \\
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                2 & 3 & 1
+            \end{pmatrix} & 1, 2, 3       \\
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                3 & 1 & 2
+            \end{pmatrix} & 1, 2, 3       \\
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                3 & 2 & 1
+            \end{pmatrix} & 1, 2, 3       \\ \bottomrule
+        \end{tabular}
+    \end{center}
+
+    В \(S_4\) --- нет, т.к. \(\begin{pmatrix}
+        1 & 2 & 3 & 4 \\
+        2 & 1 & 4 & 3
+    \end{pmatrix}\) нельзя представить в виде простого цикла --- на все элементы она действует не тождественно (\(\forall x \ \ g(x) \neq x\)), следовательно все элементы \(\{1 \dots n\}\) в этом цикле. Пусть\footnote{Так можно говорить, т.к. \(a_1 \dots a_k\) можно циклически сдвинуть без потери общности.} \(1 = a_1\), тогда \(a_2 = 2\), тогда \(a_4\) это либо \(3\), либо \(4\), но ни для одного из них не верно \(g(x) = 1\).
+\end{solution}
+
+\begin{exercise}
+    Рассмотрим все \(g \in S_4\), которые являются простыми циклами. Какие значения может принимать порядок \(g\)?
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{center}
+        \begin{tabular}{CC}
+            \toprule
+            \text{Порядок} & \text{Пример перестановки с таким порядком} \\ \midrule
+            1              & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 2 & 3 & 4
+            \end{pmatrix}                  \\
+            2              & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 1 & 3 & 4
+            \end{pmatrix}                  \\
+            3              & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 3 & 1 & 4
+            \end{pmatrix}                  \\
+            4              & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 3 & 4 & 1
+            \end{pmatrix}                  \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+
+    \begin{statement}
+        Элементов с порядком \( > 4\) нет.
+    \end{statement}
+    \begin{proof}
+        Рассмотрим \(a_i\). Оно отображается в себя же за максимум последовательных 4 шага \(g\), т.к. так работает цикл.
+    \end{proof}
+
+    \textbf{Ответ}: \(\{1, 2, 3, 4\}\)
+\end{solution}
+
+\begin{exercise}
+    Показать, что любой элемент \(\rho \in S_4\) представим в виде произведения независимых простых циклов:
+    \[\rho = g_1 \cdots g_k\]
+\end{exercise}
+\begin{solution}
+    Предположим обратное, что есть \(\rho \in S_4\), не представимый искомым образом. Пусть \(a_1 = 1, a_2 = \rho(a_1)\).
+
+    Если \(a_2 = a_1\), то \(\rho\) действует тождественно на первый элемент и тогда группа \(G\) всех таких \(\rho\) изоморфна \(S_3\), а все элементы \(S_3\) --- простые циклы, следовательно \(\rho\) есть простой цикл.
+
+    Рассмотрим случай \(a_1 \neq a_2\). Пусть \(a_3 = \rho(a_2)\). \(a_3 \neq a_2\), т.к. иначе \(\rho\) не биективно. Если \(a_3 = a_1\), то \(\rho\) действует как простой цикл длины \(2\) на элементы \(\{a_1, a_2\}\). Группа всех таких \(\rho\) изоморфна \(S_2\), т.к. осталось 2 не использованных элемента, а все элементы \(S_2\) --- простые циклы (перебор).
+
+    Рассмотрим случай \(a_3 \neq a_1\). Пусть \(a_4 = \rho(a_3)\). \(a_4 \neq a_3\) и \(a_4 \neq a_2\) по соображениям выше. Если \(a_4 = a_1\), то \(\rho\) --- цикл длины \(3\) на элементах \(\{a_1, a_2, a_3\}\) и на оставшийся элемент не может не подействовать тривиально. Если \(a_4 \neq a_1\), то \(\sphericalangle a_5 = \rho(a_4)\). По соображениям выше \(a_5 \notin \{a_2, a_3, a_4\}\), следовательно \(a_5 = a_1\) и \(\rho\) --- цикл длины \(4\).
+
+    Альтернативное доказательство: перебор.
+    \begin{center}
+        \begin{longtable}{CC}
+            \toprule
+            \rho                       & \text{Представление \(\rho\) в виде произведения простых циклов} \\ \midrule
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 2 & 4 & 3
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 2 & 4 & 3
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 3 & 2 & 4
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 3 & 2 & 4
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 3 & 4 & 2
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 3 & 4 & 2
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 4 & 2 & 3
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 4 & 2 & 3
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 4 & 3 & 2
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 4 & 3 & 2
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 1 & 3 & 4
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 1 & 3 & 4
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 1 & 4 & 3
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 1 & 3 & 4
+            \end{pmatrix} \cdot \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 2 & 4 & 3
+            \end{pmatrix}      \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 3 & 1 & 4
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 3 & 1 & 4
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 3 & 4 & 1
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 3 & 4 & 1
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 4 & 1 & 3
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 4 & 1 & 3
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 4 & 3 & 1
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                2 & 4 & 3 & 1
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 1 & 2 & 4
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 1 & 2 & 4
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 2 & 1 & 4
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 2 & 1 & 4
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 2 & 4 & 1
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 2 & 4 & 1
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 4 & 1 & 2
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 2 & 1 & 4
+            \end{pmatrix} \cdot \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 4 & 3 & 2
+            \end{pmatrix}      \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 4 & 2 & 1
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                3 & 4 & 2 & 1
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 1 & 2 & 3
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 1 & 2 & 3
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 1 & 3 & 2
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 1 & 3 & 2
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 2 & 1 & 3
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 2 & 1 & 3
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 2 & 3 & 1
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 2 & 3 & 1
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 3 & 1 & 2
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 3 & 1 & 2
+            \end{pmatrix}                                       \\
+            \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 3 & 2 & 1
+            \end{pmatrix} & \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                4 & 2 & 3 & 1
+            \end{pmatrix} \cdot \begin{pmatrix}
+                1 & 2 & 3 & 4 \\
+                1 & 3 & 2 & 4
+            \end{pmatrix}      \\
+            \bottomrule
+        \end{longtable}
+    \end{center}
+\end{solution}
+
+\begin{exercise}
+    Показать, что если \(g, h \in S_n\) --- независимые простые циклы, то они коммутируют. Что можно сказать об обратном? (если \(g, h\) --- коммутирующие простые циклы, то \dots)
+\end{exercise}
+\begin{solution}
+    \begin{statement}
+        Если \(g(x) \neq x\), то \(h(g(x)) = g(x)\).
+    \end{statement}
+    \begin{proof}
+        \(g(g(x)) \neq g(x)\) по биективности \(g\).
+    \end{proof}
+
+    \[g(h(x)) = \begin{cases}
+            g(x), & g(x) \neq x     \\
+            h(x), & h(x) \neq x     \\
+            x ,   & h(x) = g(x) = x
+        \end{cases}\]
+    \[h(g(x)) = \begin{cases}
+            g(x), & g(x) \neq x     \\
+            h(x), & h(x) \neq x     \\
+            x ,   & h(x) = g(x) = x
+        \end{cases}\]
+    Итого \(gh = hg\).
+
+    Если \(g, h\) --- коммутирующие простые циклы, то они не обязательно независимы. Например, если \(g = h\): \(gg = gg\), но \(g\) зависит от себя \textit{(если это не тривиальный цикл)}. Также можно построить случай с \(g \neq h\). Пусть дано \(g\) с \(\{a_i\}_{i = 1}^n\). Тогда пусть \(h(a_i) = \begin{cases}
+        a_{i-1}, & i > 1 \\
+        a_n,     & i = 1
+    \end{cases}\)
+\end{solution}
+
+\end{document}

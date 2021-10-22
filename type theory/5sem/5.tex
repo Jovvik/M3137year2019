@@ -1,0 +1,222 @@
+\chapter{5 октября}
+
+\section{Алгебраические термы}
+
+\begin{definition}[алгебраические термы]
+    \[T \Coloneqq \underbrace{a}_{\text{переменная}} \mid \underbrace{f}_{\substack{\text{функциональный} \\ \text{символ}}}\ T_1 \dots T_n\]
+
+    Функциональные символы \(\in F\), переменные \(\in T\)
+\end{definition}
+
+\begin{example}
+    \(f\ (f_2\ a\ b)\ c\)
+\end{example}
+
+\begin{definition}
+    \textbf{Подстановка переменных} --- отображение \(S_0 : V \to T\), являющееся тождественным почти всюду\footnote{Кроме конечного количества.}, то есть \(\exists \) фиксированные \(a_1 \dots a_n\), для которых \(S_0\) не тождественна: \(S_0(a_i) = T_i\), а для \(b \notin \{a_i\} \ \ S_0(b) = b\).
+
+    Тогда можно определить определить подстановку \(S : T \to T\):
+    \[S(f\ T_1 \dots T_n) = f\ (S(T_1))\ (S(T_2)) \dots (S(T_n))\]
+    \[S(a) = S_0(a)\]
+\end{definition}
+
+\begin{definition}
+    Рассмотрим уравнение \(T_1 = T_2\). Его \textbf{решение} --- такая подстановка \(S\), что \(S(T_1) \equiv S(T_2)\), где \(\equiv\) обозначается равенство строк.
+\end{definition}
+
+\begin{example}
+    \[f\ a\ (g\ b) = f\ (g\ c)\ d\]
+    \[S_0(a) = g\ c \quad S_0(d) = g\ b\]
+    \[S(f\ a\ (g\ b)) = f\ (g\ c)\ (g\ b)\]
+\end{example}
+
+\begin{definition}[система уравнений]
+    \[\begin{cases}
+            T_1 = P_1 \\
+            T_2 = P_2 \\
+            \vdots    \\
+            T_n = P_n
+        \end{cases}\]
+\end{definition}
+
+\subsection{Эквивалентность уравнений и систем}
+
+\begin{definition}
+    Две системы \(E_1 : \begin{cases}
+        T_1 = P_1 \\
+        \vdots    \\
+        T_n = P_n
+    \end{cases}\) и \(E_2 : \begin{cases}
+        T'_1 = P'_1 \\
+        \vdots      \\
+        T'_n = P'_n
+    \end{cases}\) называются \textbf{эквивалентными}, если любое решение системы \(E_1\) подходит к \(E_2\) и наоборот.
+\end{definition}
+
+\begin{statement}
+    Для любой системы существует эквивалентное уравнение.
+\end{statement}
+
+\begin{proof}
+    Выберем новый \(n\)-местный функциональный символ \(h\), построим уравнение \(h\ T_1 \dots T_n = h\ P_1 \dots P_n\).
+\end{proof}
+
+\begin{definition}
+    \[(U \circ T) (P) = U(T(P))\]
+\end{definition}
+
+\begin{definition}
+    Определим порядок на подстановках. \(S \preceq T\), если \(S\) --- частный случай \(T\), т.е. \(\exists U\): \(S = U \circ T\)
+\end{definition}
+
+\begin{definition}
+    \textbf{Наиболее общим решением} уравнения \(T = P\) назовём подстановку \(S\), такую что \(S(T) = S(P)\) и для любой \(S_1\): \(S_1(T) \equiv S_1(P)\) выполнено \(S_1 \preceq S\)
+\end{definition}
+
+\begin{theorem}
+    У уравнения в алгебраических термах \(T = P\) всегда есть наиболее общее решение, если есть хоть какое-то.
+\end{theorem}
+
+\begin{definition}
+    \textbf{Несовместная система} --- система с уравнениями вида \(f\ T_1 \dots T_n = g\ P_1 \dots P_k\), где \(f \not\equiv g\), либо \(x = \dots x \dots\).
+
+    В \texttt{OCaml} и \texttt{Haskell} это называется ``occurs check''.
+\end{definition}
+
+\begin{definition}
+    Система в \textbf{разрешённой форме} --- система вида \(\begin{cases}
+        a_1 = T_1 \\
+        \vdots    \\
+        a_n = T_n
+    \end{cases}\), где:
+    \begin{enumerate}
+        \item Все \(a_i\) различны
+        \item \(T_i\) не содержит \(a_j\) для \(i \neq j\)
+    \end{enumerate}
+
+    Альтернативное определение --- каждый \(a_i\) входит по одному разу.
+\end{definition}
+
+\subsection{Алгоритм унификации}
+
+Рассмотрим систему \(\begin{cases}
+    T_1 = P_1 \\
+    \vdots    \\
+    T_n = P_n
+\end{cases}\)
+
+Применяем одно из следующих:
+\begin{enumerate}
+    \item \(x = x\) --- отбрасываем.
+    \item \(T = x\), где \(T \not\equiv x\), тогда заменяем на \(x = T\)
+    \item \(\begin{cases}
+              x = P     \\
+              \vdots    \\
+              T_2 = P_2 \\
+              \vdots    \\
+              T_n = P_n
+          \end{cases} \Rightarrow \begin{cases}
+              T_2[x \coloneqq P] = P_2[x \coloneqq P]  \\
+              \vdots                                   \\
+              T_n [x \coloneqq P] = P_n[x \coloneqq P] \\
+              x = P
+          \end{cases}\)
+    \item \(f\ T_1 \dots T_n = f\ P_1 \dots P_n \Rightarrow \begin{cases}
+              T_1 = P_1 \\
+              \vdots    \\
+              T_n = P_n
+          \end{cases}\)
+\end{enumerate}
+
+% Итерации заканчиваются, когда мы получили либо систему в разрешенной форме, либо несовместную систему.
+
+\begin{theorem}
+    Применяя шаги алгоритма унификации, за конечное время можно получить систему либо в разрешенной форме, либо несовместную.
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим тройку \(\ev{\substack{\text{количество}\\ \text{неразрешенных}\\ \text{переменных}}, \substack{\text{максимальная}\\ \text{сложность}\\ \text{слева}}, \substack{\text{количество}\\ \text{уравнений}\\ \text{максимальной}\\ \text{сложности}\\ \text{слева}}}\). Сложность --- вложенность.
+
+    \begin{enumerate}
+        \item Применения правил уменьшают тройку.
+        \item \(\ev{0, 0, t}\) --- система в разрешенной форме.
+        \item Количество применений правил конечно, т.к. каждая из троек \(\in \omega^3\) и любая последовательность убывающих ординалов конечна.
+    \end{enumerate}
+\end{proof}
+
+\subsection{Вывод типов в \(\lambda_\to\)}
+
+\(( \to )\) --- \(2\)-местный функциональный символ.
+
+Проведём индукцию по структуре \(\lambda\)-выражения. Результатом разбора будет пара \(\ev{\text{система}, \text{тип}}\)
+
+\subsubsection{Построение уравнений}
+
+\begin{center}
+    \begin{tabular}{Lp{0.4\linewidth}CC}
+        \toprule
+        \text{Структура} & Комментарий                                                                                                     & \text{Система}                      & \text{Тип}          \\ \midrule
+        x                & Введём тип \(\alpha_x\)                                                                                         & \emptyset                           & \alpha_x            \\
+        A\ B             & Рекурсивный вызов на \(A\) и \(B\) даст \(\ev{E_A, \tau_A}, \ev{E_B, \tau_B}\). Вводим \(\beta\) --- новый тип. & E_A, E_B, \tau_B \to \beta = \tau_A & \beta               \\
+        \lambda x.A      & Рекурсивный вызов на \(A\) даст \(\ev{E_A, \tau_A}\). Берём тип для \(x : \alpha_x\).                           & E_A                                 & \alpha_x \to \tau_A \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+Несложно заметить, что эти правила соответствуют правилом вывода в типизированном \(\lambda\)-исчислении.
+
+\subsubsection{Разрешение системы}
+
+Это унификация.
+
+\begin{example}
+    Разберём \(B = \lambda x.\overbrace{x}^{A}\).
+
+    \begin{itemize}
+        \item \(E_A = \emptyset, \tau_A = \alpha_x\)
+        \item \(E_B = \emptyset, \tau_B = \alpha_x \to \alpha_x\)
+    \end{itemize}
+
+    Разрешим систему уравнений \(\tau_A, \tau_B\). Оказывается, эта система уже в разрешенной форме. Таким образом, \(\vdash \lambda x.x : \alpha \to \alpha\). Контекст пустой, т.к. свободных переменных нет (\(E_A,E_B = \emptyset\)).
+\end{example}
+
+\begin{definition}
+    Терм называется \textbf{слабо-нормализуемым}, если существует последовательность \(\beta\)-редукций, приводящих его в нормальную форму.
+\end{definition}
+
+\begin{definition}
+    Терм называется \textbf{сильно-нормализуемым}, если не существует бесконечной последовательности \(\beta\)-редукций, нигде не приводящая его в нормальную форму.
+\end{definition}
+
+\begin{example}
+    \(K\ I\ \Omega\) --- слабо нормализуемый, но не сильно нормализуемый
+\end{example}
+
+\begin{theorem}
+    \(\lambda_{ \to }\) сильно нормализуемо.
+\end{theorem}
+
+\begin{remark}
+    Это сильно ограничивает выразительность \(\lambda_{ \to }\).
+\end{remark}
+
+\section{Исчисление предикатов второго порядка}
+
+Второй порядок --- это когда переменные есть предикаты.
+
+\begin{definition}[предикат]
+    \[\Phi_\Pi \Coloneqq p \mid \Phi_\Pi \cup \Phi_\Pi \mid \Phi_\Pi \with \Phi_\Pi \mid \Phi_\Pi \to \Phi_\Pi \mid \forall p.\Phi_\Pi \mid \exists p.\Phi_\Pi\]
+\end{definition}
+
+\begin{statement}
+    Можно выразить:
+    \begin{align*}
+        a \with b   & \Coloneqq \forall p.(a \to b \to p) \to p         \\
+        a \lor b    & \Coloneqq \forall p.(a \to p) \to (b \to p) \to p \\
+        \bot        & \Coloneqq \forall p.p                             \\
+        \exists p.A & \Coloneqq \forall x.(\forall p.p \to x) \to x
+    \end{align*}
+\end{statement}
+
+Это исчисление также называется ``Система F'', оно же \(L_2\).
+\[L_2 \Coloneqq x \mid \lambda x^\alpha.A \mid P\ Q \mid P \tau \mid \lambda \alpha.A\]

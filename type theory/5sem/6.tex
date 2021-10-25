@@ -1,0 +1,37 @@
+\chapter{12 октября}
+
+\section{Абстрактные типы данных}
+
+ООП = АТД + наследование.
+
+\begin{example}[стек]
+    \[\texttt{push}: \alpha \to \alpha \texttt{ stack} \to \alpha \texttt{ stack}\]
+    \[\texttt{pop}: \alpha \texttt{ stack} \to (\alpha \cdot \alpha \texttt{ stack})\]
+    \[\texttt{empty} : \alpha \texttt{ stack}\]
+\end{example}
+
+Что мы понимаем под \(\exists \alpha.\varphi\)? \(\varphi\) --- интерфейс и существует где-то в природе тип, который этому интерфейсу соответствует.
+
+Для стека:
+\[\exists \alpha.\underbrace{(\eta \to \alpha \to \alpha)}_{\texttt{push}} \with \underbrace{(\alpha \to \alpha \with \eta)}_{\texttt{pop}} \with \underbrace{\eta}_{\texttt{empty}}\]
+
+Правила вывода:
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash \varphi [x \coloneqq \theta]}
+        \infer1{\exists x.\varphi}
+    \end{prooftree}\]
+
+\[\begin{prooftree}
+        \hypo{\Gamma, \psi \vdash \varphi}
+        \hypo{\Gamma \vdash \exists x.\psi}
+        \infer2[\(x \notin \mathrm{FV}(\Gamma)\)]{\Gamma \vdash \varphi}
+    \end{prooftree}\]
+
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash M : \sigma[\alpha \coloneqq \tau]}
+        \infer1{\Gamma \vdash \texttt{pack } \tau, M \texttt{ to } \exists \alpha.\sigma : \exists \alpha.\sigma}
+    \end{prooftree}\]
+
+% Здесь \texttt{pack} \(\tau, M\) соответствует объекту, который мы подставляем вместо абстрактного типа данных, а
+
+\textcolor{red}{TBD.}

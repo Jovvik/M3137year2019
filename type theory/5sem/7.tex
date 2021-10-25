@@ -1,0 +1,118 @@
+\chapter{19 октября}
+
+\section{Типовая система Хиндли-Милнера}
+
+Мы рассмотрели две системы типов:
+\begin{enumerate}
+    \item Просто типизированное лямбда исчисление: недостаточно выразительно
+    \item Система F: местами выразительна, местами недостаточно. Кроме того, потеряна разрешимость.
+\end{enumerate}
+
+Ограничим излишнюю свободу системы F.
+
+\begin{definition}[ранг типа]
+    Пусть \(\sigma\) --- тип без кванторов. \(R \subset \text{тип} \times \N_0\), такое что:
+    \begin{enumerate}
+        \item \(R(\sigma, 0)\)
+        \item Если \(R(\tau, k)\), то \(R(\forall \alpha.\tau,\max(k, 1))\)
+        \item Если \(R(\tau_0, k)\) и \(R(\tau_1, k + 1)\), то \(R(\tau_0 \to \tau_1, k + 1)\).
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    \[R(\alpha, 0) \Rightarrow R(\alpha, 5) \Rightarrow R(\forall \alpha.\alpha, 5)\]
+    \[R(\alpha \to \alpha, 0) \Rightarrow R(\forall \alpha.\alpha \to \alpha, 1)\]
+\end{example}
+
+\begin{definition}[Типовая система Хиндли-Милнера]
+    Рассмотрим \(\lambda\)-исчисление 2 порядка по Карри.
+
+    Типы:
+    \begin{enumerate}
+        \item Типы без кванторов: \(\tau = \alpha \mid (\tau \to \tau)\)
+        \item Типовые схемы: \(\sigma = \forall \alpha.\sigma \mid \tau\)
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Отношение ``\textbf{быть частным случаем}'' (специализация)]
+    \(\sigma_1 \sqsubseteq \sigma_2\) (\(\sigma_2\) --- частный случай \(\sigma_1\)), если \(\sigma_1 \equiv \forall \alpha_1 \dots \forall \alpha_n.\tau_1\), \(\sigma \equiv \forall \beta_1 \dots \beta_k.\tau_1[\alpha_1 \coloneqq \theta_1 \dots \alpha_n \coloneqq \theta_n]\) и новые \(\beta_1 \dots \beta_k\) не входят свободно в \(\sigma_1\).
+\end{definition}
+
+\begin{example}
+    \(\tau \sqsubseteq \texttt{string}\)
+    \[\begin{tikzcd}
+            & \texttt{string} \\
+            \gamma \arrow[bend left = 20]{ru}{\gamma[\gamma \coloneqq \texttt{string}]}\arrow[bend right = 10]{rd}\arrow{r}{\gamma[\gamma \coloneqq \alpha \to \beta]} & \alpha \to \beta \arrow{r} & \texttt{string} \to \texttt{int} \\
+            & (\alpha \to \beta) \to (\texttt{string} \to \texttt{int})
+        \end{tikzcd}\]
+\end{example}
+
+\begin{example}
+    \[\forall \alpha.\alpha \to \alpha \sqsubseteq \forall \beta.(\beta \to \beta) \to (\beta \to \beta)\]
+\end{example}
+
+Правила вывода:
+\[\begin{prooftree}
+        \infer0[\(\alpha \notin \mathrm{FV}(\Gamma)\)]{\Gamma, x : \sigma \vdash x : \sigma}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash A : \tau \to \tau'}
+        \hypo{\Gamma \vdash B : \tau}
+        \infer2{\Gamma \vdash A\ B : \tau'}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma, x : \tau \vdash A : \tau'}
+        \infer1{\Gamma : \lambda x.A : \tau \to \tau'}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash A : \sigma}
+        \hypo{\Gamma, x : \sigma \vdash B : \tau}
+        \infer2{\Gamma \vdash \mathrm{let}\ x = A\ \mathrm{in}\ B : \tau}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash A : \sigma'}
+        \infer1[\(\sigma' \sqsubseteq \sigma\)]{\Gamma \vdash A : \sigma}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash A : \sigma}
+        \infer1[\(\alpha \notin \mathrm{FV}(\Gamma)\)]{\Gamma \vdash A : \forall \alpha.\sigma}
+    \end{prooftree}\]
+\[\mathrm{let}\ x = A\ \mathrm{in}\ B \twoheadrightarrow_\beta B[x \coloneqq A]\]
+
+Казалось бы, \(\mathrm{let}\) похож на \((\lambda x.B)\ A\). Однако, мы разрешаем кванторы в \(A\).
+
+\begin{example}
+    \[I \equiv \lambda x.x : \forall \alpha.\alpha \to \alpha\]
+    \[\sphericalangle (I\ 1, I\ \texttt{\dq a\dq}) \quad I\ 1 : \texttt{int}, I\ \texttt{\dq a\dq} : \texttt{string}\]
+\end{example}
+
+\begin{enumerate}
+    \item \[\mathrm{let}\ \underbrace{I = \lambda x.x}_{I : \forall \alpha.\alpha \to \alpha}\ \mathrm{in}\ (I\ 1, I\ \texttt{\dq a\dq})\]
+    \item То же самое, но без let:
+          \[(\lambda i.(i\ 1,i\ \texttt{\dq a\dq}))\ (\lambda x.x)\]
+          В этом варианте тип внутри лямбды без кванторов. В силу этого операцию \((i\ 1,i\ \texttt{\dq a\dq})\) сложно выполнить --- нужно угадать, какой тип подставлять.
+\end{enumerate}
+
+Эта система очевидно уже, чем System F. Мы её сузили, чтобы получить разрешимость.
+
+\subsection{Алгоритм \(W\)}
+
+Мы хотим решить \(? \vdash A : ?\), т.е найти контекст и тип выражения, притом наиболее общие.
+
+\(W(\Gamma, E) \Rightarrow (\tau, S)\) --- по контексту и выражению получаем тип и подстановку.
+
+\begin{enumerate}
+    \item \(E \equiv x, x \in \Gamma, x : \sigma_x = \forall \alpha_1 \dots \alpha_n.\tau\). Тогда введём новые переменные \(\beta_1 \dots \beta_n\) и результатом будет:
+          \[W(\Gamma, E) = (\forall \beta_1 \dots \beta_n.\tau, \emptyset)\]
+    \item \(E \equiv \lambda x.P\). Пусть \(W(\Gamma \cup \{x : \gamma\}, P) = (\tau_P, S_1)\).
+          \[W(\Gamma, E) = (S_1(\gamma \to \tau_P), S_1)\]
+    \item \(E \equiv P\ Q\). Введём новый тип \(\gamma\). Пусть \(\mho\) --- вызов алгоритма унификации и:
+          \[W(\Gamma, P) = (\tau_P, S_1) \quad W(S_1 \Gamma, Q) = (\tau_Q, S_2) \quad \mho(S_2 \tau_P, \tau_Q \to \gamma) = S_3\]
+          Тогда:
+          \[W(\Gamma, E) = (S_3 \gamma, S_3 \circ S_2 \circ S_1)\]
+    \item \(E \equiv \mathrm{let}\ x = P\ \mathrm{in}\ Q\). Пусть:
+          \[W(\Gamma, P) = (\tau_P, S_1) \quad W(S_1 \Gamma \cup \{x : \forall\footnote{Кванторы по всем свободным в \(\tau_f\) переменным.}.\tau_f\}, Q) = (S_2, \tau_Q)\]
+          \[W(\Gamma, E) = (\tau_Q, S_2 \circ S_1)\]
+\end{enumerate}
+
+\unfinished

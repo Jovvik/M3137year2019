@@ -1,0 +1,108 @@
+\input{../../../preamble.sty}
+
+\lhead{Теория типов \textit{(практика)}}
+\cfoot{}
+\rfoot{26.10.2021}
+
+\begin{document}
+
+\section*{Домашнее задание №7: <<типовая система Хиндли-Милнера>>}
+\begin{enumerate}
+    \item \emph{О выразительной силе HM.} Заметим, что список --- это <<параметризованные>> числа в
+          аксиоматике Пеано. Число --- это длина списка, а к каждому штриху мы присоединяем какое-то значение.
+          Операции добавления и удаления элемента из списка --- это операции прибавления и вычитания
+          единицы к числу.
+
+          Рассмотрим тип <<бинарного списка>> (расширение Окамля):
+
+          \begin{minted}{OCaml}
+type 'a bin_list = Nil | Zero of (('a*'a) bin_list) |
+    One of 'a * (('a*'a) bin_list);;
+\end{minted}
+
+          и операцию добавления элемента к списку:
+
+          \begin{minted}{OCaml}
+let rec add elem lst = match lst wi th
+    Nil -> One (elem,Nil)
+  | Zero tl -> One (elem,tl)
+  | One (hd,tl) -> Zero (add (elem,hd) tl)
+\end{minted}
+
+          \begin{enumerate}
+              \item Какой тип имеет \verb!add! (обратите внимание на ключевое слово \verb!rec!: для
+                    точного указания соответствующего лямбда-выражения и вывода типа необходимо использовать Y-комбинатор)?
+                    Считайте, что семейство типов \verb!bin_list 'a! предопределено и обозначается как $\tau_\alpha$.
+                    Выразим ли этот тип в системе Хиндли-Милнера?
+              \item Реализуйте предложенный тип и функцию \verb!add! на Хаскеле (используйте опцию \verb!RankNTypes!).
+                    Также реализуйте функцию для удаления элемента списка (головы).
+              \item Предложите функцию для эффективного соединения двух списков (источник для
+                    вдохновения --- сложение двух чисел в столбик).
+              \item Предложите функцию для эффективного выделения $n$-го элемента из списка.
+          \end{enumerate}
+    \item На занятии мы рассмотрели функцию \verb!strange_pair x = (x 1, x "a")!.
+          Покажите, что данную функцию невозможно типизировать в типовой системе Хиндли-Милнера.
+          Указания: (а) ограничение мономорфизма отношения к делу не имеет;
+          (б) ограничение на правило введения квантора всеобщности может оказаться существенным.
+    \item Покажем, что алгоритм $W$ действительно находит корректный тип для лямбда-выражения
+          (доказательство, что он находит наиболее общий тип, мы оставим в стороне).
+          Для этого докажем по индукции, что $W(\Gamma,X)$ действительно находит такие тип $\tau$ и подстановку $S$,
+          что $S\Gamma \vdash X:\tau$:
+          \begin{enumerate}
+              \item покажите базу индукции: $W(\Gamma,x)$;
+                    \[\begin{prooftree}
+                            \hypo{\Gamma, x : \forall \alpha_1 \dots \alpha_n.\tau : x \vdash \forall \alpha_1 \dots \alpha_n.\tau}
+                            \infer1{\Gamma \vdash x : \forall \beta_1 \dots \beta_n.\tau}
+                        \end{prooftree}\]
+              \item покажите случай аппликации: $W(\Gamma,P\ Q)$;
+                    \[\begin{prooftree}
+                            \hypo{W(\Gamma, P) = (\tau_p, S_1)}
+                            \infer1{S_1\Gamma \vdash P : \tau_p}
+                            \infer1{S_{21}\Gamma \vdash P : S_2 \tau_p}
+                            \infer1{S_{321}\Gamma \vdash P : S_3(S_2 \tau_p)}
+                            \infer1{S_{321}\Gamma \vdash P : S_3(\tau_q \to \gamma)}
+                            \infer1{S_{321}\Gamma \vdash P : (S_3 \tau_q) \to S_3 \gamma}
+                            \hypo{W(S_1\Gamma, Q) = (\tau_q, S_2)}
+                            \infer1{S_{21}\Gamma \vdash Q : \tau_q}
+                            \infer1{S_{321}\Gamma \vdash Q : S_3 \tau_q}
+                            \infer2{(S_3 \circ S_2 \circ S_1)\Gamma \vdash P\ Q : S_3 \gamma}
+                        \end{prooftree}\]
+              \item покажите случай лямбда-абстракции: $W(\Gamma,\lambda x.P)$;
+                    \[\begin{prooftree}
+                            \hypo{W(\Gamma \cup \{x : \tau_x\}, P) =  (\tau_p, S_1)}
+                            \infer1{S_1(\Gamma \cup \{x : \tau_x\}) \vdash P : S_1\tau_p}
+                            \infer1{S_1\Gamma, x : S_1\tau_x \vdash P : S_1\tau_p}
+                            \infer1{S_1\Gamma \vdash \lambda x. P : S_1\tau_x \to S_1\tau_p}
+                            \infer1{S_1\Gamma \vdash \lambda x. P : S_1(\tau_x \to \tau_p)}
+                        \end{prooftree}\]
+              \item покажите случай \verb!let!-выражения: $W(\Gamma,\texttt{let}\ x=P\ \texttt{in}\ Q)$.
+                    \[\begin{prooftree}
+                            \hypo{W(\Gamma, P) =  (\tau_p, S_1)}
+                            \infer1{S_{1}\Gamma \vdash P : S_{1}\tau_p}
+                            \infer1{S_{21}\Gamma \vdash P : S_{21}\tau_p}
+                            \hypo{W(S_1\Gamma \cup \{x : \forall \{\alpha_i\}.\tau_p\}, Q) =  (\tau_q, S_2), \ \{\alpha_i\} \in FV(\tau_p)}
+                            \infer1{S_{2}(S_1\Gamma \cup \{x : \forall \{\alpha_i\}.\tau_p\}) \vdash Q : \tau_q, \ \{\alpha_i\} \in FV(\tau_p)}
+                            \infer1{\dots}
+                            \infer1{S_{2}(S_1\Gamma \cup \{x : S_{1}\tau_p\}) \vdash Q : \tau_q}
+                            \infer1{S_{21}\Gamma, x : S_{21}\tau_p \vdash Q : \tau_q}
+                            \infer2{S_{21}\Gamma \vdash let\ x = P\ in\ Q : \tau_q}
+                        \end{prooftree}\]
+          \end{enumerate}
+    \item Покажите, что в Хаскеле выражается $Y: \forall \alpha.(\alpha\rightarrow\alpha)\rightarrow\alpha$ и
+          правило исключённого третьего $E: \alpha\vee\neg\alpha$.
+
+          \begin{minted}{haskell}
+magic :: a
+magic = magic
+
+Y :: (a -> a) -> a
+Y = magic
+
+E :: Either a (a -> Void)
+E = magic
+          \end{minted}
+    \item Возможно ли в C++ построить выражения с типами ранга два и выше (включая конструкции с темплейтами)?
+          Приведите пример, если да.
+\end{enumerate}
+
+\end{document}

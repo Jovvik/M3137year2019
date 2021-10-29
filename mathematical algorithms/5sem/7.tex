@@ -1,0 +1,173 @@
+\chapter{16 октября}
+
+Пусть \(G\) --- произвольная группа, \(\sphericalangle \sigma : \Z \to G, \sigma : z \longmapsto a^z\)
+
+\(\im \sigma = \ev{a} \subset G\)
+
+Есть два случая:
+\begin{enumerate}
+    \item \(\ker \sigma = \{0\} \Rightarrow \im \sigma \cong \Z\) и \(G\) содержит бесконечную циклическую подгруппу.
+    \item \(\ker \sigma \neq \{0\} \Rightarrow \ker \sigma = H \subset \Z \Rightarrow H = \{nh\}_{n \in \Z} \Rightarrow \Z / H = \{[0], [1], [2] \dots [h - 1]\}\)
+          \[\begin{tikzcd}
+                  \Z \arrow[bend right]{rr}{\sigma} \arrow{r}{\varphi} & \Z / H \arrow{r}{\sigma^*} & G
+              \end{tikzcd}\]
+          Разложили \(\sigma = \sigma^* \circ \varphi\), где \(\varphi\) --- канонический гомоморфизм.
+
+          Тогда \(\sigma^*\) отображает \(\Z / H\) в \(a^0, a^1, a^2 \dots a^{h - 1}\), где \(a^h = a^0 = e\).
+
+          \begin{statement}
+              Все элементы различны, т.е. \(\sphericalangle s, r : a^s = a^r\). Тогда \(s = r\).
+          \end{statement}
+          \begin{proof}
+              \(a^{s - r} = e \Rightarrow s - r = kh = 0 \Rightarrow s = r\).
+          \end{proof}
+\end{enumerate}
+
+\begin{definition}
+    Пусть \(G\) --- циклическая группа \(a^0, a^1 \dots a^{h-1}\). Тогда \(h\) --- \textbf{период} элемента \(a\). Это не то же самое, что показатель: показатель имеет вид \(qh\).
+\end{definition}
+
+\begin{lemma}
+    \(G\) - конечная \(\Rightarrow\) период \(\forall g \in G\) делит порядок группы.
+\end{lemma}
+\begin{proof}
+    Пусть \(d\) --- период \(g \in G\), тогда \(g^d = e\).
+
+    \(\sphericalangle H = \ev{g} \text{ --- подгруппа } G\) и \(|H| = d\)
+
+    \[|G| = (G : 1) = (G : H) (H : 1) = (G : H)|H|\]
+\end{proof}
+
+\begin{lemma}
+    Пусть \(|G| = p\) --- простое число, \(\sphericalangle g \in G, g \neq e\).
+
+    Тогда \(G = \ev{g}\).
+\end{lemma}
+\begin{proof}
+    \(\sphericalangle g \in G, g \neq e\)
+
+    \(\sphericalangle H = \ev{g} \Rightarrow |H| \neq 1\), т.к. \(e \in H, g \in H\).
+
+    \(p = (G : 1) = (G : H)(H : 1)\). Но тогда \((G : H) = 1\) по простоте \(p\), следовательно \(G = \ev{g}\)
+\end{proof}
+
+\begin{lemma}
+    \(G\) --- циклическая группа. Тогда
+    \begin{enumerate}
+        \item \(H \subset G\) --- циклическая
+        \item \(\sigma(G)\) --- циклическая, если \(\sigma \in \mathrm{Hom}(G)\)
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \(G\) --- циклическая группа
+
+    \begin{enumerate}
+        \item \begin{enumerate}
+                  \item \(G\) --- бесконечная циклическая группа.
+
+                        Тогда \(G \cong \Z\) --- знаем все подгруппы \textit{(они циклические)}.
+                  \item \(G\) --- конечная циклическая группа.
+
+                        \(\sphericalangle H \subset G\) --- подгруппа.
+
+                        \(|G| \divided |H| \Rightarrow |H|\) конечна.
+
+                        \(\sphericalangle a \in H \Rightarrow a = g^n \Rightarrow a^k = g^{k n} \Rightarrow H = \ev{a}\)
+              \end{enumerate}
+        \item Пусть \(G = \ev{g}\), тогда \(\sigma(g)\) --- образующая для \(\sigma(G)\) и значит \(\sigma(G) = \ev{\sigma(g)}\)
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    \(G\) --- бесконечная циклическая группа. Тогда у \(G\) есть две образующие: \(g\) и \(g^{-1}\).
+\end{lemma}
+
+\section{Силовские группы}
+
+\begin{definition}
+    Группа называется \textbf{\(p\)-группой}, если ее порядок является степенью простого числа \(p\).
+\end{definition}
+
+\begin{definition}
+    Подгруппа \(H\) называется \textbf{\(p\)-подгруппой группы} \(G\), если \(H \subset G\), \(H\) --- \(p\)-группа.
+\end{definition}
+
+\begin{definition}
+    \(H\) называется \textbf{силовской} подгруппой \(G\), если \(H\) --- \(p\)-подгруппа \(G\) и \(|H| = p^n\), где \(p^n\) --- максимальный порядок в группе.
+\end{definition}
+
+Пусть \(n\) --- порядок группы \(G\). Мы знаем\footnote{Но докажем потом.}, что \(n = p_1^{n_1} p_2^{n_2} \dots\), где \(p_i\) --- простые. \(n_i\) --- максимальная степень \(p_i\), которая встречается в \(n\), т.е.  \(n \not\divided p_i^{n_{i+1}}\). Т.к. порядок подгруппы делит порядок группы, то найдутся подгруппы, порядки которых соответствуют этому разложению.
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(|G| = m\)
+        \item Показатель \(G = n\)
+        \item \(G\) --- коммутативная группа
+    \end{itemize}
+    Тогда порядок \(G\) делит некоторую степень показателя:
+    \[\exists k : n^k \divided m\]
+\end{lemma}
+
+\begin{proof}
+    По индукции (по порядку группы)
+
+    \(\sphericalangle H \vartriangleleft G, H = \ev{b}\). Т.к. показатель \(G = n, b^n = e\).
+
+    \(\sphericalangle |G / H|\)
+
+    Так как \(n \divided (H : 1)\) и по индукции \(n^k \divided (G : H)\), то \(n^{k + 1} \divided (G : 1) = (G : H)(H : 1)\)
+\end{proof}
+
+\begin{lemma}\itemfix
+    \label{lm_абелева_группа_делит_простое}
+    \begin{itemize}
+        \item \(G\) --- конечная абелева группа
+        \item \(|G| \divided p\) (\(p\) --- простое)
+    \end{itemize}
+
+    Тогда \(\exists H \subset G : |H| = p\).
+\end{lemma}
+
+\begin{proof}
+    \(|G| \divided p\) по условию.
+
+    \(\sphericalangle H = \ev{x}, x^n = e\)
+
+    Пусть показатель группы \(G\) есть \(n\), \(m\) --- порядок группы.
+
+    \[m \divided p \Rightarrow \exists s : m = sp\]
+    Некоторая степень показателя делится на порядок группы: \(n^k \divided m \Rightarrow \exists z : n^k = z \cdot m = zsp\)
+    \[x^{zs} \eqqcolon y,\ \ y^p = e \Rightarrow H' = \ev{y} \text{ --- искомая группа}\]
+\end{proof}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(G\) --- конечная группа
+        \item \(|G| \divided p\) (\(p\) --- простое)
+    \end{itemize}
+
+    Тогда в \(G\) \(\exists\) cиловская подгруппа.
+\end{lemma}
+
+\begin{proof}
+    По индукции.
+
+    Если \(|G| = p\), искомое очевидно.
+
+    Пусть искомое доказано для всех порядков меньших \(G\).
+
+    Пусть \(H \subset G \Rightarrow (G : 1) = (G : H)(H : 1)\)
+
+    \begin{enumerate}
+        \item Если \(|H| \divided p\), то силовская подгруппа для \(G\) будет силовской подгруппой для \(H\), которая существует по индукционному предположению.
+        \item Если \((G : H) \divided p\)
+
+              Пусть \(G\) действует на себя.
+              \[(G : 1) = |Z_G| + \sum_x (G : G_x) \]
+              Так как \((G : 1) \divided p\) и \(\forall x : (G : G_x) \divided p \Rightarrow |Z_G| \divided p\), т.е. центр нетривиальный. Кроме того, центр абелев, следовательно по лемме \ref{lm_абелева_группа_делит_простое} \(\exists H \subset Z_G\) - абелева подгруппа, такая что \(|H| = p\).
+
+              Т.к. \(H \subset G\), \(H \vartriangleleft G \Rightarrow G/H\). В \(G / H\) существует силовская подгруппа \(p^{n-1}\) по индукционному предположению, назовём ее \(K'\).
+
+              \(|K'|= p^{n-1}, |K'H| = p^{n-1} \cdot p = p^n\), при этом \(K'H\) --- подгруппа, т.к. \(H\) --- нормальная подгруппа. \(K'H\) --- искомая подгруппа.
+    \end{enumerate}
+\end{proof}

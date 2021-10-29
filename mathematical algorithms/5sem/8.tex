@@ -1,0 +1,63 @@
+\chapter{23 октября}
+
+\subsection{Теоремы Силова}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item \(G\) --- произвольная группа
+        \item \(H, K\) --- подгруппы \(G\)
+        \item \(H \subset N_K = \{g \in G : gKg^{-1} = K\}\)
+    \end{itemize}
+
+    Тогда:
+    \begin{enumerate}
+        \item \(HK\) --- подгруппа \(G\)
+              \begin{proof}
+                  \(\sphericalangle h_1k_1, h_2k_2 \in HK\)
+                  \[(h_1k_1)(h_2k_2) = h_1k_1h_2k_2 = \underbrace{h_1h_2}_h\underbrace{k_1k_2}_k\]
+              \end{proof}
+        \item \(K \vartriangleleft HK \Rightarrow \exists HK / K\)
+
+              \(\sphericalangle \varphi : HK \to HK / K\) --- канонический гомоморфизм
+
+              \(\ker \varphi = K\), т.к. \(1 \cdot K \cdot K = K^2 = K\), что есть нейтральный элемент фактор-группы.
+
+              Мы запутались, но каким-то образом \(HK / K \cong H / H \cap K\).
+
+              \unfinished % https://youtu.be/G9huOHYZqbE?t=4842
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[первая теорема Силова]
+    \label{силов1}
+    Каждая \(p\)-подгруппа содержится в силовской \(p\)-подгруппе.
+\end{theorem}
+\begin{proof}
+    Пусть \(G\) --- группа, \(S\) --- множество силовских \(p\)-подгрупп и \(G\) действует на \(S\) сопряжением.
+
+    \(\sphericalangle \mathcal{P} \in S, S = S_G\)
+    \[S_0 \coloneqq O_G(\mathcal{P}) \defeq \{g\mathcal{P}g^{-1}\}_{g \in G} = \{ \tilde{\mathcal{P}}_1, \tilde{\mathcal{P}}_2 \dots \tilde{\mathcal{P}}_m\}\]
+    Сколько элементов в \(S_0\)? \((G : \mathcal{P}) \not\divided p \Rightarrow |S_0| \not\divided p\)
+
+    Пусть \(H\) --- \(p\)-подгруппа \(G\), действующая на \(S_0\) сопряжением.
+
+    \begin{remark}
+        \(|H| = p^k \Rightarrow \forall \tilde{H} \subset H \ \ |\tilde{H}| \divided p\)
+    \end{remark}
+    \[|S_0| = \sum_{C} (H : \tilde{H}_x)\]
+    Т.к. \(H\) --- \(p\)-подгруппа, остатки от деления \((H : \tilde{H}_x)\) либо \(\divided p\), либо \(= 1\). Т.к. \(|S_0| \not\divided p\), существуют слагаемые, не делящиеся на \(p\) и по предыдущему утверждению они равны единице. Рассмотрим одну из таких групп, \(\tilde{H}'\) Ей соответствует \(\mathcal{P}'\), причём \(O_{H}(\mathcal{P}') = \mathcal{P}', \forall h \in H \ \ h\mathcal{P}'h^{-1} = \mathcal{P}' \Rightarrow h\mathcal{P}' = \mathcal{P}'h\), а следовательно \(H \subset N_{\mathcal{P}'}\).
+
+    Так как \(HK / K \cong H / H \cap K\), \(H\mathcal{P}' / \mathcal{P}' \cong H / (H \cap \mathcal{P}') \Rightarrow \mathcal{P}'H \cong \mathcal{P}' \Rightarrow H \subset \mathcal{P}'\)
+\end{proof}
+
+\begin{theorem}[вторая теорема Силова]
+    \label{силов2}
+    Силовские \(p\)-подгруппы сопряжены.
+\end{theorem}
+
+\begin{theorem}[третья теорема Силова]
+    \label{силов3}
+    Число силовских \(p\)-подгрупп \(\equiv 1 \mod p\).
+\end{theorem}
+
+\unfinished

@@ -115,4 +115,38 @@
           \[W(\Gamma, E) = (\tau_Q, S_2 \circ S_1)\]
 \end{enumerate}
 
-\unfinished
+\begin{example}
+    \[\mathrm{let}\ I = \lambda x.x\ \mathrm{in}\ (I\ 1, I\ \mlq\mrq)\]
+    Согласно 4 пункту алгоритма:
+    \[I : \forall \alpha.\alpha \to \alpha \vdash (I\ 1, I\ \mlq\mrq)\]
+\end{example}
+
+Мы теряем полноту по Тьюрингу, т.к. это частный случай системы F. Мы такого не хотим, поэтому добавим чего-нибудь, что её нам даст.
+
+\begin{enumerate}
+    \item Правило для \(Y\):
+          \[Y : \forall \alpha.(\alpha \to \alpha) \to \alpha\]
+
+          Теория становится противоречивой --- вместо \(\alpha \to \alpha\) всегда можно подставить \(\mathrm{id}\) и получить любое \(\alpha\).
+
+    \item \(\sphericalangle \texttt{IntList} = (\texttt{int} \with \texttt{IntList}) \lor \texttt{Nil}\). Это какое-то уравнение. Как его решить?
+
+          Введём \(\mu\)-оператор: \(\mu\ \eta.(\texttt{int} \with \eta) \lor \texttt{Nil}\) или в общем случае \(\mu\ \eta.\tau\) --- тип, решающий уравнение \(\eta = \tau\)
+\end{enumerate}
+
+Есть две традиции решения таких уравнений:
+\begin{enumerate}
+    \item Экви-рекурсивные: \(\mu\) существует как тип (Java).
+    \item Изо-рекурсивные: ищем \(\mu \eta.\tau(\eta)\) вводятся две операции
+          \begin{enumerate}
+              \item Roll: \(\tau(\eta) \to \eta\)
+              \item Unroll: \(\eta \to \tau(\eta)\)
+          \end{enumerate}
+\end{enumerate}
+
+Итого мы взяли систему F и:
+\begin{enumerate}
+    \item Запретили типы с неповерхностными кванторами
+    \item Добавили \texttt{let}-полиморфизм
+    \item Добавили противоречивость через \(Y\)-комбинатор и решение уравнений на типах.
+\end{enumerate}

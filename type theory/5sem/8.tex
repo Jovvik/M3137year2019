@@ -1,0 +1,109 @@
+\chapter{26 октября}
+
+Это последняя лекция, посвященная части ``Матлогика в языках программирования''. Вторая часть --- ``Языки программирования в матлогике и математике''.
+
+\section{\(\lambda\)-куб}
+
+Мы упустили теорию первого порядка.
+
+\subsection{Обобщенные типовые системы}
+
+\[\mathcal{F} \Coloneqq x \mid \underbrace{\mathcal{F}\ \mathcal{F}}_{\mathrm{применение}} \mid \underbrace{\lambda x : \mathcal{F}.\mathcal{F}}_{\lambda-\mathrm{абстракция}} \mid \Pi x : \mathcal{F}.\mathcal{F} \mid \underbrace{C}_{\mathrm{константа}}\]
+\[C \Coloneqq * \mid \square\]
+Мы решили, что типы и выражения должны сосуществовать, например в C++ можно написать \verb!Array<int, 23+7>!.
+
+\begin{obozn}
+    \(s \coloneqq\) множество \((*, \square)\)
+\end{obozn}
+
+\[\begin{prooftree}
+        \infer0[аксиома]{ \vdash * : \square}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash A : s}
+        \infer1[начальное правило, \(x \notin FV(\Gamma)\)]{\Gamma, x : A \vdash x : A}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash \varphi : (\Pi x^A.B) : s}
+        \hypo{\Gamma \vdash a : A}
+        \infer2[применение]{\Gamma \vdash (\varphi\ a) : (B[x \coloneqq A])}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash A : B}
+        \hypo{\Gamma \vdash B' s}
+        \hypo{B =_\beta B'}
+        \infer3[преобразование]{\Gamma \vdash A : B'}
+    \end{prooftree}\]
+\(*\) --- тип, \(\square\) --- тип типа.
+
+\begin{example}
+    \verb!array [a..b] of T!. Можно рассматривать \verb!array [a..b] of! как оператор над типами. Его тип \(* \to *\). Это также называется не тип, а род.
+\end{example}
+
+\begin{remark}
+    \[ \underset{\substack{\text{знач.} \\ value}}{7} : \underset{\substack{\text{тип} \\ type}}{int} : \underset{\substack{\text{род} \\ kind}}{*} : \underset{\substack{\text{сорт} \\ sort}}{\square} \]
+\end{remark}
+
+Пусть \(S \subseteq C \times C\) параметризует типовую систему. Здесь и далее \((s_1, s_2)\) пробегает все пары \(\in S\).
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash A : s_1}
+        \hypo{\Gamma, x:A \vdash B : s_2}
+        \infer2[\(\Pi\)-правило]{\Gamma \vdash (\Pi x^A.B) : s_2}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash A : s_1}
+        \hypo{\Gamma, x : A \vdash b : B}
+        \hypo{\Gamma, x : A \vdash B : s_2}
+        \infer3[\(\lambda\)-правило]{\Gamma \vdash (\lambda x^A.b) : (\Pi x^A.B)}
+    \end{prooftree}\]
+
+\begin{obozn}
+    Будем писать \(\Pi x^\varphi.\pi\) вместо \(\varphi \to \pi\), если \(x \notin FV(\pi)\).
+\end{obozn}
+
+\begin{obozn}
+    \[x : y : z \Rightarrow x : y, y : z\]
+\end{obozn}
+
+\begin{remark}
+    Пусть \(x \notin FV(B)\). Тогда рассмотрим следующее правило:
+    \[\begin{prooftree}
+            \hypo{\Gamma \vdash A : *}
+            \hypo{\Gamma, x : A \vdash b : B}
+            \hypo{\Gamma, x : A\footnotemark \vdash B : *}
+            \infer3{\Gamma \vdash (\lambda x^A.b) : A \to B}
+        \end{prooftree}\]
+    \footnotetext{Можно убрать, т.к. \(x \notin FV(B)\)}
+\end{remark}
+
+А что если \(x \in FV(B)\)? Тогда мы получаем \textbf{зависимый тип}.
+
+\begin{example}
+    \verb!sprintf("%d", "a")! --- так нельзя.
+
+    \verb!sprintf! \(: (x:\verb!string!) \to F(x)\) --- так мы не пишем, не сложилось по традиции. Мы будем писать \(\Pi x^{\verb!string!} .F(x)\)
+
+    \verb!sprintf "%s"! \(:\) \verb!string! \( \to \) \verb!string!
+\end{example}
+
+Рассмотрим \(S\) из определения.
+
+\pagebreak
+
+\begin{center}
+    \begin{tabular}{LLL}\toprule
+        S                                                      & \text{Название системы типов}                          & \text{Характерный представитель}  \\ \midrule
+        (*, *)                                                 & \lambda_{\to}                                          & \lambda x.x                       \\
+        (*, *), (\square, *)                                   & \lambda_{\to}                                          & \Lambda \alpha.\lambda x^\alpha.x \\
+        (*, *), (\square, *)                                   & \lambda\ \omega \text{ слабая}                         & \verb!Int[]!           \\
+        (*, *), (\square, *), (\square, \square)               & \lambda\ \omega                                        &                                   \\
+        (*, *), (*, \square)                                   &                                                        & \verb!int[n]!           \\
+        (*, *), (*, \square), (\square, *), (\square, \square) & \lambda C : \text{исчисление конструкций}\footnotemark &                                   \\
+        \bottomrule
+    \end{tabular}
+    \footnotetext{Языки доказательств}
+\end{center}
+
+Объектно-ориентированное программирование не описывается через \(S\).
+
+Дальше в лекции были примеры, которые не записаны.

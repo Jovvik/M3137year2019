@@ -28,12 +28,17 @@
         \hypo{\Gamma \vdash a : A}
         \infer2[применение]{\Gamma \vdash (\varphi\ a) : (B[x \coloneqq A])}
     \end{prooftree}\]
-\[\begin{prooftree}
-        \hypo{\Gamma \vdash A : B}
-        \hypo{\Gamma \vdash B' : s}
-        \hypo{B =_\beta B'}
-        \infer3[преобразование]{\Gamma \vdash A : B'}
-    \end{prooftree}\]
+    \[\begin{prooftree}
+            \hypo{\Gamma \vdash A : B}
+            \hypo{\Gamma \vdash B' : s}
+            \hypo{B =_\beta B'}
+            \infer3[преобразование]{\Gamma \vdash A : B'}
+        \end{prooftree}\]
+        \[\begin{prooftree}
+                \hypo{\Gamma \vdash B : C}
+                \hypo{\Gamma \vdash A : s}
+                \infer2[ослабление, \(x \notin FV(\Gamma)\)]{\Gamma, x : A \vdash B : C}
+            \end{prooftree}\]
 \(*\) --- тип, \(\square\) --- тип типа.
 
 \begin{example}

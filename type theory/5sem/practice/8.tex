@@ -1,0 +1,177 @@
+\input{../../../preamble.sty}
+
+\lhead{Теория типов \textit{(практика)}}
+\cfoot{}
+\rfoot{2.11.2021}
+
+\begin{document}
+
+\section{Домашнее задание №8: <<обобщённые типовые системы>>}
+\begin{enumerate}
+    \item Укажите тип (род) в исчислении конструкций для следующих выражений (при необходимости определите
+          типы используемых базовых операций и конструкций самостоятельно) и докажите его:
+          \begin{enumerate}
+              \item Функция возведения целого числа в квадрат: \verb!sq x = x \star x!
+                    \begin{solution}
+                        \[\begin{prooftree}
+                                \hypo{\vdash \texttt{int} : \star}
+                                \hypo{x : \texttt{int} \vdash x \star x : \texttt{int}}
+                                \hypo{x : \texttt{int} \vdash \texttt{int} : \star}
+                                \infer3{\vdash (\lambda x^{\texttt{int}}.x \star x) : (\Pi x^{\texttt{int}}.\texttt{int})}
+                            \end{prooftree}\]
+
+                        \[\begin{prooftree}
+                                \hypo{\vdash \texttt{int} : \star}
+                                \hypo{x : \texttt{int} \vdash \texttt{int} : \star}
+                                \infer2{\vdash (\Pi x^{\texttt{int}}.\texttt{int}) : \star}
+                            \end{prooftree}\]
+                    \end{solution}
+              \item \verb!sizeof!
+                    % \begin{solution}
+                    %     \[\begin{prooftree}
+                    %             \hypo{\vdash \star : \square}
+                    %             \hypo{x : \star \vdash F\ x : \star\ \ (\texttt{int})}
+                    %             \infer2{ \vdash (\Pi x^\star.F\ x) : \star}
+                    %         \end{prooftree}\]
+                    % \end{solution}
+              \item \verb!std::map!
+
+                    \verb!Compare!, \verb!Allocate! опущены, там то же самое.
+                    \begin{solution}
+                        \[\begin{prooftree}
+                                \hypo{\vdash \star : \square}
+                                \hypo{\vdash \star : \square}
+                                \hypo{\vdash \star : \square}
+                                \hypo{\vdash \star : \square}
+                                \infer2[ослабл.]{k : \star, v : \star \vdash \star : \square}
+                                \infer2[\(\Pi\)]{k : \star \vdash \Pi v^\star.\star : \square}
+                                \infer2[\(\Pi\)]{ \vdash \Pi k^\star.(\Pi v^\star.\star) : \square}
+                            \end{prooftree}\]
+                    \end{solution}
+              \item Монада \verb!ST! из Хаскеля.
+                    \begin{solution}
+                        Кажется, то же самое, что и \verb!std::map!. Вся магия \verb!ST! в \verb!runST! --- она второго kindа, но нас это не волнует.
+                    \end{solution}
+              \item Пусть задано выражение рода $\textbf{nonzero}: \star\rightarrow\star$, выбрасывающее нулевой элемент из
+                    типа. Например, $\textbf{nonzero}\ \textbf{unsigned}$ --- тип положительных целых чисел.
+                    Определите, каков в коде
+                    \begin{minted}{cpp}
+template<typename T, T x>
+struct NonZero { const static std::enable_if_t<x != T(0), T> value = x; };
+\end{minted}
+                    будет тип (род) поля value.
+
+                    \begin{solution}
+                        \(\star \to \mathrm{nonzero}\ \star\)
+                        \[\begin{prooftree}
+                                \hypo{ \vdash \star : \square}
+                                \hypo{x : \star \vdash \mathrm{nonzero}\ x : \star}
+                                \infer2{ \vdash (\Pi x^\star.\mathrm{nonzero}\ x) : \star}
+                            \end{prooftree}\]
+                    \end{solution}
+          \end{enumerate}
+
+    \item Приведём следующее странное рассуждение: если мы рассмотрим правый нижний дальний угол лямбда-куба,
+          соответствующий $S = \{ \langle\star,\star\rangle, \langle\star,\square\rangle, \langle\square,\star\rangle\}$,
+          то можем заметить, что теоретически возможно существование функций, отображающих тип в значение ---
+          а потом значение в тип
+          (например, по типу вернуть его название в строке, изменить его, а потом по изменённому названию построить другой тип).
+
+          Поясните, почему тем не менее необходимо существование случая $\langle\square,\square\rangle$ в аксиоматике,
+          почему всё равно мы не сможем формально построить функции рода $\Pi x^\star.F\ x$ в такой теории.
+
+          \begin{solution}
+              По какому правилу мы получим \((\Pi x^\star.F\ x) : \square\)?
+
+              \[\begin{prooftree}
+                      \hypo{\Gamma \vdash \star : \star}
+                      \hypo{\dots}
+                      \infer2[\(\Pi\)-правило]{\Gamma \vdash (\Pi x^\star.F\ x) : \square}
+                  \end{prooftree}\]
+
+              Такого не может быть, потому что если \(\Gamma \vdash \star : \star\), то \(\star \to \star : \star\), но \(\star \to \star : \square\).
+
+              \begin{itemize}
+                  \item Очевидно по \(\lambda\)-правилу, аксиоме и начальному правилу не может быть.
+                  \item Применение откладывает доказательство искомого ``на потом'':
+
+                        \[\begin{prooftree}
+                                \hypo{\Gamma \vdash \varphi : (\Pi y^A.B) : s}
+                                \hypo{\Gamma \vdash a : A}
+                                \infer2[применение]{\Gamma \vdash (\varphi\ a) \equiv \Pi qx^\star.F\ x : (B[y \coloneqq A]) \equiv \square}
+                            \end{prooftree}\]
+                        \[B \equiv \Pi x^\star.F'\ y\ x\]
+                        Нужно найти тип \(B\), что сводится к исходной задаче.
+
+                  \item \(\beta\)-редукция из преобразования не поможет --- не работает на \(S\).
+                  \item Для ослабления нужно опять доказать искомое.
+              \end{itemize}
+          \end{solution}
+
+    \item Предложите выражение на языке C++ (возможно, использующее шаблоны), имеющее следующий род (тип):
+          \begin{enumerate}
+              \item $\textbf{int}\rightarrow(\star\rightarrow\star)$
+                    \begin{minted}{cpp}
+#define bruh(n, t) std::array<t, n>
+                \end{minted}
+              \item $(\star\rightarrow\textbf{int})\rightarrow\star$
+                    \begin{minted}[linenos, breaklines]{cpp}
+template<template <typename> typename T>
+    requires std::is_same_v<
+        std::decay_t<decltype(T<std::nullptr_t>::value)>, // no way to check template
+        int>
+class answer
+{};
+
+template<typename T>
+struct sizeof_v
+{
+    static constexpr int value = sizeof(T);
+};
+              \end{minted}
+              \item $\Pi x^\star.n^\textbf{int}.F(n,x)$, где $$F(n,x) = \left\{\begin{array}{ll}\textbf{int},    & n = 0 \\
+             x\rightarrow F(n,x), & n > 0\end{array}\right.$$
+                    \begin{solution}\itemfix
+                        \begin{minted}{cpp}
+template<typename x, unsigned n>
+struct answer
+{
+    static constexpr auto get(x const&)
+    {
+        return answer<x, n-1>::get;
+    }
+};
+
+template<typename x>
+struct answer<x, 0>
+{
+    static constexpr int get()
+    {
+        return 0;
+    }
+};
+
+#include <iostream>
+
+int main()
+{
+    std::cout << answer<int, 2>::get(0)(1)() << std::endl; // prints 0
+}
+                 \end{minted}
+                    \end{solution}
+          \end{enumerate}
+
+    \item Аналогично типу $\Pi$, мы можем ввести тип $\Sigma$, соответствующий квантору существования
+          в смысле изоморфизма Карри-Ховарда.
+          \begin{enumerate}
+              \item Определите правила вывода для $\Sigma$ в обобщённой типовой системе (воспользуйтесь правилами
+                    для экзистенциальных типов в системе $F$).
+              \item Укажите способ выразить $\Sigma$ через $\Pi$ (также воспользуйтесь идеями для системы $F$).
+                    \[\operatorname{pack} \tau, M \text { to } \Sigma \alpha . \sigma=\lambda \beta^{*} . \lambda x^{\Pi \alpha^{*} . \sigma \rightarrow \beta} . x\ \tau\ M: \Pi \beta^{*} .\left(\Pi \alpha^{*} . \sigma \rightarrow \beta\right) \rightarrow \beta\]
+          \end{enumerate}
+
+    \item Рассмотрим классы типов в Хаскеле (например, \verb!Num!). Каким образом их можно представить в обобщённой
+          типовой системе? Как формализовать запись типа функции \verb!f :: Num a => a -> a!?
+\end{enumerate}
+
+\end{document}

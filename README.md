@@ -36,6 +36,7 @@
 - [2 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/type%20theory/5sem/practice/2.pdf)
 - [4 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/type%20theory/5sem/practice/4.pdf)
 - [7 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/type%20theory/5sem/practice/7.pdf)
+- [8 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/type%20theory/5sem/practice/7.pdf)
 
 ### Теория чисел (алгоритмы в математике)
 

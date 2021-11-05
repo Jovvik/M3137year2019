@@ -1,0 +1,94 @@
+\input{../../../preamble.sty}
+
+\lhead{Алгоритмы в математике \textit{(практика)}}
+\cfoot{}
+\rfoot{30.10.2021}
+
+\begin{document}
+
+\begin{exercise}
+    Рассмотрим группу диэдра \(D_6\). Найти в ней силовскую \(2\)-подгруппу \(\mathcal{P}_2\) и силовскую \(3\)-подгруппу \(\mathcal{P}_3\) такие, чтобы \(\mathcal{P}_3\) была нормальной. Рассмотрим множество \(S = \mathcal{P}_3 \times \mathcal{P}_2\):
+    \[S = \{(\sigma, \tau) \mid \sigma \in \mathcal{P}_3, \tau \in \mathcal{P}_2\}\]
+
+    Рассмотрим отображение \(\varphi : S \to D_6\), которое перемножает компоненты кортежа:
+    \[\varphi((\sigma, \tau)) = \sigma\tau\]
+    Ввести на \(S\) структуру группы, так чтобы отображение \(\varphi\) стало изоморфизмом.
+\end{exercise}
+\begin{solution}
+    \(12 = 4 \cdot 3 \Rightarrow\) силовские \(2\)-подгруппы имеют порядок \(2^2 = 4\), силовские \(3\)-подгруппы имеют порядок \(3^1 = 3\).
+
+    \begin{obozn}
+        Поворот на \(60t\) (\(60t \in [0, 360)\)) градусов это \(\rho_t\). Зафиксируем произвольную ось симметрии, тогда \(\tau_t\) --- отражение относительно оси, повернутой на \(30t\) градусов относительно фиксированной оси (\(30t \in [0, 180)\)). Все сложения и вычитания в индексах операций выполняются по модулю \(6\).
+    \end{obozn}
+
+    Несложно заметить, что \(\{e, \tau_0, \rho_3, \tau_3\}\) образуют подгруппу размера \(4\), пусть она будет \(\mathcal{P}_2\).
+
+    \(\mathcal{P}_3 = \{e, \rho_2, \rho_4\}\). Нормальность:
+    \begin{enumerate}
+        \item Поскольку повороты коммутируют между собой, \(\rho_i \mathcal{P}_3 \rho_i^{-1} = \rho_i\rho_i^{-1} \mathcal{P}_3 = \mathcal{P}_3\).
+        \item \begin{enumerate}
+                  \item \(e\) очевидно нормален
+                  \item \(\tau_i \rho_2 \tau_i^{-1} = \tau_{i - 2} \tau_i = \rho_{ -2} = \rho_4\)
+                  \item \(\tau_i \rho_4 \tau_i^{-1} = \tau_{i - 4} \tau_i = \rho_{ -4} = \rho_2\)
+              \end{enumerate}
+    \end{enumerate}
+
+    \(e_S = (e, e)\) --- очевидно.
+
+    Воспользуемся сопряжением:
+    \[(\sigma, \tau) \circ (\sigma', \tau') \coloneqq (\sigma \tau \sigma' \tau^{-1}, \tau \tau')\]
+
+    Интуитивное пояснение нахождения этой операции: нормальность \(\mathcal{P}_3\) явно требуется не случайно, поэтому воспользуемся тем, что \(\tau \sigma \tau^{-1} \in \mathcal{P}_3\) --- тут есть 4 варианта навешивания штрихов. Для второго элемента результата вариантов два: \(\tau \tau'\) и \(\tau' \tau\) (отбрасывать \(\tau\) или \(\tau'\) не кажется содержательным). Мы ещё забыли \(\sigma'\) \textit{(или \(\sigma\), в зависимости от штрихов в сопряжении)}, поэтому домножим на него в первом элементе результата. После небольшого перебора находится искомая операция.
+
+    \begin{remark}
+        То, что \(\varphi\) --- изоморфизм, показано в задаче 3.
+    \end{remark}
+\end{solution}
+
+\begin{exercise}
+    Рассмотрим группу порядка \(35\). Рассмотрим некоторую её силовскую \(5\)-подгруппу \(\mathcal{P}_5\). Показать, что она единственна.
+
+    \begin{remark}
+        Показать, что количество \(n_5\) силовских \(5\)-подгрупп равно: \(n_5 = 1\)
+    \end{remark}
+\end{exercise}
+\begin{proof}
+    \(35 = 5 \cdot 7 \Rightarrow n_5 \equiv 1 \mod 5\) и \(\frac{35}{5} \divided n_5\) по третьей теореме Силова\footnote{Второй факт, кажется, не рассматривался на лекции, но он очевиден. Я взял его с википедии, страница ``Теоремы Силова''.}. У \(7\) два делителя: \(1\) и \(7\). \(7 \not\equiv 1 \mod 5, 1 \equiv 1 \mod 5 \Rightarrow n_5 = 1\).
+\end{proof}
+
+\begin{exercise}
+    Рассмотрим группу \(G\) порядка \(119\). Пусть \(\mathcal{P}_7\) --- её силовская \(7\)-подгруппа. Показать, что \(\mathcal{P}_7\) нормально. Показать, что фактор-группа \(G / \mathcal{P}_7\) --- циклическая группа. Показать, что группа \(G\) абелева.
+    \begin{remark}
+        см. задачу 1
+    \end{remark}
+\end{exercise}
+\begin{solution}
+    \(119 = 7 \cdot 17 \Rightarrow |\mathcal{P}_7| = 7 \Rightarrow |G / \mathcal{P}_7| = \frac{|G|}{|\mathcal{P}_7|} = \frac{119}{7} = 17\) --- простое число \( \Rightarrow G / \mathcal{P}_7\) --- циклическая группа.
+
+    Аналогично предыдущей задаче \(n_7 \equiv 1 \mod 5, 17 \divided n_7 \Rightarrow n_7 = 1\), т.е. \(\mathcal{P}_7\) --- единственная силовская \(7\)-подгруппа. \(|g\mathcal{P}_7g^{-1}| = |\mathcal{P}_7|\), но \(g\mathcal{P}_7g^{-1}\) также является силовской \(7\)-подгруппой. В силу единственности \(g\mathcal{P}_7g^{-1} = \mathcal{P}_7 \Rightarrow \mathcal{P}_7\) нормальна.
+
+    По первой теореме Силова \(\exists \mathcal{P}_{17}\). \(\mathcal{P}_{7} \times \mathcal{P}_{17} \cong G\) по изоморфизму \(\varphi : (a, b) \mapsto ab\), где операция на \(\mathcal{P}_7, \mathcal{P}_{17}\) есть \((a, b) \circ (c, d) = (abcb^{-1}, bd)\):
+    \[abcd = \varphi(a, b) \varphi(c, d) \stackrel{?}{=} \varphi((a, b) \circ (c, d)) = \varphi((abcb^{-1}, bd)) = abcd\]
+
+    Т.к \(7\) и \(17\) простые числа, \(\mathcal{P}_7\) и \(\mathcal{P}_{17}\) циклические, а следовательно абелевы. Пусть \(\mathcal{P}_7 = \ev{g}, \mathcal{P}_{17} = \ev{h}\). Покажем, что \(g^ih^j = h^jg^i\), тогда:
+    \[(g^i, h^j) \circ (g^k, h^l) = (g^ih^jg^kh^{-j}, h^{j + l}) = (g^{i + k}, h^{j + l}) = (g^k, h^l) \circ (g^i, h^j)\]
+    , то есть \(\mathcal{P}_7 \times \mathcal{P}_{17}\) абелева, тогда \(G\) абелева как изоморфная абелевой.
+
+    Для этого покажем \(g^ih = hg^i\), тогда , тогда искомое будет верно по индукции (\(g^ih^{j + 1} = g^ih h^j = hg^i h^j = h^{j+1}g^i\))
+
+    \[\sphericalangle a = g^i, b = hg^j \quad ab = g^ihg^j = h(h^{-1}g^ih)g^j = hg^kg^j = hg^{k + j} \quad ba = hg^{i + j}\]
+    , где \(g^k = h^{-1}g^ih\), такое \(k\) существует по нормальности \(\mathcal{P}_7\).
+    \begin{align*}
+        g^k                                   & = h^{-1}g^ih \\
+        hg^k                                  & = g^ih       \\
+        g^{ - i}hg^k                          & = h          \\
+        (g^{ - i}hg^k)^{17}                   & = h^{17}     \\
+        (g^{ - i}hg^k)^{17}                   & = e          \\
+        g^{ - i}hg^{k - i}hg^{k - i}\dots g^k & = e          \\
+        (hg^{k - i})^{17}                     & = e          \\
+    \end{align*}
+
+    Таким образом, \(hg^{k - i} \in \mathcal{P}_{17}\)\footnote{Точнее, \(hg^{k - i} \in \varphi^{-1}(\mathcal{P}_{17})\)}, тогда \(g^{k - i} = 1 \Rightarrow k - i \equiv 0 \mod 7 \Rightarrow ab = hg^{k + j} = hg^{i + j} = ba\)
+\end{solution}
+
+\end{document}

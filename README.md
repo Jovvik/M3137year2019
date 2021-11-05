@@ -57,6 +57,7 @@
 - [3 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/3.pdf)
 - [4 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/4.pdf)
 - [5 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/5.pdf)
+- [6 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/6.pdf)
 
 ### Функциональное программирование
 

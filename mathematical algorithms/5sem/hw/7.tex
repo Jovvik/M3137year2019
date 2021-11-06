@@ -1,0 +1,110 @@
+\input{../../../preamble.sty}
+
+\lhead{Алгоритмы в математике \textit{(практика)}}
+\cfoot{}
+\rfoot{6.11.2021}
+
+\begin{document}
+
+\begin{exercise}
+    Пусть \(H, K \vartriangleleft G\) --- две нормальные подгруппы в \(G\). Докажите, что тогда коммутатор любых двух элементов из \(H\) и \(K\) принадлежит пересечению \(H \cap K\).
+\end{exercise}
+\begin{solution}
+    \begin{lemma}
+        \((ab)^{-1} = b^{-1}a^{-1}\)
+    \end{lemma}
+    \begin{proof}
+        \((ab)(b^{-1}a^{-1}) = e\)
+    \end{proof}
+    \(\sphericalangle h \in H, k \in K\)
+    \[[h, k] = hk(kh)^{-1} = \overbrace{\underbrace{\lefteqn{\overbrace{\phantom{hkh^{-1}}}^{\in K}}h
+        \underbrace{kh^{-1}k^{-1}}_{\in H}}_{\in H}}^{\in K}\]
+    \([k, h]\) аналогично.
+\end{solution}
+
+\begin{exercise}
+    Показать, что коммутант \([H, K]\) двух нормальных подгрупп \(H, K \vartriangleleft G\) есть подгруппа в пересечении \([H, K] \subset H \cap K\). Всегда ли \([H, K] = H \cap K\)?
+\end{exercise}
+\begin{solution}
+    Т.к. коммутатор любых двух элементов \(H\) и \(K\) принадлежит и \(H\), и \(K\), то по замкнутости \(H\) и \(K\) произведение коммутаторов также принадлежит и \(H\) и \(K\). Кроме того, \(1 = [1, 1] \in [H, K]\), следовательно, \([H, K] \subset H \cap K\), т.к. это \([H, K]\) это в точности все коммутаторы вида \([hk], h \in H, k \in K\).
+
+    \([H, K]\) не всегда \( = H \cap K\), например если \(G\) абелева, то \([H, K] = \{e\}\), но очевидно не для каждых \(H\) и \(K\) выполнено \(H \cap K = \{e\}\), например для \(H = K = G\).
+\end{solution}
+
+\begin{exercise}
+    Пусть \(H, K\) --- две произвольные подгруппы. Рассмотреть отображение \(\psi : H \times K \to HK\):
+    \[\psi(h, k) = hk\]
+    Найти \(\psi^{-1}(x) = \{(h, k) \mid \psi(h, k) = x\}\) в явном виде. Получить из этого, что:
+    \[|HK| = \frac{|H| \cdot |K|}{|H \cap K|}\]
+\end{exercise}
+\begin{solution}
+    Пусть \(h_1k_1 = x\) и \(h_2k_2 = x\).
+    \[x^{-1} = k_2^{-1}h_2^{-1}\]
+    \[e = x x^{-1} = h_1k_1k_2^{-1}h_2^{-1}\]
+    \[h_2h_1^{-1} = k_1k_2^{-1}\]
+    Т.к. \(h_2h_1^{-1} \in H, k_1k_2^{-1} \in K, k_1k_2^{-1} = h_2h_1^{-1} \eqqcolon a \in K \cap H\). Тогда:
+    \[h_2 = ih_1 \Rightarrow h_1 = i^{-1}h_2 \quad k_1 = ik_2\]
+    И, следовательно, любое \((h_1, k_1) : h_1k_1 = x\) записывается в виде \((i^{-1}h_2, ik_2)\), где \(h_2, k_2\) --- произвольное решение уравнения \(hk = x\). Таким образом:
+    \[\psi^{-1}(x) = \{(i^{-1}h_2 , ik_2) \mid i \in K \cap H\} \Rightarrow |\psi^{-1}(x)|= |K \cap H|\]
+    \[|H| \cdot |K| = \sum_{x \in HK} |\psi^{-1}(x)| = |HK| \cdot |H \cap K|\]
+\end{solution}
+
+\begin{exercise}
+    Показать, что среди 5 подгрупп порядков \(483, 1309, 3059, 2783, 3451\) есть хотя бы две абелевы.
+\end{exercise}
+\begin{solution}
+    Разложим размеры групп на простые делители.
+    \begin{center}
+        \begin{tabular}{CC}\toprule
+            n    & p_1^{a_1} \dots p_n^{a_n} \\ \midrule
+            483  & 3 \cdot 7 \cdot 23        \\
+            1309 & 7 \cdot 11 \cdot 17       \\
+            3059 & 7 \cdot 19 \cdot 23       \\
+            2783 & 11^2 \cdot 23             \\
+            3451 & 7 \cdot 11 \cdot 29       \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+
+    Группу размера \(2783\) больше рассматривать не будем. Размеры всех остальных групп разбиваются на простые числа в первой степени, следовательно, по первой теореме Силова у каждой группы есть силовские \(p\)--подгруппы порядка каждого такого простого числа. Кроме того, они циклические.
+
+    \begin{statement}
+        \(G \cong H \times K \Leftrightarrow
+        \begin{cases}
+            G = HK           \\
+            H \cap K = \{e\} \\
+            H, K \vartriangleleft G
+        \end{cases}\), аналогично для большего числа подгрупп.
+    \end{statement}
+
+    Найдём все такие группы, что их силовские подгруппы \(H, K, L\) нормальны, тогда
+    \[|HKL| = \frac{|H| \cdot |K| \cdot |L|}{|H \cap K \cap L|} = |G|\]
+    и, следовательно, каждому элементу \(g\) можно взаимно-однозначно сопоставить элемент из \(HKL\), т.е. \(G \cong HKL\) и по утверждению \(G \cong H \times K \times L\), а прямое произведение является абелевой группой.
+
+    Из соображений предыдущего домашнего задания для нормальности силовской \(p_i\)-подгруппы \(\mathcal{P}_{p_i}\) достаточно, чтобы \(p_i \not\equiv 1 \mod p_j \ \ \forall j\).
+
+    \begin{center}
+        \begin{tabular}{L|CCC}
+            483 & 3 & 7     & 23 \\ \hline
+            3   & 0 & 3     & 3  \\
+            7   & 1 & \dots      \\
+            \dots
+        \end{tabular} \quad
+        \begin{tabular}{L|CCC}
+            1309 & 7 & 11 & 17 \\ \hline
+            7    & 0 & 7  & 7  \\
+            11   & 4 & 0  & 11 \\
+            17   & 3 & 6  & 0
+        \end{tabular} \quad
+        \begin{tabular}{L|CCC}
+            3059 & 7 & 19 & 23 \\ \hline
+            7    & 0 & 7  & 7  \\
+            19   & 5 & 0  & 19 \\
+            23   & 2 & 4  & 0
+        \end{tabular}
+    \end{center}
+
+    Дальше нет смысла перебирать, т.к. для групп размера \(1309\) и \(3059\) искомое доказано.
+\end{solution}
+
+\end{document}

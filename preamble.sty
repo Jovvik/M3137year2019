@@ -15,6 +15,7 @@
 \usepackage{ebproof}
 \usepackage{extarrows}
 \usepackage{gensymb}
+\usepackage{bbm}
 
 % Page layout
 \usepackage{geometry, a4wide, parskip, fancyhdr}
@@ -239,6 +240,10 @@
 \renewcommand{\div}{\text{div}\ }
 \newcommand{\rot}{\text{rot}\ }
 \newcommand{\cov}{\text{cov}}
+\DeclareMathOperator{\arr}{Arr}
+\DeclareMathOperator{\mor}{Mor}
+\DeclareMathOperator{\obj}{Obj}
+\DeclareMathOperator{\id}{id}
 
 \makeatletter
 \newcommand{\oplabel}[1]{\refstepcounter{equation}(\theequation\ltx@label{#1})}

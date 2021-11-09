@@ -31,30 +31,33 @@
 
 \section{Изоморфизм Карри-Ховарда}
 
-% TODO: add back
-% \begin{align*}
-%     \begin{prooftree}
-%         \infer0[\(x \notin \Gamma\)]{\Gamma, x : \tau \vdash x : \tau}
-%     \end{prooftree} & \qquad \begin{prooftree}
-%         \infer0{\Gamma, \tau \vdash \tau}
-%     \end{prooftree} \\ \\
-%     \begin{prooftree}
-%         \hypo{\Gamma \vdash A : \sigma \to \tau}
-%         \hypo{\Gamma \vdash B : \sigma}
-%         \infer2{\Gamma \vdash A\ B : \tau}
-%     \end{prooftree} & \qquad \begin{prooftree}
-%         \hypo{\Gamma \vdash \sigma \to \tau}
-%         \hypo{\Gamma \vdash \sigma}
-%         \infer2{\Gamma \vdash \tau}
-%     \end{prooftree} \\ \\
-%     \begin{prooftree}
-%         \hypo{\Gamma, x : \sigma \vdash A : \tau}
-%         \infer1[\(x \notin \Gamma\)]{\Gamma \vdash \lambda x.A : \sigma \to \tau}
-%     \end{prooftree} & \qquad \begin{prooftree}
-%         \hypo{\Gamma, \sigma \vdash \tau}
-%         \infer1{\Gamma \vdash \sigma \to \tau}
-%     \end{prooftree}
-% \end{align*}
+\[\begin{prooftree}
+        \infer0[\(x \notin \Gamma\)]{\Gamma, x : \tau \vdash x : \tau}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \infer0[\(x \notin \Gamma\)]{\Gamma, x : \tau \vdash x : \tau}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \infer0{\Gamma, \tau \vdash \tau}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash A : \sigma \to \tau}
+        \hypo{\Gamma \vdash B : \sigma}
+        \infer2{\Gamma \vdash A\ B : \tau}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma \vdash \sigma \to \tau}
+        \hypo{\Gamma \vdash \sigma}
+        \infer2{\Gamma \vdash \tau}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma, x : \sigma \vdash A : \tau}
+        \infer1[\(x \notin \Gamma\)]{\Gamma \vdash \lambda x.A : \sigma \to \tau}
+    \end{prooftree}\]
+\[\begin{prooftree}
+        \hypo{\Gamma, \sigma \vdash \tau}
+        \infer1{\Gamma \vdash \sigma \to \tau}
+    \end{prooftree}\]
 
 \begin{theorem}[об изоморфизме Карри-Ховарда]\itemfix
     \begin{enumerate}

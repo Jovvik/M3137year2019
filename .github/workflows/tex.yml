@@ -15,21 +15,21 @@ jobs:
       - uses: actions/checkout@v2.4.0
         with:
           fetch-depth: 0
-      - uses: actions/cache@v2.1.6
-        with:
-          path: |
-            **/*.pdf
-            **/*.aux
-            **/*.fls
-            **/*.log
-            **/*.toc
-            **/*.synctex.gz
-            **/*.xdv
-            **/*.fdb_latexmk
-            **/*.fdb_latexmk
-            **/svg-inkscape/**
-            **/minted-*/**
-          key: auxfiles
+      # - uses: actions/cache@v2.1.6
+      #   with:
+      #     path: |
+      #       **/*.pdf
+      #       **/*.aux
+      #       **/*.fls
+      #       **/*.log
+      #       **/*.toc
+      #       **/*.synctex.gz
+      #       **/*.xdv
+      #       **/*.fdb_latexmk
+      #       **/*.fdb_latexmk
+      #       **/svg-inkscape/**
+      #       **/minted-*/**
+      #     key: auxfiles`
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |

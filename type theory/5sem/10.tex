@@ -1,0 +1,104 @@
+\chapter{9 ноября}
+
+\section{Равенство}
+
+Напоминание: \(a = b\) по определению выполнено тогда и только тогда когда существует путь \(a \rightsquigarrow b\). Путь можно определить так:
+
+\begin{definition}
+    Пусть \(I\) --- интервальный тип. Если существует непрерывная функция \(f : I \to A\), такая что \(f\ \mathrm{left} =_\beta a, f\ \mathrm{right} =_\beta b\), то \(a \rightsquigarrow b\).
+\end{definition}
+
+То же самое в рамках Arend:
+\begin{minted}{haskell}
+\data Path
+    path (f : I -> A) : f left = f right
+\end{minted}
+
+Когда мы говорим о любом типе данных, у нас есть две конструкции:
+\begin{enumerate}
+    \item Построение
+    \item Удаление
+\end{enumerate}
+
+Для \texttt{Path} есть построение --- конструктор. Мы хотим получить ещё и элиминатор.
+
+\begin{example}[элиминатор для \(\lor\)]\itemfix
+    \begin{minted}[escapeinside=||,mathescape=true]{haskell}
+case (f : L -> |$\theta$|) (g : R -> |$\theta$|) (v : L |$\lor$| R) : |$\theta$|
+    \end{minted}
+\end{example}
+
+\begin{example}[элиминатор для \(I\)]\itemfix
+    \begin{minted}{haskell}
+\func coe (P : I -> \Type)
+        (a : P left)
+        (i : I) : P i \elim i
+    | left => a
+            \end{minted}
+
+    Т.к. все значения на пути равны, то мы возвращаем значение на \texttt{left}.
+
+    \verb!\elim! это паттерн матчинг. Т.к. \(I\) --- особый тип, нам не нужно расписывать все случаи.
+\end{example}
+
+Это все весьма странно, но это единственная конструкция подобного рода.
+
+\begin{minted}{haskell}
+\func transport {A : \Type} (B : A -> \Type) {a a' : A} (p : a = a') (b : B a)
+    : B a'
+    => coe (\lam i => B (p @ i)) b right
+\end{minted}
+
+\begin{obozn}
+    Если \verb!p : a = a'!, то:
+    \begin{enumerate}
+        \item \verb!p @ left! это \verb!a!
+        \item \verb!p @ right! это \verb!a'!
+    \end{enumerate}
+\end{obozn}
+
+\begin{remark}
+    Фигурные скобки означает типы, которые компилятор сам выведет из контекста. Рассчитывать на него нельзя, т.к. выведение типов неразрешимо в общем случае.
+\end{remark}
+
+\begin{example}[доказательство равенства]\itemfix
+    \begin{minted}{haskell}
+\func inv (A : \Type) {a a' A} (p : a = a') : a' = a
+    => transport (\lam x => x) p idp
+
+\func idp {A : \Type} {a : A} : a = a
+    => path (\lam _ => a)
+        \end{minted}
+\end{example}
+
+\begin{example}[конгруэнтность]\itemfix
+    \begin{minted}{haskell}
+\func pmap (A B : \Type) (f : A -> B) (a a' : A) {p : a = a'} : f a = f a'
+    => transport (\lam x => f a = f x) p idp
+    \end{minted}
+\end{example}
+
+\begin{example}[натуральные числа]\itemfix
+    \begin{minted}{haskell}
+\data Nat
+    | zero
+    | suc (k : Nat)
+    
+\data Empty
+
+Not (A : \Type) : A -> Empty
+
+Not (zero = suc zero)
+
+\func proof_ne (a : Nat) : \Type \elim a
+    | zero => 0 = 0
+    | suc x => Empty
+    
+\func zne (x : 0 = 1) : Empty
+    => transport proof_ne {0} {1} x idp
+    \end{minted}
+\end{example}
+
+\begin{remark}
+    В стандартной библиотеке это доказано немного по-другому, вместо \verb!0 = 0! используется \verb!\Sigma! тип кортежа из нуля элементов, то есть \verb!()! из Haskell.
+\end{remark}

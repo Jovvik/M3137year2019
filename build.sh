@@ -5,10 +5,12 @@ function compile {
     cd "$(dirname "$1")"
     # for _ in {1..20}; do latexmk -f -xelatex -shell-escape "$(basename "$1")" &> /dev/null; done
     for _ in {1..20}; do
+    cat /dev/null > "$REPOPATH"/latex.log
     if ! latexmk -pdf -xelatex -interaction=nonstopmode -shell-escape "$(basename "$1")" &> "$REPOPATH"/latex.log; then
-        cat "$REPOPATH"/latex.log
-        exit 1
+        status="OK"
+        status="FAILED"
     fi
+    [ "$status" == "FAILED" ] && cat "$REPOPATH"/latex.log && exit 1
     done
     cd "$REPOPATH"
 }

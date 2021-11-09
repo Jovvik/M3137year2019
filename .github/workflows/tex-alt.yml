@@ -1,0 +1,41 @@
+name: build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    types: [assigned]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
+      - name: Install texlive
+        run: sudo apt-get install -y texlive-full
+      - name: Install other packages
+        run: sudo apt-get install -y fonts-inconsolata inkscape
+      - name: Run build
+        run: time bash build.sh
+      - name: Set env
+        run: echo "COMMIT_MSG=Built pdfs $(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
+      - name: Remove anything but pdfs
+        run: |
+          shopt -s globstar
+          shopt -s extglob
+          rm **/*.!(pdf) || true
+          rm -rf `find -type d -name svg-inkscape` || true
+          rm -rf `find -type d -name images` || true
+      - name: Commit changes
+        uses: peaceiris/actions-gh-pages@v3.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: pdfs
+          publish_dir: .
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          full_commit_message: ${{ env.COMMIT_MSG }}
+          keep_files: true

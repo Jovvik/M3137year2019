@@ -1,0 +1,76 @@
+\chapter{23 октября}
+
+Что такое математика? Это наука или язык, мы будем считать, что язык. Язык можно по-разному выражать.
+
+\begin{example}
+    Вспомним определение предела функции \(\lim_{x \to x_0} f(x) = \xi\):
+    \[\forall \varepsilon > 0 \ \ \exists \delta > 0 : \forall x_\alpha \in \dot{B}(x_0, \delta) \quad f(X_\alpha) \in B(f(\xi), \varepsilon)\]
+    \[\forall U(\xi) = \varepsilon \ \ \exists \dot{U}(x_0) = \delta \ \ \forall x_\alpha \in \delta : f(x_\alpha) \in \varepsilon\]
+
+    У нас есть два способа написать одно и то же. Теория категорий --- ещё один способ описать всю математику.
+\end{example}
+
+В математике мы часто встречаем функции (отображения), у которых есть композиция. Попробуем описать всю математику композицией. Такая попытка привела к успеху, и теоркат позволил описать различные области одним синтаксисом.
+
+\begin{definition}
+    \textbf{Категория} --- объект \(\mathcal{C}\), у которого есть:
+    \begin{enumerate}
+        \item ``Коллекция'' объектов \(\obj(\mathcal{C})\). Мы не можем сказать ``множество'', т.к. тогда мы сталкиваемся с проблемами теории множеств\footnote{См. парадокс Рассела}.
+        \item ``Коллекция'' морфизмов (стрелок) \(\mor(\mathcal{C}) / \arr(\mathcal{C})\)
+              \[\forall f \in \arr(\mathcal{C}) \ \ f : X \to Y, \ X, Y \in \obj(\mathcal{C})\]
+        \item Правила: \begin{enumerate}
+                  \item \(\forall X \in \obj(\mathcal{C}) \ \ \exists f \in \arr(\mathcal{C}) : f(X) = X\). Также это обозначают как \(f : X \to X\). \(f\) обозначается как \(\id_X\)
+                  \item \(\sphericalangle f : X \to Y, g : Y \to Z\), \(f, g \in \arr(\mathcal{C}), X,Y,Z \in \obj(\mathcal{C})\)
+
+                        \[\exists! h : X \to Z, h \in \arr(\mathcal{C}) \quad h = g \circ f\]
+                        Но это не значит, что не существует других \(h' : X \to Z\).
+              \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Мы не определяем, что такое ``\(=\)'', ``\(f(x)\)'' и так далее, потому что теория категорий --- про синтаксис, а смысл мы сами додумываем.
+\end{remark}
+
+\begin{statement}
+    \[\forall a, b, c \in \arr(\mathcal{C}) \quad (a \circ b) \circ c = a \circ (b \circ c)\]
+\end{statement}
+
+\begin{example}
+    Пустая категория (без объектов, без морфизмов)
+\end{example}
+
+\begin{example}[\(\mathbbm{1}\)]
+    Категория с одним объектом и одной стрелкой:
+    \(\begin{tikzcd}
+        1 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_1}
+    \end{tikzcd}\)
+\end{example}
+
+\begin{example}
+    \(\begin{tikzcd}
+        1 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_1} \arrow{r} & 2 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_2}
+    \end{tikzcd}\)
+\end{example}
+
+\begin{statement}
+    \(\forall f : X \to Y, \id_X : X \to X, \id_Y : Y \to Y \quad f \circ \id_X = \id_Y \circ f = f\)
+\end{statement}
+
+Не все категории удовлетворяют этому закону.
+
+\begin{example}
+    \(\begin{tikzcd}
+        0 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_0} \arrow[loop, distance=5em, in=315, out=225, swap]{}{f_1 : 0 \to 0} \arrow[loop, distance=10em, in=325, out=215, swap]{}{f_2 : 0 \to 0} \arrow[loop, distance=18em, in=335, out=205, swap]{}{\dots}
+    \end{tikzcd}\)
+
+    Пусть при этом \(f_i \circ f_j = f_j \circ f_i = f_{i + j}\). Тогда эта категория описывает натуральные числа.
+\end{example}
+
+\begin{example}
+    \[\begin{tikzcd}
+            X \arrow{r}{f_{xy}} \arrow[bend right, swap]{rr}{f_{xz}} \arrow[bend right = 60, swap]{rrr}{f_{xw}} & Y \arrow{r}{f_{yz}} \arrow[bend right, swap]{rr}{f_{yw}} & Z \arrow{r}{f_{zw}} & W
+        \end{tikzcd}\]
+
+    С одной стороны, \(f_{xw} = f_{zw} \circ f_{xz}\), с другой стороны \(f_{xw} = f_{yw} \circ f_{xy}\), с третьей стороны \(f_{xw} = f_{zw} \circ f_{yz} \circ f_{xy}\). Есть проблема: мы можем получить один и тот же морфизм разными способами, следовательно, не можем однозначно разложить морфизм в композицию, т.е. объекты не являются свободными\footnote{Ради сохранения рассудка пока что не нужно понимать, что это такое.}. С этим можно бороться очень тупо: для каждого способа разложить морфизм вводить копию исходного морфизма, но тогда мы теряем ассоциативность.
+\end{example}

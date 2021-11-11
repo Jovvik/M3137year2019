@@ -60,6 +60,10 @@
 - [6 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/6.pdf)
 - [7 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/7.pdf)
 
+### Теория категорий
+
+- [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/category%20theory/5sem/main.pdf)
+
 ### Функциональное программирование
 
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/functional%20programming/5sem/main.pdf)

@@ -1,0 +1,109 @@
+\chapter{30 октября}
+
+\begin{example}
+    Рассмотрим следующую категорию:
+    \[\begin{tikzcd}
+            0 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_0}
+            \arrow{r} \arrow[bend left]{rr} \arrow[bend left = 60]{rrr} \arrow[bend right]{rrrr} &
+            1 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_1}
+            \arrow{r} \arrow[bend left]{rr} \arrow[bend left = 60]{rrr} \arrow[bend right]{rrrr} &
+            2 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_2}
+            \arrow{r} \arrow[bend left]{rr} \arrow[bend left = 60]{rrr} \arrow[bend right]{rrrr} &
+            3 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_3}
+            \arrow{r} \arrow[bend left]{rr} \arrow[bend left = 60]{rrr} &
+            4 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_4}
+            \arrow{r} \arrow[bend left]{rr} &
+            5 \arrow[loop, distance=2em, in=305, out=235, swap]{}{\id_5}
+            \arrow{r} &
+            \dots
+        \end{tikzcd}\]
+
+    Стрелки можно определить как суммирование, а можно как \( \leq \), ничего не изменится.
+\end{example}
+
+Пусть мы хотим отобразить категорию \(\mathcal{C}\) в \(\mathcal{D}\). Отобразим точки в точки и стрелки в стрелки, при этом \(\arr'(\mathcal{C}, \mathcal{D})\) задает отображение точек, а \(\arr'(\arr(\mathcal{C}), \arr(\mathcal{D}))\) задает отображение стрелок.
+
+\begin{definition}
+    \textbf{Малая категория} --- категория, объекты которой образуют множество.
+\end{definition}
+
+\begin{remark}
+    При этом нет ограничения на стрелки, они могут быть не множеством.
+\end{remark}
+
+\begin{example}
+    Категория из одного элемента со сложением на стрелках, где стрелки есть для всех натуральных чисел, кардиналов и пределов. Все стрелки не ``помещаются'' в множество.
+\end{example}
+
+Отображать между категориями мы можем как угодно, но хотелось бы сохранять структуру. Условие сохранения композиции:
+\[\forall f_{AB}, f_{BC} \in \arr \mathcal{C} : \mathcal{F}(f_{BC}) \circ \mathcal{F}(f_{AB}) = \mathcal{F}(f_{BC} \circ f_{AB})\]
+, где \(\mathcal{F}\) --- отображение из категории \(\mathcal{C}\) в категорию \(\mathcal{D}\). Из предыдущего закона следует, что петли отображаются в петли, т.к.:
+\[\mathcal{F}(f_{AA} \circ f_{AA}) = \mathcal{F}(f_{AA}) \circ \mathcal{F}(f_{AA})\]
+таким образом, образ \(f_{AA}\) должен иметь композицию с собой \( \Rightarrow \) это петля. Но никто не гарантирует, что эта петля будет на соответствующем объекте. Введём следующий закон:
+\[\mathcal{F}(\id_X) = \id_{\mathcal{F}(X)}\]
+
+\begin{definition}
+    \(\mathcal{F}\) называется \textbf{\textit{(ковариантным\footnote{Не важно, что это значит.})} функтором}
+\end{definition}
+
+Рассмотрим следующую категорию (\(\id\) опущены):
+\[\begin{tikzcd}
+        A \arrow{r}{f} \arrow[bend left = 60]{rr}{f_{AC}} & B \arrow[bend left]{r}{h_1} \arrow[bend right = 10]{r}{h_2} \arrow[bend right = 60]{r}{h_{\dots}} & C
+    \end{tikzcd}\]
+Если стрелку \(A \to C\) можно получить только как \(f_{AC} = f \circ h_i\), то мы хотим:
+\begin{enumerate}
+    \item Ввести отношение эквивалентности, чтобы не различать разные \(f_{AC}\).
+    \item Назвать стрелку \(f\) \textbf{монической} \textit{(или мономорфизмом)}.
+\end{enumerate}
+
+\begin{definition}
+    \textbf{Дуальная\footnote{Или зеркальная, двойственная, сопряженная, dual, opposite.} категория} для некоторой категории \(\mathcal{C}\) это категория \(\mathcal{C}^*\), что:
+    \begin{enumerate}
+        \item \(\obj \mathcal{C} = \obj \mathcal{C}^*\)
+        \item \(\forall f_{AB} \in \arr \mathcal{C} \ \ \exists ! f_{BA} \in \arr \mathcal{C}^*\)
+        \item \(\forall f_{BA} \in \arr \mathcal{C}^* \ \ \exists ! f_{AB} \in \arr \mathcal{C}\)
+    \end{enumerate}
+\end{definition}
+
+Операция сопряжения является функтором, будем обозначать его \(\tau\). Она легко строится в том смысле, что для любой категории, не зная ничего про объекты, мы можем построить её путём разворота стрелок.
+
+\begin{example}\itemfix
+    \begin{figure}[h!]
+        \centering
+        \begin{minipage}[b]{0.45\textwidth}
+            \centering
+            \[\begin{tikzcd}
+                    & B \arrow[loop, distance=2em, in=125, out=55, swap]{}\arrow{dr} & \\
+                    A \arrow[loop, distance=2em, in=305, out=235, swap]{}\arrow{ur}\arrow{rr} & & C\arrow[loop, distance=2em, in=305, out=235, swap]{} \\
+                \end{tikzcd}\]
+        \end{minipage}
+        \begin{minipage}[b]{0.45\textwidth}
+            \centering
+            \[\begin{tikzcd}
+                    & B \arrow[loop, distance=2em, in=125, out=55, swap]{}\arrow{dl} & \\
+                    A \arrow[loop, distance=2em, in=305, out=235, swap]{} & & \arrow[loop, distance=2em, in=305, out=235, swap]{}\arrow{ul}\arrow{ll} C \\
+                \end{tikzcd}\]
+        \end{minipage}
+        \caption{Категория и дуальная к ней категория.}
+    \end{figure}
+\end{example}
+
+\begin{definition}\itemfix
+    Если \(f\) --- мономорфизмом в категории \(\mathcal{C}\). Тогда \(f^* = \tau(f)\) является \textbf{эпиморфизмом} в категории \(\mathcal{C}^*\).
+\end{definition}
+
+\begin{definition}[альтернативное]
+    Если стрелку \(C \to A\) можно получить только как \(f_{CA} = h_i \circ f\), то \(f\) называется \textbf{эпиморфизмом}.
+\end{definition}
+
+\begin{remark}
+    Если стрелки соответствуют отношению предпорядка ``\( \leq \)'', то в дуальной категории стрелки соответствуют отношению ``\( \geq \)''.
+\end{remark}
+
+\begin{remark}
+    Категория, где стрелки соответствуют отношению предпорядка называется Poset.
+\end{remark}
+
+\begin{definition}
+    Если \(\forall f_{AB} \in \arr \mathcal{C} \ \ \exists f^{-1}_{BA} : f_{AB} \circ f^{-1}_{BA} = \id_B, f^{-1}_{BA} \circ f_{BA} = \id_A\), то \(\mathcal{C}\) --- \textbf{группоид}.
+\end{definition}

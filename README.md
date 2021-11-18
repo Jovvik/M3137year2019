@@ -19,7 +19,7 @@
 - [3 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/3.pdf)
 - [4 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/4.pdf)
 - [5 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/5.pdf)
-- [6 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/6.pdf) - большая часть записана в лекции.
+- [6 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/6.pdf) — большая часть записана в лекции.
 - [7 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/7.pdf), [вычисления](https://docs.google.com/spreadsheets/d/1lU-0FnVcjXLhWT8c0K_v2xk-lVkF9Ary3zV-o6R1Was/edit?usp=sharing).
 
 ### Методы трансляции
@@ -59,6 +59,7 @@
 - [5 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/5.pdf)
 - [6 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/6.pdf)
 - [7 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/7.pdf)
+- [8 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/8.pdf)
 
 ### Теория категорий
 

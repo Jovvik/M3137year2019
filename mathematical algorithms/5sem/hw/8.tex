@@ -1,0 +1,161 @@
+\input{../../../preamble.sty}
+
+\lhead{Алгоритмы в математике \textit{(практика)}}
+\lfoot{Михайлов Максим}
+\cfoot{}
+\rfoot{13.11.2021}
+
+\begin{document}
+
+\begin{exercise}
+    Пусть \(H, K\) --- некоторые группы (вообще говоря неабелевы). Рассмотрим \(G = H \times K\) --- их прямое произведение. Показать, что подгруппа \(F = H \times \{e_K\}\) нормальна в \(G\):
+    \[F = \{(h, e_K) \mid h \in G\} \vartriangleleft G\]
+\end{exercise}
+\begin{solution}
+    \[(h_1, k) \circ (h_2, e_K) \circ (h_1^{-1}, k^{-1}) = (h_1 h_2 h_1^{-1}, kk^{-1}) = (h_1h_2h_1^{-1}, e_K) \in F\]
+\end{solution}
+
+\begin{exercise}
+    Пусть \(G\) --- некоторая конечная абелева группа. Доказать, что существует набор циклических групп \(H_1 \dots H_k\), таких что их произведение изоморфно \(G\):
+    \[H_1 \times \dots \times H_k \cong G\]
+\end{exercise}
+\begin{solution}
+    Факторизуем \(n = |G|\):
+    \[n = p_1^{q_1} \dots p_k^{q_k}\]
+    По теореме Силова существуют \(p\)--подгруппы \(G\) порядков \(p_i^{q_i}\), обозначим их \(\mathcal{P}_i\). Т.к. \(G\) абелева, \(\mathcal{P}_i\) нормальны.
+
+    Докажем по индукции по \(k\), что \(G \cong \bigtimes_{i = 1}^k \mathcal{P}_i\).
+
+    \begin{itemize}
+        \item [\textbf{База.}] \(k = 1\): очевидно.
+        \item [\textbf{Переход.}] По индукционному предположению для любой абелевой \(G : |G| = n = p_1^{q_1} \dots p_k^{q_k}\) верно \(G \cong \bigtimes_{i = 1}^k \mathcal{P}_i\).
+
+              \(\sphericalangle G' : |G'| = p_1^{q_1} \dots p_k^{q_k} \cdot p_{k+1}^{q_{k+1}} = t \cdot p_{k+1}^{q_{k+1}} = t \cdot r\).
+
+              Покажем, что \(G' \cong H \times K\), где \(|K| = r, |H| = t\). Тогда по индукционному предположению искомое будет верно.
+
+              Пусть \(H = \{x \in G' \mid x^r = e\}, K = \{x \in G' \mid x^t = e\}\).
+
+              \begin{statement}
+                  \(G \cong H \times K \Leftrightarrow
+                  \begin{cases}
+                      G = HK           \\
+                      H \cap K = \{e\} \\
+                      H, K \vartriangleleft G
+                  \end{cases}\)
+              \end{statement}
+              Покажем все, что все три пункта этого утверждения выполнены для наших \(H, K, G'\):
+              \begin{enumerate}
+                  \item По какой-то теореме из теории чисел \(\exists a, b \in \Z : at + br = 1\).
+                        \[\forall x \in G' \quad x = x^{at + br} = x^{at} x^{br}\]
+                        \[(x^{at})^r = (x^{tr})^a = e^a = e \Rightarrow x^{at} \in H\]
+                        \[(x^{br})^t = (x^{tr})^b = e^b = e \Rightarrow x^{br} \in K\]
+                        Итого \(\forall x \in G' \ \ x = \underbrace{x^{at}}_{\in H} \underbrace{x^{br}}_{\in K} \Rightarrow G' = HK\)
+                  \item \(\sphericalangle g \in H \cap K\)
+
+                        \(g^{t} = e = g^{r}\), следовательно, порядок \(g\) есть \(\gcd(t, r) = 1 \Rightarrow H \cap K = \{e\}\)
+                  \item Очевидно, т.к. \(G'\) нормальна.
+              \end{enumerate}
+    \end{itemize}
+
+    Таким образом, мы доказали, что \(G\) раскладывается на прямое произведение силовских \(p\)--подгрупп. Однако они необязательно циклические. Покажем, что каждая из таких подгрупп есть прямое произведение циклических.
+
+    \begin{statement}
+        \(\sphericalangle \mathcal{P}_i, |\mathcal{P}_i| = p_i^{q_i}\).  GG to GРассмотрим произвольный элемент максимального порядка \(g\). Тогда \(\mathcal{P}_i \cong \{g\} \times K\), где \(K\) --- подгруппа \(G\).
+    \end{statement}
+    \begin{proof}
+        Докажем по индукции по \(q_i\).
+        \begin{itemize}
+            \item [\textbf{База.}] \(\mathcal{P}_i = \ev{g} \cong \ev{g} \times \ev{e}\)
+            \item [\textbf{Переход.}] Пусть \(g\) --- элемент максимального порядка в \(\mathcal{P}_i\) и этот порядок равен \(a\). Рассмотрим какую-нибудь подгруппу \(H\), не содержащую \(a\). Такую подгруппу можно получить как \(\ev{h}\), где \(h \notin \ev{a}, h \neq e\). Фактор--группа \(\mathcal{P}_i / H\) имеет порядок меньше \(\mathcal{P}_i\), следовательно, для неё выполняется утверждение и \(\mathcal{P}_i / H = \ev{g'} \times K'\).
+
+                  С помощью прообразов естественного гомоморфизма фактор--группы искомое выполнено, технические детали здесь опущены.
+        \end{itemize}
+    \end{proof}
+
+    Применяя это утверждение к \(K\) рекурсивно, получим искомое:
+    \[\mathcal{P}_i \cong \ev{g_1^{(i)}} \times K \cong \ev{g_1^{(i)}} \times \left(\ev{g_2^{(i)}} \times K'\right) \cong \ev{g_1^{(i)}} \times \ev{g_2^{(i)}} \times \dots \times \ev{g_{r_i}^{(i)}}\]
+    Очевидно, что \(\ev{g_j^{(i)}}\) есть циклическая группа и тогда:
+    \[G \cong \bigtimes_{i = 1}^k \mathcal{P}_i \cong \bigtimes_{i = 1}^k \bigtimes_{j = 1}^{r_i} \ev{g_j^{(i)}}\]
+\end{solution}
+
+\begin{exercise}
+    Рассмотрим аффинные преобразования плоскости. Пусть \(T\) --- множество всех трансляций, пусть \(R\) --- множество всех поворотов вокруг фиксированной точки \(O\) (одной для всех поворотов). Рассмотрим группу \(G = \ev{T \cup R}\), порождённую всеми трансляциями и поворотами вокруг \(O\). Показать, что \(T\) нормальна в \(G\). Показать, что \(G = T \cdot R\):
+    \[G = \{\tau\ \rho \mid \tau \in T, \rho \in R\}\]
+\end{exercise}
+\begin{solution}
+    Очевидно \(T\) и \(R\) замкнуты.
+
+    \begin{obozn}
+        \(\tau \in T \leftrightarrow \ev{x', y'}\) --- сдвиг на \(x'\) по оси \(x\) и на \(y'\) по оси \(y\).
+    \end{obozn}
+
+    Рассмотрим действие \(\tau\ \rho\):
+    \[\begin{pmatrix}
+            x & y
+        \end{pmatrix} \ev{x', y'} \begin{pmatrix}
+            \cos \theta & - \sin \theta \\
+            \sin \theta & \cos \theta
+        \end{pmatrix} = \begin{pmatrix}
+            x + x' & y + y'
+        \end{pmatrix} \begin{pmatrix}
+            \cos \theta & - \sin \theta \\
+            \sin \theta & \cos \theta
+        \end{pmatrix}\]
+    \[= \begin{pmatrix}
+            (x + x') \cos \theta + (y + y') \sin \theta &
+            - (x + x') \sin \theta + (y + y') \cos \theta
+        \end{pmatrix}\]
+    Рассмотрим действие \(\rho\ \tau\): после поворота на \(\theta\) \(\ev{x', y'}\) заменится на
+    \[\ev{x' \cos \theta + y' \sin \theta, - x' \sin \theta + y' \cos \theta}\]
+    и после сложения с повернутым вектором \(\begin{pmatrix}
+        x \\ y
+    \end{pmatrix}\) мы получим тот же самый вектор, что и при \(\tau\ \rho\). Таким образом, множество \(T \cup R\) абелево\footnote{Абелево как группа, но ещё не доказано, что это группа.}.
+
+    Поворот на \(\theta\), сдвиг на \(\ev{x, y}\) и поворот на \(\theta'\) есть то же самое, что сдвиг на повернутое на \(\theta\) \(\ev{x, y}\) и поворот на \(\theta + \theta'\).
+
+    Сдвиг на \(\ev{x, y}\), поворот на \(\theta\) и сдвиг на \(\ev{x', y'}\) есть то же самое, что сдвиг на повернутое на \(\ev{x, y} +\) повернутое на \(\theta\) \(\ev{x', y'}\) и поворот на \(\theta\).
+
+    Итого, \(\ev{T \cup R} = T \cdot R \cup R \cdot T\), т.к. было показано, что нельзя поворотами и сдвигами получить что-либо кроме поворотов и сдвигов, а также тождественное действие \(e \in T, e \in R \Rightarrow T = T \cdot e \Rightarrow T \subset T \cdot R\) и аналогично \(R \subset T \cdot R\). Т.к. множество \(T \cup R\) абелево, то \(T \cdot R = R \cdot T \Rightarrow \ev{T \cup R} = T \cdot R\).
+
+    \(\sphericalangle \rho \tau \rho^{-1}\)
+
+    \begin{remark}
+        \(\ev{\begin{array}{c}
+                x' \\
+                y'
+            \end{array}} \Leftrightarrow \ev{x', y'}\), используется, чтобы формулы не были слишком широкими.
+    \end{remark}
+    \begin{align*}
+        \ev{\begin{array}{c}
+                x' \cos \theta + y' \sin \theta \\
+                - x' \sin \theta + y' \cos \theta
+            \end{array}} \begin{pmatrix}
+            \cos \theta & - \sin \theta \\
+            \sin \theta & \cos \theta
+        \end{pmatrix}^{ - 1}
+         & = \ev{\begin{array}{c}
+                x' \cos \theta + y' \sin \theta \\
+                - x' \sin \theta + y' \cos \theta
+            \end{array}} \begin{pmatrix}
+            \cos \theta  & \sin \theta \\
+            -\sin \theta & \cos \theta
+        \end{pmatrix} \\
+         & = \ev{\begin{array}{c}
+                (x' \cos \theta + y' \sin \theta) \cos \theta - (- x' \sin \theta + y' \cos \theta) \sin \theta \\
+                (x' \cos \theta + y' \sin \theta) \sin \theta + (- x' \sin \theta + y' \cos \theta) \cos \theta
+            \end{array}}                            \\
+         & = \ev{\begin{array}{c}
+                x' + y' \sin \theta \cos \theta - y' \cos \theta \sin \theta \\
+                y' + x' \cos \theta \sin \theta - x' \sin \theta \cos \theta
+            \end{array}}                            \\
+         & = \ev{\begin{array}{c}
+                x' \\
+                y'
+            \end{array}}                            \\
+    \end{align*}
+
+    Таким образом, \(T\) нормально в \(G\), т.к. случай \(\tau'\tau\tau'^{ - 1} \in T\) тривиален.
+\end{solution}
+
+\end{document}

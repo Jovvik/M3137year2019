@@ -1,0 +1,148 @@
+\chapter{30 октября}
+
+\section{Элементы теории категорий}
+
+Теория категорий позволит нам обобщить уже известные нам утверждения и позволит их применять в других алгебраических структурах, например кольцах.
+
+\subsection{Определения}
+
+\begin{definition}
+    \(\mathcal{C}\) --- \textbf{категория}:
+    \begin{enumerate}
+        \item Коллекция объектов \(\obj(\mathcal{C}) : A, B, C \dots X, Y\)
+        \item Множество морфизмов \(\arr(\mathcal{C}) : f, g, h, \varphi ,\chi, \psi\)
+
+              \(\sphericalangle A, B \in \obj (\mathcal{C}), A \xrightarrow{f} B, f \in \mor(A, B)\)
+        \item \(\mor(B, C) \times \mor(A, B) = \mor(A, C)\)
+    \end{enumerate}
+\end{definition}
+
+Аксиомы категории:
+\begin{enumerate}
+    \item Множества морфизмов не пересекаются: \(f \in \mor(A, B), f \in \mor(A', B') \Leftrightarrow A = A', B = B'\)
+    \item \(f \in \mor(A, B), g \in \mor(B, C), h \in \mor(C, D) \Rightarrow (h \circ g) \circ f = h \circ (g \circ f)\)
+    \item \(\forall A \in \obj(\mathcal{C}) \ \ \exists \id_A \in \mor(A, A) : \begin{cases}
+              \forall f \in \mor(A, B) \ \ f \circ \id_A = f \\
+              \forall g \in \mor(B, A) \ \ \id_A \circ g = g
+          \end{cases}\)
+\end{enumerate}
+
+\begin{definition}
+    \(f \in \mor(A, B)\) --- \textbf{изоморфизм}, если \(\exists g \in \mor(B, A)\):
+    \[\begin{cases}
+            g \circ f = \id_A \\
+            f \circ g = \id_B
+        \end{cases}\]
+\end{definition}
+
+\begin{definition}
+    \textbf{Автоморфизм} --- изоморфизм из объекта в него же, т.е. \(f \in \mor(A, A), f\) --- изоморфизм \( \Rightarrow f \in \aut(A)\)
+\end{definition}
+
+\begin{definition}
+    \textbf{Эндоморфизм} --- морфизм из объекта в него же, \(\en(A) = \mor(A, A)\)
+\end{definition}
+
+\begin{lemma}
+    \(\en(A)\) --- моноид
+\end{lemma}
+
+\begin{lemma}
+    \(\aut(A)\) --- группа
+\end{lemma}
+
+Категории, которые мы будем рассматривать:
+\begin{itemize}
+    \item \(\mathrm{Set}\) --- категория множеств.
+    \item \(\mathrm{Mon}\) --- категория моноидов.
+    \item \(\mathrm{Grp}\) --- категория групп.
+    \item \(\mathrm{Set}_G\) --- категория множеств, на которые действует группа.
+\end{itemize}
+
+\(\sphericalangle \mathrm{Set}_G = \mathcal{C}, G\) --- группа.
+
+Пусть \(A, B \in \obj(\mathcal{C}), A = A_G, B = B_G\)
+
+\(\mor(A, B)\) --- отображения множеств.
+
+Действие группы это \(\sigma : x \mapsto \sigma_x\), где \(x \in G, \sigma_x\) --- перестановка множества \(A\).
+
+\subsection{Коммутативные диаграммы}
+
+Пусть \(\mathcal{C}\) --- категория. Рассмотрим категорию \(\zeta : \obj(\zeta) = \arr(\mathcal{C})\). Пусть \(f \in \mor(A, B), g \in \mor(A', B')\). Рассмотрим \((\varphi, \psi) \in \mor(f, g)\), такие что \(\varphi, \psi \in \arr(\mathcal{C})\).
+
+\[\begin{tikzcd}
+        A \arrow{r}{f} \arrow{d}{\varphi} & B \arrow{d}{\psi} \\
+        A' \arrow{r}{g} & B'
+    \end{tikzcd}\]
+
+Если свойство \(g \circ \varphi = \psi \circ f\) выполнено, то эта диаграмма называется \textbf{коммутативной}.
+
+Рассмотри категорию \(\mathcal{C}, A \in \obj(\mathcal{C})\), рассмотрим \(\mathcal{C}_A : f \in \obj(\mathcal{C}_A) \ \ f : X \to A \ \ \forall X \in \obj(\mathcal{C})\), то есть категорию стрелок в некоторый отмеченный элемент \(A\).
+
+\(\sphericalangle f : X \to A, G : X' \to A, \varphi \in \arr(\mathcal{C}_A), \varphi \in \mor(f, g), \varphi : X \to X'\), тогда \(g \circ \varphi = f\), т.е. следующая диаграмма коммутативна:
+\[\begin{tikzcd}
+        X \arrow[swap]{dr}{f} \arrow{rr}{\varphi} & & X' \arrow{dl}{g} \\
+        & A &
+    \end{tikzcd}\]
+
+\subsection{Функтор}
+
+\begin{definition}
+    Рассмотрим категории \(\mathcal{A}, \mathcal{B}\). \textbf{Ковариантный функтор} --- отображение, которое:
+    \begin{itemize}
+        \item Каждому \(A \in \obj(\mathcal{A})\) сопоставляет \(F(A) \in \obj(\mathcal{B})\).
+        \item Каждому \(f \in \mor(A, B)\)\footnote{\(A \in \obj(\mathcal{A}), B \in \obj(\mathcal{B})\)} сопоставляет \(F(f) \in \mor(F(A), F(B))\)
+    \end{itemize}
+    со следующими аксиомами:
+    \begin{enumerate}
+        \item \(\forall A \in \obj(\mathcal{A}) \ \ F(\id_A) = \id_{F(A)}\)
+        \item \(\forall f \in \mor(A, B), g \in \mor(B, C) \ \ F(g \circ f) = F(g) \circ F(f)\)
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    \(\mathcal{C} \coloneqq \mathrm{Grp}, \obj(\mathcal{C})\) --- группы, \(\arr(\mathcal{C})\) --- гомоморфизмы групп.
+
+    Рассмотрим стирающий функтор \(F\), который группам сопоставляет множества, а гомоморфизмам --- отображения.
+\end{example}
+
+\begin{lemma}
+    Функтор переводит изоморфизм в изоморфизм.
+\end{lemma}
+
+\begin{definition}
+    Рассмотрим категории \(\mathcal{A}, \mathcal{B}\). \textbf{Контравариантный функтор} --- отображение, которое:
+    \begin{itemize}
+        \item Каждому \(A \in \obj(\mathcal{A})\) сопоставляет \(F'(A) \in \obj(\mathcal{B})\).
+        \item Каждому \(f \in \mor(A, B)\)\footnote{\(A \in \obj(\mathcal{A}), B \in \obj(\mathcal{B})\)} сопоставляет \(F'(f) \in \mor(F'(B), F'(A))\)
+    \end{itemize}
+    со следующими аксиомами:
+    \begin{enumerate}
+        \item \(\forall A \in \obj(\mathcal{A}) \ \ F'(\id_A) = \id_{F'(A)}\)
+        \item \(\forall f \in \mor(A, B), g \in \mor(B, C) \ \ F'(g \circ f) = F'(f) \circ F'(g)\)
+    \end{enumerate}
+\end{definition}
+
+\begin{obozn}
+    \(F\) --- ковариантный функтор, \(F'\) --- ковариантный функтор.
+\end{obozn}
+
+\(\sphericalangle \mathcal{A}, A \in \obj(\mathcal{A}), F_A : \mathcal{A} \to \mathrm{Set}\)
+\[\forall X \in \obj(\mathcal{A}) \ \ F_A(X) = \mor(A, X)\]
+\[\forall f \in \mor(X, X') \ \ F_A(f) = \mor (A, X) \to \mor(A, X'), \varphi \mapsto f \circ \varphi\]
+\[\begin{tikzcd}
+        X \arrow{rr}{f} & & X' \\
+        & A \arrow{ul}{\varphi} \arrow[swap]{ur}{f \circ \varphi} &
+    \end{tikzcd}\]
+
+\(F_A^c : \mathcal{A} \to \mathrm{Set}\)
+\[\forall Y \in \obj(\mathcal{A}) \ \ F_A^c(Y) = \mor(Y, A)\]
+\[\forall g \in \mor(Y', Y) \ \ F_A^c(g) : \mor(Y', A) \to \mor(Y, A)\]
+
+\[\begin{tikzcd}
+        Y \arrow[swap]{dr}{\psi} & & Y' \arrow[swap]{ll}{g} \arrow{dl}{g \circ \psi} \\
+        & A &
+    \end{tikzcd}\]
+
+Построенные функторы --- \textbf{представляющие}\footnote{Кажется, у АС ошибка --- такие функторы называются представимыми.}.

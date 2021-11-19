@@ -14,6 +14,8 @@ jobs:
       - uses: actions/checkout@v2.4.0
         with:
           fetch-depth: 0
+      - name: Apt update
+        run: sudo apt-get update
       - name: Install texlive
         run: sudo apt-get install -y texlive-full
       - name: Install other packages

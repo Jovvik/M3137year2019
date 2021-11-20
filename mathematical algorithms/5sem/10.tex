@@ -1,0 +1,85 @@
+\chapter{6 ноября}
+
+\subsection{Произведения и копроизведения}
+
+\begin{definition}
+    \textbf{Произведением} \(A \in \obj(\mathcal{A})\) и \(B \in \obj(\mathcal{A})\) называется тройка \(\{P, f, g\}\), где:
+    \begin{itemize}
+        \item \(P \in \obj(\mathcal{A})\)
+        \item \(f, g \in \arr(\mathcal{A})\)
+    \end{itemize}
+    , такая что если \(\varphi : A \to C, \psi : B \to C\), тогда \(\exists\) морфизм \(h\), такой что \(\varphi = f \circ h, \psi = g \circ h\), т.е. следующая диаграмма\footnote{На лекции диаграмма была представлена в другом виде, но категорист во мне взвыл в этот момент.} коммутирует:
+    \[\begin{tikzcd}
+            & \arrow[swap]{dl}{\varphi} C \arrow{d}{h} \arrow{dr}{\psi} & \\
+            A & \arrow{l}{f} P \arrow[swap]{r}{g} & B
+        \end{tikzcd}\]
+\end{definition}
+
+\begin{example}
+    \(\mathcal{A} = \mathrm{Set}\)
+
+    Тогда категориальное произведение \(S_1 \in \obj(\mathcal{A}), S_2 \in \obj(\mathcal{A})\) есть \(\{S_1 \times S_2, \mathrm{proj}_1, \mathrm{proj}_2\}\).
+\end{example}
+
+Обобщение: \textit{(прямое)}\footnote{Иногда говорят ``прямое'', обычно --- нет.} произведение \(\{A_i\}_{i \in I}\) это \((P, \{f_i\}_{i \in I})\), удовлетворяющее условию:
+\[\forall C \in \obj(\mathcal{A}) : g_i : C \to A_i \ \ \exists h : g_i = f_i \circ h\]
+
+\begin{remark}
+    Произведение двух объектов обозначается как \(A \times B\), произведение нескольких как \(\prod\limits_{i \in I} A_i\)
+\end{remark}
+
+\begin{definition}
+    Копроизведение \(A \in \obj(\mathcal{A})\) и \(B \in \obj(\mathcal{A})\) --- тройка \(\{P', f, g\}\), где:
+    \begin{itemize}
+        \item \(P' \in \obj(\mathcal{A})\)
+        \item \(f, g \in \arr(\mathcal{A})\)
+    \end{itemize}
+    , такая что
+    \[\forall C \in \obj(\mathcal{A}), \varphi : A \to C, \psi : B \to C \ \ \exists h : P' \to C : \varphi = h \circ f, \psi = h \circ g\]
+    , т.е. следующая диаграмма коммутирует:
+    \[\begin{tikzcd}
+            & C & \\
+            A \arrow{ur}{\varphi} \arrow[swap]{r}{f} & P' \arrow{u}{h} & B \arrow{l}{g} \arrow[swap]{ul}{\psi}
+        \end{tikzcd}\]
+\end{definition}
+
+\begin{example}
+    Пусть \(\mathcal{A} = \mathrm{Set}, S_1 \in \obj(\mathcal{A}), S_2 \in \obj(\mathcal{A})\). Пусть \(U\) --- копроизведение \(S_1\) и \(S_2\). Тогда \(U = (\{1\} \times S_1) \cup (\{2\} \times S_2)\)\footnote{Это дизъюнктное объединение.}.
+\end{example}
+
+Обобщение: копроизведение \(\{A_i\}_{i \in I}\) это \((P', \{f_i\}_{i \in I})\), удовлетворяющее условию:
+\[\forall C' \in \obj(\mathcal{A}) : g_i : A_i \to C \ \ \exists h : g_i = h \circ f_i\]
+
+\begin{definition}
+    \textbf{Инициальным объектом} в \(\mathcal{A}\) называется \(I \in \obj(\mathcal{A})\), такой что:
+    \[\forall A \in \obj(\mathcal{A}) \ \ \exists! \varphi : I \to A\]
+\end{definition}
+
+\begin{definition}
+    \textbf{Терминальным объектом} в \(\mathcal{A}\) называется \(T \in \obj(\mathcal{A})\), такой что:
+    \[\forall B \in \obj(\mathcal{A}) \ \ \exists! \varphi : B \to T\]
+\end{definition}
+
+\begin{remark}
+    Терминальный и инициальный объект универсальны.
+    \[\begin{tikzcd}
+            I \arrow[bend left]{r}{\varphi} & I' \arrow[bend left]{l}{\varphi'}
+        \end{tikzcd}\]
+    По определению:
+    \[\varphi \circ \varphi' : I' \to I'!\]
+    \[\varphi' \circ \varphi : I \to I!\]
+\end{remark}
+
+Рассмотрим категорию \(\mathcal{A}, \{A_i\}, B, B' \in \obj(\mathcal{A})\) и категорию \(\zeta\), где \(\{f_i : A_i \to B\} \in \obj(\zeta)\) и \(\{f_i' : A_i \to B'\} \in \obj(\zeta)\).
+\[\begin{tikzcd}
+        &&& P \arrow[bend left]{dddr}{h}\arrow[bend right = 40, swap ]{dddlll}{h'} && \\
+        && \arrow{ur}{g_1} \arrow[swap]{ddll}{f_1'} \arrow{ddrr}{f_1} A_1 && \\
+        && \arrow{uur}{g_2} \arrow{dll}{f_2'} \arrow[swap]{drr}{f_2} A_2 && \\
+        B' && \vdots && B \\
+        & {} & \arrow[swap]{uuuur}{g_n} \arrow{ull}{f_n'} \arrow[swap]{urr}{f_n} A_n & {}\arrow[bend left = 60]{ll}{\varphi} & \\
+    \end{tikzcd}\]
+\(\varphi : B \to B'\) --- морфизм в \(\mathcal{A}\), но с другой стороны это и морфизм в \(\zeta\), т.к. \(f_i' = \varphi \circ f_i\).
+
+\(P\) --- копроизведение.
+
+В \(\zeta\) \(\{g_i : A_i \to P\}\) является универсальным объектом.

@@ -1,0 +1,78 @@
+\chapter{13 ноября}
+
+Пусть \(\{G_i\}\) --- группы. Рассмотрим объект \(\prod_i G_i\) --- декартово произведение этих групп как множеств.
+
+Пусть \(G_i = \{x_i', x_i'' \dots \}, \prod_i G_i = \{(x_i, x_j \dots )\} = \{(x_i)\}\)
+
+\begin{lemma}
+    \(\prod_i G_i\) может быть наделено структурой группы.
+
+    \(\sphericalangle (x_i), (y_i) \in \prod_i G_i\) и \((x_1, x_2 \dots x_n \dots ) * (y_1, y_2 \dots y_n \dots ) = (x_1y_1, x_2y_2 \dots x_ny_n \dots)\)
+\end{lemma}
+\begin{proof}
+    Проверим аксиомы группы. Они все очевидны из аксиом групп \(G_i\).
+\end{proof}
+
+\(\sphericalangle \lambda_j : G_j \to \prod_i G_i \quad \lambda_j(x) = (e_1, e_2 \dots x \dots e_n \dots)\) и обратное к нему отображение \(\mathrm{proj}_j\)
+
+\begin{lemma}
+    \((\prod_i G_i, \{\mathrm{proj}_k\})\) --- произведение в \(\mathrm{Grp}\).
+\end{lemma}
+\begin{proof}
+    Рассмотрим \(\tilde{G} \in \obj(\mathrm{Grp}), \{g_i : \tilde{G} \to G_i\}\). Нужно показать, что \(\exists! h : f_i \circ h = g_i\).
+
+    \(\sphericalangle y \in \tilde{G}, \begin{tikzcd}
+        y \arrow{r}{h} & (y_i) \arrow{r}{\mathrm{proj}_i} & y_i
+    \end{tikzcd}\)
+
+    \(g_i(y) = (y)_i\), поэтому \(f_i \circ \underbrace{h(y)}_{x_1 \dots x_i \dots } = \underbrace{g_i (y)}_{x_i}\). Тогда \(h(y)\) существует, и это может быть только \((g_1(y), g_2(y) \dots g_n(y) \dots)\), из этого следует единственность.
+
+    \[\begin{tikzcd}
+            & & \tilde{G} \arrow[bend right = 30, swap]{dd}{h} \arrow[swap]{d}\arrow{ld}{g_2}\arrow[swap]{lld}{g_1}\arrow[swap]{rd}{g_n}\arrow{rrd} & & \\
+            G_1 & G_2 & \dots & G_n & \dots \\
+            & & \prod_i G_i \arrow{u}\arrow[swap]{lu}{f_2}\arrow{llu}{f_1}\arrow{ru}{f_n}\arrow{rru} & & \\
+        \end{tikzcd}\]
+\end{proof}
+
+\begin{lemma}[критерий прямого произведения]\itemfix
+    \begin{itemize}
+        \item \(G\) --- группа
+        \item \(H, K\) --- подгруппы \(G\)
+        \item \(H \cap K = \{e\}\)
+        \item \(\forall x \in H \ \ y \in K \ \ xy = yx\)
+        \item \(HK = G\)
+    \end{itemize}
+
+    Тогда и только тогда \(H \times K \cong G\)
+\end{lemma}
+\begin{proof}
+    \(\sphericalangle \psi : (x, y) \mapsto xy, \psi \in \hom(H \times K, G)\)
+
+    Сюръективность очевидна, т.к. \(HK = G\).
+
+    Рассмотрим \((x, y)\), такие что \(\psi((x, y)) = e\). Тогда \(xy = e \Rightarrow x = y^{-1}\). \(y \in K \Rightarrow y^{-1} \in K \Rightarrow x \in K\), но кроме того \(x \in H \Rightarrow x \in H \cap K\), следовательно, \(x = e\). Аналогично \(y = e\).
+
+    Т.к. \(\psi\) --- биективный гомоморфизм, \(\psi\) --- изоморфизм.
+\end{proof}
+
+Обобщение:
+\[H_1 \times H_2 \times \dots \times H_n \cong G \Leftrightarrow \begin{cases}
+        H_{j+1} \cap (H_1 H_2 \dots H_j) = \{e\} \\
+        H_i H_j = H_j H_i \ \ \forall i, j
+    \end{cases}\]
+
+\section{Свободные группы}
+
+Рассмотрим \(S\) --- множество.
+
+\(\sphericalangle g : S \to g(S) \subset G\), где \(g(S)\) --- множество образующих группы \(G\).
+
+\begin{definition}
+    Отображение \(g : S \to G\) \textbf{порождает} группу \(G\), если образ \(g\) порождает \(G\).
+\end{definition}
+
+\begin{definition}
+    \(S\) --- \textbf{множество образующих}\footnote{Также называется множеством порождающих.} группы \(G\), если \(\forall y \in G \ \ y = \prod_i x_i\), где \(x_i \in S\) или \(x_i^{-1} \in S\)
+\end{definition}
+
+\unfinished

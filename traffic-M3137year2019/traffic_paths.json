@@ -2,20 +2,14 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 201,
-    "uniques": 43
+    "count": 203,
+    "uniques": 41
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 53,
-    "uniques": 20
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem",
-    "title": "M3137year2019/statistics/5sem at master · Jovvik/M3137year2019",
-    "count": 19,
-    "uniques": 6
+    "count": 60,
+    "uniques": 21
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/5.pdf",
@@ -24,16 +18,22 @@
     "uniques": 6
   },
   {
+    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem",
+    "title": "M3137year2019/statistics/5sem at master · Jovvik/M3137year2019 · GitHub",
+    "count": 18,
+    "uniques": 4
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/opros2.pdf",
     "title": "M3137year2019/opros2.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 16,
-    "uniques": 7
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/functional%20programming/5sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 13,
-    "uniques": 5
+    "count": 14,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/opros.pdf",
@@ -42,20 +42,20 @@
     "uniques": 6
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs",
-    "title": "Jovvik/M3137year2019 at pdfs",
-    "count": 11,
-    "uniques": 6
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 10,
-    "uniques": 7
+    "uniques": 8
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 10,
+    "uniques": 5
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/2.pdf",
+    "title": "M3137year2019/2.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 10,
     "uniques": 5
   }

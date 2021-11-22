@@ -75,4 +75,73 @@
     \(S\) --- \textbf{множество образующих}\footnote{Также называется множеством порождающих.} группы \(G\), если \(\forall y \in G \ \ y = \prod_i x_i\), где \(x_i \in S\) или \(x_i^{-1} \in S\)
 \end{definition}
 
-\unfinished
+Рассмотрим два отображения \(f : S \to F, g : S \to G\), где \(f(S)\) порождает \(F\) и \(g(S)\) порождает \(G\).
+\[\begin{tikzcd}
+        & F \arrow{dd}{g_*} \\
+        S \arrow{ur}{f} \arrow{dr}{g} & \\
+        & G
+    \end{tikzcd}\]
+По доказанной ранее лемме~\ref{проигранная} существует не более одного гомоморфизма \(g_*\).
+
+Рассмотрим категорию \(\zeta\), объекты которой являются парами вида \((F, f)\). Рассмотрим гомоморфизм \(\varphi : F \to G\), тогда \(\varphi \in \arr(\zeta)\): \(\begin{tikzcd}
+    (F, f) \arrow{r}{\varphi} & (G, g)
+\end{tikzcd}\).
+
+\begin{definition}
+    \textbf{Свободная группа}, определяемая множеством \(S\) --- инициальный объект в категории \(\zeta\).
+\end{definition}
+
+\begin{theorem}
+    Для всякого множества \(S\) существует определяемая им свободная группа \((F, f)\), при этом:
+    \begin{enumerate}
+        \item \(f\) инъективен.
+        \item \(f\) порождает \(F\).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Рассмотрим случай, когда \(S\) конечно.
+
+    \(\sphericalangle T\) --- счётное множество. Пусть на нём мы можем заводить групповые структуры, множество всех таких структур назовём \(\Gamma\). Пусть тогда \(T_\gamma\), где \(\gamma \in \Gamma\) --- реализация группы на \(T\).
+
+    Рассмотрим отображение \(\varphi\) между \(S\) и \(T_\gamma\). Т.к. множество образующих можно по--разному вкладывать в \(T_\gamma\). Чтобы это фиксировать, скажем, что \(\varphi : S \to T_{\gamma, \varphi}\). \(T_{\gamma, \varphi} \in \obj(\zeta)\), а \(T_\gamma \in \mathrm{Grp}\).
+
+    Рассмотрим также множество \(M_\gamma = \{\varphi\}\) --- множество отображений \(S\) в \(T_\gamma\).\footnote{\(M_\gamma = \arr( - , T_\gamma)\)}
+    \[F_0 \coloneqq \prod_{g \in \Gamma} \prod_{\varphi \in M_\gamma} T_{\gamma, \varphi}\]
+    \(F_0 \in \mathrm{Grp}\)\footnote{Мы игнорируем тот факт, что произведение это тройка из объекта и двух морфизмов, нас интересует только объект.}, поскольку это произведение элементов \(\obj(\mathrm{Grp})\). Рассмотрим \(f_0 : S \to F_0 : S \mapsto (\varphi_1(S)_{\gamma_1}, \varphi_2(S)_{\gamma_1} \dots \varphi_1'(S)_{\gamma_2}, \varphi_2'(S)_{\gamma_2} \dots)\).
+
+    Покажем, что \(\forall g : S \to G \ \ \exists! g_* : F_0 \to G\), такой что следующая диаграмма коммутативна:
+    \[\begin{tikzcd}
+            & F_0 \arrow{dd}{g_*} \\
+            S \arrow{ur}{f_0} \arrow{dr}{g} \\
+            & G
+        \end{tikzcd}\]
+
+    Пусть \(g(S)\) порождает \(G\). Т.к. \(S\) конечно, \(|G| \leq |T|\), т.к. \(T\) счётно.
+
+    Рассмотрим \(\overline{G} = G \times \Z\). Надо, чтобы \(|G \times \Z| = |T|\) и тогда будет существовать биекция между \(G \times \Z\) и \(T\), тогда \(\exists \gamma \in \Gamma : G \times \Z \cong T_\gamma\) с изоморфизмом \(\lambda : G \times \Z \to T_\gamma\).
+
+    \[\begin{tikzcd}
+            S \arrow{r}{g} & G \arrow{r}{h} & G \times \Z \arrow{r}{\lambda} & T_\gamma
+        \end{tikzcd}\]
+    \[\psi \coloneqq \lambda \circ h \circ g \in M_\gamma \quad \begin{tikzcd}
+            S \arrow{r}{\psi} & T_{\gamma, \psi}
+        \end{tikzcd}\]
+    \[\psi_* \coloneqq \mathrm{proj}_G \circ \lambda^{-1} \circ \mathrm{proj}_{\gamma, \psi}\]
+    \[\begin{tikzcd}
+            F_0 \arrow{r}{\mathrm{proj}_{\gamma, \psi}} \arrow{d}{\psi_*} & T_{\gamma, \psi} \arrow{d}{\lambda^{-1}} \\
+            G & G \times \Z \arrow{l}{\mathrm{proj}_{G}}
+        \end{tikzcd}\]
+    \[\begin{tikzcd}
+            & F_0 \arrow{d}{\mathrm{proj}_{\gamma, \psi}} \arrow[bend left = 75]{ddd}{\psi_*} \\
+            S \arrow{ur}{f_0} \arrow{ddr}{g} & T_{\gamma, \psi} \arrow{d}{\lambda^{-1}} \\
+            & G \times \Z \arrow{d}{\mathrm{proj}_{G}} \\
+            & G
+        \end{tikzcd}\]
+    Рассмотрим \(f : S \to F, f(S) = F\). Для единственности \(g_*\) мы сужаем его на \(g_*\Big|_F\). Весь трюк заключается в том, что в \(F_0\) много лишнего, т.к. там много одинаковых элементов.
+
+    \(f\) инъективно, т.к. всех \(\varphi \in M_\gamma\) найдётся инъектвиное.
+
+    Если \(S\) несчётно, ты мы не знаем что делать.
+
+    Если \(S\) счётно, то все то же самое, но за \(T\) возьмём \(S\) и тогда \(G \times \Z \cong T \underbrace{\times \Z \times \Z \times \dots}_{\text{нужное количество } \Z}\)
+\end{proof}

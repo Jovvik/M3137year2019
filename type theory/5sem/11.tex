@@ -1,0 +1,115 @@
+\chapter{15 ноября}
+
+Все, что мы доказывали, как-то не очень интересно --- это тождества. Что если мы хотим доказать например \(a \leq b\)? Для этого для начала надо уметь это записать.
+
+\begin{definition}[меньше или равно]
+    \(a \leq b\) это \(\exists x.a + b = b\)
+\end{definition}
+
+Несложно догадаться, что у нас экзистенциальный тип. В Arend все экзистенциальные типы это пары вида \((x : A, a + x = b : A \to \mathrm{\backslash Type})\). Таким образом, наш тип это \(\mathrm{\backslash Sigma}\ (x : \mathrm{Nat})\ (a + x = b)\).
+
+\begin{example}
+    Хотим доказать \(5 \leq 12\), тогда доказательство это \((7, \mathrm{idp}) : \mathrm{\backslash Sigma}\ (x : \mathrm{Nat})\ (5 + x = 12)\)
+\end{example}
+
+Определим наш тип ``\( \leq \)'' индуктивно:
+\begin{minted}{haskell}
+\data loe (a b : Nat) \with
+    | zero, _ => base
+    | suc a', suc b' => next (p : loe a' b')
+\end{minted}
+
+\begin{remark}
+    \texttt{base} и \texttt{next} --- конструкторы типа, а не магическая вещь для индукции.
+\end{remark}
+
+\begin{example}\itemfix
+    \begin{itemize}
+        \item \verb!base: loe 0 15!
+        \item \verb!next (next (base)): loe 1 16!
+    \end{itemize}
+\end{example}
+
+Эти два определения эквивалентны. Докажем это.
+
+Из индуктивного в экзистенциальный тип:
+\begin{minted}{haskell}
+\func f1 {a b : Nat} (p1 : loe a b) : loe' a b
+    | {0}, {b}, base => (b, idp)
+    | {suc a}, {suc b}, next (pr1) =>
+        \let (pb, ppr) => f1 pr1 \in (pb, pmap suc ppr)
+\end{minted}
+
+В обратную сторону:
+\begin{minted}{haskell}
+\func f2 {a b : Nat} (p1 : loe' a b) : loe a b
+    | {0}, _ => base
+    | {suc a}, {0}, (x, p) => absurd (transport (\lam t => \case t \with {
+        | 0 => Empty
+        | suc n => \Sigma}) p ())
+\end{minted}
+
+Это не удобно писать, поэтому напишем \texttt{contradiction}\footnote{Для этого надо добавить \texttt{dependencies: [arend-lib]
+} в \texttt{arend.yaml}}. Эта конструкция умеет доказывать противоречия за 1--2 шага. Таким образом:
+
+\begin{minted}{haskell}
+\func f2 {a b : Nat} (p1 : loe' a b) : loe a b
+    | {0}, _ => base
+    | {suc a}, {0}, (x, p) => contradiction
+    | {suc a}, {suc b}, (x, p) => next (f2 (x, pmap minus1 p))
+\end{minted}
+
+Докажем часть домашнего задания:
+\begin{minted}{haskell}
+\func plus-assoc {a b c : Nat} : (a + b) + c = a + (b + c) \elim c
+    | 0 => idp
+    | suc c => {?}
+\end{minted}
+
+Можно вместо \texttt{\{?\}} написать \texttt{pmap suc (plus-assoc)}, но это скучно. Можем написать \texttt{rewrite plus-assoc idp}, который докажет нам \texttt{suc ((a + b) + c) = suc (a + (b + c))}, переписав \texttt{(a + b) + c} на \texttt{a + (b + c)}, т.к. есть доказательство \texttt{(a + b) + c = a + (b + c)}. Это звучит как магия, но на самом деле делается так:
+\begin{minted}{haskell}
+transport (\lam x => (a + b) + suc x = suc x) plus-assoc idp
+\end{minted}
+
+\section{Классы}
+
+\begin{example}
+    Группа: \(\ev{R, +, e, {}^{-1}}\), такие что:
+    \begin{itemize}
+        \item \(e + x = x\)
+        \item \(x + e = x\)
+        \item \(x + x^{-1} = e\)
+        \item \(x^{-1} + x = e\)
+    \end{itemize}
+
+    Попробуем описать что-то подобное в Arend.
+\end{example}
+
+\begin{minted}{haskell}
+    \instance OrdNat : Preorder Nat
+    | <= (a b : Nat) => TruncP (\Sigma (r : Nat) (r + a = b))
+    | <=-reflexive => inP (0, idp)
+    | <=-transitive {x} {y} {z} =>
+      \lam (t1 : TruncP (\Sigma (r : Nat) (r + x = y)))
+           (t2 : TruncP (\Sigma (r : Nat) (r + y = z))) =>
+        \case t1, t2 \with {
+          | inP (d1, p1), inP (d2, p2) => inP (d2 + d1, plus-assoc *> (rewrite p1 p2))
+        }
+\end{minted}
+
+% Вспомним теорему Гливенко, которая гласит, что если \(p\) --- доказательство \(x\) в ИИВ, то \(q\) --- доказательство \(\neg \neg x\) в ИИВ, \(p \to q\).
+
+У \texttt{TruncP} есть математическое объяснение, и есть программистское. У нас есть различные доказательства и мы их все объявляем равными.
+
+План дальнейших лекций:
+\begin{enumerate}
+    \item \texttt{Set}/\texttt{Prop}
+    \item Теорема Диаконеску: теория множеств + ИИВ + аксиома выбора это классическая логика.
+\end{enumerate}
+
+Дальше есть несколько вариантов:
+\begin{enumerate}
+    \item Гомотопическая теория типов (математически)
+    \item Другие языки: возможно Idris, Coq
+    \item Другие исчисления, возможно \(F_\Omega\), линейные типы.
+\end{enumerate}

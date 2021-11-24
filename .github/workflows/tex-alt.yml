@@ -20,6 +20,8 @@ jobs:
         run: sudo apt-get install -y texlive-full
       - name: Install other packages
         run: sudo apt-get install -y fonts-inconsolata inkscape
+      - name: Install jetbrains mono
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
       - name: Run build
         run: time bash build.sh
       - name: Set env

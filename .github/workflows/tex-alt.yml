@@ -33,6 +33,7 @@ jobs:
           rm **/*.!(pdf) || true
           rm -rf `find -type d -name svg-inkscape` || true
           rm -rf `find -type d -name images` || true
+        shell: "bash"
       - name: Commit changes
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:

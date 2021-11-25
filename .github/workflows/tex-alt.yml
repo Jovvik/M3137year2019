@@ -23,7 +23,7 @@ jobs:
       - name: Remove variable width font
         run: rm /github/home/.local/share/fonts/fonts/variable/JetBrainsMono[wght].ttf /github/home/.local/share/fonts/fonts/variable/JetBrainsMono-Italic[wght].ttf
       - name: Run build
-        run: time bash build.sh
+        run: bash build.sh
       - name: Set env
         run: echo "COMMIT_MSG=Built pdfs $(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
       - name: Remove anything but pdfs

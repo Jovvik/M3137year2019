@@ -21,7 +21,7 @@ jobs:
       - name: Install jetbrains mono
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
       - name: Remove variable width font
-        run: rm /root/.local/share/fonts/fonts/variable/JetBrainsMono[wght].ttf /root/.local/share/fonts/fonts/variable/JetBrainsMono-Italic[wght].ttf
+        run: rm /github/.local/share/fonts/fonts/variable/JetBrainsMono[wght].ttf /github/.local/share/fonts/fonts/variable/JetBrainsMono-Italic[wght].ttf
       - name: Run build
         run: time bash build.sh
       - name: Set env

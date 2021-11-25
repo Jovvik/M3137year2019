@@ -15,13 +15,13 @@ jobs:
         with:
           fetch-depth: 0
       - name: Apt update
-        run: sudo apt-get update
+        run: apt-get update
       - name: Install misc packages
-        run: sudo apt-get install -y fonts-inconsolata inkscape
+        run: apt-get install -y fonts-inconsolata inkscape
       - name: Install jetbrains mono
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
       - name: Remove variable width font
-        run: rm /home/runner/.local/share/fonts/fonts/variable/JetBrainsMono[wght].ttf /home/runner/.local/share/fonts/fonts/variable/JetBrainsMono-Italic[wght].ttf
+        run: rm /root/.local/share/fonts/fonts/variable/JetBrainsMono[wght].ttf /root/.local/share/fonts/fonts/variable/JetBrainsMono-Italic[wght].ttf
       - name: Run build
         run: time bash build.sh
       - name: Set env

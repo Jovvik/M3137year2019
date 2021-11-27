@@ -96,7 +96,7 @@
               \overline{X}- t_\gamma \cdot \frac{\sigma}{\sqrt{n}} & < a < \overline{X} + t_\gamma \cdot \frac{\sigma}{\sqrt{n}} \\
           \end{align*}
 
-          Итак получили доверительный интервал для параметра \(a\): \(\left(\overline{X} - t_\gamma \cdot \frac{\sigma}{\sqrt{n}}, \overline{X} + t_\gamma \cdot \frac{\sigma}{\sqrt{n}}\right)\)
+          Итак, получили доверительный интервал для параметра \(a\): \(\left(\overline{X} - t_\gamma \cdot \frac{\sigma}{\sqrt{n}}, \overline{X} + t_\gamma \cdot \frac{\sigma}{\sqrt{n}}\right)\)
 
     \item Доверительный интервал для параметра \(a\) при неизвестном значении параметра \(\sigma^2\).
 
@@ -121,24 +121,24 @@
           \]
     \item Доверительный интервал для параметра \(\sigma^2\) при \?.
 
-          По пункту 2 теоремы \ref{основная} \(\frac{(n - 1)S^2}{\sigma^2} \in H_{n-1}\). Пусть \(\chi_1^2\) и \(\chi_2^2\) --- квантили распределения \(H_{n-1}\) уровней \(1 - \frac{\gamma}{2}\) и \(1 + \frac{\gamma}{2}\). Тогда:
-          \[P\left(\chi_1^2 < \frac{(n - 1)S^2}{\sigma^2} < \chi_2^2\right) = F_{H_{n-1}}(\chi_2^2) - F_{H_{n-1}}(\chi_1^2) = \left(1 + \frac{\gamma}{2}\right) - \left(1 - \frac{\gamma}{2}\right) = \gamma\]
+          По пункту 2 теоремы \ref{основная} \(\frac{(n - 1)S^2}{\sigma^2} \in H_{n-1}\). Пусть \(\chi_1^2\) и \(\chi_2^2\) --- квантили распределения \(H_{n-1}\) уровней \(\frac{1 - \gamma}{2}\) и \(\frac{1 + \gamma}{2}\)\footnote{На лекции было сказано \(1 - \frac{\gamma}{2}\) и \(1 + \frac{\gamma}{2}\), но это бред.}. Тогда:
+          \[P\left(\chi_1^2 < \frac{(n - 1)S^2}{\sigma^2} < \chi_2^2\right) = F_{H_{n-1}}(\chi_2^2) - F_{H_{n-1}}(\chi_1^2) = \left(\frac{1 + \gamma}{2}\right) - \left(\frac{1 - \gamma}{2}\right) = \gamma\]
           \[\chi_1^2 < \frac{(n - 1) S^2}{\sigma^2} < \chi_2^2\]
           \[\frac{1}{\chi_2^2} < \frac{\sigma^2}{(n - 1) S^2} \frac{1}{\chi_1^2}\]
           \[\frac{(n - 1) S^2}{\chi_2^2} < \sigma^2 < \frac{(n - 1) S^2}{\chi_1^2}\]
 
-          Итак, доверительный интервал для параметра \(\sigma^2\) надежности \(\gamma\) есть \(\left(\frac{(n - 1) S^2}{\chi_2^2}, \frac{(n - 1) S^2}{\chi_1^2}\right)\), где \(\chi_1^2\) и \(\chi_2^2\) --- квантили уровней \(1 - \frac{\gamma}{2}\) и \(1 + \frac{\gamma}{2}\). Следовательно, доверительный интервал для \(\sigma\) это \(\left(\frac{\sqrt{n - 1} S}{\chi_2}, \frac{\sqrt{n - 1} S}{\chi_1}\right)\).
+          Итак, доверительный интервал для параметра \(\sigma^2\) надежности \(\gamma\) есть \(\left(\frac{(n - 1) S^2}{\chi_2^2}, \frac{(n - 1) S^2}{\chi_1^2}\right)\), где \(\chi_1^2\) и \(\chi_2^2\) --- квантили уровней \(\frac{1 - \gamma}{2}\) и \(\frac{1 + \gamma}{2}\). Следовательно, доверительный интервал для \(\sigma\) это \(\left(\frac{\sqrt{n - 1} S}{\chi_2}, \frac{\sqrt{n - 1} S}{\chi_1}\right)\).
 
           Этот интервал почти всегда не симметричен, можно его сделать симметричным, но мы этого делать не будем.
-    \item Доверительный интервал для парамтера \(\sigma^2\) при известном параметре \(\sigma^{2*}\)
+    \item Доверительный интервал для параметра \(\sigma^2\) при известном параметре \(\sigma^{2*}\)
 
           По пункту 3 теоремы \(\frac{n \sigma^{2*}}{\sigma^2} \in H_n\), где \(\sigma^{2*} = \frac{1}{n} \sum_{i=1}^{n} (X_i - a)^2\).
-          Пусть \(\chi_1^2\) и \(\chi_2^2\) --- квантили распределения \(H_n\) уровней \(1 - \frac{\gamma}{2}\) и \(1 + \frac{\gamma}{2}\) соответственно.
+          Пусть \(\chi_1^2\) и \(\chi_2^2\) --- квантили распределения \(H_n\) уровней \(\frac{1 - \gamma}{2}\) и \(\frac{1 + \gamma}{2}\) соответственно.
           \[P\left(\chi_1^2 < \frac{n \sigma^{2*}}{\sigma^2} < \sigma_2^2\right) = F_{H_n} (\chi_2^2) - F_{H_n}(\chi_1^2) = \gamma\]
           \[\chi_1^2 < \frac{n \sigma^{2*}}{\sigma^2} < \chi_2^2\]
           \[\frac{n \sigma^{2*}}{\chi_2^2} < \sigma^2 < \frac{n\sigma^{2*}}{\chi_1^2}\]
 
-          Итак, доверительный интервал для \(\sigma^2\) надежности \(\gamma\) это \(\left(\frac{n \sigma^{2*}}{\chi_2^2}, \frac{n\sigma^{2*}}{\chi_1^2}\right)\), где \(\chi_1^2\) и \(\chi_2^2\) --- квантили \(H_n\) уровней \(1 - \frac{\gamma}{2}\) и \(1 + \frac{\gamma}{2}\), \(\sigma^{2*} = \frac{1}{n} \sum_{i=1}^{n} (X_i - a)^2\).
+          Итак, доверительный интервал для \(\sigma^2\) надежности \(\gamma\) это \(\left(\frac{n \sigma^{2*}}{\chi_2^2}, \frac{n\sigma^{2*}}{\chi_1^2}\right)\), где \(\chi_1^2\) и \(\chi_2^2\) --- квантили \(H_n\) уровней \(\frac{1 - \gamma}{2}\) и \(\frac{1 + \gamma}{2}\), \(\sigma^{2*} = \frac{1}{n} \sum_{i=1}^{n} (X_i - a)^2\).
 \end{enumerate}
 
 Для других распределений при малых объемах выборки нужно выводить формулы для каждой задачи. При больших объемах благодаря ЦПТ можно делать вид, что распределение нормальное.

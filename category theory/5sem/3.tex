@@ -1,0 +1,73 @@
+\chapter{6 ноября}
+
+Пусть даны две категории:
+\begin{example}\itemfix
+    \begin{figure}[h!]
+        \centering
+        \begin{minipage}[b]{0.45\textwidth}
+            \centering
+            \[\begin{tikzcd}
+                    & B \arrow[loop, distance=2em, in=125, out=55, swap]{}\arrow{dr} & \\
+                    A \arrow[loop, distance=2em, in=305, out=235, swap]{}\arrow{ur}\arrow{rr} & & C\arrow[loop, distance=2em, in=305, out=235, swap]{} \\
+                \end{tikzcd}\]
+        \end{minipage}
+        \begin{minipage}[b]{0.45\textwidth}
+            \centering
+            \[\begin{tikzcd}
+                    & B' \arrow[loop, distance=2em, in=125, out=55, swap]{}\arrow{dr} & \\
+                    A' \arrow[loop, distance=2em, in=305, out=235, swap]{}\arrow{ur}\arrow{rr} & & C'\arrow[loop, distance=2em, in=305, out=235, swap]{} \\
+                \end{tikzcd}\]
+        \end{minipage}
+    \end{figure}
+\end{example}
+
+По нашему определению эти две категории символьно не равны. Однако мы хотим построить операцию, которая покажет их эквивалентность. Давайте забудем объекты, получим следующую категорию:
+\[\begin{tikzcd}
+        & {} \arrow[loop, distance=2em, in=125, out=55, swap]{}\arrow{dr} & \\
+        {} \arrow[loop, distance=2em, in=305, out=235, swap]{}\arrow{ur}\arrow{rr} & & {}\arrow[loop, distance=2em, in=305, out=235, swap]{} \\
+    \end{tikzcd}\]
+
+Тогда у нас функтор будет состоять только из отображения морфизмов.
+
+\unfinished.
+
+\begin{example}
+    Рассмотрим две категории \(ABCD, CABD\), а также категорию \(\xi\zeta\), функтор \(\mathcal{F} : \) \textit{(отображение объектов красным цветом)} между ними\footnote{Отображение морфизмов не обозначено на диаграмме, оно однозначно.}:
+    \[\begin{tikzcd}
+            A \arrow[red, bend right]{ddd} \arrow{r}\arrow[shift right]{d}\arrow[bend left = 90, looseness = 2]{rd} & B \arrow[red]{dddl}\arrow[shift right]{dl}\arrow{d} \arrow[Rightarrow, shift right = 6, shorten <= 1em, shorten >= 1em]{rr}{\mathcal{F}} & & C \arrow{r}\arrow[shift right]{d}\arrow[bend left = 90, looseness = 2]{rd} & A \arrow[shift right]{dl}\arrow{d} \\
+            C \arrow[red]{dd}\arrow[shift right]{u}\arrow[shift right]{ur} \arrow{r} \arrow[Rightarrow, shift left = 8, shorten <= 1em, shorten >= 1em]{dd}{\mathcal{F}'} & D \arrow[red]{dd} & & B \arrow[shift right]{u}\arrow[shift right]{ur} \arrow{r} \arrow[Rightarrow, shift left = 8, shorten <= 1em, shorten >= 1em]{dd}{\mathcal{F}''} & D  \\
+            {} & {} \\
+            \xi \arrow{r} & \zeta & & \xi \arrow{r} & \zeta \\
+        \end{tikzcd}\]
+    Тогда \(\mathcal{F}' = \mathcal{F}'' \circ \mathcal{F}\)
+\end{example}
+
+Если в рассматриваемых нами категориях нет кратных рёбер, то операция забвения\footnote{Удаления имен объектов.} работает.
+
+\begin{definition}
+    \(\mathrm{Cat}\) --- класс малых категорий
+
+    \(\mathrm{FCat}\) --- класс забытых категорий
+\end{definition}
+
+Тогда рассмотрим отображение \(\er : \mathrm{Cat} \to \mathrm{FCat}\) и \(\er^{-1} : \mathrm{FCat} \to \mathrm{Cat}\), такие что \(\er \circ \er^{-1} = \id\). При этом \(\er^{-1}\) не единственно.
+
+\begin{obozn}
+    \(\er^{-1} = \re\)
+\end{obozn}
+Теперь можем определить предикат:
+\[P : (\mathrm{Fcat} \to \mathrm{Cat}) \to (\mathrm{FCat} \to \mathrm{Cat}) \to \mathrm{Bool}\]
+Он берёт два способа ``вспомнить'' категорию и возвращает, равны ли они.
+\[P (\re_1, \re_2) = \forall f \in \mathrm{FCat} \ \ \re_1(f) = \re_2(f)\]
+Наше определение --- чушь, потому что квантор ``\(\forall\)'' мы не можем применить к \(\arr\) --- это может быть не множество.
+
+\begin{statement}
+    Пусть \(\mathcal{C}\) --- категория, в которой нет кратных рёбер. Тогда, если \(\obj(\mathcal{C})\) является множеством, то \(\exists h : \arr(\mathcal{C}) \to \arr'(\mathcal{C})\) --- гомоморфизм, где \(\arr'(\mathcal{C})\) является множеством.
+\end{statement}
+\begin{proof}
+    Слишком сложно.
+\end{proof}
+
+Мы хотим придумать некоторую структуру \(X\), такую что \(\mathrm{Cat} \subset X, \mathrm{FCat} \subset X\). Маханием рук существует способ ввести \textbf{теорию топосов}. Пусть \(S'\) --- некоторая структура, похожая на множество. В таких структурах можно ввести понятие квантора: если мы можем завести маркировку \(S' \leftrightarrow \mathrm{Type}\). Если мы также можем сопоставить наш набор кванторов \(\exists, \forall\) особым видам типов \(\Pi, \Sigma\) в теории типов, то полученная теория становится ``довольно неплохой''.
+
+Если мы опишем некоторую функцию \(h\), отображающую какие-нибудь другие кванторы в \(\{\exists, \forall\}\), то эти другие кванторы будут работать ``схожим образом''.

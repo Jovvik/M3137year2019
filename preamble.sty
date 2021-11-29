@@ -2,20 +2,18 @@
 
 %<*preamble>
 % Math symbols
-\usepackage{amsmath, amsthm, amsfonts, amssymb}
-\usepackage{accents}
-\usepackage{esvect}
-\usepackage{mathrsfs}
-\usepackage{mathtools}
-\mathtoolsset{showonlyrefs}
-\usepackage{cmll}
-\usepackage{stmaryrd}
-\usepackage{physics}
-\usepackage[normalem]{ulem}
-\usepackage{ebproof}
-\usepackage{extarrows}
-\usepackage{gensymb}
-\usepackage{bbm}
+\usepackage{amsmath, amsthm, amsfonts, amssymb} % goes before others
+\usepackage{accents} % used in \dbltilde
+\usepackage{bbm} % \mathbbm
+\usepackage{cmll} % \with
+\usepackage{ebproof} % prooftree environment
+\usepackage{esvect} % \vv: better \vec
+\usepackage{extarrows} % take a guess
+\usepackage{mathrsfs} % \mathscr
+\usepackage{mathtools}\mathtoolsset{showonlyrefs} % lots of things
+\usepackage{physics} % \norm
+\usepackage{stmaryrd} % \{ll,rr}bracket 
+\usepackage[normalem]{ulem} % \sout
 
 % Page layout
 \usepackage{geometry, a4wide, parskip, fancyhdr}
@@ -25,42 +23,45 @@
 \usepackage[sb]{libertine}
 \usepackage{xltxtra}
 
+% Tables
+\usepackage{array} % \newcolumntype
+\usepackage{booktabs}\renewcommand{\arraystretch}{1.2}
+\usepackage{diagbox} % \diagbox
+\usepackage{longtable} % lets tables stretch over multiple pages
+\usepackage{multirow} % Cells spanning multiple rows
+
+\newcolumntype{L}{>{$}l<{$}}
+    \newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+
+% Figures
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{justification=centering,margin=2cm}
+\usepackage{svg}
+\usepackage{wrapfig} % wrapfigure environment
+
+% Miscellaneous
+\usepackage[makeroom]{cancel}
+\usepackage{catchfilebetweentags} % for partial imports
+\usepackage{enumitem} % idk but needed
+\usepackage{environ} % used in myemph
+\usepackage{empheq} % used in myemph
+\usepackage{etoolbox}
+\usepackage{fancybox}\cornersize{.2}
+\usepackage{float}
+\usepackage{forest} % drawing trees
+\usepackage{lastpage} % LastPage counter
+\usepackage{xcolor} % \textcolor
+
 % Listings
 \usepackage{listings}
 \lstset{basicstyle=\ttfamily,breaklines=true}
 \setmonofont[Scale=MatchLowercase]{JetBrains Mono}
 % \setmonofont[Scale=MatchLowercase]{Inconsolata}
-
-% Miscellaneous
-\usepackage{array}
-\usepackage{booktabs}\renewcommand{\arraystretch}{1.2}
-\usepackage{calc}
-\usepackage{caption}
-\usepackage{subcaption}
-\captionsetup{justification=centering,margin=2cm}
-\usepackage{catchfilebetweentags}
-\usepackage{diagbox}
-\usepackage{enumitem}
-\usepackage{environ}
-\usepackage{empheq}
-\usepackage{etoolbox}
-\usepackage{fancybox}\cornersize{.2}
-\usepackage{float}
-\usepackage{forest}
-\usepackage{lastpage}
-\usepackage{longtable}
 \usepackage{minted}
-\usepackage{multirow}
-\usepackage{svg}
-\usepackage{wrapfig}
-\usepackage{xcolor}
-\usepackage[makeroom]{cancel}
 
 \NewEnviron{myemph}{\begin{empheq}[box=\Ovalbox]{equation*}\BODY\end{empheq}}
-
-\newcolumntype{L}{>{$}l<{$}}
-    \newcolumntype{C}{>{$}c<{$}}
-\newcolumntype{R}{>{$}r<{$}}
 
 % Footnotes
 \usepackage[hang]{footmisc}

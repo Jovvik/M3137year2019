@@ -1,0 +1,151 @@
+\chapter{23 ноября}
+
+\section{Язык}
+
+Какой язык мы обсуждали? Это примерно \(\lambda_C\), но это не совсем так.
+
+\subsection{Проблема}
+
+\begin{example}\itemfix
+    \begin{minted}{haskell}
+\func id (x : *) : * = x
+\func idid => id id  
+    \end{minted}
+    Написать \texttt{idid} нельзя, потому что вместо \texttt{*} мы подставили \texttt{* -> *}. Это можно исправить:
+    \begin{minted}{haskell}
+\func id2 (x : \Type) : (x -> x) => \lam a => a
+\func idid2 => id2 (\Type -> \Type) (id2 \Type)
+    \end{minted}
+    Тогда получается, что \texttt{\textbackslash{}Type -> \textbackslash{}Type : \textbackslash{}Type}. Таким образом, выразительная сила этого языка выше, чем \(\lambda_C\).
+\end{example}
+
+\subsection{Естественность проблемы}
+
+Такие конструкции не искусственны и встречаются в природе:
+\begin{example}\itemfix
+    \begin{minted}{haskell}
+\func Church => (x : \Type) -> (x -> x) -> (x -> x)
+\func inc (n : Church) : Church => {?}
+\func add m n => m Church inc n
+    \end{minted}
+\end{example}
+
+Таким образом, несложно догадаться, что у нас будут встречаться функции высших родов. Таким образом, тип это в том числе и род. Как это типизировать?
+
+\subsection{Наивное решение проблемы}
+
+Очевидная идея: \texttt{\textbackslash{}Type} это \texttt{\textbackslash{}Type}. Это невозможно в силу парадокса Жирара, который будет рассмотрен на отдельной лекции.
+
+\subsection{Предикативность}
+
+Пусть типы организуют не один универсум, а \underline{множество вложенных универсумов}.
+
+У \texttt{\textbackslash{}Type} теперь есть натуральный аргумент \texttt{n}, называемый \textbf{предикативностью}:
+\begin{itemize}
+    \item \texttt{\textbackslash{}Type 0} --- базовые типы.
+    \item \texttt{\textbackslash{}Type 1} --- все, включая \texttt{\textbackslash{}Type 0}.
+    \item \(\vdots\)
+    \item \texttt{\textbackslash{}Type (k + 1)} --- все, включая \texttt{\textbackslash{}Type k}.
+\end{itemize}
+
+При этом если некоторая функция принимает аргумент \texttt{x : \textbackslash{}Type n} и возвращает \texttt{x -> x}, то она имеет предикативность \texttt{n + 1}.
+
+\begin{remark}
+    В большинстве случаев компилятор выводит предикативность сам, но иногда он не справляется и ему нужно помочь.
+\end{remark}
+
+\begin{example}\itemfix
+    \begin{minted}{haskell}
+\func Church => \Pi (x : \Type) -> (x -> x) -> (x -> x)
+\func inc (n : Church) => \lam t f x => n t f (f x)
+\func add (m : Church \levels (\suc \lp) \lh)
+          (n : Church \levels \lp \lh)
+          : \Church \levels \lp \lh
+    => m Church inc n
+    \end{minted}
+
+    Здесь мы указываем, что уровень предикативности \texttt{m} это \texttt{\textbackslash{}lp + 1}, где \texttt{\textbackslash{}lp} --- специальная внутренняя переменная компилятора, которая следит за тем, какой уровень предикативности выражения, которое мы сейчас компилируем. Таким образом, у нас предикативность \texttt{m} есть предикативность \texttt{n}\(+ 1\).
+    \[m\ \mathrm{Church}: \overbrace{(\underbrace{\mathrm{Church}}_{\mathrm{\backslash{}lp}} \to \mathrm{Church}) \to (C \to C)}^{\mathrm{\backslash{}lp} + 1}\]
+    Число \texttt{\textbackslash{}lh} пока что не рассматриваем.
+\end{example}
+
+Пусть \texttt{\textbackslash{}Prop} --- вселенная пропозиций, т.е. ``чистых утверждений''.
+
+\begin{definition}
+    \texttt{x : \textbackslash{}Type} --- \texttt{x : Prop}, если все элементы \texttt{x} равны.
+\end{definition}
+Грубо говоря, это тип доказательств, которые не зависят от выбора представителей.
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item Доказательство равенства \texttt{Nat} это \texttt{Prop}.
+        \item \texttt{a : \textbackslash{}Prop}, \texttt{b : \textbackslash{}Prop}, тогда \texttt{(a, b) : \textbackslash{}Prop}
+        \item \texttt{Either a b} --- не \texttt{\textbackslash{}Prop}, потому что можно доказывать через \texttt{inLeft a}, либо через \texttt{inRight b} и эти доказательства не равны.
+        \item \(\Sigma\) --- не \texttt{Prop}.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    \texttt{\textbackslash{}Set} --- тип, в котором равенство это \texttt{\textbackslash{}Prop}.
+\end{definition}
+
+Гомотопический уровень типа --- \( + 1\) от уровня равенства на нём.
+
+Пропозициональное урезание: \texttt{||x|| : \textbackslash{}Prop}.
+
+\begin{example}\itemfix
+    \begin{itemize}
+        \item \texttt{||Either a b|| => a || b}
+        \item \texttt{||Sigma (x : N) (T(x))|| =>} \(\exists\) \texttt{x\^{}N.T(x)}
+    \end{itemize}
+\end{example}
+
+В Arend \texttt{||||} обозначается как \texttt{TruncP : \textbackslash{}Type -> \textbackslash{}Prop}.
+
+\begin{example}\itemfix
+    \begin{minted}{haskell}
+\data Int'
+    | pos' Nat
+    | neg' Nat
+    \end{minted}
+
+    В этом типе есть два нуля --- положительный и отрицательный. Так нельзя. Нужно объявить, что эти два нуля равны:
+    \begin{minted}{haskell}
+\data Int
+    | pos Nat
+    | neg (n : Nat) \elim n {
+        | 0 => pos 0
+    }
+    \end{minted}
+\end{example}
+
+Также можно писать \texttt{\textbackslash{}truncated \textbackslash{}data ...} и тогда не нужно будет писать \texttt{TruncP}, все элементы типа уже будут равны между собой.
+
+\begin{minted}{haskell}
+\truncated \data Quotient
+    (A : \Type) (R : A -> A -> \Type) : \Set
+        | inR A
+        | eq (a a' : A) (r : R a a') (i : I)
+            \elim i
+            | left => inR a
+            | right => inR a'
+\end{minted}
+
+\section{Аксиома выбора}
+
+\begin{itemize}
+    \item \(P\) --- семейство множеств
+    \item \(p : A \to B\)
+\end{itemize}
+Тогда
+\[(\forall x \in A.\exists t \in p(x)) \to \exists f : \forall x \in A.f(x) \in p(A)\]
+То же самое, но в Arend:
+\[(A : \mathrm{Set})\ (P : A \to \mathrm{Set}) \to (\mathrm{Pi}\ (x : A) \to \norm{P(x)}) \to \norm{\mathrm{Pi}\ (x : A) \to P(x)}\]
+
+Это влечёт \texttt{Decide (Either a b)} --- закон исключенного третьего, где \texttt{Decide} это:
+\begin{minted}{haskell}
+\data Decide (x : \Type)
+    | yes (a : x)
+    | no (b : Not x)
+\end{minted}
+, то есть по типу можно алгоритмически определить его обитаемость.

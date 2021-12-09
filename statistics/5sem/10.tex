@@ -1,0 +1,191 @@
+\chapter{8 ноября}
+
+На этой лекции мы более подробно обсудим уравнение линейной парной регрессии, которое мы вывели на предыдущей лекции.
+
+\begin{definition}
+    \[\cov(X, Y) = \E (X - \E X)(Y - \E Y) = \E(XY) - \E(X) \cdot \E(Y)\]
+    \[\cov(X, Y)_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})(Y_i - \overline{Y})\]
+\end{definition}
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\cov(X, Y) = \cov(Y, X)\)
+        \item \(\cov(X, a) = 0\)
+        \item \(\cov(X, bY) = b \cov(X, Y)\)
+        \item \(\cov(X, Y + Z) = \cov(X, Z) + \cov(X, Y)\)
+        \item \(\cov(X, X) = \D X\)
+        \item \(\D(X + Y) = \D(X) + \D(Y) + 2 \cov(X, Y)\)
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    Элементарно из определения и свойств математического ожидания и дисперсии.
+\end{proof}
+
+Пусть при \(n\) экспериментах получены точки \((Z_1, X_1) \dots (Z_n, X_n)\), при этом \(X\) --- признак--результат, а \(Z\) --- признак--фактор. Пусть \(X = \alpha + \beta Z + e\) --- теоретическая модель регрессии. Здесь \(\alpha, \beta\) --- неизвестные теоретические значения, \(e\) --- неизвестная случайная величина, которая отражает:
+\begin{itemize}
+    \item Влияние неучтённых факторов.
+    \item Вероятность того, что модель нелинейная.
+    \item Случайность.
+\end{itemize}
+
+Получим выборочное уравнение линейной регрессии:
+\begin{myemph}
+    \hat{X} = a + bZ
+\end{myemph}
+
+Тогда экспериментальные данные можно представить так:
+\[X_i = \hat{X} + \varepsilon_i\]
+
+Константы \(a\) и \(b\) можно рассматривать как точечные оценки \(\alpha\) и \(\beta\). Нас интересует, насколько качественны эти оценки и что можно сказать про распределение ошибки \(e\).
+
+Свойства \(\varepsilon_i\):
+\begin{enumerate}
+    \item \(\overline{\varepsilon_i} = 0\)
+          \begin{proof}
+              \[a = \overline{X} - b \overline{Z} \Rightarrow \overline{X} = a + b \overline{Z}\]
+              \[\overline{\varepsilon_i} = \overline{X_i - \overline{X}} = \overline{X} - \overline{a + bZ} = \overline{X} - \overline{X} = 0\]
+          \end{proof}
+    \item \(\cov (\hat{X_i}, \varepsilon_i) = 0\), т.е. эти величины не коррелируют.
+          \begin{proof}
+              \begin{remark}
+                  Дальше будем обозначать выборочную дисперсию как \(\D\), а не \(\D_B\)
+              \end{remark}
+              \[b = \frac{ \overline{XZ} - \overline{X}\ \overline{Z}}{ \hat{\sigma}_z^2} = \frac{\cov(X, Z)}{\D(Z)} \Rightarrow \cov(X, Z) = b \D(Z) \Rightarrow \cov(X, Z) - b \D(Z) = 0\]
+              Т.к. \(\hat{X} = a + b Z, \varepsilon = X - a - bZ\), то:
+              \begin{align*}
+                  \cov(\hat{X}, \varepsilon) & = \cov(a + bZ, X - a - bZ)       \\
+                                             & = \cov(bZ, x - bZ)               \\
+                                             & = \cov(bZ, X) - \cov(bZ, bZ)     \\
+                                             & = b \cov(Z, X) - b^2 \cdot \D(Z) \\
+                                             & = b (\cov(Z, X) - b\cdot \D(Z))  \\
+                                             & = 0                              \\
+              \end{align*}
+          \end{proof}
+\end{enumerate}
+
+С помощью второго свойства можем провести анализ модели, анализируя дисперсии.
+\begin{obozn}
+    \[\D(X) = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2\]
+    Дисперсия расчётных значений:
+    \[\D (\hat{X}) = \frac{1}{n} \sum_{i=1}^{n} ( \hat{X}_i - \overline{X})^2\]
+    \[\D(\varepsilon) = \frac{1}{n} \sum_{i=1}^{n} (\varepsilon_i - \overline{\varepsilon})^2 = \frac{1}{n} \sum_{i=1}^{n} \varepsilon_i^2\]
+\end{obozn}
+
+\begin{align*}
+    X    & = \hat{X} + \varepsilon                                                     \\
+    \D X & = \D (\hat{X} + \varepsilon)                                                \\
+    \D X & = \D \hat{X} + \D \varepsilon + 2 \underbrace{\cov(\hat{x}, \varepsilon)}_0
+\end{align*}
+\begin{myemph}
+    \D X = \D \hat{X} + \D \varepsilon
+\end{myemph}
+
+\subsection{Коэффициент детерминации}
+
+\begin{definition}
+    \(R^2 = \cfrac{\D \hat{X}}{\D X}\) --- \textbf{коэффициент детерминации}.
+\end{definition}
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(0 \leq \R^2 \leq 1\)
+        \item \(R = 1 \Rightarrow\) ошибок нет и все точки экспериментальных данных лежат на найденной прямой.
+        \item \(R = 0 \Rightarrow\) расчётное значение \(\hat{X}\) постоянно, т.е. найденная прямая постоянна с уровнем \(\overline{X}\) и \(b = 0\).
+    \end{enumerate}
+\end{prop}
+
+Таким образом, чем ближе \(R^2\) к \(1\), тем качественнее модель.
+
+Поскольку \(R^2\) --- доля дисперсии расчётных значений, \(R^2\) объясняет долю дисперсии экспериментальных данных. Соответственно \(1 - R^2\) --- доля необъясненной дисперсии.
+
+Пусть мы хотим проверить, является ли \(R^2\) статистически значимым, т.е. проверяем основную гипотезу \(H_0 : R^2_{\mathrm{T}} = 0\) против гипотезы \(H_1 : R_{\mathrm{T}} \neq 0\)\footnote{\(R_{\mathrm{T}}\) --- теоретический коэффициент детерминации.}
+
+\begin{theorem}
+    \[K = \frac{R^2(n - 2)}{1 - n^2} \in F(1, n - 2)\]
+    Пусть \(t_{\text{кр.}}\) --- квантиль \(F(1, n - 2)\) уровня значимости \(\alpha\). Тогда если \(K < t_{\text{кр.}}\), то принимается гипотеза \(H_0\), иначе \(H_1\).
+\end{theorem}
+
+Если взять корень из \(K\), то полученная величина должна иметь распределение Стьюдента. Для похожей\footnote{Вместо \(R\) было \(r\).} величины мы это доказывали при проверке статистической значимости коэффициента линейной корреляции.
+
+Проверить \(R^2_{\mathrm{T}} \neq 0\) --- то же самое, что проверить гипотезу \(b = 0\).
+
+\begin{enumerate}
+    \item \(\sqrt{R^2} = r_{ \hat{X}, X}\)
+          \begin{proof}
+              \[\cov(\hat{X}, X) = \cov(\hat{X}, \hat{X} + \varepsilon) = = \cov( \hat{X}, \hat{X}) + \cov( \hat{X}, \varepsilon) = \D \hat{X}\]
+              \[r_{ \hat{X}, X} \defeq \frac{\cov( \hat{X}, X)}{\sqrt{\D(\hat{X}) \cdot \D(X)}} = \frac{\D(\hat{X})}{\sqrt{\D(\hat{X}) \cdot \D(X)}} = \sqrt{\frac{D(\hat{X})}{D(X)}} = \sqrt{R^2}\]
+          \end{proof}
+    \item \(\sqrt{R^2} = r_{Z, X\textcolor{white}{CURSED}}\)
+          \begin{proof}
+              \[\cov( \hat{X}, X) = \cov(a + bZ, X) = b\cov(Z, X)\]
+              \[\D( \hat{X}) = \D(a + bZ) = 0 + b^2 \D(Z) = b^2 \D(Z)\]
+              \[r_{ \hat{X}, X} \defeq \frac{\cov( \hat{X}, X)}{\sqrt{\D(\hat{X}) \cdot \D(X)}} = \frac{b\cov(Z, X)}{\sqrt{b^2\D(Z) \cdot \D(X)}} = \frac{\cov(Z, X)}{\sqrt{\D(Z) \cdot \D(X)}} \defeq r_{Z, X}\]
+          \end{proof}
+\end{enumerate}
+
+Таким образом, квадрат коэффициента линейной корреляции равен коэффициенту детерминации. Поэтому и результат проверки гипотез будет одинаковым. Этот факт верен только для модели парной регрессии.
+
+\subsection{Качество моделей линейной регрессии}
+
+Обсудим, насколько качественные оценки коэффициентов линейной регрессии мы находим методом наименьших квадратов.
+
+\begin{theorem}[Гаусса--Маркова]\itemfix
+    \begin{itemize}
+        \item \(X = \alpha + \beta Z + e\)
+        \item \(\hat{X} = a + bZ\)
+        \item \(e_i\) --- независимые случайные величины, \(\varepsilon_i \in N(0, \sigma^2)\)
+        \item \(Z_i\) и \(e_i\) независимы\footnote{Также используют условие \(Z_i\) --- не случайная величина. Это условие слабее указанного.}\footnote{Обратное к этому условию называется автокорреляцией. Автокорреляция распространена во временных рядах.}
+    \end{itemize}
+
+    Тогда оценки \(a\) и \(b\) коэффициентов \(\alpha\) и \(\beta\) будут:
+    \begin{enumerate}
+        \item Несмещёнными: \(\E a = \alpha, \E b = \beta\)
+        \item Состоятельными: \(a \xrightarrow[n \to \infty]{P} \alpha\) и \(b \xrightarrow[n \to \infty]{P} \beta\)
+        \item Эффективными в классе нелинейных несмещенных оценок, т.е. их дисперсии в этом классе минимальны и при этом равны:
+              \[\D(a) = \frac{\overline{Z^2} \cdot \sigma^2}{n \D(Z)} \quad \D(b) = \frac{\sigma^2}{n \D(Z)}\]
+    \end{enumerate}
+\end{theorem}
+
+Дадим оценку дисперсии \(\sigma^2\) величины \(\varepsilon\):
+
+\[\D(\varepsilon) = \frac{1}{n} \sum_{i=1}^{n} \varepsilon_i^2\]
+\[\E(\D(\varepsilon)) = \frac{n - 2}{n}\sigma^2\]
+\[S^2 = \frac{1}{n - 2}\sum_{i=1}^{n} \varepsilon_i^2\]
+\(S^2\) --- несмещённая оценка \(\sigma^2\), мы не будем это доказывать.
+\begin{definition}
+    \(S\) --- \textbf{стандартная ошибка регрессии}.
+\end{definition}
+Если в \(\D(a)\) и в \(\D(b)\) подставим вместо \(\sigma^2\) его оценку \(S^2\), то получим \textbf{стандартные ошибки коэффициентов} \(a\) и \(b\).
+\[S_a = \frac{\overline{Z^2} \cdot S^2}{n \D(Z)} \quad S_b = \frac{S^2}{n \D(Z)}\]
+Т.к. \(e_i\) имеет нормальное распределение, то и \(\varepsilon_i\) имеет нормальное распределение. Тогда пусть \(t_\gamma\) --- квантиль двухстороннего распределения Стьюдента \(|T_{n-2}|\). Тогда будут доверительные интервалы:
+\begin{itemize}
+    \item Для \(\alpha\): \((a - t_\gamma \cdot S_a; a + t_\gamma \cdot S_a)\)
+    \item Для \(\beta\): \((b - t_\gamma \cdot S_b; a + t_\gamma \cdot S_b)\)
+\end{itemize}
+
+\(X = \alpha + \beta Z + e\) --- теоретическая неизвестная модель, \(X = a + bZ\) --- выборочная модель, которую нашли по экспериментальным данным.
+
+Пусть требуется составить прогноз при \(Z = Z_p\). Тогда в теории \(X_p = \alpha + \beta Z_p + e\), на практике \(\hat{X}_p = a + bZ_p\). Обозначим \(\Delta_p = \hat{X}_p - X_p\).
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(\E \Delta_p = 0\)
+              \begin{proof}
+                  \begin{align*}
+                      \E \Delta_p & = \E( \hat{X}_p - X_p)                                        \\
+                                  & = \E(a + bZ_p) - \E(\alpha + \beta Z_p + e)                   \\
+                                  & = \E(a) + Z_p\E(b) - \alpha - \beta Z_p - \underbrace{\E e}_0 \\
+                                  & = \alpha + \beta Z_p - \alpha - \beta Z_p                     \\
+                                  & = 0
+                  \end{align*}
+              \end{proof}
+        \item \[\D \Delta_p = \left(1 + \frac{1}{n} + \frac{(Z_p - \overline{Z})^2}{n \D(Z)}\right)\sigma^2\]
+              \begin{proof}
+                  Несложно, но занудно. Поэтому не будем.
+              \end{proof}
+              \[S^2 \Delta_p = \left(1 + \frac{1}{n} + \frac{(Z_p - \overline{Z})^2}{n \D(Z)}\right)S^2\]
+              \[S \Delta_p = S\sqrt{1 + \frac{1}{n} + \frac{(Z_p - \overline{Z})^2}{n \D(Z)}}\]
+              \begin{enumerate}
+                  \item \(\D \Delta_p > \sigma^2\)
+                  \item При \(n \to \infty, D \Delta_p \to \sigma^2\).
+                  \item Чем дальше \(Z_p\) от \(\overline{Z}\), тем выше будет ошибка модели. Таким образом, качественно предсказывать далеко от среднего никакая модель не может.
+              \end{enumerate}
+    \end{enumerate}
+\end{prop}

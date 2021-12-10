@@ -14,6 +14,7 @@
 \usepackage{physics} % \norm
 \usepackage{stmaryrd} % \{ll,rr}bracket 
 \usepackage[normalem]{ulem} % \sout
+\usepackage{faktor} % \faktor
 
 % Page layout
 \usepackage{geometry, a4wide, parskip, fancyhdr}
@@ -221,8 +222,10 @@
     Дано выше. (\ref{#1}, стр. \pageref{#1})
 }
 
-\renewcommand{\ker}{\text{Ker }}
-\newcommand{\im}{\text{Im }}
+\let\ker\relax
+\DeclareMathOperator{\ker}{ker}
+\let\im\relax
+\DeclareMathOperator{\im}{Im}
 \renewcommand{\grad}{\text{grad}}
 \newcommand{\rg}{\text{rg}}
 \newcommand{\defeq}{\stackrel{\text{def}}{=}}

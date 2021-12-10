@@ -136,7 +136,7 @@ $A(a_j \to b)$ --- матрица $A$, где заменили $j$-тый век
 
 $$\det A(a_j\to b) = 0 \cdot M_j^1 + \ldots + 1 \cdot M_j^k + \ldots + 0 = M^k_j$$
 
-$$b_{jk} = \frac{(\tilde A^T)^j_k}{\det A} \Rightarrow B = \frac{\tilde A_k^j}{\det A}$$
+$$b_{jk} = \frac{(\tilde A\tran )^j_k}{\det A} \Rightarrow B = \frac{\tilde A_k^j}{\det A}$$
 
 \subsection{Ядро и образ линейного оператора. Теорема о ядре и образе. Функции матриц и операторов.}
 \get{4.tex}{ядроиобраз}
@@ -243,7 +243,7 @@ $$\forall x \quad Ax = \mathcal Y^{-1} \overline A \mathcal X x \Leftrightarrow 
 
 $$x = \sum \xi^i e_i \quad \xi = \begin{pmatrix}
         \xi^1 & \ldots & \xi^n
-    \end{pmatrix}^T \quad \mathcal A \leftrightarrow A = ||a^i_j||$$
+    \end{pmatrix}\tran \quad \mathcal A \leftrightarrow A = ||a^i_j||$$
 $$\mathcal A x = \lambda x \Leftrightarrow A \xi = \lambda \xi \Leftrightarrow A \xi - \lambda E \xi = 0$$
 Таким образом, задача нахождения СЗ сводится к нахождению $\lambda$, для которых существуют нетривиальные решения СЛАУ $A-\lambda E$, что эквивалентно нахождению корней характеристического полинома $\chi_{\mathcal A}(\lambda) = \det(A - \lambda E)$
 

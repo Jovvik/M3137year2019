@@ -11,18 +11,18 @@
 \end{exercise}
 \begin{solution}
     \[f_p(x) = \begin{cases}
-        1 - p, & x = 0 \\
-        p, & x = 1
-    \end{cases}\]
+            1 - p, & x = 0 \\
+            p,     & x = 1
+        \end{cases}\]
     \(C = \{0, 1\}\)
     \[I(p) = \E \left(\frac{\partial \ln f_p(x)}{\partial p}\right)^2 = \begin{cases}
-        \E \left(\frac{1}{p - 1}\right)^2, & x = 0 \\
-        \E \left(\frac{1}{p}\right)^2, & x = 1
-    \end{cases} = \begin{cases}
-        \frac{1}{(p - 1)^2}, & x = 0 \\
-        \frac{1}{p^2}, & x = 1
-    \end{cases}\]
-    
+            \E \left(\frac{1}{p - 1}\right)^2, & x = 0 \\
+            \E \left(\frac{1}{p}\right)^2,     & x = 1
+        \end{cases} = \begin{cases}
+            \frac{1}{(p - 1)^2}, & x = 0 \\
+            \frac{1}{p^2},       & x = 1
+        \end{cases}\]
+
     \(p\) выносится за \(\E\), т.к. не зависит от \(x\).
 \end{solution}
 
@@ -31,7 +31,7 @@
 \end{exercise}
 \begin{solution}
     Да, т.к. матрица \(\begin{pmatrix}
-        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}   \\
         \frac{1}{\sqrt{2}} & - \frac{1}{\sqrt{2}}
     \end{pmatrix}\) переводит \((\xi, \eta)\) в \((\frac{1}{\sqrt{2}}(\xi + \eta), \frac{1}{\sqrt{2}}(\xi - \eta))\) и по теореме эти величины независимы.
 \end{solution}
@@ -41,27 +41,27 @@
 \end{exercise}
 \begin{solution}
     Повернем \(A\) таким образом, что мы получим диагональную матрицу:
-    \[A' = C^T A C = \begin{pmatrix}
-        \lambda_1 & 0 & 0 & \cdots & 0 \\
-        0 & \lambda_2 & 0 & \cdots & 0 \\
-        0 & 0 & \lambda_3 & \cdots & 0 \\
-        \vdots & \vdots & \vdots & \ddots & \vdots \\
-        0 & 0 & 0 & \cdots & \lambda_n \\
-    \end{pmatrix}\]
-    
+    \[A' = C\tran A C = \begin{pmatrix}
+            \lambda_1 & 0         & 0         & \cdots & 0         \\
+            0         & \lambda_2 & 0         & \cdots & 0         \\
+            0         & 0         & \lambda_3 & \cdots & 0         \\
+            \vdots    & \vdots    & \vdots    & \ddots & \vdots    \\
+            0         & 0         & 0         & \cdots & \lambda_n \\
+        \end{pmatrix}\]
+
     Тогда
     \[\sqrt{A'} = \begin{pmatrix}
-        \sqrt{\lambda_1} & 0 & 0 & \cdots & 0 \\
-        0 & \sqrt{\lambda_2}  & 0 & \cdots & 0 \\
-        0 & 0 & \sqrt{\lambda_3}  & \cdots & 0 \\
-        \vdots & \vdots & \vdots & \ddots & \vdots \\
-        0 & 0 & 0 & \cdots & \sqrt{\lambda_n}  \\
-    \end{pmatrix} = B'\]
-    
-    И \(B = C B' C^T\)
-    
+            \sqrt{\lambda_1} & 0                & 0                & \cdots & 0                \\
+            0                & \sqrt{\lambda_2} & 0                & \cdots & 0                \\
+            0                & 0                & \sqrt{\lambda_3} & \cdots & 0                \\
+            \vdots           & \vdots           & \vdots           & \ddots & \vdots           \\
+            0                & 0                & 0                & \cdots & \sqrt{\lambda_n} \\
+        \end{pmatrix} = B'\]
+
+    И \(B = C B' C\tran \)
+
     Проверим искомое:
-    \[B^2 = (CB'C^T)(CB'C^T) = CB'B'C^T = CA'C^T = A\]
+    \[B^2 = (CB'C\tran )(CB'C\tran ) = CB'B'C\tran = CA'C\tran = A\]
 \end{solution}
 
 \begin{exercise}

@@ -43,7 +43,7 @@
     $|\det U| = 1$
 \end{lemma}
 \begin{proof}
-    $$1 = \det I = \det(U^*U)=\det U^* \det U \defeq \det \overline U^T \det U = \det \overline U \det U=\overline {\det U} \det U = |\det U|^2$$
+    $$1 = \det I = \det(U^*U)=\det U^* \det U \defeq \det \overline U\tran \det U = \det \overline U \det U=\overline {\det U} \det U = |\det U|^2$$
 \end{proof}
 
 \begin{lemma}
@@ -54,7 +54,7 @@
     $$\mathcal U \leftrightarrow U=||U_{ij}||$$
     $$\mathcal U^* \mathcal U=I \Rightarrow U^+U = E$$
     В следующей строке подразумевается $\forall i,k$
-    $$\sum_{j=1}^n \overline U_{ji}U_{jk}=\sum_{j=1}^n (\overline U^T)_{ij} U_{jk} = \delta{ik}$$
+    $$\sum_{j=1}^n \overline U_{ji}U_{jk}=\sum_{j=1}^n (\overline U\tran )_{ij} U_{jk} = \delta{ik}$$
 \end{proof}
 \begin{example}
     Матрица поворота - ортогональное преобразование.
@@ -167,7 +167,7 @@ $$b(x, y) = b(\sum_{j=1}^n \xi^j e_j, \sum_{k=1}^n \eta^k e_k)=\sum_{k,j=1}^n \o
 \end{definition}
 
 \begin{lemma}
-    $\{e_j\}_{j=1}^n \xrightarrow{T} \{\tilde e_k\}_{k=1}^n \Rightarrow \tilde Q = T^T Q T$
+    $\{e_j\}_{j=1}^n \xrightarrow{T} \{\tilde e_k\}_{k=1}^n \Rightarrow \tilde Q = T\tran Q T$
 \end{lemma}
 \begin{proof}
     Очевидно.

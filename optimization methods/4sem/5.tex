@@ -4,7 +4,7 @@
 
 \subsection{Постановка задачи}
 
-Необходимо найти \(x^* = \begin{pmatrix} x_1 & x_2 & \dots & x_n \end{pmatrix}^T \in U \subset E_n\), где \(U\) --- множество допустимых значений, а \(E_n\) --- евклидово пространство размера \(n\), при этом \(f(x^*) = \min_{x\in U} f(x)\).
+Необходимо найти \(x^* = \begin{pmatrix} x_1 & x_2 & \dots & x_n \end{pmatrix}\tran \in U \subset E_n\), где \(U\) --- множество допустимых значений, а \(E_n\) --- евклидово пространство размера \(n\), при этом \(f(x^*) = \min_{x\in U} f(x)\).
 
 \begin{remark}\itemfix
     \begin{enumerate}
@@ -55,18 +55,18 @@
 \begin{enumerate}
     \item \(\mathbf H(x)\) симметрична, имеет размер \(n \times n\).
     \item Можно определить антиградиент --- вектор, равный по модулю градиенту и направленный противоположно. Антиградиент указывает в сторону наибольшего убывания \(f(x)\).
-    \item \(\Delta f(x) = f(x + \Delta x) - f(x) = \nabla f(x)^T \Delta x + \frac{1}{2} \Delta x^T \mathbf H(x) \Delta x + \smallO(||\Delta x||^2)\), где \(\smallO(||\Delta x||^2)\) есть сумма всех членов разложения, имеющих порядок выше второго. Можем заметить, что \(\Delta x^T \mathbf H(x) \Delta x\) --- квадратичная форма.
+    \item \(\Delta f(x) = f(x + \Delta x) - f(x) = \nabla f(x)\tran \Delta x + \frac{1}{2} \Delta x\tran \mathbf H(x) \Delta x + \smallO(||\Delta x||^2)\), где \(\smallO(||\Delta x||^2)\) есть сумма всех членов разложения, имеющих порядок выше второго. Можем заметить, что \(\Delta x\tran \mathbf H(x) \Delta x\) --- квадратичная форма.
 \end{enumerate}
 
 \begin{definition}
-    \textbf{Квадратичная форма} \(\Delta x^T \mathbf H(x) \Delta x\)\footnote{и соответствующая ей матрица \(\mathbf H(x)\)} называется:
+    \textbf{Квадратичная форма} \(\Delta x\tran \mathbf H(x) \Delta x\)\footnote{и соответствующая ей матрица \(\mathbf H(x)\)} называется:
     \begin{itemize}
-        \item Положительно определенной, если \(\forall \Delta x \neq 0 \ \ \Delta x^T \mathbf H(x) \Delta x > 0\)
-        \item Отрицательно определенной, если \(\forall \Delta x \neq 0 \ \ \Delta x^T \mathbf H(x) \Delta x < 0\)
-        \item Положительно полуопределенной, если \(\forall \Delta x \ \ \Delta x^T \mathbf H(x) \Delta x \geq 0\) и имеется \(\Delta x \neq 0 : \Delta x^T \mathbf H(x) \Delta x = 0\)
-        \item Отрицательно полуопределенной, если \(\forall \Delta x \ \ \Delta x^T \mathbf H(x) \Delta x \leq 0\) и имеется \(\Delta x \neq 0 : \Delta x^T \mathbf H(x) \Delta x = 0\)
-        \item Неопределенной, если \(\exists \Delta x, \Delta \tilde x : \Delta x^T \mathbf H(x) \Delta x > 0, \Delta \tilde x^T \mathbf H(x) \Delta \tilde x < 0\)
-        \item Тождественно равной нулю, если \(\forall \Delta x \ \ \Delta x^T \mathbf H(x) \Delta x = 0\)
+        \item Положительно определенной, если \(\forall \Delta x \neq 0 \ \ \Delta x\tran \mathbf H(x) \Delta x > 0\)
+        \item Отрицательно определенной, если \(\forall \Delta x \neq 0 \ \ \Delta x\tran \mathbf H(x) \Delta x < 0\)
+        \item Положительно полуопределенной, если \(\forall \Delta x \ \ \Delta x\tran \mathbf H(x) \Delta x \geq 0\) и имеется \(\Delta x \neq 0 : \Delta x\tran \mathbf H(x) \Delta x = 0\)
+        \item Отрицательно полуопределенной, если \(\forall \Delta x \ \ \Delta x\tran \mathbf H(x) \Delta x \leq 0\) и имеется \(\Delta x \neq 0 : \Delta x\tran \mathbf H(x) \Delta x = 0\)
+        \item Неопределенной, если \(\exists \Delta x, \Delta \tilde x : \Delta x\tran \mathbf H(x) \Delta x > 0, \Delta \tilde x\tran \mathbf H(x) \Delta \tilde x < 0\)
+        \item Тождественно равной нулю, если \(\forall \Delta x \ \ \Delta x\tran \mathbf H(x) \Delta x = 0\)
     \end{itemize}
 \end{definition}
 

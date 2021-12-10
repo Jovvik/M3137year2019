@@ -217,7 +217,7 @@ $$\begin{pmatrix}
 
 \subsection{Уравнения прямой на плоскости и в пространстве. Взаимное расположение прямых.}
 \subsubsection{Уравнения прямой на плоскости и в пространстве}
-Возьмём произвольную прямую линию $l$ в $\R^2$ или $\R^3$. Пусть $\vec s=\begin{pmatrix} m & n & p\end{pmatrix}^T$ --- направляющий вектор этой прямой. Зафиксируем точку $M_0$ на $l$ с радиус-вектором $\vec r_0=\begin{pmatrix}x_0&y_0&z_0\end{pmatrix}^T$ и выразим точку $M$ на $l$ с радиус-вектором $\vec r=\begin{pmatrix}x&y&z\end{pmatrix}^T$.
+Возьмём произвольную прямую линию $l$ в $\R^2$ или $\R^3$. Пусть $\vec s=\begin{pmatrix} m & n & p\end{pmatrix}\tran $ --- направляющий вектор этой прямой. Зафиксируем точку $M_0$ на $l$ с радиус-вектором $\vec r_0=\begin{pmatrix}x_0&y_0&z_0\end{pmatrix}\tran $ и выразим точку $M$ на $l$ с радиус-вектором $\vec r=\begin{pmatrix}x&y&z\end{pmatrix}\tran $.
 
 $\overrightarrow{M_0M} || \vec s$, т.к. они параллельны $l \Rightarrow \exists t\in\R:\overrightarrow{M_0M}=t\cdot\vec s$
 
@@ -242,7 +242,7 @@ $$\begin{cases}
 Выразим из каждого уравнения $t$ и приравняем:
 $$\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}$$
 
-Если даны две точки на прямой $M_0$ и $M_1$ с радиус-вектором $\vec r_1=\begin{pmatrix}x_1& y_1& z_1\end{pmatrix}^T$, можем получить направляющий вектор для $l$, который равен $\vec r_1-\vec r_0$. Подставим это в векторное уравнение прямой:
+Если даны две точки на прямой $M_0$ и $M_1$ с радиус-вектором $\vec r_1=\begin{pmatrix}x_1& y_1& z_1\end{pmatrix}\tran $, можем получить направляющий вектор для $l$, который равен $\vec r_1-\vec r_0$. Подставим это в векторное уравнение прямой:
 $$\vec r=\vec r_0 + (\vec r_1 - \vec r_0)t$$
 
 Сделаем переход, аналогичный предыдущему:
@@ -469,7 +469,7 @@ $\mathbb{C} = \{a+bi : \forall a,b\in\R\}$
 Примеры: \begin{enumerate}
     \item $X=\{x=\begin{pmatrix}
                   \xi^1 & \ldots & \xi^n
-              \end{pmatrix}^T, \xi^i\in\R\}$ \textit{(или $\mathbb{C}$)}
+              \end{pmatrix}\tran , \xi^i\in\R\}$ \textit{(или $\mathbb{C}$)}
     \item $\mathcal P_n=\{\text{многочлены } p(t):\deg p(t)\leq n, n\in\N\}$
 \end{enumerate}
 \subsection{Линейная зависимость векторов. Основные леммы о линейной зависимости.}

@@ -2,7 +2,7 @@
 
 \textit{Соглашение}. \(L^p[0, T], T\in\R\) можно понимать как пространство \(T\)-периодических функций, т.е. \(\forall x \ \ f(x) = f(x + T)\).
 
-Удобство: \(\int_0^T f = \int_a^{a + T} f\).
+Удобство: \(\int_0\tran f = \int_a^{a + T} f\).
 
 \textit{Соглашение}. \(f \in C[a, b] \Rightarrow ||f|| = \max_{x\in[a,b]} |f(x)|\).
 
@@ -56,8 +56,8 @@
 
     4:
     \begin{align*}
-        ||g_h - g||_p & = \left( \int_0^T |g(x + h) - g(x)|^p dx \right)^{\frac{1}{p}}               \\
-                      & \leq \left( ||g_h - g||_{\infty}^p \cdot \int_0^T 1 dx \right)^{\frac{1}{p}} \\
+        ||g_h - g||_p & = \left( \int_0\tran |g(x + h) - g(x)|^p dx \right)^{\frac{1}{p}}               \\
+                      & \leq \left( ||g_h - g||_{\infty}^p \cdot \int_0\tran 1 dx \right)^{\frac{1}{p}} \\
                       & = T^{\frac{1}{p}} ||g_h - g||_{\infty}
     \end{align*}
     , что \( < \frac{\varepsilon}{3}\) для достаточно малых \(h\).

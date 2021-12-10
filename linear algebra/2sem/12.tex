@@ -114,8 +114,8 @@ $$\langle e_i, e_j\rangle = \langle \sum_{k=1}^n \alpha_{ik} e^k, e_j\rangle=\su
     $$\langle x, \varphi y \rangle = \langle \sum_{j=1}^n \xi^j e_j, \varphi\left(\sum_{k=1}^n \eta^k e_k\right)\rangle = \sum_{j,k=1}^n \overline \xi^j \eta^k \langle e_j, \varphi e_k\rangle = \sum_{i,j,k=1}^n \overline \xi^j \eta^k a_k^i \underbrace{\langle e_j, e_i\rangle}_{\delta_{ji}}=$$
     $$=\sum_{j,k=1}^n \overline\xi^j \eta^k a_k^j = \sum_{k=1}^n \left(\sum_{j=1}^n \overline{\overline a_k^i \xi_i }\right)\eta^k=\sum_{k=1}^n \overline \zeta_k\eta^k$$
     $$\zeta_k = \sum_{i=1}^n \overline a_k^i \xi_i = \zeta^k$$
-    $$x\leftrightarrow \xi \Rightarrow \varphi^* x \leftrightarrow \zeta \quad \zeta = \overline A^T \xi$$
-    $$\varphi \leftrightarrow A \Rightarrow \varphi^* = \overline A^T \defeq A^+$$
+    $$x\leftrightarrow \xi \Rightarrow \varphi^* x \leftrightarrow \zeta \quad \zeta = \overline A\tran \xi$$
+    $$\varphi \leftrightarrow A \Rightarrow \varphi^* = \overline A\tran \defeq A^+$$
 \end{proof}
 
 Свойства операции сопряжения оператора:
@@ -134,7 +134,7 @@ $$\langle e_i, e_j\rangle = \langle \sum_{k=1}^n \alpha_{ik} e^k, e_j\rangle=\su
     $\varphi\leftrightarrow A = \begin{bmatrix}
             2   & 2i \\
             -2i & 5
-        \end{bmatrix} \quad A^T = \begin{bmatrix}
+        \end{bmatrix} \quad A\tran = \begin{bmatrix}
             2  & -2i \\
             2i & 5
         \end{bmatrix} \quad A^+ = \begin{bmatrix}

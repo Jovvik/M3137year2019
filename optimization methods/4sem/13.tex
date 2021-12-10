@@ -186,19 +186,19 @@
     \label{x**}
 \end{equation}
 
-\[\ev{Ax^0, p^i} p^i = p^i \ev{p^i, Ax^0} = p^i (p^i)^T Ax^0\]
+\[\ev{Ax^0, p^i} p^i = p^i \ev{p^i, Ax^0} = p^i (p^i)\tran Ax^0\]
 И тогда \eqref{x0 в базисе} можно записать как:
-\[x^0 = \sum_{i = 1}^n \frac{p^i (p^i)^T}{\ev{Ap^i, p^i}} Ax^0\]
+\[x^0 = \sum_{i = 1}^n \frac{p^i (p^i)\tran }{\ev{Ap^i, p^i}} Ax^0\]
 Т.к. это верно \(\forall x^0\), то рассматриваемый оператор тождественный:
-\[\sum_{i = 1}^n \frac{p^i (p^i)^T}{\ev{Ap^i, p^i}} A = \mathbf{1}\]
+\[\sum_{i = 1}^n \frac{p^i (p^i)\tran }{\ev{Ap^i, p^i}} A = \mathbf{1}\]
 Следовательно:
-\[A^{ - 1} = \sum_{i = 1}^n \frac{p^i (p^i)^T}{\ev{Ap^i, p^i}}\]
+\[A^{ - 1} = \sum_{i = 1}^n \frac{p^i (p^i)\tran }{\ev{Ap^i, p^i}}\]
 Таким образом, по \(p^i\) можно построить \(A^{ - 1}\) и \eqref{x**} можно переписать как:
 \begin{align*}
     x^*
-     & = x^0 - \sum_{i = 1}^n \frac{\nabla f(x^0), p^i}{\ev{Ap^i, p^i}} p^i    \\
-     & = x^0 - \sum_{i = 1}^n \frac{p^i (p^i)^T}{\ev{Ap^i, p^i}} \nabla f(x^0) \\
-     & = x^0 - A^{ - 1} \nabla f(x^0)                                          \\
+     & = x^0 - \sum_{i = 1}^n \frac{\nabla f(x^0), p^i}{\ev{Ap^i, p^i}} p^i        \\
+     & = x^0 - \sum_{i = 1}^n \frac{p^i (p^i)\tran }{\ev{Ap^i, p^i}} \nabla f(x^0) \\
+     & = x^0 - A^{ - 1} \nabla f(x^0)                                              \\
 \end{align*}
 
 В итоге, выполнение всех \(n\) итераций исчерпывающего спуска есть один спуск вида

@@ -423,17 +423,17 @@ $$f'(a) - \lambda\Phi'(a) = 0 \Leftrightarrow G'(a) = 0$$
     \begin{itemize}
         \item $A \in \text{Lin}(\R^m, \R^n)$
     \end{itemize}
-    Тогда $||A|| = \max\{\sqrt{\lambda} : \lambda \text{ --- собственное число } A^TA\}$
+    Тогда $||A|| = \max\{\sqrt{\lambda} : \lambda \text{ --- собственное число } A\tran A\}$
 
-    Такое число существует, т.к. $\langle Ax, y\rangle = \langle x, A^Ty\rangle \Rightarrow \langle A^T Ax, x\rangle = \langle Ax, Ax\rangle \ge 0 \Rightarrow \lambda \ge 0$.
+    Такое число существует, т.к. $\langle Ax, y\rangle = \langle x, A\tran y\rangle \Rightarrow \langle A\tran Ax, x\rangle = \langle Ax, Ax\rangle \ge 0 \Rightarrow \lambda \ge 0$.
     %</нормалоп>
 \end{theorem}
 %<*нормалопproof>
 \begin{proof}
     $\sphericalangle x\in S^{m-1}$.
 
-    $$|Ax|^2 = \langle Ax, Ax\rangle = \langle \underbrace{A^TA}_{\text{симм.}}x, x\rangle$$
-    $$\max |Ax|^2 = \max \langle A^TAx, x\rangle = \lambda_{\max}$$
+    $$|Ax|^2 = \langle Ax, Ax\rangle = \langle \underbrace{A\tran A}_{\text{симм.}}x, x\rangle$$
+    $$\max |Ax|^2 = \max \langle A\tran Ax, x\rangle = \lambda_{\max}$$
 \end{proof}
 %</нормалопproof>
 

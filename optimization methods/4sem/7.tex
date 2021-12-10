@@ -72,11 +72,11 @@
 От соотношения \(l\) и \(L\) существенно зависит число итераций градиентного метода при минимизации выпуклой квадратичной функции.
 
 \begin{example}[\(L = l > 0\)]
-    \(f(x) = x_1^2 + x_2^2 \to \min, x^0 = \begin{pmatrix} 1 & 1 \end{pmatrix}^T, \alpha = \alpha^*\)
+    \(f(x) = x_1^2 + x_2^2 \to \min, x^0 = \begin{pmatrix} 1 & 1 \end{pmatrix}\tran , \alpha = \alpha^*\)
 
     Решение:
     \[A = \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} \Rightarrow l = L = 2 \Rightarrow \alpha^* = \frac{2}{2 + 2} = \frac{1}{2}\]
-    \[x^1 = x^0 - \frac{1}{2} \nabla f(x^0) = \begin{pmatrix} 0 & 0 \end{pmatrix}^T\]
+    \[x^1 = x^0 - \frac{1}{2} \nabla f(x^0) = \begin{pmatrix} 0 & 0 \end{pmatrix}\tran \]
 
     Несложно заметить, что \(x^1 = x^*\).
 
@@ -86,11 +86,11 @@
 При \(l = L\) линии уровня \(f(x)\) --- концентрические окружности. При \(L \gg l > 0\) линии уровня \(f(x)\) --- эллипсы:
 
 \begin{example}[\(L \gg l > 0\)]
-    \(f(x) = x_1^2 + 100x_2^2 \to \min , x_0 = \begin{pmatrix} 1 & 1 \end{pmatrix}^T, \alpha = \alpha^*\)
+    \(f(x) = x_1^2 + 100x_2^2 \to \min , x_0 = \begin{pmatrix} 1 & 1 \end{pmatrix}\tran , \alpha = \alpha^*\)
 
     \[A = \begin{pmatrix} 2 & 0 \\ 0 & 200 \end{pmatrix} \Rightarrow l = 2, L = 200\]
-    \[ - \nabla f(x^0) = \begin{pmatrix} - 2 & - 200 \end{pmatrix}^T\]
-    \(x^* - x^0 = \begin{pmatrix} - 1 & - 1 \end{pmatrix}^T\) --- направление к точке глобального минимума, сильно отличается от направления спуска, минимизирующая последовательность сходится зигзагообразно.
+    \[ - \nabla f(x^0) = \begin{pmatrix} - 2 & - 200 \end{pmatrix}\tran \]
+    \(x^* - x^0 = \begin{pmatrix} - 1 & - 1 \end{pmatrix}\tran \) --- направление к точке глобального минимума, сильно отличается от направления спуска, минимизирующая последовательность сходится зигзагообразно.
 \end{example}
 
 \begin{definition}

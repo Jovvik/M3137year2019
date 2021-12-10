@@ -1,0 +1,269 @@
+\chapter{4 декабря}
+
+\section{Кольца}
+
+\begin{definition}
+    Множество \(R\) с бинарными операциями \(+\) и \(\cdot\) называется \textbf{кольцом}, если:
+    \begin{enumerate}
+        \item \((R, +)\) --- коммутативная группа
+        \item \((R, \cdot)\) --- моноид
+        \item Дистрибутивность справа и слева:
+              \begin{align*}
+                  a \cdot (b + c) & = ab + ac \\
+                  (a + b) \cdot c & = ac + bc
+              \end{align*}
+    \end{enumerate}
+\end{definition}
+
+\begin{example}\itemfix
+    \begin{itemize}
+        \item \(R = \Z\)
+        \item \(R = \R_{n \times n}\)
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    Кольцо \(R\) \textbf{коммутативно}, если \(ab = ba\).
+\end{definition}
+
+\begin{remark}
+    Мы будем рассматривать в основном коммутативные кольца. Если не сказано иначе, то кольцо коммутативно.
+\end{remark}
+
+\begin{remark}
+    \(0, 1 \in R\), где:
+    \begin{itemize}
+        \item \(0\) --- нейтральный по \(+\)
+        \item \(1\) --- из моноида \((R, \cdot)\)
+    \end{itemize}
+\end{remark}
+
+\begin{remark}
+    Если \(0 = 1\), то \(R = \{0\}\)
+\end{remark}
+
+\begin{definition}
+    \(a \in R\) называется обратимым, если \(\exists b : ab = 1\).
+\end{definition}
+
+\begin{definition}
+    \(R^*\) называется \textbf{группой обратимых элементов} \textit{(или \textbf{группой единиц})}:
+    \[R^* \coloneqq \{a \in R \mid \exists b \ \ ab = 1\}\]
+\end{definition}
+
+\begin{theorem}
+    \((R^*, \cdot)\) --- группа.
+\end{theorem}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item \(0 \cdot a = 0\)
+        \item \(( - 1) \cdot a = - a\)
+        \item \(( - a)( - b) = a \cdot b\)
+    \end{itemize}
+\end{remark}
+
+\begin{definition}
+    \(S \subset R\) называется \textbf{подкольцом}, если \(S\) --- кольцо с индуцированными операциями.
+\end{definition}
+
+\begin{remark}
+    \(S \subset R\) --- подкольцо, если \( +\) и \( \cdot \) замкнуты в \(S\).
+\end{remark}
+
+\begin{example}
+    \(S = 2\Z\) --- подкольцо
+\end{example}
+
+Вообще говоря, можно рассматривать кольцо без \(1\).
+
+\begin{definition}
+    \(J \subset R\) называется \textbf{идеалом}, если \(J\) --- подкольцо и \(\forall a \in R \ \ \forall x \in J \ \ ax \in J\)
+\end{definition}
+
+\begin{example}
+    \(J = 2\Z\) --- идеал
+\end{example}
+
+\begin{definition}
+    \(\mathcal{I}(R)\) --- множество идеалов.\footnote{На лекции обозначено \(I\), но это чаще используется для дробных идеалов.}
+\end{definition}
+
+\begin{definition}
+    Если \(J_1, J_2 \in \mathcal{I}(R)\), то:
+    \[J_1 + J_2 \coloneqq \ev{J_1 + J_2} \coloneqq \{x + y \mid x \in J_1, y \in J_2\}\]
+\end{definition}
+
+\begin{theorem}
+    \(J_1 + J_2 \in \mathcal{I}(R)\)
+\end{theorem}
+\begin{proof}
+    \(\sphericalangle x_1 + y_1, x_2 + y_2 \in J_1 + J_2\)
+    \[(x_1 + y_1) + (x_2 + y_2) = (x_1 + x_2) + (y_1 + y_2) \in J_1 + J_2\]
+    \(\sphericalangle a \in R, x + y \in J_1 + J_2\)
+    \[a \cdot (x + y) = \underbrace{ax}_{J_1} + \underbrace{ay}_{J_2} \in J_1 + J_2\]
+\end{proof}
+
+\begin{remark}
+    Если \(S\) --- подкольцо, то \(0 \in S\)
+\end{remark}
+
+\begin{theorem}
+    \(J_1 \in \mathcal{I}(J_1 + J_2)\)
+\end{theorem}
+
+\begin{definition}
+    Если \(J_1, J_2 \in \mathcal{I}(R)\), то:
+    \[\underbrace{J_1 \cdot J_2}_{\substack{\text{умножение}\\\text{идеалов}}} \coloneqq \overbrace{\ev{J_1 \cdot J_2}}^{\substack{\text{поэлементное}\\\text{умножение}}} \coloneqq \left\{\sum_{k=1}^{n} x_k y_k \mid x_k \in J_1, y_k \in J_2, n \in \N\right\}\]
+\end{definition}
+\begin{theorem}
+    \(J_1 \cdot J_2 \in \mathcal{I}(R)\)
+\end{theorem}
+\begin{proof}
+    \(\sphericalangle a \in R\)
+    \[\sum_{k=1}^{n} x_ky_k \in J_1J_2\]
+    \[a \sum_{k=1}^{n} x_ky_k = \sum_{k=1}^{n} \underbrace{a x_k}_{\in J_1} y_k \in J_1 \cdot J_2\]
+\end{proof}
+
+\begin{remark}
+    Вообще говоря, \(\mathcal{I}(R)\) --- не кольцо, только полукольцо.
+\end{remark}
+
+\begin{definition}
+    Если \(J_1, J_2 \in \mathcal{I}(R)\), то:
+    \[J_1 \cap J_2 \coloneqq \{x \mid x \in J_1, x \in J_2\}\]
+\end{definition}
+\begin{theorem}
+    \(J_1 \cap J_2 \in \mathcal{I}(R)\)
+\end{theorem}
+\begin{proof}
+    \(\sphericalangle x_1, x_2 \in J_1 \cap J_2\)
+    \[J_2 \ni x_1 + x_2 \in J_1\]
+    \(\sphericalangle a \in R, x \in J_1 \cap J_2\)
+    \[J_2 \ni ax \in J_1\]
+\end{proof}
+
+\begin{definition}
+    \(J_1 \leq J_2\), если \(J_1 \subset J_2\).
+\end{definition}
+
+\begin{remark}
+    Это частичный порядок.
+\end{remark}
+
+\begin{definition}\itemfix
+    \begin{itemize}
+        \item \(\{0\}\) --- \textbf{тривиальный} идеал
+        \item \(J = R\) --- \textbf{несобственный} идеал
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \(J \in \mathcal{I}(R)\), тогда \(x \sim y\), если \(x - y \in J \Leftrightarrow x + J = y + J\)
+\end{definition}
+
+\begin{remark}
+    \(J^+ \vartriangleleft R^+\)
+\end{remark}
+
+\begin{definition}
+    \(\faktor{R}{J}\) --- \textbf{фактор--кольцо}:
+    \[\faktor{R}{J} \coloneqq \{[x] \mid x \in R\} = \{x + J \mid x \in R\}\]
+\end{definition}
+
+\begin{theorem}
+    \(\faktor{R}{J}\) --- кольцо.
+\end{theorem}
+\begin{proof}
+    \(\sphericalangle x + J, y + J \in \faktor{R}{J}\)
+    \[x + J + y + J = x + y + J + J = x + y + J\]
+    \[(x + J)(y + J) = xy + xJ + Jy + JJ = xy + J\]
+\end{proof}
+
+\begin{example}
+    \(R = \Z, J = 5\Z\)
+    \[\faktor{R}{J} = \{0 + J, 1 + J, 2 + J, 3 + J, 4 + J\}\]
+    \[\faktor{R}{J} \cong \Z_5\]
+\end{example}
+
+\begin{remark}
+    \(\faktor{R}{J}\) называют кольцом вычетов \(\operatorname{mod} J\).
+\end{remark}
+
+\begin{definition}
+    Если \(x, y \in R, J \in \mathcal{I}(R)\), то:
+    \[x \equiv y \mod J \stackrel{\mathrm{def}}{\Leftrightarrow} x - y \in J\]
+    ,\(x\) и \(y\) называются сравнимыми \(\operatorname{mod} J\).
+\end{definition}
+
+\begin{remark}
+    \(x \in R, J = x \cdot R \in \mathcal{I}(R)\)
+\end{remark}
+
+\begin{definition}
+    \(a_k \in R\), тогда \((a_1 \dots a_n)\) называется \textbf{идеалом, порожденным} элементами \(a_1 \dots a_n\):
+    \[(a_1 \dots a_n) = a_1R + \dots + a_nR\]
+\end{definition}
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item \(\ev{\dots}\) --- кольцо
+        \item \((\ldots)\) --- идеал
+    \end{itemize}
+\end{remark}
+
+\begin{example}
+    \(\sphericalangle R = \Z\)
+    \[(12, 18) = \{12x + 18y \mid x, y \in \Z\} = 6\Z\]
+\end{example}
+
+\begin{definition}
+    \(J \in \mathcal{I}(R)\) называется \textbf{главным} идеалом, если:
+    \[\exists a \in R \quad J = (a) = aR\]
+\end{definition}
+
+\begin{definition}
+    \(R\) называется \textbf{кольцом главных идеалов}, если в нём любой идеал --- главный.
+\end{definition}
+
+\begin{definition}
+    \(f : R \to R'\) --- гомоморфизм, если:
+    \begin{itemize}
+        \item \(f(x + y) = f(x) + f(y)\)
+        \item \(f(xy) = f(x)f(y)\)
+        \item \(f(0) = 0\)
+        \item \(f(1) = 1\), если \(1 \in R\)
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    Пунктов 1 и 2 достаточно.
+\end{remark}
+% \[f(0) + f(a) = f(a + 0) = f(a) \Rightarrow f(0) = 0\]
+
+\begin{definition}
+    \[\ker f \coloneqq \{x \in R \mid f(x) = 0\}\]
+    \[\im f \coloneqq f(R) = \{y \in R' \mid \exists x \ \ f(x) = y\}\]
+\end{definition}
+
+\begin{lemma}
+    \(\ker f \in \mathcal{I}(R)\)
+\end{lemma}
+\begin{proof}
+    Замкнутость по сложению следует из того что \(f\) есть гомоморфизм абелевых групп.
+
+    \(\sphericalangle a \in R, x \in \ker f\)
+
+    \[ax \in \ker f \Leftrightarrow f(ax) = 0\]
+    \[f(ax) = f(a)f(x) = f(a) \cdot 0 = 0\]
+\end{proof}
+
+\begin{theorem}
+    Если \(f : R \to R'\) --- гомоморфизм, то \(\faktor{R}{\ker f} \cong \im f\).
+\end{theorem}
+\begin{proof}
+    Построим \(\sigma : \faktor{R}{\ker f} \to \im f \subset R'\).
+
+    \(\sphericalangle x + \ker f \in \faktor{R}{\ker f}\)
+    \[\sigma(x + \ker f) \coloneqq f(x)\]
+    Тогда \(\sigma\) --- изоморфизм.
+\end{proof}

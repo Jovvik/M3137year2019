@@ -1,0 +1,110 @@
+\chapter{15 ноября}
+
+\section{Общая модель линейной регрессии}
+
+Пусть признак--результат \(X\) зависит от \(k\) факторов \(Z_1 \dots Z_k\). Рассматривается теоретическая модель линейной регрессии \(\E(X \mid \vec{Z}) = \beta_1Z_1 + \dots + \beta_kZ_k\)
+
+\begin{obozn}
+    \[\vec{Z} = \begin{pmatrix}
+            Z_1    \\
+            \vdots \\
+            Z_k
+        \end{pmatrix} \quad \vec{\beta} = \begin{pmatrix}
+            \beta_1 \\
+            \vdots  \\
+            \beta_k
+        \end{pmatrix}\]
+\end{obozn}
+
+Пусть проведено \(n \geq k\) экспериментов, \(\vec{Z}^{(i)} = (Z_1^{(i)} \dots Z_k^{(i)})\) --- значение фактора при \(i\)-том эксперименте (возможно заранее заданные). \(\vec{X} = (X_1 \dots X_n)\) --- полученные экспериментальные данные признака--результата \(X\). Согласно модели:
+\[\begin{cases}
+        X_1 = \beta_1 Z_1^{(1)} + \dots + \beta_k Z_k^{(1)} + \varepsilon_1 \\
+        X_2 = \beta_1 Z_1^{(2)} + \dots + \beta_k Z_k^{(2)} + \varepsilon_2 \\
+        \vdots                                                              \\
+        X_n = \beta_1 Z_1^{(n)} + \dots + \beta_k Z_k^{(n)} + \varepsilon_n
+    \end{cases}\]
+, где \(\varepsilon_i\) --- случайная теоретическая ошибка при \(i\)-том эксперименте.
+\begin{obozn}[вектор случайных ошибок]
+    \[\vec{\varepsilon} \coloneqq \begin{pmatrix}
+            \varepsilon_1 \\
+            \vdots        \\
+            \varepsilon_n
+        \end{pmatrix}\]
+\end{obozn}
+\begin{obozn}[матрица плана]
+    \[Z_{k \times n} \coloneqq \begin{pmatrix}
+            Z_1^{(1)} & Z_1^{(2)} & \dots  & Z_1^{(n)} \\
+            Z_2^{(1)} & Z_2^{(2)} & \dots  & Z_2^{(n)} \\
+            \vdots    & \vdots    & \ddots & \vdots    \\
+            Z_k^{(1)} & Z_k^{(2)} & \dots  & Z_k^{(n)}
+        \end{pmatrix}\]
+\end{obozn}
+
+Тогда теоретическую модель можно записать в матричной форме:
+\[\vec{X} = Z\tran \vec{\beta} + \vec{\varepsilon}\]
+
+Требуется по данной матрице плана \(Z\) и вектору результатов \(\vec{X}\) найти оценки \(\vec{B} = (b_1 \dots b_k)\) для параметров регрессии \(\vec{\beta} = (\beta_1 \dots \beta_k)\) и параметров распределения ошибок \(\varepsilon_i\)
+
+\begin{remark}
+    Заметим, что в данной модели мы не теряем свободный член \(a\), т.к. можно считать, что \(Z_1 = \mathbbm{1}\) и ей соответствует строка из единиц.
+\end{remark}
+
+\subsection{Метод наименьших квадратов и нормальные уравнения}
+
+Будем считать, что выполнено два условия:
+\begin{enumerate}
+    \item \(\rank Z = k\), т.е. все строки матрицы плана линейно независимы.\footnote{Это условие тривиально выполнить путём отброса линейно зависимых экспериментов.}
+    \item Случайные ошибки \(\varepsilon_i\) независимы и имеет одинаковое нормальное распределение с параметром \(a = 0\).\footnote{Это условие уже было в теореме~\nameref{Гаусса--Маркова}}
+\end{enumerate}
+
+\begin{obozn}
+    \(A_{k \times k} \coloneqq Z Z\tran\)
+\end{obozn}
+\begin{prop}\itemfix
+    \begin{enumerate}
+        \item \(A\) --- симметричная.
+        \item \(A\) --- положительно определенная.
+        \item Существует вещественная симметрическая матрица \(\sqrt{A}\), такая что \((\sqrt{A})^2 = A\).
+    \end{enumerate}
+\end{prop}
+
+Найдём оценку \(\vec{B} = (b_1 \dots b_k)\), которая минимизирует функцию \[L(\vec{B}) = \sum_{i=1}^{n} \hat{\varepsilon}_i^2 = \norm{\hat{\varepsilon}}^2 = \norm{\vec{X} - Z\tran \vec{B}}^2\]
+
+Заметим, что \(\norm{\vec{X} - Z\tran \vec{B}}^2\) --- квадрат расстояния от точки \(\vec{X}\) до точки \(Z\tran \vec{B}\), которая является точкой подпространства \(\ev{Z\tran \vec{t}}\), где \(\vec{t} \in \R^k\). Таким образом, искомое минимальное расстояние это расстояние до данного подпространства \(\ev{Z\tran \vec{t}}\). Это расстояние получаем при условии, что вектор \(\vec{X} - Z\tran \vec{B}\) будет ортогонален всем векторам подпространства, т.е. скалярное произведение \(\ev{Z\tran \vec{t}, \vec{X} - Z\tran \vec{B}} = 0 \ \ \forall \vec{t}\)
+\begin{align*}
+    \ev{Z\tran \vec{t}, \vec{X} - Z\tran \vec{B}}
+     & = (Z\tran \vec{t})\tran \cdot (\vec{X} - Z\tran \vec{B})\ \\
+     & = \vec{t}\:\tran \cdot Z \cdot (\vec{X} - Z\tran \vec{B}) \\
+     & = \vec{t}\:\tran \cdot (Z\vec{X} - ZZ\tran \vec{B})
+\end{align*}
+Т.к. скалярное произведение вектора со всеми другими векторами равно нулю тогда и только тогда, когда он является нулевым, то:
+\begin{align*}
+    Z\vec{X} - ZZ\tran \vec{B} & = 0        \\
+    ZZ\tran \vec{B}            & = Z\vec{X} \\
+    A \vec{B}                  & = Z\vec{X}
+\end{align*}
+Это система из \(k\) линейных нормальных уравнений, из которой можно найти оценки \(\vec{B}\) неизвестных параметров. По свойству 2 матрица невырожденная, поэтому эта система имеет единственное решение:
+\[\vec{B} = A^{-1}Z \vec{X}\]
+
+\begin{prop}[оценок метода наименьших квадратов]\itemfix
+    \begin{enumerate}
+        \item \(\vec{B} - \vec{\beta} = A^{-1} Z \vec{\varepsilon}\)
+              \begin{proof}
+                  \begin{align*}
+                      \vec{B} - \vec{\beta}
+                       & = A^{-1}Z \vec{X} - \vec{\beta}                                                           \\
+                       & = A^{-1}Z (Z\tran \vec{\beta} + \vec{\varepsilon}) - \vec{\beta}                          \\
+                       & = A^{-1} \underbrace{Z Z\tran}_{A} \vec{\beta} + A^{-1} Z \vec{\varepsilon} - \vec{\beta} \\
+                       & = A^{-1} Z \vec{\varepsilon}                                                              \\
+                  \end{align*}
+              \end{proof}
+        \item \(B\) --- несмещённая оценка параметров \(\vec{\beta}\)
+              \begin{proof}
+                  \begin{align*}
+                      \E \vec{B}
+                       & = \E(A^{-1}Z \vec{X}) \\
+                      \text{\unfinished}
+                  \end{align*}
+              \end{proof}
+    \end{enumerate}
+\end{prop}

@@ -53,8 +53,8 @@
 
 Будем считать, что выполнено два условия:
 \begin{enumerate}
-    \item \(\rank Z = k\), т.е. все строки матрицы плана линейно независимы.\footnote{Это условие тривиально выполнить путём отброса линейно зависимых экспериментов.}
-    \item Случайные ошибки \(\varepsilon_i\) независимы и имеет одинаковое нормальное распределение с параметром \(a = 0\).\footnote{Это условие уже было в теореме~\nameref{Гаусса--Маркова}}
+    \item \(\rank Z = k\), т.е. все строки матрицы плана линейно независимы.\footnote{Это условие тривиально выполнить путём отброса линейно зависимых экспериментов.}\label{cond1}
+    \item Случайные ошибки \(\varepsilon_i\) независимы и имеет одинаковое нормальное распределение с параметром \(a = 0\).\footnote{Это условие уже было в теореме~\nameref{Гаусса--Маркова}}\label{cond2}
 \end{enumerate}
 
 \begin{obozn}
@@ -86,6 +86,10 @@
 Это система из \(k\) линейных нормальных уравнений, из которой можно найти оценки \(\vec{B}\) неизвестных параметров. По свойству 2 матрица невырожденная, поэтому эта система имеет единственное решение:
 \[\vec{B} = A^{-1}Z \vec{X}\]
 
+\begin{definition}
+    \textbf{Матрицей ковариации} случайного вектора \(\vec{X}\) называется матрица \(\D \vec{X} = \E(\vec{X} - \E \vec{X})(\vec{X} - \E \vec{X})\tran\), состоящая из элементов \(\cov(X_i, X_j)\)
+\end{definition}
+
 \begin{prop}[оценок метода наименьших квадратов]\itemfix
     \begin{enumerate}
         \item \(\vec{B} - \vec{\beta} = A^{-1} Z \vec{\varepsilon}\)
@@ -102,9 +106,73 @@
               \begin{proof}
                   \begin{align*}
                       \E \vec{B}
-                       & = \E(A^{-1}Z \vec{X}) \\
-                      \text{\unfinished}
+                       & = \E(A^{-1}Z \vec{\varepsilon} + \vec{\beta})              \\
+                       & = \E(A^{-1}Z \vec{\varepsilon}) + \E\vec{\beta}            \\
+                       & = A^{-1}Z \underbrace{\E\vec{\varepsilon}}_0 + \vec{\beta} \\
+                       & = \vec{\beta}
                   \end{align*}
               \end{proof}
+
+              Кроме того, если \(\E \vec{\varepsilon} \neq 0\), то оценка смещённая.
+        \item \(\D \vec{\varepsilon} =
+              \mqty(\dmat{\sigma^2,\ddots,\sigma^2}) = \sigma^2 E_n\)\footnote{\(E_n\) --- единичная матрица \(n \times n\)}
+              \begin{proof}
+                  По условию \ref{cond2} \(\varepsilon_i \in N(0, \sigma^2)\) и независимы, следовательно, \(d_{ij} = 0\) при \(i \neq j\) и \(d_{ii} = \sigma^2\)
+              \end{proof}
+        \item \(\D (\sqrt{A} \cdot \vec{B}) = \mqty(\dmat{\sigma^2,\ddots,\sigma^2}) = \sigma^2 E_k\) \label{prop4}
+              \begin{proof}
+                  \begin{align*}
+                      \D (\sqrt{A} \cdot \vec{B})
+                       & = \E(\sqrt{A} \cdot \vec{B} - \E \sqrt{A} \cdot \vec{B})(\sqrt{A} \cdot \vec{B} - \E \sqrt{A} \cdot \vec{B})\tran \\
+                       & = \E (\sqrt{A} (\vec{B} - \E \vec{B})) \cdot (\sqrt{A} (\vec{B} - \E \vec{B}))\tran                               \\
+                       & = \E (\sqrt{A} (\vec{B} - \vec{\beta})) \cdot (\sqrt{A} (\vec{B} - \vec{\beta}))\tran                             \\
+                       & = \E (\sqrt{A} A^{-1}Z \vec{\varepsilon}) \cdot (\sqrt{A} A^{-1}Z \vec{\varepsilon})\tran                         \\
+                       & = \sqrt{A} A^{-1}Z \E(\vec{\varepsilon} \cdot \vec{\varepsilon}\,\tran) Z\tran (A^{-1})\tran (\sqrt{A})\tran      \\
+                       & = \sqrt{A} A^{-1}Z \sigma^2 E_n Z\tran A^{-1} \sqrt{A}                                                            \\
+                       & = \sigma^2 \sqrt{A} A^{-1}\underbrace{Z Z\tran}_{A} A^{-1} \sqrt{A}                                               \\
+                       & = \sigma^2 \sqrt{A} A^{-1} \sqrt{A}                                                                               \\
+                       & = \sigma^2 \sqrt{A} \sqrt{A^{-1}} \sqrt{A^{-1}} \sqrt{A}                                                          \\
+                       & = \sigma^2 E_k                                                                                                    \\
+                  \end{align*}
+              \end{proof}
+
+              \begin{corollary}
+                  Координаты вектора \(\sqrt{A} \cdot \vec{B}\) некоррелированны.
+              \end{corollary}
+        \item \(\D \vec{B} = \sigma^2 A^{-1}\)
+              \begin{proof}
+                  По свойству 4 \(\D(\sqrt{A} \cdot \vec{B}) = \sigma^2 E_k\). В силу билинейности ковариации:
+                  \[\sigma^2 E_k = \D(\sqrt{A} \cdot \vec{B}) = (\sqrt{A})^2 \D \vec{B} = A \D \vec{B}\]
+              \end{proof}
+
+              Отсюда можем получить дисперсии оценок \(b_i\) по формулам:
+              \[\D b_i = \sigma^2 (A^{-1})_{ii}\]
+              Обозначим через \(\hat{\sigma}^2 \coloneqq \frac{1}{n} \sum_{i=1}^{n} \hat{\varepsilon}_i^2 = \frac{1}{n} \sum_{i=1}^{n} (\vec{X} - Z\tran \vec{B})^2\). Заметим, что \(\hat{\sigma}^2\) --- точная оценка неизвестного параметра \(\sigma^2\).
     \end{enumerate}
 \end{prop}
+
+\begin{theorem}
+    Пусть выполнены условия \ref{cond1} и \ref{cond2}. Тогда:
+    \begin{enumerate}
+        \item Вектор \(\frac{1}{\sigma}\sqrt{A}(\vec{B} - \vec{\beta})\) состоит из \(k\) независимых случайных величин со стандартным нормальным распределением.
+        \item \(\frac{n \hat{\sigma}^2}{\sigma^2} \in H_{n - k}\) и не зависит от \(\vec{B}\).
+        \item Исправленная оценка \(S^2 = \frac{n \hat{\sigma}^2}{n - k} = \frac{1}{n - k} \sum_{i=1}^{k} \hat{\varepsilon}_i^2\) --- несмещённая оценка для \(\sigma^2\).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\itemfix
+    \begin{enumerate}
+        \item Вектор \(\sqrt{A}(\vec{B} - \vec{\beta}) = \sqrt{A} - A^{-1} Z \vec{\varepsilon} = (\sqrt{A})^{-1} Z \vec{\varepsilon}\) является линейным преобразованием нормального вектора \(\vec{\varepsilon}\), поэтому имеет нормальное совместное распределение, т.е. его координаты --- нормальные случайные величины.
+
+              По свойству~\ref{cond2} \(\E(\sqrt{A} (\vec{B} - \vec{\beta})) = 0\), а его матрица ковариаций по свойству~\ref{prop4}:
+              \[\D(\sqrt{A} (\vec{B} - \vec{\beta})) = \D (\sqrt{A} \vec{B}) = \sigma^2 E_k\]
+              Отсюда видим, что координаты данного вектора не коррелированны и, следовательно, независимы. Тогда \(\D\left(\frac{1}{\sigma}\sqrt{A} \vec{B}\right) = E_k\)
+        \item Нудно.
+        \item Т.к. \(\E(\chi^2_{n - k}) = n - k\), то:
+              \[\E \hat{\sigma}^2 = \frac{\sigma^2}{n} \E \left(\frac{n \hat{\sigma}^2}{\sigma^2}\right) = \frac{\sigma^2}{n} \cdot (n - k) = \frac{n - k}{n}\sigma^2\]
+              Это смещённая оценка, следовательно, \(S^2 = \cfrac{n \hat{\sigma}^2}{n - k}\)
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Используя результаты этой лекции, получить в качестве частного случая уравнение парной линейной регрессии, доказать теорему Гаусса--Маркова и критерии проверки гипотез.
+\end{exercise}

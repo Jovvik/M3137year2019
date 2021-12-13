@@ -2,16 +2,16 @@
   {
     "referrer": "github.com",
     "count": 52,
-    "uniques": 19
-  },
-  {
-    "referrer": "away.vk.com",
-    "count": 9,
-    "uniques": 2
+    "uniques": 20
   },
   {
     "referrer": "Google",
     "count": 7,
     "uniques": 2
+  },
+  {
+    "referrer": "away.vk.com",
+    "count": 1,
+    "uniques": 1
   }
 ]

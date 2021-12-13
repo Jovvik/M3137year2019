@@ -1,0 +1,86 @@
+\chapter{7 декабря}
+
+\section{Теорема Диаконеску}
+
+\begin{theorem}[Диаконеску]
+    Интуиционистское исчисление предикатов + аксиомы ZF + аксиома выбора влекут закон исключённого третьего, т.е. при любом \(P\) выполнено \(P \lor \neg P\).
+\end{theorem}
+
+\begin{proof}
+    Рассмотрим переменную \(P\) и множества:
+    \begin{itemize}
+        \item \(\mathbb{B} \coloneqq \{0, 1\}\)
+        \item \(U \coloneqq \{x \in \mathbb{B} \mid x = 0 \lor P\}\)
+        \item \(V \coloneqq \{x \in \mathbb{B} \mid x = 1 \lor P\}\)
+    \end{itemize}
+
+    % Если \(P\) истинно, то \(U = \mathbb{B}\) и \(V = \mathbb{B}\).
+
+    \(U\) и \(V\) непустые, т.к. в \(U\) есть \(0\), а в \(V\) есть \(1\). Тогда по аксиоме выбора для семейства \(\{U, V\} \ \ \exists f : \{U, V\} \to \mathbb{B}\), такое что \(f(U) \in U, f(V) \in V\). Рассмотрим случаи:
+    \begin{enumerate}
+        \item \(f(U) = f(V)\)
+              \begin{enumerate}
+                  \item \(f(U) = 0\)
+
+                        Тогда \(f(V) = 0\) и \(P\) истинно.
+                  \item \(f(U) = 1\)
+
+                        Тогда \(P\) истинно.
+              \end{enumerate}
+        \item \(f(U) \neq f(V)\)
+
+              Тогда \(U \neq V\).
+
+              \begin{enumerate}
+                  \item \(U = \{0, 1\}, V = \{1\}\)
+
+                        Тогда \(P\) и истинно, и ложно --- противоречие.
+                  \item \(U = \{0\}, V = \{0, 1\}\)
+
+                        Тогда \(P\) и истинно, и ложно --- противоречие.
+                  \item \(U = \{0\}, V = \{1\}\)
+
+                        Пусть \(P\). Тогда \(U = V\). Но \((U = V) \to \perp\), поэтому \(P \to \perp\).
+              \end{enumerate}
+    \end{enumerate}
+
+    Итого \(P \lor \neg P\).
+\end{proof}
+
+\subsection{Аксиома выбора (попытка 1)}
+
+Пусть \verb!A B : \Set!, где \verb!A! --- индексы \((S)\), а \verb!B! --- множества \((\bigcup S)\). Пусть \verb!Q : A -> B -> \Prop! --- функция, которая по индексу перечисляет подмножества, т.е. это отношение ``принадлежит подмножеству'': \(Q(a, b) \Leftrightarrow b \in a\).
+
+\begin{minted}{haskell}
+\func Choice (A B : \Set) (Q : A -> B -> \Prop)
+    (not_empty : \Pi (x : A) -> \Sigma (y : B) (Q x y)):
+    \Sigma (f : \Pi (x : A) -> B) (\Pi (x : A) -> Q x (f x))
+\end{minted}
+
+На самом деле это не аксиома выбора, потому что как тело функции подходит:
+\begin{minted}{haskell}
+    (\lam x^A => not_empty x.1, \lam x^A => not_empty x.2)
+\end{minted}
+
+Проблема в том, что наше определение подмножества слишком конструктивно. Победим это тем, что мы сделаем равенство неразрешимым.
+
+\begin{definition}
+    \textbf{Сетоид} --- упорядоченная пятерка \texttt{S, E, E-trans, E-refl, E-symm}, где \texttt{E} --- отношение эквивалентности на \texttt{S}, т.е. \verb!E : S -> S -> \Prop!.
+\end{definition}
+
+\subsection{Переформулировка аксиомы выбора}
+
+В Arend есть библиотека \texttt{Logic.Classical}, где есть доказательство этой теоремы.
+
+\begin{minted}{haskell}
+\func (A : \Set) (B : A -> \Set):
+    (\Pi (x : A) -> TruncP (B x)) -> TruncP (\Pi (x : A) -> B x)
+\end{minted}
+
+Почему то, что слева от \texttt{->} \textit{(обозначим это \texttt{P})}, это доказательство непустоты наших подмножеств? Пусть \texttt{y : A} и \texttt{P y = Empty}. Тогда мы докажем все что угодно. Поэтому \texttt{B x} не пусто для всех \texttt{x : A}. Мы не знаем, какой именно объект есть в \texttt{B x}, т.к. у нас навешено \texttt{TruncP}.
+
+\subsection{Закон исключенного третьего}
+
+\begin{minted}{haskell}
+lem (P : \Prop) : Dec P
+\end{minted}

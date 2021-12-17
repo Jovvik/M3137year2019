@@ -9,9 +9,9 @@
     Отображение \(k \mapsto \binom{n}{k} q^{n - k}p^k\), где \(0 \leq k \leq n\) называется \textbf{биноминальным распределением} с параметрами \(n\) и \(p\).
 \end{definition}
 
-\begin{obozn}
+\begin{notation}
     \(B(n,p)\) или \(B_{n, p}\)
-\end{obozn}
+\end{notation}
 %</13.2>
 
 %<*13.1>
@@ -32,9 +32,9 @@
     Отображение \(k \mapsto q^{k - 1}p\) при \(1 \leq k < +\infty\) называется \textbf{геометрическим распределением} с параметром \(p\).
 \end{definition}
 
-\begin{obozn}
+\begin{notation}
     \(G_p\) или \(G(p)\)
-\end{obozn}
+\end{notation}
 %</13.3>
 
 %<*13.4>
@@ -67,9 +67,9 @@
 \subsection{Испытания с несколькими исходами}
 
 Пусть мы выполняем \(n\) испытаний, и при каждом из них может произойти один из \(m\) несовместных исходов.
-\begin{obozn}
+\begin{notation}
     \(p_i\) --- вероятность \(i\)-го исхода при одном испытании.
-\end{obozn}
+\end{notation}
 
 \begin{theorem}
     Вероятность того, что при \(n\) испытаниях первый исход появится \(n_1\) раз, второй \(n_2\) раз, \(m\)-тый исход \(n_m\) раз:
@@ -147,9 +147,9 @@
     Эта формула применима при малых \textit{(или крупных)} \(p\) и \(n \geq 100\).
 \end{theorem}
 \begin{proof}
-    \begin{obozn}
+    \begin{notation}
         \(\lambda_n = n\cdot p_n\), при этом \(\lambda_n \to \lambda\).
-    \end{obozn}
+    \end{notation}
 
     \begin{align*}
         \binom{n}{k}p_n^k (1 - p_n)^{n - k} & \to \frac{n^k}{k!} \frac{\lambda_n^k}{n^k} \left( 1 - \frac{\lambda_n}{n} \right)^{n - k}                                             \\

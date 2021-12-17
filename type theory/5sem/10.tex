@@ -49,13 +49,13 @@ case (f : L -> |$\theta$|) (g : R -> |$\theta$|) (v : L |$\lor$| R) : |$\theta$|
     => coe (\lam i => B (p @ i)) b right
 \end{minted}
 
-\begin{obozn}
+\begin{notation}
     Если \verb!p : a = a'!, то:
     \begin{enumerate}
         \item \verb!p @ left! это \verb!a!
         \item \verb!p @ right! это \verb!a'!
     \end{enumerate}
-\end{obozn}
+\end{notation}
 
 \begin{remark}
     Фигурные скобки означает типы, которые компилятор сам выведет из контекста. Рассчитывать на него нельзя, т.к. выведение типов неразрешимо в общем случае.

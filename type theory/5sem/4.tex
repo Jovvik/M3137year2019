@@ -76,9 +76,9 @@
 
 Есть три правила: \(I_{\to}, E_{\to}, \mathrm{Ax}\). Будет ли у нас всё работать? Утверждается, что да.
 
-\begin{obozn}
+\begin{notation}
     Доказуемость в И.Ф. ИИВ будем обозначать \(\Gamma \vdash_{\to} \tau\)
-\end{obozn}
+\end{notation}
 
 \begin{definition}[язык И.Ф. ИИВ]
     \[\tau \Coloneqq \alpha \mid (\tau \to \tau)\]
@@ -92,9 +92,9 @@
     Рассмотрим \(\Gamma^*\) --- множество формул, замкнутых по доказуемости.
     \[\tau \in \Gamma^* \Leftrightarrow \Gamma^* \vdash \tau\]
 
-    \begin{obozn}
+    \begin{notation}
         \(\Gamma\) --- множество формул, тогда \(\Gamma^*\) --- замыкание этого множества по доказуемости, а \(\Gamma^{\stackrel{*}{\to}}\) --- замыкание по доказуемости в ИФИИВ.
-    \end{obozn}
+    \end{notation}
 
     \underline{Рассмотрим множество миров}: \(\Gamma^{\stackrel{*}{\to}} \preceq \Delta^{\stackrel{*}{\to}}\), если \(\Gamma^{\stackrel{*}{\to}} \subseteq \Delta^{\stackrel{*}{\to}}, \Delta^{\stackrel{*}{\to}}\) --- замкн., \(\Gamma^* \Vdash \tau\), если \(\tau \in \Gamma^*\)
 
@@ -164,9 +164,9 @@
     \end{enumerate}
 \end{proof}
 
-\begin{obozn}
+\begin{notation}
     \(\lambda_{ \to }\) --- типизированное \(\lambda\)-исчисление.
-\end{obozn}
+\end{notation}
 
 \begin{enumerate}
     \item Обитаемость: \(\stackrel{?}{\Gamma} {}\vdash{} ? : \tau\) --- по изоморфизму Карри-Ховарда и теореме об эквивалентности \(\Gamma \vdash \tau\)

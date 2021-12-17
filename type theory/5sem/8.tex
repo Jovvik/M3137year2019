@@ -12,9 +12,9 @@
 \[C \Coloneqq * \mid \square\]
 Мы решили, что типы и выражения должны сосуществовать, например в C++ можно написать \verb!Array<int, 23+7>!.
 
-\begin{obozn}
+\begin{notation}
     \(s \coloneqq\) множество \((*, \square)\)
-\end{obozn}
+\end{notation}
 
 \[\begin{prooftree}
         \infer0[аксиома]{ \vdash * : \square}
@@ -62,13 +62,13 @@
         \infer3[\(\lambda\)-правило]{\Gamma \vdash (\lambda x^A.b) : (\Pi x^A.B)}
     \end{prooftree}\]
 
-\begin{obozn}
+\begin{notation}
     Будем писать \(\Pi x^\varphi.\pi\) вместо \(\varphi \to \pi\), если \(x \notin FV(\pi)\).
-\end{obozn}
+\end{notation}
 
-\begin{obozn}
+\begin{notation}
     \[x : y : z \Rightarrow x : y, y : z\]
-\end{obozn}
+\end{notation}
 
 \begin{remark}
     Пусть \(x \notin FV(B)\). Тогда рассмотрим следующее правило:

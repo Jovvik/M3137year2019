@@ -4,7 +4,7 @@
 
 Пусть признак--результат \(X\) зависит от \(k\) факторов \(Z_1 \dots Z_k\). Рассматривается теоретическая модель линейной регрессии \(\E(X \mid \vec{Z}) = \beta_1Z_1 + \dots + \beta_kZ_k\)
 
-\begin{obozn}
+\begin{notation}
     \[\vec{Z} = \begin{pmatrix}
             Z_1    \\
             \vdots \\
@@ -14,7 +14,7 @@
             \vdots  \\
             \beta_k
         \end{pmatrix}\]
-\end{obozn}
+\end{notation}
 
 Пусть проведено \(n \geq k\) экспериментов, \(\vec{Z}^{(i)} = (Z_1^{(i)} \dots Z_k^{(i)})\) --- значение фактора при \(i\)-том эксперименте (возможно заранее заданные). \(\vec{X} = (X_1 \dots X_n)\) --- полученные экспериментальные данные признака--результата \(X\). Согласно модели:
 \[\begin{cases}
@@ -24,21 +24,21 @@
         X_n = \beta_1 Z_1^{(n)} + \dots + \beta_k Z_k^{(n)} + \varepsilon_n
     \end{cases}\]
 , где \(\varepsilon_i\) --- случайная теоретическая ошибка при \(i\)-том эксперименте.
-\begin{obozn}[вектор случайных ошибок]
+\begin{notation}[вектор случайных ошибок]
     \[\vec{\varepsilon} \coloneqq \begin{pmatrix}
             \varepsilon_1 \\
             \vdots        \\
             \varepsilon_n
         \end{pmatrix}\]
-\end{obozn}
-\begin{obozn}[матрица плана]
+\end{notation}
+\begin{notation}[матрица плана]
     \[Z_{k \times n} \coloneqq \begin{pmatrix}
             Z_1^{(1)} & Z_1^{(2)} & \dots  & Z_1^{(n)} \\
             Z_2^{(1)} & Z_2^{(2)} & \dots  & Z_2^{(n)} \\
             \vdots    & \vdots    & \ddots & \vdots    \\
             Z_k^{(1)} & Z_k^{(2)} & \dots  & Z_k^{(n)}
         \end{pmatrix}\]
-\end{obozn}
+\end{notation}
 
 Тогда теоретическую модель можно записать в матричной форме:
 \[\vec{X} = Z\tran \vec{\beta} + \vec{\varepsilon}\]
@@ -57,9 +57,9 @@
     \item Случайные ошибки \(\varepsilon_i\) независимы и имеет одинаковое нормальное распределение с параметром \(a = 0\).\footnote{Это условие уже было в теореме~\nameref{Гаусса--Маркова}}\label{cond2}
 \end{enumerate}
 
-\begin{obozn}
+\begin{notation}
     \(A_{k \times k} \coloneqq Z Z\tran\)
-\end{obozn}
+\end{notation}
 \begin{prop}\itemfix
     \begin{enumerate}
         \item \(A\) --- симметричная.

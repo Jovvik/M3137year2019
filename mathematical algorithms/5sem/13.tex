@@ -1,0 +1,167 @@
+\chapter{11 декабря}
+
+\subsection{Делимость в кольце}
+
+Пусть \(R\) --- кольцо.
+
+\begin{definition}
+    \textbf{Делителями нуля} в кольце \(R\) называются такие элементы, что \(x \cdot y = 0\), при этом \(x \neq 0, y \neq 0\).
+\end{definition}
+
+\begin{remark}
+    Если в \(R\) нет делителей нуля, то \(R\) называется \textbf{кольцом целостности}.
+\end{remark}
+
+\begin{example}
+    \(\Z, \Z_p\) --- кольца целостности.
+\end{example}
+
+\begin{definition}
+    \textbf{Единицей кольца\footnote{С единицей.}} называется любой элемент \(u \in R\), такой что \(\exists v : u \cdot v = 1\).
+    \(\{u\}\) --- группа обратимых элементов кольца, обозначим \(R^*\).
+\end{definition}
+
+\begin{lemma}
+    \(R\) --- целостное, тогда
+    \[Rx = Ry \Leftrightarrow \exists u \in R^* : y = ux\]
+\end{lemma}
+\begin{proof}\itemfix
+    \begin{itemize}
+        \item [``\(\Rightarrow\)''] \(\sphericalangle y \in Rx \Rightarrow y = bx, \sphericalangle x \in Ry \Rightarrow x = ay, y = bay \Rightarrow (1 - ba)y = 0 \Rightarrow \) или \(y = 0\), или \(1 - ba = 0\).
+
+              \(\sphericalangle y = 0 \Rightarrow x = 0 \Rightarrow 0 = 1 \cdot 0\)
+
+              \(\sphericalangle 1 - ba = 0 \Rightarrow ba = 1 \Rightarrow\) и \(a\), и \(b\) --- единицы \(R\).
+        \item [``\(\Leftarrow\)''] \[Ry = R(ux) \subseteq Rx = R(u^{-1}y) \subseteq Ry\]
+    \end{itemize}
+\end{proof}
+
+\begin{definition}[1]
+    \label{простой идеал 1}
+    Пусть \(\mathcal{P}\) --- идеал в \(R\) и \(\faktor{R}{\mathcal{P}}\) --- целостное кольцо. Тогда \(\mathcal{P}\) называется \textbf{простым идеалом}.
+\end{definition}
+
+\begin{definition}[2]
+    \label{простой идеал 2}
+    \(\mathcal{P}\) --- \textbf{простой идеал}, если \(x \cdot y \in \mathcal{P} \Rightarrow x \in \mathcal{P}\) или \(y \in \mathcal{P}\).
+\end{definition}
+
+\begin{lemma}
+    \nameref{простой идеал 1}~\(\Leftrightarrow\)~\nameref{простой идеал 2}
+\end{lemma}
+\begin{proof}\itemfix
+    \(\sphericalangle \mathcal{P} : \faktor{R}{\mathcal{P}}\) --- целостное
+    \begin{itemize}
+        \item [``\(\Rightarrow\)'']
+
+              \(\sphericalangle [x], [y] \in \faktor{R}{\mathcal{P}} \Rightarrow [x] = x + \mathcal{P}, [y] = y + \mathcal{P}\).
+
+              \[[x][y] = [0] \Leftrightarrow [x] = [0] \text{ или } [y] = [0]\]
+              \[[xy] = xy + \mathcal{P} = \mathcal{P} \Rightarrow x \in \mathcal{P} \text{ или } y \in \mathcal{P}\]
+        \item [``\(\Leftarrow\)'']
+
+              \(\sphericalangle x, y \in \mathcal{P} \Rightarrow x \in \mathcal{P}\) или \(y \in \mathcal{P}\)
+
+              \(\sphericalangle [x] = x + \mathcal{P}, [y] = y + \mathcal{P}\)
+              \[[x] \cdot [y] = \underbrace{x \cdot y}_{\in \mathcal{P}} + \mathcal{P} = \mathcal{P} = [0]\]
+    \end{itemize}
+\end{proof}
+
+\begin{lemma}
+    \(\sphericalangle \sigma : R \to R'\) --- гомоморфизм колец, \(\mathcal{P}' \subset R'\) --- простой идеал в \(R'\).
+
+    Тогда \(\sigma^{-1}(\mathcal{P}')\) --- простой идеал в \(R\).
+\end{lemma}
+\begin{proof}
+    \(\mathcal{P} \coloneqq \sigma^{-1}(\mathcal{P}')\). Докажем от противного: пусть \(\mathcal{P}\) --- не простой.
+
+    \(\sphericalangle x, y \in R : xy \in \mathcal{P}, x \notin \mathcal{P}, y \notin \mathcal{P}\)
+    \[\sigma(xy) = \underbrace{\sigma(x)}_{\notin \mathcal{P}'}\underbrace{\sigma(y)}_{\notin \mathcal{P}'} \in \mathcal{P}'\]
+    Противоречие.
+\end{proof}
+
+\begin{definition}
+    \textbf{Спектром} кольца называется множество его простых идеалов.
+\end{definition}
+
+\begin{notation}
+    \(\spec(R)\)
+\end{notation}
+
+\begin{definition}
+    Идеал \(\mathcal{M}\) называется максимальным в \(R\), если \(\mathcal{M}\) --- идеал в \(R\) и \(\mathcal{M}\) не содержится ни в каком другом идеале.
+\end{definition}
+
+\begin{remark}
+    \(R\) --- целостное, если \(\{0\}\) --- простой идеал.
+\end{remark}
+
+\begin{lemma}
+    Всякий максимальный идеал --- простой.
+\end{lemma}
+\begin{proof}
+    \(\sphericalangle \mathcal{M}\) --- максимальный идеал.
+
+    \(\sphericalangle x, y \in R : x \cdot y \in \mathcal{M}, x \notin \mathcal{M}\)
+
+    По максимальности идеала \(Rx + \mathcal{M} = R\), тогда \(\exists r \in R, m \in \mathcal{M} : rx + m = 1\)
+    \begin{align*}
+        rx + m                                                                                                                  & = 1 \\
+        r\underbrace{xy}_{\symref{макс_ид_пр_опр}{\in} \mathcal{M}} + \underbrace{my}_{\symref{макс_ид_пр_ид}{\in} \mathcal{M}} & = y
+    \end{align*}
+    \blfootnote{\ref{макс_ид_пр_опр}: по условию \(xy \in \mathcal{M}\)}
+    \blfootnote{\ref{макс_ид_пр_ид}: т.к. \(m \in \mathcal{M}\) и \(\mathcal{M}\) --- идеал}
+
+    Тогда \(y \in \mathcal{M}\).
+\end{proof}
+
+\begin{lemma}
+    Всякий идеал \(I\) кольца \(R\) содержится в некотором максимальном идеале \(\mathcal{M}\).
+\end{lemma}
+\begin{proof}
+    \(\sphericalangle I_1 \subset I_2 \subset \dots \subset I_m \subset R\)
+
+    В любой такой цепочке есть максимальный элемент \(I = \bigcup\limits_{j = 1}^m I_j\)
+\end{proof}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(\sigma : R \to R'\) --- сюръективный
+        \item \(\mathcal{M}'\) --- максимальный идеал в \(R'\)
+    \end{itemize}
+    Тогда \(\sigma^{-1}(\mathcal{M}') = \mathcal{M}\) --- максимальный идеал.
+\end{lemma}
+\begin{proof}
+    Очевидно.
+\end{proof}
+
+\begin{definition}
+    \textbf{Полем} \(K\) называется кольцо \(R\), множество ненулевых элементов которого образует мультипликативную абелеву группу.
+\end{definition}
+
+\begin{lemma}
+    \(\faktor{R}{\mathcal{M}}\) --- поле.
+\end{lemma}
+\begin{proof}
+    \(\sphericalangle [x] \neq [0] \in \faktor{R}{\mathcal{M}}\). Мы хотим показать, что \(\exists [x]^{-1} : [x][x]^{-1} = [1]\)
+
+    \(\sphericalangle x \in R, x \notin \mathcal{M} \Rightarrow Rx + \mathcal{M} = R \Rightarrow \exists r \in R, m \in \mathcal{M} : rx + m = 1\)
+    \begin{align*}
+        rx + m   & = 1   \\
+        [rx + m] & = [1] \\
+        [rx]     & = [1] \\
+        [r][x]   & = [1]
+    \end{align*}
+\end{proof}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(\mathcal{M} \subset R\)
+        \item \(\faktor{R}{\mathcal{M}}\) --- поле
+    \end{itemize}
+
+    Тогда \(\mathcal{M}\) --- максимальный.
+\end{lemma}
+\begin{proof}
+    Самостоятельно.
+\end{proof}

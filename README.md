@@ -61,6 +61,7 @@
 - [7 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/7.pdf)
 - [8 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/8.pdf)
 - [9 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/9.pdf)
+- [10 дз](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/5sem/hw/10.pdf)
 
 ### Теория категорий
 

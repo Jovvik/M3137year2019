@@ -1,0 +1,110 @@
+\input{../../../preamble.sty}
+
+\lhead{Алгоритмы в математике \textit{(практика)}}
+\lfoot{Михайлов Максим}
+\cfoot{}
+\rfoot{18.12.2021}
+
+\begin{document}
+
+\begin{exercise}
+    Доказать, что евклидово кольцо \(R\) есть область целостности.
+\end{exercise}
+\begin{solution}
+    Это неверно, т.к. вырожденное кольцо \(\{0\}, 0 = 1\) является евклидовым, но не является целостным.
+
+    Если в такое не верится, то кольцо \(\{0, 1, x, 1 + x\}, x^2 = 0\) не является целостным, т.к. \(x \cdot x = 0\), но \(x \neq 0\), при этом это кольцо является евклидовым:
+    \[F(t) \coloneqq \begin{cases}
+            0, & t = 0     \\
+            1, & t = 1     \\
+            1, & t = 1 + x \\
+            2, & t = x     \\
+        \end{cases}\]
+
+    \begin{align*}
+        a     & = q \cdot b + r                                                        \\
+        0     & = 0 \cdot *\footnotemark + 0                                           \\
+        1     & = 1 \cdot 1 + 0                                                        \\
+        1     & = \underbrace{x \cdot \overbrace{x}^{F = 2}}_0 + \overbrace{1}^{F = 1} \\
+        1     & = \underbrace{(1 + x) \cdot \overbrace{(1 + x)}^{F = 1}}_1 {}+ 0       \\
+        x     & = x \cdot 1 + 0                                                        \\
+        x     & = 1 \cdot x + 0                                                        \\
+        x     & = \underbrace{x \cdot (1 + x)}_x {}+ 0                                 \\
+        1 + x & = (1 + x) \cdot 1 + 0                                                  \\
+        1 + x & = (1 + x) \cdot \overbrace{x}^{F = 2} + \overbrace{1}^{F = 1}          \\
+        1 + x & = \underbrace{1 \cdot (1 + x)}_{1 + x} {}+ 0                           \\
+    \end{align*}
+    \footnotetext{Подразумевается любой элемент кольца.}
+\end{solution}
+
+\begin{exercise}
+    Найти \(\gcd(9 + 12i, 5)\) в \(\Z[i]\).
+\end{exercise}
+\begin{solution}
+    \begin{align*}
+        9 + 12i  & = 5 \cdot (2 + 2i) + ( - 1 + 2i) \\
+        2 + 2i   & = ( - 1 + 2i) \cdot ( -i) + i    \\
+        - 1 + 2i & = i \cdot 2 - 1                  \\
+        i        & = ( - 1) \cdot ( - i)            \\
+    \end{align*}
+    \textbf{Ответ:} \(- 1\).
+\end{solution}
+
+\begin{exercise}
+    Рассмотрим кольцо \(R\):
+    \[R = \{n + md \mid n,m \in \Z\}, \quad d^2 = 3\]
+    Какими свойствами обладает данное кольцо? Является ли оно областью целостности? Евклидовым?
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{itemize}
+        \item В этом кольце есть единица, это \(1 + 0 \cdot d\).
+        \item Коммутативность тривиальна.
+        \item \[\sphericalangle (a + bd) \neq 0, (x + yd) \neq 0 : (a + bd)(x + yd) = 0\]
+              \begin{align*}
+                  (a + bd)(x + yd)        & = 0 \\
+                  ax + ayd + bdx + 3by    & = 0 \\
+                  ax + 3by + ayd + bdx    & = 0 \\
+                  (ax + 3by) + d(ay + bx) & = 0
+              \end{align*}
+              \[\begin{cases}
+                      ax + 3by = 0 \\
+                      ay + bx = 0
+                  \end{cases}\]
+              \[\begin{cases}
+                      axy + 3by^2 = 0 \\
+                      ayx + bx^2 = 0
+                  \end{cases}\]
+              \begin{align*}
+                  3by^2      & = bx^2 \\
+                  3y^2       & = b^2  \\
+                  \sqrt{3} y & = b
+              \end{align*}
+              Решений нет, следовательно, это кольцо целостности.
+    \end{itemize}
+\end{solution}
+
+\begin{exercise}
+    Рассмотрим кольцо \(R\):
+    \[R = \{n + md \mid n,m \in \Z\}, \quad d^2 = 0\]
+    Какими свойствами обладает данное кольцо? Является ли оно областью целостности? Евклидовым?
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{itemize}
+        \item В этом кольце есть единица, это \(1 + 0 \cdot d\).
+        \item Коммутативность тривиальна.
+        \item \(d \cdot d = 0, d\) --- делитель нуля.
+        \item \(\sphericalangle n_1 + m_1d, n_2 + m_2d\)
+              \begin{align*}
+                  n_1 + m_1d & = q \cdot (n_2 + m_2d) + r                       \\
+                  n_1 + m_1d & = (n_3 + m_3d) \cdot (n_2 + m_2d) + (n_4 + m_4d) \\
+                  n_1 + m_1d & = n_2n_3 + n_2m_3d + n_3m_2d + n_4 + m_4d
+              \end{align*}
+              \[\begin{cases}
+                      n_1 = n_2n_3 + n_4 \\
+                      m_1 = n_2m_3 + n_3m_2 + m_4
+                  \end{cases}\]
+              Первое уравнение решается в \(\Z\), при этом \(|n_4| < |n_2|\) или \(n_4 = 0\). Т.к. \(n_3\) и \(m_2\) теперь фиксированы, то уравнение \(m_1 - n_3m_2 = n_2m_3 + m_4\) также решается и \(|m_4|< |m_2|\) или \(m_4 = 0\). Тогда \(N(n + md) = |n| + |m|\) подходит и кольцо евклидово.
+    \end{itemize}
+\end{solution}
+
+\end{document}

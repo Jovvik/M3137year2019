@@ -139,7 +139,7 @@
               \begin{corollary}
                   Координаты вектора \(\sqrt{A} \cdot \vec{B}\) некоррелированны.
               \end{corollary}
-        \item \(\D \vec{B} = \sigma^2 A^{-1}\)
+        \item \(\D \vec{B} = \sigma^2 A^{-1}\)\label{prop:ОМНК5}
               \begin{proof}
                   По свойству 4 \(\D(\sqrt{A} \cdot \vec{B}) = \sigma^2 E_k\). В силу билинейности ковариации:
                   \[\sigma^2 E_k = \D(\sqrt{A} \cdot \vec{B}) = (\sqrt{A})^2 \D \vec{B} = A \D \vec{B}\]
@@ -151,12 +151,12 @@
     \end{enumerate}
 \end{prop}
 
-\begin{theorem}
+\begin{theorem}\label{th:основная теорема множественной линейной регрессии}
     Пусть выполнены условия \ref{cond1} и \ref{cond2}. Тогда:
     \begin{enumerate}
         \item Вектор \(\frac{1}{\sigma}\sqrt{A}(\vec{B} - \vec{\beta})\) состоит из \(k\) независимых случайных величин со стандартным нормальным распределением.
         \item \(\frac{n \hat{\sigma}^2}{\sigma^2} \in H_{n - k}\) и не зависит от \(\vec{B}\).
-        \item Исправленная оценка \(S^2 = \frac{n \hat{\sigma}^2}{n - k} = \frac{1}{n - k} \sum_{i=1}^{k} \hat{\varepsilon}_i^2\) --- несмещённая оценка для \(\sigma^2\).
+        \item Исправленная оценка \(S^2 = \frac{n \hat{\sigma}^2}{n - k} = \frac{1}{n - k} \sum_{i=1}^{k} \hat{\varepsilon}_i^2\) --- несмещённая оценка для \(\sigma^2\). \label{ОТМЛР3}
     \end{enumerate}
 \end{theorem}
 \begin{proof}\itemfix

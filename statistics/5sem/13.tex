@@ -1,0 +1,142 @@
+\chapter{29 ноября}
+
+\textcolor{red}{Начало лекции возможно записано с ошибками, т.к. в записи не было звука.}
+
+Пусть имеется уравнение множественной регрессии в векторной форме: \(\vec{X} = Z\tran \vec{\beta} + \vec{\varepsilon}\), где \(\vec{X} = (X_1 \dots X_k)\tran\) --- наблюдаемые значения переменной, \(Z = \left(Z_i^{(j)}\right)\) --- матрица плана, \(\vec{\beta} = (\beta_1 \dots \beta_k)\tran\) --- \? коэффициенты, \(\vec{\varepsilon} = (\varepsilon_1 \dots \varepsilon_n)\) --- \? ошибки (случайные).
+
+\?, если\footnote{Моя вольная интерпретация: это наши предположения.}:
+\begin{enumerate}
+    \item Строки \(Z\) --- \? независимые
+    \item \(\varepsilon_i \in N(0, \sigma^2)\) --- независимы
+\end{enumerate}
+
+\subsection{Некоррелированные наблюдения}
+
+Пусть \(\E \varepsilon_i = 0, \D \varepsilon_i = \sigma^2 v_i\), но ошибки \(\varepsilon_i\) --- некоррелированные, т.е. \(\cov(\varepsilon_i, \varepsilon_j) = 0\) при \(i \neq j\).
+
+\(\D \vec{\varepsilon} = \sigma^2 V\), где \(V\) --- диагональная матрица с элементами \(v_i\) на главной диагонали.
+
+\begin{remark}
+    Логично придать наблюдениям с меньшим разбросом больший ``вес''. Делается это изменением масштаба следующим образом: положим \(w_i = \frac{1}{v_i}, \tilde{X}_i = \sqrt{w_i} X_i\). Тогда получим новую модель \(\vec{\tilde{X}} = \tilde{Z}\tran \vec{\beta} + \vec{\tilde{\varepsilon}}\), где \(\tilde{Z}^{(j)}_i = \sqrt{w_j} Z_i^{(j)}, \tilde{\varepsilon}_i = \sqrt{w_i} \varepsilon_i\). При этом:
+    \begin{enumerate}
+        \item \(\E \tilde{\varepsilon}_i = 0\)
+        \item \(\D \tilde{\varepsilon}_i = \D \sqrt{w_i} \varepsilon_i = \frac{1}{v_i} \D \varepsilon_i = \frac{1}{v_i} v_i \sigma^2 = \sigma^2\)
+    \end{enumerate}
+    Таким образом, получили прежнюю (классическую) ситуацию. Далее находим оценки \(\vec{B} = (b_1 \dots b_k)\tran\) параметров \(\beta = (\beta_1 \dots \beta_k)\tran\), как и раньше.
+\end{remark}
+
+\begin{example}\itemfix
+    \begin{enumerate}
+        \item Модель: \(X = \beta_0 + \varepsilon\).
+              \[\hat{\beta}_0 = \frac{\sum w_i Z_i X_i}{\sum w_i Z_i^2}\]
+              В частности, при \(Z_i = 1\), то \(\hat{\beta}_0 = \frac{\sum w_i X_i}{\sum w_i}\) --- взвешенное среднее.
+        \item Пропорция (прямая проходит через начало координат).
+
+              Пусть \(X\) --- потери тепла в квартире, \(Z\) --- разность внутренней и наружней температуры.
+              \(X = \beta Z + \varepsilon\)
+              \begin{enumerate}
+                  \item Допустим, что \(\D \varepsilon_i = c Z_i\). Тогда \(w_i = \frac{\sigma^2}{c Z_i}\) и после вычислений получим
+                        \[\hat{\beta} = \frac{\sum X_i}{\sum Z_i} = \frac{\overline{X}}{\overline{Z}}\]
+                  \item Допустим, что \(\D \varepsilon_i = c Z_i^2\). Тогда
+                        \[\hat{\beta} = \frac{1}{n} \sum_{i=1}^{n} \frac{X_i}{Z_i}\]
+              \end{enumerate}
+        \item Повторные наблюдения.
+
+              Пусть проводилось \(n\) серий из \(k_i\) экспериментов, \(1 \leq i \leq n\). Пусть \(X_i\) --- средний результат экспериментов этой серии, \(\E X_{ij} = a, \D \varepsilon_{ij} = \sigma^2\). Тогда \(\D \varepsilon_i = \frac{\sigma^2}{k_i}\). Берём \(w_i = \frac{1}{k_i}\) и далее как раньше. То есть мы присваиваем больший вес сериям из большего числа экспериментов.
+    \end{enumerate}
+\end{example}
+
+\subsection{Коррелированные наблюдения}
+
+Пусть дисперсия ошибок \(\D \varepsilon_i\) не только различны, но и зависимы между собой, т.е. \(\cov(\varepsilon_i, \varepsilon_j) = v_{ij}\). Пусть \(V = (v_{ij})\). Тогда матрица ковариаций \(\D \vec{\varepsilon} = \sigma^2 V\). Известно, что такая матрица симметричная и положительно определенная, следовательно, существует матрица \(\sqrt{V}\). Итак, имеем модель \(\vec{X} = Z\tran \vec{\beta} + \vec{\varepsilon}\). Умножим обе части слева на \(\sqrt{V}^{-1}\), после чего получим новую модель:
+\[\vec{\tilde{X}} = \tilde{Z}\tran \vec{\beta} + \vec{\tilde{\varepsilon}}\]
+, где \(\vec{\tilde{X}} = \sqrt{V}^{-1} \vec{X}, \tilde{Z}\tran = \sqrt{V}^{-1} Z, \vec{\tilde{\varepsilon}} = \sqrt{V}^{-1} \vec{\varepsilon}\).
+Заметим, что:
+\begin{enumerate}
+    \item \(\E \vec{\varepsilon} = \E \sqrt{V}^{-1} \vec{\varepsilon} = \sqrt{V}^{-1} \E \vec{\varepsilon} = 0\)
+    \item \(\D \vec{\tilde{\varepsilon}} = \E \left(\left(\vec{\tilde{\varepsilon}} - \E \vec{\tilde{\varepsilon}}\right)\left(\vec{\tilde{\varepsilon}} - \E \vec{\tilde{\varepsilon}}\right)\tran\right) = \E \left(\vec{\tilde{\varepsilon}} \vec{\tilde{\varepsilon}}\tran\right) = \E \left(\sqrt{V}^{-1} \vec{\varepsilon} \left(\sqrt{V}^{-1} \vec{\varepsilon}\right)\tran\right) = \sigma^2 I\)
+\end{enumerate}
+Таким образом, мы получили стандартную ситуацию.
+
+\section{Нелинейная парная регрессия}
+
+\subsection{Модель очень быстрого роста}
+
+\begin{align*}
+    X     & = ae^{bZ} \cdot \varepsilon    \\
+    \ln X & = \ln a + bZ + \ln \varepsilon \\
+    X'    & = a' + bZ + \varepsilon'
+\end{align*}
+
+\subsection{Модель быстрого роста}
+
+\(b > 1\)
+\begin{align*}
+    X     & = aZ^b \cdot \varepsilon            \\
+    \ln X & = \ln a + b \ln Z + \ln \varepsilon \\
+    X'    & = a' + bZ' + \varepsilon'
+\end{align*}
+
+\subsection{Модель среднего роста}
+
+\(0 < b < 1\)
+\begin{align*}
+    X & = a Z ^b \cdot \varepsilon
+\end{align*}
+Аналогично.
+
+\subsection{Модель медленнего роста}
+
+\begin{align*}
+    X & = a + b \ln Z + \varepsilon \\
+    X & = a + b Z' + \varepsilon
+\end{align*}
+
+\subsection{Модель медленной стабилизации}
+
+\begin{align*}
+    X & = a + \frac{b}{Z} + \varepsilon \\
+    X & = a + Z' + \varepsilon
+\end{align*}
+
+\subsection{Модель быстрой стабилизации}
+
+\begin{align*}
+    X & = a + \frac{b}{e^Z} + \varepsilon \\
+    X & = a + Z' + \varepsilon
+\end{align*}
+
+\subsection{Зависимость в виде полинома}
+
+\begin{align*}
+    X & = \beta_0 + \beta_1 Z + \beta_2 Z^2 + \dots + \beta_k Z^k   \\
+    X & = \beta_0 + \beta_1 Z_1 + \beta_2 Z_2 + \dots + \beta_k Z_k
+\end{align*}
+
+\begin{remark}
+    Т.к. \(Z_i\) функционально зависимы, то обычно берут \(k \leq 4\). Модель неустойчива.
+\end{remark}
+
+\section{Метод главных компонент (приведение к главным осям)}
+
+\underline{Идея}: \(A = ZZ\tran\) --- симметричная, положительно определенная, то есть это матрица квадратичной формы, причём все собственные числа \(\lambda_i > 0\). Ранжируем собственные числа \(\lambda_1 > \lambda_2 > \dots > \lambda_k\). Находим соответствующие собственные вектора \(X_1, X_2 \dots X_k\).
+
+\(X_1\) показывает направление главной оси эллипсоида, дисперсия проекций результатов экспериментов на эту ось будет наибольшей. Прямую регрессии проводим через эту ось.
+
+\begin{remark}
+    Эта прямая не обязана совпадать с прямой МНК.
+\end{remark}
+
+\textcolor{red}{Иллюстрация МНК против метода главных компонент не сделана.}
+
+\section{Метод Тейла}
+
+Иногда применяется, если в экспериментальных данных наблюдаются выбросы.
+
+Для регрессии \(X = a + bZ + \varepsilon\):
+\[\tilde{b} \coloneqq \operatorname{med}\left\{\frac{X_i - X_j}{Z_i - Z_j}\right\}, 1 \leq i, j \leq n\]
+\[r = \operatorname{med}\left\{X_i - \tilde{b} Z_i\right\}, 1 \leq i \leq n\]
+
+\section{Ортогональная матрица плана \(Z\)}
+
+Пусть эксперимент управляем, то есть можем выбирать значения факторов \(Z_1 \dots Z_k\). Тогда желательно составить матрицу плана \(Z\) составить так, чтобы она была ортогональной. Тогда матрица \(A = ZZ\tran\) будет диагональной, \(A^{-1}\) элементарно находится и все формулы упрощаются. Кроме того, при добавлении новых факторов в модель коэффициенты при старых не меняются. Дисперсии оценок при этом будут наименьшие из возможных, следовательно, оценки будут эффективными.

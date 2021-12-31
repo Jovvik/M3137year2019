@@ -2,6 +2,7 @@
 
 \textcolor{red}{Начало лекции возможно записано с ошибками, т.к. в записи не было звука.}
 
+%<*48>
 Пусть имеется уравнение множественной регрессии в векторной форме: \(\vec{X} = Z\tran \vec{\beta} + \vec{\varepsilon}\), где \(\vec{X} = (X_1 \dots X_k)\tran\) --- наблюдаемые значения переменной, \(Z = \left(Z_i^{(j)}\right)\) --- матрица плана, \(\vec{\beta} = (\beta_1 \dots \beta_k)\tran\) --- \? коэффициенты, \(\vec{\varepsilon} = (\varepsilon_1 \dots \varepsilon_n)\) --- \? ошибки (случайные).
 
 \?, если\footnote{Моя вольная интерпретация: это наши предположения.}:
@@ -57,9 +58,11 @@
     \item \(\D \vec{\tilde{\varepsilon}} = \E \left(\left(\vec{\tilde{\varepsilon}} - \E \vec{\tilde{\varepsilon}}\right)\left(\vec{\tilde{\varepsilon}} - \E \vec{\tilde{\varepsilon}}\right)\tran\right) = \E \left(\vec{\tilde{\varepsilon}} \vec{\tilde{\varepsilon}}\tran\right) = \E \left(\sqrt{V}^{-1} \vec{\varepsilon} \left(\sqrt{V}^{-1} \vec{\varepsilon}\right)\tran\right) = \sigma^2 I\)
 \end{enumerate}
 Таким образом, мы получили стандартную ситуацию.
+%</48>
 
 \section{Нелинейная парная регрессия}
 
+%<*49>
 \subsection{Модель очень быстрого роста}
 
 \begin{align*}
@@ -116,6 +119,7 @@
 \begin{remark}
     Т.к. \(Z_i\) функционально зависимы, то обычно берут \(k \leq 4\). Модель неустойчива.
 \end{remark}
+%</49>
 
 \section{Метод главных компонент (приведение к главным осям)}
 

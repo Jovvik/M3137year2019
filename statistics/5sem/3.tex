@@ -2,6 +2,7 @@
 
 \subsection{Метод максимального правдоподобия}
 
+%<*4>
 \textbf{Метод максимального правдоподобия} состоит в том, чтобы подобрать параметры таким образом, чтобы вероятность получения данной выборки была наибольшей. Если распределение дискретное, то вероятность выборки
 \[P_\theta(X_1 = x_1, X_2 = x_2 \dots X_n = x_n) = P_\theta(X_1 = x_1) P_\theta(X_2 = x_2) \dots P_\theta(X_n = x_n)\]
 Для непрерывной величины аналогично.
@@ -37,7 +38,7 @@
     \[\frac{\partial \ln L(\overline{X}, \lambda)}{\partial \lambda} = \frac{n \overline{X}}{\lambda} - n\]
     Приравняем производную к нулю, чтобы найти точки экстремума:
     \[\frac{n \overline{X}}{\lambda} - n = 0 \Rightarrow \lambda = \overline{X}\]
-    Таким образом \(\hat{\theta} = \overline{X}\) --- ОМП.
+    Таким образом, \(\hat{\theta} = \overline{X}\) --- ОМП.
 \end{example}
 
 \begin{example}
@@ -47,6 +48,7 @@
     \[\ln L(\overline{X}, a, \sigma^2) = n \ln \sigma - \frac{n}{2} \ln (2 \pi) - \frac{1}{2\sigma^2} \sum (x_i - a)^2\]
     \unfinished
 \end{example}
+%</4>
 
 \begin{example}
     Пусть \(X_1 \dots X_n\) --- выборка равномерного распределения вида \(U(0, \theta)\)
@@ -119,7 +121,8 @@
 
 \section{Неравенство Рао-Крамера}
 
-Пусть известно, что случайная величина \(X \in \mathcal{F}_\theta\) --- семейству распределений c \(\theta\).
+%<*5>
+Пусть известно, что случайная величина \(X \in \mathcal{F}_\theta\) --- семейству распределений с \(\theta\).
 
 \begin{definition}
     \textbf{Носителем} семейства распределений \(\mathcal{F}_\theta\) называется множество \(C \subset \R\), такое что \(\forall \theta \ \ P(X \in C) = 1\).
@@ -157,6 +160,7 @@
 \begin{corollary}
     Если при условиях выше \(\D \theta^* = \frac{1}{n I(\theta)}\), то \(\theta^*\) --- эффективная оценка. Это не всегда достижимо.
 \end{corollary}
+%</5>
 
 \begin{example}
     Пусть \(X_1 \dots X_n\) --- выборка нормального распределения \(N(a, \sigma^2), a \in \R, \sigma^2 > 0\). Проверим эффективность оценки \(a^* = \overline{X}\).

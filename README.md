@@ -12,6 +12,7 @@
 
 ### Математическая статистика
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf)
+- [Конспект билетов](https://github.com/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/final.pdf)
 
 #### Практика
 

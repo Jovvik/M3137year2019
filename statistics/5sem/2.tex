@@ -47,8 +47,12 @@
 \begin{definition}
     Оценка \(\theta_1^*\) \textbf{не хуже} оценки \(\theta_2^*\), если
     \[\E (\theta_1^* - \theta)^2 \leq \E (\theta_2^* - \theta)^2\]
-    или, если оценки несмещенные,
-    \[\D \theta_1^* \leq \D \theta_2^*\]
+    или, если обе оценки несмещенные,
+    \begin{align*}
+        \E (\theta_1^* - \theta)^2        & \leq \E (\theta_2^* - \theta)^2        \\
+        \E (\theta_1^* - \E \theta_1^*)^2 & \leq \E (\theta_2^* - \E \theta_2^*)^2 \\
+        \D \theta_1^*                     & \leq \D \theta_2^*
+    \end{align*}
 \end{definition}
 
 \begin{definition}
@@ -58,7 +62,6 @@
 \begin{theorem}
     Не существует эффективной оценки в классе всех возможных оценок.
 \end{theorem}
-% TODO: #149 написать план доказательства, возможно доказать.
 
 \begin{theorem}
     В классе несмещённых оценок существует эффективная оценка.
@@ -164,6 +167,7 @@
 \end{proof}
 
 \begin{theorem}
+    \label{оценка момента}
     Выборочный \(k\)-тый момент является несмещенной состоятельной оценкой для теоретического \(k\)-того момента, то есть:
     \begin{enumerate}
         \item \(\E \overline{X^k} = \E X^k\)
@@ -183,16 +187,19 @@
 \begin{proof}
     \[\D_B = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2 = \overline{X^2} - (\overline{X})^2\]
     \begin{align*}
-        \E \D_B                                                 & =         \\ \E (\overline{X^2} - (\overline{X})^2) & = \\ \E \overline{X^2} - \E (\overline{X})^2 & = \\ \E X^2 - \E (\overline{X})^2 & = \\ \D \overline{X} & = \\ \E (\overline{X})^2 - (\E \overline{X})^2 & = \\
-        \E X^2 - (\D \overline{X} + (\E \overline{X})^2)        & =         \\
-        \E X^2 - (\E X)^2 - \D \overline{X}                     & =         \\
-        (\E X^2 - (\E X)^2) - \D \overline{X}                   & =         \\
-        \D X - \D \overline{X}                                  & =         \\
-        \D X - \D \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right) & =         \\
-        \D X - \frac{1}{n^2} \sum_{i=1}^{n} \D X_i              & =         \\
-        \D X - \frac{1}{n^2} \cdot n \D X                       & =         \\
-        \D X - \frac{1}{n} \D X                                 & =         \\
-        \frac{n - 1}{n} \D X                                    & \neq \D X
+        \E \D_B                                                                     & =                                                       \\
+        \E (\overline{X^2} - (\overline{X})^2)                                      & =                                                       \\
+        \E \overline{X^2} - \E (\overline{X})^2                                     & \stackrel{\mathrlap{\text{по \ref{оценка момента}}}}{=} \\
+        \E X^2 - \E (\overline{X})^2                                                & =                                                       \\
+        \E X^2 - (\D \overline{X} + (\E \overline{X})^2)                            & =                                                       \\
+        \E X^2 - (\E \overline{X})^2 - \D \overline{X}                              & =                                                       \\
+        (\E X^2 - (\E X)^2) - \D \overline{X}                                       & =                                                       \\
+        \D X - \underbrace{\D \overline{X}}_{\mathclap{\text{величина отклонения}}} & =                                                       \\
+        \D X - \D \left( \frac{1}{n} \sum_{i=1}^{n} X_i \right)                     & =                                                       \\
+        \D X - \frac{1}{n^2} \sum_{i=1}^{n} \D X_i                                  & =                                                       \\
+        \D X - \frac{1}{n^2} \cdot n \D X                                           & =                                                       \\
+        \D X - \frac{1}{n} \D X                                                     & =                                                       \\
+        \frac{n - 1}{n} \D X                                                        & \neq \D X
     \end{align*}
     \[\E S^2 = \E \left( \frac{n}{n -1} \D_B \right) = \frac{n}{n - 1} \cdot \frac{n - 1}{n} \D X = \D X\]
     \[\D_B = \overline{X^2} - (\overline{X})^2 \xrightarrow[]{P} \E X^2 - (\E X)^2 = \D X\]

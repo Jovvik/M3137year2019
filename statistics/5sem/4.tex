@@ -68,7 +68,7 @@
 \subsection{Распределение Фишера-Снедекора}
 
 \begin{definition}
-    Распределение \(F_{m, n}\) называется распределением \textbf{Фишера-Снидекора} \textit{(или \textbf{\(F\)-распределением})} со степенями свободы \(m\) и \(n\) называется распределение случайной величины
+    Распределение \(F_{m, n}\) называется распределением \textbf{Фишера-Снедекора} \textit{(или \textbf{\(F\)-распределением})} со степенями свободы \(m\) и \(n\) называется распределение случайной величины
     \[f_{m, n} = \frac{\frac{\chi_m^2}{m}}{\frac{\chi_n^2}{n}}\]
     , где \(\chi_n^2\) и \(\chi_m^2\) --- независимые случайные величины с распределением \(\chi^2\).
 \end{definition}
@@ -185,16 +185,16 @@
               \[T(\vec{X}) = \sum_{i=1}^{n} \left(X_i - \overline{X}\right)^2 = n\D_B = n (\overline{X^2} - (\overline{X})^2) = \sum_{i=1}^{n} X_i^2 - n (\overline{X})^2 = \sum_{i=1}^{n} X_i^2 - Y_1^2\]
               , где
               \[Y_1^2 = n(\overline{X})^2 \quad Y_1 = \sqrt{n} \overline{X} = \frac{1}{\sqrt{n}} X_1 + \dots + \frac{1}{\sqrt{n}} X_n\]
-              Так как длина\footnote{То есть норма строки как вектора.} строки \(\frac{1}{\sqrt{n}}, \dots , \frac{1}{\sqrt{n}}\) равна \(1\), можем дополнить эту строку до ортогональной матрицы \(C\). Тогда \(Y_1\) --- первая координата случайного вектора \(\vec{Y} = C \vec{X}\) и по лемме Фишера \(T(\vec{X}) \in H_{n - 1}\) \setcounter{enumi}{4}
+              Так как длина\footnote{То есть норма строки как вектора.} строки \(\frac{1}{\sqrt{n}}, \dots , \frac{1}{\sqrt{n}}\) равна \(1\), можем\footnote{По некой теореме.} дополнить эту строку до ортогональной матрицы \(C\). Тогда \(Y_1\) --- первая координата случайного вектора \(\vec{Y} = C \vec{X}\) и по лемме Фишера \(T(\vec{X}) \in H_{n - 1}\) \setcounter{enumi}{4}
         \item \(T(\vec{X}) = \frac{(n - 1)S^2}{\sigma^2}\) не зависит от \(Y_1 = \sqrt{n} \overline{X} \Rightarrow S^2\) и \(\overline{X}\) независимы. \setcounter{enumi}{3}
-        \item \[\sqrt{n} \frac{ \overline{X} - a}{S} = \sqrt{n} \frac{\overline{X} - a}{\sigma} \cdot \frac{1}{\sqrt{\frac{(n - 1)S^2}{\sigma^2} \cdot \frac{1}{n - 1}}} = \frac{X_0}{\sqrt{\chi_{n - 1}^2 (n - 1)}} \in T_{n - 1} \text{ , т.к.:}\]
+        \item \[\sqrt{n} \frac{ \overline{X} - a}{S} = \sqrt{n} \frac{\overline{X} - a}{\sigma} \cdot \frac{1}{\sqrt{\frac{(n - 1)S^2}{\sigma^2} \cdot \frac{1}{n - 1}}} = \frac{X_0}{\sqrt{\frac{\chi_{n - 1}^2}{n - 1}}} \in T_{n - 1} \text{ , т.к.:}\]
               \(X_0 \in N(0, 1)\) по пункту 1, \(\frac{(n - 1)S^2}{\sigma^2} \in H_{n-1}\) по пункту 3 и \(X_0\) не зависит от \(\frac{(n - 1)S^2}{\sigma^2}\) по пункту 5.
     \end{enumerate}
 \end{proof}
 %</9>
 
 \begin{remark}
-    Эта часть была рассказана на пратике 29 сентября.
+    Эта часть была рассказана на практике 29 сентября.
 \end{remark}
 
 \subsection{Многомерные нормальные распределения}

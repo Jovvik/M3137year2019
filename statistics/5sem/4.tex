@@ -128,7 +128,7 @@
 \end{theorem}
 \begin{proof}
     Т.к. координаты \(X_i \in N(0, 1)\) и независимы, то плотность \(\vec{X}\):
-    \[f_{ \vec{X}}(\vec{x}) = \prod_{i=1}^{n} f_i (x_i) = \prod_{i=1}^{n} \frac{1}{\sqrt{2 \pi}} e^{ - \frac{x_i^2}{2}} = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} (X_1^2 + X_2^2 + \dots + X_n^2)} = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} ||\vec{X}||^2}\]
+    \[f_{ \vec{X}}(\vec{x}) = \prod_{i=1}^{n} f_i (x_i) = \prod_{i=1}^{n} \frac{1}{\sqrt{2 \pi}} e^{ - \frac{x_i^2}{2}} = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} (x_1^2 + x_2^2 + \dots + x_n^2)} = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} ||\vec{x}||^2}\]
     По предыдущей теореме:
     \[f_{ \vec{Y}}(\vec{y}) = f_{ \vec{X}}(C\tran \vec{y}) = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} ||C\tran \vec{y}||^2} = \frac{1}{(2 \pi)^{\frac{n}{2}}} e^{ - \frac{1}{2} ||\vec{y}||^2} = \prod_{i=1}^{n} \frac{1}{\sqrt{2 \pi}} e^{ - \frac{1}{2} y_i^2} = \prod_{i=1}^{n} f_i(y_i)\]
     Следовательно, \(Y_i \in N(0, 1)\) и независимы.
@@ -148,9 +148,9 @@
     Отсюда
     \[T(\vec{X}) = \sum_{i=1}^{n} Y_i^2 - Y_1^2 - \dots - Y_k^2 = Y_{k+1}^2 + \dots + Y_n^2\]
 
-    \(Y_{k+1} \dots Y_n\) --- независимы, имеют стандартное нормальное распределение и \(T(\vec{X}) \in H_{n - k}\)
+    \(Y_{k+1} \dots Y_n\) --- независимы, имеют стандартное нормальное распределение и \(T(\vec{X}) \in H_{n - k}\) по определению распределения \(\chi^2\).
 
-    \(T(\vec{X})\) не зависит от \(Y_1 \dots Y_k\), т.к. \(Y_{k+1} \dots Y_n\) по предыдущей лемме от них не зависит.
+    \(T(\vec{X})\) не зависит от \(Y_1 \dots Y_k\), т.к. \(Y_{k+1} \dots Y_n\) по предыдущей лемме от них не зависят.
 \end{proof}
 %</8>
 
@@ -160,14 +160,14 @@
     \begin{itemize}
         \item \(X_1 \dots X_k\) независимы и имеют нормальное распределение с параметрами \(a\) и \(\sigma^2\)
         \item \(\overline{X}\) --- выборочное среднее
-        \item \(S^2\) --- исправленное выборочное среднее
+        \item \(S^2\) --- исправленная выборочная дисперсия
     \end{itemize}
 
     Тогда имеют место следующие распределения:
     \begin{enumerate}
         \item \[\sqrt{n} \cdot \frac{\overline{X} - a}{\sigma} \in N(0, 1)\]
-        \item \[\sum_{i=1}^{n} \left(\frac{X_i - a}{\sigma}\right)^2 = \frac{(n - 1) S^2}{\sigma^2} \in H_{n-1}\]
-        \item \[\sum_{i=1}^{n} \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 = \frac{n \sigma^{2*}}{\sigma^2} \in H_n\]
+        \item \[\sum_{i=1}^{n} \left(\frac{X_i - a}{\sigma}\right)^2 \in H_n\]
+        \item \[\sum_{i=1}^{n} \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 =  \frac{(n - 1) S^2}{\sigma^2} \in H_{n-1}\]
         \item \[\sqrt{n} \cdot \frac{\overline{X} - a}{S} \in T_{n-1}\]
         \item \(\overline{X}\) и \(S^2\) --- независимые случайные величины
     \end{enumerate}
@@ -175,20 +175,20 @@
 \begin{proof}\itemfix
     \begin{enumerate}
         \item \[X_i \in N(a, \sigma^2) \Rightarrow \sum_{i=1}^{n} X_i \in N(na, n\sigma^2) \Rightarrow \overline{X} \in N\left(a, \frac{\sigma^2}{n}\right) \Rightarrow \frac{\sqrt{n}}{\sigma}(\overline{X} - a) \in N(0, 1)\]
-        \item Верно, т.к. \(\frac{X_i - a}{\sigma} \in N(0, 1)\)
+        \item Верно, т.к. \(\cfrac{X_i - a}{\sigma} \in N(0, 1)\)
         \item \begin{align*}
                   \sum_{i=1}^{n} \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 & = \sum_{i=1}^{n} \left(\frac{X_i - a}{\sigma} - \frac{ \overline{X} - a}{\sigma}\right)^2 \\
                                                                                   & = \sum_{i=1}^{n} (z_i - \overline{z})^2                                                   \\
               \end{align*}
-              , где \[z_i = \frac{X_i - a}{\sigma} \in N(0, 1), \overline{z} = \frac{\sum_{i=1}^{n} z_i}{n} = \frac{\sum x_i - na}{\sigma n}= \frac{ \overline{X} - a}{\sigma}\]
+              , где \[z_i = \frac{X_i - a}{\sigma} \in N(0, 1), \overline{z} = \frac{\sum_{i=1}^{n} z_i}{n} = \frac{\sum X_i - na}{\sigma n}= \frac{ \overline{X} - a}{\sigma}\]
               Поэтому можем считать, что \(X_i \in N(0, 1)\). Применим лемму Фишера.
-              \[T(\vec{X}) = \sum_{i=1}^{n} \left(X_i - \overline{X}\right) = n (\overline{X^2} - (\overline{X})^2) = \sum_{i=1}^{n} X_i^2 - n (\overline{X})^2 = \sum_{i=1}^{n} X_i^2 - Y_1\]
+              \[T(\vec{X}) = \sum_{i=1}^{n} \left(X_i - \overline{X}\right)^2 = n\D_B = n (\overline{X^2} - (\overline{X})^2) = \sum_{i=1}^{n} X_i^2 - n (\overline{X})^2 = \sum_{i=1}^{n} X_i^2 - Y_1^2\]
               , где
-              \[Y_1 = n(\overline{X})^2 = \sqrt{n} \overline{X} = \frac{1}{\sqrt{n}} X_1 + \dots + \frac{1}{\sqrt{n}} X_n\]
-              Так как длина строки \(\frac{1}{\sqrt{n}}, \dots , \frac{1}{\sqrt{n}}\) равна \(1\), поэтому эту строку можем дополнить до ортогональной матрицы \(C\). Тогда \(Y_1\) --- первая координата случайного вектора \(\vec{Y} = C \vec{X}\) и по лемме Фишера \(T(\vec{X}) \in H_{n - 1}\) \setcounter{enumi}{4}
+              \[Y_1^2 = n(\overline{X})^2 \quad Y_1 = \sqrt{n} \overline{X} = \frac{1}{\sqrt{n}} X_1 + \dots + \frac{1}{\sqrt{n}} X_n\]
+              Так как длина\footnote{То есть норма строки как вектора.} строки \(\frac{1}{\sqrt{n}}, \dots , \frac{1}{\sqrt{n}}\) равна \(1\), можем дополнить эту строку до ортогональной матрицы \(C\). Тогда \(Y_1\) --- первая координата случайного вектора \(\vec{Y} = C \vec{X}\) и по лемме Фишера \(T(\vec{X}) \in H_{n - 1}\) \setcounter{enumi}{4}
         \item \(T(\vec{X}) = \frac{(n - 1)S^2}{\sigma^2}\) не зависит от \(Y_1 = \sqrt{n} \overline{X} \Rightarrow S^2\) и \(\overline{X}\) независимы. \setcounter{enumi}{3}
         \item \[\sqrt{n} \frac{ \overline{X} - a}{S} = \sqrt{n} \frac{\overline{X} - a}{\sigma} \cdot \frac{1}{\sqrt{\frac{(n - 1)S^2}{\sigma^2} \cdot \frac{1}{n - 1}}} = \frac{X_0}{\sqrt{\chi_{n - 1}^2 (n - 1)}} \in T_{n - 1} \text{ , т.к.:}\]
-              \(X_0 \in N(0, 1)\) по пункту 1, \(\frac{(n - 1)S^2}{\sigma^2} \in H_{n-1}\) по пункту 3 и \(X_0\) не зависит от \(\frac{(n - 1)S^2}{\sigma^2}\) по пунтку 5.
+              \(X_0 \in N(0, 1)\) по пункту 1, \(\frac{(n - 1)S^2}{\sigma^2} \in H_{n-1}\) по пункту 3 и \(X_0\) не зависит от \(\frac{(n - 1)S^2}{\sigma^2}\) по пункту 5.
     \end{enumerate}
 \end{proof}
 %</9>

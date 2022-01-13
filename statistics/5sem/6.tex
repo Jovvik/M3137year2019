@@ -43,7 +43,7 @@
 \end{definition}
 
 \begin{definition}
-    \(\alpha\) --- вероятность ошибки I рода, \(\beta\) --- вероятность ошибки II рода/
+    \(\alpha\) --- вероятность ошибки I рода, \(\beta\) --- вероятность ошибки II рода
 \end{definition}
 
 \begin{example}
@@ -108,7 +108,7 @@
 \end{theorem}
 \begin{proof}\itemfix
     \begin{enumerate}
-        \item \(K\) --- критерий асимптотического уровня:
+        \item \(K\) --- критерий асимптотического уровня \(\varepsilon\):
 
               Пусть \(H_0\) верна. Тогда по построению \(K \rightrightarrows Z\), т.е. \(F_K(x) \to F_Z(x)\) и
               \begin{align*}
@@ -143,7 +143,7 @@
               \[|K| = \left|\sqrt{n} \frac{ \overline{X} - a_0}{\sigma}\right|= \underbrace{\sqrt{n}}_{ \to \infty } \left|\underbrace{\frac{ \overline{X} - a}{\sigma}}_{\in N(0, 1)} + \underbrace{\frac{a - a_0}{\sigma}}_{\neq 0}\right| \xrightarrow[n \to \infty ]{P} \infty\]
     \end{enumerate}
 
-    Таким образом, этот критерий --- критерий согласия. Для уровня значимости \(\alpha = \varepsilon\) выберем \(C\), такую что \(\varepsilon = P(|K| \geq C) \Rightarrow P(|K| < C) = 1 - \varepsilon \Rightarrow 2 \Phi(C) = 1 - \varepsilon \Rightarrow 2 \Phi(C) = \frac{1 - \varepsilon}{2}\)
+    Таким образом, этот критерий --- критерий согласия. Для уровня значимости \(\alpha = \varepsilon\) выберем \(C\), такую что \(\varepsilon = P(|K| \geq C) \Rightarrow P(|K| < C) = 1 - \varepsilon \Rightarrow 2 \Phi(C) = 1 - \varepsilon \Rightarrow 2 \Phi(C) = \frac{1 - \varepsilon}{2}\). Тогда, C - это обратное значение \(\Phi\) для \(\frac{1 - \varepsilon}{2}\)
 
     Итого:
     \[\begin{cases}

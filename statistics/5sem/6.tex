@@ -78,6 +78,7 @@
 
 \subsection{Критерий согласия}
 
+%<*16.2>
 \begin{definition}
     Критерий \(K\) называется \textbf{критерием асимптотического уровня \(\varepsilon\)}, если вероятность ошибки первого рода \(\alpha\) стремится к \(\varepsilon\) при \(n \to \infty\).
 \end{definition}
@@ -89,6 +90,7 @@
 \begin{definition}
     Критерием \textbf{согласия} уровня \(\varepsilon\) называются состоятельные критерии асимптотического уровня \(\varepsilon\).
 \end{definition}
+%</16.2>
 
 \subsection{Построение критериев согласия}
 
@@ -98,7 +100,7 @@
     \item Если \(H_0\) верна, то \(K(X_1 \dots X_n) \rightrightarrows Z\) --- известное распределение с известными параметрами.
     \item Если \(H_0\) не верна, то \(K(X_1 \dots X_n) \xrightarrow{P} \infty\)
 \end{enumerate}
-Для заданного уровня значимость \(\varepsilon\) находим константу \(t_k\), такую что \(P(|Z| \geq t_k) = \alpha\). В результате получаем критерий согласия уровня значимости \(\alpha = \varepsilon\):
+Для заданного уровня значимости \(\varepsilon\) находим константу \(t_k\), такую что \(P(|Z| \geq t_k) = \alpha\). В результате получаем критерий согласия уровня значимости \(\alpha = \varepsilon\):
 \[\begin{cases}
         H_0, & |K| < t_k    \\
         H_1, & |K| \geq t_k
@@ -157,6 +159,15 @@
 \begin{remark}
     %<*20>
     Аналогично можно проверять для неизвестного \(\sigma\), тогда в критерии \(\sigma\) заменится на \(S\).
+
+    В качестве статистики критерия возьмём \(\sqrt{n} \cdot \frac{ \overline{X} - a_0}{S}\). Проверим, что оно имеет требуемые свойства:
+    \begin{enumerate}
+        \item Если \(H_0\) верна, т.е. \(a = a_0\), то \(\sqrt{n} \frac{ \overline{X} - a_0}{S} = \sqrt{n} \frac{ \overline{X} - a}{S} \in T_{n-1}\)
+        \item Если \(H_0\) неверно, т.е. \(a \neq a_0\), то \(|K| \to \infty\):
+
+              \[|K| = \left|\sqrt{n} \frac{ \overline{X} - a_0}{S}\right|= \underbrace{\sqrt{n}}_{ \to \infty } \left|\underbrace{\frac{ \overline{X} - a}{S}}_{\in T_{n-1}} + \underbrace{\frac{a - a_0}{S}}_{\neq 0}\right| \xrightarrow[n \to \infty ]{P} \infty\]
+    \end{enumerate}
+    Таким образом, этот критерий --- критерий согласия.
     %</20>
 \end{remark}
 

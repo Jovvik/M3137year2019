@@ -1,12 +1,7 @@
 {
-  "count": 176,
-  "uniques": 39,
+  "count": 234,
+  "uniques": 48,
   "views": [
-    {
-      "timestamp": "2022-01-05T00:00:00Z",
-      "count": 4,
-      "uniques": 3
-    },
     {
       "timestamp": "2022-01-06T00:00:00Z",
       "count": 11,
@@ -24,8 +19,8 @@
     },
     {
       "timestamp": "2022-01-09T00:00:00Z",
-      "count": 30,
-      "uniques": 7
+      "count": 33,
+      "uniques": 8
     },
     {
       "timestamp": "2022-01-10T00:00:00Z",
@@ -36,6 +31,11 @@
       "timestamp": "2022-01-11T00:00:00Z",
       "count": 9,
       "uniques": 6
+    },
+    {
+      "timestamp": "2022-01-12T00:00:00Z",
+      "count": 59,
+      "uniques": 11
     }
   ]
 }

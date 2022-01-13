@@ -14,20 +14,20 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 14,
-    "uniques": 8
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/analysis",
-    "title": "M3137year2019/analysis at master · Jovvik/M3137year2019 · GitHub",
-    "count": 10,
-    "uniques": 5
+    "count": 15,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 9,
+    "count": 11,
     "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/analysis",
+    "title": "M3137year2019/analysis at master · Jovvik/M3137year2019 · GitHub",
+    "count": 9,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/final.pdf",
@@ -42,12 +42,6 @@
     "uniques": 4
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/discrete/11.pdf",
-    "title": "M3137year2019/11.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 7,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 6,
@@ -58,5 +52,11 @@
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019",
     "count": 6,
     "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/discrete/11.pdf",
+    "title": "M3137year2019/11.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 6,
+    "uniques": 1
   }
 ]

@@ -55,7 +55,7 @@
 
     \begin{enumerate}
         \item Метод моментов.
-              \[\E = \frac{a + b}{2} = \frac{\theta}{2} \Rightarrow \hat{\theta} = 2 \overline{X}\]
+              \[\E = \frac{a + b}{2} = \frac{\theta}{2} \Rightarrow \theta^* = 2 \overline{X}\]
         \item Метод максимального правдоподобия.
               \[f_\theta(x) = \begin{cases}
                       0,                & x < 0             \\
@@ -80,10 +80,10 @@
               \[F_{X_{(n)}}(x) = P(X_{(n)} < x) = P(X_1 < x) \dots P(X_n < x) = (F_X(x))^n\]
               \[F_X(x) = \begin{cases}
                       0,                & x < 0 \\
-                      \frac{x}{\theta}, & x > 0
+                      \frac{x}{\theta}, & x \geq 0
                   \end{cases} \Rightarrow F_{X_{(n)}}(x) = \begin{cases}
                       0,                    & x < 0    \\
-                      x^\frac{n}{\theta^n}, & x \geq 0
+                      \frac{x^n}{\theta^n}, & x \geq 0
                   \end{cases} \Rightarrow f_{X_{(n)}}(x) = \begin{cases}
                       0,                           & x < 0    \\
                       \frac{nx^{n - 1}}{\theta^n}, & x \geq 0
@@ -100,7 +100,7 @@
                   \frac{(n + 1)^2}{n^2} \int_0^\theta x^2 \frac{nx^{n - 1}}{\theta^n} dx         & =                                     \\
                   \frac{(n + 1)^2}{n^2} \frac{n}{\theta^n} \frac{x^{n + 2}}{n + 2}\Big|_0^\theta & = \frac{(n + 1)^2}{n(n + 2)} \theta^2
               \end{align*}
-              \[\D \tilde{\theta}^2 = \E \tilde{\theta}^2 - \E^2 \tilde{\theta} = \frac{(n + 1)^2}{n(n + 2)} \theta^2 - \theta^2 = \theta^2 \left(\frac{n^2 + 2n + 1 - n^2 - 2n}{n^2 + 2n}\right) = \frac{\theta^2}{n(n + 2)}\]
+              \[\D \tilde{\theta} = \E \tilde{\theta}^2 - \E^2 \tilde{\theta} = \frac{(n + 1)^2}{n(n + 2)} \theta^2 - \theta^2 = \theta^2 \left(\frac{n^2 + 2n + 1 - n^2 - 2n}{n^2 + 2n}\right) = \frac{\theta^2}{n(n + 2)}\]
     \end{enumerate}
 
     Итак, сравним оценки.

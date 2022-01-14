@@ -117,7 +117,7 @@
 \end{theorem}
 \begin{proof}
     Рассмотрим независимые случайные величины \(X, Y \in N(0, 1)\). Тогда плотность их совместного распределения это
-    \[f_{X, Y} = f_X(X) = f_Y(Y) = \frac{1}{\sqrt{2 \pi}} e^{ -\frac{x^2}{2}} \frac{1}{\sqrt{2 \pi}} e^{ -\frac{y^2}{2}} = \frac{1}{2\pi} e^{ - \frac{x^2 + y^2}{2}}\]
+    \[f_{X, Y} = f_X(X) f_Y(Y) = \frac{1}{\sqrt{2 \pi}} e^{ -\frac{x^2}{2}} \frac{1}{\sqrt{2 \pi}} e^{ -\frac{y^2}{2}} = \frac{1}{2\pi} e^{ - \frac{x^2 + y^2}{2}}\]
     Перейдём к полярным координатам, где радиус \(R\), а угол --- \(\phi\), тогда \(X = R\cos \phi, Y = R\sin \phi, J = r\). Плотность в этих координатах:
     \[f_{X, Y} = \underbrace{\frac{1}{2\pi}}_{\substack{f_\phi(\varphi) \\ 0 \leq \varphi \leq 2\pi}} \underbrace{e^{ - \frac{r^2}{2}} r}_{\substack{f_R(r) \\ r \geq 0}}\]
     Таким образом, \(R\) и \(\phi\) --- независимые случайные величины. Их функции распределения:

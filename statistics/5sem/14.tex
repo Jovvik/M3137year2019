@@ -193,6 +193,21 @@
 \end{theorem}
 
 На основе теоремы и метода обратных функций получаем формулу для моделирования:
-\[x_i = \min \left\{k \mathrel{\Big|} \prod_{j=0}^{k} y_{ij} < e^{ - \lambda}\right\}\]
+\begin{align*}
+    N      & = \max \{k \mid S_k \in [0, 1]\}                                                              \\
+           & = \max \{k \mid \sum_{j=1}^{k} \mu_j \leq 1\}                                                 \\
+    \mathclap{\text{По методу обратных функций, если \(y_j \in N(0, 1)\):}}                                \\
+           & = \max \left\{k \mathrel{\Big|} \sum_{j=1}^{k} \frac{ - \ln(1 - y_j)}{\lambda} \leq 1\right\} \\
+           & = \max \left\{k \mathrel{\Big|} \sum_{j=1}^{k} - \ln(1 - y_j) \leq \lambda\right\}            \\
+           & = \max \left\{k \mathrel{\Big|} \sum_{j=1}^{k} - \ln(y_j) \leq \lambda\right\}                \\
+           & = \max \left\{k \mathrel{\Big|} \sum_{j=1}^{k} \ln(y_j) \geq -\lambda\right\}                 \\
+           & = \max \left\{k \mathrel{\Big|} e^{\sum_{j=1}^{k} \ln(y_j)} \geq e^{-\lambda}\right\}         \\
+           & = \max \left\{k \mathrel{\Big|} \prod_{j=1}^{k} y_{ij} \geq e^{-\lambda}\right\}              \\
+           & = \min \left\{k + 1 \mathrel{\Big|} \prod_{j=1}^{k} y_{j} < e^{-\lambda}\right\}              \\
+           & = \min \left\{k \mathrel{\Big|} \prod_{j=0}^{k} y_{j} < e^{-\lambda}\right\}                  \\
+    \mathclap{\text{Добавив индекс \(j\):}}                                                                \\
+    N_{ij} & = \min \left\{k \mathrel{\Big|} \prod_{j=0}^{k} y_{ij} < e^{-\lambda}\right\}                 \\
+\end{align*}
+
 , где \(y_{ij}\) --- псевдослучайные числа \(\in N(0, 1)\) \(i\)-той серии.
 %</54>

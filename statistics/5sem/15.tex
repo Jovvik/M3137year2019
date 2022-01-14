@@ -25,7 +25,7 @@
 
 \subsection{Вычисление определенных интегралов}
 
-\[\int_a^b f(x)dx \defeq \lim_{\Delta x_i \to \infty} \sum f(c_i) \Delta x_i\]
+\[\int_a^b f(x)dx \defeq \lim_{\Delta x_i \to 0} \sum f(c_i) \Delta x_i\]
 , где \(\Delta x_i\) --- длина отрезка разбиения, \(c_i \in i\)-тый отрезок разбиения.
 
 \subsubsection{Квадратурные формулы}
@@ -52,7 +52,7 @@
           Разбиваем \([a, b]\) на чётное число отрезков \(n = 2m, l = \frac{b - a}{n}, y_i = \varphi(x_i)\)
 
           \[I = \int_a^b \varphi(x)dx = \frac{b - a}{3n}\left(y_1 + y_n + 4(y_3 + y_5 + \dots + y_{n-1}) + 2(y_2 + y_4 + \dots + y_{n - 2})\right) = I_n\]
-          Погрешность: \(|I - I_n| \leq \frac{C}{n^2}\)
+          Погрешность: \(|I - I_n| \leq \frac{C}{n^4}\)
 
     \item Метод Монте-Карло
 
@@ -61,11 +61,12 @@
 
           Пусть нужно посчитать \(\int_0^1 \varphi(x)dx\), \(\eta_i \in U(0, 1)\). Тогда \(\xi_i \coloneqq \varphi(\eta_i)\), плотность \(f_\eta(y) = 1, y \in [0, 1]\), \(0\) иначе.
           \[\E \xi_1 = \int_{ - \infty}^{ + \infty} \varphi(y)f_\eta(y)dy = \int_0^1 \varphi(y)dy = I\]
+          \[I \approx \tilde{I}_n = \frac{1}{n} \sum_{i=1}^{n} \varphi(\eta_i)\]
           Погрешность: \(|I - I_n| \leq \frac{3 \sqrt{\D \xi_1}}{\sqrt{n}}\), где \(\D \xi_1 = \int_0^1 \varphi^2(y)dy = I^2\)
 
           Недостатки:
           \begin{enumerate}
-              \item Медленная сходимость (корень вместо квадрата).
+              \item Медленная сходимость (корень вместо квадрата или четвёртой степени).
               \item Для оценки погрешности надо вычислить дисперсию.
               \item Оценка справедлива лишь с вероятностью, пусть и близкой к единице.
           \end{enumerate}

@@ -43,7 +43,7 @@
     \item \(\overline{\varepsilon_i} = 0\)
           \begin{proof}
               \[a = \overline{X} - b \overline{Z} \Rightarrow \overline{X} = a + b \overline{Z}\]
-              \[\overline{\varepsilon_i} = \overline{X_i - \overline{X}} = \overline{X} - \overline{a + bZ} = \overline{X} - \overline{X} = 0\]
+              \[\overline{\varepsilon_i} = \overline{X_i - \hat{X}} = \overline{X} - \overline{a + bZ_i} = \overline{X} - \overline{X} = 0\]
           \end{proof}
     \item \(\cov (\hat{X_i}, \varepsilon_i) = 0\), т.е. эти величины не коррелируют.
           \begin{proof}
@@ -87,7 +87,7 @@
 \end{definition}
 \begin{prop}\itemfix
     \begin{enumerate}
-        \item \(0 \leq \R^2 \leq 1\)
+        \item \(0 \leq R^2 \leq 1\)
         \item \(R = 1 \Rightarrow\) ошибок нет и все точки экспериментальных данных лежат на найденной прямой.
         \item \(R = 0 \Rightarrow\) расчётное значение \(\hat{X}\) постоянно, т.е. найденная прямая постоянна с уровнем \(\overline{X}\) и \(b = 0\).
     \end{enumerate}
@@ -113,8 +113,8 @@
 \begin{enumerate}
     \item \(\sqrt{R^2} = r_{ \hat{X}, X}\)
           \begin{proof}
-              \[\cov(\hat{X}, X) = \cov(\hat{X}, \hat{X} + \varepsilon) = = \cov( \hat{X}, \hat{X}) + \cov( \hat{X}, \varepsilon) = \D \hat{X}\]
-              \[r_{ \hat{X}, X} \defeq \frac{\cov( \hat{X}, X)}{\sqrt{\D(\hat{X}) \cdot \D(X)}} = \frac{\D(\hat{X})}{\sqrt{\D(\hat{X}) \cdot \D(X)}} = \sqrt{\frac{D(\hat{X})}{D(X)}} = \sqrt{R^2}\]
+              \[\cov(\hat{X}, X) = \cov(\hat{X}, \hat{X} + \varepsilon) = \underbrace{\cov( \hat{X}, \hat{X})}_{\D \hat{X}} + \underbrace{\cov(\hat{X}, \varepsilon)}_0 = \D \hat{X}\]
+              \[r_{ \hat{X}, X} \defeq \frac{\cov( \hat{X}, X)}{\sqrt{\D(\hat{X}) \cdot \D(X)}} = \frac{\D(\hat{X})}{\sqrt{\D(\hat{X}) \cdot \D(X)}} = \sqrt{\frac{\D(\hat{X})}{\D(X)}} = \sqrt{R^2}\]
           \end{proof}
     \item \(\sqrt{R^2} = r_{Z, X\textcolor{white}{CURSED}}\)
           \begin{proof}
@@ -145,10 +145,12 @@
     \begin{enumerate}
         \item Несмещёнными: \(\E a = \alpha, \E b = \beta\)
         \item Состоятельными: \(a \xrightarrow[n \to \infty]{P} \alpha\) и \(b \xrightarrow[n \to \infty]{P} \beta\)
-        \item Эффективными в классе нелинейных несмещенных оценок, т.е. их дисперсии в этом классе минимальны и при этом равны:
+        \item Эффективными в классе линейных несмещенных оценок, т.е. их дисперсии в этом классе минимальны и при этом равны:
               \[\D(a) = \frac{\overline{Z^2} \cdot \sigma^2}{n \D(Z)} \quad \D(b) = \frac{\sigma^2}{n \D(Z)}\]
     \end{enumerate}
 \end{theorem}
+
+Третье условие нужно для несмещённости, а четвертое --- для состоятельности.
 %</38>
 
 %<*39>
@@ -194,9 +196,11 @@
               \[S \Delta_p = S\sqrt{1 + \frac{1}{n} + \frac{(Z_p - \overline{Z})^2}{n \D(Z)}}\]
               \begin{enumerate}
                   \item \(\D \Delta_p > \sigma^2\)
-                  \item При \(n \to \infty, D \Delta_p \to \sigma^2\).
+                  \item При \(n \to \infty, \D \Delta_p \to \sigma^2\).
                   \item Чем дальше \(Z_p\) от \(\overline{Z}\), тем выше будет ошибка модели. Таким образом, качественно предсказывать далеко от среднего никакая модель не может.
               \end{enumerate}
     \end{enumerate}
 \end{prop}
+
+Доверительный интервал прогноза будет \((\hat{X} - t_\gamma \cdot S \Delta_p, \hat{X} + t_\gamma \cdot S \Delta_p)\), где \(t_k\) --- квантиль распределения Стьюдента \(T_{n - 2}\) уровня \(\gamma\). Это согласно моей интерпретации \href{https://scask.ru/g_book_mkor.php?id=51}{этого учебника}, на лекции это не говорилось.
 %</40>

@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 69,
-    "uniques": 37
+    "count": 78,
+    "uniques": 39
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/translation%20methods/5sem/main.pdf",
@@ -14,20 +14,20 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 16,
+    "count": 17,
     "uniques": 10
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 15,
-    "uniques": 6
+    "count": 17,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 13,
-    "uniques": 6
+    "count": 17,
+    "uniques": 7
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
@@ -48,15 +48,15 @@
     "uniques": 4
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
-    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/functional%20programming/5sem/main.pdf",
+    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 6,
-    "uniques": 2
+    "uniques": 5
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/discrete/11.pdf",
-    "title": "M3137year2019/11.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "Jovvik/M3137year2019 at pdfs",
     "count": 6,
-    "uniques": 1
+    "uniques": 5
   }
 ]

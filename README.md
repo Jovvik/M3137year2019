@@ -1,4 +1,4 @@
-Конспекты М3*37 2019 года поступения, кафедра КТ, университет ИТМО.
+Конспекты М3*37 2019 года поступления, кафедра КТ, университет ИТМО.
 
 ![views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views_per_week.svg)
 
@@ -6,7 +6,9 @@
 
 <!-- Если вы хотите помочь, всё, чего не хватает в конспектах - [тут](https://github.com/Jovvik/M3137year2019/issues/2) -->
 
-Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм @aeriu. Пулл реквесты приветствуются.
+Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм [@aeriu](https://t.me/aeriu). Пулл реквесты приветствуются.
+
+## 6 семестр
 
 ## 5 семестр
 

@@ -18,11 +18,15 @@
 
 % Page layout
 \usepackage{geometry, a4wide, parskip, fancyhdr}
+\setlength{\headheight}{14.5pt}
 
 % Font, encoding, russian support
-\usepackage[russian]{babel}
-\usepackage[sb]{libertine}
-\usepackage{xltxtra}
+\usepackage[english,russian]{babel}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage[mono=false]{libertine}
+\usepackage[defaultsans]{opensans}
 
 % Tables
 \usepackage{array} % \newcolumntype
@@ -45,7 +49,8 @@
 % Miscellaneous
 \usepackage[makeroom]{cancel}
 \usepackage{catchfilebetweentags} % for partial imports
-\usepackage{enumitem} % idk but needed
+% \usepackage{enumitem} % idk but needed
+\usepackage{enumerate} % for roman numerals in enumerate environment
 \usepackage{environ} % used in myemph
 \usepackage{empheq} % used in myemph
 \usepackage{etoolbox}
@@ -54,11 +59,12 @@
 \usepackage{forest} % drawing trees
 \usepackage{lastpage} % LastPage counter
 \usepackage{xcolor} % \textcolor
+\usepackage{spalign} % consise matrices
 
 % Listings
 \usepackage{listings}
 \lstset{basicstyle=\ttfamily,breaklines=true}
-\setmonofont[Scale=MatchLowercase]{JetBrains Mono}
+% \setmonofont[Scale=MatchLowercase]{JetBrains Mono}
 % \setmonofont[Scale=MatchLowercase]{Inconsolata}
 \usepackage{minted}
 
@@ -79,6 +85,11 @@
     citecolor={blue!80!black},
     urlcolor={blue!80!black},
 }
+
+\usepackage{sectsty}
+\DeclareRobustCommand\sbseries{\fontseries{sb}\selectfont}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+\allsectionsfont{\normalfont\sffamily\sbseries}
 
 % tikz
 \usepackage{tikz}

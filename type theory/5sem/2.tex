@@ -38,7 +38,7 @@
 \begin{definition}[\(\beta\)-редукция]
     Обозначается \(A \to_\beta B\) и выполняется, если выполняется одно из:
     \begin{enumerate}
-        \item \(A \equiv P\ Q, B \equiv R\ S\) и либо \(P \to_\beta R\) и \(Q =_\alpha S\), либо \(P =_\alpha R\) и \(Q =_\alpha S\).
+        \item \(A \equiv P\ Q, B \equiv R\ S\) и либо \(P \to_\beta R\) и \(Q =_\alpha S\), либо \(P =_\alpha R\) и \(Q \to_\beta S\).
         \item \(A \equiv \lambda x.P, B \equiv \lambda x.Q\) и \(P \to_\beta Q\)
         \item \(A \equiv (\lambda x.P)\ Q, B \equiv P [x \coloneqq Q]\) и \(Q\) свободно для подстановки.
     \end{enumerate}
@@ -86,7 +86,7 @@
 \end{definition}
 
 \begin{example}
-    \( > \) на \(\mathbb{Z}\) не ромбовидно: для \(a = 3, b = 2, c = 1\) выполнено условие, но \(\nexists d\).
+    \( > \) на \(\mathbb{Z}^+\) не ромбовидно: для \(a = 3, b = 2, c = 1\) выполнено условие, но \(\nexists d\).
 
     \( > \) на \(\R\) ромбовидно.
 \end{example}
@@ -123,7 +123,7 @@
 \end{proof}
 
 \begin{lemma}
-    \((\rightrightarrows_\beta) \subseteq ( \twoheadrightarrow_\beta)\)
+    \((\rightrightarrows_\beta)^* \subseteq ( \twoheadrightarrow_\beta)\)
 \end{lemma}
 
 \begin{proof}[Доказательство теоремы \nameref{чр}]

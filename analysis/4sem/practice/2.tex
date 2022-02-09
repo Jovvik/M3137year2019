@@ -13,11 +13,11 @@
 
 \begin{example}
     \begin{align*}
-        \int_0^{\frac{\pi}{2}} \sin^{2021} x dx                                             \\
-         & = \begin{bmatrix} t = \sin^2 x \\ dt = 2 \sin x \cos x dx  \\ dx = \frac{dt}{2t^{\frac{1}{2}} (1 - t^{\frac{1}{2}})}\end{bmatrix}                                                      \\
-         & = \int_0^1 t^{1010.5} \frac{1}{2} t^{ - \frac{1}{2}} (1 - t)^{ - \frac{1}{2}} dt \\
-         & = \frac{1}{2}\int_0^1 t^{1010} (1 - t)^{ - \frac{1}{2}}dt                        \\
-         & = \frac{1}{2}B(1011, \frac{1}{2})                                                \\
+        \int_0^{\frac{\pi}{2}} \sin^{2021} x dx                                                                                                                         \\
+         & = \begin{bmatrix} t = \sin^2 x \\ dt = 2 \sin x \cos x dx  \\ dx = \frac{dt}{2t^{\frac{1}{2}} (1 - t^{\frac{1}{2}})}\end{bmatrix} \\
+         & = \int_0^1 t^{1010.5} \frac{1}{2} t^{ - \frac{1}{2}} (1 - t)^{ - \frac{1}{2}} dt                                                                             \\
+         & = \frac{1}{2}\int_0^1 t^{1010} (1 - t)^{ - \frac{1}{2}}dt                                                                                                    \\
+         & = \frac{1}{2}B(1011, \frac{1}{2})                                                                                                                            \\
          & = \frac{1}{2} \frac{\Gamma(1011)\Gamma(\frac{1}{2})}{\Gamma(1011.5)}
     \end{align*}
 \end{example}
@@ -56,7 +56,7 @@
 
 \begin{figure}[h]
     \centering
-    \includesvg{images/штука.svg}
+    \includesvg{\detokenize{images/штука.svg}}
 \end{figure}
 
 \[\int \int f dx dy = \int_a^b \left( \int_{c(x)}^{d(x)} f(x, y) dy \right) dx\]

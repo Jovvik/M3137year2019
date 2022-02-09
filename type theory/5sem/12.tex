@@ -134,13 +134,13 @@
 \section{Аксиома выбора}
 
 \begin{itemize}
-    \item \(P\) --- семейство множеств
+    \item \(p\) --- семейство множеств
     \item \(p : A \to B\)
 \end{itemize}
 Тогда
 \[(\forall x \in A.\exists t \in p(x)) \to \exists f : \forall x \in A.f(x) \in p(A)\]
 То же самое, но в Arend:
-\[(A : \mathrm{Set})\ (P : A \to \mathrm{Set}) \to (\mathrm{Pi}\ (x : A) \to \norm{P(x)}) \to \norm{\mathrm{Pi}\ (x : A) \to P(x)}\]
+\[(A : \mathrm{Set}) \to (P : A \to \mathrm{Set}) \to (\mathrm{Pi}\ (x : A) \to \norm{P(x)}) \to \norm{\mathrm{Pi}\ (x : A) \to P(x)}\]
 
 Это влечёт \texttt{Decide (Either a b)} --- закон исключенного третьего, где \texttt{Decide} это:
 \begin{minted}{haskell}

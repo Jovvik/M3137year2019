@@ -10,6 +10,10 @@
 
 ## 6 семестр
 
+### Теория чисел (алгоритмы в математике)
+
+- [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/6sem/main.pdf)
+
 ## 5 семестр
 
 ### Математическая статистика

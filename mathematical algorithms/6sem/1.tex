@@ -6,52 +6,64 @@
     \textbf{Алгебраическое тело} --- множество \(T\) с бинарными операциями \(+\) и \(\cdot\), такими, что:
     \begin{enumerate}
         \item \((T, 0, +)\) --- абелева группа:
-        \begin{itemize}
-            \item \(\forall \alpha, \beta, \gamma \quad \alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma\)
-            \item \(\exists 0 : \alpha + 0 = \alpha = 0 + \alpha\)
-            \item \(\forall \alpha \in T \ \ \exists ( - \alpha) : \alpha + ( - \alpha) = 0 = ( - \alpha) + \alpha\)
-            \item[\(\star\)] \(\forall \alpha, \beta \in T \quad \alpha + \beta = \beta + \alpha\)
-        \end{itemize}
+              \begin{itemize}
+                  \item \(\forall \alpha, \beta, \gamma \quad \alpha + (\beta + \gamma) = (\alpha + \beta) + \gamma\)
+                  \item \(\exists 0 : \alpha + 0 = \alpha = 0 + \alpha\)
+                  \item \(\forall \alpha \in T \ \ \exists ( - \alpha) : \alpha + ( - \alpha) = 0 = ( - \alpha) + \alpha\)
+                  \item[\(\star\)] \(\forall \alpha, \beta \in T \quad \alpha + \beta = \beta + \alpha\)
+              \end{itemize}
         \item \(((T \setminus \{0\}), 1, *)\) --- группа:
-        \begin{itemize}
-            \item \(\alpha (\beta \gamma) = (\alpha \beta) \gamma\)
-            \item \(\exists 1 : \alpha \cdot 1 = \alpha = 1 \cdot \alpha\)
-            \item \(\forall \alpha \neq 0 \ \ \exists \alpha^{-1} : \alpha\alpha^{-1} = 1 = \alpha^{-1}\alpha\)
-            \item[\(\star\)] Если \(\alpha\beta\neq\beta\alpha\), то \(T\) --- тело, иначе --- поле.
-        \end{itemize}
-        \item \(\alpha(\beta + \gamma) = \alpha\beta + \alpha\gamma, (\alpha + \beta)\gamma = \alpha \gamma + \beta\gamma\)
+              \begin{itemize}
+                  \item \(\alpha (\beta \gamma) = (\alpha \beta) \gamma\)
+                  \item \(\exists 1 : \alpha \cdot 1 = \alpha = 1 \cdot \alpha\)
+                  \item \(\forall \alpha \neq 0 \ \ \exists \alpha^{-1} : \alpha\alpha^{-1} = 1 = \alpha^{-1}\alpha\)
+                  \item[\(\star\)] Если умножение не коммутативно, то \(T\) --- тело, иначе --- поле.
+              \end{itemize}
+        \item Дистрибутивность: \(\alpha(\beta + \gamma) = \alpha\beta + \alpha\gamma, (\alpha + \beta)\gamma = \alpha \gamma + \beta\gamma\)
     \end{enumerate}
 \end{definition}
 
 \begin{example}
     \(\mathbb{F}_p\) --- поле вычетов по модулю \(p\).
     \[\mathbb{F}_p = \{0, 1, 2 \dots p - 1\}\]
-    
+
     \begin{enumerate}
-        \item \(\mathbb{F}_2 = \{0, 1\}\)
-        \begin{center}
-            \begin{tabular}{C|C|C}
-                + & 0 & 1 \\ \hline
-                0 & 0 & 1 \\ \hline
-                1 & 1 & 0
-            \end{tabular}
-            \quad
-            \begin{tabular}{C|C|C}
-                \cdot & 0 & 1 \\ \hline
-                0 & 0 & 0 \\ \hline
-                1 & 0 & 1
-            \end{tabular}
-        \end{center}
+        \item \begin{minipage}{0.3\linewidth}
+                  \(\mathbb{F}_2 = \{0, 1\}\)
+              \end{minipage}
+              \begin{minipage}{0.7\linewidth}
+                  \begin{table}[H]
+                      \centering
+                      \begin{tabular}{C|C|C}
+                          + & 0 & 1 \\ \hline
+                          0 & 0 & 1 \\ \hline
+                          1 & 1 & 0
+                      \end{tabular}
+                      \quad
+                      \begin{tabular}{C|C|C}
+                          \cdot & 0 & 1 \\ \hline
+                          0     & 0 & 0 \\ \hline
+                          1     & 0 & 1
+                      \end{tabular}
+                      \caption{Таблицы сложения и умножения в \(\mathbb{F}_2\)}
+                  \end{table}
+              \end{minipage}
     \end{enumerate}
 \end{example}
+
+Пусть есть поле \(\mathbb{F}_k, k = n \cdot m, m \neq 0, n \neq 0\). Т.к. \(n < k\) и \(m < k\), то \(n \cdot m = 0\). Таким образом, в поле есть делители нуля.
+
+\begin{remark}
+    Переход от \(\Q\) к \(\R\) --- топологическая конструкция, поэтому будем рассматривать переход из \(\Q\) в \(\mathbb{C}\) над рациональными числами.
+\end{remark}
 
 \begin{definition}
     \(\mathbb{C} \cong \faktor{K[t]}{(t^2 + 1)K[t]}\)
     \begin{center}
         \begin{tabular}{C|C|C}
-            \cdot & 1 & i \\ \hline
-            1 & 1 & i \\ \hline
-            i & i & -1
+            \cdot & 1 & i  \\ \hline
+            1     & 1 & i  \\ \hline
+            i     & i & -1
         \end{tabular}
     \end{center}
 \end{definition}
@@ -61,7 +73,7 @@
     \begin{enumerate}
         \item Каждый элемент \(\R\) коммутирует с каждым элементом \(T\).
         \item Каждый элемент \(T\) представим как:
-        \[x = x_0 + x_1 i_1 + x_2 i_2 + \dots + x_n i_n\]
+              \[x = x_0 + x_1 i_1 + x_2 i_2 + \dots + x_n i_n\]
     \end{enumerate}
 \end{theorem}
 

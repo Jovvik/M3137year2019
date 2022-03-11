@@ -1,0 +1,73 @@
+\chapter{11 марта}
+
+\(\sphericalangle \mathbb{I} = \{z \mid z^2 \in \R, z^2 \leq 0\}\)
+
+\begin{remark}
+    \(\R \cap \mathbb{I} = \{0\}\)
+\end{remark}
+
+\begin{theorem}
+    \(\R \oplus \mathbb{I} = T\)
+\end{theorem}
+
+\begin{lemma}
+    Если \(z \in \mathbb{I}\), то \(\forall \alpha \in \R \ \ \alpha z \in \mathbb{I}\).
+\end{lemma}
+\begin{proof}
+    \[(\alpha z)^2 = \alpha^2 z^2 \leq 0 \Rightarrow \alpha z \in \mathbb{I}\]
+\end{proof}
+
+\begin{lemma}
+    Если \(z \in \mathbb{I}\) и \(z^{-1}\) существует, то \(z^{-1} \in \mathbb{I}\), где \(z^{-1}\) это такой элемент \(\mathbb{I}\), что \(zz^{-1} = 1\).
+\end{lemma}
+\begin{proof}
+    \[z^2 (z^{-1})^2 = \underbrace{zz}_{< 0} z^{-1}z^{-1} = 1 \Rightarrow z^{-1}z^{-1} < 0 \Rightarrow z^{-1} \in \mathbb{I}\]
+\end{proof}
+
+\begin{lemma}
+    Всякий элемент \(x\) из \(T\) представим единственным образом в виде:
+    \[x \stackrel{!}{=} a + z, \quad a \in \R, z \in \mathbb{I}\]
+\end{lemma}
+\begin{proof}
+    \(\sphericalangle x \in T, \{x^0, x, x^2 \dots x^{n+1}\}\) --- линейно зависимые. Тогда \(\exists \{\alpha_i\}_{i=0}^{n+1} \subset \R\), такие что:
+    \[\alpha_0 + \alpha_1 x + \alpha_2 x^2 + \dots + \alpha_{n+1} x^{n+1} = 0\]
+    \unfinished
+\end{proof}
+
+\begin{lemma}
+    Пусть \(u, v \in \mathbb{I}, a, b \in \R\). Тогда \(uv + vu = \xi \in \R\) и \(au + bv = \eta \in \mathbb{I}\).
+\end{lemma}
+\begin{proof}
+    Положим, что \(\{1, u, v\}\) линейно зависим, т.е. \(\exists \alpha, \beta, \gamma : \alpha + \beta u + \gamma v = 0\).
+    \[\beta u = - \alpha - \gamma v \Rightarrow \alpha = 0 \Rightarrow u = - \frac{\gamma}{\beta} v\]
+    \[\sphericalangle uv + vu = - \frac{\gamma}{\beta}v^2 - \frac{\gamma}{\beta}v^2 = \frac{-2\gamma}{\beta}v^2 \in \R\]
+    \[- \frac{\alpha \gamma}{\beta} v + bv = \left(b - \frac{\alpha\gamma}{\beta}\right)v \in \mathbb{I}\]
+    Положим, что \(\{1, u, v\}\) линейно независим.
+    \[\eta^2 = (\beta + z)^2 = (au + bv)^2 = a^2u^2 + b^2v^2 + ab(uv + vu)\]
+    \[(\beta + z)^2 = a^2u^2 + b^2v^2 + ab(\alpha + y)\]
+    \[\beta^2 + 2\beta z + z^2 = a^2u^2 + b^2v^2 + ab(\alpha + y)\]
+    \[2\beta z = ab(\alpha + y)\]
+    Если \(z = 0\), то \(\{1, u, v\}\) линейно зависим --- противоречие.
+
+    \(\sphericalangle z \neq 0, z = \frac{ab}{2\beta} y\)
+    \[au + bv = \beta + \frac{ab}{2 \beta}y\]
+    \[a^2u^2 + b^2v^2 = a'u + b'v = \beta' + \frac{a'b'}{2 \beta}y\]
+    \unfinished
+\end{proof}
+
+\begin{lemma}\itemfix
+    \begin{itemize}
+        \item \(u, v \in \mathbb{I}\)
+        \item \(u^2 = - 1\)
+        \item \(v^2 = - 1\)
+        \item \(w = u \cdot v\)
+    \end{itemize}
+
+    Тогда:
+    \begin{align*}
+        u^2 & = v^2 = w^2 = - 1 \\
+        uv  & = - vu = w        \\
+        vw  & = - wv = u        \\
+        wu  & = - uw = v
+    \end{align*}
+\end{lemma}

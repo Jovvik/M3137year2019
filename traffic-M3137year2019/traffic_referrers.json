@@ -1,7 +1,7 @@
 [
   {
     "referrer": "github.com",
-    "count": 91,
+    "count": 104,
     "uniques": 20
   },
   {
@@ -11,6 +11,11 @@
   },
   {
     "referrer": "away.vk.com",
+    "count": 4,
+    "uniques": 2
+  },
+  {
+    "referrer": "m.vk.com",
     "count": 1,
     "uniques": 1
   }

@@ -1,0 +1,83 @@
+\chapter{18 марта}
+
+\begin{example}[split complex number]
+	Это не тело.
+
+	Числа представимы в виде \(z = a + bj\), есть дополнение \(z^* = a - bj\) и тогда \(zz^* = a^2 - b^2\). Изотропные элементы \(e_1 = \frac{1+j}{2}\) и \(e_2 = \frac{1-j}{2}\) образуют базис в этих числах. Кроме того, \(e_1 e_1^* = e_2 e_2^* = 0\)
+	\begin{table}[h]
+		\caption{Таблица Кэли}
+		\centering
+		\begin{tabular}{C|C|C}
+			  & 1 & j \\ \hline
+			1 & 1 & j \\ \hline
+			j & j & 1 \\
+		\end{tabular}
+	\end{table}
+\end{example}
+
+\begin{example}
+	\(\faktor{\R[t]}{t^2 \R[t]}, z = a + bd\)
+\end{example}
+
+\begin{lemma}
+	Пусть \(u^2 = - 1, v^2 =- 1, w = uv\). Тогда \(w = uv \in \mathbb{I}, w^2 =- 1, uv = -vu = \omega, v \omega = - \omega v = u\) и т.д.
+\end{lemma}
+\begin{proof}
+	\[\sphericalangle (uv)(vu) = - vu = 1 \Rightarrow vu = (uv)^{-1}\]
+	\[\R \ni uv + vu = uv + (uv)^{-1} \in \mathbb{I} \implies uv - vu = 0 \implies uv = -vu\]
+\end{proof}
+
+\begin{theorem}\itemfix
+	\begin{itemize}
+		\item \(\mathbb{I} = \{0\} \implies T = \R\)
+		\item \(\mathbb{I} = \{x\}\)
+	\end{itemize}
+\end{theorem}
+
+
+\chapter{18 марта}
+
+\begin{example}[split complex number]
+	Это не тело.
+
+	Числа представимы в виде \(z = a + bj\), есть дополнение \(z^* = a - bj\) и тогда \(zz^* = a^2 - b^2\). Изотропные элементы \(e_1 = \frac{1+j}{2}\) и \(e_2 = \frac{1-j}{2}\) образуют базис в этих числах. Кроме того, \(e_1 e_1^* = e_2 e_2^* = 0\)
+	\begin{table}[h]
+		\caption{Таблица Кэли}
+		\centering
+		\begin{tabular}{C|C|C}
+			  & 1 & j \\ \hline
+			1 & 1 & j \\ \hline
+			j & j & 1 \\
+		\end{tabular}
+	\end{table}
+\end{example}
+
+\begin{example}
+	\(\faktor{\R[t]}{t^2 \R[t]}, z = a + bd\)
+\end{example}
+
+\begin{lemma}
+	Пусть \(u^2 = - 1, v^2 =- 1, w = uv\). Тогда \(w = uv \in \mathbb{I}, w^2 =- 1, uv = -vu = \omega, v \omega = - \omega v = u\) и т.д.
+\end{lemma}
+\begin{proof}
+	\[\sphericalangle (uv)(vu) = - vu = 1 \Rightarrow vu = (uv)^{-1}\]
+	\[\R \ni uv + vu = uv + (uv)^{-1} \in \mathbb{I} \implies uv - vu = 0 \implies uv = -vu\]
+\end{proof}
+
+\begin{theorem}\itemfix
+	\begin{itemize}
+		\item \(\mathbb{I} = \{0\} \implies T \cong \R\)
+		\item \(\mathbb{I} = \{x\}, i \coloneqq \frac{x}{\sqrt{-x^2}}, i^2 = -1 \implies T \cong \mathbb{C}\)
+		\item \(\mathbb{I} = \{x, y\}, i \coloneqq \frac{x}{\sqrt{-x^2}}, iy \eqqcolon b + z, j_0 \coloneqq iy - b = z, j = \frac{j_0}{\sqrt{-j_0^2}} \implies \exists k = ij \implies q = \alpha + i \beta + j \gamma + k \delta \implies T \cong \mathbb{K}\)
+		\item \(\{i, j, k, m\} \in \mathbb{I}\).
+
+		      Тогда пусть \(im = a + x, jm = b + y, km = c + z\), где \(a, b, c \in \R, x, y, z \in \mathbb{I}\).
+		      Рассмотрим \(l_0 = m + ai + bj + ck \in \mathbb{I}\), при этом \(l_0 \neq 0\) и \(il_0, jl_0, kl_0 \in \mathbb{I}\). Тогда \(il = -li, jl = -lj, kl = -lk\).
+		      \[
+                  \begin{rcases*}
+                      ilj = -ijl = -kl \\
+                      jli = -lji = lk
+                  \end{rcases*} \implies kl = -kl = 0
+              \]
+	\end{itemize}
+\end{theorem}

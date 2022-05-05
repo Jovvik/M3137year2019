@@ -1,8 +1,13 @@
 [
   {
     "referrer": "github.com",
-    "count": 146,
-    "uniques": 35
+    "count": 173,
+    "uniques": 40
+  },
+  {
+    "referrer": "translated.turbopages.org",
+    "count": 9,
+    "uniques": 1
   },
   {
     "referrer": "Google",

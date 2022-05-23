@@ -2,19 +2,19 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 122,
-    "uniques": 56
+    "count": 136,
+    "uniques": 58
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 66,
+    "count": 69,
     "uniques": 32
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete",
     "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
-    "count": 20,
+    "count": 22,
     "uniques": 16
   },
   {
@@ -26,37 +26,37 @@
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete/2sem/graphs",
     "title": "M3137year2019/discrete/2sem/graphs at master · Jovvik/M3137year2019 · GitHub",
-    "count": 6,
+    "count": 8,
     "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 8,
+    "uniques": 5
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/discrete",
+    "title": "M3137year2019/discrete at pdfs · Jovvik/M3137year2019",
     "count": 6,
+    "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "Jovvik/M3137year2019 at pdfs",
+    "count": 5,
     "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
-    "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019",
-    "count": 4,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019",
-    "count": 4,
-    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 3,
-    "uniques": 3
+    "count": 4,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/commits",
     "title": "Commits · Jovvik/M3137year2019 · GitHub",
-    "count": 3,
-    "uniques": 3
+    "count": 4,
+    "uniques": 4
   }
 ]

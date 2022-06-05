@@ -1,0 +1,138 @@
+\chapter{2 июня}
+
+\section{Кватернионы}
+
+Будем обозначать $q = q_0 + \tilde{q}$, где $q_0$ --- вещественная часть, а $\tilde{q}$ --- мнимая.
+Также можно неформально говорить, что $q_0 \in \R$, а $\tilde{q} \in \R^3$.
+
+Пространство кватернионов $\mathbb{K}$ в неком смысле изоморфно $\R^4$.
+В этом пространстве можно выделить подпространство мнимых кватернионов, изоморфное $\R^3$.
+Распишем $\tilde{q}$:
+\[q = q_0 + q_1 i + q_2 j + q_3 k\]
+
+Операция сложения работает ``поэлементно'':
+\[p + q = (p_0 + q_0) + (\tilde{p} + \tilde{q}) = (p_0 + q_0) + (p_1 + q_1)i + (p_2 + q_2)j + (p_3 + q_3)k\]
+
+Умножение более интересно и определяется следующими правилами:
+\begin{align*}
+	ij        & = k = -ji        \\
+	jk        & = i = -kj        \\
+	ki        & = j = -ik        \\
+	i^2 = j^2 & = k^2 = ijk = -1
+\end{align*}
+
+Тогда умножение в явном виде:
+\begin{align*}
+	(p_0 + p_1 i + p_2 j + p_3 k) (q_0 + q_1 i + q_2 j + q_3 k) & = \\
+	p_0 q_0 - \ev{\tilde{p}, \tilde{q}} + p_0 \tilde{q} + q_0 \tilde{p} + [\tilde{p} \times \tilde{q}]
+\end{align*}
+\[
+	[p \times q] \coloneqq \det \begin{vmatrix} i & j & k \\ p_1 & p_2 & p_3 \\ q_1 & q_2 & q_3 \end{vmatrix}
+\]
+
+Нейтральные элементы:
+\begin{itemize}
+	\item По сложению: $0 = 0 + \tilde{0}$
+	\item По умножению: $1 = 1 + \tilde{0}$
+\end{itemize}
+
+\begin{definition}
+	\textbf{Сопряженным} к кватерниону $q = q_0 + \tilde{q}$ называется кватернион:
+	\[q^* = q_0 - \tilde{q}\]
+\end{definition}
+
+\begin{definition}[норма кватерниона]
+	\[\norm{q} = q q^* \quad |q| = \sqrt{\norm{q}} = \sqrt{q_0^2 + q_1^2 + q_2^2 + q_3^2} \]
+\end{definition}
+
+\begin{definition}
+	\[q^{-1} = \frac{q^*}{\norm{q}}\]
+\end{definition}
+
+\begin{definition}[единичная сфера]
+	\[S = \{q \in \mathbb{K} \mid \norm{q} = |q| = 1\}\]
+\end{definition}
+
+\begin{remark}
+	Если \(|q| = 1\), то  \(q^{-1} = q^*\)
+\end{remark}
+
+\begin{prop}\itemfix
+	\begin{enumerate}
+		\item $(q^*)^* = (q_0 - \tilde{q})^* = q_0 + \tilde{q} = q$
+		\item $q + q^* = 2 q_0$ --- ``след''
+		\item $(pq)^* = q^* p^*$
+		\item $q q^* = (q_0 + \tilde{q}) (q_0 - \tilde{q}) = q_0^2 - \tilde{q} \tilde{q} = q_0^2 - \overbrace{[\tilde{q} \times \tilde{q}]}^0 + \ev{\tilde{q}, \tilde{q}} = q^* q = \norm{q} = \norm{q^*}$
+		\item $||pq|| = (pq)(pq)^* = (pq) (q^* p^*) = p (qq^*) p^* = p \norm{q} p^* = \norm{q} p p^* = \norm{q} \norm{p} = \norm{p} \norm{q}$
+		\item $\norm{q} = 1$ --- \textbf{единичный кватернион}.
+	\end{enumerate}
+\end{prop}
+
+\(\sphericalangle q \in \mathbb{K}\) такое, что \(\norm{q} = 1\), т.е. \(q_0^2 + |\tilde{q}|^2_{\R^3} = 1\)
+\[\exists \varphi \in \R : \begin{cases}
+		\cos^2 \varphi = q_0^2 \\
+		\sin^2 \varphi = |\tilde{q}|^2_{\R^3}
+	\end{cases}\]
+\[\exists! \varphi \in [0, \pi] : \begin{cases}
+		\cos^2 \varphi = q_0^2 \\
+		\sin^2 \varphi = |\tilde{q}|^2_{\R^3}
+	\end{cases}\]
+
+Очевидно, не любой кватернион так можно представить. Поэтому \(\sphericalangle \tilde{u} = \frac{\tilde{q}}{|\tilde{q}|}\). Тогда:
+\[q = q_0 + |\tilde{q}| \cdot \tilde{u} = \cos \varphi + \tilde{u} \sin \varphi\]
+
+\[\sphericalangle \mathcal{L}(v) \quad \mathcal{L} : \mathbb{K} \times \R^3 \to \mathbb{K} \quad \mathcal{L}_q(v) = q \tilde{v} q^*\]
+
+\begin{lemma}
+	\(\forall v \in \R^3 \ \ |v| = |\mathcal{L}_q(v)|\) при \(|q| = 1\)
+\end{lemma}
+\begin{proof}
+	Фиксируем \(v \in \R^3, q \in \mathbb{K}\) такой, что \(\norm{q} = 1\).
+	\[\norm{\mathcal{L}_q(v)} = \norm{q \tilde{v} q^*} = \norm{q} \cdot \norm{\tilde{v}} \cdot \norm{q^*} = \norm{\tilde{v}} = \norm{v}_{\R^3}\]
+\end{proof}
+
+\begin{lemma}
+	\(\forall q \in \mathbb{K} : \norm{q} = 1 \ \
+	\forall \alpha \in \R \quad \mathcal{L}_q(\alpha p + s) = \alpha \mathcal{L}_q(p) + \mathcal{L}_q(s)\)
+\end{lemma}
+\begin{proof}
+	\[
+		\mathcal{L}_q(\alpha p + s) = q (\alpha p + s) q^* =
+		\alpha q p q^* + q s q^* = \alpha \mathcal{L}_q(p) + \mathcal{L}_q(s)
+	\]
+\end{proof}
+
+\begin{lemma}
+	\(\forall \alpha \in \R \setminus \{0\} \ \ \forall q \in \mathbb{K} : \norm{q} = 1 \quad |\alpha \tilde{q}| = |\mathcal{L}_q(\alpha \tilde{q})|\)
+\end{lemma}
+\begin{proof}
+	С помощью расписывания определения через координаты:
+	\[\mathcal{L}_q(v) = (q_0^2 - |\tilde{q}|^2)v + 2 \ev{\tilde{v}, \tilde{q}} \tilde{v} - 2 [\tilde{q} \times \tilde{v}]\]
+	\[\mathcal{L}_q(\alpha \tilde{q}) = \alpha \mathcal{L}_q(\tilde{q})
+		= \alpha ((q_0^2 - |\tilde{q}|^2)\tilde{q} + 2 \ev{\tilde{q}, \tilde{q}} \tilde{q} - 2 q_0[\tilde{q} \times \tilde{q}])
+		= \alpha (q_0^2 + |\tilde{q}|^2) \tilde{q} = \alpha \tilde{q}\]
+\end{proof}
+
+\begin{theorem}
+	\(\sphericalangle q \in \mathbb{K} : |q| = 1\). Тогда \(q\) можно представить как  \(q = \cos\varphi + \tilde{u}\sin\varphi\). Кроме того, \(\mathcal{L}_q(v) = q \tilde{v} q^* = q \tilde{v} q^{-1}\).
+
+	Тогда действие \(\mathcal{L}_q\) на \(\R^3\) --- поворот на угол  \(2 \varphi\) относительно оси  \(u\).
+\end{theorem}
+\begin{proof}
+	Зафиксируем \(v \in \R^3\). Разложим \(v\) как \(v = \vec{a} + \vec{b}\),
+	где \(\vec{a} \parallel \vec{u}\), а \(\vec{n} \perp \vec{u}\)
+	\[\mathcal{L}_q(v) = \mathcal{L}_q(\vec{a} + \vec{n})
+		= \mathcal{L}_q(\vec{a}) + \mathcal{L}_q(\vec{n})\]
+    \[\mathcal{L}_q(\vec{a}) \stackrel{\exists K \in \R : a = k \tilde{q}}{=} \vec{a}\] 
+    \begin{align*}
+        \mathcal{L}_q(\vec{n})
+         &= (q_0^2 - |\tilde{q}|^2)\vec{n} + 2 \ev{\vec{n}, \vec{q}} \vec{n} - 2 q_0 [\tilde{n} \times \vec{q}] \\
+         &= (q_0^2 - |\tilde{q}|^2)\vec{n} - 2q_0[\tilde{n} \times \vec{q}] \\
+         &= (\cos^2 \varphi - \sin^2 \varphi) \vec{n} + 2 \cos\varphi \cdot \sin\varphi \underbrace{[\tilde{u} \times \vec{n}]}_{\vec{n}_\perp} \\
+         &= \cos 2\varphi \vec{n} + \sin 2\varphi \vec{n}_\perp
+    \end{align*}
+    \[|\vec{n}_\perp| = |[\tilde{u} \times \vec{n}]| = |\tilde{u}| \cdot |\vec{n}| \cdot \sin \frac{\pi}{2} = |\vec{n}|\] 
+\end{proof}
+
+\unfinished
+

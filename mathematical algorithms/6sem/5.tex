@@ -1,4 +1,4 @@
-\chapter{2 июня}
+\chapter{2 апреля}
 
 \section{Кватернионы}
 
@@ -159,25 +159,25 @@
 \[q = q_0 + \tilde{q} = \cos \frac{\varphi}{2} + \tilde{u} \sin \frac{\varphi}{2}\]
 Подставим в \eqref{eq:lqv}:
 \begin{align*}
-\mathcal{L}_q(v)
- & = \left(\cos^2 \frac{\varphi}{2} - \sin^2 \frac{\varphi}{2}\right) \tilde{v} + 2 \sin \frac{\varphi}{2} \ev{\tilde{u}, \tilde{v}}\cdot \tilde{u} - 2 \cos^2 \frac{\varphi}{2} [\tilde{u} \times \tilde{v}] \\
- & = \cos \varphi \tilde{v} + (1 - \cos\varphi) \ev{\tilde{u}, \tilde{v}} \tilde{u} - \sin\varphi [\tilde{u} \times \tilde{v}]
+	\mathcal{L}_q(v)
+	 & = \left(\cos^2 \frac{\varphi}{2} - \sin^2 \frac{\varphi}{2}\right) \tilde{v} + 2 \sin \frac{\varphi}{2} \ev{\tilde{u}, \tilde{v}}\cdot \tilde{u} - 2 \cos^2 \frac{\varphi}{2} [\tilde{u} \times \tilde{v}] \\
+	 & = \cos \varphi \tilde{v} + (1 - \cos\varphi) \ev{\tilde{u}, \tilde{v}} \tilde{u} - \sin\varphi [\tilde{u} \times \tilde{v}]
 \end{align*}
 
 \begin{example}
-    \(\sphericalangle u = \frac{1}{\sqrt{3}}(1, 1, 1)\), поворот на \(\frac{2\pi}{3}\).
-    \begin{align*}
-        \mathcal{L}_q((1, 0, 0))
-         &= \cos \frac{2\pi}{3} \cdot i + \left(1 - \cos \frac{2\pi}{3}\right)
-          \cdot \frac{1}{\sqrt{3}} \ev{(1, 1, 1), (1, 0, 0)}
-          \cdot \frac{1}{\sqrt{3}}(i+j+k) \\
-          &\quad - \sin \frac{2\pi}{3} \left[\frac{1}{\sqrt{3}} (i + j + k) \times i\right] \\
-          &= \frac{i}{2} + \frac{3}{2} \cdot \frac{i + j + k}{3} + \frac{\sqrt{3}}{2} \cdot \frac{1}{\sqrt{3}} \begin{vmatrix}
-              i & j & k \\
-              1 & 1 & 1 \\
-              1 & 0 & 0
-          \end{vmatrix} \\
-          &= -\frac{i}{2} + \frac{i + j + k}{2} + \frac{j - k}{2} = \frac{2j}{2} = j
-    \end{align*} 
+	\(\sphericalangle u = \frac{1}{\sqrt{3}}(1, 1, 1)\), поворот на \(\frac{2\pi}{3}\).
+	\begin{align*}
+		\mathcal{L}_q((1, 0, 0))
+		 & = \cos \frac{2\pi}{3} \cdot i + \left(1 - \cos \frac{2\pi}{3}\right)
+		\cdot \frac{1}{\sqrt{3}} \ev{(1, 1, 1), (1, 0, 0)}
+		\cdot \frac{1}{\sqrt{3}}(i+j+k)                                                                                       \\
+		 & \quad - \sin \frac{2\pi}{3} \left[\frac{1}{\sqrt{3}} (i + j + k) \times i\right]                                   \\
+		 & = \frac{i}{2} + \frac{3}{2} \cdot \frac{i + j + k}{3} + \frac{\sqrt{3}}{2} \cdot \frac{1}{\sqrt{3}} \begin{vmatrix}
+			                                                                                                       i & j & k \\
+			                                                                                                       1 & 1 & 1 \\
+			                                                                                                       1 & 0 & 0
+		                                                                                                       \end{vmatrix} \\
+		 & = -\frac{i}{2} + \frac{i + j + k}{2} + \frac{j - k}{2} = \frac{2j}{2} = j
+	\end{align*}
 \end{example}
 

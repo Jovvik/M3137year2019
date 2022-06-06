@@ -80,7 +80,6 @@
 
 Очевидно, не любой кватернион так можно представить. Поэтому \(\sphericalangle \tilde{u} = \frac{\tilde{q}}{|\tilde{q}|}\). Тогда:
 \[q = q_0 + |\tilde{q}| \cdot \tilde{u} = \cos \varphi + \tilde{u} \sin \varphi\]
-
 \[\sphericalangle \mathcal{L}(v) \quad \mathcal{L} : \mathbb{K} \times \R^3 \to \mathbb{K} \quad \mathcal{L}_q(v) = q \tilde{v} q^*\]
 
 \begin{lemma}
@@ -107,7 +106,10 @@
 \end{lemma}
 \begin{proof}
 	С помощью расписывания определения через координаты:
-	\[\mathcal{L}_q(v) = (q_0^2 - |\tilde{q}|^2)v + 2 \ev{\tilde{v}, \tilde{q}} \tilde{v} - 2 [\tilde{q} \times \tilde{v}]\]
+	\begin{equation}
+		\label{eq:lqv}
+		\mathcal{L}_q(v) = (q_0^2 - |\tilde{q}|^2)v + 2 \ev{\tilde{q}, \tilde{v}} \tilde{v} - 2 q_0 [\tilde{q} \times \tilde{v}]
+	\end{equation}
 	\[\mathcal{L}_q(\alpha \tilde{q}) = \alpha \mathcal{L}_q(\tilde{q})
 		= \alpha ((q_0^2 - |\tilde{q}|^2)\tilde{q} + 2 \ev{\tilde{q}, \tilde{q}} \tilde{q} - 2 q_0[\tilde{q} \times \tilde{q}])
 		= \alpha (q_0^2 + |\tilde{q}|^2) \tilde{q} = \alpha \tilde{q}\]
@@ -123,16 +125,59 @@
 	где \(\vec{a} \parallel \vec{u}\), а \(\vec{n} \perp \vec{u}\)
 	\[\mathcal{L}_q(v) = \mathcal{L}_q(\vec{a} + \vec{n})
 		= \mathcal{L}_q(\vec{a}) + \mathcal{L}_q(\vec{n})\]
-    \[\mathcal{L}_q(\vec{a}) \stackrel{\exists K \in \R : a = k \tilde{q}}{=} \vec{a}\] 
-    \begin{align*}
-        \mathcal{L}_q(\vec{n})
-         &= (q_0^2 - |\tilde{q}|^2)\vec{n} + 2 \ev{\vec{n}, \vec{q}} \vec{n} - 2 q_0 [\tilde{n} \times \vec{q}] \\
-         &= (q_0^2 - |\tilde{q}|^2)\vec{n} - 2q_0[\tilde{n} \times \vec{q}] \\
-         &= (\cos^2 \varphi - \sin^2 \varphi) \vec{n} + 2 \cos\varphi \cdot \sin\varphi \underbrace{[\tilde{u} \times \vec{n}]}_{\vec{n}_\perp} \\
-         &= \cos 2\varphi \vec{n} + \sin 2\varphi \vec{n}_\perp
-    \end{align*}
-    \[|\vec{n}_\perp| = |[\tilde{u} \times \vec{n}]| = |\tilde{u}| \cdot |\vec{n}| \cdot \sin \frac{\pi}{2} = |\vec{n}|\] 
+	\[\mathcal{L}_q(\vec{a}) \stackrel{\exists K \in \R : a = k \tilde{q}}{=} \vec{a}\]
+	\begin{align*}
+		\mathcal{L}_q(\vec{n})
+		 & = (q_0^2 - |\tilde{q}|^2)\vec{n} + 2 \ev{\vec{n}, \vec{q}} \vec{n} - 2 q_0 [\tilde{n} \times \vec{q}]                                 \\
+		 & = (q_0^2 - |\tilde{q}|^2)\vec{n} - 2q_0[\tilde{n} \times \vec{q}]                                                                     \\
+		 & = (\cos^2 \varphi - \sin^2 \varphi) \vec{n} + 2 \cos\varphi \cdot \sin\varphi \underbrace{[\tilde{u} \times \vec{n}]}_{\vec{n}_\perp} \\
+		 & = \cos 2\varphi \vec{n} + \sin 2\varphi \vec{n}_\perp
+	\end{align*}
+	\[|\vec{n}_\perp| = |[\tilde{u} \times \vec{n}]| = |\tilde{u}| \cdot |\vec{n}| \cdot \sin \frac{\pi}{2} = |\vec{n}|\]
 \end{proof}
 
-\unfinished
+\begin{theorem}[\(*\)]
+	\(\sphericalangle q \in \mathbb{K} : \norm{q} = 1, q = \cos \frac{\varphi}{2} + \tilde{u} \sin \frac{\varphi}{2}\)
+
+	\(\mathcal{L}_{q^*}\) --- это поворот либо вектора на угол \(-\varphi\), либо координатной сетки на угол \(\varphi\).
+\end{theorem}
+\begin{proof}
+	Т.к. \(\norm{q} = 1, q^* = q^{-1}\).
+
+	\[\mathcal{L}_{q^{-1}}(\mathcal{L}_q(v)) = q^{-1} (q v q^{-1}) q = eve = v\]
+\end{proof}
+
+\begin{theorem}
+	\(\sphericalangle p, q \in \mathbb{K} : \norm{p} = \norm{q} = 1\).
+	Тогда \(\mathcal{L}_q \circ \mathcal{L}_p = \mathcal{L}_{q \cdot p}\).
+\end{theorem}
+\begin{proof}
+	Фиксируем \(p, q \in \mathbb{K}, v \in \R^3\).
+	\[\mathcal{L}_q(\mathcal{L}_p(v)) = q (pvp^*) q^* = qpv(qp)^* = \mathcal{L}_{q \cdot p}(v)\]
+\end{proof}
+
+\[q = q_0 + \tilde{q} = \cos \frac{\varphi}{2} + \tilde{u} \sin \frac{\varphi}{2}\]
+Подставим в \eqref{eq:lqv}:
+\begin{align*}
+\mathcal{L}_q(v)
+ & = \left(\cos^2 \frac{\varphi}{2} - \sin^2 \frac{\varphi}{2}\right) \tilde{v} + 2 \sin \frac{\varphi}{2} \ev{\tilde{u}, \tilde{v}}\cdot \tilde{u} - 2 \cos^2 \frac{\varphi}{2} [\tilde{u} \times \tilde{v}] \\
+ & = \cos \varphi \tilde{v} + (1 - \cos\varphi) \ev{\tilde{u}, \tilde{v}} \tilde{u} - \sin\varphi [\tilde{u} \times \tilde{v}]
+\end{align*}
+
+\begin{example}
+    \(\sphericalangle u = \frac{1}{\sqrt{3}}(1, 1, 1)\), поворот на \(\frac{2\pi}{3}\).
+    \begin{align*}
+        \mathcal{L}_q((1, 0, 0))
+         &= \cos \frac{2\pi}{3} \cdot i + \left(1 - \cos \frac{2\pi}{3}\right)
+          \cdot \frac{1}{\sqrt{3}} \ev{(1, 1, 1), (1, 0, 0)}
+          \cdot \frac{1}{\sqrt{3}}(i+j+k) \\
+          &\quad - \sin \frac{2\pi}{3} \left[\frac{1}{\sqrt{3}} (i + j + k) \times i\right] \\
+          &= \frac{i}{2} + \frac{3}{2} \cdot \frac{i + j + k}{3} + \frac{\sqrt{3}}{2} \cdot \frac{1}{\sqrt{3}} \begin{vmatrix}
+              i & j & k \\
+              1 & 1 & 1 \\
+              1 & 0 & 0
+          \end{vmatrix} \\
+          &= -\frac{i}{2} + \frac{i + j + k}{2} + \frac{j - k}{2} = \frac{2j}{2} = j
+    \end{align*} 
+\end{example}
 

@@ -1,0 +1,176 @@
+\chapter{9 марта}
+
+\subsection{Напоминание о кватернионах}
+
+Кватернионы записываются как:
+\[q = q_0 + q_1 i + q_2 j + q_3 k \defeq q_0 + \tilde{q}\]
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{C|CCCC}
+		\cdot & 1 & i  & j  & k  \\ \hline
+		1     & 1 & i  & j  & k  \\
+		i     & i & -1 & k  & -j \\
+		j     & j & -k & -1 & i  \\
+		k     & k & j  & -i & -1
+	\end{tabular}
+	\caption{Таблица Кэли для кватернионов}
+\end{table}
+
+Пространство кватернионов есть прямое произведение действительных чисел и чистых кватернионов:
+\[\mathbb{K} = \mathbb{R} \oplus \underbrace{\mathbb{P}_E}_{\cong \R^3}\]
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{C|CCCC}
+		\ev{\cdot, \cdot} & i & j & k \\ \hline
+		i                 & 1 & 0 & 0 \\
+		k                 & 0 & 1 & 0 \\
+		j                 & 0 & 0 & 1
+	\end{tabular}
+	\caption{Cкалярное произведение кватернионов}
+\end{table}
+
+Пусть \(q \in \mathbb{K}, \vec{v} \in \{0\} \oplus \mathbb{P}_E\).
+\(\sphericalangle \mathcal{L}_q(v) = q v q^{-1}\).
+
+\(|q| \coloneqq \sqrt{\norm{q}}, \norm{q} \coloneqq q q^*, q^{-1} \coloneqq \frac{q^*}{\norm{q}}\)
+
+Если \(|q| = 1\), то  \(q = \cos \frac{\varphi}{2} + \tilde{u} \sin \frac{\varphi}{2}\),
+где \(\tilde{u} = \frac{\tilde{q}}{|\tilde{q}|}\).
+В этом случае \(q v q^{-1}\) есть поворот на угол \(\varphi\).
+
+\section{Кватернионы и \(SU(2)\)}
+
+Рассмотрим матрицы \(A \in \mathbb{C}^{2\times 2}\), которым соответствуют операторы \(\hat{A} : \mathbb{C}^2 \to \mathbb{C}^2\).
+
+Тогда \(A A^* = E\), где \(A^*\) --- \textbf{эрмитово сопряжение},
+т.е. транспонируем матрицу и каждый элемент комплексно сопрягаем.
+
+Т.к. \(\det (A B) = \det A \cdot \det B\), следовательно
+\(1 = \det E = \det (A A^*) = \det A \cdot \det A^* \implies \det A = \frac{1}{\det A^*}\).
+Кроме того, \(\det A = \det A\tran\) и \(\prod_i a_i^* = \left( \prod_i a_i \right)^*\) и \(\sum_i b_i^* = \left( \sum_i b_i \right)^*\) и тогда:
+\[\sum_j \prod_i a_{ij}^k = \sum_j \left( \prod_i a_{ij} \right)^* = \left( \sum_j \prod_i a_{ij}^* \right)\]
+И следовательно \(\det A^* = (\det A)^*\)
+
+\begin{definition}
+	\(SU(2)\) --- группа \(A\) таких, что \(A A^* = E\) и \(\det A = 1\)
+\end{definition}
+
+\(\sphericalangle A \in SU(2), A = \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix}\).
+
+\[\det A = 1 \implies \alpha \delta - \beta \gamma = 1\]
+
+Тогда:
+\[\begin{cases}
+		E_{11} = \alpha \overline{\alpha} + \beta \overline{\beta} = 1   \\
+		E_{12} = \alpha \overline{\gamma} + \beta \overline{\delta} = 0  \\
+		E_{21} = \gamma \overline{\alpha} + \delta \overline{\beta} = 0  \\
+		E_{22} = \gamma \overline{\gamma} + \delta \overline{\delta} = 1 \\
+	\end{cases}\]
+
+Из условий для \(E_{11}\) и \(E_{22}\):
+\[|\alpha|^2 + |\beta|^2 = 1 \implies \begin{cases}
+		\alpha = e^{i \varphi_1} \cos\theta \\
+		\beta = e^{i \varphi_2} \sin\theta
+	\end{cases}\]
+\[|\gamma|^2 + |\delta|^2 = 1 \implies \begin{cases}
+		\gamma = e^{i \psi_1} \cos \chi \\
+		\delta = e^{i \psi_2} \sin \chi
+	\end{cases}\]
+Из \(E_{12}\) и \(E_{21}\):
+\[e^{i \varphi_1} \cos\theta e^{-i \psi_1} \cos \chi + e^{i \varphi_2} \sin\theta e^{-i\psi_2} \sin\chi = 0\]
+\[e^{i (\varphi_1 - \psi_1)} \cos\theta \cos\chi + e^{i (\varphi_2 - \psi_2)} \sin\theta \sin\chi = 0\]
+\[2 \cos(\varphi_1 - \psi_1) \cos\theta \cos\chi + 2i \sin(\varphi_2 - \chi_2) \sin\theta \sin\chi = 0\]
+\[\begin{cases}
+		\cos(\varphi_1 - \psi_1) \cos \theta \cos \chi = 0 \\
+		\sin(\varphi_2 - \psi_2) \sin \theta \sin \chi = 0
+	\end{cases}\]
+\[A^{-1} = \begin{pmatrix} \delta & -\beta \\ -\gamma & \alpha \end{pmatrix}
+	= \begin{pmatrix} \overline{\alpha} & \overline{\gamma} \\ \overline{\beta} & \overline{\delta} \end{pmatrix} \implies \delta = \overline{\alpha}, \gamma = -\overline{\beta}\]
+Пусть \(\alpha = a + ic, \beta = b + id\), где  \(a, b, c, d \in \R\).
+\begin{align*}
+	A & = \begin{pmatrix} a + ic & b + id \\ -b + id & a - ic \end{pmatrix}                                           \\
+	  & = a \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} + \begin{pmatrix} ic & b + id \\ -b + id & -ic \end{pmatrix} \\
+	  & = a  \underbrace{\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}}_{\Xi_0}
+	{}+ b \underbrace{\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}}_{\Xi_1}
+	{}+ c \underbrace{\begin{pmatrix} i & 0 \\ 0 & i \end{pmatrix}}_{\Xi_2}
+	{}+ d \underbrace{\begin{pmatrix} 0 & i \\ i & 0 \end{pmatrix}}_{\Xi_3}
+\end{align*}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{C|CCCC}
+		\cdot & \Xi_0 & \Xi_1  & \Xi_2  & \Xi_3  \\ \hline
+		\Xi_0 & \Xi_0 & \Xi_1  & \Xi_2  & \Xi_3  \\
+		\Xi_1 & \Xi_1 & -\Xi_0 & \Xi_3  & -\Xi_2 \\
+		\Xi_2 & \Xi_2 & -\Xi_3 & -\Xi_0 & \Xi_1  \\
+		\Xi_3 & \Xi_3 & \Xi_2  & -\Xi_1 & -\Xi_0
+	\end{tabular}
+	\caption{Таблица Кэли для матриц \(\Xi_i\)}
+\end{table}
+
+% \(\sphericalangle B = \begin{pmatrix} \xi & \zeta \\ \omega & \chi \end{pmatrix}, C \coloneqq A \times B\)
+
+Таким образом, у нас есть соответствие \(SU(2)\) и \(\mathbb{K}\): \(\Xi_0 \Leftrightarrow 1, \Xi_1 \Leftrightarrow i, \Xi_2 \Leftrightarrow j, \Xi_3 \Leftrightarrow k\).
+Но это не изоморфизм --- ограничение на \(\det A = 1\) не позволяет любому кватерниону сопоставить элемент \(SU(2)\).
+Найдем, чему \(SU(2)\) изоморфно.
+
+\begin{definition}
+	Множество \textbf{нормированных кватернионов} \(\mathbb{N}\mathbb{K} = \{|q| = 1 \mid q \in \mathbb{K}\}\)
+\end{definition}
+\begin{definition}
+	\(\mathbb{N}\mathbb{K}\) --- подгруппа (по умножению) \(\mathbb{K}\)
+\end{definition}
+
+\[S^3 \sim \mathbb{N}\mathbb{K} \subset \mathbb{K}\]
+Здесь и далее \(\conggr\) обозначает \underline{групповой} изоморфизм.
+\[\mathbb{N}\mathbb{K} \conggr SU(2) \quad \{0\} \oplus \mathbb{P}_E \conggr SO(3)\]
+
+Резюмируя: мы взяли подгруппу кватернионов \(\mathbb{N}\mathbb{K}\)
+и построили изоморфизм между этой подгруппой и \(SU(2)\).
+На прошлом занятии мы построили изоморфизм между группой вращений \(SO(3)\) и \(\{0\} \oplus \mathbb{P}_E\).
+Эти изоморфизмы по умножению.
+Также есть изоморфизм по сложению между \(\mathbb{P}_E\) и \(\R^3\)
+
+\section{\(SU(2)\) и \(SO(3)\)}
+
+Любое вращение трёхмерного пространства можно рассматривать как переход произвольной точки сферы
+в другую произвольную точку сферы.
+Спроектируем сферу на плоскость, которую будем считать \(\mathbb{C}\) c осями \(\xi\) и \(\eta\). Оси сферы - \(xyz\).
+
+Упражнение читателю --- показать, что:
+\[\xi = \frac{x}{\frac{1}{2} - z} \quad \eta = \frac{y}{\frac{1}{2} - z}\]
+Тогда введём комплексное число \(\zeta = \xi + i\eta\). Не более сложно заметить, что:
+\[\zeta = \frac{\frac{1}{2} + z}{x - iy}\]
+, что следует из \(x^2+y^2+z^2=1\)
+
+Нам надо научиться вращать вокруг оси \(z\) и \(x\), тогда композицией этих двух действий мы сможем получить любое вращение.
+
+Вращение вокруг оси \(z\), т.е. в комплексной плоскости тривиально:
+\[\zeta' = e^{i\theta} \zeta\]
+
+Поворот вокруг оси \(x\) на угол \(\chi\) (без доказательства):
+\[\zeta'' = \frac{\zeta \cos \frac{\chi}{2} + i \sin \frac{\chi}{2}}{i \xi \sin \frac{\chi}{2} + \cos \frac{\chi}{2}}\]
+
+Тогда композиция этих преобразований имеет вид:
+\[A = \frac{a\xi + b}{c\xi + d}\]
+
+Будем кодировать вращения как вектора \(\vec{K}\), где направление определяет ось,
+относительно которой происходит вращение, и модуль определяет угол поворота (\(|K| \le \pi\)).
+
+Тогда мы можем рассмотреть многообразие таких векторов. В нём отождествлены противоположные точки.
+Есть проблема: оно связно, но оно не односвязно, т.е. у него нетривиальна фундаментальная группа.
+По теореме каждое многообразие можно достроить до односвязного, такое многообразие называется \textbf{накрытием}.
+Для \(SO(3)\) такое многообразие это \(SU(2)\).
+
+\begin{example}
+    Рассмотрим накрытие для окружности.
+    Т.к. единственное другое многообразие с размерностью \(1\) это прямая, то будем строить накрытие из прямой.
+    С помощью преобразования \(e^{it}\) будем накручивать прямую на окружность.
+    Если в какой-либо точке прекратить накручивать, то точка конца помешает.
+    Число слоев в накрытии, соттветствующих одной точке, называется \textbf{кратностью накрытия}.
+    Кратность накрытия окружности --- \(\infty\).
+\end{example}
+
+Кратность накрытия для \(SO(3)\) --- \(2\).

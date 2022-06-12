@@ -1,4 +1,4 @@
-\chapter{16 марта}
+\chapter{16 апреля}
 
 \section{Алгебраические топологические тела}
 
@@ -17,35 +17,35 @@
 \end{definition}
 
 На топологическом теле операции непрерывны, т.е. если \(\lim_{n\to \infty} a_n = a\) и \(\lim_{n \to \infty} b_n = b\), то:
-\[\lim_{n \to \infty} a_n + b_n = a + b \quad \lim_{n \to \infty} a_n b_n = a b\] 
+\[\lim_{n \to \infty} a_n + b_n = a + b \quad \lim_{n \to \infty} a_n b_n = a b\]
 Из этих двух равенств также следует непрерывность вычитания и умножения,
 т.к. \(\lim_{n \to \infty} -a_n = -a\) и \(\lim_{n \to \infty} a_n^{-1} = a^{-1}\).
 
 \begin{definition}
-    Топологическое тело с операциями \(+, \cdot, -, {}^{-1}\) называется \textbf{алгебраически-топологическим}
+	Топологическое тело с операциями \(+, \cdot, -, {}^{-1}\) называется \textbf{алгебраически-топологическим}
 \end{definition}
 
 Норма для \(K\):
 \begin{enumerate}
-    \item \(\R: \norm{r} = \sqrt{r \cdot r}\)
-    \item \(\mathbb{C}: \norm{z} = \sqrt{z\cdot z^*}\) 
-    \item \(\mathbb{K}: \norm{q} = \sqrt{q \cdot q^*}\)
+	\item \(\R: \norm{r} = \sqrt{r \cdot r}\)
+	\item \(\mathbb{C}: \norm{z} = \sqrt{z\cdot z^*}\)
+	\item \(\mathbb{K}: \norm{q} = \sqrt{q \cdot q^*}\)
 \end{enumerate}
 
 Тогда метрика на \(K\) это \(\rho(z_1, z_2) = \norm{z_1 - z_2}\).
 
 \begin{definition}
-    \textbf{Топология} на \(K\) это \(\tau \subset 2^K\) такое, что:
-    \begin{enumerate}
-        \item \(\{0\}, K \in \tau\) 
-        \item \(\bigcup_i T_i \in \tau\) 
-        \item \(\bigcap_{\text{кон.}} T_i \in \tau\) 
-    \end{enumerate}
-    Элементы \(\tau\) называются \textbf{открытыми}.
+	\textbf{Топология} на \(K\) это \(\tau \subset 2^K\) такое, что:
+	\begin{enumerate}
+		\item \(\{0\}, K \in \tau\)
+		\item \(\bigcup_i T_i \in \tau\)
+		\item \(\bigcap_{\text{кон.}} T_i \in \tau\)
+	\end{enumerate}
+	Элементы \(\tau\) называются \textbf{открытыми}.
 \end{definition}
 
 \begin{example}
-    \[T_0 \coloneqq \{z \in K \mid \norm{z - z_p} < B\}, B \in \R_+\] 
+	\[T_0 \coloneqq \{z \in K \mid \norm{z - z_p} < B\}, B \in \R_+\]
 \end{example}
 
 О непрерывности некоторого отображения \(f : A \to B\) можно говорить только если \(A, B \in \mathrm{Top}\)\footnote{Категория топологических пространств}
@@ -61,52 +61,52 @@
 % \end{definition}
 
 \begin{notation}
-    Для тела \(L\) и \(X, Y \subset L\):
-     \begin{itemize}
-        \item \(X+Y \coloneqq \{x + y \mid x \in X, y \in Y\}\)
-        \item \(X-Y \coloneqq \{x - y \mid x \in X, y \in Y\}\)
-        \item \(XY \coloneqq \{xy \mid x \in X, y \in Y\}\)
-        \item \(XY^{-1} \coloneqq \{xy^{-1} \mid x \in X, y \in Y\}\)
-    \end{itemize}
+	Для тела \(L\) и \(X, Y \subset L\):
+	\begin{itemize}
+		\item \(X+Y \coloneqq \{x + y \mid x \in X, y \in Y\}\)
+		\item \(X-Y \coloneqq \{x - y \mid x \in X, y \in Y\}\)
+		\item \(XY \coloneqq \{xy \mid x \in X, y \in Y\}\)
+		\item \(XY^{-1} \coloneqq \{xy^{-1} \mid x \in X, y \in Y\}\)
+	\end{itemize}
 \end{notation}
 
 \begin{definition}
-    Последовательность \(U_1, U_2 \ldots U_n \ldots\),
-    где \(U_n \subset L\) и \(0 \in U_{n + 1} \subset U_n\) называется
-    \textbf{системой окрестностей нуля топологического тела \(L\)},
-    если \(\forall n \in \mathbb{N} \ \ \exists p:\)
-    \begin{enumerate}
-        \item \((U_p + U_p) \subset U_n\)
-        \item \(U_p U_p \subset U_n\)
-        \item \(- U_p \subset U_n\)
-        \item \((e + U_p)^{-1} \subset e + U_n\) 
-            , где \(e\) --- единица тела \(L\).
-        \item \(\forall a \in L \ \ a U_p \subset U_n, U_p a \subset U_n\)
-    \end{enumerate}
-\end{definition} 
+	Последовательность \(U_1, U_2 \ldots U_n \ldots\),
+	где \(U_n \subset L\) и \(0 \in U_{n + 1} \subset U_n\) называется
+	\textbf{системой окрестностей нуля топологического тела \(L\)},
+	если \(\forall n \in \mathbb{N} \ \ \exists p:\)
+	\begin{enumerate}
+		\item \((U_p + U_p) \subset U_n\)
+		\item \(U_p U_p \subset U_n\)
+		\item \(- U_p \subset U_n\)
+		\item \((e + U_p)^{-1} \subset e + U_n\)
+		      , где \(e\) --- единица тела \(L\).
+		\item \(\forall a \in L \ \ a U_p \subset U_n, U_p a \subset U_n\)
+	\end{enumerate}
+\end{definition}
 
 \begin{definition}
-    Последовательность \(a_1, a_2 \ldots a_n \ldots\), где \(\forall i \ \ a_i \in L\),
-    сходится к \(a \in L\), если:
-     \[\forall n \ \ \exists r \ \ \forall p > n \ \ (a_p - a) \in U_n\] 
+	Последовательность \(a_1, a_2 \ldots a_n \ldots\), где \(\forall i \ \ a_i \in L\),
+	сходится к \(a \in L\), если:
+	\[\forall n \ \ \exists r \ \ \forall p > n \ \ (a_p - a) \in U_n\]
 \end{definition}
 
 \begin{theorem}
-    Если на теле\footnote{Не обязательно топологическом} \(L\) определена сходимость и \(\lim_{n \to \infty} a_n = a, \lim_{n \to \infty} b_n = b\), то:
-    \begin{align*}
-        \lim_{n \to \infty} a_n + b_n & = a + b \\
-        \lim_{n \to \infty} a_n \cdot b_n & = a \cdot b \\
-        \lim_{n \to \infty} -a_n & = -a \\
-        \lim_{n \to \infty} a_n^{-1} & = a^{-1}
-    \end{align*}
+	Если на теле\footnote{Не обязательно топологическом} \(L\) определена сходимость и \(\lim_{n \to \infty} a_n = a, \lim_{n \to \infty} b_n = b\), то:
+	\begin{align*}
+		\lim_{n \to \infty} a_n + b_n     & = a + b     \\
+		\lim_{n \to \infty} a_n \cdot b_n & = a \cdot b \\
+		\lim_{n \to \infty} -a_n          & = -a        \\
+		\lim_{n \to \infty} a_n^{-1}      & = a^{-1}
+	\end{align*}
 \end{theorem}
 \begin{proof}
-    По условию теоремы \(\exists p_1 : a_{p_1} \in a + U_n, \exists p_2 : b_{p_2} \in b + U_n\).
-    Пусть \(p = \max(p_1, p_2)\).\footnote{На лекции этого не было, но мне кажется это необходимым.}
-    \[a_p + b_p \in a + b + U_n + U_n\] 
-    По определению системы окрестностей нуля:
-    \[\exists p_3 : U_{p_3} + U_{p_3} \subset U_n\] 
-    \[(a_p + b_p) - (a + b) \in U_n\] 
+	По условию теоремы \(\exists p_1 : a_{p_1} \in a + U_n, \exists p_2 : b_{p_2} \in b + U_n\).
+	Пусть \(p = \max(p_1, p_2)\).\footnote{На лекции этого не было, но мне кажется это необходимым.}
+	\[a_p + b_p \in a + b + U_n + U_n\]
+	По определению системы окрестностей нуля:
+	\[\exists p_3 : U_{p_3} + U_{p_3} \subset U_n\]
+	\[(a_p + b_p) - (a + b) \in U_n\]
 
-    Аналогично остальные пункты.
+	Аналогично остальные пункты.
 \end{proof}

@@ -1,0 +1,108 @@
+\chapter{23 апреля}
+
+\section{Топологические группы}
+
+\begin{definition}
+	\textbf{Топология} на множестве \(M\) --- система подмножеств
+	\(\tau \subset 2^M\), \(\tau = \{A_i\}_{i \in I}\),
+	для которой выполнены \textbf{аксиомы топологии}:
+	\begin{enumerate}
+		\item \(M, \emptyset \in \tau\)
+		\item \(\bigcup_i A_i \in \tau\)
+		\item \(\bigcap_i^{\text{кон.}} A_i \in \tau\)
+	\end{enumerate}
+    \(T = (M, \tau)\) называется \textbf{топологическим пространством}.
+\end{definition}
+
+\begin{remark}
+    Множества \(A_i\) называются \textbf{открытыми}.
+\end{remark}
+
+\begin{example}\itemfix
+    \begin{itemize}
+        \item Дискретная топология \(\tau_d\) --- все подмножества открыты.
+        \item Стандартная топология на прямой \(\tau_s\) --- топология открытых интервалов.
+        \item Топология Зарисского на прямой \(\tau_z\) --- открытые множества суть
+            открытые интервалы, из которых выкинуто конечно или счётное число точек.
+        \item Топология окружности \(\tau_c\)
+        \item Антидискретная топология \(\tau_a\) --- открыто только \(M\) и  \(\emptyset\)
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    \textbf{Окрестность} точки \(P\) --- всякое открытое множество, содержащее точку \(P\). 
+\end{definition}
+
+Рассмотрим произвольное \(S \subset M\). Мы можем классифицировать точку \(P\) относительно  \(S\):
+ \begin{enumerate}
+     \item Внутренняя точка --- \(\exists O_P : O_P \subset S\)
+     \item Внешняя точка --- \(\exists O_P : O_P \cap S = \emptyset\)
+    \item Граничная точка --- \(\forall O_P \ \ O_P \cap S \neq \emptyset, O_P \cap \overline{S} \neq \emptyset\)
+\end{enumerate}
+
+\begin{definition}
+    Множество внутренних точек \(\mathrm{Int}(S)\)
+    \footnote{Также обозначается \(\ev{S}\)} --- \textbf{открытое ядро} \(S\). 
+
+    \(\partial S\) --- \textbf{граница} \(S\).
+\end{definition}
+
+\[S = \ev{S} \cup \ev{M \setminus S} \cup \partial S\] 
+
+\begin{remark}
+    \(\partial \ev{S} = \emptyset\) 
+\end{remark}
+
+Рассмотрим отображение \(\sigma : M_1 \to M_2\),
+где \(2^{M_1} = \{A_i\}, 2^{M_2} = \{B_j\}\)
+\[\sigma(A_i \cup A_k) = \sigma(A_i) \cup \sigma(A_k)
+\quad \sigma(A_i \cap A_k) \neq \sigma(A_i) \cap \sigma(A_k)\] 
+\[\sigma^{-1}(B_j \cup B_l) = \sigma^{-1}(B_j) \cup \sigma^{-1}(B_l)
+ \quad \sigma^{-1}(B_j \cap B_l) = \sigma^{-1}(B_j) \cap \sigma^{-1}(B_l)\] 
+
+\begin{definition}
+    Рассмотрим топологические пространства \(T_1 = (M_1, \tau_1)\) и \(T_2 = (M_2, \tau_2)\).
+    Тогда \(\sigma^{-1}(\tau_2)\) --- топология на \(M_1\).
+    Но на \(M_1\) уже есть топология \(\tau_1\).
+    Если \(\tau_1\) сильнее, чем \(\sigma^{-1}(\tau_2)\), то \(\sigma\) называется \textbf{непрерывным} отображением.
+\end{definition}
+
+\begin{definition}
+    Отображение называется непрерывным в точке \(P \in M\), если:
+     \[\forall O_{\sigma(P)} \ \ \exists O_P : \sigma(O_P) \subset O_{\sigma(P)}\] 
+\end{definition}
+
+\begin{definition}
+    \(\sigma\) непрерывно, если прообраз всякого открытого множества открыт:
+    \[\forall B \in \tau_2 \ \ \sigma^{-1}(B) \in \tau_1\] 
+\end{definition}
+
+Эти определения эквивалентны.
+
+\begin{definition}
+    \textbf{Предельная точка} последовательности --- точка, в любой окрестности которой содержатся все элементы последовательности, начиная с некоторого номера.
+\end{definition}
+
+\begin{definition}
+    \textbf{Точка прикосновения} множества --- точка, в каждой окрестности которой находится хотя бы одна точка из множества.
+\end{definition}
+
+Точка прикосновения --- не всегда предельная точка и наоборот.
+Эти понятия совпадают, если выполнены \textbf{аксиомы счётности}:
+\begin{enumerate}
+    \item У каждой точки есть счётная система определяющих окрестностей,
+        т.е. любое открытое множество, содержащее эту точку, лежит в такой окрестности.
+    \item База топологии счётна.
+\end{enumerate}
+
+Аксиомы отделимости:
+\begin{enumerate}
+    \item Для любых двух точек \(p\) и \(q\) существуют окрестности \(O_p\) и \(O_q\) такие, что \(q \notin O_p, p \notin O_q\).
+    \item У любых двух точек есть непересекающиеся окрестности.
+    \begin{remark}
+        Из 2 следует 1, но не наоборот. Контрпример --- \(\tau_z\).
+    \end{remark}
+    \item Для любого замкнутого множества и точки, не лежащей в нём, существуют непересекающиеся окрестности.
+    \item Для любых двух замкнутых непересекающихся множеств существуют непересекающиеся окрестности. 
+\end{enumerate}
+

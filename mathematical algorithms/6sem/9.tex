@@ -1,0 +1,105 @@
+\chapter{30 апреля}
+
+\subsection{Топологические группы}
+
+\begin{definition}
+	\textbf{Топологическая группа} --- множество \(G\) такое, что:
+	\begin{enumerate}
+		\item \(G\) --- группа с операцией \(\mu\), отобажением обратного элемента \(\mathrm{inv}\) и единицей \(e\).
+		\item \(G\) --- топологическое пространство с топологией \(\tau\).
+		\item Операции \(\mu, \mathrm{inv}\) непрерывны в топологии \(\tau\).
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	Отображение топологических пространств \(f : T_1 \to T_2\) непрерывно, если:
+	\[\forall W \subset T_2 \text{ --- откр.} \ \ \exists V \subset T_1 \text{ --- откр.} \ \ f(V) \subset W\]
+\end{remark}
+
+\begin{remark}
+	Здесь и далее \(W_t, U_t, V_t\) обозначает открытую окрестность точки \(t\).
+\end{remark}
+Непрерывность \(\mu\):
+\[x, y \in G, W = W_{\mu(x, y)} \implies \exists U = U_x, V = V_y : UV \subset W\]
+Непрерывность inv:
+\[x \in G, W = W_{\mathrm{inv}(x)} \implies \exists U = U_x : U^{-1} \subset W\]
+\[x, y \in G, W = W_{\mu(x, \mathrm{inv}(y))} \implies \exists U = U_x, V = V_y : UV^{-1} \subset W\]
+
+\begin{example}
+	\(\R^2\) со операцией сложения и окрестностью \(O_v, v \in \R^2\):
+	\[O_v \coloneqq \{u \in \R^2 \mid \norm{u - v} < \alpha, \alpha \in \R_+\}\]
+\end{example}
+
+\begin{example}
+	Группа \(U(1)\) --- группа поворотов окружности:
+	\[U(1) \coloneqq \{z \mid |z| = 1\}\]
+\end{example}
+
+\begin{example}
+	Группа всех матриц \(GL(n)\).
+
+	Норма порождена скалярным произведением \(\ev{A, B} = \tr A\tran B\).
+\end{example}
+
+\begin{prop}\itemfix
+	\begin{enumerate}
+		\item \(\sphericalangle \{x_i\}_{i=1}^n\) --- совокупность элементов \(G\),
+		      \(\{V_i\}\) --- их окрестности.
+
+		      \(\sphericalangle y = x_1^{m_1} x_2^{m_2} \ldots x_n^{m_n}\) и \(W\) --- окрестность \(y\). Тогда  \(V_1^{m_1} V_2^{m_2} \ldots V_n^{m_n} \subset W\)
+		      \begin{proof}
+			      По индукции.
+		      \end{proof}
+
+		\item \(\sphericalangle f_a, f'_b, \varphi : G \to G, f_a(x) = xa, f'_b(x) = bx, \varphi(x) = \mathrm{inv}(x)\). Это гомеоморфизмы.
+		      \begin{proof}
+			      \(f_a\) --- биекция по свойствам группы.
+
+			      Непрерывность: пусть \(f_a(x) = xa = y\).
+			      \(\sphericalangle W = W_y\), тогда \(\exists U = U_x, V = V_a : UV \subset W \implies Ua \subset W \implies f_a(U) \subset W\)
+		      \end{proof}
+		\item \(\sphericalangle P\) --- подмножество \(G\),
+		      \(F\) --- замкнутое в  \(G\), \(U\) --- открытое в \(G\).
+		      Тогда \(\forall a \in G \ \ aF, Fa, F^{-1}\) замкнутые и \(UP, PU, U^{-1}\) открыты.
+
+		      \begin{proof}
+			      \(Fa = f_a(F)\), но \(f_a\) гомеоморфизм.
+
+			      \(UP = \bigcup_{x \in P} \underbrace{Ux}_{\text{откр.}}\) и объединение открытых множеств открыто.
+		      \end{proof}
+		\item Однородность:  \(\forall p, q \in G \ \ \exists f \in \mathrm{homo}(G) : f(p) = q\)
+
+		      Это значит, что топологические свойства группы однозначно определяются её свойствами в окрестности какой-либо точки.
+
+		\item Регулярность: \(\sphericalangle x \in G, S \subset G\) --- замкнутое, \(x \notin S \implies \exists O_x, O_S : O_x \cap O_S = \{\emptyset\}\)
+
+		      \begin{proof}
+			      Пусть \(e\) --- нейтральный элемент группы \(G\), \(V = V_e\).
+			      \[e^{-1}e = e \implies \exists U = U_e : U^{-1} U \subset V\]
+			      Покажем, что \(\overline{U} \subset V\).
+			      \[\sphericalangle x \in \overline{U} \implies \exists O_x : O_x \cap U \neq \emptyset\]
+			      \(xU\) содержит точку \(x\), т.к. \(e \in U\), следовательно \(\exists b \in U : xb = a \in U, x = ab^{-1} \in U U^{-1} \subset V \implies \overline{U} \subset V\)
+		      \end{proof}
+		\item Пусть \(H\) --- топологическая подгруппа \(G\). Тогда:
+		      \begin{enumerate}
+			      \item \(gH\) открыто.
+			      \item \(H\) замкнуто и \(H\) --- компонента связности.
+		      \end{enumerate}
+	\end{enumerate}
+\end{prop}
+
+\begin{theorem}
+	Пусть \(G\) --- связная топологическая группа, т.е. у нее нет подгрупп.
+	Пусть \(e\) --- нейтральный элемент \(G, U = U_e\).
+
+	Тогда \(U\) индуцирует все \(G\).
+\end{theorem}
+\begin{proof}
+	\(\sphericalangle V = U \cap \mathrm{inv}(U)\). Тогда \(V^{-1} = V\).
+
+	\(\sphericalangle V_1 \subset V_2 \subset \ldots \subset V_n \subset \ldots \subset V_{\infty}\), где \(V_i = V_{i-1} V\), а \(V_1 = V\).
+
+	По определению \(V_i = \bigcup_{p \in V} V_{i - 1} p\) и объединение открытых открыто.
+	Тогда по индукции \(V_{\infty}\) открыто, но при этом оно содержит все элементы группы, т.е. замкнуто.
+	Таким образом, \(V_{\infty}\) открыто и замкнуто, т.е. является компонентой связности, и т.к. \(G\) связна, \(V_{\infty} = G\).
+\end{proof}

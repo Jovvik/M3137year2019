@@ -26,6 +26,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{microtype}
 \usepackage[mono=false]{libertine}
+\usepackage[libertine]{newtxmath}
+\usepackage[bb=boondox]{mathalfa} % \mathbb{0}
 \usepackage[defaultsans]{opensans}
 
 % Tables
@@ -36,7 +38,7 @@
 \usepackage{multirow} % Cells spanning multiple rows
 
 \newcolumntype{L}{>{$}l<{$}}
-    \newcolumntype{C}{>{$}c<{$}}
+	\newcolumntype{C}{>{$}c<{$}}
 \newcolumntype{R}{>{$}r<{$}}
 
 % Figures
@@ -80,10 +82,10 @@
 % References
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks,
-    linkcolor={blue!80!black},
-    citecolor={blue!80!black},
-    urlcolor={blue!80!black},
+	colorlinks,
+	linkcolor={blue!80!black},
+	citecolor={blue!80!black},
+	urlcolor={blue!80!black},
 }
 
 \usepackage{sectsty}
@@ -102,12 +104,12 @@
 \usepackage{pgfplots}
 \pgfplotsset{width=10cm,compat=1.9}
 \newcommand\irregularcircle[2]{% radius, irregularity
-    \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
-    +(0:\len pt)
-    \foreach \a in {10,20,...,350}{
-            \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
-            -- +(\a:\len pt)
-        } -- cycle
+	\pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
+	+(0:\len pt)
+	\foreach \a in {10,20,...,350}{
+			\pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
+			-- +(\a:\len pt)
+		} -- cycle
 }
 
 \providetoggle{useproofs}
@@ -150,12 +152,12 @@
 \global\gnCornerHgt=\ht\gnBoxA
 \newdimen\gnArgHgt
 \def\godel #1{%
-    \setbox\gnBoxA=\hbox{$#1$}%
-    \gnArgHgt=\ht\gnBoxA%
-    \ifnum     \gnArgHgt<\gnCornerHgt \gnArgHgt=0pt%
-    \else \advance \gnArgHgt by -\gnCornerHgt%
-    \fi \raise\gnArgHgt\hbox{$\ulcorner$} \box\gnBoxA %
-    \raise\gnArgHgt\hbox{$\urcorner$}}
+	\setbox\gnBoxA=\hbox{$#1$}%
+	\gnArgHgt=\ht\gnBoxA%
+	\ifnum     \gnArgHgt<\gnCornerHgt \gnArgHgt=0pt%
+	\else \advance \gnArgHgt by -\gnCornerHgt%
+	\fi \raise\gnArgHgt\hbox{$\ulcorner$} \box\gnBoxA %
+	\raise\gnArgHgt\hbox{$\urcorner$}}
 
 % \theoremstyle{plain}
 
@@ -182,24 +184,24 @@
 % subtheorem
 \makeatletter
 \newenvironment{subtheorem}[1]{%
-    \def\subtheoremcounter{#1}%
-    \refstepcounter{#1}%
-    \protected@edef\theparentnumber{\csname the#1\endcsname}%
-    \setcounter{parentnumber}{\value{#1}}%
-    \setcounter{#1}{0}%
-    \expandafter\def\csname the#1\endcsname{\theparentnumber.\Alph{#1}}%
-    \ignorespaces
+	\def\subtheoremcounter{#1}%
+	\refstepcounter{#1}%
+	\protected@edef\theparentnumber{\csname the#1\endcsname}%
+	\setcounter{parentnumber}{\value{#1}}%
+	\setcounter{#1}{0}%
+	\expandafter\def\csname the#1\endcsname{\theparentnumber.\Alph{#1}}%
+	\ignorespaces
 }{%
-    \setcounter{\subtheoremcounter}{\value{parentnumber}}%
-    \ignorespacesafterend
+	\setcounter{\subtheoremcounter}{\value{parentnumber}}%
+	\ignorespacesafterend
 }
 \makeatother
 \newcounter{parentnumber}
 
 \newtheorem{manualtheoreminner}{Теорема}
 \newenvironment{manualtheorem}[1]{%
-    \renewcommand\themanualtheoreminner{#1}%
-    \manualtheoreminner
+	\renewcommand\themanualtheoreminner{#1}%
+	\manualtheoreminner
 }{\endmanualtheoreminner}
 
 \newcommand{\dbltilde}[1]{\accentset{\approx}{#1}}
@@ -212,25 +214,25 @@
 \makeatother
 
 \newcommand{\get}[2]{
-    \ExecuteMetaData[#1]{#2}
+	\ExecuteMetaData[#1]{#2}
 }
 
 \newcommand{\getproof}[2]{
-    \iftoggle{useproofs}{\ExecuteMetaData[#1]{#2proof}}{}
+	\iftoggle{useproofs}{\ExecuteMetaData[#1]{#2proof}}{}
 }
 
 \newcommand{\getwithproof}[2]{
-    \get{#1}{#2}
-    \getproof{#1}{#2}
+	\get{#1}{#2}
+	\getproof{#1}{#2}
 }
 
 \newcommand{\import}[3]{
-    \subsection{#1}
-    \getwithproof{#2}{#3}
+	\subsection{#1}
+	\getwithproof{#2}{#3}
 }
 
 \newcommand{\given}[1]{
-    Дано выше. (\ref{#1}, стр. \pageref{#1})
+	Дано выше. (\ref{#1}, стр. \pageref{#1})
 }
 
 \let\ker\relax
@@ -247,11 +249,11 @@
 \newcommand{\longarrow}[1]{\xRightarrow[#1]{\qquad}}
 \DeclareMathOperator*{\esup}{\text{ess sup}}
 \newcommand\smallO{
-    \mathchoice
-    {{\scriptstyle\mathcal{O}}}% \displaystyle
-    {{\scriptstyle\mathcal{O}}}% \textstyle
-    {{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
-    {\scalebox{.6}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+	\mathchoice
+	{{\scriptstyle\mathcal{O}}}% \displaystyle
+	{{\scriptstyle\mathcal{O}}}% \textstyle
+	{{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
+	{\scalebox{.6}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
 }
 \renewcommand{\div}{\text{div}\ }
 \DeclareMathOperator{\rot}{rot}
@@ -279,25 +281,25 @@
 \makeatletter
 \newcommand*{\relrelbarsep}{.386ex}
 \newcommand*{\relrelbar}{%
-    \mathrel{%
-        \mathpalette\@relrelbar\relrelbarsep
-    }%
+	\mathrel{%
+		\mathpalette\@relrelbar\relrelbarsep
+	}%
 }
 \newcommand*{\@relrelbar}[2]{%
-    \raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
-    \lower#2\hbox{$\m@th#1\relbar$}%
+	\raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
+	\lower#2\hbox{$\m@th#1\relbar$}%
 }
 \providecommand*{\rightrightarrowsfill@}{%
-    \arrowfill@\relrelbar\relrelbar\rightrightarrows
+	\arrowfill@\relrelbar\relrelbar\rightrightarrows
 }
 \providecommand*{\leftleftarrowsfill@}{%
-    \arrowfill@\leftleftarrows\relrelbar\relrelbar
+	\arrowfill@\leftleftarrows\relrelbar\relrelbar
 }
 \providecommand*{\xrightrightarrows}[2][]{%
-    \ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
+	\ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
 }
 \providecommand*{\xleftleftarrows}[2][]{%
-    \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
+	\ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
 }
 
 \allowdisplaybreaks

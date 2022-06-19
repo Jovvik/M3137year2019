@@ -2,6 +2,8 @@
 
 \section{\(p\)-адические числа}
 
+\subsection{Модули}
+
 \begin{definition}
 	\textbf{Модуль} --- функция \(|\cdot| : \mathbb{K} \to \R_+\) такая, что:
 	\begin{enumerate}
@@ -15,7 +17,7 @@
 	Модуль \textbf{неархимедов}, если \(|x + y| \le \max(|x|, |y|)\)
 \end{definition}
 \begin{remark}
-    Из неархимедовости следует третье свойство модуля.
+	Из неархимедовости следует третье свойство модуля.
 \end{remark}
 
 \begin{definition}
@@ -59,117 +61,117 @@
 \begin{proof}
 	\[|xy|_p \defeq p^{-v_p(xy)} \symrefeq{eq:vplm1} p^{-v_p(x) -v_p(y)} = p^{-v_p(x)} p^{-v_p(y)} \defeq |x|_p |y|_p\]
 	\[|x + y|_p \defeq p^{-v_p(x + y)} \symref{eq:vplm2}{\le} p^{-\min(v_p(x), v_p(y))}
-     = \max(p^{v_p(x)}, p^{v_p(y)}) \defeq |x|_p |y|_p\]
+		= \max(p^{v_p(x)}, p^{v_p(y)}) \defeq |x|_p |y|_p\]
 \end{proof}
 
 Забавный факт: \(\lim_{n \to +\infty} |p^n|_p \to 0\)
 
 \begin{lemma}
-    Свойства модуля в произвольном \(\mathbb{K}\):
-    \begin{enumerate}
-        \item \(|e| = 1\)
-        \item \(\exists n : x^n = e \implies |x| = 1\)
-        \item \(|-e| = 1\)
-        \item \(|-x| = x\)
-    \end{enumerate}
+	Свойства модуля в произвольном \(\mathbb{K}\):
+	\begin{enumerate}
+		\item \(|e| = 1\)
+		\item \(\exists n : x^n = e \implies |x| = 1\)
+		\item \(|-e| = 1\)
+		\item \(|-x| = x\)
+	\end{enumerate}
 \end{lemma}
 \begin{proof}\itemfix
-    \begin{enumerate}
-        \item \(|e| = |e \cdot e| = |e| \cdot |e| = 1\)  
-        \item \(1 = |e| = |x^n| = |x|^n\) 
-        \item \(|-e \cdot -e| = |e^2| = 1\)
-        \item Из предыдущего пункта.
-    \end{enumerate}
+	\begin{enumerate}
+		\item \(|e| = |e \cdot e| = |e| \cdot |e| = 1\)
+		\item \(1 = |e| = |x^n| = |x|^n\)
+		\item \(|-e \cdot -e| = |e^2| = 1\)
+		\item Из предыдущего пункта.
+	\end{enumerate}
 \end{proof}
 
 \begin{lemma}
-    \(x \neq |y| \implies |x + y| = \max(|x|, |y|)\)
+	\(x \neq |y| \implies |x + y| = \max(|x|, |y|)\)
 \end{lemma}
 \begin{proof}
-    Пусть \(|x| > |y|\).
-    \[|x + y| \le \max(|x|, |y|) = x\] 
-    \[|x| = |(x + y) - y| \le \max(|x + y|, |y|) = |x + y|\] 
-    \[\begin{rcases}
-        |x + y| \le |x| \\
-        |x| \le |x + y|
-    \end{rcases} \implies |x + y| = |x|\] 
+	Пусть \(|x| > |y|\).
+	\[|x + y| \le \max(|x|, |y|) = x\]
+	\[|x| = |(x + y) - y| \le \max(|x + y|, |y|) = |x + y|\]
+	\[\begin{rcases}
+			|x + y| \le |x| \\
+			|x| \le |x + y|
+		\end{rcases} \implies |x + y| = |x|\]
 \end{proof}
 
 \begin{lemma}
-    \[|x + y| \le \max(|x|, |y|) \iff |z + 1| \le \max(|z|, 1)\] 
+	\[|x + y| \le \max(|x|, |y|) \iff |z + 1| \le \max(|z|, 1)\]
 \end{lemma}
 \begin{proof}\itemfix
-    \begin{itemize}
-        \item[\(\implies\)] очевидно
-        \item[\(\impliedby\)] Рассмотрим случай \(y = \mathbb{0}\). Тогда \(\forall x \ \ |x| \le \max(|x|, 0) = |x|\) очевидно верно.
+	\begin{itemize}
+		\item[\(\implies\)] очевидно
+		\item[\(\impliedby\)] Рассмотрим случай \(y = \mathbb{0}\). Тогда \(\forall x \ \ |x| \le \max(|x|, 0) = |x|\) очевидно верно.
 
-            Рассмотрим случай \(y \neq \mathbb{0}\). Тогда пусть \(z = \frac{x}{y}\).
-            \[\left|\frac{x}{y} + 1\right| \le \max\left(\left|\frac{x}{y}\right|, 1\right)
-            \implies |x + y| \le \max(|x|, |y|)\] 
-    \end{itemize}
+			Рассмотрим случай \(y \neq \mathbb{0}\). Тогда пусть \(z = \frac{x}{y}\).
+			\[\left|\frac{x}{y} + 1\right| \le \max\left(\left|\frac{x}{y}\right|, 1\right)
+				\implies |x + y| \le \max(|x|, |y|)\]
+	\end{itemize}
 \end{proof}
 
 \begin{statement}
-    \(|x| \le 1 \implies |x - 1| \le 1\)
+	\(|x| \le 1 \implies |x - 1| \le 1\)
 \end{statement}
 
 \begin{definition}
-    Метрика, порожденная модулем: \(d(x, y) \coloneqq |x - y|\)
+	Метрика, порожденная модулем: \(d(x, y) \coloneqq |x - y|\)
 \end{definition}
 
 \begin{lemma}
-    Если модуль неархимедов, то \(d(x, y) \le \max(d(x, z), d(z, y))\)
+	Если модуль неархимедов, то \(d(x, y) \le \max(d(x, z), d(z, y))\)
 \end{lemma}
 
 \begin{statement}
-    Все треугольники в \(\mathbb{K}\) с неархимедовым модулем равнобедренные.
+	Все треугольники в \(\mathbb{K}\) с неархимедовым модулем равнобедренные.
 \end{statement}
 
 \begin{example}
-    \(x = p^k \tilde{x}, y = p^l \tilde{y}, \tilde{x}, \tilde{y} \ndivided p\)
-    Если \(k > l\):
-    \[p^k \tilde{x} + p^l \tilde{y} = p^l \underbrace{(p^{k-l} \tilde{x} + \tilde{y})}_{{}\ndivided p}\] 
-    Если \(k = l\):
-     \[p^k \tilde{x} + p^k \tilde{y} = p^k\underbrace{(\tilde{x} + \tilde{y})}_{\text{может } \divided p}\] 
+	\(x = p^k \tilde{x}, y = p^l \tilde{y}, \tilde{x}, \tilde{y} \ndivided p\)
+	Если \(k > l\):
+	\[p^k \tilde{x} + p^l \tilde{y} = p^l \underbrace{(p^{k-l} \tilde{x} + \tilde{y})}_{{}\ndivided p}\]
+	Если \(k = l\):
+	\[p^k \tilde{x} + p^k \tilde{y} = p^k\underbrace{(\tilde{x} + \tilde{y})}_{\text{может } \divided p}\]
 \end{example}
 
 \begin{example}
-    \(p_1 = 5, p_2 = 3\)
-    \[|50|_5 = |5^2\cdot 2|_5 = 5^{-2} = \frac{1}{25} \quad |50|_3 = 1\] 
-    \[|17|_5 = 5^{-0} = 1 \quad |17|_3 = 1\] 
-    \[|15|_5 = 5^{-1} = \frac{1}{5} \quad |15|_3 = 3^{-1} = \frac{1}{3}\] 
-    \[\left|\frac{3}{25}\right|_5 = 5^{-(0-2)} = 25 \quad \left|\frac{3}{25}\right|_3 = 3^{-(1-0)} = \frac{1}{3}\] 
+	\(p_1 = 5, p_2 = 3\)
+	\[|50|_5 = |5^2\cdot 2|_5 = 5^{-2} = \frac{1}{25} \quad |50|_3 = 1\]
+	\[|17|_5 = 5^{-0} = 1 \quad |17|_3 = 1\]
+	\[|15|_5 = 5^{-1} = \frac{1}{5} \quad |15|_3 = 3^{-1} = \frac{1}{3}\]
+	\[\left|\frac{3}{25}\right|_5 = 5^{-(0-2)} = 25 \quad \left|\frac{3}{25}\right|_3 = 3^{-(1-0)} = \frac{1}{3}\]
 \end{example}
 
 \begin{example}
-    \(x = \frac{2}{15}, y = \frac{3}{15}, z = \frac{7}{15}\) 
-    \[|x-y|_5 = \left|\frac{1}{15}\right|_5 = 5^{-(0-1)} = 5
-      \quad |x-y|_3 = \left|\frac{1}{15}\right|_3 = 3\] 
-    \[|x-z|_5 = \left|\frac{1}{3}\right|_5 = 1
-      \quad |x-z|_3 = \left|\frac{1}{3}\right|_3 = 3\] 
-    \[|y-z|_5 = \left|\frac{4}{15}\right|_5 = 5
-      \quad |y-z|_3 = \left|\frac{4}{15}\right|_3 = 3\] 
-    Мы получили равносторонний треугольник при \(|\cdot|_3\).
+	\(x = \frac{2}{15}, y = \frac{3}{15}, z = \frac{7}{15}\)
+	\[|x-y|_5 = \left|\frac{1}{15}\right|_5 = 5^{-(0-1)} = 5
+		\quad |x-y|_3 = \left|\frac{1}{15}\right|_3 = 3\]
+	\[|x-z|_5 = \left|\frac{1}{3}\right|_5 = 1
+		\quad |x-z|_3 = \left|\frac{1}{3}\right|_3 = 3\]
+	\[|y-z|_5 = \left|\frac{4}{15}\right|_5 = 5
+		\quad |y-z|_3 = \left|\frac{4}{15}\right|_3 = 3\]
+	Мы получили равносторонний треугольник при \(|\cdot|_3\).
 \end{example}
 
 \begin{definition}
-    \[B \coloneqq \{x \mid d(x, x_0) < r\}\]
-    \[\overline{B} \coloneqq \{x \mid d(x, x_0) \le r\}\]
+	\[B \coloneqq \{x \mid d(x, x_0) < r\}\]
+	\[\overline{B} \coloneqq \{x \mid d(x, x_0) \le r\}\]
 \end{definition}
 
 \begin{lemma}\itemfix
-    \begin{enumerate}
-        \item \(b \in B(a, r) \implies B(b, r) = B(a, r)\), аналогичное верно для \(\overline{B}\)
-        \item \(B(a, r)\) --- открытое и замкнутое. Если \(r \neq 0\), то \(\overline{B}(a, r)\) --- тоже открытое и замкнутое.
-        \item \(r > s, B(a, r) \cap B(b, s) \neq \emptyset \implies B(b, s) \subset B(a, r)\)
-    \end{enumerate}
+	\begin{enumerate}
+		\item \(b \in B(a, r) \implies B(b, r) = B(a, r)\), аналогичное верно для \(\overline{B}\)
+		\item \(B(a, r)\) --- открытое и замкнутое. Если \(r \neq 0\), то \(\overline{B}(a, r)\) --- тоже открытое и замкнутое.
+		\item \(r > s, B(a, r) \cap B(b, s) \neq \emptyset \implies B(b, s) \subset B(a, r)\)
+	\end{enumerate}
 \end{lemma}
 \begin{proof}\itemfix
-    \begin{enumerate}
-        \item \(|b-a| < r\).
-            \[\forall x \in B(a, r) \quad |x-b| \le \max(|x-a|, |b-a|) < r \implies x \in B(b, r) \implies B(a, r) \subset B(b, r)\] 
-        \item Рассмотрим точку вне шара, она принадлежит с некоторой окрестностью дополнению шара, следовательно дополнение открыто, следовательно шар замкнут.
-        \item \(B(a, s) = B(c, s) \subset B(c, r) = B(b, r)\) 
-    \end{enumerate}
+	\begin{enumerate}
+		\item \(|b-a| < r\).
+		      \[\forall x \in B(a, r) \quad |x-b| \le \max(|x-a|, |b-a|) < r \implies x \in B(b, r) \implies B(a, r) \subset B(b, r)\]
+		\item Рассмотрим точку вне шара, она принадлежит с некоторой окрестностью дополнению шара, следовательно дополнение открыто, следовательно шар замкнут.
+		\item \(B(a, s) = B(c, s) \subset B(c, r) = B(b, r)\)
+	\end{enumerate}
 \end{proof}
 

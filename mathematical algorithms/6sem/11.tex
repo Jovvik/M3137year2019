@@ -1,0 +1,166 @@
+\chapter{14 мая}
+
+\subsection{Теорема Островского}
+
+\begin{remark}
+	Аксиома Архимеда:
+	\[\forall \varepsilon, M \ \ \exists n \in \N : n \varepsilon > M\]
+\end{remark}
+
+У архимедовости поля есть связсь с аксиомой Архимеда, сейчас мы её найдём.
+
+\begin{definition}
+	\[Z : \Z \to \mathbb{K} \quad Z(n) \coloneqq \begin{cases}
+			\mathbb{0},                                    & n = 0    \\
+			\mathbb{1} + \mathbb{1} + \ldots + \mathbb{1}, & n \in \N \\
+			-(\mathbb{1} + \mathbb{1} + \ldots + \mathbb{1}), n < 0
+		\end{cases}\]
+\end{definition}
+
+\begin{theorem}
+	Модуль неархимедов \(\iff \forall n \in \Z \ \ |Z(n)| \le 1\)
+\end{theorem}
+\begin{proof}\itemfix
+	\begin{itemize}
+		\item[\(\implies\)] \(|\mathbb{0}| = 0\), поэтому \(|Z(0)| \le 1\) выполнено, для отрицательных \(n\) будет верно, если докажем для положительных \(n\).
+			Докажем по индукции:
+
+			\begin{itemize}
+				\item[База.] \(|1| = 1 \le 1\)
+				\item[Индукция.] Пусть \(|k| \le 1\), тогда \(|k + 1| \le \max(|k|, 1) \le 1\)
+			\end{itemize}
+		\item[\(\impliedby\)] \(\sphericalangle m \in \mathbb{N}\)
+			\begin{align}
+				|x+1|^m & = |(x+1)^m|                                                              \\
+				        & \stackrel{\substack{\text{бином}                                         \\ \text{Ньютона}}}{=}
+				\left|\sum_{i=0}^m z\left(C_m^i\right)x^i\right| \le \sum_{i=0}^m |z(C_m^i)| |x|^i \\
+				        & \le \sum_{i=0}^m |x|^i = 1 + |x| + |x|^2 + \ldots + |x|^m                \\
+				        & \le (m + 1) \max(|x|^m, 1)
+			\end{align}
+			\begin{align}
+				\forall m \in \N \quad |x+1|^m \le \max(|x|^m, 1)
+				 & \implies |x+1| \le \max(|x|, 1)                                                          \\
+				 & \implies \lim_{m \to +\infty} |x+1| \le \lim_{m \to \infty} \sqrt[m]{m + 1} \max(|x|, 1) \\
+				 & \implies |x+1| \le \max(|x|, 1)
+			\end{align}
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	Модуль \(|\cdot|_1\) \textbf{эквивалентен} \(|\cdot|_2\), если
+	\(\exists \alpha \in \R : \forall x \in \mathbb{K} \ \ |x|_1 = |x|_2^\alpha\)
+\end{definition}
+
+\begin{theorem}[Островский]
+	Любой нетривиальный модуль над \(\mathbb{Q}\) эквивалентен либо \(|\cdot|_p\), либо \(|\cdot|_{\infty}\)
+\end{theorem}
+\begin{proof}
+	Рассмотрим архимедов модуль \(|\cdot|\).
+
+	Тогда по определению \(\exists n \in \Z : |Z(n)| > 1\).
+	Пусть \(n_0\) --- минимальный такой \(n\), \(|n_0| \eqqcolon x\).
+
+	\(\exists \alpha : x = n_0^\alpha\), \(\alpha = \log_{n_0} x\).
+	Будем доказывать, что это \(\alpha\) подходит как коэффициент эквивалентности рассматриемого модуля и  \( |\cdot|_{\infty}\), т.е.
+	рассмотрим произвольное \(n \in Z(\N)\) и покажем, что \(|n| = |n|_{\infty}^\alpha\).
+
+	Выпишем \(n\) в системе счисления с основанием  \(n_0\):
+	\[n = \sum_{i=0}^k a_i n_0^i, \quad 0 \le a_i < n_0, a_k \neq 0, n_0^k \le n < n_0^{k+1}\]
+	\[|n| = \left|\sum_{i=0}^k a_i n_0^i\right| \le \sum_{i=0}^k |a_i| n_0^{i\alpha}
+		\le \sum_{i=0}^k n_0^{i\alpha} = n_0^{k\alpha} \sum_{i=0}^k n_0^{-i\alpha}
+		\le n_0^{k\alpha} \sum_{i=0}^{\infty} n_0^{i\alpha}
+		= n_0^{k\alpha} \underbrace{\left(\frac{n_0^\alpha}{n_0^\alpha - 1}\right)}_{C}
+		\le n^\alpha C\]
+
+	Подставим \(n\) вместо \(n^N, N \in \N\).
+	\begin{equation}
+		\label{eq:nle}
+		|n|^N = |n^N| \le C \cdot n^{N\alpha} \implies \lim_{N \to \infty} |n|
+		\le \overbrace{\lim_{N \to \infty} \sqrt[\leftroot{-1}\uproot{2}N]{C}}^{\to 1} n^\alpha
+		\implies |n| \le n^\alpha
+	\end{equation}
+	\[n_0^{(k+1)\alpha} = |n_0^{k+1}| = |n + n_0^{k+1} - n| \le |n| + |n_0^{k+1}-n|\]
+	\begin{align}
+		|n| & \ge n_0^{(k+1)\alpha} - |n_0^{k+1} - n|                                   \\
+		    & \ge n_0^{(k+1)\alpha} - (n_0^{k+1} - n)^\alpha                            \\
+		    & \ge n_0^{(k+1)\alpha} - (n_0^{k+1} - n_0^k)^\alpha                        \\
+		    & = n_0^{(k+1)\alpha}\left(1 - \left(1 - \frac{1}{n_0}\right)^\alpha\right) \\
+		    & \eqqcolon n_0^{(k+1)\alpha} \tilde{C}                                     \\
+		    & > \tilde{C} n^\alpha
+	\end{align}
+
+	По предельному переходу как в \eqref{eq:nle} получается \(|n| \ge n^\alpha\).
+	Но из \eqref{eq:nle} \(|n| \le n^\alpha\), следовательно \(|n| = n^\alpha\)
+	и архимедов модуль эквивалентен \(|\cdot|_{\infty}\).
+
+	Рассмотрим неархимедов модуль \(|\cdot|\), тогда по определению \(\forall n \in \N \ \ |Z(n)| \le 1\).
+
+	\(\exists \tilde{n} : |Z(\tilde{n})| < 1\), т.к. иначе модуль был бы тривиальным.
+
+	\[n_0 \coloneqq \min \{\tilde{n} : |Z(\tilde{n}) < 1\}\]
+	\begin{statement}
+		\(n_0\) простой.
+	\end{statement}
+	\begin{proof}
+		Пусть \(n_0 = a \cdot b, \ a, b > 1\).
+		Т.к. \(a, b < n_0\), то \(|a| = |b| = 1 \implies |n_0| = |ab| = |a| \cdot |b| = 1\),
+		но \(|n_0| < 1\) --- противоречие.
+	\end{proof}
+
+	Обозначим тогда \(n_0\) за \(p\).
+
+	\(\sphericalangle n = pq + s, s \neq 0, s < p\) и \(|s| = 1\).
+	\[\begin{rcases}
+			|p| < 1 \\
+			|q| \le 1
+		\end{rcases} \implies |pq| = |p| |q| < 1 \implies |n| = 1\]
+	\[n = p^v n', n' \ndivided p \implies |n| = |p^v| \cdot |n'| = |p|^v = c^{-v}, c = |p|^{-1}\]
+	\(\alpha\), которое даст нам эквивалентность, это \(\log_{|p|^{-1}} p\),
+	т.к. \((|p|^{-1})^{-v\alpha} = p^{-v}\).
+\end{proof}
+
+\begin{remark}
+	Это доказательство --- для \(\N\), но переход к \(\Q\) очевиден. Зная, что \(\forall n \in \N \ \ |n| = n^\alpha\) мы можем показать, что \(\left|\frac{a}{b}\right| = \left(\frac{a}{b}\right)^\alpha\):
+	\[\left|\frac{a}{b}\right| = \left(\frac{a}{b}\right)^\alpha \iff |a|
+		= \left(\frac{a}{b}\right)^\alpha b^\alpha \iff |a| = a^\alpha\]
+\end{remark}
+
+\begin{statement}
+	\[\forall n \in \Q \quad \prod_{p \in \mathbb{P} \cup \{\infty\}} |n|_p = 1\]
+\end{statement}
+\begin{proof}
+	Разложим \(n\) на простые множители:
+	\[n = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_k^{\alpha_k}\]
+	\[|n|_{\infty} = p_1^{\alpha_1} p_2^{\alpha_2} \ldots p_k^{\alpha_k}\]
+	\[p \neq p_i \implies |n_p| = 1\]
+	\[p = p_i \implies |n|_p = p^{-\alpha_i}\]
+\end{proof}
+
+\begin{definition}
+	\((x_n)\) --- \textbf{последовательность Коши}\footnote{Или фундаментальная последовательность.}, если
+	\[\forall \varepsilon > 0 \ \ \exists M \in \mathbb{N} : \forall m, n \ge M \ \ |x_m - x_n| < \varepsilon\]
+\end{definition}
+
+\begin{definition}
+	Поле \(\mathbb{K}\) \textbf{полное}, если любая последовательность Коши имеет предел в \(\mathbb{K}\).
+\end{definition}
+
+\begin{definition}
+	\(S \subset \mathbb{K}\) \textbf{плотно} в \(\mathbb{K}\), если
+	\[\forall \alpha \in \mathbb{K} \ \ \forall U_x \ \ \exists s \in S : s \in U_x\]
+\end{definition}
+
+Поле рациональных чисел \(\Q\) не полное, поэтому мы его пополнили до \(\R\). Мы сделаем аналогично:
+рассмотрим множество последовательностей Коши \(\mathrm{CS}(\mathbb{K})\)
+и факторизуем его: \(\faktor{\mathrm{CS}(\mathbb{K})}{N}\),
+где \(N \coloneqq \{(x_n) : x_n \xrightarrow[n \to +\infty]{} 0\}\).
+Таким образом (с \(p\)--адическим модулем) мы получим \(p\)--адические числа.
+
+\begin{remark}
+    Рациональные числа плотны в \(p\)--адических числах.
+\end{remark}
+
+\(p\)--адические числа записываются как:
+\[\sum_{i=-k}^{+\infty} a_i p^i\]
+в противопоставление \(\R\), которые записываются как:
+ \[\sum_{i=-\infty}^k a_i 10^i\] 

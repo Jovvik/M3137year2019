@@ -2,20 +2,20 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "M3137year2019/analysis/3sem at master · Jovvik/M3137year2019 · GitHub",
-    "count": 22,
-    "uniques": 7
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
-    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 6,
-    "uniques": 3
+    "count": 24,
+    "uniques": 8
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 6,
     "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
+    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 5,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
@@ -36,12 +36,6 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/analysis/2sem",
-    "title": "M3137year2019/analysis/2sem at master · Jovvik/M3137year2019",
-    "count": 3,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/tree/master/mathematical%20algorithms/5sem",
     "title": "M3137year2019/mathematical algorithms at master · Jovvik/M3137year2019",
     "count": 3,
@@ -50,6 +44,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/hw.pdf",
     "title": "M3137year2019/hw.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/analysis/2sem",
+    "title": "M3137year2019/analysis/2sem at master · Jovvik/M3137year2019",
     "count": 2,
     "uniques": 1
   },

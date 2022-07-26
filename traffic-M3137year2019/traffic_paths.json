@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 27,
-    "uniques": 10
+    "count": 24,
+    "uniques": 7
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
@@ -42,12 +42,6 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 3,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/tree/pdfs/linear%20algebra/2sem",
     "title": "M3137year2019/linear algebra/2sem at pdfs · Jovvik/M3137year2019",
     "count": 3,
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/hw.pdf",
     "title": "M3137year2019/hw.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
+    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
     "count": 2,
     "uniques": 1
   }

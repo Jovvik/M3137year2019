@@ -8,5 +8,10 @@
     "referrer": "yandex.ru",
     "count": 11,
     "uniques": 2
+  },
+  {
+    "referrer": "Google",
+    "count": 8,
+    "uniques": 1
   }
 ]

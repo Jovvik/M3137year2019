@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 17,
-    "uniques": 8
+    "count": 18,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
@@ -22,6 +22,12 @@
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 4,
     "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "Jovvik/M3137year2019 at pdfs",
+    "count": 3,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete",
@@ -50,12 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete/2sem",
     "title": "M3137year2019/discrete/2sem at master · Jovvik/M3137year2019 · GitHub",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs",
-    "title": "Jovvik/M3137year2019 at pdfs",
     "count": 2,
     "uniques": 2
   }

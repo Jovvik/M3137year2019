@@ -20,7 +20,7 @@ REPOPATH=$(pwd)
 while IFS= read -r -d '' fname
 do
     compile "$fname"
-done <   <(find . \( -wholename "*/6sem/main.tex" -o -wholename "*/6sem/final.tex" -o -wholename "*/6sem/*/*.tex" \) -type f -print0)
+done <   <(find . \( -wholename "*/7sem/main.tex" -o -wholename "*/7sem/final.tex" -o -wholename "*/6sem/*/*.tex" \) -type f -print0)
 
 # while IFS= read -r -d '' file
 # do

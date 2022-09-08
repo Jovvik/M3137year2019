@@ -19,32 +19,32 @@
 \begin{example}
     Решить систему линейных уравнений:
     \[
-        \begin{pmatrix} 
+        \begin{pmatrix}
             1 & 2 & 3 & 4 \\
             5 & 6 & 7 & 8 \\
             9 & 10 & 11 & 12 \\
             13 & 14 & 15 & 16
             \end{pmatrix} x = \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}\]
         \begin{align*}
-            \begin{pmatrix}[cccc|c] 
+            \begin{pmatrix}[cccc|c]
                 1 & 2 & 3 & 4 & 1\\
                 5 & 6 & 7 & 8 & 1\\
                 9 & 10 & 11 & 12 & 1 \\
                 13 & 14 & 15 & 16 & 1
             \end{pmatrix}
-            & = 
-            \begin{pmatrix}[cccc|c] 
+            & =
+            \begin{pmatrix}[cccc|c]
                 1 & 2 & 3 & 4 & 1 \\
                 0 & -4 & -8 & -12 & -4 \\
                 0 & -8 & -16 & -24 & -8 \\
                 0 & -12 & -24 & -36 & -12
             \end{pmatrix} \\
-            & = 
-            \begin{pmatrix}[cccc|c] 
+            & =
+            \begin{pmatrix}[cccc|c]
                 1 & 2 & 3 & 4 & 1 \\
                 0 & -4 & -8 & -12 & -4 \\
-                0 & 0 & 0 & 0 & 0 \\ 
-                0 & 0 & 0 & 0 & 0 
+                0 & 0 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0 & 0
             \end{pmatrix} \\
         .\end{align*}
     \[\begin{cases}
@@ -53,19 +53,19 @@
     \end{cases} \implies \begin{cases}
         x_1 = x_3 + 2x_4 \\
         x_2 = -2x_2 - 3x_3
-    \end{cases}\] 
+    \end{cases}\]
     Общее решение:
     \[
         C_1 \begin{pmatrix} 1 \\ -2 \\ 1 \\ 0 \end{pmatrix}
-        + C_2 \begin{pmatrix} 2 \\ -3 \\ 0 \\ 1 \end{pmatrix} 
-        + \begin{pmatrix} -1 \\ 1 \\ 0 \\ 0 \end{pmatrix} 
-    \] 
+        + C_2 \begin{pmatrix} 2 \\ -3 \\ 0 \\ 1 \end{pmatrix}
+        + \begin{pmatrix} -1 \\ 1 \\ 0 \\ 0 \end{pmatrix}
+    \]
 \end{example}
 
 Мы часто будем рассматривать линейные коды, а не произвольные отображения.
 
 \begin{notation}
-    \[u_a^b = (u_a, u_{a + 1}, \ldots, u_b)\] 
+    \[u_a^b = (u_a, u_{a + 1}, \ldots, u_b)\]
 \end{notation}
 
 Линейный код задается \textbf{порождающей} матрицей \(G\) размера \(n \times k\) и образуется как \(c_1^n = u_1^k G\).
@@ -74,7 +74,7 @@
 
 \begin{example}
     Найти проверучную матрицу для кода, который задан порождающей матрицей:
-    \[G = \begin{pmatrix} 1111 & 1111 \\ 1111 & 0000 \\ 1100 & 1100 \\ 1010 & 1010 \end{pmatrix}\] 
+    \[G = \begin{pmatrix} 1111 & 1111 \\ 1111 & 0000 \\ 1100 & 1100 \\ 1010 & 1010 \end{pmatrix}\]
 
 \end{example}
 
@@ -82,18 +82,18 @@
     \textbf{Дуальный код} --- код, в котором \(G\) и \(H\) совпадают.
 \end{definition}
 
-Рассмотрим канал с белым гауссовским шумом \(y_i = x_i + \eta_i, \eta_i \sim \mathcal{N}(0, \sigma^2)\). 
-Не любой канал является таким, но это хороший benchmark. 
+Рассмотрим канал с белым гауссовским шумом \(y_i = x_i + \eta_i, \eta_i \sim \mathcal{N}(0, \sigma^2)\).
+Не любой канал является таким, но это хороший benchmark.
 Шум мжоно сводить к примерно белому гауссову различными эквалайзерами и т.д.
 Пусть канал передает \(c_i \in \{0, 1\} \to x_i \in \{-1, 1\}\).
-\[P(c_i \mid y) = \frac{P(c_i \cap y)}{P(y)} = \frac{P(y \mid c_i) P(y)}{P(c_i)}\] 
-\[W(y \mid x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(y-x)^2}{2\sigma^2}}\] 
+\[P(c_i \mid y) = \frac{P(c_i \cap y)}{P(y)} = \frac{P(y \mid c_i) P(y)}{P(c_i)}\]
+\[W(y \mid x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(y-x)^2}{2\sigma^2}}\]
 \[L
 = \ln \frac{P(c_i = 0 \mid y_i)}{P(c_i = 1 \mid y_i)}
 = \ln \frac{P(y_i \mid c_i = 0)}{P(y_i \mid c_i = 1)}
 = \ln \frac{e^{-\frac{(y+1)^2}{2\sigma^2}}}{e^{-\frac{(y-1)^2}{2\sigma^2}}}
 = -\frac{(y+1)^2}{2\sigma^2} + \frac{(y-1)^2}{2\sigma^2}
 = \frac{-2y}{\sigma^2}
-\] 
+\]
 
 \end{document}

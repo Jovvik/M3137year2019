@@ -2,11 +2,19 @@
 
 ![views per week](https://raw.githubusercontent.com/Jovvik/M3137year2019/traffic/traffic-M3137year2019/views_per_week.svg)
 
-Все pdfки лежат в ветке pdfs, на них указывают ссылки в этом README. 
+Все pdfки лежат в ветке pdfs, на них указывают ссылки в этом README.
 
 <!-- Если вы хотите помочь, всё, чего не хватает в конспектах - [тут](https://github.com/Jovvik/M3137year2019/issues/2) -->
 
 Если нашли ошибку, пишите в [issues](https://github.com/Jovvik/M3137year2019/issues) или мне в телеграм [@aeriu](https://t.me/aeriu). Пулл реквесты приветствуются.
+
+## 7 семестр
+
+### Теория кодирования
+
+- [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf)
+
+- [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/1.pdf)
 
 ## 6 семестр
 

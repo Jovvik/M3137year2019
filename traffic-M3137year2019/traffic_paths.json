@@ -2,20 +2,20 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 144,
-    "uniques": 71
+    "count": 134,
+    "uniques": 66
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 61,
+    "count": 60,
     "uniques": 31
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 30,
-    "uniques": 19
+    "count": 27,
+    "uniques": 16
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
@@ -26,14 +26,8 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 17,
-    "uniques": 10
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/1.pdf",
-    "title": "M3137year2019/1.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 10,
-    "uniques": 5
+    "count": 13,
+    "uniques": 7
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/opros.pdf",
@@ -42,21 +36,27 @@
     "uniques": 8
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/analysis",
-    "title": "M3137year2019/analysis at master · Jovvik/M3137year2019 · GitHub",
-    "count": 9,
-    "uniques": 7
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 9,
-    "uniques": 7
-  },
-  {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/1sem",
     "title": "M3137year2019/analysis/1sem at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 9,
     "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/analysis",
+    "title": "M3137year2019/analysis at master · Jovvik/M3137year2019 · GitHub",
+    "count": 8,
+    "uniques": 6
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 8,
+    "uniques": 6
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
+    "count": 8,
+    "uniques": 5
   }
 ]

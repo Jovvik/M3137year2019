@@ -2,20 +2,20 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 134,
+    "count": 135,
     "uniques": 66
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 60,
-    "uniques": 31
+    "count": 75,
+    "uniques": 35
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 27,
-    "uniques": 16
+    "count": 26,
+    "uniques": 15
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
@@ -26,14 +26,26 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 13,
-    "uniques": 7
+    "count": 15,
+    "uniques": 8
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/opros.pdf",
     "title": "M3137year2019/opros.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 9,
     "uniques": 8
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
+    "count": 9,
+    "uniques": 6
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/discrete/2sem",
+    "title": "M3137year2019/discrete/2sem at master · Jovvik/M3137year2019 · GitHub",
+    "count": 9,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/1sem",
@@ -46,17 +58,5 @@
     "title": "M3137year2019/analysis at master · Jovvik/M3137year2019 · GitHub",
     "count": 8,
     "uniques": 6
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 8,
-    "uniques": 6
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/discrete",
-    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
-    "count": 8,
-    "uniques": 5
   }
 ]

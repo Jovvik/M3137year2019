@@ -1,0 +1,47 @@
+\input{../../../preamble.sty}
+
+\lhead{Теория кодирования \textit{(практика)}}
+\cfoot{}
+\rfoot{16.9.2022}
+\lfoot{M3437y2019}
+
+\begin{document}
+
+Продолжим доказательство верхней границы с прошлой практики.
+Критерий правдоподобия:
+\begin{align}
+    c & = \mathrm{argmax}_{c \in C} P(c \mid y) \\
+      & = \mathrm{argmax} \sum x_i y_i          \\
+      & = \mathrm{argmax} \sum y_i (1 - 2y_i)   \\
+      & = \mathrm{argmin} \sum y_i c_i
+\end{align}
+
+Пусть \(c^* = c \xor \hat{c}, c^* \in C \setminus \{0\}, y^* = 1 + \eta_j\)
+
+\begin{align}
+    P_{err}
+     & = P \left\{ \bigcup_{c \in C \setminus \hat{c}} P(c \mid y) > P(\hat{c} \mid y)\right\} \\
+     & = P \left\{ \bigcup \left(\sum y_i c_i\right) < \left(\sum y_i \hat{c_i}\right)\right\} \\
+     & = P \left\{ \bigcup \sum y_i (c_i - \hat{c_i}) < 0 \right\}                             \\
+     & = P \left\{ \bigcup \sum y_i (c_i \xor \hat{c_i}) \cdot ( - 1)^{\hat{c_i}} < 0 \right\} \\
+     & = P \left\{ \bigcup \sum y_i^* c_i^* < 0 \right\}                                       \\
+     & \leq \sum P \left( \sum y_i^* c_i^* < 0 \right)                                         \\
+     & \leq \sum P \left( \sum_{j =1}^{\mathrm{wt}(c^*)} y_j^* < 0 \right)                     \\
+     & = \sum_{i= d}^{n} A_i P(\mathcal{N}(i, \sqrt{i} \sigma) < 0)
+\end{align}
+
+Т.к. \(y^* \in \mathcal{N}(1, \sigma), \sum_{j=1}^{\mathrm{wt}(c^*)} y^* \in \mathcal{N}(\mathrm{wt}(c^*), \sqrt{\mathrm{wt}(c^*)} \sigma) \)
+
+% Рассмотрим возможные значения \(c_i, \hat{c_i}\):
+% \begin{tabular}[CCC]
+%     c_i & \hat{c_i} & c_i - \hat{c_i} \\
+%     \hline
+%     0   & 0         & 0               \\
+%     0   & 1         & -1              \\
+%     1   & 0         & 1               \\
+%     1   & 1         & 0
+% \end{tabular}
+
+
+
+\end{document}

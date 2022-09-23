@@ -13,10 +13,10 @@
 ### Теория кодирования
 
 - [Конспект лекций](https://github.com/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf)
-
-- [1 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/1.pdf)
-- [3 практика](https://github.com/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/3.pdf)
-- [4 практика (моя задача)](teorcod/7sem/practice/4.ipynb)
+#### Практика
+- [1](https://github.com/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/1.pdf)
+- [3](https://github.com/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/3.pdf)
+- [4 (моя задача)](teorcod/7sem/practice/4.ipynb)
 
 ## 6 семестр
 

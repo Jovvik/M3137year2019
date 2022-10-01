@@ -1,27 +1,27 @@
 [
   {
     "referrer": "github.com",
-    "count": 38,
-    "uniques": 9
+    "count": 37,
+    "uniques": 10
   },
   {
     "referrer": "Google",
-    "count": 21,
-    "uniques": 8
-  },
-  {
-    "referrer": "away.vk.com",
-    "count": 6,
-    "uniques": 2
+    "count": 27,
+    "uniques": 10
   },
   {
     "referrer": "web.telegram.org",
-    "count": 5,
+    "count": 6,
     "uniques": 1
   },
   {
-    "referrer": "yandex.ru",
-    "count": 4,
+    "referrer": "away.vk.com",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "referrer": "gitter.im",
+    "count": 1,
     "uniques": 1
   }
 ]

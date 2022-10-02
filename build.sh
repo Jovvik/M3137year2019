@@ -17,12 +17,17 @@ function compile {
 
 REPOPATH=$(pwd)
 
-while IFS= read -r -d '' fname
-do
-    compile "$fname"
-done <   <(find . \( -wholename "*/7sem/main.tex" -o -wholename "*/7sem/final.tex" -o -wholename "*/7sem/*/*.tex" \) -type f -print0)
-
-# while IFS= read -r -d '' file
-# do
-#     compile "$file"
-# done <   <(git diff --name-only HEAD "$(git show 'HEAD^{/^Built pdfs}' --pretty=format:"%h" --no-patch || git rev-list --max-parents=0 HEAD)" | grep "\.tex" | tr '\n' '\0')
+for semester_no in {4..7}; do
+    SEMESTER="${semester_no}sem"
+    # if semester is <= 3 then find all .tex files
+    # if semester is > 3 then find main.tex, final.tex and any .tex files that are deeper than 2 levels
+    if [ "$semester_no" -le 3 ]; then
+        find . -wholename "*/$SEMESTER/*.tex" -print0 | while IFS= read -r -d $'\0' file; do
+            compile "$file"
+        done
+    else
+        find . -wholename "*/$SEMESTER/main.tex" -o -wholename "*/$SEMESTER/final.tex" -o -wholename "*/$SEMESTER/*/*.tex" -print0 | while IFS= read -r -d $'\0' file; do
+            compile "$file"
+        done
+    fi
+done

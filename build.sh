@@ -17,7 +17,7 @@ function compile {
 
 REPOPATH=$(pwd)
 
-for semester_no in {4..7}; do
+for semester_no in {4..7}; do # semester <= 3 are broken, will fix later (never)
     SEMESTER="${semester_no}sem"
     # if semester is <= 3 then find all .tex files
     # if semester is > 3 then find main.tex, final.tex and any .tex files that are deeper than 2 levels
@@ -26,7 +26,7 @@ for semester_no in {4..7}; do
             compile "$file"
         done
     else
-        find . -wholename "*/$SEMESTER/main.tex" -o -wholename "*/$SEMESTER/final.tex" -o -wholename "*/$SEMESTER/*/*.tex" -print0 | while IFS= read -r -d $'\0' file; do
+        find . \( -wholename "*/$SEMESTER/main.tex" -o -wholename "*/$SEMESTER/final.tex" -o -wholename "*/$SEMESTER/*/*.tex" \) -print0 | while IFS= read -r -d $'\0' file; do
             compile "$file"
         done
     fi

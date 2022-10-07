@@ -152,5 +152,10 @@
 только его состоянием \(s'\) на предыдущем шаге и канал не имеет памяти:
 \begin{align}
     p(s_i = s', s_{i+1} =s, y_0^{n - 1})
-    & = \? \\
+    & = p(s_i = s', y_0^{n - 1}) p(s_{i+1} = s, y_i \mid s_i = s', y_0^{y - 1}) p(y_{i+1}^{n -1} \mid s_{i+1} = s, s_i = s', y_0^i) \\
+    & = \underbrace{p(s_i = s', y_0^{n - 1})}_{\alpha_i(s')} \underbrace{p(s_{i+1} = s, y_i \mid s_i = s')}_{\gamma_{i+1}(s',s)} \underbrace{p(y_{i+1}^{n -1} \mid s_{i+1} = s)}_{\beta_{i+1}(s)}
 \end{align}
+\begin{remark}
+    Предыдущая строка --- определения \(\alpha, \beta, \gamma\)
+\end{remark}
+% TODO: записать объяснение с 5 лекции

@@ -1,0 +1,129 @@
+\chapter{14 октября}
+
+\section{Полярные коды}
+
+\subsection{Некоторые определения}
+
+\subsubsection{Функция переходных вероятностей канала}
+
+\begin{definition}
+Рассмотрим канал без памяти с входным алфавитом \(\mathcal{X} = \{0, 1\}\) и
+выходным алфавитом \(\mathcal{Y}\).
+
+Если \(\mathcal{Y}\) дискретен, то \textbf{функция переходных вероятностей канала} \(W(y \mid c)\)
+--- вероятность наблюдения на выходе \(y \in \mathcal{Y}\)
+при условии подачи на его вход \(c \in \mathcal{X}\).
+
+Если \(\mathcal{Y}\) непрерывен, то \textbf{функция переходных вероятностей канала} \(W(y \mid c)\)
+--- плотность распределения выходного символа при подаче \(c\) на его вход
+\end{definition}
+
+\begin{example}[Двоичный симметричный канал]
+    \[\mathcal{Y} = \mathcal{X} \quad W(y \mid c) = \begin{cases}
+        p, & y \neq x \\
+        1 - p, & y = x
+    \end{cases}\]
+\end{example}
+
+\begin{example}[Двоичный стирающий канал]
+    \[\mathcal{Y} = \{0, 1, \varepsilon\} \quad W(y \mid c) = \begin{cases}
+        p, & y = \varepsilon \\
+        1 - p, & y = x \in \{0, 1\}
+    \end{cases}\]
+\end{example}
+
+\begin{example}[Двоичный симметричный канал со стираниями]
+    \[\mathcal{Y} = \{0, 1, \varepsilon\} \quad W(y \mid c) = \begin{cases}
+        1 - p - s, & y = x \\
+        s, & y = \varepsilon \\
+        p, & y \neq x, y \neq \varepsilon
+    \end{cases}\]
+\end{example}
+
+\begin{example}[Аддитивный гауссовский канал]
+    \[\mathcal{Y} = \R, y = ( - 1)^c + \eta, \eta \sim \mathcal{N}(0, \sigma^2) \quad W(y \mid c) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left( - \frac{(y - ( - 1)^c)^2}{2\sigma^2}\right)\]
+\end{example}
+
+\subsubsection{Параметр Бхаттачарьи}
+
+Рассмотрим канал без памяти с двоичным кодом, приемник по максимуму правдоподобия.
+
+Если передаваемые символы равновероятны, то вероятность ошибки:
+\begin{align*}
+    P_e
+     & = P \{c = 0\} P \{\mathrm{err} \mid c = 0\} + P \{c = 1\} P \{\mathrm{err} \mid c = 1\} \\
+     & = \frac{1}{2} \sum_{y : W(y \mid 0) < W(y \mid 1)} W(y \mid 0) + \frac{1}{2} \sum_{y : W(y \mid 1) < W(y \mid 0)} W(y \mid 1) \\
+     & = \frac{1}{2} \sum_{y : \frac{W(y \mid 1)}{W(y \mid 0)} > 1} W(y \mid 0) + \frac{1}{2} \sum_{y : \frac{W(y \mid 0)}{W(y \mid 1)} > 1} W(y \mid 1) \\
+     & = \frac{1}{2} \sum_{y \in \mathcal{Y}} \sum_{c \in \{0, 1\}} \left(W(y \mid c) \chi\left(\frac{W(y \mid 1 - c)}{W(y \mid c)}\right)\right)
+\end{align*}
+, где \(\chi\) --- индикаторная функция:
+\[\chi(z) = \begin{cases}
+    1, z \geq 1 \\
+    0, z < 1
+\end{cases}\]
+
+Заметим, что \(\chi(z) \leq \sqrt{z}\) для всех \(z \in \N\).
+Таким образом, можно оценить вероятность ошибки:
+\begin{align*}
+    P_e
+     & \leq \frac{1}{2} \sum_{y \in \mathcal{Y}} \sum_{c \in \{0, 1\}} W(y \mid c) \sqrt{\frac{W(y \mid 1 - c)}{W(y \mid c)}} \\
+     & = \frac{1}{2} \sum_{y \in \mathcal{Y}} \sum_{c \in \{0, 1\}} \sqrt{W(y \mid 1 - c)W(y \mid c)} \\
+     & = \sum_{y \in \mathcal{Y}} \sqrt{W(y \mid 1)W(y \mid 0)} \\
+     & \eqqcolon Z(W)
+\end{align*}
+
+\begin{definition}
+    \(Z(W)\) --- \textbf{параметр Бхаттачарьи} ФПВК \(W\).
+\end{definition}
+
+\begin{example}[Двоичный стирающий канал]
+    \[Z(BEC(p)) = \sqrt{W(0 \mid 0)W(0 \mid 1)} + \sqrt{W(1 \mid 0)W(1 \mid 1)} + \sqrt{W(\varepsilon \mid 0)W(\varepsilon \mid 1)} = 0 + 0 + p = p\]
+\end{example}
+
+\begin{example}[Аддитивный гауссовский канал]
+    \begin{align*}
+        Z(\mathcal{G}(\sigma))
+        & = \int_{ - \infty}^{\infty} \sqrt{W(y \mid 0)W(y \mid 1)}dy \\
+        & = \frac{1}{\sqrt{2\pi\sigma^2}} \int_{ - \infty}^{\infty} \exp( - \frac{(y - 1)^2 + (y + 1)^2}{4\sigma^2})dy \\
+        & = \exp( - \frac{1}{2\sigma^2})
+    \end{align*}
+\end{example}
+
+Пропускную способность канала можно вычислить по формуле:
+\[I(W) = \max_{\{p(x)\}} \sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} W(y \mid x) P \{x\} \log \frac{W(y \mid x)}{W(y)}\]
+
+Для многих каналов оптимальным распределением символов на входе \(P \{x\}\) является равномерное,
+что мы и будем рассматривать дальше.
+
+\subsection{Поляризация канала}
+
+Рассмотрим следующее линейное преобразование:
+\[\mqty(c_0 & c_1) = \mqty(u_0 & u_1) \mqty(1 & 0 \\ 1 & 1)\]
+
+Пропустим полученные символы через двоичный стирающий канал с вероятностью стирания \(p\),
+получим \(y_0, y_1\).
+
+Если оба символа не стерты, то \(u_0\) можно восстановить из \(y_0, y_1\) как \(y_0 \xor y_1\).
+Вероятность того, что этого не произойдет --- \(1 - (1 - p)^2 = 2p - p^2 \geq p\)
+
+\(u_1\) восстанавливается либо как \(y_1\), либо как \(y_0 \xor u_0\) и тогда нам нужна подсказка свыше о \(u_0\).
+Вероятность того, что восстановить не получится
+--- вероятность того, что оба символа стерты, т.е. \(p^2 \leq p\).
+
+Таким образом, мы с помощью \textbf{поляризации} получили два виртуальных канала
+--- один чуть получше, другой чуть похуже, чем исходный канал.
+
+Пусть \(n = 2^m, A_m = \mqty(1 & 0 \\ 1 & 1)^{\xor m}\), где \(\xor m\) ---
+\(m\)-кратное произведение Кронекера матрицы с собой.
+Введем \(W_m(y^{n-1}_0 \mid c^{n-1}_0) = \prod_{i = 0}^{n-1} W(y_i \mid c_i)\).
+
+Вход канала --- \(u_i\), выход --- реальный выход канала \(y^{n-1}_0\)
+и подсказка свыше о предыдущих символах \(u^{i-1}_0\).
+
+Определим ФПВК для синтетических каналов:
+\begin{align*}
+    W_m^{(i)}(y^{n-1}_0, u^{i-1}_0 \mid u_i)
+    & = \frac{W_m^{(i)}(y^{n-1}_0, u^i_0)}{P \{u_i\}} \\
+\end{align*}
+
+\unfinished

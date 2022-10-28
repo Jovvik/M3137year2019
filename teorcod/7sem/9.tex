@@ -1,0 +1,235 @@
+\chapter{28 октября}
+
+\section{Циклические коды}
+
+\unfinished
+
+\begin{theorem}
+    Подмножество \(\mathcal{C} \in \faktor{\mathbb{F}[x]}{(x^n - 1)}\)
+    образует циклический код тогда и только тогда, когда:
+    \begin{enumerate}
+        \item \(\mathcal{C}\) образует группу по сложению
+        \item Если \(c(x) \in \mathcal{C}\) и \unfinished
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    \textbf{Порождающий многочлен} циклического кода
+    --- ненулевой кодовый многочлен \(g(x) \in \mathcal{C}\)
+    наименьшей степени с коэффициентом при старшем члене 1.
+\end{definition}
+
+\begin{lemma}
+    Все кодовые слова \(c(x)\) в циклическом коде делятся на \(g(x)\).
+\end{lemma}
+\begin{proof}
+    Предположим противное, т.е. \(c(x) = a(x) g(x) + r(x), r(x) \in \mathcal{C}\).
+    Но \(\deg r(x) < \deg g(x)\), что противоречит предположению о минимальности степени \(g(x)\).
+\end{proof}
+
+Порождающий многочлен циклического кода единственнен. % TODO: почему?
+
+\begin{lemma}
+    Циклический код длины \(n\) с порождающим многочленом \(g(x)\)
+    существует тогда и только тогда, когда \(g(x) \mid (x^n - 1)\)
+\end{lemma}
+\begin{proof}\itemfix
+    \begin{itemize}
+        \item [``\(\Rightarrow\)''] Пусть \(g(x)\) не делится на \((x^n - 1)\).
+        Тогда \(x^n - 1 = a(x)g(x) + r(x), \deg r < \deg g\)
+        \unfinished
+        \item [``\(\Leftarrow\)'']  В качестве порождающего многочлена можно выбрать любой делитель \(x^n - 1\).
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    Т.к. \(g(x) \mid (x^n - 1)\), то \((x^n - 1) = g(x)h(x)\).
+    \(h(x)\) называется \textbf{проверочным многочленом}.
+\end{definition}
+
+Несистематическое кодирование \unfinished
+
+\begin{definition}
+    Систематическое кодирование информационных символов
+    \(a_0 \dots a_{k-1}\) в \(c_{n-k} \dots c_{n-1}\):
+    \[c(x) = x^{n - k} a(x) - r(x)\]
+    Определим \(r(x)\) как:
+    \[r(x) \equiv x^{n - k} a(x) \mod g(x), \quad \deg r < \deg g\]
+\end{definition}
+
+Каждый метод кодирования можно представить в матричном виде,
+и каждому из них соответствует своя порождающая матрица.
+Матрицы различных методов выражаются друг через друга как \(G' = QG\),
+где \(Q\) --- некоторая обратимая матрица.
+
+Какой бы метод кодирования не использовался, корректирующая способность остается одинаковой.
+
+\section{Элементы общей алгебры}
+
+\begin{definition}
+    Поле --- \unfinished.
+\end{definition}
+
+\begin{definition}
+    Поля, содержащие конечное число элементов \(q\) называются
+    \textbf{конечными полями} или \textbf{полями Галуа} \(GF(q)\).
+\end{definition}
+
+\begin{definition}
+    Бесконечные поля называются полями \textbf{характеристики 0}.
+\end{definition}
+
+\begin{definition}
+    Поле является \textbf{областью целостности}, т.к. если допустить
+    \(\exists a, b \neq 0 : ab = 0\), то \(0 = (((ab)b^{-1})a^{-1}) = 1\).
+\end{definition}
+
+Поле \(GF(p)\), где \(p\) простое, суть арифметика по модулю \(p\).
+
+Характеристика поля --- \unfinished.
+
+\begin{definition}
+    Группа называется \textbf{циклической}, если \(\exists y \in G\) такой,
+    что любой ее элемент может быть получен как \(x = y^i\)
+    для некоторого \(i \in \N\). 
+\end{definition}
+
+\begin{definition}
+    \textbf{Порядок элемента} группы \(x \in G\) ---
+    минимальное число \(i \in \N_+\), такое что \(x^i = 1\).
+\end{definition}
+
+\begin{definition}
+    \textbf{Порядок группы} --- порядок образующего элемента группы.    
+\end{definition}
+
+\begin{theorem}[Лагранж]
+    Порядок любой конечной группы делится на порядок любой ее подгруппы.
+\end{theorem}
+
+\begin{theorem}
+    Пусть \(\mathcal{G} = (G, \cdot)\) --- конечная группа и элементы
+    \(g, h \in G\) имеют порядок \(r, s\) соответственно,
+    причем \(\gcd(r, s) = 1\). Тогда \(gh\) имеет порядок \(rs\).
+\end{theorem}
+\begin{proof}
+    Очевидно, что \((gh)^{rs} = 1\).
+    Следовательно, порядок \(p\) элемента \(gh\) --- делитель числа \(rs\).
+    Таким образом, \(p \mid rs\) и \((gh)^p = 1\),
+    следовательно, \((gh)^{pr} = 1 \cdot h^{pr} = 1\).
+    Следовательно, \(s \mid ps \Rightarrow s \mid p\). Аналогично \(r \mid p\).
+    
+    Т.к. \(\gcd(r, s) = 1\), получаем \(rs \mid p \Rightarrow p = rs\)
+\end{proof}
+
+\begin{theorem}
+    Пусть \(\mathbb{F}\) --- поле из \(q\) элементов.
+    Тогда \(q = p^m\), где \(p\) --- простое, а \(m \in \N\). 
+\end{theorem}
+\begin{proof}
+    Элемент \(1 \in \mathbb{F}\) образует аддитивную циклическую подгруппу
+    простого порядка поля \(\mathbb{F} \Rightarrow p \mid q \xRightarrow{\text{Лагранж}} GF(p) \subset \mathbb{F}\).
+    
+    Будем называть элементы \(\alpha_1 \dots \alpha_m\) линейно независимыми
+    с коэффициентами из \(GF(p)\), если:
+    \[\left\{(x_1 \dots x_m) \in GF(p^m) \mid \sum_{i = 1}^m x_i \alpha_i = 0\right\} = \{(0 \dots 0)\}\]
+    
+    Среди всех ЛНЗ подмножеств \(\mathbb{F}\) выделим подмножество
+    \(\{\alpha_1 \dots \alpha_m\} \subset \mathbb{F}\) с максимальным числом элементов, тогда:
+    \[\forall \alpha_0 \in \mathbb{F} \ \ \exists x_1 \dots x_m \in GF(p) : \alpha_0 = \sum_{i = 1}^m x_i \alpha_i\]
+    При этом различные \(x_1 \dots x_m\) приводят к различным \(\alpha_0 \in \mathbb{F} \Rightarrow |\mathbb{F}| = p^m\)
+\end{proof}
+
+\begin{itemize}
+    \item \(GF(q^m)\) образует \(m\)-мерное линейное пространство над полем \(GF(q)\)
+    \item \(GF(p^m), m > 1\) --- расширенное конечное поле, где \(m\) --- степень расширение.
+    \item \(GF(p^m) \neq \Z_{p^m}\)
+\end{itemize}
+
+\begin{theorem}
+    Ненулевые элементы \(GF(q)\) образуют конечную циклическую группу
+    по умножению.
+\end{theorem}
+\begin{proof}
+    По аксиомам поля \(\mathbb{F} \setminus \{0\}\) образует
+    конечную группу по умножению.
+    
+    Выберем в \(\mathbb{F} \setminus \{0\}\) элемент \(\alpha\),
+    называемый \textbf{примитивным}, с наибольшим порядком \(r\).
+    Пусть \(l\) --- порядок некоторого элемента \(\beta \neq 0\).
+    
+    \unfinished
+\end{proof}
+
+\begin{prop}[Конечные поля]\itemfix
+    \begin{itemize}
+        \item Для всякого ненулевого \(\beta \in GF(q)\) выполняется \(\beta^{q - 1} = 1\)
+        \item Все элементы поля \(GF(q)\) удовлетворяют уравнению \(x^q - q = 0\)
+        \item Порядок любого ненулевого \(\beta \in GF(q)\) делит \(q - 1\).
+        \item В поле характеристики \(p \geq 1\) справедливо
+        \[(x + y)^p = x^p + y^p\]
+        \[(x + y)^p = \sum_{i = 0}^p C_p^i x^i y^{p - i} \quad C_p^i = \frac{p!}{i!(p - i)!} \equiv 0 \mod p, 0 < i < p\]
+    \end{itemize}
+\end{prop}
+
+\subsection{Минимальные многочлены}
+
+\begin{definition}
+    \textbf{Минимальным многочленом} элемента \(\beta \in GF(p^m)\) над \(GF(p)\)
+    называется нормированный многочлен \(M_\beta(x) \in GF(p)[x]\)
+    наименьшей степени такой, что \(M_\beta(\beta) = 0\)
+\end{definition}
+
+\begin{theorem}
+    \(M_\beta(x)\) неприводим над \(GF(p)\).
+\end{theorem}
+\begin{proof}
+    Пусть \(M_\beta(x)\) приводим, т.е. \(M_\beta(x) = M_1(x)M_2(x)\) и \(\deg M_i < \deg M\), \unfinished
+\end{proof}
+
+\begin{theorem}
+    \unfinished
+\end{theorem}
+
+\begin{theorem}
+    \unfinished
+\end{theorem}
+
+\begin{theorem}
+    Если \(\alpha\) --- примитивный элемент \(GF(p^m)\), то степень его минимального многочлена равна \(m\).
+\end{theorem}
+\begin{proof}
+    \unfinished
+\end{proof}
+
+\begin{theorem}
+    Все конечные поля \(GF(p^m)\) изоморфны.
+\end{theorem}
+\begin{proof}
+    Пусть \(F\) и \(G\) --- поля, содержащие \(p^m\) элементов, пусть \(\alpha\)
+    --- примитивный элемент \(F\) с минимальным многочленом \(\pi(x)\).
+    \[\pi(x) \mid (x^{p^m} - x) \Rightarrow \exists \beta \in G : \pi(\beta) = 0\]
+    Тогда можно рассматривать \(F\) как множество многочленов от \(\alpha\)
+    степени не более \(m - 1\), а \(G\) --- как множество многочленов от
+    \(\beta\) степени не более \(m - 1\).
+    Тогда соответствие \(\alpha \leftrightarrow \beta\) задает изоморфизм
+    полей \(F\) и \(G\).
+\end{proof}
+
+\unfinished
+
+\subsection{Построение минимальных многочленов}
+
+\begin{theorem}
+    \[\forall \beta \in GF(p^m) \ \ M_{\beta}(x) = M_{\beta^{p}}(x)\]
+\end{theorem}
+\begin{proof}
+    \[0 = M_\beta(\beta) = \sum_{i = 0}^d M_{\beta,i}\beta^i, M_{\beta,i} \in GF(p)\]
+    \[0 = (M_\beta(\beta))^p = \sum_{i = 0}^d M_{\beta,i}^p \beta^{pi}
+    = \sum_{i = 0}^d M_{\beta,i}\beta^{pi} = M_\beta(\beta^p) \Rightarrow
+    M_{\beta^p}(x) \mid M_\beta(x)\]
+    Т.к. минимальные многочлены неприводимы, из делимости следует
+    \(M_{\beta^p}(x) = M_\beta(x)\).
+\end{proof}
+
+\unfinished

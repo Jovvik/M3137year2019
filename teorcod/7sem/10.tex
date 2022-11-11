@@ -1,0 +1,211 @@
+\chapter{11 ноября}
+
+\subsection{Идеалы}
+
+\begin{definition}
+    Подмножество \(I\) кольца \(R\) называется правым \textit{(или левым)}
+    \textbf{идеалом}, если:
+    \begin{enumerate}
+        \item \((I, \{+\})\) является подгруппой \((R, \{+\})\)
+        \item \(\forall r \in R, x \in I : xr \in I\)
+        \textit{(или \(rx \in I\)) для правого идеала}
+    \end{enumerate}
+\end{definition}
+
+\unfinished
+
+\begin{definition}
+	Область целостности, в которой все идеалы являются главными,
+    называется \textbf{кольцом главных идеалов}.
+\end{definition}
+
+\begin{definition}
+    Идеал \(I\) кольца \(R\) называется \textbf{максимальным}, если
+    \(I \neq R\) и всякий прочий идеал \(J\), содержащий \(I\), является \(I\) или \(R\).
+\end{definition}
+
+\unfinished
+
+\begin{definition}
+    Бинарное отношение \(\sim\) на группе \(G\) называется отношением
+    \textbf{конгруэнтности}, если оно является отношением эквивалентности
+    и \(\forall a,b,c \in G : (a \sim b) \Rightarrow a \cdot c \sim b \cdot c\).
+\end{definition}
+
+\unfinished
+
+Если \(R\) --- кольцо главных идеалов и \(\ev{a} \in R\),
+то соответствующее факторкольцо обозначают \(\faktor{R}{aR}\)
+
+\begin{theorem}
+    Если \(I \subset R\) является максимальным идеалом,
+    то \(\faktor{R}{I}\) является полем.
+\end{theorem}
+\begin{proof}
+    Необходимо показать, что для всякого ненулевого \(a + I \in \faktor{R}{I}\)
+    существует обратный \(b + I : (a + I)(b + I) = 1 + I\).
+    
+    Если \(a + I \neq 0\), то \(a \notin I\).
+    
+    Множество \(J = \{ax + m \mid x \in R, m \in I\}\) является идеалом,
+    т.к.:
+    \begin{enumerate}
+        \item \((ax_1 + m_1) \pm (ax_2 + m_2) = a(x_1 \pm x_2) + (m_1 \pm m_2)
+        \) и \((x_1 \pm x_2) \in R, (m_1 \pm m_2) \in I\)
+        \item \unfinished
+    \end{enumerate}
+    
+    \unfinished
+\end{proof}
+
+\begin{theorem}
+    Пусть \(R\) --- кольцо главных идеалов, \(p\) --- его неприводимый элемент.
+    Тогда факторкольцо \(\faktor{R}{pR}\) является полем.
+\end{theorem}
+\begin{proof}
+    Докажем, что \(I = \ev{p}\) является максимальным.
+    Предположим обратное, т.е. что существует идеал \(J \neq R : I \subset J\).
+    
+    Т.к. \(R\) --- кольцо главных идеалов, то \(J\) является главным идеалом
+    и \(\exists q \in R : J = \ev{q}\). \unfinished 
+\end{proof}
+
+В дальнейшем такие поля будут обозначаться просто \(\faktor{R}{p}\)
+
+\begin{example}\itemfix
+    \begin{itemize}
+        \item \(GF(2) = \faktor{\Z}{2}\)
+        \item Пусть \(p\) --- простое число. \(\Z\) --- кольцо главных идеалов,
+        следовательно, \(\faktor{\Z}{p}\) является полем
+        и кроме того, это \(GF(p)\).
+        \item Многочлен \(x^2 + 1\) неприводим над \(\R\), \(\R[x]\) --- кольцо
+        главных идеалов, следовательно, \(\faktor{\R[x]}{\ev{x^2 + 1}}\)
+        \unfinished
+    \end{itemize}
+\end{example}
+
+\unfinished
+
+Если мы хотим построить циклический код длины \(n\), то
+нам нужен \(g(x) : g(x) \mid (x^n - 1) \Rightarrow \prod_{i \in J} f_i(x),
+J \subset \{0 \dots l - 1\}\).
+Если все \(f_i(x)\) различны,
+то есть \(2^l - 2\) нетривиальных циклических кода.
+
+Циклические коды над \(GF(q)\) длины \(n = q^m - 1\) называются примитивными.
+
+\begin{theorem}
+    Пусть \(\beta_1 \dots \beta_r \in GF(q^m)\) --- корни порождающего
+    многочлена \(g(x)\) примитивного циклического кода \(\mathcal{C}\)
+    длины \(n\) над полем \(GF(q)\).
+    
+    Многочлен \(c(x) \in GF(q)[x]\) является кодовым тогда и только тогда,
+    когда \(c(\beta_1) = \dots = c(\beta_r) = 0\).
+\end{theorem}
+\begin{proof}
+    \unfinished
+\end{proof}
+
+\unfinished % проверочная матрица
+
+\begin{example}
+    Рассмотрим поле \(GF(2^3)\). В нем есть элементы \(0, 1, \alpha\)
+    и следующие элементы:
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{RC}
+            1 & \alpha^0 \\
+            \alpha & \alpha^1 \\
+            \alpha^2 & \alpha^2 \\
+            \alpha + 1 & \alpha^3 \\
+            \alpha^2 + \alpha & \alpha^4 \\
+            \alpha^2 + \alpha + 1 & \alpha^5 \\
+            \alpha^2 + 1 & \alpha^6 \\
+            1 & \alpha^7
+        \end{tabular}
+    \end{table}
+    
+    Рассмотрим многочлен \(g(x) = x^3 + x + 1\) и его корни:
+    \(0, \alpha^2, \alpha^4\).
+    
+    Тогда проверочная матрица над \(GF(2^3)\) это:
+    \[H = \begin{pmatrix}
+        1 & \alpha & \alpha^2 & \alpha + 1 & \alpha^2 + \alpha & \alpha^2 + \alpha + 1 & \alpha^2 + 1 \\
+        1 & \alpha^2 & \alpha^2 + \alpha & \alpha^2 + 1 & \alpha & \alpha + 1 & \alpha^2 + \alpha + 1 \\
+        1 & \alpha^2 + \alpha & \alpha & \alpha^2 + \alpha + 1 & \alpha^2 + \alpha^2 + 1 & \alpha^2 + 1 & \alpha + 1
+    \end{pmatrix}\]
+    
+    \unfinished
+\end{example}
+
+\section{Коды Боуза-Чоудхури-Хоквингема}
+
+\begin{definition}
+    Кодом \textbf{БЧХ} над \(GF(q)\) длины \(n\) с конструктивным расстоянием 
+    \(\delta\) называется циклический код наибольшей возможной размерности,
+    порождающий многочлен которого имеет корни \(a^b \dots a^{b + \delta - 2}\),
+    где \(\alpha \in GF(q^m)\) --- примитивный корень степени \(n\) из 1.
+\end{definition}
+
+\begin{remark}\itemfix
+    \begin{itemize}
+        \item По теореме Лагранжа \(n \mid (q^m - 1)\).
+        Если невозможно подобрать такое \(m\), то кода БЧХ не существует.
+        \item Если \(n = q^m - 1\), то код БЧХ называется примитивным.
+        \item Если \(b = 1\), то это код БЧХ в узком смысле.
+        \item Если \(m = 1\), то это код Рида-Соломона.
+    \end{itemize}
+\end{remark}
+
+\begin{definition}
+    Если порождающий многочлен циклического кода длины \(n\)
+    над \(GF(q)\) имеет корни \(\alpha^b \dots \alpha^{b + \delta - 2}\),
+    где \(\alpha \in GF(q^m)\) --- примитивный корень степени \(n\) из 1,
+    то минимальное расстояние этого кода \(d \geq \delta\).
+\end{definition}
+\begin{proof}
+    \unfinished
+\end{proof}
+
+\unfinished
+
+Как правило, используют коды БЧХ в узком смысле,
+но иногда коды БЧХ в широком смысле позволяют выиграть в размерности.
+
+До недавнего времени использовались в основном коды БЧХ,
+только недавно его стал вытеснять код LDPC, но внезапно оказалось,
+что на достаточно высоких скоростях его не успевают декодировать.
+
+\subsection{Коды Рида-Соломона}
+
+\begin{definition}
+    Код Рида-Соломона --- код БЧХ длины \(q - 1\) над \(GF(q)\).
+\end{definition}
+
+Минимальный многочлен \(\beta \in GF(q)\) над \(GF(q)\) это
+\(M_\beta(x) = x - \beta\).
+
+Порождающий многочлен кода Рида-Соломона имеет вид
+\(g(x) = \prod_{i = 0}^{\delta - 2} (x - \alpha^{b + i})\).
+
+Размерность: \(k = n - \delta + 1\)
+
+Минимальное расстояние по теореме \(d \geq \delta\).
+С другой стороны, граница Синглтона:
+\(d \leq n - k + 1 = \delta \Rightarrow d = n - k + 1\).
+Таким образом, код Рида-Соломона имеет максимальное достижимое расстояние.
+
+\subsection{Декодирование кодов БЧХ}
+
+Рассмотрим исправление ошибок в векторе \(y = c + e\),
+\(y(x) = a(x)g(x) + e(x)\).
+
+Синдром: \(S_i = y(\alpha^{b + i})
+= a(\alpha^{b + i})g(\alpha^{b + i}) + e(\alpha^{b + i}) = e(\alpha^{b + i}),
+0 \leq i < \delta - 1\).
+
+Пусть ошибки произошли в неизвестных нам позициях \(j_1 \dots j_t,
+t \leq \floor{(\delta - 1) / 2}\) 
+
+\unfinished

@@ -1,0 +1,114 @@
+\chapter{18 ноября}
+
+\unfinished
+
+\begin{theorem}
+    \[E_i = \frac{X_i^{ -b} \Gamma(X_i^{-1})}{\prod_{j\neq i} (1 - X_j X_i^{-1})}, \quad 0 \leq i < t\]
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        \frac{X_i^{ -b} \Gamma(X_i^{-1})}{\prod_{j\neq i} (1 - X_j X_i^{-1})}
+        & = \frac{X_i^{ -b} \sum_{l = 1}^t E_l X_l^b \prod_{j \neq l} (1 - X_jX_i^{-1})}{\prod_{j\neq i} (1 - X_j X_i^{-1})} \\
+        & = \frac{E_i \prod_{j \neq l} (1 - X_jX_i^{-1})}{\prod_{j\neq i} (1 - X_j X_i^{-1})} \\
+        & = E_i 
+    \end{align*}
+\end{proof}
+
+\unfinished
+
+\subsection{Расширенный алгоритм Евклида}
+
+\unfinished
+
+Пусть
+\[U_j(x) = \prod_{i = 0}^j \mqty(-q_i(x),1\\1,0)
+= U_{j-1} \underbrace{\mqty(-q_j(x),1\\1,0)}_{Q_j(x)}
+= \begin{pmatrix}
+    u_{j,0}(x) & u_{j -1,0}(x) \\
+    u_{j,1}(x) & u_{j -1,1}(x)
+\end{pmatrix}
+, \quad U_{ - 1}(x) = \mqty(\imat{2})\]
+
+\[\mqty(r_0(x),r_{ -1}(x)) \begin{pmatrix}
+    u_{j,0}(x) & u_{j -1,0}(x) \\
+    u_{j,1}(x) & u_{j -1,1}(x)
+\end{pmatrix} = \mqty(r_{j+1}(x),r_j(x))\]
+
+Свойства алгоритма:
+\unfinished
+
+\subsection{Алгоритм Сугиямы}
+
+Пусть \(\delta = 2\tau + 1\).
+\begin{enumerate}
+    \item Пусть \(r_{ - 1}(x) = x^{2\tau}, r_0(x) = S(x)\)
+    \item Выполнять \(r_{i-1}(x) = q_i(x)r_i(x) + r_{i+1}(x)\), пока не получится \(\deg r_i(x) \geq \tau, \deg r_{i+1}(x) < \tau\).
+    \item \(\Gamma(x) = r_{i+1}(x), \Lambda(x) = u_{i,0}(x)\)
+\end{enumerate}
+Корректность алгоритма:
+\begin{itemize}
+    \item Алгоритм конечен, т.к. степени \(r_i(x)\) монотонно убывают с каждым
+    шагом алгоритма. Т.к. каждый шаг понижает степень хотя бы на 1, то алгоритм
+    имеет сложность \(\mathcal{O}(n)\).
+    \item \(\Gamma(x) = r_{i+1}(x) = r_0(x)u_{i,0}(x) + r_{-1}u_{i,1}(x)
+    = S(x)\Lambda(x) + x^{2\tau} u_{i,1}(x) \equiv S(x)\Lambda(x) \mod x^{2\tau}\).
+    \item \(\deg u_{i,0}(x) = \deg r_{ - 1}(x) - \deg r_i(x)
+    \leq 2\tau - \tau = \tau\). 
+    \item Пусть у нас есть некоторое альтернативное решение \unfinished
+\end{itemize}
+
+\subsection{Сложность декодирования кодов БЧХ и Рида-Соломона}
+
+\begin{enumerate}
+    \item Вычисление синдрома:
+\begin{itemize}
+    \item Схема Горнера: \(S_i = y(\alpha^{b + i}) = y_0 + \alpha^{b + i}(y_1 +
+    \alpha^{b + i}(y_2 + \dots))\), сложность --- \(\mathcal{O}(n\delta)\)
+    операций.
+    \item Метод Герцеля: \(r_i(x) \equiv y(x) \mod M_{\alpha^i}(x), \quad
+    S_i = r_i(\alpha^i), \alpha \in GF(p^m)\), где \(M_{\alpha^i}(x) \in
+    GF(p)[x]\) --- минимальный многочлен \(\alpha^i\).
+    Деление на него использует только сложения,
+    при этом минимальные многочлены многих \(\alpha^i\) совпадают. 
+\end{itemize}
+\begin{remark}
+    Это не единственное упрощение, но у нас нет времени на остальные.
+\end{remark}
+    \item Решение ключевого уравнения \(\Gamma(x) \equiv S(x) \Lambda(x) \mod
+    x^{\delta - 1}\). Расширенный алгоритм Евклида это делает за
+    \(\mathcal{O}(\delta^2)\) операций.
+    \item Поиск корней \(X_i^{-1}\) многочлена локаторов ошибок \(\Lambda(x)\)
+    выполняется процедурой Ченя, т.е. перебором \(\alpha^i, 0 \leq i < n\)
+    и проверкой \(\Lambda(\alpha^i) = 0\), за \(\mathcal{O}(n\delta / 2)\).
+    Это можно делать асимптотически быстрее как факторизацию многочлена,
+    но так не делают из-за большой константы.
+    В реальности используют быстрое преобразование Фурье, т.к. \unfinished.
+    \item Поиск значений ошибок выполняется методом Форни со сложностью
+    \(\mathcal{O}(\delta^2)\).
+\end{enumerate}
+
+\subsection{Синтез регистров сдвига с линейной обратной связью}
+
+\begin{definition}
+    \textbf{РСЛОС} --- регистр, в котором новое значение порождается по формуле
+    \[ - S_{j + t} = \Lambda_1 S_{j + t - 1} + \dots + \Lambda_t S_j\]
+    , \(\Lambda_i\) --- константы, значение с наименьшим индексом выбрасывается.
+\end{definition}
+
+\unfinished
+
+\begin{lemma}
+    Пусть фильтры \((L_{n-1}, \Lambda^{(n - 1)}(x))\)
+    и \((L_n, \Lambda^{(n)}(x))\) порождают последовательности
+    \(S_0^{n - 2}\) и \(S_0^{n - 1}\) соответственно,
+    причем \((L_{n-1}, \Lambda^{(n - 1)}(x))\) не порождает
+    \(S_0^{n - 1}\), и величины \(L_{n-1}\) и \(L_n\) являются
+    наименьшими возможными.
+    
+    Тогда \(L_n \geq \max(L_{n-1}, n - L_{n-1})\).
+\end{lemma}
+\begin{proof}
+    \unfinished
+\end{proof}
+
+\unfinished

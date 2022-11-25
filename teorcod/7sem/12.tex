@@ -1,0 +1,151 @@
+\chapter{25 ноября}
+
+\unfinished
+
+\subsection{QR--коды}
+
+\begin{definition}
+    Число \(y\) называется \textbf{квадратичным вычетом
+    \textit{(quadratic residue)}} по модулю \(n\), если существует число \(x\)
+    такое, что \(y = x^2 \mod n\).
+\end{definition}
+
+\begin{prop}\itemfix
+    \begin{itemize}
+        \item \((n - x)^2 \equiv x^2 \mod n \Rightarrow\)
+        \(1^2, 2^2 \dots ((n - 1) / 2)^2\) являются  \unfinished
+        \item \unfinished
+    \end{itemize}
+\end{prop}
+
+Это не те QR--коды, про которые вы подумали, черно-белые квадраты
+это Quick Response code, где используется код Рида-Соломона.
+
+В Blu-Ray дисках данные кодируются так называемым \textbf{пикетным}
+кодом. \unfinished.
+Оптические диски имеют свойство повреждаться, при этом повреждения
+состоят из большого числа последовательных ошибок.
+Пикетный код состоит из двух кодов --- один кодирует данные, другой
+служебные данные. \unfinished
+
+CRC \textit{(Cyclic Redundancy Check)} --- циклический код. 
+Контрольная сумма, т.е. многочлен проверочных символов \(r(x)\)
+для многочлена данных \(a(x)\) вычисляется с помощью формулы
+систематического кодирования \(r(x) \equiv x^{N - K} a(x) \mod g(x),
+\deg a(x) \leq K - 1\).
+\unfinished.
+
+Выводы:
+\begin{itemize}
+    \item Циклические коды допускают более компактное задание по сравнению
+    с линейными блоковыми кодами.
+    \item Коды БЧХ можно строить с заданным минимальным расстоянием.
+    \item Коды Рида-Соломона --- коды БЧХ на границе Синглтона.
+    \item Существуют алгоритмы декодирования кодов БЧХ с исправлением
+    \(\floor{(\delta - 1) / 2}\) ошибок со сложностью
+    \(\mathcal{O}(n\delta + \delta^2)\).
+    \item \unfinished
+\end{itemize}
+
+\section{Альтернантные коды и криптосистема Мак-Элиса}
+
+\begin{theorem}
+    Если \(c = (c_0 \dots c_{n-1})\) --- кодовое слово кода Рида-Соломона
+    над \(GF(q)\) в узком смысле тогда и только тогда, когда
+    \(c_i = f(\alpha^i), 0 \leq i < n\),
+    т.е. \(c = \operatorname{ev}\footnote{Evaluate.}(f)\),
+    где \(\deg f(x) < k, f(x) \in GF(q)[x]\). 
+\end{theorem}
+\begin{proof}
+    \[\alpha^n \defeq 1 \Rightarrow 0 = \alpha^{in} - 1 =
+    (\alpha^i - 1)\sum_{j = 0}^{n-1} \alpha^{ij}, \quad 0 < i < n\]
+    Т.к. по определению БЧХ \(\alpha^i \neq 1\),
+    то \(\sum_{j = 0}^{n-1} \alpha^{ij} = 0\).
+    
+    \(c\) --- кодовое слово тогда и только тогда, когда \(cH\tran = 0\), т.е.
+    \(\sum_{i = 0}^{n-1} c_i\alpha^{ij} = 0, 1 \leq j \leq n - k\).
+    \begin{align*}
+        \sum_{i = 0}^{n-1} f(\alpha^i) \alpha^{ij}
+        & = \sum_{i = 0}^{n-1} \left(\sum_{t = 0}^{k-1} f_t\alpha^{it}\right) \alpha^{ij} \\
+        & = \sum_{t = 0}^{k-1} f_t \underbrace{\sum_{i = 0}^{n-1} \alpha^{i(j + t)}}_{0} \\
+        & = 0
+    \end{align*}
+    \unfinished
+\end{proof}
+
+Из этого результата можно получить альтернативное определение кода
+Рида-Соломона:
+\begin{definition}
+    \((n,k,n -k + 1)\) кодом \textbf{Рида-Соломона} называется
+    множество векторов \(c = (c_0 \dots c_{n-1})\), где
+    \(c_i = f(\alpha^i), \deg f(x) < k, f(x) \in GF(q)[x], \alpha^i \in GF(q)\)
+    --- различные значения, называемые \textbf{локаторами}.
+\end{definition}
+
+\unfinished
+
+\begin{definition}[обобщенные коды Рида-Соломона]
+    \unfinished
+\end{definition}
+
+\begin{definition}
+    \textbf{Алтернантным кодом} длины \(n\) над полем \(GF(q)\) называется
+    код \(\mathcal{A}(n,r,a,u)\) с проверочной матрицей
+    \[H = \begin{pmatrix}
+        \alpha_0^0 & \alpha_1^0 & \dots & \alpha_{n-1}^0 \\
+        \alpha_0^1 & \alpha_1^1 & \dots & \alpha_{n-1}^1 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \alpha_0^{n-1} & \alpha_1^{n-1} & \dots & \alpha_{n-1}^{n-1}
+    \end{pmatrix}\operatorname{diag}(u_0\dots u_{n-1})\]
+    , где \(\alpha_i \in GF(q^m)\) --- различные элементы и
+    \(u_i \in GF(q^m) \setminus \{0\}\).
+\end{definition}
+
+\begin{itemize}
+    \item \unfinished
+\end{itemize}
+
+\begin{theorem}
+    Пусть \(m \mid (n - h)\).
+    Существует альтернантный \((n,k \geq h,d \geq \delta)\) код над \(GF(q)\)
+    такой, что
+    \[\sum_{i = 1}^{\delta - 1}(q -1)^i \binom{i}{n} < (q^m - 1)^{(n - h) / m}\]
+\end{theorem}
+\begin{proof}
+    Пусть вектор локаторов фиксирован.
+    
+    Рассмотрим вектор без элементов--нулей
+    \(y \in GF(q)^n \setminus \{0\}\).
+    Оценим число обобщенных кодов Рида--Соломона, содержащих этот вектор, т.е.
+    \(|\{GRS(n,k',a,v) \mid y \in GRS(n,k',a,v)\}|\).
+    
+    \unfinished
+\end{proof}
+
+\unfinished
+
+\subsection{Криптосистема Мак--Элиса}
+
+Пусть дана порождающая матрица \(G\) кода, для которого известен
+эффективный алгоритм исправления \(t\) ошибок.
+
+Будем использовать как секретный ключ \unfinished,
+а как открытый ключ пару \(\Gamma = QGP, t\).
+Сообщение \(x\) шифруется как \(y = x\Gamma + e\), где \(e\) --- случайный
+вектор веса не более \(t\).
+
+Дешифрование \(y\) происходит следующим образом:
+\(y' = yP^{-1} = xQG + eP^{-1} = xQG + e^t\).
+Вектор \(e'\) можно найти из \(y' - e' = (xQ \mid xQA)\).
+
+Поиск секретного ключа по открытому --- задача эквивалентности кодов,
+которая просто решается для кодов Рида-Соломона, но не для кодов Гоппы.
+
+Восстановление сообщения по криптограмме --- задача исправления декодирования
+линейного кода.
+
+Недостаток: большой размер открытого ключа: \( \approx 512\) Кбит.
+
+\subsection{Криптосистема Нидеррайтера}
+
+\unfinished

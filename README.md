@@ -18,6 +18,7 @@
 - [3](https://github.com/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/3.pdf)
 - [4 (моя задача)](teorcod/7sem/practice/4.ipynb)
 - [5 (моя задача)](teorcod/7sem/practice/5.ipynb)
+- [12](teorcod/7sem/practice/12.ipynb)
 
 ## 6 семестр
 

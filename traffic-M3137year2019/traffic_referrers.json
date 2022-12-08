@@ -6,7 +6,12 @@
   },
   {
     "referrer": "Google",
-    "count": 15,
-    "uniques": 4
+    "count": 23,
+    "uniques": 6
+  },
+  {
+    "referrer": "away.vk.com",
+    "count": 13,
+    "uniques": 2
   }
 ]

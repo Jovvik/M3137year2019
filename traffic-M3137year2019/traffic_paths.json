@@ -2,42 +2,42 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 82,
-    "uniques": 36
+    "count": 72,
+    "uniques": 28
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 33,
-    "uniques": 18
+    "count": 36,
+    "uniques": 19
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
     "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 20,
+    "count": 21,
     "uniques": 11
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
-    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 18,
-    "uniques": 13
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 17,
-    "uniques": 13
+    "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 20,
+    "uniques": 15
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 11,
+    "count": 12,
     "uniques": 8
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "Jovvik/M3137year2019 at pdfs",
+    "count": 12,
+    "uniques": 8
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
+    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 11,
     "uniques": 6
   },
@@ -54,9 +54,9 @@
     "uniques": 5
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
-    "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 9,
-    "uniques": 4
+    "path": "/Jovvik/M3137year2019/tree/pdfs/linear%20algebra",
+    "title": "M3137year2019/linear algebra at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 8,
+    "uniques": 6
   }
 ]

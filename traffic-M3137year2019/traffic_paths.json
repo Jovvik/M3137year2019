@@ -2,61 +2,61 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 122,
-    "uniques": 58
+    "count": 115,
+    "uniques": 56
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/4.pdf",
     "title": "M3137year2019/4.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 77,
-    "uniques": 25
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/3.pdf",
-    "title": "M3137year2019/3.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 55,
-    "uniques": 20
+    "count": 72,
+    "uniques": 23
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/matlog/4sem/practice",
     "title": "M3137year2019/matlog/4sem/practice at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 55,
-    "uniques": 18
+    "count": 51,
+    "uniques": 17
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 49,
-    "uniques": 23
+    "count": 44,
+    "uniques": 21
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/3.pdf",
+    "title": "M3137year2019/3.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 44,
+    "uniques": 16
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "Jovvik/M3137year2019 at pdfs",
-    "count": 32,
-    "uniques": 16
+    "count": 33,
+    "uniques": 17
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 29,
-    "uniques": 14
+    "count": 27,
+    "uniques": 13
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/optimization%20methods/4sem",
+    "title": "M3137year2019/optimization methods/4sem at master · Jovvik/M3137year2019",
+    "count": 25,
+    "uniques": 10
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/probability%20theory/4sem",
     "title": "M3137year2019/probability theory/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 27,
-    "uniques": 16
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/optimization%20methods/4sem",
-    "title": "M3137year2019/optimization methods/4sem at master · Jovvik/M3137year2019 · Gi...",
-    "count": 26,
-    "uniques": 11
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
-    "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019 · GitHub",
-    "count": 23,
+    "count": 24,
     "uniques": 13
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/matlog/4sem",
+    "title": "M3137year2019/matlog/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 23,
+    "uniques": 12
   }
 ]

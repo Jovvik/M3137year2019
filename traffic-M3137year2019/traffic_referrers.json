@@ -1,12 +1,12 @@
 [
   {
     "referrer": "github.com",
-    "count": 133,
-    "uniques": 23
+    "count": 113,
+    "uniques": 22
   },
   {
     "referrer": "Google",
-    "count": 34,
+    "count": 36,
     "uniques": 11
   },
   {
@@ -16,7 +16,7 @@
   },
   {
     "referrer": "web.telegram.org",
-    "count": 7,
-    "uniques": 2
+    "count": 6,
+    "uniques": 1
   }
 ]

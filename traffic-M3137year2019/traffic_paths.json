@@ -2,38 +2,26 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 49,
-    "uniques": 25
+    "count": 51,
+    "uniques": 27
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
     "title": "M3137year2019/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 46,
-    "uniques": 16
+    "count": 39,
+    "uniques": 15
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019...",
-    "count": 24,
-    "uniques": 10
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 19,
-    "uniques": 6
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/analysis/2sem",
-    "title": "M3137year2019/analysis/2sem at master · Jovvik/M3137year2019 · GitHub",
-    "count": 18,
-    "uniques": 5
+    "count": 26,
+    "uniques": 12
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/final.pdf",
     "title": "M3137year2019/probability theory/4sem/final.pdf at pdfs · Jovvik/M3137year201...",
-    "count": 17,
-    "uniques": 8
+    "count": 23,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
@@ -42,10 +30,16 @@
     "uniques": 4
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
-    "title": "M3137year2019/matlog/4sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 14,
-    "uniques": 3
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 16,
+    "uniques": 4
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/optimization%20methods/4sem",
+    "title": "M3137year2019/optimization methods/4sem at master · Jovvik/M3137year2019 · Gi...",
+    "count": 15,
+    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
@@ -54,9 +48,15 @@
     "uniques": 4
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/analysis/2sem/final.tex",
-    "title": "M3137year2019/final.tex at master · Jovvik/M3137year2019 · GitHub",
+    "path": "/Jovvik/M3137year2019/tree/master/analysis/2sem",
+    "title": "M3137year2019/analysis/2sem at master · Jovvik/M3137year2019 · GitHub",
+    "count": 13,
+    "uniques": 4
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
+    "title": "M3137year2019/matlog/4sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 12,
-    "uniques": 3
+    "uniques": 2
   }
 ]

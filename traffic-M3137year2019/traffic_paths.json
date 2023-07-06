@@ -2,13 +2,13 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 23,
-    "uniques": 17
+    "count": 20,
+    "uniques": 14
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/optimization%20methods/4sem",
-    "title": "M3137year2019/optimization methods/4sem at master · Jovvik/M3137year2019 · Gi...",
-    "count": 21,
+    "path": "/Jovvik/M3137year2019/blob/master/analysis/4sem/4.tex",
+    "title": "M3137year2019/analysis/4sem/4.tex at master · Jovvik/M3137year2019 · GitHub",
+    "count": 14,
     "uniques": 1
   },
   {
@@ -18,10 +18,16 @@
     "uniques": 4
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/optimization%20methods/4sem/1.tex",
-    "title": "M3137year2019/optimization methods/4sem/1.tex at master · Jovvik/M3137year201...",
-    "count": 11,
+    "path": "/Jovvik/M3137year2019/blob/master/analysis/4sem/5.tex",
+    "title": "M3137year2019/analysis/4sem/5.tex at master · Jovvik/M3137year2019 · GitHub",
+    "count": 12,
     "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "Jovvik/M3137year2019 at pdfs",
+    "count": 11,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/4sem",
@@ -30,8 +36,8 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/main_preamble.sty",
-    "title": "M3137year2019/main_preamble.sty at master · Jovvik/M3137year2019 · GitHub",
+    "path": "/Jovvik/M3137year2019/blob/master/analysis/4sem/6.tex",
+    "title": "M3137year2019/analysis/4sem/6.tex at master · Jovvik/M3137year2019 · GitHub",
     "count": 10,
     "uniques": 1
   },
@@ -42,21 +48,15 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/optimization%20methods/4sem/9.tex",
-    "title": "M3137year2019/optimization methods/4sem/9.tex at master · Jovvik/M3137year201...",
-    "count": 8,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/optimization%20methods",
-    "title": "M3137year2019/optimization methods at master · Jovvik/M3137year2019 · GitHub",
-    "count": 8,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
     "title": "M3137year2019/analysis/2sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 7,
     "uniques": 6
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/4635ceeb06057f92f8b85824d88f100f039b55c1/analysis/4sem/4.tex",
+    "title": "M3137year2019/analysis/4sem/4.tex at 4635ceeb06057f92f8b85824d88f100f039b55c1...",
+    "count": 7,
+    "uniques": 1
   }
 ]

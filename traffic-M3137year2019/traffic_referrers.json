@@ -1,17 +1,17 @@
 [
   {
     "referrer": "github.com",
-    "count": 58,
+    "count": 65,
     "uniques": 5
-  },
-  {
-    "referrer": "Google",
-    "count": 32,
-    "uniques": 8
   },
   {
     "referrer": "yandex.ru",
     "count": 25,
     "uniques": 2
+  },
+  {
+    "referrer": "Google",
+    "count": 19,
+    "uniques": 5
   }
 ]

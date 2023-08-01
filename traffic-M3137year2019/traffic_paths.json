@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 15,
-    "uniques": 12
+    "count": 9,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
@@ -18,27 +18,9 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
-    "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019",
-    "count": 6,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
-    "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019...",
-    "count": 4,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
     "title": "M3137year2019/linear algebra/1sem/main.pdf at pdfs · Jovvik/M3137year2019 · G...",
     "count": 4,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/matlog/4sem/main.tex",
-    "title": "M3137year2019/matlog/4sem/main.tex at master · Jovvik/M3137year2019",
-    "count": 3,
     "uniques": 1
   },
   {
@@ -48,14 +30,32 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/linear%20algebra/1sem/main.tex",
-    "title": "M3137year2019/linear algebra/1sem/main.tex at master · Jovvik/M3137year2019 ·...",
+    "path": "/Jovvik/M3137year2019/blob/master/teorcod/7sem/practice/4.ipynb",
+    "title": "M3137year2019/teorcod/7sem/practice/4.ipynb at master · Jovvik/M3137year2019 ...",
     "count": 2,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/matlog/4sem/2.tex",
-    "title": "M3137year2019/matlog/4sem/2.tex at master · Jovvik/M3137year2019",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/9.pdf",
+    "title": "M3137year2019/analysis/2sem/9.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
+    "title": "M3137year2019/matlog/4sem/main.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/final.pdf",
+    "title": "M3137year2019/probability theory/4sem/final.pdf at pdfs · Jovvik/M3137year201...",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
+    "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019...",
     "count": 2,
     "uniques": 1
   }

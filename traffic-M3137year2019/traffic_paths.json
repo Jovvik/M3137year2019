@@ -2,37 +2,37 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 88,
-    "uniques": 54
+    "count": 93,
+    "uniques": 57
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
     "title": "M3137year2019/discrete/1.md at master · Jovvik/M3137year2019 · GitHub",
-    "count": 62,
+    "count": 64,
     "uniques": 16
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/2sem",
     "title": "M3137year2019/analysis/2sem at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 54,
-    "uniques": 10
+    "count": 56,
+    "uniques": 11
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/2.pdf",
-    "title": "M3137year2019/matlog/4sem/practice/2.pdf at pdfs · Jovvik/M3137year2019 · Git...",
-    "count": 44,
+    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
+    "title": "M3137year2019/statistics/5sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 38,
+    "uniques": 11
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem",
+    "title": "M3137year2019/statistics/5sem at master · Jovvik/M3137year2019",
+    "count": 31,
     "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/4sem",
     "title": "M3137year2019/analysis/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 29,
-    "uniques": 8
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
-    "title": "M3137year2019/statistics/5sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 28,
     "uniques": 8
   },
   {
@@ -54,9 +54,9 @@
     "uniques": 7
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/discrete",
-    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
-    "count": 24,
-    "uniques": 5
+    "path": "/Jovvik/M3137year2019/tree/pdfs/statistics/5sem",
+    "title": "M3137year2019/statistics/5sem at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 23,
+    "uniques": 8
   }
 ]

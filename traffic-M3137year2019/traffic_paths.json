@@ -3,7 +3,7 @@
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
     "count": 79,
-    "uniques": 57
+    "uniques": 56
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
@@ -18,6 +18,24 @@
     "uniques": 7
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/4.pdf",
+    "title": "M3137year2019/matlog/4sem/practice/4.pdf at pdfs · Jovvik/M3137year2019 · Git...",
+    "count": 32,
+    "uniques": 6
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
+    "title": "M3137year2019/matlog/4sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 30,
+    "uniques": 5
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/matlog/4sem/practice",
+    "title": "M3137year2019/matlog/4sem/practice at pdfs · Jovvik/M3137year2019",
+    "count": 24,
+    "uniques": 4
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/opros.pdf",
     "title": "M3137year2019/analysis/1sem/opros.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 23,
@@ -26,32 +44,14 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/2.pdf",
     "title": "M3137year2019/matlog/4sem/practice/2.pdf at pdfs · Jovvik/M3137year2019 · Git...",
-    "count": 21,
+    "count": 23,
     "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
-    "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 20,
-    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
     "title": "M3137year2019/linear algebra/1sem/main.pdf at pdfs · Jovvik/M3137year2019",
     "count": 20,
     "uniques": 7
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
-    "title": "M3137year2019/matlog/4sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 20,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/4.pdf",
-    "title": "M3137year2019/matlog/4sem/practice/4.pdf at pdfs · Jovvik/M3137year2019 · Git...",
-    "count": 20,
-    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/2sem",

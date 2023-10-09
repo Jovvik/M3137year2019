@@ -6,17 +6,12 @@
   },
   {
     "referrer": "Google",
-    "count": 82,
-    "uniques": 13
+    "count": 56,
+    "uniques": 11
   },
   {
     "referrer": "yandex.ru",
     "count": 2,
     "uniques": 2
-  },
-  {
-    "referrer": "web.telegram.org",
-    "count": 1,
-    "uniques": 1
   }
 ]

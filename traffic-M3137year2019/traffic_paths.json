@@ -2,32 +2,32 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 58,
-    "uniques": 36
+    "count": 60,
+    "uniques": 39
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
     "title": "M3137year2019/analysis/1sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 32,
-    "uniques": 11
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
-    "title": "M3137year2019/linear algebra/1sem/main.pdf at pdfs · Jovvik/M3137year2019 · G...",
-    "count": 30,
-    "uniques": 9
+    "count": 39,
+    "uniques": 13
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/opros.pdf",
     "title": "M3137year2019/analysis/1sem/opros.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 28,
+    "count": 34,
+    "uniques": 12
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
+    "title": "M3137year2019/linear algebra/1sem/main.pdf at pdfs · Jovvik/M3137year2019 · G...",
+    "count": 32,
     "uniques": 10
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
     "title": "M3137year2019/statistics/5sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 17,
-    "uniques": 6
+    "count": 25,
+    "uniques": 7
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/4.pdf",
@@ -38,8 +38,14 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/2sem/final.pdf",
     "title": "M3137year2019/linear algebra/2sem/final.pdf at pdfs · Jovvik/M3137year2019 · ...",
-    "count": 11,
-    "uniques": 3
+    "count": 13,
+    "uniques": 4
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/1sem",
+    "title": "M3137year2019/analysis/1sem at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 12,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/3.pdf",
@@ -52,11 +58,5 @@
     "title": "Jovvik/M3137year2019 at pdfs",
     "count": 10,
     "uniques": 6
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
-    "title": "M3137year2019/analysis/3sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 10,
-    "uniques": 4
   }
 ]

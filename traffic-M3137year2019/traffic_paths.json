@@ -2,26 +2,20 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 45,
-    "uniques": 30
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem",
-    "title": "M3137year2019/statistics/5sem at master · Jovvik/M3137year2019 · GitHub",
-    "count": 43,
-    "uniques": 8
+    "count": 47,
+    "uniques": 32
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
     "title": "M3137year2019/statistics/5sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 37,
-    "uniques": 8
+    "count": 45,
+    "uniques": 12
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
-    "title": "M3137year2019/analysis/3sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 33,
-    "uniques": 7
+    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem",
+    "title": "M3137year2019/statistics/5sem at master · Jovvik/M3137year2019 · GitHub",
+    "count": 45,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/statistics/5sem",
@@ -32,14 +26,14 @@
   {
     "path": "/Jovvik/M3137year2019/blob/master/statistics/5sem/5.tex",
     "title": "M3137year2019/statistics/5sem/5.tex at master · Jovvik/M3137year2019",
-    "count": 21,
+    "count": 23,
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/teorcod/7sem",
-    "title": "M3137year2019/teorcod/7sem at master · Jovvik/M3137year2019",
-    "count": 16,
-    "uniques": 1
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
+    "title": "M3137year2019/analysis/3sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 17,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/final.pdf",
@@ -50,13 +44,19 @@
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "Jovvik/M3137year2019 at pdfs",
-    "count": 11,
-    "uniques": 7
+    "count": 12,
+    "uniques": 8
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/statistics/5sem/8.tex",
-    "title": "M3137year2019/statistics/5sem/8.tex at master · Jovvik/M3137year2019",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
+    "title": "M3137year2019/linear algebra/1sem/main.pdf at pdfs · Jovvik/M3137year2019 · G...",
     "count": 11,
-    "uniques": 2
+    "uniques": 5
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master",
+    "title": "M3137year2019/ at master · Jovvik/M3137year2019",
+    "count": 11,
+    "uniques": 4
   }
 ]

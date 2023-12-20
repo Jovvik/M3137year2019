@@ -1,8 +1,8 @@
 [
   {
     "referrer": "github.com",
-    "count": 84,
-    "uniques": 13
+    "count": 66,
+    "uniques": 12
   },
   {
     "referrer": "web.telegram.org",
@@ -11,7 +11,7 @@
   },
   {
     "referrer": "Google",
-    "count": 6,
-    "uniques": 2
+    "count": 7,
+    "uniques": 3
   }
 ]

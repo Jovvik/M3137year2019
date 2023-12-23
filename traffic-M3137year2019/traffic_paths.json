@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 28,
-    "uniques": 21
+    "count": 31,
+    "uniques": 22
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete",
@@ -12,9 +12,9 @@
     "uniques": 3
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/translation%20methods/5sem",
-    "title": "M3137year2019/translation methods/5sem at master · Jovvik/M3137year2019 · Git...",
-    "count": 9,
+    "path": "/Jovvik/M3137year2019/tree/master/mathematical%20algorithms/5sem",
+    "title": "M3137year2019/mathematical algorithms/5sem at master · Jovvik/M3137year2019 ·...",
+    "count": 10,
     "uniques": 2
   },
   {
@@ -36,26 +36,26 @@
     "uniques": 3
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/teorcod/7sem",
-    "title": "M3137year2019/teorcod/7sem at master · Jovvik/M3137year2019 · GitHub",
-    "count": 7,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/mathematical%20algorithms/5sem",
-    "title": "M3137year2019/mathematical algorithms/5sem at master · Jovvik/M3137year2019 ·...",
-    "count": 7,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
     "title": "M3137year2019/analysis/3sem/final.pdf at pdfs · Jovvik/M3137year2019",
     "count": 6,
     "uniques": 2
   },
   {
+    "path": "/Jovvik/M3137year2019/tree/master/mathematical%20algorithms",
+    "title": "M3137year2019/mathematical algorithms at master · Jovvik/M3137year2019 · GitHub",
+    "count": 6,
+    "uniques": 2
+  },
+  {
     "path": "/Jovvik/M3137year2019/tree/master/analysis/1sem",
     "title": "M3137year2019/analysis/1sem at master · Jovvik/M3137year2019",
+    "count": 6,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/translation%20methods/5sem",
+    "title": "M3137year2019/translation methods/5sem at master · Jovvik/M3137year2019 · Git...",
     "count": 6,
     "uniques": 1
   }

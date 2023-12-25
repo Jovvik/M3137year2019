@@ -18,21 +18,15 @@
     "uniques": 3
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master",
-    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 8,
-    "uniques": 2
+    "path": "/Jovvik/M3137year2019/tree/master/teorcod/7sem",
+    "title": "M3137year2019/teorcod/7sem at master · Jovvik/M3137year2019",
+    "count": 7,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete",
     "title": "M3137year2019/discrete at master · Jovvik/M3137year2019",
     "count": 7,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
-    "title": "M3137year2019/analysis/3sem/final.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 6,
     "uniques": 2
   },
   {
@@ -57,6 +51,12 @@
     "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
     "title": "M3137year2019/discrete/1.md at master · Jovvik/M3137year2019",
     "count": 5,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/5.pdf",
+    "title": "M3137year2019/matlog/4sem/practice/5.pdf at pdfs · Jovvik/M3137year2019 · Git...",
+    "count": 4,
     "uniques": 2
   }
 ]

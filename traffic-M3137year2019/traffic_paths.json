@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 31,
-    "uniques": 21
+    "count": 29,
+    "uniques": 20
   },
   {
     "path": "/Jovvik/M3137year2019/commits/4f033bb39f2e00b8c24b302cb981f68ddc88eb91",
@@ -12,15 +12,9 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/discrete",
-    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
-    "count": 14,
-    "uniques": 3
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/final.pdf",
     "title": "M3137year2019/probability theory/4sem/final.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 11,
+    "count": 9,
     "uniques": 4
   },
   {
@@ -33,6 +27,12 @@
     "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
     "title": "M3137year2019/matlog/4sem at master · Jovvik/M3137year2019 · GitHub",
     "count": 9,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
+    "count": 7,
     "uniques": 2
   },
   {

@@ -6,6 +6,12 @@
     "uniques": 20
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
+    "title": "M3137year2019/analysis/3sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 20,
+    "uniques": 7
+  },
+  {
     "path": "/Jovvik/M3137year2019/commits/4f033bb39f2e00b8c24b302cb981f68ddc88eb91",
     "title": "Commits · Jovvik/M3137year2019",
     "count": 18,
@@ -16,18 +22,6 @@
     "title": "M3137year2019/statistics/5sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 17,
     "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
-    "title": "M3137year2019/analysis/3sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 16,
-    "uniques": 5
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/3sem",
-    "title": "M3137year2019/analysis/3sem at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 10,
-    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem",
@@ -54,9 +48,15 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/matlog/4sem/practice",
-    "title": "M3137year2019/matlog/4sem/practice at master · Jovvik/M3137year2019 · GitHub",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
+    "title": "M3137year2019/analysis/1sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 6,
-    "uniques": 2
+    "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
+    "title": "M3137year2019/analysis/2sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 6,
+    "uniques": 3
   }
 ]

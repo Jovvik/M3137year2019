@@ -2,32 +2,20 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019...",
-    "count": 102,
-    "uniques": 26
+    "count": 122,
+    "uniques": 29
   },
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 43,
-    "uniques": 33
+    "count": 44,
+    "uniques": 32
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/discrete",
-    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019",
-    "count": 13,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra",
-    "title": "M3137year2019/linear algebra at master · Jovvik/M3137year2019",
-    "count": 12,
-    "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs",
-    "title": "Jovvik/M3137year2019 at pdfs",
-    "count": 11,
-    "uniques": 10
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/2sem",
+    "title": "M3137year2019/analysis/2sem at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 20,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra/2sem",
@@ -42,6 +30,24 @@
     "uniques": 2
   },
   {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "Jovvik/M3137year2019 at pdfs",
+    "count": 9,
+    "uniques": 8
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra",
+    "title": "M3137year2019/linear algebra at master · Jovvik/M3137year2019",
+    "count": 9,
+    "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master",
+    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
+    "count": 8,
+    "uniques": 2
+  },
+  {
     "path": "/Jovvik/M3137year2019/tree/master/optimization%20methods/4sem",
     "title": "M3137year2019/optimization methods/4sem at master · Jovvik/M3137year2019",
     "count": 8,
@@ -52,11 +58,5 @@
     "title": "M3137year2019/statistics/5sem at master · Jovvik/M3137year2019",
     "count": 8,
     "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/probability%20theory/4sem",
-    "title": "M3137year2019/probability theory/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 7,
-    "uniques": 3
   }
 ]

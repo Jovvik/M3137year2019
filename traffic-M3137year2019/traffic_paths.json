@@ -2,14 +2,14 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 34,
-    "uniques": 18
+    "count": 29,
+    "uniques": 16
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019...",
-    "count": 34,
-    "uniques": 9
+    "count": 18,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete",
@@ -30,12 +30,6 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/probability%20theory/4sem",
-    "title": "M3137year2019/probability theory/4sem at master · Jovvik/M3137year2019",
-    "count": 7,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
     "title": "M3137year2019/statistics/5sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 6,
@@ -48,15 +42,21 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/analysis",
-    "title": "M3137year2019/analysis at master · Jovvik/M3137year2019 · GitHub",
-    "count": 5,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/tree/master/discrete/2sem",
     "title": "M3137year2019/discrete/2sem at master · Jovvik/M3137year2019",
     "count": 5,
     "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/3.pdf",
+    "title": "M3137year2019/teorcod/7sem/practice/3.pdf at pdfs · Jovvik/M3137year2019 · Gi...",
+    "count": 4,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019",
+    "count": 4,
+    "uniques": 2
   }
 ]

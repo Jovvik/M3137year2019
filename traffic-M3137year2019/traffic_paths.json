@@ -8,8 +8,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 18,
-    "uniques": 10
+    "count": 19,
+    "uniques": 12
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
@@ -48,15 +48,15 @@
     "uniques": 2
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical%20algorithms/6sem/main.pdf",
+    "title": "M3137year2019/mathematical algorithms/6sem/main.pdf at pdfs · Jovvik/M3137yea...",
+    "count": 4,
+    "uniques": 2
+  },
+  {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/2sem",
     "title": "M3137year2019/analysis/2sem at pdfs · Jovvik/M3137year2019",
     "count": 4,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master",
-    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 3,
     "uniques": 1
   }
 ]

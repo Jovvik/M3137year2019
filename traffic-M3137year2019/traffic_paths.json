@@ -2,14 +2,26 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 18,
-    "uniques": 13
+    "count": 19,
+    "uniques": 14
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 10,
+    "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
+    "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 14,
     "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/main.pdf",
+    "title": "M3137year2019/optimization methods/4sem/main.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 13,
+    "uniques": 4
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/linear%20algebra/2sem/practice",
+    "title": "M3137year2019/linear algebra/2sem/practice at pdfs · Jovvik/M3137year2019",
+    "count": 10,
+    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete",
@@ -24,16 +36,16 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/2sem",
-    "title": "M3137year2019/analysis/2sem at pdfs · Jovvik/M3137year2019",
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019",
     "count": 8,
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/linear%20algebra/2sem/practice",
-    "title": "M3137year2019/linear algebra/2sem/practice at pdfs · Jovvik/M3137year2019",
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/2sem",
+    "title": "M3137year2019/analysis/2sem at pdfs · Jovvik/M3137year2019",
     "count": 8,
-    "uniques": 1
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/analysis/3sem/final.tex",
@@ -42,21 +54,9 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/2sem/practice/5.pdf",
-    "title": "M3137year2019/linear algebra/2sem/practice/5.pdf at pdfs · Jovvik/M3137year2019",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/2sem/practice/4.pdf",
+    "title": "M3137year2019/linear algebra/2sem/practice/4.pdf at pdfs · Jovvik/M3137year2019",
     "count": 6,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/main.pdf",
-    "title": "M3137year2019/optimization methods/4sem/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 6,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra/2sem",
-    "title": "M3137year2019/linear algebra/2sem at master · Jovvik/M3137year2019",
-    "count": 5,
     "uniques": 1
   }
 ]

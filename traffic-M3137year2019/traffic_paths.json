@@ -8,8 +8,8 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
     "title": "M3137year2019/analysis/4sem/final.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 16,
-    "uniques": 5
+    "count": 23,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/analysis/4sem",
@@ -20,32 +20,20 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 13,
+    "count": 14,
     "uniques": 10
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 13,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/analysis",
     "title": "M3137year2019/analysis at master · Jovvik/M3137year2019 · GitHub",
     "count": 13,
     "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 10,
-    "uniques": 5
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/analysis/3sem/final.tex",
-    "title": "M3137year2019/analysis/3sem/final.tex at master · Jovvik/M3137year2019 · GitHub",
-    "count": 10,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/linear%20algebra/2sem/practice",
-    "title": "M3137year2019/linear algebra/2sem/practice at pdfs · Jovvik/M3137year2019",
-    "count": 10,
-    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/optimization%20methods/4sem/main.pdf",
@@ -57,6 +45,18 @@
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/4sem",
     "title": "M3137year2019/analysis/4sem at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 9,
+    "uniques": 4
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "Jovvik/M3137year2019 at pdfs",
+    "count": 8,
+    "uniques": 6
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/main.pdf",
+    "title": "M3137year2019/analysis/4sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 8,
     "uniques": 4
   }
 ]

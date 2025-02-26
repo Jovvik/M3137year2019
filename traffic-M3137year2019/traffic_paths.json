@@ -3,25 +3,19 @@
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
     "count": 17,
-    "uniques": 10
+    "uniques": 11
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
     "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 7,
-    "uniques": 5
+    "count": 10,
+    "uniques": 7
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete",
     "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
-    "count": 4,
+    "count": 5,
     "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 4,
-    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete/2sem",
@@ -30,16 +24,16 @@
     "uniques": 3
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/probability%20theory/4sem",
-    "title": "M3137year2019/probability theory/4sem at master · Jovvik/M3137year2019 · GitHub",
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 3,
-    "uniques": 2
+    "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/probability%20theory/4sem/images",
-    "title": "M3137year2019/probability theory/4sem/images at master · Jovvik/M3137year2019...",
+    "path": "/Jovvik/M3137year2019/tree/master/probability%20theory/4sem",
+    "title": "M3137year2019/probability theory/4sem at master · Jovvik/M3137year2019 · GitHub",
     "count": 2,
-    "uniques": 2
+    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/discrete/2sem/2.tex",
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/master/linear%20algebra/1sem/main.tex",
     "title": "M3137year2019/linear algebra/1sem/main.tex at master · Jovvik/M3137year2019",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/matlog/4sem/12.tex",
+    "title": "M3137year2019/matlog/4sem/12.tex at master · Jovvik/M3137year2019 · GitHub",
     "count": 1,
     "uniques": 1
   }

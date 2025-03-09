@@ -1,15 +1,15 @@
 [
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
-    "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 12,
-    "uniques": 6
-  },
-  {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
     "count": 10,
     "uniques": 9
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 10,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/blob/74f97b4a796063be3d74eff6f2cbb1a761d1fe0c/discrete/3.tex",
@@ -26,6 +26,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
     "title": "M3137year2019/analysis/4sem/final.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/final.pdf",
+    "title": "M3137year2019/diffeq/3sem/final.pdf at pdfs · Jovvik/M3137year2019",
     "count": 1,
     "uniques": 1
   },
@@ -50,12 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra/2sem",
     "title": "M3137year2019/linear algebra/2sem at master · Jovvik/M3137year2019",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra/2sem/practice",
-    "title": "M3137year2019/linear algebra/2sem/practice at master · Jovvik/M3137year2019",
     "count": 1,
     "uniques": 1
   }

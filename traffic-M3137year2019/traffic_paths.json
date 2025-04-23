@@ -3,19 +3,13 @@
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
     "count": 15,
-    "uniques": 12
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/discrete",
-    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019",
-    "count": 3,
-    "uniques": 3
+    "uniques": 13
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/probability%20theory/4sem/main.pdf",
     "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019...",
-    "count": 3,
-    "uniques": 2
+    "count": 5,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra",
@@ -30,14 +24,20 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master",
-    "title": "M3137year2019/ at master · Jovvik/M3137year2019",
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019",
     "count": 2,
     "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
     "title": "M3137year2019/linear algebra/1sem/main.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/issues/2",
+    "title": "Issue",
     "count": 2,
     "uniques": 1
   },

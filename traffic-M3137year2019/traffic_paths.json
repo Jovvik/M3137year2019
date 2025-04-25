@@ -12,22 +12,16 @@
     "uniques": 3
   },
   {
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019",
+    "count": 3,
+    "uniques": 3
+  },
+  {
     "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra",
     "title": "M3137year2019/linear algebra at master · Jovvik/M3137year2019",
     "count": 3,
     "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/2sem/final.pdf",
-    "title": "M3137year2019/linear algebra/2sem/final.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/discrete",
-    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019",
-    "count": 2,
-    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/1sem/main.pdf",
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/master/probability%20theory/4sem/10.tex",
     "title": "M3137year2019/probability theory/4sem/10.tex at master · Jovvik/M3137year2019...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/probability%20theory/4sem/1.tex",
+    "title": "M3137year2019/probability theory/4sem/1.tex at master · Jovvik/M3137year2019",
     "count": 1,
     "uniques": 1
   }

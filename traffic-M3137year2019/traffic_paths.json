@@ -2,19 +2,13 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 9,
-    "uniques": 7
+    "count": 10,
+    "uniques": 8
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
     "count": 6,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/pulls",
-    "title": "Pull requests · Jovvik/M3137year2019",
-    "count": 2,
     "uniques": 2
   },
   {
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/master/statistics/5sem/final.tex",
     "title": "M3137year2019/statistics/5sem/final.tex at master · Jovvik/M3137year2019 · Gi...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/statistics/5sem/practice/2.tex",
+    "title": "M3137year2019/statistics/5sem/practice/2.tex at master · Jovvik/M3137year2019...",
     "count": 1,
     "uniques": 1
   }

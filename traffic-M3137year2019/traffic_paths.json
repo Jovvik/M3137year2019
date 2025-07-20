@@ -12,12 +12,6 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019",
-    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 2,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/master/linear%20algebra/1sem/main.pdf",
     "title": "File not found",
     "count": 2,
@@ -33,6 +27,12 @@
     "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra/1sem",
     "title": "M3137year2019/linear algebra/1sem at master · Jovvik/M3137year2019",
     "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019",
+    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
+    "count": 1,
     "uniques": 1
   },
   {

@@ -6,6 +6,12 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019",
+    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
+    "count": 3,
+    "uniques": 2
+  },
+  {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "Jovvik/M3137year2019 at pdfs",
     "count": 3,
@@ -24,38 +30,32 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/commits",
+    "title": "Commits · Jovvik/M3137year2019 · GitHub",
+    "count": 2,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/tree/master/linear%20algebra/1sem",
     "title": "M3137year2019/linear algebra/1sem at master · Jovvik/M3137year2019",
     "count": 2,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019",
-    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
+    "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
+    "title": "M3137year2019/discrete/1.md at master · Jovvik/M3137year2019 · GitHub",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/functional%20programming/5sem/main.tex",
+    "title": "M3137year2019/functional programming/5sem/main.tex at master · Jovvik/M3137ye...",
     "count": 1,
     "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/linear%20algebra/1sem/main.tex",
     "title": "M3137year2019/linear algebra/1sem/main.tex at master · Jovvik/M3137year2019",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/hw.pdf",
-    "title": "M3137year2019/analysis/3sem/hw.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/2sem/1.pdf",
-    "title": "M3137year2019/linear algebra/2sem/1.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear%20algebra/2sem/practice/1.pdf",
-    "title": "M3137year2019/linear algebra/2sem/practice/1.pdf at pdfs · Jovvik/M3137year2019",
     "count": 1,
     "uniques": 1
   }

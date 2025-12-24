@@ -8973,14 +8973,14 @@
       "uniques": 6
     },
     {
-      "timestamp": "2025-12-09T00:00:00Z",
-      "count": 14,
-      "uniques": 9
-    },
-    {
       "timestamp": "2025-12-10T00:00:00Z",
       "count": 10,
       "uniques": 8
+    },
+    {
+      "timestamp": "2025-12-09T00:00:00Z",
+      "count": 14,
+      "uniques": 9
     },
     {
       "timestamp": "2025-12-11T00:00:00Z",

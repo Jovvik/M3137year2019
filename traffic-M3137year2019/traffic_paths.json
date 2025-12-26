@@ -2,19 +2,13 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 13,
-    "uniques": 10
+    "count": 12,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/teorcod/7sem",
     "title": "M3137year2019/teorcod/7sem at master · Jovvik/M3137year2019",
     "count": 3,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/1.pdf",
-    "title": "M3137year2019/diffeq/3sem/1.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 2,
     "uniques": 2
   },
   {
@@ -54,8 +48,14 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/hw/7.pdf",
-    "title": "M3137year2019/mathematical algorithms/5sem/hw/7.pdf at pdfs · Jovvik/M3137yea...",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/main.pdf",
+    "title": "M3137year2019/mathematical algorithms/5sem/main.pdf at pdfs · Jovvik/M3137yea...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/3.pdf",
+    "title": "M3137year2019/statistics/5sem/practice/3.pdf at pdfs · Jovvik/M3137year2019 ·...",
     "count": 1,
     "uniques": 1
   }

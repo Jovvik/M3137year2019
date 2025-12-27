@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 12,
-    "uniques": 9
+    "count": 11,
+    "uniques": 8
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/teorcod/7sem",
@@ -24,24 +24,6 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/analysis/1sem/1.md",
-    "title": "M3137year2019/analysis/1sem/1.md at master · Jovvik/M3137year2019 · GitHub",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/analysis/1sem/final.tex",
-    "title": "M3137year2019/analysis/1sem/final.tex at master · Jovvik/M3137year2019 · GitHub",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/analysis/1sem/opros2.tex",
-    "title": "M3137year2019/analysis/1sem/opros2.tex at master · Jovvik/M3137year2019 · Git...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/practice.pdf",
     "title": "M3137year2019/analysis/3sem/practice.pdf at pdfs · Jovvik/M3137year2019 · Git...",
     "count": 1,
@@ -56,6 +38,24 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/3.pdf",
     "title": "M3137year2019/statistics/5sem/practice/3.pdf at pdfs · Jovvik/M3137year2019 ·...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/type theory/5sem/practice/1.pdf",
+    "title": "M3137year2019/type theory/5sem/practice/1.pdf at pdfs · Jovvik/M3137year2019 ...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/type theory/5sem/practice/4.pdf",
+    "title": "M3137year2019/type theory/5sem/practice/4.pdf at pdfs · Jovvik/M3137year2019 ...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/graphs/contributors",
+    "title": "Contributors to Jovvik/M3137year2019 · GitHub",
     "count": 1,
     "uniques": 1
   }

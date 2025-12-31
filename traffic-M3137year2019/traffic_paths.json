@@ -6,14 +6,26 @@
     "uniques": 9
   },
   {
+    "path": "/Jovvik/M3137year2019/tree/master/teorcod/7sem",
+    "title": "M3137year2019/teorcod/7sem at master · Jovvik/M3137year2019",
+    "count": 6,
+    "uniques": 3
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/74f97b4a796063be3d74eff6f2cbb1a761d1fe0c/teorcod/7sem/4.tex",
     "title": "M3137year2019/teorcod/7sem/4.tex at 74f97b4a796063be3d74eff6f2cbb1a761d1fe0c ...",
     "count": 2,
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/teorcod/7sem",
-    "title": "M3137year2019/teorcod/7sem at master · Jovvik/M3137year2019",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/teorcod/7sem/practice",
+    "title": "M3137year2019/teorcod/7sem/practice at master · Jovvik/M3137year2019",
     "count": 2,
     "uniques": 2
   },
@@ -30,6 +42,12 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/74f97b4a796063be3d74eff6f2cbb1a761d1fe0c/teorcod/7sem/5.tex",
+    "title": "M3137year2019/teorcod/7sem/5.tex at 74f97b4a796063be3d74eff6f2cbb1a761d1fe0c ...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/74f97b4a796063be3d74eff6f2cbb1a761d1fe0c/teorcod/7sem/practice/12.ipynb",
     "title": "M3137year2019/teorcod/7sem/practice/12.ipynb at 74f97b4a796063be3d74eff6f2cbb...",
     "count": 1,
@@ -38,24 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/blob/master/analysis/3sem/hw.tex",
     "title": "M3137year2019/analysis/3sem/hw.tex at master · Jovvik/M3137year2019 · GitHub",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/practice.pdf",
-    "title": "M3137year2019/analysis/3sem/practice.pdf at pdfs · Jovvik/M3137year2019 · Git...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/3.pdf",
-    "title": "M3137year2019/statistics/5sem/practice/3.pdf at pdfs · Jovvik/M3137year2019 ·...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/graphs/contributors",
-    "title": "Contributors to Jovvik/M3137year2019 · GitHub",
     "count": 1,
     "uniques": 1
   }

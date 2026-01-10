@@ -1,13 +1,13 @@
 [
   {
+    "referrer": "Google",
+    "count": 15,
+    "uniques": 5
+  },
+  {
     "referrer": "github.com",
     "count": 13,
     "uniques": 4
-  },
-  {
-    "referrer": "Google",
-    "count": 9,
-    "uniques": 3
   },
   {
     "referrer": "perplexity.ai",

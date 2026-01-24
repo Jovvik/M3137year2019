@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
     "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
-    "count": 124,
-    "uniques": 64
+    "count": 122,
+    "uniques": 63
   },
   {
     "path": "/Jovvik/M3137year2019",
@@ -24,12 +24,6 @@
     "uniques": 4
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/final.pdf",
-    "title": "M3137year2019/statistics/5sem/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 5,
-    "uniques": 3
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/translation methods/5sem/main.pdf",
     "title": "M3137year2019/translation methods/5sem/main.pdf at pdfs · Jovvik/M3137year2019",
     "count": 5,
@@ -42,10 +36,10 @@
     "uniques": 3
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem",
-    "title": "M3137year2019/statistics/5sem at master · Jovvik/M3137year2019 · GitHub",
-    "count": 3,
-    "uniques": 3
+    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/final.pdf",
+    "title": "M3137year2019/statistics/5sem/main.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 4,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
@@ -58,5 +52,11 @@
     "title": "M3137year2019/statistics/5sem/main.pdf at pdfs · Jovvik/M3137year2019",
     "count": 3,
     "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem",
+    "title": "M3137year2019/statistics/5sem at master · Jovvik/M3137year2019 · GitHub",
+    "count": 2,
+    "uniques": 2
   }
 ]

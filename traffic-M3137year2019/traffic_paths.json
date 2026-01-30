@@ -1,27 +1,21 @@
 [
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
-    "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 73,
-    "uniques": 39
+    "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 56,
+    "uniques": 34
   },
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 10,
-    "uniques": 9
+    "count": 9,
+    "uniques": 8
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
     "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019",
     "count": 4,
     "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/probability theory/4sem/main.pdf",
-    "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019...",
-    "count": 4,
-    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/translation methods/5sem/main.pdf",
@@ -58,5 +52,11 @@
     "title": "M3137year2019/teorcod/7sem at master · Jovvik/M3137year2019",
     "count": 2,
     "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/teorcod/7sem/main.tex",
+    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
+    "count": 2,
+    "uniques": 1
   }
 ]

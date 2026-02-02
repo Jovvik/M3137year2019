@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
     "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 28,
-    "uniques": 19
+    "count": 21,
+    "uniques": 13
   },
   {
     "path": "/Jovvik/M3137year2019",
@@ -30,12 +30,6 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
-    "title": "M3137year2019/analysis/3sem at pdfs · Jovvik/M3137year2019",
-    "count": 2,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/pulls",
     "title": "Pull requests · Jovvik/M3137year2019",
     "count": 2,
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/1.pdf",
     "title": "M3137year2019/diffeq/3sem/1.pdf at pdfs · Jovvik/M3137year2019",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/linear algebra",
+    "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 2,
     "uniques": 1
   }

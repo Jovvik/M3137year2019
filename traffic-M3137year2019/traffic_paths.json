@@ -2,43 +2,19 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
     "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 21,
-    "uniques": 13
+    "count": 13,
+    "uniques": 9
   },
   {
     "path": "/Jovvik/M3137year2019",
-    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 7,
-    "uniques": 6
+    "title": "GitHub - Jovvik/M3137year2019: Конспекты М3*37 2019 года",
+    "count": 4,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
     "title": "M3137year2019/linear algebra/1sem/main.pdf at pdfs · Jovvik/M3137year2019 · G...",
     "count": 3,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/translation methods/5sem/main.pdf",
-    "title": "M3137year2019/translation methods/5sem/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 3,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/74f97b4a796063be3d74eff6f2cbb1a761d1fe0c/teorcod/7sem/practice/12.ipynb",
-    "title": "M3137year2019/teorcod/7sem/practice/1.tex at 74f97b4a796063be3d74eff6f2cbb1a7...",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/pulls",
-    "title": "Pull requests · Jovvik/M3137year2019",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/discrete",
-    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
-    "count": 2,
     "uniques": 2
   },
   {
@@ -54,9 +30,33 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/pulls",
+    "title": "Pull requests · Jovvik/M3137year2019 · GitHub",
+    "count": 2,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/tree/pdfs/linear algebra",
     "title": "M3137year2019/analysis at pdfs · Jovvik/M3137year2019 · GitHub",
     "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/linear algebra/1sem",
+    "title": "M3137year2019/linear algebra at pdfs · Jovvik/M3137year2019 · GitHub",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/74f97b4a796063be3d74eff6f2cbb1a761d1fe0c/teorcod/7sem/5.tex",
+    "title": "M3137year2019/teorcod/7sem/5.tex at 74f97b4a796063be3d74eff6f2cbb1a761d1fe0c ...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/74f97b4a796063be3d74eff6f2cbb1a761d1fe0c/teorcod/7sem/9.tex",
+    "title": "M3137year2019/teorcod/7sem/practice/12.ipynb at 74f97b4a796063be3d74eff6f2cbb...",
+    "count": 1,
     "uniques": 1
   }
 ]

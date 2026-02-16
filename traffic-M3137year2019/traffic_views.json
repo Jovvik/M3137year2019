@@ -8228,17 +8228,17 @@
       "uniques": 1
     },
     {
-      "timestamp": "2026-02-01T00:00:00Z",
-      "count": 1,
-      "uniques": 1
-    },
-    {
       "timestamp": "2026-01-31T00:00:00Z",
       "count": 0,
       "uniques": 0
     },
     {
       "timestamp": "2026-02-02T00:00:00Z",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "timestamp": "2026-02-01T00:00:00Z",
       "count": 1,
       "uniques": 1
     },
@@ -8294,6 +8294,11 @@
     },
     {
       "timestamp": "2026-02-13T00:00:00Z",
+      "count": 0,
+      "uniques": 0
+    },
+    {
+      "timestamp": "2026-02-14T00:00:00Z",
       "count": 0,
       "uniques": 0
     }

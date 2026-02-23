@@ -13,5 +13,10 @@
     "referrer": "chatgpt.com",
     "count": 5,
     "uniques": 1
+  },
+  {
+    "referrer": "search.brave.com",
+    "count": 3,
+    "uniques": 1
   }
 ]

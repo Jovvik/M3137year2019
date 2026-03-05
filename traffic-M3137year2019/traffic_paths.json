@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
-    "count": 16,
-    "uniques": 11
+    "count": 14,
+    "uniques": 10
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
@@ -24,38 +24,38 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/optimization methods/4sem",
-    "title": "M3137year2019/optimization methods/4sem at master · Jovvik/M3137year2019 · Gi...",
-    "count": 4,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/discrete",
-    "title": "M3137year2019/discrete at master · Jovvik/M3137year2019 · GitHub",
-    "count": 3,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/probability theory/4sem/main.pdf",
-    "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019",
+    "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
+    "title": "M3137year2019/linear algebra/1sem at master · Jovvik/M3137year2019",
     "count": 2,
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/probability theory/4sem/practice/1.pdf",
-    "title": "M3137year2019/probability theory/4sem/practice at pdfs · Jovvik/M3137year2019...",
+    "path": "/Jovvik/M3137year2019/tree/master/linear algebra",
+    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
     "count": 2,
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/probability theory/4sem",
-    "title": "M3137year2019/probability theory/4sem at master · Jovvik/M3137year2019 · GitHub",
+    "path": "/Jovvik/M3137year2019/tree/master/linear algebra/1sem",
+    "title": "M3137year2019/linear algebra at master · Jovvik/M3137year2019",
     "count": 2,
     "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/hw/1.pdf",
     "title": "M3137year2019/mathematical algorithms/5sem/hw/1.pdf at pdfs · Jovvik/M3137yea...",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/graphs/contributors",
+    "title": "Contributors to Jovvik/M3137year2019",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "M3137year2019/ at master · Jovvik/M3137year2019 · GitHub",
     "count": 2,
     "uniques": 1
   }

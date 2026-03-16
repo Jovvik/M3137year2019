@@ -24,8 +24,20 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/pulls",
+    "title": "Pull requests · Jovvik/M3137year2019 · GitHub",
+    "count": 3,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
     "title": "M3137year2019/linear algebra/1sem at master · Jovvik/M3137year2019",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
+    "title": "Jovvik/M3137year2019: Конспекты М3*37 2019 года",
     "count": 2,
     "uniques": 2
   },
@@ -44,18 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/blob/master/statistics/5sem/final.tex",
     "title": "M3137year2019/statistics/5sem at master · Jovvik/M3137year2019",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/graphs/contributors",
-    "title": "Contributors to Jovvik/M3137year2019",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/pulls",
-    "title": "Pull requests · Jovvik/M3137year2019 · GitHub",
     "count": 2,
     "uniques": 1
   }

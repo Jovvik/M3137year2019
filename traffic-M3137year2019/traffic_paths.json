@@ -12,12 +12,6 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
-    "title": "M3137year2019/teorcod/7sem/main.pdf at pdfs · Jovvik/M3137year2019",
-    "count": 2,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/forks",
     "title": "Forks · Jovvik/M3137year2019",
     "count": 2,
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/pulls",
     "title": "Pull requests · Jovvik/M3137year2019 · GitHub",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "M3137year2019/probability theory/4sem/main.pdf at pdfs · Jovvik/M3137year2019",
     "count": 1,
     "uniques": 1
   }

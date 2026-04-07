@@ -18,8 +18,20 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/6896d16142ecb96e597a09a9c4173c80e4c78e71/.github/workflows/tex-alt.yml",
+    "title": "/blob/6896d16142ecb96e597a09a9c4173c80e4c78e71/.github/workflows/tex-alt.yml",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/b89c0a3a31ecc5bd1ddf0de44b1c5488bf2c0bdb/probability theory/4sem/main.pdf",
     "title": "/blob/b89c0a3a31ecc5bd1ddf0de44b1c5488bf2c0bdb/probability theory/4sem/main.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
+    "title": "/blob/pdfs/analysis/4sem/final.pdf",
     "count": 1,
     "uniques": 1
   },
@@ -38,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "/tree/pdfs",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
     "count": 1,
     "uniques": 1
   }

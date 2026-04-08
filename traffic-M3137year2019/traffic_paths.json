@@ -2,30 +2,12 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 9,
-    "uniques": 5
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/probability theory/4sem/main.pdf",
-    "title": "/blob/pdfs/probability theory/4sem/main.pdf",
-    "count": 4,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/forks",
-    "title": "/forks",
-    "count": 2,
-    "uniques": 1
+    "count": 6,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/blob/6896d16142ecb96e597a09a9c4173c80e4c78e71/.github/workflows/tex-alt.yml",
     "title": "/blob/6896d16142ecb96e597a09a9c4173c80e4c78e71/.github/workflows/tex-alt.yml",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/b89c0a3a31ecc5bd1ddf0de44b1c5488bf2c0bdb/probability theory/4sem/main.pdf",
-    "title": "/blob/b89c0a3a31ecc5bd1ddf0de44b1c5488bf2c0bdb/probability theory/4sem/main.pdf",
     "count": 1,
     "uniques": 1
   },
@@ -36,26 +18,20 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/fork",
-    "title": "/fork",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/tree/master",
     "title": "/tree/master",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs",
-    "title": "/tree/pdfs",
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "/tree/pdfs/analysis",
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/4sem",
+    "title": "/tree/pdfs/analysis/4sem",
     "count": 1,
     "uniques": 1
   }

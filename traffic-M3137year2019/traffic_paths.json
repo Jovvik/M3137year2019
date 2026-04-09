@@ -2,8 +2,14 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 6,
-    "uniques": 3
+    "count": 8,
+    "uniques": 4
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/functional programming/5sem",
+    "title": "/tree/master/functional programming/5sem",
+    "count": 2,
+    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/6896d16142ecb96e597a09a9c4173c80e4c78e71/.github/workflows/tex-alt.yml",
@@ -12,26 +18,44 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
+    "title": "/blob/master/discrete/1.md",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/discrete/2.md",
+    "title": "/blob/master/discrete/2.md",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/discrete/6.tex",
+    "title": "/blob/master/discrete/6.tex",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/discrete/neerc.ifmo.ru",
+    "title": "/blob/master/discrete/neerc.ifmo.ru",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/functional programming/5sem/1.tex",
+    "title": "/blob/master/functional programming/5sem/1.tex",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/functional programming/5sem/main.tex",
+    "title": "/blob/master/functional programming/5sem/main.tex",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
     "title": "/blob/pdfs/analysis/4sem/final.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master",
-    "title": "/tree/master",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "/tree/pdfs/analysis",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/4sem",
-    "title": "/tree/pdfs/analysis/4sem",
     "count": 1,
     "uniques": 1
   }

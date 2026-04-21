@@ -2,19 +2,13 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 7,
-    "uniques": 5
+    "count": 8,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/functional programming/5sem",
     "title": "/tree/master/functional programming/5sem",
     "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/6896d16142ecb96e597a09a9c4173c80e4c78e71/.github/workflows/tex-alt.yml",
-    "title": "/blob/6896d16142ecb96e597a09a9c4173c80e4c78e71/.github/workflows/tex-alt.yml",
-    "count": 1,
     "uniques": 1
   },
   {
@@ -54,8 +48,14 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
-    "title": "/blob/pdfs/analysis/4sem/final.pdf",
+    "path": "/Jovvik/M3137year2019/branches",
+    "title": "/branches",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/graphs/contributors",
+    "title": "/graphs/contributors",
     "count": 1,
     "uniques": 1
   }

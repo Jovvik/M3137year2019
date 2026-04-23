@@ -2,50 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 8,
+    "count": 10,
     "uniques": 6
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/functional programming/5sem",
-    "title": "/tree/master/functional programming/5sem",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
-    "title": "/blob/master/discrete/1.md",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/discrete/2.md",
-    "title": "/blob/master/discrete/2.md",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/discrete/6.tex",
-    "title": "/blob/master/discrete/6.tex",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/discrete/neerc.ifmo.ru",
-    "title": "/blob/master/discrete/neerc.ifmo.ru",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/functional programming/5sem/1.tex",
-    "title": "/blob/master/functional programming/5sem/1.tex",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/functional programming/5sem/main.tex",
-    "title": "/blob/master/functional programming/5sem/main.tex",
-    "count": 1,
-    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/branches",
@@ -56,6 +14,12 @@
   {
     "path": "/Jovvik/M3137year2019/graphs/contributors",
     "title": "/graphs/contributors",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/pulse",
+    "title": "/pulse",
     "count": 1,
     "uniques": 1
   }

@@ -22,5 +22,17 @@
     "title": "/pulse",
     "count": 1,
     "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/discrete",
+    "title": "/tree/pdfs/discrete",
+    "count": 1,
+    "uniques": 1
   }
 ]

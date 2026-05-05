@@ -42,20 +42,20 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/graphs/contributors",
-    "title": "/graphs/contributors",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/pulls",
     "title": "/pulls",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/pulse",
-    "title": "/pulse",
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "/tree/master/discrete",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
     "count": 1,
     "uniques": 1
   }

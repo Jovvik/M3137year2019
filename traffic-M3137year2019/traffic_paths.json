@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 8,
-    "uniques": 5
+    "count": 7,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/tree/dependabot/github_actions/peaceiris/actions-gh-pages-3.9.3",
@@ -21,18 +21,6 @@
     "path": "/Jovvik/M3137year2019/tree/pdfs",
     "title": "/tree/pdfs",
     "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
-    "title": "/blob/pdfs/analysis/4sem/final.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/type theory/5sem/main.pdf",
-    "title": "/blob/pdfs/type theory/5sem/main.pdf",
-    "count": 1,
     "uniques": 1
   },
   {

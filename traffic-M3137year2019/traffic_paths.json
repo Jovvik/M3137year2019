@@ -2,36 +2,12 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 7,
-    "uniques": 4
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/dependabot/github_actions/peaceiris/actions-gh-pages-3.9.3",
-    "title": "/tree/dependabot/github_actions/peaceiris/actions-gh-pages-3.9.3",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/imgbot",
-    "title": "/tree/imgbot",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs",
-    "title": "/tree/pdfs",
-    "count": 2,
-    "uniques": 1
+    "count": 5,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete",
     "title": "/tree/master/discrete",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/traffic",
-    "title": "/tree/traffic",
     "count": 1,
     "uniques": 1
   }

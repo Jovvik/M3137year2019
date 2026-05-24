@@ -2,13 +2,25 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 6,
-    "uniques": 4
+    "count": 7,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
     "title": "/blob/pdfs/analysis/2sem/final.pdf",
     "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/discrete/11.tex",
+    "title": "/blob/master/discrete/11.tex",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/2.pdf",
+    "title": "/blob/pdfs/analysis/4sem/practice/2.pdf",
+    "count": 1,
     "uniques": 1
   },
   {
@@ -32,6 +44,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/1.pdf",
     "title": "/blob/pdfs/teorcod/7sem/practice/1.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "/tree/master/discrete",
     "count": 1,
     "uniques": 1
   }

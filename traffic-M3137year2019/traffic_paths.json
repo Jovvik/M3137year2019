@@ -2,14 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 10,
+    "count": 11,
     "uniques": 7
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
-    "title": "/blob/pdfs/analysis/2sem/final.pdf",
-    "count": 2,
-    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/discrete/11.tex",
@@ -18,20 +12,14 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/master/teorcod/7sem/practice/4.ipynb",
+    "title": "/blob/master/teorcod/7sem/practice/4.ipynb",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/2.pdf",
     "title": "/blob/pdfs/analysis/4sem/practice/2.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/category theory/5sem/main.pdf",
-    "title": "/blob/pdfs/category theory/5sem/main.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/optimization methods/4sem/main.pdf",
-    "title": "/blob/pdfs/optimization methods/4sem/main.pdf",
     "count": 1,
     "uniques": 1
   },

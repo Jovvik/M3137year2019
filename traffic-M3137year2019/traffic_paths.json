@@ -2,8 +2,14 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 11,
-    "uniques": 8
+    "count": 12,
+    "uniques": 9
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "/tree/pdfs",
+    "count": 2,
+    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/discrete/11.tex",
@@ -48,14 +54,8 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
-    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/1.pdf",
-    "title": "/blob/pdfs/teorcod/7sem/practice/1.pdf",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/1.pdf",
+    "title": "/blob/pdfs/diffeq/3sem/1.pdf",
     "count": 1,
     "uniques": 1
   }

@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 16,
-    "uniques": 12
+    "count": 15,
+    "uniques": 11
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs",
@@ -14,12 +14,6 @@
   {
     "path": "/Jovvik/M3137year2019/blob/master/README.md",
     "title": "/blob/master/README.md",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/discrete/11.tex",
-    "title": "/blob/master/discrete/11.tex",
     "count": 1,
     "uniques": 1
   },
@@ -54,8 +48,14 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/practice/2.pdf",
-    "title": "/blob/pdfs/analysis/4sem/practice/2.pdf",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/1.pdf",
+    "title": "/blob/pdfs/diffeq/3sem/1.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/6sem/main.pdf",
+    "title": "/blob/pdfs/mathematical algorithms/6sem/main.pdf",
     "count": 1,
     "uniques": 1
   }

@@ -2,8 +2,14 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 7,
-    "uniques": 5
+    "count": 8,
+    "uniques": 6
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/optimization methods/4sem/main.tex",
+    "title": "/blob/master/optimization methods/4sem/main.tex",
+    "count": 1,
+    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/7.pdf",
@@ -30,14 +36,26 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "/tree/pdfs/analysis",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/hw/3.pdf",
+    "title": "/blob/pdfs/mathematical algorithms/5sem/hw/3.pdf",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/2sem",
-    "title": "/tree/pdfs/analysis/2sem",
+    "path": "/Jovvik/M3137year2019/tree/master/optimization methods/4sem",
+    "title": "/tree/master/optimization methods/4sem",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/probability theory/4sem",
+    "title": "/tree/master/probability theory/4sem",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
     "count": 1,
     "uniques": 1
   }

@@ -2,14 +2,14 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 8,
-    "uniques": 6
+    "count": 7,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
     "title": "/blob/pdfs/analysis/2sem/final.pdf",
-    "count": 4,
-    "uniques": 3
+    "count": 3,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
@@ -20,12 +20,6 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
     "title": "/blob/pdfs/analysis/1sem/final.pdf",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
-    "title": "/blob/pdfs/analysis/3sem/final.pdf",
     "count": 2,
     "uniques": 2
   },
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/7.pdf",
     "title": "/blob/pdfs/analysis/2sem/7.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
+    "title": "/blob/pdfs/analysis/3sem/final.pdf",
     "count": 1,
     "uniques": 1
   }

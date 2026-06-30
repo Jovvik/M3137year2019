@@ -2,18 +2,12 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 4,
-    "uniques": 4
+    "count": 3,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/final.pdf",
     "title": "/blob/pdfs/analysis/2sem/final.pdf",
-    "count": 3,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "/tree/pdfs/analysis",
     "count": 3,
     "uniques": 2
   },
@@ -30,10 +24,10 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/2sem",
-    "title": "/tree/pdfs/analysis/2sem",
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
     "count": 2,
-    "uniques": 2
+    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/optimization methods/4sem/main.tex",
@@ -48,14 +42,20 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/2sem/7.pdf",
-    "title": "/blob/pdfs/analysis/2sem/7.pdf",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
+    "title": "/blob/pdfs/analysis/3sem/final.pdf",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/3sem/final.pdf",
-    "title": "/blob/pdfs/analysis/3sem/final.pdf",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/hw/3.pdf",
+    "title": "/blob/pdfs/mathematical algorithms/5sem/hw/3.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/optimization methods/4sem",
+    "title": "/tree/master/optimization methods/4sem",
     "count": 1,
     "uniques": 1
   }

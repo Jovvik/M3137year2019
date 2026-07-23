@@ -12,8 +12,20 @@
     "uniques": 2
   },
   {
+    "path": "/Jovvik/M3137year2019/tree/master/analysis",
+    "title": "/tree/master/analysis",
+    "count": 2,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/linear algebra/2sem/1.tex",
+    "title": "/blob/master/linear algebra/2sem/1.tex",
     "count": 1,
     "uniques": 1
   },
@@ -44,18 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/issues/111",
     "title": "/issues/111",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/112",
-    "title": "/issues/112",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/115",
-    "title": "/issues/115",
     "count": 1,
     "uniques": 1
   }

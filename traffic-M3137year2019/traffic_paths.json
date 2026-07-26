@@ -18,20 +18,8 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/issues/112",
-    "title": "/issues/112",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/113",
-    "title": "/issues/113",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/117",
-    "title": "/issues/117",
+    "path": "/Jovvik/M3137year2019/issues",
+    "title": "/issues",
     "count": 1,
     "uniques": 1
   },
@@ -56,6 +44,18 @@
   {
     "path": "/Jovvik/M3137year2019/issues/142",
     "title": "/issues/142",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/issues/149",
+    "title": "/issues/149",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/pull/140",
+    "title": "/pull/140",
     "count": 1,
     "uniques": 1
   }

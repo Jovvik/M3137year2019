@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 2,
-    "uniques": 2
+    "count": 4,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/analysis",
@@ -12,8 +12,38 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
+    "title": "/blob/master/linear algebra/1sem/main.tex",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/master/linear algebra/2sem/1.tex",
     "title": "/blob/master/linear algebra/2sem/1.tex",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/category theory/5sem/main.pdf",
+    "title": "/blob/pdfs/category theory/5sem/main.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
+    "title": "/blob/pdfs/linear algebra/1sem/main.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/2sem/final.pdf",
+    "title": "/blob/pdfs/linear algebra/2sem/final.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/type theory/5sem/main.pdf",
+    "title": "/blob/pdfs/type theory/5sem/main.pdf",
     "count": 1,
     "uniques": 1
   },
@@ -24,38 +54,8 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/issues/131",
-    "title": "/issues/131",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/132",
-    "title": "/issues/132",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/137",
-    "title": "/issues/137",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/142",
-    "title": "/issues/142",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/issues/149",
     "title": "/issues/149",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/pull/140",
-    "title": "/pull/140",
     "count": 1,
     "uniques": 1
   }

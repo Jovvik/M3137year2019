@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 4,
-    "uniques": 4
+    "count": 5,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/analysis",
@@ -42,6 +42,12 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/type theory/5sem/main.pdf",
     "title": "/blob/pdfs/type theory/5sem/main.pdf",
     "count": 1,
@@ -50,12 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/issues",
     "title": "/issues",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/analysis/1sem",
-    "title": "/tree/master/analysis/1sem",
     "count": 1,
     "uniques": 1
   }

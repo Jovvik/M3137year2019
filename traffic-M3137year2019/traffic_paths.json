@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 7,
-    "uniques": 7
+    "count": 6,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
@@ -18,20 +18,8 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/analysis",
-    "title": "/tree/master/analysis",
-    "count": 2,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
     "title": "/blob/master/linear algebra/1sem/main.tex",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/linear algebra/2sem/1.tex",
-    "title": "/blob/master/linear algebra/2sem/1.tex",
     "count": 1,
     "uniques": 1
   },
@@ -56,6 +44,18 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/2sem/final.pdf",
     "title": "/blob/pdfs/linear algebra/2sem/final.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/main.pdf",
+    "title": "/blob/pdfs/mathematical algorithms/5sem/main.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/optimization methods/4sem/main.pdf",
+    "title": "/blob/pdfs/optimization methods/4sem/main.pdf",
     "count": 1,
     "uniques": 1
   }

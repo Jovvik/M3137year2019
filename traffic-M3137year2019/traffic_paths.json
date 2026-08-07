@@ -18,6 +18,18 @@
     "uniques": 2
   },
   {
+    "path": "/Jovvik/M3137year2019/labels/dependencies",
+    "title": "/labels/dependencies",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/labels/Опечатка",
+    "title": "/labels/Опечатка",
+    "count": 2,
+    "uniques": 2
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
     "title": "/blob/master/linear algebra/1sem/main.tex",
     "count": 1,
@@ -44,18 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/2sem/final.pdf",
     "title": "/blob/pdfs/linear algebra/2sem/final.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/main.pdf",
-    "title": "/blob/pdfs/mathematical algorithms/5sem/main.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/optimization methods/4sem/main.pdf",
-    "title": "/blob/pdfs/optimization methods/4sem/main.pdf",
     "count": 1,
     "uniques": 1
   }

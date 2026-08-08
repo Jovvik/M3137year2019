@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 6,
-    "uniques": 6
+    "count": 5,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
@@ -30,6 +30,12 @@
     "uniques": 2
   },
   {
+    "path": "/Jovvik/M3137year2019/actions",
+    "title": "/actions",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
     "title": "/blob/master/linear algebra/1sem/main.tex",
     "count": 1,
@@ -50,12 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/functional programming/5sem/main.pdf",
     "title": "/blob/pdfs/functional programming/5sem/main.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/2sem/final.pdf",
-    "title": "/blob/pdfs/linear algebra/2sem/final.pdf",
     "count": 1,
     "uniques": 1
   }

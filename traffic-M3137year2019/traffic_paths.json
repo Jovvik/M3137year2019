@@ -2,30 +2,30 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 7,
-    "uniques": 7
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
-    "title": "/blob/pdfs/linear algebra/1sem/main.pdf",
-    "count": 3,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
-    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
-    "count": 2,
-    "uniques": 2
+    "count": 5,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/labels/dependencies",
     "title": "/labels/dependencies",
-    "count": 2,
-    "uniques": 2
+    "count": 3,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/labels/Опечатка",
     "title": "/labels/Опечатка",
+    "count": 3,
+    "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
+    "title": "/blob/pdfs/linear algebra/1sem/main.pdf",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
     "count": 2,
     "uniques": 2
   },
@@ -36,26 +36,26 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
-    "title": "/blob/master/linear algebra/1sem/main.tex",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/master/teorcod/7sem/practice/4.ipynb",
     "title": "/blob/master/teorcod/7sem/practice/4.ipynb",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/category theory/5sem/main.pdf",
-    "title": "/blob/pdfs/category theory/5sem/main.pdf",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/functional programming/5sem/main.pdf",
+    "title": "/blob/pdfs/functional programming/5sem/main.pdf",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/functional programming/5sem/main.pdf",
-    "title": "/blob/pdfs/functional programming/5sem/main.pdf",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/main.pdf",
+    "title": "/blob/pdfs/mathematical algorithms/5sem/main.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/optimization methods/4sem/main.pdf",
+    "title": "/blob/pdfs/optimization methods/4sem/main.pdf",
     "count": 1,
     "uniques": 1
   }

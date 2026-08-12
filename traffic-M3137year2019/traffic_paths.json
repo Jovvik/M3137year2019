@@ -2,14 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 6,
-    "uniques": 6
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
-    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
-    "count": 4,
-    "uniques": 3
+    "count": 5,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/labels/dependencies",
@@ -22,6 +16,12 @@
     "title": "/labels/Опечатка",
     "count": 3,
     "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
+    "count": 3,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",

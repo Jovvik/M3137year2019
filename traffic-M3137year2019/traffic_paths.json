@@ -2,42 +2,30 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 5,
-    "uniques": 5
+    "count": 4,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/labels/dependencies",
     "title": "/labels/dependencies",
-    "count": 3,
-    "uniques": 3
+    "count": 4,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/labels/Опечатка",
     "title": "/labels/Опечатка",
-    "count": 3,
-    "uniques": 3
+    "count": 4,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
     "title": "/blob/pdfs/teorcod/7sem/main.pdf",
-    "count": 3,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
-    "title": "/blob/pdfs/linear algebra/1sem/main.pdf",
     "count": 2,
-    "uniques": 2
+    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/actions",
     "title": "/actions",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/teorcod/7sem/practice/4.ipynb",
-    "title": "/blob/master/teorcod/7sem/practice/4.ipynb",
     "count": 1,
     "uniques": 1
   },
@@ -48,14 +36,26 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/main.pdf",
-    "title": "/blob/pdfs/mathematical algorithms/5sem/main.pdf",
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
+    "title": "/blob/pdfs/linear algebra/1sem/main.pdf",
     "count": 1,
     "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/optimization methods/4sem/main.pdf",
     "title": "/blob/pdfs/optimization methods/4sem/main.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/probability theory/4sem/main.pdf",
+    "title": "/blob/pdfs/probability theory/4sem/main.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/final.pdf",
+    "title": "/blob/pdfs/statistics/5sem/final.pdf",
     "count": 1,
     "uniques": 1
   }

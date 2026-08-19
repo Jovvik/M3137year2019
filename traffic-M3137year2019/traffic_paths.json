@@ -1,21 +1,21 @@
 [
   {
-    "path": "/Jovvik/M3137year2019",
-    "title": "Overview",
-    "count": 4,
-    "uniques": 4
-  },
-  {
     "path": "/Jovvik/M3137year2019/labels/dependencies",
     "title": "/labels/dependencies",
-    "count": 4,
-    "uniques": 4
+    "count": 5,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/labels/Опечатка",
     "title": "/labels/Опечатка",
-    "count": 4,
-    "uniques": 4
+    "count": 5,
+    "uniques": 5
+  },
+  {
+    "path": "/Jovvik/M3137year2019",
+    "title": "Overview",
+    "count": 3,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
@@ -30,32 +30,20 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/functional programming/5sem/main.pdf",
-    "title": "/blob/pdfs/functional programming/5sem/main.pdf",
+    "path": "/Jovvik/M3137year2019/issues/3",
+    "title": "/issues/3",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/1sem/main.pdf",
-    "title": "/blob/pdfs/linear algebra/1sem/main.pdf",
+    "path": "/Jovvik/M3137year2019/issues/6",
+    "title": "/issues/6",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/optimization methods/4sem/main.pdf",
-    "title": "/blob/pdfs/optimization methods/4sem/main.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/probability theory/4sem/main.pdf",
-    "title": "/blob/pdfs/probability theory/4sem/main.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/final.pdf",
-    "title": "/blob/pdfs/statistics/5sem/final.pdf",
+    "path": "/Jovvik/M3137year2019/issues/9",
+    "title": "/issues/9",
     "count": 1,
     "uniques": 1
   }

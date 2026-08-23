@@ -14,8 +14,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 4,
-    "uniques": 4
+    "count": 2,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
@@ -38,6 +38,12 @@
   {
     "path": "/Jovvik/M3137year2019/issues/9",
     "title": "/issues/9",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/pulls",
+    "title": "/pulls",
     "count": 1,
     "uniques": 1
   }

@@ -2,14 +2,14 @@
   {
     "path": "/Jovvik/M3137year2019/labels/dependencies",
     "title": "/labels/dependencies",
-    "count": 4,
-    "uniques": 4
+    "count": 3,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/labels/Опечатка",
     "title": "/labels/Опечатка",
-    "count": 4,
-    "uniques": 4
+    "count": 3,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019",
@@ -18,20 +18,14 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/issues/3",
-    "title": "/issues/3",
+    "path": "/Jovvik/M3137year2019/compare/master...xe11us:M3137year2019:master",
+    "title": "/compare/master...xe11us:M3137year2019:master",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/issues/6",
-    "title": "/issues/6",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/9",
-    "title": "/issues/9",
+    "path": "/Jovvik/M3137year2019/issues",
+    "title": "/issues",
     "count": 1,
     "uniques": 1
   },

@@ -1,19 +1,31 @@
 [
   {
+    "path": "/Jovvik/M3137year2019",
+    "title": "Overview",
+    "count": 2,
+    "uniques": 2
+  },
+  {
     "path": "/Jovvik/M3137year2019/labels/dependencies",
     "title": "/labels/dependencies",
-    "count": 3,
-    "uniques": 3
+    "count": 2,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/labels/Опечатка",
     "title": "/labels/Опечатка",
-    "count": 3,
-    "uniques": 3
+    "count": 2,
+    "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019",
-    "title": "Overview",
+    "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
+    "title": "/blob/master/discrete/1.md",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/2sem/1.pdf",
+    "title": "/blob/pdfs/linear algebra/2sem/1.pdf",
     "count": 1,
     "uniques": 1
   },
@@ -32,6 +44,18 @@
   {
     "path": "/Jovvik/M3137year2019/pulls",
     "title": "/pulls",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/discrete",
+    "title": "/tree/master/discrete",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
     "count": 1,
     "uniques": 1
   }

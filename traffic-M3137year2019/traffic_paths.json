@@ -6,18 +6,6 @@
     "uniques": 2
   },
   {
-    "path": "/Jovvik/M3137year2019/labels/dependencies",
-    "title": "/labels/dependencies",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/labels/Опечатка",
-    "title": "/labels/Опечатка",
-    "count": 2,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
     "title": "/blob/master/discrete/1.md",
     "count": 1,
@@ -38,6 +26,18 @@
   {
     "path": "/Jovvik/M3137year2019/issues",
     "title": "/issues",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/labels/dependencies",
+    "title": "/labels/dependencies",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/labels/Опечатка",
+    "title": "/labels/Опечатка",
     "count": 1,
     "uniques": 1
   },

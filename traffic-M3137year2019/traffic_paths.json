@@ -6,6 +6,12 @@
     "uniques": 2
   },
   {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
+    "count": 2,
+    "uniques": 2
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
     "title": "/blob/master/discrete/1.md",
     "count": 1,
@@ -50,12 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/tree/master/discrete",
     "title": "/tree/master/discrete",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "/tree/pdfs/analysis",
     "count": 1,
     "uniques": 1
   }

@@ -1,15 +1,51 @@
 [
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "/tree/pdfs/analysis",
-    "count": 2,
-    "uniques": 2
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
+    "count": 13,
+    "uniques": 8
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
+    "title": "/blob/master/linear algebra/1sem/main.tex",
+    "count": 7,
+    "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/linear algebra",
+    "title": "/tree/master/linear algebra",
+    "count": 4,
+    "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/master/linear algebra/1sem",
+    "title": "/tree/master/linear algebra/1sem",
+    "count": 4,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 1,
-    "uniques": 1
+    "count": 3,
+    "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blame/master/linear algebra/1sem/main.tex",
+    "title": "/blame/master/linear algebra/1sem/main.tex",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs",
+    "title": "/tree/pdfs",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
+    "count": 2,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
@@ -18,44 +54,8 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/2sem/1.pdf",
-    "title": "/blob/pdfs/linear algebra/2sem/1.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/compare/master...xe11us:M3137year2019:master",
-    "title": "/compare/master...xe11us:M3137year2019:master",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues",
-    "title": "/issues",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/12",
-    "title": "/issues/12",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/13",
-    "title": "/issues/13",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/15",
-    "title": "/issues/15",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/16",
-    "title": "/issues/16",
+    "path": "/Jovvik/M3137year2019/blob/master/linear algebra/2sem/12.tex",
+    "title": "/blob/master/linear algebra/2sem/12.tex",
     "count": 1,
     "uniques": 1
   }

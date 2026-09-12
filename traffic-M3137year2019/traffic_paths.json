@@ -2,20 +2,20 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
     "title": "/blob/pdfs/teorcod/7sem/main.pdf",
-    "count": 13,
-    "uniques": 8
+    "count": 15,
+    "uniques": 9
+  },
+  {
+    "path": "/Jovvik/M3137year2019",
+    "title": "Overview",
+    "count": 7,
+    "uniques": 7
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
     "title": "/blob/master/linear algebra/1sem/main.tex",
     "count": 7,
     "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019",
-    "title": "Overview",
-    "count": 4,
-    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019/tree/master/linear algebra",
@@ -30,8 +30,20 @@
     "uniques": 3
   },
   {
+    "path": "/Jovvik/M3137year2019/issues/81",
+    "title": "/issues/81",
+    "count": 3,
+    "uniques": 3
+  },
+  {
     "path": "/Jovvik/M3137year2019/blame/master/linear algebra/1sem/main.tex",
     "title": "/blame/master/linear algebra/1sem/main.tex",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/issues/82",
+    "title": "/issues/82",
     "count": 2,
     "uniques": 2
   },
@@ -46,17 +58,5 @@
     "title": "/tree/pdfs/analysis",
     "count": 2,
     "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/README.md",
-    "title": "/blob/master/README.md",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/discrete/1.md",
-    "title": "/blob/master/discrete/1.md",
-    "count": 1,
-    "uniques": 1
   }
 ]

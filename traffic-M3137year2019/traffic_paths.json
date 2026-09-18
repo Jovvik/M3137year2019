@@ -42,12 +42,6 @@
     "uniques": 3
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
-    "title": "/tree/pdfs/analysis",
-    "count": 3,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/blame/master/linear algebra/1sem/main.tex",
     "title": "/blame/master/linear algebra/1sem/main.tex",
     "count": 2,
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/1.pdf",
     "title": "/blob/pdfs/teorcod/7sem/practice/1.pdf",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/issues/82",
+    "title": "/issues/82",
     "count": 2,
     "uniques": 2
   }

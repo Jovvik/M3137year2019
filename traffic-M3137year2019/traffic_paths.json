@@ -2,32 +2,14 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
     "title": "/blob/pdfs/teorcod/7sem/main.pdf",
-    "count": 20,
-    "uniques": 11
+    "count": 7,
+    "uniques": 4
   },
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 8,
-    "uniques": 8
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/linear algebra/1sem/main.tex",
-    "title": "/blob/master/linear algebra/1sem/main.tex",
-    "count": 7,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/linear algebra",
-    "title": "/tree/master/linear algebra",
-    "count": 4,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/tree/master/linear algebra/1sem",
-    "title": "/tree/master/linear algebra/1sem",
-    "count": 4,
-    "uniques": 3
+    "count": 6,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/issues/81",
@@ -36,27 +18,45 @@
     "uniques": 3
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/pdfs",
-    "title": "/tree/pdfs",
-    "count": 3,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blame/master/linear algebra/1sem/main.tex",
-    "title": "/blame/master/linear algebra/1sem/main.tex",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/1.pdf",
-    "title": "/blob/pdfs/teorcod/7sem/practice/1.pdf",
-    "count": 2,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/issues",
     "title": "/issues",
     "count": 2,
     "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/issues/82",
+    "title": "/issues/82",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis",
+    "title": "/tree/pdfs/analysis",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/analysis/3sem",
+    "title": "/tree/pdfs/analysis/3sem",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/README.md",
+    "title": "/blob/master/README.md",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/final.pdf",
+    "title": "/blob/pdfs/diffeq/3sem/final.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/1.pdf",
+    "title": "/blob/pdfs/teorcod/7sem/practice/1.pdf",
+    "count": 1,
+    "uniques": 1
   }
 ]

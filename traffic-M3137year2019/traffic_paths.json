@@ -1,15 +1,15 @@
 [
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
-    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
-    "count": 7,
-    "uniques": 4
-  },
-  {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 6,
-    "uniques": 6
+    "count": 8,
+    "uniques": 8
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
+    "count": 8,
+    "uniques": 5
   },
   {
     "path": "/Jovvik/M3137year2019/issues/81",
@@ -42,12 +42,6 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/README.md",
-    "title": "/blob/master/README.md",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/diffeq/3sem/final.pdf",
     "title": "/blob/pdfs/diffeq/3sem/final.pdf",
     "count": 1,
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/practice/1.pdf",
     "title": "/blob/pdfs/teorcod/7sem/practice/1.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/issues/10",
+    "title": "/issues/10",
     "count": 1,
     "uniques": 1
   }

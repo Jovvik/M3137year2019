@@ -12,6 +12,12 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/master/README.md",
+    "title": "/blob/master/README.md",
+    "count": 3,
+    "uniques": 3
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
     "title": "/blob/pdfs/matlog/4sem/main.pdf",
     "count": 3,
@@ -28,12 +34,6 @@
     "title": "/blob/pdfs/statistics/5sem/main.pdf",
     "count": 3,
     "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/master/README.md",
-    "title": "/blob/master/README.md",
-    "count": 2,
-    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/1.pdf",

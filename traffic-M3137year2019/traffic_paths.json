@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 11,
-    "uniques": 7
+    "count": 10,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/4.pdf",
@@ -16,6 +16,12 @@
     "title": "/blob/master/README.md",
     "count": 3,
     "uniques": 3
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
+    "count": 3,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
@@ -50,12 +56,6 @@
   {
     "path": "/Jovvik/M3137year2019/blob/master/matlog/4sem/2.tex",
     "title": "/blob/master/matlog/4sem/2.tex",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/_minted-main/68353E4F8BF97E0642197931A889D174042D2615758B6C3F03C186B02CFC62B2.pygtex",
-    "title": "/blob/pdfs/matlog/4sem/_minted-main/68353E4F8BF97E0642197931A889D174042D2615758B6C3F03C186B02CFC62B2.pygtex",
     "count": 1,
     "uniques": 1
   }

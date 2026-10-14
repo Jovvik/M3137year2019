@@ -2,26 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 6,
+    "count": 3,
     "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/4.pdf",
-    "title": "/blob/pdfs/matlog/4sem/practice/4.pdf",
-    "count": 4,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/main.pdf",
-    "title": "/blob/pdfs/matlog/4sem/main.pdf",
-    "count": 3,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/3.pdf",
-    "title": "/blob/pdfs/matlog/4sem/practice/3.pdf",
-    "count": 3,
-    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/main.pdf",
@@ -42,21 +24,27 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/1.pdf",
-    "title": "/blob/pdfs/matlog/4sem/practice/1.pdf",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/matlog/4sem/practice/5.pdf",
-    "title": "/blob/pdfs/matlog/4sem/practice/5.pdf",
-    "count": 2,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
     "title": "/blob/pdfs/teorcod/7sem/main.pdf",
     "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/4sem/final.pdf",
+    "title": "/blob/pdfs/analysis/4sem/final.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/hw/5.pdf",
+    "title": "/blob/pdfs/mathematical algorithms/5sem/hw/5.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/issues/11",
+    "title": "/issues/11",
+    "count": 1,
     "uniques": 1
   }
 ]

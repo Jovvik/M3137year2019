@@ -6,12 +6,6 @@
     "uniques": 3
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/master/README.md",
-    "title": "/blob/master/README.md",
-    "count": 2,
-    "uniques": 2
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
     "title": "/blob/pdfs/analysis/1sem/final.pdf",
     "count": 2,
@@ -21,6 +15,12 @@
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
     "title": "/blob/pdfs/teorcod/7sem/main.pdf",
     "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/master/README.md",
+    "title": "/blob/master/README.md",
+    "count": 1,
     "uniques": 1
   },
   {

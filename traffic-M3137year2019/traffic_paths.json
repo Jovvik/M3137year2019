@@ -2,13 +2,7 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 4,
-    "uniques": 3
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/11",
-    "title": "/issues/11",
-    "count": 2,
+    "count": 3,
     "uniques": 2
   },
   {
@@ -20,6 +14,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/hw/5.pdf",
     "title": "/blob/pdfs/mathematical algorithms/5sem/hw/5.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/issues/11",
+    "title": "/issues/11",
     "count": 1,
     "uniques": 1
   },

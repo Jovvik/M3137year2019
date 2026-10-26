@@ -1,5 +1,11 @@
 [
   {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
+    "count": 5,
+    "uniques": 4
+  },
+  {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
     "count": 3,
@@ -12,12 +18,6 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/mathematical algorithms/5sem/hw/5.pdf",
-    "title": "/blob/pdfs/mathematical algorithms/5sem/hw/5.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/issues/11",
     "title": "/issues/11",
     "count": 1,
@@ -26,6 +26,12 @@
   {
     "path": "/Jovvik/M3137year2019/issues/85",
     "title": "/issues/85",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/tree/pdfs/statistics",
+    "title": "/tree/pdfs/statistics",
     "count": 1,
     "uniques": 1
   }

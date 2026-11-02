@@ -6,16 +6,22 @@
     "uniques": 10
   },
   {
+    "path": "/Jovvik/M3137year2019",
+    "title": "Overview",
+    "count": 4,
+    "uniques": 3
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/master/README.md",
     "title": "/blob/master/README.md",
     "count": 3,
     "uniques": 3
   },
   {
-    "path": "/Jovvik/M3137year2019",
-    "title": "Overview",
-    "count": 3,
-    "uniques": 2
+    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/2.pdf",
+    "title": "/blob/pdfs/statistics/5sem/practice/2.pdf",
+    "count": 2,
+    "uniques": 1
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/teorcod/7sem/practice/4.ipynb",
@@ -42,20 +48,14 @@
     "uniques": 1
   },
   {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/4.pdf",
+    "title": "/blob/pdfs/statistics/5sem/practice/4.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/type theory/5sem/main.pdf",
     "title": "/blob/pdfs/type theory/5sem/main.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/11",
-    "title": "/issues/11",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/Jovvik/M3137year2019/issues/85",
-    "title": "/issues/85",
     "count": 1,
     "uniques": 1
   }

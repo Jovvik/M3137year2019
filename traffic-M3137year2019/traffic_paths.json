@@ -8,7 +8,7 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 5,
+    "count": 4,
     "uniques": 4
   },
   {
@@ -36,12 +36,6 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/analysis/1sem/final.pdf",
-    "title": "/blob/pdfs/analysis/1sem/final.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/blob/pdfs/linear algebra/2sem/final.pdf",
     "title": "/blob/pdfs/linear algebra/2sem/final.pdf",
     "count": 1,
@@ -56,6 +50,12 @@
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/4.pdf",
     "title": "/blob/pdfs/statistics/5sem/practice/4.pdf",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/type theory/5sem/main.pdf",
+    "title": "/blob/pdfs/type theory/5sem/main.pdf",
     "count": 1,
     "uniques": 1
   }

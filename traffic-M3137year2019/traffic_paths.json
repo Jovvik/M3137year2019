@@ -1,21 +1,21 @@
 [
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
-    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
-    "count": 8,
-    "uniques": 3
-  },
-  {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
+    "count": 7,
+    "uniques": 7
+  },
+  {
+    "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
+    "title": "/blob/pdfs/teorcod/7sem/main.pdf",
     "count": 6,
-    "uniques": 6
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/README.md",
     "title": "/blob/master/README.md",
-    "count": 3,
-    "uniques": 3
+    "count": 2,
+    "uniques": 2
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/2.pdf",

@@ -2,8 +2,8 @@
   {
     "path": "/Jovvik/M3137year2019",
     "title": "Overview",
-    "count": 7,
-    "uniques": 7
+    "count": 6,
+    "uniques": 6
   },
   {
     "path": "/Jovvik/M3137year2019/blob/pdfs/teorcod/7sem/main.pdf",
@@ -14,14 +14,8 @@
   {
     "path": "/Jovvik/M3137year2019/blob/master/README.md",
     "title": "/blob/master/README.md",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/2.pdf",
-    "title": "/blob/pdfs/statistics/5sem/practice/2.pdf",
-    "count": 2,
-    "uniques": 1
+    "count": 3,
+    "uniques": 3
   },
   {
     "path": "/Jovvik/M3137year2019/blob/master/analysis/2sem/images/rotation.pdf",
@@ -36,26 +30,20 @@
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/blob/pdfs/statistics/5sem/practice/4.pdf",
-    "title": "/blob/pdfs/statistics/5sem/practice/4.pdf",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/Jovvik/M3137year2019/issues/85",
     "title": "/issues/85",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/discrete",
-    "title": "/tree/master/discrete",
+    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem",
+    "title": "/tree/master/statistics/5sem",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem",
-    "title": "/tree/master/statistics/5sem",
+    "path": "/Jovvik/M3137year2019/tree/master/statistics/5sem/practice",
+    "title": "/tree/master/statistics/5sem/practice",
     "count": 1,
     "uniques": 1
   }
